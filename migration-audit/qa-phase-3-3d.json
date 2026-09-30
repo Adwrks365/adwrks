@@ -1,0 +1,58 @@
+{
+  "timestamp": "2026-09-30T07:57:57.749Z",
+  "base": "http://localhost:3000",
+  "steps": [
+    {
+      "step": "390px blog category filters",
+      "pass": true,
+      "detail": "chips=10"
+    },
+    {
+      "step": "390px blog excerpt decoded",
+      "pass": true,
+      "detail": "כלי בדיקת מהירות אתרים הזן את כתובת האתר שלך לקבלת ניתוח מהי"
+    },
+    {
+      "step": "1440px social 4-card row",
+      "pass": true,
+      "detail": "cols=4"
+    },
+    {
+      "step": "1440px blog category filters",
+      "pass": true,
+      "detail": "chips=10"
+    },
+    {
+      "step": "1440px blog excerpt decoded",
+      "pass": true,
+      "detail": "כלי בדיקת מהירות אתרים הזן את כתובת האתר שלך לקבלת ניתוח מהי"
+    },
+    {
+      "step": "1440px article discovery before TOC",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "scroll-top hidden at top",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "scroll-top visible after scroll",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "scroll-top returns near top",
+      "pass": false,
+      "detail": "y=49"
+    },
+    {
+      "step": "whatsapp hover expands only whatsapp",
+      "pass": true,
+      "detail": "wa 44->108.59375, ph 44->44"
+    }
+  ],
+  "passed": 9,
+  "failed": 1
+}

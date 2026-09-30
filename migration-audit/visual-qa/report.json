@@ -1,0 +1,1711 @@
+{
+  "base": "http://localhost:3000",
+  "timestamp": "2026-09-29T11:03:05.541Z",
+  "breakpoints": [
+    360,
+    390,
+    430,
+    768,
+    1440,
+    1920
+  ],
+  "pages": [
+    {
+      "name": "homepage",
+      "path": "/",
+      "shots": [
+        {
+          "width": 360,
+          "file": "migration-audit/visual-qa/homepage-360.png"
+        },
+        {
+          "width": 390,
+          "file": "migration-audit/visual-qa/homepage-390.png"
+        },
+        {
+          "width": 430,
+          "file": "migration-audit/visual-qa/homepage-430.png"
+        },
+        {
+          "width": 768,
+          "file": "migration-audit/visual-qa/homepage-768.png"
+        },
+        {
+          "width": 1440,
+          "file": "migration-audit/visual-qa/homepage-1440.png"
+        },
+        {
+          "width": 1920,
+          "file": "migration-audit/visual-qa/homepage-1920.png"
+        }
+      ],
+      "checks": {}
+    },
+    {
+      "name": "seo",
+      "path": "/seo/",
+      "shots": [
+        {
+          "width": 360,
+          "file": "migration-audit/visual-qa/seo-360.png"
+        },
+        {
+          "width": 390,
+          "file": "migration-audit/visual-qa/seo-390.png"
+        },
+        {
+          "width": 430,
+          "file": "migration-audit/visual-qa/seo-430.png"
+        },
+        {
+          "width": 768,
+          "file": "migration-audit/visual-qa/seo-768.png"
+        },
+        {
+          "width": 1440,
+          "file": "migration-audit/visual-qa/seo-1440.png"
+        },
+        {
+          "width": 1920,
+          "file": "migration-audit/visual-qa/seo-1920.png"
+        }
+      ],
+      "checks": {}
+    },
+    {
+      "name": "digital-marketing",
+      "path": "/digital-marketing/",
+      "shots": [
+        {
+          "width": 360,
+          "file": "migration-audit/visual-qa/digital-marketing-360.png"
+        },
+        {
+          "width": 390,
+          "file": "migration-audit/visual-qa/digital-marketing-390.png"
+        },
+        {
+          "width": 430,
+          "file": "migration-audit/visual-qa/digital-marketing-430.png"
+        },
+        {
+          "width": 768,
+          "file": "migration-audit/visual-qa/digital-marketing-768.png"
+        },
+        {
+          "width": 1440,
+          "file": "migration-audit/visual-qa/digital-marketing-1440.png"
+        },
+        {
+          "width": 1920,
+          "file": "migration-audit/visual-qa/digital-marketing-1920.png"
+        }
+      ],
+      "checks": {}
+    },
+    {
+      "name": "contact-us",
+      "path": "/contact-us/",
+      "shots": [
+        {
+          "width": 360,
+          "file": "migration-audit/visual-qa/contact-us-360.png"
+        },
+        {
+          "width": 390,
+          "file": "migration-audit/visual-qa/contact-us-390.png"
+        },
+        {
+          "width": 430,
+          "file": "migration-audit/visual-qa/contact-us-430.png"
+        },
+        {
+          "width": 768,
+          "file": "migration-audit/visual-qa/contact-us-768.png"
+        },
+        {
+          "width": 1440,
+          "file": "migration-audit/visual-qa/contact-us-1440.png"
+        },
+        {
+          "width": 1920,
+          "file": "migration-audit/visual-qa/contact-us-1920.png"
+        }
+      ],
+      "checks": {}
+    },
+    {
+      "name": "article-seo-2026",
+      "path": "/seo-2026-ai-answers/",
+      "shots": [
+        {
+          "width": 360,
+          "file": "migration-audit/visual-qa/article-seo-2026-360.png"
+        },
+        {
+          "width": 390,
+          "file": "migration-audit/visual-qa/article-seo-2026-390.png"
+        },
+        {
+          "width": 430,
+          "file": "migration-audit/visual-qa/article-seo-2026-430.png"
+        },
+        {
+          "width": 768,
+          "file": "migration-audit/visual-qa/article-seo-2026-768.png"
+        },
+        {
+          "width": 1440,
+          "file": "migration-audit/visual-qa/article-seo-2026-1440.png"
+        },
+        {
+          "width": 1920,
+          "file": "migration-audit/visual-qa/article-seo-2026-1920.png"
+        }
+      ],
+      "checks": {}
+    },
+    {
+      "name": "article-pagespeed",
+      "path": "/%d7%a9%d7%99%d7%a4%d7%95%d7%a8-%d7%9e%d7%94%d7%99%d7%a8%d7%95%d7%aa-%d7%90%d7%aa%d7%a8-2026-pagespeed/",
+      "shots": [
+        {
+          "width": 360,
+          "file": "migration-audit/visual-qa/article-pagespeed-360.png"
+        },
+        {
+          "width": 390,
+          "file": "migration-audit/visual-qa/article-pagespeed-390.png"
+        },
+        {
+          "width": 430,
+          "file": "migration-audit/visual-qa/article-pagespeed-430.png"
+        },
+        {
+          "width": 768,
+          "file": "migration-audit/visual-qa/article-pagespeed-768.png"
+        },
+        {
+          "width": 1440,
+          "file": "migration-audit/visual-qa/article-pagespeed-1440.png"
+        },
+        {
+          "width": 1920,
+          "file": "migration-audit/visual-qa/article-pagespeed-1920.png"
+        }
+      ],
+      "checks": {}
+    },
+    {
+      "name": "article-ppc",
+      "path": "/%d7%9b%d7%9e%d7%94-%d7%a2%d7%95%d7%9c%d7%94-%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%91%d7%92%d7%95%d7%92%d7%9c/",
+      "shots": [
+        {
+          "width": 360,
+          "file": "migration-audit/visual-qa/article-ppc-360.png"
+        },
+        {
+          "width": 390,
+          "file": "migration-audit/visual-qa/article-ppc-390.png"
+        },
+        {
+          "width": 430,
+          "file": "migration-audit/visual-qa/article-ppc-430.png"
+        },
+        {
+          "width": 768,
+          "file": "migration-audit/visual-qa/article-ppc-768.png"
+        },
+        {
+          "width": 1440,
+          "file": "migration-audit/visual-qa/article-ppc-1440.png"
+        },
+        {
+          "width": 1920,
+          "file": "migration-audit/visual-qa/article-ppc-1920.png"
+        }
+      ],
+      "checks": {}
+    },
+    {
+      "name": "article-long-seo",
+      "path": "/%d7%a2%d7%aa%d7%99%d7%93-%d7%94-seo-%d7%9b%d7%9a-%d7%99%d7%99%d7%a8%d7%90%d7%94-%d7%94%d7%a7%d7%99%d7%93%d7%95%d7%9d-%d7%94%d7%90%d7%95%d7%a8%d7%92%d7%a0%d7%99-%d7%91-2025-%d7%95%d7%9e%d7%a2%d7%91/",
+      "shots": [
+        {
+          "width": 360,
+          "file": "migration-audit/visual-qa/article-long-seo-360.png"
+        },
+        {
+          "width": 390,
+          "file": "migration-audit/visual-qa/article-long-seo-390.png"
+        },
+        {
+          "width": 430,
+          "file": "migration-audit/visual-qa/article-long-seo-430.png"
+        },
+        {
+          "width": 768,
+          "file": "migration-audit/visual-qa/article-long-seo-768.png"
+        },
+        {
+          "width": 1440,
+          "file": "migration-audit/visual-qa/article-long-seo-1440.png"
+        },
+        {
+          "width": 1920,
+          "file": "migration-audit/visual-qa/article-long-seo-1920.png"
+        }
+      ],
+      "checks": {}
+    },
+    {
+      "name": "article-no-featured",
+      "path": "/%d7%9b%d7%95%d7%97%d7%9d-%d7%a9%d7%9c-%d7%91%d7%99%d7%a7%d7%95%d7%88%d7%95%d7%aa-%d7%95%d7%94%d7%9e%d7%9c%d7%a6%d7%95%d7%aa/",
+      "shots": [
+        {
+          "width": 360,
+          "file": "migration-audit/visual-qa/article-no-featured-360.png"
+        },
+        {
+          "width": 390,
+          "file": "migration-audit/visual-qa/article-no-featured-390.png"
+        },
+        {
+          "width": 430,
+          "file": "migration-audit/visual-qa/article-no-featured-430.png"
+        },
+        {
+          "width": 768,
+          "file": "migration-audit/visual-qa/article-no-featured-768.png"
+        },
+        {
+          "width": 1440,
+          "file": "migration-audit/visual-qa/article-no-featured-1440.png"
+        },
+        {
+          "width": 1920,
+          "file": "migration-audit/visual-qa/article-no-featured-1920.png"
+        }
+      ],
+      "checks": {}
+    },
+    {
+      "name": "category-google",
+      "path": "/digital-marketing/google/",
+      "shots": [
+        {
+          "width": 360,
+          "file": "migration-audit/visual-qa/category-google-360.png"
+        },
+        {
+          "width": 390,
+          "file": "migration-audit/visual-qa/category-google-390.png"
+        },
+        {
+          "width": 430,
+          "file": "migration-audit/visual-qa/category-google-430.png"
+        },
+        {
+          "width": 768,
+          "file": "migration-audit/visual-qa/category-google-768.png"
+        },
+        {
+          "width": 1440,
+          "file": "migration-audit/visual-qa/category-google-1440.png"
+        },
+        {
+          "width": 1920,
+          "file": "migration-audit/visual-qa/category-google-1920.png"
+        }
+      ],
+      "checks": {}
+    },
+    {
+      "name": "google-ads",
+      "path": "/google-ads/",
+      "shots": [
+        {
+          "width": 360,
+          "file": "migration-audit/visual-qa/google-ads-360.png"
+        },
+        {
+          "width": 390,
+          "file": "migration-audit/visual-qa/google-ads-390.png"
+        },
+        {
+          "width": 430,
+          "file": "migration-audit/visual-qa/google-ads-430.png"
+        },
+        {
+          "width": 768,
+          "file": "migration-audit/visual-qa/google-ads-768.png"
+        },
+        {
+          "width": 1440,
+          "file": "migration-audit/visual-qa/google-ads-1440.png"
+        },
+        {
+          "width": 1920,
+          "file": "migration-audit/visual-qa/google-ads-1920.png"
+        }
+      ],
+      "checks": {}
+    },
+    {
+      "name": "mobile-menu",
+      "path": "/",
+      "shots": [
+        {
+          "width": 360,
+          "file": "migration-audit/visual-qa/mobile-menu-360.png"
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "page": "homepage",
+      "width": 360,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2F62523404_10219424136777844_3135336502720987136_n-150x150.webp&w=96&q=75",
+          "alt": "Itzik Abramov Car Detailing"
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2F204687284_4055670721208389_2009856386006580434_n-150x150.webp&w=96&q=75",
+          "alt": "Danny Ben Atar"
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2F131454395_4207174812630257_820089504248676407_n-150x150.webp&w=96&q=75",
+          "alt": "דויד אשטה"
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2F23334247_1577479552307221_1915736016569884908_o-150x150.webp&w=96&q=75",
+          "alt": "אמיר אמסלם"
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2F19388777_10211736809509377_8947026352501099299_o-150x150.webp&w=96&q=75",
+          "alt": "אלעד שבתאי"
+        }
+      ]
+    },
+    {
+      "page": "homepage",
+      "width": 390,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2F62523404_10219424136777844_3135336502720987136_n-150x150.webp&w=96&q=75",
+          "alt": "Itzik Abramov Car Detailing"
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2F204687284_4055670721208389_2009856386006580434_n-150x150.webp&w=96&q=75",
+          "alt": "Danny Ben Atar"
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2F131454395_4207174812630257_820089504248676407_n-150x150.webp&w=96&q=75",
+          "alt": "דויד אשטה"
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2F23334247_1577479552307221_1915736016569884908_o-150x150.webp&w=96&q=75",
+          "alt": "אמיר אמסלם"
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2F19388777_10211736809509377_8947026352501099299_o-150x150.webp&w=96&q=75",
+          "alt": "אלעד שבתאי"
+        }
+      ]
+    },
+    {
+      "page": "homepage",
+      "width": 430,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2F62523404_10219424136777844_3135336502720987136_n-150x150.webp&w=96&q=75",
+          "alt": "Itzik Abramov Car Detailing"
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2F204687284_4055670721208389_2009856386006580434_n-150x150.webp&w=96&q=75",
+          "alt": "Danny Ben Atar"
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2F131454395_4207174812630257_820089504248676407_n-150x150.webp&w=96&q=75",
+          "alt": "דויד אשטה"
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2F23334247_1577479552307221_1915736016569884908_o-150x150.webp&w=96&q=75",
+          "alt": "אמיר אמסלם"
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2F19388777_10211736809509377_8947026352501099299_o-150x150.webp&w=96&q=75",
+          "alt": "אלעד שבתאי"
+        }
+      ]
+    },
+    {
+      "page": "homepage",
+      "width": 768,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2F62523404_10219424136777844_3135336502720987136_n-150x150.webp&w=96&q=75",
+          "alt": "Itzik Abramov Car Detailing"
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2F204687284_4055670721208389_2009856386006580434_n-150x150.webp&w=96&q=75",
+          "alt": "Danny Ben Atar"
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2F131454395_4207174812630257_820089504248676407_n-150x150.webp&w=96&q=75",
+          "alt": "דויד אשטה"
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2F23334247_1577479552307221_1915736016569884908_o-150x150.webp&w=96&q=75",
+          "alt": "אמיר אמסלם"
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2F19388777_10211736809509377_8947026352501099299_o-150x150.webp&w=96&q=75",
+          "alt": "אלעד שבתאי"
+        }
+      ]
+    },
+    {
+      "page": "homepage",
+      "width": 1440,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2F62523404_10219424136777844_3135336502720987136_n-150x150.webp&w=96&q=75",
+          "alt": "Itzik Abramov Car Detailing"
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2F204687284_4055670721208389_2009856386006580434_n-150x150.webp&w=96&q=75",
+          "alt": "Danny Ben Atar"
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2F131454395_4207174812630257_820089504248676407_n-150x150.webp&w=96&q=75",
+          "alt": "דויד אשטה"
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2F23334247_1577479552307221_1915736016569884908_o-150x150.webp&w=96&q=75",
+          "alt": "אמיר אמסלם"
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2F19388777_10211736809509377_8947026352501099299_o-150x150.webp&w=96&q=75",
+          "alt": "אלעד שבתאי"
+        }
+      ]
+    },
+    {
+      "page": "homepage",
+      "width": 1920,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2F62523404_10219424136777844_3135336502720987136_n-150x150.webp&w=96&q=75",
+          "alt": "Itzik Abramov Car Detailing"
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2F204687284_4055670721208389_2009856386006580434_n-150x150.webp&w=96&q=75",
+          "alt": "Danny Ben Atar"
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2F131454395_4207174812630257_820089504248676407_n-150x150.webp&w=96&q=75",
+          "alt": "דויד אשטה"
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2F23334247_1577479552307221_1915736016569884908_o-150x150.webp&w=96&q=75",
+          "alt": "אמיר אמסלם"
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2F19388777_10211736809509377_8947026352501099299_o-150x150.webp&w=96&q=75",
+          "alt": "אלעד שבתאי"
+        }
+      ]
+    },
+    {
+      "page": "seo",
+      "width": 360,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/wp-content/uploads/gogle-artner-badge-1-768x576.webp%20768w",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/elementor/thumbs/13-rndwjbjliz0irkc1v7ngbzuwzzx2ijd74zuw2p9saw.webp",
+          "alt": "13"
+        },
+        {
+          "src": "https://cdn.trustindex.io/assets/platform/Facebook/icon.svg",
+          "alt": "Facebook"
+        },
+        {
+          "src": "https://graph.facebook.com/28797364409847350/picture?access_token=REDACTED&type=square&width=80",
+          "alt": "איטום 2000 profile picture"
+        },
+        {
+          "src": "https://adwrks.co.il/wp-content/plugins/free-facebook-reviews-and-recommendations-widgets/static/img/recommendation-positive.svg?ver=do-not-care-14.2",
+          "alt": "Facebook"
+        }
+      ]
+    },
+    {
+      "page": "seo",
+      "width": 390,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/wp-content/uploads/gogle-artner-badge-1-768x576.webp%20768w",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/elementor/thumbs/13-rndwjbjliz0irkc1v7ngbzuwzzx2ijd74zuw2p9saw.webp",
+          "alt": "13"
+        },
+        {
+          "src": "https://cdn.trustindex.io/assets/platform/Facebook/icon.svg",
+          "alt": "Facebook"
+        },
+        {
+          "src": "https://graph.facebook.com/28797364409847350/picture?access_token=REDACTED&type=square&width=80",
+          "alt": "איטום 2000 profile picture"
+        },
+        {
+          "src": "https://adwrks.co.il/wp-content/plugins/free-facebook-reviews-and-recommendations-widgets/static/img/recommendation-positive.svg?ver=do-not-care-14.2",
+          "alt": "Facebook"
+        }
+      ]
+    },
+    {
+      "page": "seo",
+      "width": 430,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/wp-content/uploads/gogle-artner-badge-1-768x576.webp%20768w",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/elementor/thumbs/13-rndwjbjliz0irkc1v7ngbzuwzzx2ijd74zuw2p9saw.webp",
+          "alt": "13"
+        },
+        {
+          "src": "https://cdn.trustindex.io/assets/platform/Facebook/icon.svg",
+          "alt": "Facebook"
+        },
+        {
+          "src": "https://graph.facebook.com/28797364409847350/picture?access_token=REDACTED&type=square&width=80",
+          "alt": "איטום 2000 profile picture"
+        },
+        {
+          "src": "https://adwrks.co.il/wp-content/plugins/free-facebook-reviews-and-recommendations-widgets/static/img/recommendation-positive.svg?ver=do-not-care-14.2",
+          "alt": "Facebook"
+        }
+      ]
+    },
+    {
+      "page": "seo",
+      "width": 768,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/wp-content/uploads/gogle-artner-badge-1-768x576.webp%20768w",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/elementor/thumbs/13-rndwjbjliz0irkc1v7ngbzuwzzx2ijd74zuw2p9saw.webp",
+          "alt": "13"
+        },
+        {
+          "src": "https://cdn.trustindex.io/assets/platform/Facebook/icon.svg",
+          "alt": "Facebook"
+        },
+        {
+          "src": "https://graph.facebook.com/28797364409847350/picture?access_token=REDACTED&type=square&width=80",
+          "alt": "איטום 2000 profile picture"
+        },
+        {
+          "src": "https://adwrks.co.il/wp-content/plugins/free-facebook-reviews-and-recommendations-widgets/static/img/recommendation-positive.svg?ver=do-not-care-14.2",
+          "alt": "Facebook"
+        }
+      ]
+    },
+    {
+      "page": "seo",
+      "width": 1440,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/wp-content/uploads/gogle-artner-badge-1-768x576.webp%20768w",
+          "alt": ""
+        },
+        {
+          "src": "https://cdn.trustindex.io/assets/platform/Facebook/icon.svg",
+          "alt": "Facebook"
+        },
+        {
+          "src": "https://graph.facebook.com/28797364409847350/picture?access_token=REDACTED&type=square&width=80",
+          "alt": "איטום 2000 profile picture"
+        },
+        {
+          "src": "https://adwrks.co.il/wp-content/plugins/free-facebook-reviews-and-recommendations-widgets/static/img/recommendation-positive.svg?ver=do-not-care-14.2",
+          "alt": "Facebook"
+        },
+        {
+          "src": "https://cdn.trustindex.io/assets/platform/Facebook/icon.svg",
+          "alt": "Facebook"
+        }
+      ]
+    },
+    {
+      "page": "seo",
+      "width": 1920,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/wp-content/uploads/gogle-artner-badge-1-768x576.webp%20768w",
+          "alt": ""
+        },
+        {
+          "src": "https://cdn.trustindex.io/assets/platform/Facebook/icon.svg",
+          "alt": "Facebook"
+        },
+        {
+          "src": "https://graph.facebook.com/28797364409847350/picture?access_token=REDACTED&type=square&width=80",
+          "alt": "איטום 2000 profile picture"
+        },
+        {
+          "src": "https://adwrks.co.il/wp-content/plugins/free-facebook-reviews-and-recommendations-widgets/static/img/recommendation-positive.svg?ver=do-not-care-14.2",
+          "alt": "Facebook"
+        },
+        {
+          "src": "https://cdn.trustindex.io/assets/platform/Facebook/icon.svg",
+          "alt": "Facebook"
+        }
+      ]
+    },
+    {
+      "page": "digital-marketing",
+      "width": 360,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2Fdigital-marketing_2025.webp&w=3840&q=75",
+          "alt": "המדריך המלא - אסטרטגיות שיווק דיגיטלי ל-2025"
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2Fwebsite-built.webp&w=3840&q=75",
+          "alt": "כמה עולה לבנות אתר אינטרנט בוורדפרס ולתחזק אותו?"
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2Fcropped-logo-black-trans-140x47.webp&w=256&q=75",
+          "alt": "Adwrks 365"
+        }
+      ]
+    },
+    {
+      "page": "digital-marketing",
+      "width": 390,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2Fdigital-marketing_2025.webp&w=3840&q=75",
+          "alt": "המדריך המלא - אסטרטגיות שיווק דיגיטלי ל-2025"
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2Fwebsite-built.webp&w=3840&q=75",
+          "alt": "כמה עולה לבנות אתר אינטרנט בוורדפרס ולתחזק אותו?"
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2Fcropped-logo-black-trans-140x47.webp&w=256&q=75",
+          "alt": "Adwrks 365"
+        }
+      ]
+    },
+    {
+      "page": "digital-marketing",
+      "width": 430,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2Fdigital-marketing_2025.webp&w=3840&q=75",
+          "alt": "המדריך המלא - אסטרטגיות שיווק דיגיטלי ל-2025"
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2Fwebsite-built.webp&w=3840&q=75",
+          "alt": "כמה עולה לבנות אתר אינטרנט בוורדפרס ולתחזק אותו?"
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2Fcropped-logo-black-trans-140x47.webp&w=256&q=75",
+          "alt": "Adwrks 365"
+        }
+      ]
+    },
+    {
+      "page": "article-seo-2026",
+      "width": 360,
+      "type": "horizontal-overflow"
+    },
+    {
+      "page": "article-seo-2026",
+      "width": 360,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/wp-content/uploads/amiam-in-geo-768x512.webp%20768w,%20https://adwrks.co.il/wp-content/uploads/amiam-in-geo-e1770634540568.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/perceived-performance-vs-pagespeed-score.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/answers-instead-links.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/56dd4a20-0791-40c9-96f4-d6a346ace8a4-e1770560384232-768x488.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2Fcropped-logo-black-trans-140x47.webp&w=256&q=75",
+          "alt": "Adwrks 365"
+        }
+      ]
+    },
+    {
+      "page": "article-seo-2026",
+      "width": 390,
+      "type": "horizontal-overflow"
+    },
+    {
+      "page": "article-seo-2026",
+      "width": 390,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/wp-content/uploads/amiam-in-geo-768x512.webp%20768w,%20https://adwrks.co.il/wp-content/uploads/amiam-in-geo-e1770634540568.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/perceived-performance-vs-pagespeed-score.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/answers-instead-links.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/56dd4a20-0791-40c9-96f4-d6a346ace8a4-e1770560384232-768x488.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2Fcropped-logo-black-trans-140x47.webp&w=256&q=75",
+          "alt": "Adwrks 365"
+        }
+      ]
+    },
+    {
+      "page": "article-seo-2026",
+      "width": 430,
+      "type": "horizontal-overflow"
+    },
+    {
+      "page": "article-seo-2026",
+      "width": 430,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/wp-content/uploads/amiam-in-geo-768x512.webp%20768w,%20https://adwrks.co.il/wp-content/uploads/amiam-in-geo-e1770634540568.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/perceived-performance-vs-pagespeed-score.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/answers-instead-links.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/56dd4a20-0791-40c9-96f4-d6a346ace8a4-e1770560384232-768x488.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2Fcropped-logo-black-trans-140x47.webp&w=256&q=75",
+          "alt": "Adwrks 365"
+        }
+      ]
+    },
+    {
+      "page": "article-seo-2026",
+      "width": 768,
+      "type": "horizontal-overflow"
+    },
+    {
+      "page": "article-seo-2026",
+      "width": 768,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/wp-content/uploads/amiam-in-geo-768x512.webp%20768w,%20https://adwrks.co.il/wp-content/uploads/amiam-in-geo-e1770634540568.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/perceived-performance-vs-pagespeed-score.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/answers-instead-links.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/56dd4a20-0791-40c9-96f4-d6a346ace8a4-e1770560384232-768x488.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2Fcropped-logo-black-trans-140x47.webp&w=256&q=75",
+          "alt": "Adwrks 365"
+        }
+      ]
+    },
+    {
+      "page": "article-seo-2026",
+      "width": 1440,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/wp-content/uploads/amiam-in-geo-768x512.webp%20768w,%20https://adwrks.co.il/wp-content/uploads/amiam-in-geo-e1770634540568.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/perceived-performance-vs-pagespeed-score.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/answers-instead-links.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/56dd4a20-0791-40c9-96f4-d6a346ace8a4-e1770560384232-768x488.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2Fcropped-logo-black-trans-140x47.webp&w=256&q=75",
+          "alt": "Adwrks 365"
+        }
+      ]
+    },
+    {
+      "page": "article-seo-2026",
+      "width": 1920,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/wp-content/uploads/amiam-in-geo-768x512.webp%20768w,%20https://adwrks.co.il/wp-content/uploads/amiam-in-geo-e1770634540568.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/perceived-performance-vs-pagespeed-score.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/answers-instead-links.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/56dd4a20-0791-40c9-96f4-d6a346ace8a4-e1770560384232-768x488.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2Fcropped-logo-black-trans-140x47.webp&w=256&q=75",
+          "alt": "Adwrks 365"
+        }
+      ]
+    },
+    {
+      "page": "article-pagespeed",
+      "width": 360,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/wp-content/uploads/image-optimization-before-after-modern-formats.webp",
+          "alt": "השוואת לפני ואחרי של תמונה לא מותאמת מול תמונה מותאמת ומהירה"
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/code-bloat-vs-code-optimization.webp",
+          "alt": "המחשה של אופטימיזציית קוד CSS ו-JavaScript לצמצום עומס ושיפור ביצועי אתר"
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/perceived-performance-vs-pagespeed-score.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/pagespeed_combined-1024x538.webp",
+          "alt": "צילום מסך של תוצאות PageSpeed Insights לאתר Adwrks המציג ציון 100 בדסקטופ ו-98 במובייל"
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/digital-marketing-team-call-to-action.webp",
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "page": "article-pagespeed",
+      "width": 390,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/wp-content/uploads/image-optimization-before-after-modern-formats.webp",
+          "alt": "השוואת לפני ואחרי של תמונה לא מותאמת מול תמונה מותאמת ומהירה"
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/code-bloat-vs-code-optimization.webp",
+          "alt": "המחשה של אופטימיזציית קוד CSS ו-JavaScript לצמצום עומס ושיפור ביצועי אתר"
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/perceived-performance-vs-pagespeed-score.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/pagespeed_combined-1024x538.webp",
+          "alt": "צילום מסך של תוצאות PageSpeed Insights לאתר Adwrks המציג ציון 100 בדסקטופ ו-98 במובייל"
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/digital-marketing-team-call-to-action.webp",
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "page": "article-pagespeed",
+      "width": 430,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/wp-content/uploads/image-optimization-before-after-modern-formats.webp",
+          "alt": "השוואת לפני ואחרי של תמונה לא מותאמת מול תמונה מותאמת ומהירה"
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/code-bloat-vs-code-optimization.webp",
+          "alt": "המחשה של אופטימיזציית קוד CSS ו-JavaScript לצמצום עומס ושיפור ביצועי אתר"
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/perceived-performance-vs-pagespeed-score.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/pagespeed_combined-1024x538.webp",
+          "alt": "צילום מסך של תוצאות PageSpeed Insights לאתר Adwrks המציג ציון 100 בדסקטופ ו-98 במובייל"
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/digital-marketing-team-call-to-action.webp",
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "page": "article-pagespeed",
+      "width": 768,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/wp-content/uploads/code-bloat-vs-code-optimization.webp",
+          "alt": "המחשה של אופטימיזציית קוד CSS ו-JavaScript לצמצום עומס ושיפור ביצועי אתר"
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/perceived-performance-vs-pagespeed-score.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/pagespeed_combined-1024x538.webp",
+          "alt": "צילום מסך של תוצאות PageSpeed Insights לאתר Adwrks המציג ציון 100 בדסקטופ ו-98 במובייל"
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/digital-marketing-team-call-to-action.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2Fcropped-logo-black-trans-140x47.webp&w=256&q=75",
+          "alt": "Adwrks 365"
+        }
+      ]
+    },
+    {
+      "page": "article-pagespeed",
+      "width": 1440,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/wp-content/uploads/code-bloat-vs-code-optimization.webp",
+          "alt": "המחשה של אופטימיזציית קוד CSS ו-JavaScript לצמצום עומס ושיפור ביצועי אתר"
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/perceived-performance-vs-pagespeed-score.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/pagespeed_combined-1024x538.webp",
+          "alt": "צילום מסך של תוצאות PageSpeed Insights לאתר Adwrks המציג ציון 100 בדסקטופ ו-98 במובייל"
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/digital-marketing-team-call-to-action.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2Fcropped-logo-black-trans-140x47.webp&w=256&q=75",
+          "alt": "Adwrks 365"
+        }
+      ]
+    },
+    {
+      "page": "article-pagespeed",
+      "width": 1920,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/wp-content/uploads/code-bloat-vs-code-optimization.webp",
+          "alt": "המחשה של אופטימיזציית קוד CSS ו-JavaScript לצמצום עומס ושיפור ביצועי אתר"
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/perceived-performance-vs-pagespeed-score.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/pagespeed_combined-1024x538.webp",
+          "alt": "צילום מסך של תוצאות PageSpeed Insights לאתר Adwrks המציג ציון 100 בדסקטופ ו-98 במובייל"
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/digital-marketing-team-call-to-action.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2Fcropped-logo-black-trans-140x47.webp&w=256&q=75",
+          "alt": "Adwrks 365"
+        }
+      ]
+    },
+    {
+      "page": "article-ppc",
+      "width": 360,
+      "type": "horizontal-overflow"
+    },
+    {
+      "page": "article-ppc",
+      "width": 360,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/wp-content/uploads/ppc1-768x403.webp%20768w,%20https://adwrks.co.il/wp-content/uploads/ppc1.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/0534785f-0a68-41bb-b25d-03a9a1bb804f.webp%201820w",
+          "alt": ""
+        },
+        {
+          "src": "https://adwrks.co.il/wp-content/uploads/seo-1-1024x538.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/66f901b7-442b-4b02-8d03-9ed58c01c24b-1024x576.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/google-meta-partners-e1769685292174.webp",
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "page": "article-ppc",
+      "width": 390,
+      "type": "horizontal-overflow"
+    },
+    {
+      "page": "article-ppc",
+      "width": 390,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/wp-content/uploads/ppc1-768x403.webp%20768w,%20https://adwrks.co.il/wp-content/uploads/ppc1.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/0534785f-0a68-41bb-b25d-03a9a1bb804f.webp%201820w",
+          "alt": ""
+        },
+        {
+          "src": "https://adwrks.co.il/wp-content/uploads/seo-1-1024x538.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/66f901b7-442b-4b02-8d03-9ed58c01c24b-1024x576.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/google-meta-partners-e1769685292174.webp",
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "page": "article-ppc",
+      "width": 430,
+      "type": "horizontal-overflow"
+    },
+    {
+      "page": "article-ppc",
+      "width": 430,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/wp-content/uploads/ppc1-768x403.webp%20768w,%20https://adwrks.co.il/wp-content/uploads/ppc1.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/0534785f-0a68-41bb-b25d-03a9a1bb804f.webp%201820w",
+          "alt": ""
+        },
+        {
+          "src": "https://adwrks.co.il/wp-content/uploads/seo-1-1024x538.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/66f901b7-442b-4b02-8d03-9ed58c01c24b-1024x576.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/google-meta-partners-e1769685292174.webp",
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "page": "article-ppc",
+      "width": 768,
+      "type": "horizontal-overflow"
+    },
+    {
+      "page": "article-ppc",
+      "width": 768,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/wp-content/uploads/ppc1-768x403.webp%20768w,%20https://adwrks.co.il/wp-content/uploads/ppc1.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/0534785f-0a68-41bb-b25d-03a9a1bb804f.webp%201820w",
+          "alt": ""
+        },
+        {
+          "src": "https://adwrks.co.il/wp-content/uploads/seo-1-1024x538.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/66f901b7-442b-4b02-8d03-9ed58c01c24b-1024x576.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/google-meta-partners-e1769685292174.webp",
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "page": "article-ppc",
+      "width": 1440,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/wp-content/uploads/ppc1-768x403.webp%20768w,%20https://adwrks.co.il/wp-content/uploads/ppc1.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/0534785f-0a68-41bb-b25d-03a9a1bb804f-1024x576.webp",
+          "alt": ""
+        },
+        {
+          "src": "https://adwrks.co.il/wp-content/uploads/seo-1-1024x538.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/66f901b7-442b-4b02-8d03-9ed58c01c24b-1024x576.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/google-meta-partners-e1769685292174.webp",
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "page": "article-ppc",
+      "width": 1920,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/wp-content/uploads/ppc1-768x403.webp%20768w,%20https://adwrks.co.il/wp-content/uploads/ppc1.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/0534785f-0a68-41bb-b25d-03a9a1bb804f-1024x576.webp",
+          "alt": ""
+        },
+        {
+          "src": "https://adwrks.co.il/wp-content/uploads/seo-1-1024x538.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/66f901b7-442b-4b02-8d03-9ed58c01c24b-1024x576.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/google-meta-partners-e1769685292174.webp",
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "page": "article-long-seo",
+      "width": 360,
+      "type": "horizontal-overflow"
+    },
+    {
+      "page": "article-long-seo",
+      "width": 360,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/wp-content/uploads/6-2.webp%201820w",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/2-2-1024x576.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/digital-marketing_2025.webp",
+          "alt": "המדריך המלא - אסטרטגיות שיווק דיגיטלי ל-2025"
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/google-meta-partners-e1769685292174.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/Partner-CMYK-.webp",
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "page": "article-long-seo",
+      "width": 390,
+      "type": "horizontal-overflow"
+    },
+    {
+      "page": "article-long-seo",
+      "width": 390,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/wp-content/uploads/6-2.webp%201820w",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/2-2-1024x576.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/digital-marketing_2025.webp",
+          "alt": "המדריך המלא - אסטרטגיות שיווק דיגיטלי ל-2025"
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/google-meta-partners-e1769685292174.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/Partner-CMYK-.webp",
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "page": "article-long-seo",
+      "width": 430,
+      "type": "horizontal-overflow"
+    },
+    {
+      "page": "article-long-seo",
+      "width": 430,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/wp-content/uploads/6-2.webp%201820w",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/2-2-1024x576.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/digital-marketing_2025.webp",
+          "alt": "המדריך המלא - אסטרטגיות שיווק דיגיטלי ל-2025"
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/google-meta-partners-e1769685292174.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/Partner-CMYK-.webp",
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "page": "article-long-seo",
+      "width": 768,
+      "type": "horizontal-overflow"
+    },
+    {
+      "page": "article-long-seo",
+      "width": 768,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/wp-content/uploads/6-2.webp%201820w",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/2-2-1024x576.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/digital-marketing_2025.webp",
+          "alt": "המדריך המלא - אסטרטגיות שיווק דיגיטלי ל-2025"
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/google-meta-partners-e1769685292174.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/Partner-CMYK-.webp",
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "page": "article-long-seo",
+      "width": 1440,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/wp-content/uploads/6-2.webp%201820w",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/2-2-1024x576.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/digital-marketing_2025.webp",
+          "alt": "המדריך המלא - אסטרטגיות שיווק דיגיטלי ל-2025"
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/google-meta-partners-e1769685292174.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/Partner-CMYK-.webp",
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "page": "article-long-seo",
+      "width": 1920,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/wp-content/uploads/6-2.webp%201820w",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/2-2-1024x576.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/digital-marketing_2025.webp",
+          "alt": "המדריך המלא - אסטרטגיות שיווק דיגיטלי ל-2025"
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/google-meta-partners-e1769685292174.webp",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/Partner-CMYK-.webp",
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "page": "article-no-featured",
+      "width": 360,
+      "type": "http",
+      "status": 404
+    },
+    {
+      "page": "article-no-featured",
+      "width": 390,
+      "type": "http",
+      "status": 404
+    },
+    {
+      "page": "article-no-featured",
+      "width": 430,
+      "type": "http",
+      "status": 404
+    },
+    {
+      "page": "article-no-featured",
+      "width": 768,
+      "type": "http",
+      "status": 404
+    },
+    {
+      "page": "article-no-featured",
+      "width": 1440,
+      "type": "http",
+      "status": 404
+    },
+    {
+      "page": "article-no-featured",
+      "width": 1920,
+      "type": "http",
+      "status": 404
+    },
+    {
+      "page": "category-google",
+      "width": 360,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2Fdigital-marketing-1-1.webp&w=3840&q=75",
+          "alt": "שיווק דיגיטלי לעסקים"
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2Finternet-marketing.webp&w=3840&q=75",
+          "alt": "מהו שיווק באינטרנט או שיווק דיגיטלי? כל מה שצריך לדעת."
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2Fcropped-logo-black-trans-140x47.webp&w=256&q=75",
+          "alt": "Adwrks 365"
+        }
+      ]
+    },
+    {
+      "page": "category-google",
+      "width": 390,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2Fdigital-marketing-1-1.webp&w=3840&q=75",
+          "alt": "שיווק דיגיטלי לעסקים"
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2Finternet-marketing.webp&w=3840&q=75",
+          "alt": "מהו שיווק באינטרנט או שיווק דיגיטלי? כל מה שצריך לדעת."
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2Fcropped-logo-black-trans-140x47.webp&w=256&q=75",
+          "alt": "Adwrks 365"
+        }
+      ]
+    },
+    {
+      "page": "category-google",
+      "width": 430,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2Fdigital-marketing-1-1.webp&w=3840&q=75",
+          "alt": "שיווק דיגיטלי לעסקים"
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2Finternet-marketing.webp&w=3840&q=75",
+          "alt": "מהו שיווק באינטרנט או שיווק דיגיטלי? כל מה שצריך לדעת."
+        },
+        {
+          "src": "http://localhost:3000/_next/image/?url=%2Fwp-content%2Fuploads%2Fcropped-logo-black-trans-140x47.webp&w=256&q=75",
+          "alt": "Adwrks 365"
+        }
+      ]
+    },
+    {
+      "page": "google-ads",
+      "width": 360,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/wp-content/uploads/gogle-artner-badge-1-768x576.webp%20768w",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/1-3-150x150.webp%20150w",
+          "alt": "מה זה פרסום ממומן בגוגל (Google Ads)?"
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/2-3-150x150.webp%20150w",
+          "alt": "שירותי Google Ads שאנו מנהלים"
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/elementor/thumbs/google-ads-ppc-rndxet4yh64bpalfztniv1steopqdidhgumguekzuw.webp",
+          "alt": "פרסום בגוגל אדס: 10 שלבים פשוטים להתחלה"
+        },
+        {
+          "src": "https://cdn.trustindex.io/assets/platform/Facebook/icon.svg",
+          "alt": "Facebook"
+        }
+      ]
+    },
+    {
+      "page": "google-ads",
+      "width": 390,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/wp-content/uploads/gogle-artner-badge-1-768x576.webp%20768w",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/1-3-150x150.webp%20150w",
+          "alt": "מה זה פרסום ממומן בגוגל (Google Ads)?"
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/2-3-150x150.webp%20150w",
+          "alt": "שירותי Google Ads שאנו מנהלים"
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/elementor/thumbs/google-ads-ppc-rndxet4yh64bpalfztniv1steopqdidhgumguekzuw.webp",
+          "alt": "פרסום בגוגל אדס: 10 שלבים פשוטים להתחלה"
+        },
+        {
+          "src": "https://cdn.trustindex.io/assets/platform/Facebook/icon.svg",
+          "alt": "Facebook"
+        }
+      ]
+    },
+    {
+      "page": "google-ads",
+      "width": 430,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/wp-content/uploads/gogle-artner-badge-1-768x576.webp%20768w",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/1-3-150x150.webp%20150w",
+          "alt": "מה זה פרסום ממומן בגוגל (Google Ads)?"
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/2-3-150x150.webp%20150w",
+          "alt": "שירותי Google Ads שאנו מנהלים"
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/elementor/thumbs/google-ads-ppc-rndxet4yh64bpalfztniv1steopqdidhgumguekzuw.webp",
+          "alt": "פרסום בגוגל אדס: 10 שלבים פשוטים להתחלה"
+        },
+        {
+          "src": "https://cdn.trustindex.io/assets/platform/Facebook/icon.svg",
+          "alt": "Facebook"
+        }
+      ]
+    },
+    {
+      "page": "google-ads",
+      "width": 768,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/wp-content/uploads/gogle-artner-badge-1-768x576.webp%20768w",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/1-3-150x150.webp%20150w",
+          "alt": "מה זה פרסום ממומן בגוגל (Google Ads)?"
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/2-3-150x150.webp%20150w",
+          "alt": "שירותי Google Ads שאנו מנהלים"
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/elementor/thumbs/google-ads-ppc-rndxet4yh64bpalfztniv1steopqdidhgumguekzuw.webp",
+          "alt": "פרסום בגוגל אדס: 10 שלבים פשוטים להתחלה"
+        },
+        {
+          "src": "https://cdn.trustindex.io/assets/platform/Facebook/icon.svg",
+          "alt": "Facebook"
+        }
+      ]
+    },
+    {
+      "page": "google-ads",
+      "width": 1440,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/wp-content/uploads/gogle-artner-badge-1-768x576.webp%20768w",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/1-3-150x150.webp%20150w",
+          "alt": "מה זה פרסום ממומן בגוגל (Google Ads)?"
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/2-3-150x150.webp%20150w",
+          "alt": "שירותי Google Ads שאנו מנהלים"
+        },
+        {
+          "src": "https://cdn.trustindex.io/assets/platform/Facebook/icon.svg",
+          "alt": "Facebook"
+        },
+        {
+          "src": "https://graph.facebook.com/28797364409847350/picture?access_token=REDACTED&type=square&width=80",
+          "alt": "איטום 2000 profile picture"
+        }
+      ]
+    },
+    {
+      "page": "google-ads",
+      "width": 1920,
+      "type": "broken-images",
+      "images": [
+        {
+          "src": "http://localhost:3000/wp-content/uploads/gogle-artner-badge-1-768x576.webp%20768w",
+          "alt": ""
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/1-3-150x150.webp%20150w",
+          "alt": "מה זה פרסום ממומן בגוגל (Google Ads)?"
+        },
+        {
+          "src": "http://localhost:3000/wp-content/uploads/2-3-150x150.webp%20150w",
+          "alt": "שירותי Google Ads שאנו מנהלים"
+        },
+        {
+          "src": "https://cdn.trustindex.io/assets/platform/Facebook/icon.svg",
+          "alt": "Facebook"
+        },
+        {
+          "src": "https://graph.facebook.com/28797364409847350/picture?access_token=REDACTED&type=square&width=80",
+          "alt": "איטום 2000 profile picture"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,278 @@
+{
+  "timestamp": "2026-09-30T08:15:08.456Z",
+  "base": "http://localhost:3000",
+  "steps": [
+    {
+      "step": "390px pagespeed-2026 single H1",
+      "pass": true,
+      "detail": "count=1"
+    },
+    {
+      "step": "390px pagespeed-2026 no raw entities",
+      "pass": true,
+      "detail": "ok"
+    },
+    {
+      "step": "390px pagespeed-2026 TOC in article",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "390px pagespeed-2026 TOC closed default",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "390px seo-2026-ai single H1",
+      "pass": true,
+      "detail": "count=1"
+    },
+    {
+      "step": "390px seo-2026-ai no raw entities",
+      "pass": true,
+      "detail": "ok"
+    },
+    {
+      "step": "390px seo-2026-ai TOC in article",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "390px seo-2026-ai TOC closed default",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "390px pagespeed-tool single H1",
+      "pass": true,
+      "detail": "count=1"
+    },
+    {
+      "step": "390px pagespeed-tool no raw entities",
+      "pass": true,
+      "detail": "ok"
+    },
+    {
+      "step": "390px pagespeed-tool TOC in article",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "390px pagespeed-tool TOC closed default",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "390px roi-calculator single H1",
+      "pass": false,
+      "detail": "count=2"
+    },
+    {
+      "step": "390px roi-calculator no raw entities",
+      "pass": true,
+      "detail": "ok"
+    },
+    {
+      "step": "390px roi-calculator TOC in article",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "390px roi-calculator TOC closed default",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px pagespeed-2026 single H1",
+      "pass": true,
+      "detail": "count=1"
+    },
+    {
+      "step": "1440px pagespeed-2026 no raw entities",
+      "pass": true,
+      "detail": "ok"
+    },
+    {
+      "step": "1440px pagespeed-2026 TOC in article",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px pagespeed-2026 TOC closed default",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px pagespeed-2026 no sidebar rating",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px pagespeed-2026 facebook proof",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px pagespeed-2026 sidebar related",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px pagespeed-2026 sidebar contact",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px pagespeed-2026 end rating",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px seo-2026-ai single H1",
+      "pass": true,
+      "detail": "count=1"
+    },
+    {
+      "step": "1440px seo-2026-ai no raw entities",
+      "pass": true,
+      "detail": "ok"
+    },
+    {
+      "step": "1440px seo-2026-ai TOC in article",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px seo-2026-ai TOC closed default",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px seo-2026-ai no sidebar rating",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px seo-2026-ai facebook proof",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px seo-2026-ai sidebar related",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px seo-2026-ai sidebar contact",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px seo-2026-ai end rating",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px pagespeed-tool single H1",
+      "pass": true,
+      "detail": "count=1"
+    },
+    {
+      "step": "1440px pagespeed-tool no raw entities",
+      "pass": true,
+      "detail": "ok"
+    },
+    {
+      "step": "1440px pagespeed-tool TOC in article",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px pagespeed-tool TOC closed default",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px pagespeed-tool no sidebar rating",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px pagespeed-tool facebook proof",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px pagespeed-tool sidebar related",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px pagespeed-tool sidebar contact",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px pagespeed-tool end rating",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px roi-calculator single H1",
+      "pass": false,
+      "detail": "count=2"
+    },
+    {
+      "step": "1440px roi-calculator no raw entities",
+      "pass": true,
+      "detail": "ok"
+    },
+    {
+      "step": "1440px roi-calculator TOC in article",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px roi-calculator TOC closed default",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px roi-calculator no sidebar rating",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px roi-calculator facebook proof",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px roi-calculator sidebar related",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px roi-calculator sidebar contact",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px roi-calculator end rating",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "scroll-top visible after scroll",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "scroll-top returns near top",
+      "pass": true,
+      "detail": "y=49"
+    }
+  ],
+  "passed": 52,
+  "failed": 2
+}

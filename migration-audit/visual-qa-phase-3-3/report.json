@@ -1,0 +1,146 @@
+{
+  "base": "http://localhost:3000",
+  "timestamp": "2026-09-30T06:24:39.242Z",
+  "pages": [
+    {
+      "name": "homepage",
+      "shots": [
+        "homepage-390.png",
+        "homepage-1440.png"
+      ],
+      "checks": {
+        "testimonialCarousel": true,
+        "portfolioCarousel": true
+      }
+    },
+    {
+      "name": "services-main",
+      "shots": [
+        "services-main-390.png",
+        "services-main-1440.png"
+      ],
+      "checks": {}
+    },
+    {
+      "name": "seo",
+      "shots": [
+        "seo-390.png",
+        "seo-1440.png"
+      ],
+      "checks": {}
+    },
+    {
+      "name": "google-ads",
+      "shots": [
+        "google-ads-390.png",
+        "google-ads-1440.png"
+      ],
+      "checks": {}
+    },
+    {
+      "name": "website-building",
+      "shots": [
+        "website-building-390.png",
+        "website-building-1440.png"
+      ],
+      "checks": {}
+    },
+    {
+      "name": "social-media",
+      "shots": [
+        "social-media-390.png",
+        "social-media-1440.png"
+      ],
+      "checks": {}
+    },
+    {
+      "name": "hosting",
+      "shots": [
+        "hosting-390.png",
+        "hosting-1440.png"
+      ],
+      "checks": {}
+    },
+    {
+      "name": "about",
+      "shots": [
+        "about-390.png",
+        "about-1440.png"
+      ],
+      "checks": {}
+    },
+    {
+      "name": "contact",
+      "shots": [
+        "contact-390.png",
+        "contact-1440.png"
+      ],
+      "checks": {}
+    },
+    {
+      "name": "blog",
+      "shots": [
+        "blog-390.png",
+        "blog-1440.png"
+      ],
+      "checks": {}
+    },
+    {
+      "name": "category",
+      "shots": [
+        "category-390.png",
+        "category-1440.png"
+      ],
+      "checks": {}
+    },
+    {
+      "name": "article-featured",
+      "shots": [
+        "article-featured-390.png",
+        "article-featured-1440.png"
+      ],
+      "checks": {
+        "articleTemplate": true
+      }
+    },
+    {
+      "name": "article-long",
+      "shots": [
+        "article-long-390.png",
+        "article-long-1440.png"
+      ],
+      "checks": {}
+    }
+  ],
+  "issues": [
+    {
+      "page": "article-long",
+      "width": 390,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ]
+    },
+    {
+      "page": "article-long",
+      "width": 1440,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ]
+    }
+  ],
+  "inspected": [
+    "homepage",
+    "services-main",
+    "seo",
+    "google-ads",
+    "website-building",
+    "social-media",
+    "hosting",
+    "about",
+    "contact",
+    "blog",
+    "category",
+    "article-featured",
+    "article-long"
+  ]
+}

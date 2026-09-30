@@ -1,0 +1,503 @@
+{
+  "generatedAt": "2026-09-29T10:56:17.420Z",
+  "localBase": "http://localhost:3000",
+  "total": 5,
+  "exact": 0,
+  "acceptable": 5,
+  "seoSignificant": 0,
+  "missing": 0,
+  "results": [
+    {
+      "url": "https://adwrks.co.il/",
+      "localUrl": "http://localhost:3000/",
+      "comparisons": [
+        {
+          "field": "httpStatus",
+          "status": "exact",
+          "expected": 200,
+          "actual": 200
+        },
+        {
+          "field": "title",
+          "status": "exact",
+          "expected": "סוכנות שיווק דיגיטלי ⋆ Adwrks 365",
+          "actual": "סוכנות שיווק דיגיטלי ⋆ Adwrks 365"
+        },
+        {
+          "field": "metaDescription",
+          "status": "exact",
+          "expected": "Adwrks 365 – סוכנות שיווק דיגיטלי משנת 2018. בניית אתרים, SEO, פרסום ממומן וקידום AI שמביא לקוחות לעסקים. ליווי אישי, שקיפות ותוצאות ⭐⭐⭐⭐⭐",
+          "actual": "Adwrks 365 – סוכנות שיווק דיגיטלי משנת 2018. בניית אתרים, SEO, פרסום ממומן וקידום AI שמביא לקוחות לעסקים. ליווי אישי, שקיפות ותוצאות ⭐⭐⭐⭐⭐"
+        },
+        {
+          "field": "canonical",
+          "status": "exact",
+          "expected": "https://adwrks.co.il/",
+          "actual": "https://adwrks.co.il/"
+        },
+        {
+          "field": "robots",
+          "status": "acceptable",
+          "expected": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+          "actual": "noindex, nofollow",
+          "note": "staging noindex intentional"
+        },
+        {
+          "field": "ogTitle",
+          "status": "exact",
+          "expected": "סוכנות שיווק דיגיטלי ⋆ Adwrks 365",
+          "actual": "סוכנות שיווק דיגיטלי ⋆ Adwrks 365"
+        },
+        {
+          "field": "ogDescription",
+          "status": "exact",
+          "expected": "Adwrks 365 – סוכנות שיווק דיגיטלי משנת 2018. בניית אתרים, SEO, פרסום ממומן וקידום AI שמביא לקוחות לעסקים. ליווי אישי, שקיפות ותוצאות ⭐⭐⭐⭐⭐",
+          "actual": "Adwrks 365 – סוכנות שיווק דיגיטלי משנת 2018. בניית אתרים, SEO, פרסום ממומן וקידום AI שמביא לקוחות לעסקים. ליווי אישי, שקיפות ותוצאות ⭐⭐⭐⭐⭐"
+        },
+        {
+          "field": "h1",
+          "status": "acceptable",
+          "missing": [
+            "Adwrks 365 סוכנות שיווק דיגיטלי ואסטרטגיית צמיחה"
+          ],
+          "extra": [
+            "Adwrks 365שיווק דיגיטלי, ביצועים ו-SEO"
+          ]
+        },
+        {
+          "field": "h2",
+          "status": "acceptable",
+          "missing": [
+            "סוכנות שיווק (מעטפת 360°) המתמחה בביסוס סמכות דיגיטלית מבוססת AI ו-ROI.",
+            "דוגמאות לאתרים"
+          ],
+          "extra": [
+            "אנחנו מכינים את העסק שלך לעידן ה-AI Search",
+            "החזון הטכנולוגי שלנו ל-2026"
+          ]
+        },
+        {
+          "field": "jsonLdTypes",
+          "status": "exact"
+        },
+        {
+          "field": "internalLinks",
+          "status": "acceptable",
+          "missing": [],
+          "extra": [
+            "/_next/static/chunks/2eh7t0pxfm9c-.css",
+            "/_next/static/chunks/3s6nzrbk-8mnv.js",
+            "/_next/static/media/1c9ef42b327f16c7-s.p.0jgv4ivu1938h.woff2",
+            "/_next/static/media/86c8c58929c52757-s.p.3dq6enaul-s3b.woff2",
+            "/about-us/",
+            "/accessibility-statement/",
+            "/contact-us/",
+            "/digital-marketing/",
+            "/favicon.ico?favicon.2vob68tjqpejf.ico",
+            "/google-ads/",
+            "/hosting-plans/",
+            "/privacy-policy/",
+            "/seo-2026-ai-answers/",
+            "/seo/",
+            "/social-media-management/",
+            "/terms-of-use/",
+            "/website-building/",
+            "/wp-content/uploads/cropped-adwrks-white-180x180.webp",
+            "/wp-content/uploads/cropped-adwrks-white-192x192.webp",
+            "/wp-content/uploads/cropped-adwrks-white-32x32.webp",
+            "/בדיקת-מהירות-אתר/",
+            "/מחשבון-roi-מעודכן-2026/",
+            "/פרסום-בגוגל-מפות/",
+            "/שיווק-דיגיטלי-לעסקים/",
+            "/שירותי-שיווק-דיגיטלי/"
+          ]
+        }
+      ],
+      "overall": "acceptable"
+    },
+    {
+      "url": "https://adwrks.co.il/%d7%90%d7%97%d7%a1%d7%95%d7%9f-%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%9e%d7%a0%d7%95%d7%94%d7%9c/",
+      "localUrl": "http://localhost:3000/%d7%90%d7%97%d7%a1%d7%95%d7%9f-%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%9e%d7%a0%d7%95%d7%94%d7%9c/",
+      "comparisons": [
+        {
+          "field": "httpStatus",
+          "status": "exact",
+          "expected": 200,
+          "actual": 200
+        },
+        {
+          "field": "title",
+          "status": "exact",
+          "expected": "אחסון אתרים מנוהל - הפתרון המושלם לבעלי אתרים",
+          "actual": "אחסון אתרים מנוהל - הפתרון המושלם לבעלי אתרים"
+        },
+        {
+          "field": "metaDescription",
+          "status": "exact",
+          "expected": "השירות של אחסון אתרים מנוהל מציע לבעלי אתרי וורדפרס אפשרויות רבות ומגוונות לצורך ניהול האתר. כמו כן, השירות מספק מגוון כלים לפתרון בעיות ותקלות טכניות שעלולות",
+          "actual": "השירות של אחסון אתרים מנוהל מציע לבעלי אתרי וורדפרס אפשרויות רבות ומגוונות לצורך ניהול האתר. כמו כן, השירות מספק מגוון כלים לפתרון בעיות ותקלות טכניות שעלולות"
+        },
+        {
+          "field": "canonical",
+          "status": "exact",
+          "expected": "https://adwrks.co.il/%d7%90%d7%97%d7%a1%d7%95%d7%9f-%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%9e%d7%a0%d7%95%d7%94%d7%9c/",
+          "actual": "https://adwrks.co.il/%d7%90%d7%97%d7%a1%d7%95%d7%9f-%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%9e%d7%a0%d7%95%d7%94%d7%9c/"
+        },
+        {
+          "field": "robots",
+          "status": "acceptable",
+          "expected": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+          "actual": "noindex, nofollow",
+          "note": "staging noindex intentional"
+        },
+        {
+          "field": "ogTitle",
+          "status": "exact",
+          "expected": "אחסון אתרים מנוהל - הפתרון המושלם לבעלי אתרים",
+          "actual": "אחסון אתרים מנוהל - הפתרון המושלם לבעלי אתרים"
+        },
+        {
+          "field": "ogDescription",
+          "status": "exact",
+          "expected": "השירות של אחסון אתרים מנוהל מציע לבעלי אתרי וורדפרס אפשרויות רבות ומגוונות לצורך ניהול האתר. כמו כן, השירות מספק מגוון כלים לפתרון בעיות ותקלות טכניות שעלולות",
+          "actual": "השירות של אחסון אתרים מנוהל מציע לבעלי אתרי וורדפרס אפשרויות רבות ומגוונות לצורך ניהול האתר. כמו כן, השירות מספק מגוון כלים לפתרון בעיות ותקלות טכניות שעלולות"
+        },
+        {
+          "field": "h1",
+          "status": "acceptable",
+          "missing": [
+            "אחסון אתרים מנוהל – הפתרון המושלם לבעלי אתרים"
+          ],
+          "extra": []
+        },
+        {
+          "field": "h2",
+          "status": "acceptable",
+          "missing": [
+            "Adwrks 365"
+          ],
+          "extra": [
+            "שעות פעילות"
+          ]
+        },
+        {
+          "field": "jsonLdTypes",
+          "status": "exact"
+        },
+        {
+          "field": "internalLinks",
+          "status": "acceptable",
+          "missing": [],
+          "extra": [
+            "/_next/static/chunks/12geis06xw9t4.css",
+            "/_next/static/chunks/3s6nzrbk-8mnv.js",
+            "/_next/static/media/1c9ef42b327f16c7-s.p.0jgv4ivu1938h.woff2",
+            "/_next/static/media/86c8c58929c52757-s.p.3dq6enaul-s3b.woff2",
+            "/about-us/",
+            "/accessibility-statement/",
+            "/contact-us/",
+            "/digital-marketing/",
+            "/favicon.ico?favicon.2vob68tjqpejf.ico",
+            "/google-ads/",
+            "/hosting-plans/",
+            "/privacy-policy/",
+            "/seo/",
+            "/social-media-management/",
+            "/terms-of-use/",
+            "/website-building/",
+            "/שירותי-שיווק-דיגיטלי/"
+          ]
+        }
+      ],
+      "overall": "acceptable"
+    },
+    {
+      "url": "https://adwrks.co.il/%d7%90%d7%97%d7%a1%d7%95%d7%9f-%d7%90%d7%aa%d7%a8%d7%99-%d7%95%d7%95%d7%a8%d7%93%d7%a4%d7%a8%d7%a1-%d7%95%d7%aa%d7%97%d7%96%d7%95%d7%a7%d7%aa%d7%9d/",
+      "localUrl": "http://localhost:3000/%d7%90%d7%97%d7%a1%d7%95%d7%9f-%d7%90%d7%aa%d7%a8%d7%99-%d7%95%d7%95%d7%a8%d7%93%d7%a4%d7%a8%d7%a1-%d7%95%d7%aa%d7%97%d7%96%d7%95%d7%a7%d7%aa%d7%9d/",
+      "comparisons": [
+        {
+          "field": "httpStatus",
+          "status": "exact",
+          "expected": 200,
+          "actual": 200
+        },
+        {
+          "field": "title",
+          "status": "exact",
+          "expected": "אחסון אתרי וורדפרס ותחזוקתם: החשיבות של שירות מקצועי",
+          "actual": "אחסון אתרי וורדפרס ותחזוקתם: החשיבות של שירות מקצועי"
+        },
+        {
+          "field": "metaDescription",
+          "status": "exact",
+          "expected": "אחסון ותחזוקת אתרים הם חיוניים להצלחת האתר. כדי שהאתר יהיה יעיל ומוצלח, הוא חייב להיות זמין, מאובטח ומעודכן. תחזוקה שוטפת של האתר היא חיונית להשגת מטרות אלו.",
+          "actual": "אחסון ותחזוקת אתרים הם חיוניים להצלחת האתר. כדי שהאתר יהיה יעיל ומוצלח, הוא חייב להיות זמין, מאובטח ומעודכן. תחזוקה שוטפת של האתר היא חיונית להשגת מטרות אלו."
+        },
+        {
+          "field": "canonical",
+          "status": "exact",
+          "expected": "https://adwrks.co.il/%d7%90%d7%97%d7%a1%d7%95%d7%9f-%d7%90%d7%aa%d7%a8%d7%99-%d7%95%d7%95%d7%a8%d7%93%d7%a4%d7%a8%d7%a1-%d7%95%d7%aa%d7%97%d7%96%d7%95%d7%a7%d7%aa%d7%9d/",
+          "actual": "https://adwrks.co.il/%d7%90%d7%97%d7%a1%d7%95%d7%9f-%d7%90%d7%aa%d7%a8%d7%99-%d7%95%d7%95%d7%a8%d7%93%d7%a4%d7%a8%d7%a1-%d7%95%d7%aa%d7%97%d7%96%d7%95%d7%a7%d7%aa%d7%9d/"
+        },
+        {
+          "field": "robots",
+          "status": "acceptable",
+          "expected": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+          "actual": "noindex, nofollow",
+          "note": "staging noindex intentional"
+        },
+        {
+          "field": "ogTitle",
+          "status": "exact",
+          "expected": "אחסון אתרי וורדפרס ותחזוקתם: החשיבות של שירות מקצועי",
+          "actual": "אחסון אתרי וורדפרס ותחזוקתם: החשיבות של שירות מקצועי"
+        },
+        {
+          "field": "ogDescription",
+          "status": "exact",
+          "expected": "אחסון ותחזוקת אתרים הם חיוניים להצלחת האתר. כדי שהאתר יהיה יעיל ומוצלח, הוא חייב להיות זמין, מאובטח ומעודכן. תחזוקה שוטפת של האתר היא חיונית להשגת מטרות אלו.",
+          "actual": "אחסון ותחזוקת אתרים הם חיוניים להצלחת האתר. כדי שהאתר יהיה יעיל ומוצלח, הוא חייב להיות זמין, מאובטח ומעודכן. תחזוקה שוטפת של האתר היא חיונית להשגת מטרות אלו."
+        },
+        {
+          "field": "h1",
+          "status": "acceptable",
+          "missing": [
+            "אחסון אתרי וורדפרס ותחזוקתם: החשיבות של שירות מקצועי"
+          ],
+          "extra": []
+        },
+        {
+          "field": "h2",
+          "status": "acceptable",
+          "missing": [],
+          "extra": [
+            "יצירת קשר"
+          ]
+        },
+        {
+          "field": "jsonLdTypes",
+          "status": "exact"
+        },
+        {
+          "field": "internalLinks",
+          "status": "acceptable",
+          "missing": [],
+          "extra": [
+            "/_next/static/chunks/12geis06xw9t4.css",
+            "/_next/static/chunks/3s6nzrbk-8mnv.js",
+            "/_next/static/media/1c9ef42b327f16c7-s.p.0jgv4ivu1938h.woff2",
+            "/_next/static/media/86c8c58929c52757-s.p.3dq6enaul-s3b.woff2",
+            "/about-us/",
+            "/accessibility-statement/",
+            "/contact-us/",
+            "/digital-marketing/",
+            "/favicon.ico?favicon.2vob68tjqpejf.ico",
+            "/google-ads/",
+            "/hosting-plans/",
+            "/privacy-policy/",
+            "/seo/",
+            "/social-media-management/",
+            "/terms-of-use/",
+            "/website-building/",
+            "/שירותי-שיווק-דיגיטלי/"
+          ]
+        }
+      ],
+      "overall": "acceptable"
+    },
+    {
+      "url": "https://adwrks.co.il/%d7%90%d7%97%d7%a1%d7%95%d7%9f-%d7%95%d7%aa%d7%97%d7%96%d7%95%d7%a7%d7%aa-%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%94%d7%9e%d7%93%d7%a8%d7%99%d7%9a/",
+      "localUrl": "http://localhost:3000/%d7%90%d7%97%d7%a1%d7%95%d7%9f-%d7%95%d7%aa%d7%97%d7%96%d7%95%d7%a7%d7%aa-%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%94%d7%9e%d7%93%d7%a8%d7%99%d7%9a/",
+      "comparisons": [
+        {
+          "field": "httpStatus",
+          "status": "exact",
+          "expected": 200,
+          "actual": 200
+        },
+        {
+          "field": "title",
+          "status": "exact",
+          "expected": "אחסון ותחזוקת אתרים: המדריך השלם",
+          "actual": "אחסון ותחזוקת אתרים: המדריך השלם"
+        },
+        {
+          "field": "metaDescription",
+          "status": "exact",
+          "expected": "אחסון ותחזוקת אתרים הם חיוניים להצלחת האתר שלכם. אתר זמין, מאובטח ומעודכן יעניק לכם את הביטחון והמקצועיות שאתם צריכים כדי להשיג את המטרות שלכם.",
+          "actual": "אחסון ותחזוקת אתרים הם חיוניים להצלחת האתר שלכם. אתר זמין, מאובטח ומעודכן יעניק לכם את הביטחון והמקצועיות שאתם צריכים כדי להשיג את המטרות שלכם."
+        },
+        {
+          "field": "canonical",
+          "status": "exact",
+          "expected": "https://adwrks.co.il/%d7%90%d7%97%d7%a1%d7%95%d7%9f-%d7%95%d7%aa%d7%97%d7%96%d7%95%d7%a7%d7%aa-%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%94%d7%9e%d7%93%d7%a8%d7%99%d7%9a/",
+          "actual": "https://adwrks.co.il/%d7%90%d7%97%d7%a1%d7%95%d7%9f-%d7%95%d7%aa%d7%97%d7%96%d7%95%d7%a7%d7%aa-%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%94%d7%9e%d7%93%d7%a8%d7%99%d7%9a/"
+        },
+        {
+          "field": "robots",
+          "status": "acceptable",
+          "expected": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+          "actual": "noindex, nofollow",
+          "note": "staging noindex intentional"
+        },
+        {
+          "field": "ogTitle",
+          "status": "exact",
+          "expected": "אחסון ותחזוקת אתרים: המדריך השלם",
+          "actual": "אחסון ותחזוקת אתרים: המדריך השלם"
+        },
+        {
+          "field": "ogDescription",
+          "status": "exact",
+          "expected": "אחסון ותחזוקת אתרים הם חיוניים להצלחת האתר שלכם. אתר זמין, מאובטח ומעודכן יעניק לכם את הביטחון והמקצועיות שאתם צריכים כדי להשיג את המטרות שלכם.",
+          "actual": "אחסון ותחזוקת אתרים הם חיוניים להצלחת האתר שלכם. אתר זמין, מאובטח ומעודכן יעניק לכם את הביטחון והמקצועיות שאתם צריכים כדי להשיג את המטרות שלכם."
+        },
+        {
+          "field": "h1",
+          "status": "acceptable",
+          "missing": [
+            "אחסון ותחזוקת אתרים: המדריך השלם"
+          ],
+          "extra": []
+        },
+        {
+          "field": "h2",
+          "status": "acceptable",
+          "missing": [
+            "שירות אחסון ותחזוקה מקצועי חסכו לעצמכם כאבי ראש, זמן וכסף."
+          ],
+          "extra": [
+            "יצירת קשר",
+            "עקבו אחרינו"
+          ]
+        },
+        {
+          "field": "jsonLdTypes",
+          "status": "exact"
+        },
+        {
+          "field": "internalLinks",
+          "status": "acceptable",
+          "missing": [],
+          "extra": [
+            "/_next/static/chunks/12geis06xw9t4.css",
+            "/_next/static/chunks/3s6nzrbk-8mnv.js",
+            "/_next/static/media/1c9ef42b327f16c7-s.p.0jgv4ivu1938h.woff2",
+            "/_next/static/media/86c8c58929c52757-s.p.3dq6enaul-s3b.woff2",
+            "/about-us/",
+            "/accessibility-statement/",
+            "/contact-us/",
+            "/digital-marketing/",
+            "/favicon.ico?favicon.2vob68tjqpejf.ico",
+            "/google-ads/",
+            "/hosting-plans/",
+            "/privacy-policy/",
+            "/seo/",
+            "/social-media-management/",
+            "/terms-of-use/",
+            "/website-building/",
+            "/שירותי-שיווק-דיגיטלי/"
+          ]
+        }
+      ],
+      "overall": "acceptable"
+    },
+    {
+      "url": "https://adwrks.co.il/%d7%90%d7%97%d7%a1%d7%95%d7%9f-%d7%95%d7%aa%d7%97%d7%96%d7%95%d7%a7%d7%aa-%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%9c%d7%9e%d7%94-%d7%96%d7%94-%d7%97%d7%a9%d7%95%d7%91/",
+      "localUrl": "http://localhost:3000/%d7%90%d7%97%d7%a1%d7%95%d7%9f-%d7%95%d7%aa%d7%97%d7%96%d7%95%d7%a7%d7%aa-%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%9c%d7%9e%d7%94-%d7%96%d7%94-%d7%97%d7%a9%d7%95%d7%91/",
+      "comparisons": [
+        {
+          "field": "httpStatus",
+          "status": "exact",
+          "expected": 200,
+          "actual": 200
+        },
+        {
+          "field": "title",
+          "status": "exact",
+          "expected": "אחסון ותחזוקת אתרים: למה זה חשוב?",
+          "actual": "אחסון ותחזוקת אתרים: למה זה חשוב?"
+        },
+        {
+          "field": "metaDescription",
+          "status": "exact",
+          "expected": "אתרי אינטרנט הפכו לחלק בלתי נפרד מעסקים רבים וכך גם אחסון ותחזוקת אתרים. הם מהווים פלטפורמה חשובה לחשיפת העסק ללקוחות פוטנציאליים, פרסום מוצרים ושירותים,",
+          "actual": "אתרי אינטרנט הפכו לחלק בלתי נפרד מעסקים רבים וכך גם אחסון ותחזוקת אתרים. הם מהווים פלטפורמה חשובה לחשיפת העסק ללקוחות פוטנציאליים, פרסום מוצרים ושירותים,"
+        },
+        {
+          "field": "canonical",
+          "status": "exact",
+          "expected": "https://adwrks.co.il/%d7%90%d7%97%d7%a1%d7%95%d7%9f-%d7%95%d7%aa%d7%97%d7%96%d7%95%d7%a7%d7%aa-%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%9c%d7%9e%d7%94-%d7%96%d7%94-%d7%97%d7%a9%d7%95%d7%91/",
+          "actual": "https://adwrks.co.il/%d7%90%d7%97%d7%a1%d7%95%d7%9f-%d7%95%d7%aa%d7%97%d7%96%d7%95%d7%a7%d7%aa-%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%9c%d7%9e%d7%94-%d7%96%d7%94-%d7%97%d7%a9%d7%95%d7%91/"
+        },
+        {
+          "field": "robots",
+          "status": "acceptable",
+          "expected": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+          "actual": "noindex, nofollow",
+          "note": "staging noindex intentional"
+        },
+        {
+          "field": "ogTitle",
+          "status": "exact",
+          "expected": "אחסון ותחזוקת אתרים: למה זה חשוב?",
+          "actual": "אחסון ותחזוקת אתרים: למה זה חשוב?"
+        },
+        {
+          "field": "ogDescription",
+          "status": "exact",
+          "expected": "אתרי אינטרנט הפכו לחלק בלתי נפרד מעסקים רבים וכך גם אחסון ותחזוקת אתרים. הם מהווים פלטפורמה חשובה לחשיפת העסק ללקוחות פוטנציאליים, פרסום מוצרים ושירותים,",
+          "actual": "אתרי אינטרנט הפכו לחלק בלתי נפרד מעסקים רבים וכך גם אחסון ותחזוקת אתרים. הם מהווים פלטפורמה חשובה לחשיפת העסק ללקוחות פוטנציאליים, פרסום מוצרים ושירותים,"
+        },
+        {
+          "field": "h1",
+          "status": "acceptable",
+          "missing": [
+            "אחסון ותחזוקת אתרים: למה זה חשוב?"
+          ],
+          "extra": []
+        },
+        {
+          "field": "h2",
+          "status": "acceptable",
+          "missing": [
+            "שירות אחסון ותחזוקה מקצועי חסכו לעצמכם כאבי ראש, זמן וכסף."
+          ],
+          "extra": [
+            "יצירת קשר",
+            "עקבו אחרינו"
+          ]
+        },
+        {
+          "field": "jsonLdTypes",
+          "status": "exact"
+        },
+        {
+          "field": "internalLinks",
+          "status": "acceptable",
+          "missing": [],
+          "extra": [
+            "/_next/static/chunks/12geis06xw9t4.css",
+            "/_next/static/chunks/3s6nzrbk-8mnv.js",
+            "/_next/static/media/1c9ef42b327f16c7-s.p.0jgv4ivu1938h.woff2",
+            "/_next/static/media/86c8c58929c52757-s.p.3dq6enaul-s3b.woff2",
+            "/about-us/",
+            "/accessibility-statement/",
+            "/contact-us/",
+            "/digital-marketing/",
+            "/favicon.ico?favicon.2vob68tjqpejf.ico",
+            "/google-ads/",
+            "/hosting-plans/",
+            "/privacy-policy/",
+            "/seo/",
+            "/social-media-management/",
+            "/terms-of-use/",
+            "/website-building/",
+            "/שירותי-שיווק-דיגיטלי/"
+          ]
+        }
+      ],
+      "overall": "acceptable"
+    }
+  ]
+}

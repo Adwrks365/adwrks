@@ -1,0 +1,4659 @@
+{
+  "siteInfo": {
+    "publicSiteAccessible": true,
+    "publicSiteStatus": 200,
+    "wpRestApiAccessible": true,
+    "wpAdminUrl": "https://adwrks.co.il/wp-admin/",
+    "wpLoginUrl": "https://adwrks.co.il/wp-login.php",
+    "auth": {
+      "authenticated": false,
+      "status": 401,
+      "reason": "{\"code\":\"rest_not_logged_in\",\"message\":\"\\u05d0\\u05d9\\u05e0\\u05da \\u05de\\u05d7\\u05d5\\u05d1\\u05e8 \\u05e2\\u05db\\u05e9\\u05d9\\u05d5.\",\"data\":{\"status\":401}}"
+    },
+    "siteName": "Adwrks 365",
+    "siteDescription": "סוכנות שיווק דיגיטלי - בניית אתרים, שיווק, קידום ופרסום באינטרנט",
+    "homeUrl": "https://adwrks.co.il",
+    "timezone": "Asia/Jerusalem",
+    "pageOnFront": 7,
+    "showOnFront": "page",
+    "theme": "astra",
+    "pluginsDetectedInHtml": [
+      "*",
+      "elementor",
+      "free-facebook-reviews-and-recommendations-widgets",
+      "rate-my-post",
+      "royal-elementor-addons"
+    ],
+    "seoPlugin": "Rank Math SEO",
+    "pageBuilder": "Elementor (+ Elementor Pro)",
+    "caching": "LiteSpeed Cache",
+    "restNamespaces": [
+      "oembed/1.0",
+      "trustindex/v1",
+      "litespeed/v1",
+      "litespeed/v3",
+      "safe-svg/v1",
+      "rankmath/v1",
+      "rankmath/v1/setupWizard",
+      "elementor-mcp-composer/v1.0.17",
+      "elementor-one/v1",
+      "image-optimizer/v1",
+      "angie/v1",
+      "elementor/v1",
+      "elementor-pro/v1",
+      "insytix/v1",
+      "manage/v1",
+      "manage/v1/admin",
+      "ea11y/v1",
+      "wpraddons/v1/ajaxselect2",
+      "wpr-addons/v1",
+      "wpraddons/v1",
+      "sticklight/v1",
+      "astra/v1",
+      "rankmath/v1/ai-visibility",
+      "rankmath/v1/ca",
+      "rankmath/v1/an",
+      "rankmath/v1/in",
+      "rankmath/v1/status",
+      "google-site-kit/v1",
+      "elementor/v1/documents",
+      "elementor-ai/v1",
+      "elementor/v1/feedback",
+      "nps-survey/v1",
+      "mcp",
+      "wp/v2",
+      "wp-site-health/v1",
+      "wp-block-editor/v1",
+      "wp-abilities/v1"
+    ],
+    "robotsTxt": "User-agent: *\nDisallow:",
+    "checkedAt": "2026-09-29T09:57:15.521Z",
+    "wordpressVersion": "7.1.2"
+  },
+  "navigation": {
+    "menusAccessible": true,
+    "menuCount": 29,
+    "menuLocations": {
+      "primary": {
+        "name": "primary",
+        "description": "תפריט ראשי",
+        "menu": 2,
+        "_links": {
+          "self": [
+            {
+              "href": "https://adwrks.co.il/wp-json/wp/v2/menu-locations/primary",
+              "targetHints": {
+                "allow": [
+                  "GET"
+                ]
+              }
+            }
+          ],
+          "collection": [
+            {
+              "href": "https://adwrks.co.il/wp-json/wp/v2/menu-locations"
+            }
+          ],
+          "wp:menu": [
+            {
+              "embeddable": true,
+              "href": "https://adwrks.co.il/wp-json/wp/v2/menus/2"
+            }
+          ],
+          "curies": [
+            {
+              "name": "wp",
+              "href": "https://api.w.org/{rel}",
+              "templated": true
+            }
+          ]
+        }
+      },
+      "secondary_menu": {
+        "name": "secondary_menu",
+        "description": "Secondary Menu",
+        "menu": 0,
+        "_links": {
+          "self": [
+            {
+              "href": "https://adwrks.co.il/wp-json/wp/v2/menu-locations/secondary_menu",
+              "targetHints": {
+                "allow": [
+                  "GET"
+                ]
+              }
+            }
+          ],
+          "collection": [
+            {
+              "href": "https://adwrks.co.il/wp-json/wp/v2/menu-locations"
+            }
+          ]
+        }
+      },
+      "mobile_menu": {
+        "name": "mobile_menu",
+        "description": "Off-Canvas Menu",
+        "menu": 0,
+        "_links": {
+          "self": [
+            {
+              "href": "https://adwrks.co.il/wp-json/wp/v2/menu-locations/mobile_menu",
+              "targetHints": {
+                "allow": [
+                  "GET"
+                ]
+              }
+            }
+          ],
+          "collection": [
+            {
+              "href": "https://adwrks.co.il/wp-json/wp/v2/menu-locations"
+            }
+          ]
+        }
+      },
+      "loggedin_account_menu": {
+        "name": "loggedin_account_menu",
+        "description": "Logged In Account Menu",
+        "menu": 0,
+        "_links": {
+          "self": [
+            {
+              "href": "https://adwrks.co.il/wp-json/wp/v2/menu-locations/loggedin_account_menu",
+              "targetHints": {
+                "allow": [
+                  "GET"
+                ]
+              }
+            }
+          ],
+          "collection": [
+            {
+              "href": "https://adwrks.co.il/wp-json/wp/v2/menu-locations"
+            }
+          ]
+        }
+      },
+      "footer_menu": {
+        "name": "footer_menu",
+        "description": "תפריט תחתון",
+        "menu": 0,
+        "_links": {
+          "self": [
+            {
+              "href": "https://adwrks.co.il/wp-json/wp/v2/menu-locations/footer_menu",
+              "targetHints": {
+                "allow": [
+                  "GET"
+                ]
+              }
+            }
+          ],
+          "collection": [
+            {
+              "href": "https://adwrks.co.il/wp-json/wp/v2/menu-locations"
+            }
+          ]
+        }
+      }
+    },
+    "menus": [
+      {
+        "id": 2,
+        "name": "home-anchors-menu",
+        "slug": "home-anchors-menu",
+        "locations": [
+          "primary"
+        ],
+        "items": [
+          {
+            "id": 22071,
+            "title": "דף הבית",
+            "url": "https://adwrks.co.il/",
+            "type": "post_type",
+            "object": "page",
+            "objectId": 7,
+            "menuOrder": 1,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 2,
+            "children": []
+          },
+          {
+            "id": 22070,
+            "title": "שירותים",
+            "url": "https://adwrks.co.il/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99-%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99/",
+            "type": "post_type",
+            "object": "page",
+            "objectId": 22065,
+            "menuOrder": 2,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 2,
+            "children": [
+              {
+                "id": 22104,
+                "title": "קידום אתרים אורגני (SEO)",
+                "url": "https://adwrks.co.il/seo/",
+                "type": "post_type",
+                "object": "page",
+                "objectId": 22078,
+                "menuOrder": 4,
+                "target": "",
+                "classes": [
+                  ""
+                ],
+                "menuId": 2,
+                "children": []
+              },
+              {
+                "id": 22164,
+                "title": "ניהול רשתות חברתיות",
+                "url": "https://adwrks.co.il/social-media-management/",
+                "type": "post_type",
+                "object": "page",
+                "objectId": 22151,
+                "menuOrder": 5,
+                "target": "",
+                "classes": [
+                  ""
+                ],
+                "menuId": 2,
+                "children": []
+              },
+              {
+                "id": 19639,
+                "title": "אחסון אתרים",
+                "url": "https://adwrks.co.il/hosting-plans/",
+                "type": "post_type",
+                "object": "page",
+                "objectId": 173,
+                "menuOrder": 7,
+                "target": "",
+                "classes": [
+                  ""
+                ],
+                "menuId": 2,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": 22838,
+            "title": "מחירון שיווק דיגיטלי",
+            "url": "https://adwrks.co.il/%d7%9e%d7%97%d7%99%d7%a8%d7%95%d7%9f-%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99/",
+            "type": "post_type",
+            "object": "page",
+            "objectId": 22806,
+            "menuOrder": 8,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 2,
+            "children": []
+          },
+          {
+            "id": 20480,
+            "title": "מידע מקצועי",
+            "url": "https://adwrks.co.il/blog/",
+            "type": "post_type",
+            "object": "page",
+            "objectId": 20464,
+            "menuOrder": 9,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 2,
+            "children": [
+              {
+                "id": 22217,
+                "title": "שיווק דיגיטלי",
+                "url": "https://adwrks.co.il/digital-marketing/",
+                "type": "taxonomy",
+                "object": "category",
+                "objectId": 1,
+                "menuOrder": 10,
+                "target": "",
+                "classes": [
+                  ""
+                ],
+                "menuId": 2,
+                "children": []
+              },
+              {
+                "id": 22218,
+                "title": "קידום ממומן",
+                "url": "https://adwrks.co.il/digital-marketing/ads/",
+                "type": "taxonomy",
+                "object": "category",
+                "objectId": 229,
+                "menuOrder": 11,
+                "target": "",
+                "classes": [
+                  ""
+                ],
+                "menuId": 2,
+                "children": []
+              },
+              {
+                "id": 22219,
+                "title": "בניית אתרים",
+                "url": "https://adwrks.co.il/digital-marketing/websites/",
+                "type": "taxonomy",
+                "object": "category",
+                "objectId": 226,
+                "menuOrder": 12,
+                "target": "",
+                "classes": [
+                  ""
+                ],
+                "menuId": 2,
+                "children": []
+              },
+              {
+                "id": 22220,
+                "title": "קידום אורגני",
+                "url": "https://adwrks.co.il/digital-marketing/seo/",
+                "type": "taxonomy",
+                "object": "category",
+                "objectId": 412,
+                "menuOrder": 13,
+                "target": "",
+                "classes": [
+                  ""
+                ],
+                "menuId": 2,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": 19587,
+            "title": "מי אנחנו",
+            "url": "https://adwrks.co.il/about-us/",
+            "type": "post_type",
+            "object": "page",
+            "objectId": 92,
+            "menuOrder": 14,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 2,
+            "children": []
+          },
+          {
+            "id": 21697,
+            "title": "יצירת קשר",
+            "url": "https://adwrks.co.il/contact-us/",
+            "type": "post_type",
+            "object": "page",
+            "objectId": 7969,
+            "menuOrder": 15,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 2,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "name": "inner-anchors-menu",
+        "slug": "inner-anchors-menu",
+        "locations": [],
+        "items": [
+          {
+            "id": 7898,
+            "title": "דף הבית",
+            "url": "https://adwrks.co.il/#!/home",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 7898,
+            "menuOrder": 1,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 5,
+            "children": []
+          },
+          {
+            "id": 6951,
+            "title": "אודות",
+            "url": "https://adwrks.co.il/#!/about",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 6951,
+            "menuOrder": 2,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 5,
+            "children": []
+          },
+          {
+            "id": 6953,
+            "title": "מחירים",
+            "url": "https://adwrks.co.il/#!/prices",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 6953,
+            "menuOrder": 4,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 5,
+            "children": []
+          },
+          {
+            "id": 6954,
+            "title": "התחלה מהירה",
+            "url": "https://adwrks.co.il/#!/consultation",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 6954,
+            "menuOrder": 5,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 5,
+            "children": []
+          },
+          {
+            "id": 6955,
+            "title": "המלצות",
+            "url": "https://adwrks.co.il/#!/Recommendations",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 6955,
+            "menuOrder": 6,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 5,
+            "children": []
+          },
+          {
+            "id": 6955,
+            "title": "המלצות",
+            "url": "https://adwrks.co.il/#!/Recommendations",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 6955,
+            "menuOrder": 6,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 5,
+            "children": []
+          },
+          {
+            "id": 6956,
+            "title": "דוגמאות",
+            "url": "https://adwrks.co.il/#!/portfolio",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 6956,
+            "menuOrder": 7,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 5,
+            "children": []
+          },
+          {
+            "id": 8316,
+            "title": "שאלות נפוצות",
+            "url": "https://adwrks.co.il/#!/faq",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 8316,
+            "menuOrder": 8,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 5,
+            "children": []
+          },
+          {
+            "id": 6957,
+            "title": "צור קשר",
+            "url": "https://adwrks.co.il/#!/contact",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 6957,
+            "menuOrder": 9,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 5,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 307,
+        "name": "Lacasa Bar",
+        "slug": "lacasa-bar",
+        "locations": [],
+        "items": [
+          {
+            "id": 13714,
+            "title": "ראשי",
+            "url": "#!/home",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 13714,
+            "menuOrder": 1,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 307,
+            "children": []
+          },
+          {
+            "id": 13715,
+            "title": "שירותים",
+            "url": "#!/services",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 13715,
+            "menuOrder": 2,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 307,
+            "children": []
+          },
+          {
+            "id": 13717,
+            "title": "המלצות",
+            "url": "#!/clients",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 13717,
+            "menuOrder": 3,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 307,
+            "children": []
+          },
+          {
+            "id": 13718,
+            "title": "טעימה קטנה",
+            "url": "#!/video",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 13718,
+            "menuOrder": 4,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 307,
+            "children": []
+          },
+          {
+            "id": 13867,
+            "title": "תמונות מהתפריט",
+            "url": "#!/photos",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 13867,
+            "menuOrder": 5,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 307,
+            "children": []
+          },
+          {
+            "id": 13716,
+            "title": "יצירת קשר",
+            "url": "#!/contact",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 13716,
+            "menuOrder": 6,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 307,
+            "children": []
+          },
+          {
+            "id": 13716,
+            "title": "יצירת קשר",
+            "url": "#!/contact",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 13716,
+            "menuOrder": 6,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 307,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 358,
+        "name": "Primary Menu",
+        "slug": "primary-menu",
+        "locations": [],
+        "items": [
+          {
+            "id": 194,
+            "title": "סוכנות דיגיטלית – בניית אתרים, קידום, פרסום ושיווק באינטרנט",
+            "url": "https://adwrks.co.il/",
+            "type": "post_type",
+            "object": "page",
+            "objectId": 7,
+            "menuOrder": 1,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 358,
+            "children": []
+          },
+          {
+            "id": 195,
+            "title": "מי אנחנו",
+            "url": "https://adwrks.co.il/about-us/",
+            "type": "post_type",
+            "object": "page",
+            "objectId": 92,
+            "menuOrder": 2,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 358,
+            "children": []
+          },
+          {
+            "id": 196,
+            "title": "חבילות אחסון אתרי וורדפרס",
+            "url": "https://adwrks.co.il/hosting-plans/",
+            "type": "post_type",
+            "object": "page",
+            "objectId": 173,
+            "menuOrder": 4,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 358,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 23,
+        "name": "Services",
+        "slug": "services",
+        "locations": [],
+        "items": [
+          {
+            "id": 21379,
+            "title": "שיווק דיגיטלי",
+            "url": "https://adwrks.co.il/digital-marketing/",
+            "type": "taxonomy",
+            "object": "category",
+            "objectId": 1,
+            "menuOrder": 5,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 23,
+            "children": []
+          },
+          {
+            "id": 21381,
+            "title": "פרסום באינטרנט",
+            "url": "https://adwrks.co.il/digital-marketing/internet-advertisement/",
+            "type": "taxonomy",
+            "object": "category",
+            "objectId": 230,
+            "menuOrder": 7,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 23,
+            "children": []
+          },
+          {
+            "id": 21382,
+            "title": "שיווק באינטרנט",
+            "url": "https://adwrks.co.il/digital-marketing/online-marketing/",
+            "type": "taxonomy",
+            "object": "category",
+            "objectId": 231,
+            "menuOrder": 8,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 23,
+            "children": []
+          },
+          {
+            "id": 21383,
+            "title": "קידום ממומן",
+            "url": "https://adwrks.co.il/digital-marketing/ads/",
+            "type": "taxonomy",
+            "object": "category",
+            "objectId": 229,
+            "menuOrder": 9,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 23,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 359,
+        "name": "Support",
+        "slug": "support",
+        "locations": [],
+        "items": [
+          {
+            "id": 266,
+            "title": "Product Help",
+            "url": "#",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 266,
+            "menuOrder": 1,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 359,
+            "children": []
+          },
+          {
+            "id": 267,
+            "title": "Learn &#038; Care",
+            "url": "#",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 267,
+            "menuOrder": 2,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 359,
+            "children": []
+          },
+          {
+            "id": 268,
+            "title": "Partner",
+            "url": "#",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 268,
+            "menuOrder": 3,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 359,
+            "children": []
+          },
+          {
+            "id": 268,
+            "title": "Partner",
+            "url": "#",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 268,
+            "menuOrder": 3,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 359,
+            "children": []
+          },
+          {
+            "id": 269,
+            "title": "Community",
+            "url": "#",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 269,
+            "menuOrder": 4,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 359,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 225,
+        "name": "א.ב אבי את ישראל",
+        "slug": "%d7%90-%d7%91-%d7%90%d7%91%d7%99-%d7%90%d7%aa-%d7%99%d7%a9%d7%a8%d7%90%d7%9c",
+        "locations": [],
+        "items": [
+          {
+            "id": 10225,
+            "title": "אודות",
+            "url": "#!/about",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 10225,
+            "menuOrder": 1,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 225,
+            "children": []
+          },
+          {
+            "id": 10228,
+            "title": "תחומי פעילות",
+            "url": "#!/services",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 10228,
+            "menuOrder": 2,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 225,
+            "children": []
+          },
+          {
+            "id": 10226,
+            "title": "אנחנו בשטח",
+            "url": "#!/portfolio",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 10226,
+            "menuOrder": 3,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 225,
+            "children": []
+          },
+          {
+            "id": 10227,
+            "title": "צור קשר",
+            "url": "#!/contact",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 10227,
+            "menuOrder": 4,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 225,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 77,
+        "name": "אגם שיפוצים",
+        "slug": "%d7%90%d7%92%d7%9d-%d7%a9%d7%99%d7%a4%d7%95%d7%a6%d7%99%d7%9d",
+        "locations": [],
+        "items": [
+          {
+            "id": 9283,
+            "title": "ראשי",
+            "url": "#!/home",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 9283,
+            "menuOrder": 1,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 77,
+            "children": []
+          },
+          {
+            "id": 9287,
+            "title": "אודות",
+            "url": "#!/about",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 9287,
+            "menuOrder": 2,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 77,
+            "children": []
+          },
+          {
+            "id": 9285,
+            "title": "שירותים",
+            "url": "#!/services",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 9285,
+            "menuOrder": 3,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 77,
+            "children": []
+          },
+          {
+            "id": 9286,
+            "title": "פרויקטים",
+            "url": "#!/portfolio",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 9286,
+            "menuOrder": 4,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 77,
+            "children": []
+          },
+          {
+            "id": 9288,
+            "title": "שאלות נפוצות",
+            "url": "#!/faq",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 9288,
+            "menuOrder": 5,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 77,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 320,
+        "name": "אהבתי",
+        "slug": "%d7%90%d7%94%d7%91%d7%aa%d7%99",
+        "locations": [],
+        "items": [
+          {
+            "id": 14491,
+            "title": "אודות",
+            "url": "#!/about",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 14491,
+            "menuOrder": 1,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 320,
+            "children": []
+          },
+          {
+            "id": 14499,
+            "title": "למה אצלנו ?",
+            "url": "#!/why-us",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 14499,
+            "menuOrder": 2,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 320,
+            "children": []
+          },
+          {
+            "id": 14494,
+            "title": "גלריית מנות",
+            "url": "#!/portfolio",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 14494,
+            "menuOrder": 3,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 320,
+            "children": []
+          },
+          {
+            "id": 14494,
+            "title": "גלריית מנות",
+            "url": "#!/portfolio",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 14494,
+            "menuOrder": 3,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 320,
+            "children": []
+          },
+          {
+            "id": 14529,
+            "title": "סרטוני אווירה",
+            "url": "#!/videos",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 14529,
+            "menuOrder": 4,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 320,
+            "children": []
+          },
+          {
+            "id": 14492,
+            "title": "המלצות",
+            "url": "#!/recommendations",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 14492,
+            "menuOrder": 5,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 320,
+            "children": []
+          },
+          {
+            "id": 14493,
+            "title": "יצירת קשר",
+            "url": "#!/contact",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 14493,
+            "menuOrder": 6,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 320,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 237,
+        "name": "אלירן מנעולן",
+        "slug": "%d7%90%d7%9c%d7%99%d7%a8%d7%9f-%d7%9e%d7%a0%d7%a2%d7%95%d7%9c%d7%9f",
+        "locations": [],
+        "items": [
+          {
+            "id": 10830,
+            "title": "אודות",
+            "url": "#about",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 10830,
+            "menuOrder": 1,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 237,
+            "children": []
+          },
+          {
+            "id": 10831,
+            "title": "שירותים",
+            "url": "#services",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 10831,
+            "menuOrder": 2,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 237,
+            "children": []
+          },
+          {
+            "id": 10832,
+            "title": "שביעות רצון",
+            "url": "#Satisfaction",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 10832,
+            "menuOrder": 3,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 237,
+            "children": []
+          },
+          {
+            "id": 10833,
+            "title": "יצירת קשר",
+            "url": "#contact",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 10833,
+            "menuOrder": 4,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 237,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 236,
+        "name": "בסט קלין",
+        "slug": "%d7%91%d7%a1%d7%98-%d7%a7%d7%9c%d7%99%d7%9f",
+        "locations": [],
+        "items": [
+          {
+            "id": 10682,
+            "title": "אודות",
+            "url": "#!/about",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 10682,
+            "menuOrder": 1,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 236,
+            "children": []
+          },
+          {
+            "id": 10683,
+            "title": "שירותים",
+            "url": "#!/services",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 10683,
+            "menuOrder": 2,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 236,
+            "children": []
+          },
+          {
+            "id": 10685,
+            "title": "המלצות",
+            "url": "#!/clients",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 10685,
+            "menuOrder": 3,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 236,
+            "children": []
+          },
+          {
+            "id": 10684,
+            "title": "שאלות נפוצות",
+            "url": "#!/faq",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 10684,
+            "menuOrder": 4,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 236,
+            "children": []
+          },
+          {
+            "id": 10686,
+            "title": "מחירון",
+            "url": "#!/prices",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 10686,
+            "menuOrder": 5,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 236,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 76,
+        "name": "הגושלים",
+        "slug": "%d7%94%d7%92%d7%95%d7%a9%d7%9c%d7%99%d7%9d",
+        "locations": [],
+        "items": [
+          {
+            "id": 8984,
+            "title": "ראשי",
+            "url": "#!/home",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 8984,
+            "menuOrder": 1,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 76,
+            "children": []
+          },
+          {
+            "id": 8980,
+            "title": "אודות",
+            "url": "#!/about",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 8980,
+            "menuOrder": 2,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 76,
+            "children": []
+          },
+          {
+            "id": 8981,
+            "title": "פרויקטים",
+            "url": "#!/portfolio",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 8981,
+            "menuOrder": 3,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 76,
+            "children": []
+          },
+          {
+            "id": 8982,
+            "title": "המלצות",
+            "url": "#!/recommendations",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 8982,
+            "menuOrder": 4,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 76,
+            "children": []
+          },
+          {
+            "id": 8983,
+            "title": "שירותים",
+            "url": "#!/services",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 8983,
+            "menuOrder": 5,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 76,
+            "children": []
+          },
+          {
+            "id": 8979,
+            "title": "צור קשר",
+            "url": "#!/contact-us",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 8979,
+            "menuOrder": 6,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 76,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 235,
+        "name": "הסעות כפר יונה",
+        "slug": "%d7%94%d7%a1%d7%a2%d7%95%d7%aa-%d7%9b%d7%a4%d7%a8-%d7%99%d7%95%d7%a0%d7%94",
+        "locations": [],
+        "items": [
+          {
+            "id": 10480,
+            "title": "אודותינו",
+            "url": "#!/about",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 10480,
+            "menuOrder": 1,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 235,
+            "children": []
+          },
+          {
+            "id": 10482,
+            "title": "שירותי הסעות",
+            "url": "#!/services",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 10482,
+            "menuOrder": 2,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 235,
+            "children": []
+          },
+          {
+            "id": 10483,
+            "title": "המלצות",
+            "url": "#!/clients",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 10483,
+            "menuOrder": 3,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 235,
+            "children": []
+          },
+          {
+            "id": 10481,
+            "title": "גלריית תמונות",
+            "url": "#!/gallery",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 10481,
+            "menuOrder": 4,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 235,
+            "children": []
+          },
+          {
+            "id": 10479,
+            "title": "יצירת קשר",
+            "url": "#!/contact",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 10479,
+            "menuOrder": 5,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 235,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 78,
+        "name": "חיים גלעדי",
+        "slug": "%d7%97%d7%99%d7%99%d7%9d-%d7%92%d7%9c%d7%a2%d7%93%d7%99",
+        "locations": [],
+        "items": [
+          {
+            "id": 9424,
+            "title": "ראשי",
+            "url": "#!/home",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 9424,
+            "menuOrder": 1,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 78,
+            "children": []
+          },
+          {
+            "id": 9425,
+            "title": "אודות",
+            "url": "#!/about",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 9425,
+            "menuOrder": 2,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 78,
+            "children": []
+          },
+          {
+            "id": 9428,
+            "title": "תחומי עיסוק",
+            "url": "#!/services",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 9428,
+            "menuOrder": 3,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 78,
+            "children": []
+          },
+          {
+            "id": 9503,
+            "title": "המומחיות שלנו",
+            "url": "#!/speciality",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 9503,
+            "menuOrder": 4,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 78,
+            "children": []
+          },
+          {
+            "id": 9427,
+            "title": "לקוחות ממליצים",
+            "url": "#!/recommendations",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 9427,
+            "menuOrder": 5,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 78,
+            "children": []
+          },
+          {
+            "id": 9426,
+            "title": "צור קשר",
+            "url": "#!/contact",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 9426,
+            "menuOrder": 6,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 78,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 261,
+        "name": "טי. אס אחזקות",
+        "slug": "%d7%98%d7%99-%d7%90%d7%a1-%d7%90%d7%97%d7%96%d7%a7%d7%95%d7%aa",
+        "locations": [],
+        "items": [
+          {
+            "id": 11477,
+            "title": "אודות",
+            "url": "#!/about",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 11477,
+            "menuOrder": 1,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 261,
+            "children": []
+          },
+          {
+            "id": 11478,
+            "title": "שירותים",
+            "url": "#!/services",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 11478,
+            "menuOrder": 2,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 261,
+            "children": []
+          },
+          {
+            "id": 11479,
+            "title": "עבודות",
+            "url": "#!/portfolio",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 11479,
+            "menuOrder": 3,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 261,
+            "children": []
+          },
+          {
+            "id": 11481,
+            "title": "מחירים",
+            "url": "#!/prices",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 11481,
+            "menuOrder": 4,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 261,
+            "children": []
+          },
+          {
+            "id": 11485,
+            "title": "המלצות",
+            "url": "#!/recommendations",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 11485,
+            "menuOrder": 5,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 261,
+            "children": []
+          },
+          {
+            "id": 11480,
+            "title": "יצירת קשר",
+            "url": "#!/contact",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 11480,
+            "menuOrder": 6,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 261,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 332,
+        "name": "י.ח האומנים",
+        "slug": "%d7%99-%d7%97-%d7%94%d7%90%d7%95%d7%9e%d7%a0%d7%99%d7%9d",
+        "locations": [],
+        "items": [
+          {
+            "id": 16191,
+            "title": "ראשי",
+            "url": "#!/home",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 16191,
+            "menuOrder": 1,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 332,
+            "children": []
+          },
+          {
+            "id": 16185,
+            "title": "אודות",
+            "url": "#!/about",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 16185,
+            "menuOrder": 2,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 332,
+            "children": []
+          },
+          {
+            "id": 16186,
+            "title": "שירותים",
+            "url": "#!/services",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 16186,
+            "menuOrder": 3,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 332,
+            "children": []
+          },
+          {
+            "id": 16186,
+            "title": "שירותים",
+            "url": "#!/services",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 16186,
+            "menuOrder": 3,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 332,
+            "children": []
+          },
+          {
+            "id": 16187,
+            "title": "גלריה",
+            "url": "#!/gallery",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 16187,
+            "menuOrder": 4,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 332,
+            "children": []
+          },
+          {
+            "id": 16188,
+            "title": "המלצות",
+            "url": "#!/clients",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 16188,
+            "menuOrder": 5,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 332,
+            "children": []
+          },
+          {
+            "id": 16190,
+            "title": "צור קשר",
+            "url": "#!/contact",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 16190,
+            "menuOrder": 7,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 332,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 336,
+        "name": "ליאור בניה קלה",
+        "slug": "%d7%9c%d7%99%d7%90%d7%95%d7%a8-%d7%91%d7%a0%d7%99%d7%94-%d7%a7%d7%9c%d7%94",
+        "locations": [],
+        "items": [
+          {
+            "id": 17337,
+            "title": "מי אנחנו ?",
+            "url": "#!/about",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 17337,
+            "menuOrder": 1,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 336,
+            "children": []
+          },
+          {
+            "id": 17340,
+            "title": "שירותינו",
+            "url": "#!/services",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 17340,
+            "menuOrder": 2,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 336,
+            "children": []
+          },
+          {
+            "id": 17342,
+            "title": "למה אנחנו ?",
+            "url": "#!/why-us",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 17342,
+            "menuOrder": 3,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 336,
+            "children": []
+          },
+          {
+            "id": 17339,
+            "title": "פרויקטים",
+            "url": "#!/projects",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 17339,
+            "menuOrder": 4,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 336,
+            "children": []
+          },
+          {
+            "id": 17341,
+            "title": "המלצות",
+            "url": "#!/clients",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 17341,
+            "menuOrder": 5,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 336,
+            "children": []
+          },
+          {
+            "id": 17338,
+            "title": "יצירת קשר",
+            "url": "#!/contact",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 17338,
+            "menuOrder": 6,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 336,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 337,
+        "name": "מאיר אייל שמאי",
+        "slug": "%d7%9e%d7%90%d7%99%d7%a8-%d7%90%d7%99%d7%99%d7%9c-%d7%a9%d7%9e%d7%90%d7%99",
+        "locations": [],
+        "items": [
+          {
+            "id": 17573,
+            "title": "אודות",
+            "url": "#about",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 17573,
+            "menuOrder": 1,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 337,
+            "children": []
+          },
+          {
+            "id": 17574,
+            "title": "שירותינו",
+            "url": "#services",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 17574,
+            "menuOrder": 2,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 337,
+            "children": []
+          },
+          {
+            "id": 17576,
+            "title": "שאלות נפוצות",
+            "url": "#faq",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 17576,
+            "menuOrder": 4,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 337,
+            "children": []
+          },
+          {
+            "id": 17577,
+            "title": "המלצות",
+            "url": "#clients",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 17577,
+            "menuOrder": 5,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 337,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 272,
+        "name": "מוניות נכים",
+        "slug": "%d7%9e%d7%95%d7%a0%d7%99%d7%95%d7%aa-%d7%a0%d7%9b%d7%99%d7%9d",
+        "locations": [],
+        "items": [
+          {
+            "id": 12884,
+            "title": "אודות",
+            "url": "#!/about",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 12884,
+            "menuOrder": 1,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 272,
+            "children": []
+          },
+          {
+            "id": 12885,
+            "title": "שירותים",
+            "url": "#!/services",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 12885,
+            "menuOrder": 2,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 272,
+            "children": []
+          },
+          {
+            "id": 12894,
+            "title": "למה אנחנו ?",
+            "url": "#!/why-us",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 12894,
+            "menuOrder": 4,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 272,
+            "children": []
+          },
+          {
+            "id": 12886,
+            "title": "יצירת קשר",
+            "url": "#!/contact",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 12886,
+            "menuOrder": 5,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 272,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 335,
+        "name": "נטו פתרונות אבטחה ותקשורת",
+        "slug": "%d7%a0%d7%98%d7%95-%d7%a4%d7%aa%d7%a8%d7%95%d7%a0%d7%95%d7%aa-%d7%90%d7%91%d7%98%d7%97%d7%94-%d7%95%d7%aa%d7%a7%d7%a9%d7%95%d7%a8%d7%aa",
+        "locations": [],
+        "items": [
+          {
+            "id": 17121,
+            "title": "אודות",
+            "url": "#!/about",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 17121,
+            "menuOrder": 1,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 335,
+            "children": []
+          },
+          {
+            "id": 17122,
+            "title": "שירותים",
+            "url": "#!/services",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 17122,
+            "menuOrder": 2,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 335,
+            "children": []
+          },
+          {
+            "id": 17124,
+            "title": "מבצע",
+            "url": "#!/sale",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 17124,
+            "menuOrder": 4,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 335,
+            "children": []
+          },
+          {
+            "id": 17125,
+            "title": "המלצות",
+            "url": "#!/clients",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 17125,
+            "menuOrder": 5,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 335,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 260,
+        "name": "נינג&#039;ה פופה",
+        "slug": "%d7%a0%d7%99%d7%a0%d7%92%d7%94-%d7%a4%d7%95%d7%a4%d7%94",
+        "locations": [],
+        "items": [
+          {
+            "id": 11230,
+            "title": "אודות",
+            "url": "#!/about",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 11230,
+            "menuOrder": 1,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 260,
+            "children": []
+          },
+          {
+            "id": 11232,
+            "title": "יתרונות",
+            "url": "#!/advantages",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 11232,
+            "menuOrder": 2,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 260,
+            "children": []
+          },
+          {
+            "id": 11231,
+            "title": "עבודות",
+            "url": "#!/portfolio",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 11231,
+            "menuOrder": 3,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 260,
+            "children": []
+          },
+          {
+            "id": 11233,
+            "title": "המלצות",
+            "url": "#!/Recommendations",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 11233,
+            "menuOrder": 4,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 260,
+            "children": []
+          },
+          {
+            "id": 11246,
+            "title": "שאלות נפוצות",
+            "url": "#!/faq",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 11246,
+            "menuOrder": 5,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 260,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 270,
+        "name": "ניסור בטון",
+        "slug": "%d7%a0%d7%99%d7%a1%d7%95%d7%a8-%d7%91%d7%98%d7%95%d7%9f",
+        "locations": [],
+        "items": [
+          {
+            "id": 11821,
+            "title": "אודות",
+            "url": "#!/about",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 11821,
+            "menuOrder": 1,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 270,
+            "children": []
+          },
+          {
+            "id": 11824,
+            "title": "שירותים",
+            "url": "#!/services",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 11824,
+            "menuOrder": 2,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 270,
+            "children": []
+          },
+          {
+            "id": 11822,
+            "title": "גלריית תמונות",
+            "url": "#!/gallery",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 11822,
+            "menuOrder": 3,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 270,
+            "children": []
+          },
+          {
+            "id": 11823,
+            "title": "המלצות",
+            "url": "#!/clients",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 11823,
+            "menuOrder": 4,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 270,
+            "children": []
+          },
+          {
+            "id": 11820,
+            "title": "שאלות נפוצות",
+            "url": "#!/faq",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 11820,
+            "menuOrder": 5,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 270,
+            "children": []
+          },
+          {
+            "id": 11819,
+            "title": "יצירת קשר",
+            "url": "#!/contact",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 11819,
+            "menuOrder": 6,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 270,
+            "children": []
+          },
+          {
+            "id": 11819,
+            "title": "יצירת קשר",
+            "url": "#!/contact",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 11819,
+            "menuOrder": 6,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 270,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 321,
+        "name": "סורלה קטורזה",
+        "slug": "%d7%a1%d7%95%d7%a8%d7%9c%d7%94-%d7%a7%d7%98%d7%95%d7%a8%d7%96%d7%94",
+        "locations": [],
+        "items": [
+          {
+            "id": 14711,
+            "title": "ראשי",
+            "url": "#!/home",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 14711,
+            "menuOrder": 1,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 321,
+            "children": []
+          },
+          {
+            "id": 14669,
+            "title": "אודות",
+            "url": "#!/about-us",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 14669,
+            "menuOrder": 2,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 321,
+            "children": []
+          },
+          {
+            "id": 14670,
+            "title": "למה אנחנו ?",
+            "url": "#!/why-us",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 14670,
+            "menuOrder": 3,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 321,
+            "children": []
+          },
+          {
+            "id": 14670,
+            "title": "למה אנחנו ?",
+            "url": "#!/why-us",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 14670,
+            "menuOrder": 3,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 321,
+            "children": []
+          },
+          {
+            "id": 14672,
+            "title": "פרויקט אינטרנציונל",
+            "url": "#!/project",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 14672,
+            "menuOrder": 4,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 321,
+            "children": []
+          },
+          {
+            "id": 14695,
+            "title": "המלצות",
+            "url": "#!/clients",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 14695,
+            "menuOrder": 5,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 321,
+            "children": []
+          },
+          {
+            "id": 14671,
+            "title": "יצירת קשר",
+            "url": "#!/contact",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 14671,
+            "menuOrder": 6,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 321,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 334,
+        "name": "עדי ספא",
+        "slug": "%d7%a2%d7%93%d7%99-%d7%a1%d7%a4%d7%90",
+        "locations": [],
+        "items": [
+          {
+            "id": 16602,
+            "title": "אודות",
+            "url": "#about",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 16602,
+            "menuOrder": 1,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 334,
+            "children": []
+          },
+          {
+            "id": 16604,
+            "title": "מוצרים",
+            "url": "#products",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 16604,
+            "menuOrder": 2,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 334,
+            "children": []
+          },
+          {
+            "id": 16608,
+            "title": "תמונות",
+            "url": "#photos",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 16608,
+            "menuOrder": 3,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 334,
+            "children": []
+          },
+          {
+            "id": 16608,
+            "title": "תמונות",
+            "url": "#photos",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 16608,
+            "menuOrder": 3,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 334,
+            "children": []
+          },
+          {
+            "id": 19366,
+            "title": "מחירים",
+            "url": "#prices",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 19366,
+            "menuOrder": 4,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 334,
+            "children": []
+          },
+          {
+            "id": 16605,
+            "title": "סרטונים",
+            "url": "#videos",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 16605,
+            "menuOrder": 5,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 334,
+            "children": []
+          },
+          {
+            "id": 16635,
+            "title": "המלצות",
+            "url": "#clients",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 16635,
+            "menuOrder": 6,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 334,
+            "children": []
+          },
+          {
+            "id": 16606,
+            "title": "צור קשר",
+            "url": "#contact",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 16606,
+            "menuOrder": 7,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 334,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 271,
+        "name": "עורך דין אדרי אוחנונה",
+        "slug": "%d7%a2%d7%95%d7%a8%d7%9a-%d7%93%d7%99%d7%9f-%d7%90%d7%93%d7%a8%d7%99-%d7%90%d7%95%d7%97%d7%a0%d7%95%d7%a0%d7%94",
+        "locations": [],
+        "items": [
+          {
+            "id": 12248,
+            "title": "אודות",
+            "url": "#about",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 12248,
+            "menuOrder": 1,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 271,
+            "children": []
+          },
+          {
+            "id": 12249,
+            "title": "שירותי המשרד",
+            "url": "#services",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 12249,
+            "menuOrder": 2,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 271,
+            "children": []
+          },
+          {
+            "id": 12250,
+            "title": "חדלות פירעון",
+            "url": "#Insolvency",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 12250,
+            "menuOrder": 3,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 271,
+            "children": []
+          },
+          {
+            "id": 12251,
+            "title": "מקרקעין",
+            "url": "#real-estate",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 12251,
+            "menuOrder": 4,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 271,
+            "children": []
+          },
+          {
+            "id": 12247,
+            "title": "יצירת קשר",
+            "url": "#contact",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 12247,
+            "menuOrder": 5,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 271,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 315,
+        "name": "פורטל מידע משפטי",
+        "slug": "%d7%a4%d7%95%d7%a8%d7%98%d7%9c-%d7%9e%d7%99%d7%93%d7%a2-%d7%9e%d7%a9%d7%a4%d7%98%d7%99",
+        "locations": [],
+        "items": [
+          {
+            "id": 14113,
+            "title": "ראשי",
+            "url": "#!/home",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 14113,
+            "menuOrder": 1,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 315,
+            "children": []
+          },
+          {
+            "id": 14116,
+            "title": "קבלת ייעוץ אישי",
+            "url": "#!/contact",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 14116,
+            "menuOrder": 2,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 315,
+            "children": []
+          },
+          {
+            "id": 14114,
+            "title": "עורכי דין",
+            "url": "#!/lawyers",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 14114,
+            "menuOrder": 3,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 315,
+            "children": [
+              {
+                "id": 14163,
+                "title": "עורך דין פלילי",
+                "url": "#!/criminal-lawyer",
+                "type": "custom",
+                "object": "custom",
+                "objectId": 14163,
+                "menuOrder": 4,
+                "target": "",
+                "classes": [
+                  ""
+                ],
+                "menuId": 315,
+                "children": []
+              },
+              {
+                "id": 14170,
+                "title": "עורך דין נזקי גוף",
+                "url": "#!/Personal-Injury-Lawyer",
+                "type": "custom",
+                "object": "custom",
+                "objectId": 14170,
+                "menuOrder": 5,
+                "target": "",
+                "classes": [
+                  ""
+                ],
+                "menuId": 315,
+                "children": []
+              },
+              {
+                "id": 14164,
+                "title": "עורך דין רשלנות רפואית",
+                "url": "#!/Medical-Malpractice-Lawyer",
+                "type": "custom",
+                "object": "custom",
+                "objectId": 14164,
+                "menuOrder": 7,
+                "target": "",
+                "classes": [
+                  ""
+                ],
+                "menuId": 315,
+                "children": []
+              },
+              {
+                "id": 14169,
+                "title": "עורך דין תאונות דרכים",
+                "url": "#!/Road-Accident-Lawyer",
+                "type": "custom",
+                "object": "custom",
+                "objectId": 14169,
+                "menuOrder": 8,
+                "target": "",
+                "classes": [
+                  ""
+                ],
+                "menuId": 315,
+                "children": []
+              },
+              {
+                "id": 14168,
+                "title": "עורך דין נזיקין",
+                "url": "#!/Torts-Attorney",
+                "type": "custom",
+                "object": "custom",
+                "objectId": 14168,
+                "menuOrder": 9,
+                "target": "",
+                "classes": [
+                  ""
+                ],
+                "menuId": 315,
+                "children": []
+              },
+              {
+                "id": 14166,
+                "title": "עורך דין תביעות ביטוח",
+                "url": "#!/Insurance-Claims-Lawyer",
+                "type": "custom",
+                "object": "custom",
+                "objectId": 14166,
+                "menuOrder": 10,
+                "target": "",
+                "classes": [
+                  ""
+                ],
+                "menuId": 315,
+                "children": []
+              },
+              {
+                "id": 15485,
+                "title": "עורך דין משפחה",
+                "url": "#!/family-Lawyer",
+                "type": "custom",
+                "object": "custom",
+                "objectId": 15485,
+                "menuOrder": 11,
+                "target": "",
+                "classes": [
+                  ""
+                ],
+                "menuId": 315,
+                "children": []
+              },
+              {
+                "id": 14165,
+                "title": "עורך דין תעבורה",
+                "url": "#!/Traffic-Lawyer",
+                "type": "custom",
+                "object": "custom",
+                "objectId": 14165,
+                "menuOrder": 12,
+                "target": "",
+                "classes": [
+                  ""
+                ],
+                "menuId": 315,
+                "children": []
+              },
+              {
+                "id": 15487,
+                "title": "עורך דין לעבודה",
+                "url": "#!/labor-Lawyer",
+                "type": "custom",
+                "object": "custom",
+                "objectId": 15487,
+                "menuOrder": 13,
+                "target": "",
+                "classes": [
+                  ""
+                ],
+                "menuId": 315,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": 14126,
+            "title": "דיני נזיקין",
+            "url": "#!/Tort-Law",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 14126,
+            "menuOrder": 14,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 315,
+            "children": []
+          },
+          {
+            "id": 14127,
+            "title": "דיני משפחה",
+            "url": "#!/family-law",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 14127,
+            "menuOrder": 15,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 315,
+            "children": []
+          },
+          {
+            "id": 14128,
+            "title": "דיני תעבורה",
+            "url": "#!/Traffic-Law",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 14128,
+            "menuOrder": 16,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 315,
+            "children": []
+          },
+          {
+            "id": 14129,
+            "title": "דיני עבודה",
+            "url": "#!/labor-Law",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 14129,
+            "menuOrder": 17,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 315,
+            "children": []
+          },
+          {
+            "id": 14130,
+            "title": "דיני מקרקעין",
+            "url": "#!/Real-Estate-Law",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 14130,
+            "menuOrder": 18,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 315,
+            "children": []
+          },
+          {
+            "id": 14131,
+            "title": "משפט פלילי",
+            "url": "#!/Criminal-Law",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 14131,
+            "menuOrder": 19,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 315,
+            "children": []
+          },
+          {
+            "id": 14115,
+            "title": "תחומים נוספים",
+            "url": "#!/areas",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 14115,
+            "menuOrder": 20,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 315,
+            "children": [
+              {
+                "id": 14132,
+                "title": "דיני חוזים",
+                "url": "#!/Contract-Law",
+                "type": "custom",
+                "object": "custom",
+                "objectId": 14132,
+                "menuOrder": 21,
+                "target": "",
+                "classes": [
+                  ""
+                ],
+                "menuId": 315,
+                "children": []
+              },
+              {
+                "id": 14133,
+                "title": "דיני מיסים",
+                "url": "#!/Tax-Law",
+                "type": "custom",
+                "object": "custom",
+                "objectId": 14133,
+                "menuOrder": 22,
+                "target": "",
+                "classes": [
+                  ""
+                ],
+                "menuId": 315,
+                "children": []
+              },
+              {
+                "id": 14134,
+                "title": "משפט בינלאומי",
+                "url": "#!/International-law",
+                "type": "custom",
+                "object": "custom",
+                "objectId": 14134,
+                "menuOrder": 23,
+                "target": "",
+                "classes": [
+                  ""
+                ],
+                "menuId": 315,
+                "children": []
+              },
+              {
+                "id": 14135,
+                "title": "משפט עסקי &#8211; מסחרי",
+                "url": "#!/Business-Commercial-Law",
+                "type": "custom",
+                "object": "custom",
+                "objectId": 14135,
+                "menuOrder": 24,
+                "target": "",
+                "classes": [
+                  ""
+                ],
+                "menuId": 315,
+                "children": []
+              },
+              {
+                "id": 14136,
+                "title": "דיני תאגידים",
+                "url": "#!/corporate-law",
+                "type": "custom",
+                "object": "custom",
+                "objectId": 14136,
+                "menuOrder": 25,
+                "target": "",
+                "classes": [
+                  ""
+                ],
+                "menuId": 315,
+                "children": []
+              },
+              {
+                "id": 14137,
+                "title": "דיני קניין רוחני",
+                "url": "#!/Intellectual-Property-Law",
+                "type": "custom",
+                "object": "custom",
+                "objectId": 14137,
+                "menuOrder": 26,
+                "target": "",
+                "classes": [
+                  ""
+                ],
+                "menuId": 315,
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 75,
+        "name": "קוסמטיקאר",
+        "slug": "%d7%a7%d7%95%d7%a1%d7%9e%d7%98%d7%99%d7%a7%d7%90%d7%a8",
+        "locations": [],
+        "items": [
+          {
+            "id": 8543,
+            "title": "צור קשר",
+            "url": "#contact-us",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 8543,
+            "menuOrder": 1,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 75,
+            "children": []
+          },
+          {
+            "id": 11081,
+            "title": "שאלות נפוצות",
+            "url": "#faq",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 11081,
+            "menuOrder": 2,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 75,
+            "children": []
+          },
+          {
+            "id": 8542,
+            "title": "המלצות",
+            "url": "#recommendations",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 8542,
+            "menuOrder": 4,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 75,
+            "children": []
+          },
+          {
+            "id": 8540,
+            "title": "אודותינו",
+            "url": "#about",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 8540,
+            "menuOrder": 5,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 75,
+            "children": []
+          },
+          {
+            "id": 8539,
+            "title": "שירותים",
+            "url": "#services",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 8539,
+            "menuOrder": 6,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 75,
+            "children": []
+          },
+          {
+            "id": 8539,
+            "title": "שירותים",
+            "url": "#services",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 8539,
+            "menuOrder": 6,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 75,
+            "children": []
+          },
+          {
+            "id": 8538,
+            "title": "ראשי",
+            "url": "#home",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 8538,
+            "menuOrder": 7,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 75,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 357,
+        "name": "קישורים מהירים",
+        "slug": "%d7%a7%d7%99%d7%a9%d7%95%d7%a8%d7%99%d7%9d-%d7%9e%d7%94%d7%99%d7%a8%d7%99%d7%9d",
+        "locations": [],
+        "items": [
+          {
+            "id": 20339,
+            "title": "מי אנחנו",
+            "url": "https://adwrks.co.il/about-us/",
+            "type": "post_type",
+            "object": "page",
+            "objectId": 92,
+            "menuOrder": 1,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 357,
+            "children": []
+          },
+          {
+            "id": 18845,
+            "title": "צור קשר עם Adwrks 365 – סוכנות שיווק דיגיטלי",
+            "url": "https://adwrks.co.il/contact-us/",
+            "type": "post_type",
+            "object": "page",
+            "objectId": 7969,
+            "menuOrder": 2,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 357,
+            "children": []
+          },
+          {
+            "id": 18843,
+            "title": "תקנון ותנאי שימוש מלאים – adwrks.co.il",
+            "url": "https://adwrks.co.il/terms-of-use/",
+            "type": "post_type",
+            "object": "page",
+            "objectId": 2385,
+            "menuOrder": 3,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 357,
+            "children": []
+          },
+          {
+            "id": 18844,
+            "title": "מדיניות פרטיות – adwrks.co.il",
+            "url": "https://adwrks.co.il/privacy-policy/",
+            "type": "post_type",
+            "object": "page",
+            "objectId": 2383,
+            "menuOrder": 4,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 357,
+            "children": []
+          },
+          {
+            "id": 20338,
+            "title": "הצהרת נגישות",
+            "url": "https://adwrks.co.il/accessibility-statement/",
+            "type": "post_type",
+            "object": "page",
+            "objectId": 20330,
+            "menuOrder": 5,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 357,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 333,
+        "name": "שיש רפא&quot;ל",
+        "slug": "%d7%a9%d7%99%d7%a9-%d7%a8%d7%a4%d7%90%d7%9c",
+        "locations": [],
+        "items": [
+          {
+            "id": 16424,
+            "title": "אודות",
+            "url": "#!/about",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 16424,
+            "menuOrder": 1,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 333,
+            "children": []
+          },
+          {
+            "id": 16425,
+            "title": "סוגי שיש",
+            "url": "#!/Types",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 16425,
+            "menuOrder": 2,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 333,
+            "children": []
+          },
+          {
+            "id": 16423,
+            "title": "פרויקטים אחרונים",
+            "url": "#!/portfolio",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 16423,
+            "menuOrder": 3,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 333,
+            "children": []
+          },
+          {
+            "id": 16423,
+            "title": "פרויקטים אחרונים",
+            "url": "#!/portfolio",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 16423,
+            "menuOrder": 3,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 333,
+            "children": []
+          },
+          {
+            "id": 16427,
+            "title": "המלצות",
+            "url": "#!/clients",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 16427,
+            "menuOrder": 4,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 333,
+            "children": []
+          },
+          {
+            "id": 16426,
+            "title": "יצירת קשר",
+            "url": "#!/contact",
+            "type": "custom",
+            "object": "custom",
+            "objectId": 16426,
+            "menuOrder": 5,
+            "target": "",
+            "classes": [
+              ""
+            ],
+            "menuId": 333,
+            "children": []
+          }
+        ]
+      }
+    ],
+    "totalMenuItems": 299
+  },
+  "customPostTypes": {
+    "elementor_library": 59,
+    "e_floating_buttons": 0,
+    "elementor_snippet": 0,
+    "rm_content_editor": 0
+  },
+  "urlCounts": {
+    "sitemap": 74,
+    "restApi": 79,
+    "discovered": 860,
+    "seoCrawled": 202
+  },
+  "contentCounts": {
+    "pages": 16,
+    "posts": 54,
+    "categories": 9,
+    "tags": 96,
+    "media": 467,
+    "users": 1
+  },
+  "auth": {
+    "authenticated": true,
+    "user": {
+      "id": 6,
+      "name": "migration",
+      "slug": "migration"
+    },
+    "method": "application_password",
+    "checkedAt": "2026-09-29T10:12:19.122Z"
+  },
+  "plugins": [
+    {
+      "plugin": "angie/angie",
+      "name": "Angie",
+      "version": "1.1.17",
+      "status": "active"
+    },
+    {
+      "plugin": "astra-addon/astra-addon",
+      "name": "Astra Pro",
+      "version": "1.3.1",
+      "status": "inactive"
+    },
+    {
+      "plugin": "chaty/cht-icons",
+      "name": "Chaty",
+      "version": "3.6.1",
+      "status": "active"
+    },
+    {
+      "plugin": "classic-editor/classic-editor",
+      "name": "העורך הקלאסי",
+      "version": "1.7.0",
+      "status": "active"
+    },
+    {
+      "plugin": "classic-widgets/classic-widgets",
+      "name": "ויג'יטים קלאסי",
+      "version": "0.3",
+      "status": "active"
+    },
+    {
+      "plugin": "duplicate-page/duplicatepage",
+      "name": "Duplicate Page",
+      "version": "4.5.9",
+      "status": "active"
+    },
+    {
+      "plugin": "elementor/elementor",
+      "name": "אלמנטור",
+      "version": "4.3.2",
+      "status": "active"
+    },
+    {
+      "plugin": "elementor-pro/elementor-pro",
+      "name": "אלמנטור פרו",
+      "version": "4.3.0",
+      "status": "active"
+    },
+    {
+      "plugin": "rate-my-post/rate-my-post",
+      "name": "FeedbackWP - Rate My Post - WP Rating System",
+      "version": "4.5.2",
+      "status": "active"
+    },
+    {
+      "plugin": "image-optimization/image-optimization",
+      "name": "Image Optimization - Optimize Images and Convert to WebP or AVIF",
+      "version": "1.7.7",
+      "status": "active"
+    },
+    {
+      "plugin": "insytix-site-analytics/insytix-site-analytics",
+      "name": "Insytix Site Analytics",
+      "version": "2.4.3",
+      "status": "active"
+    },
+    {
+      "plugin": "link-whisper/link-whisper",
+      "name": "Link Whisper Free",
+      "version": "0.9.7",
+      "status": "inactive"
+    },
+    {
+      "plugin": "litespeed-cache/litespeed-cache",
+      "name": "מטמון LiteSpeed",
+      "version": "7.9.1",
+      "status": "active"
+    },
+    {
+      "plugin": "loco-translate/loco",
+      "name": "Loco Translate",
+      "version": "2.8.8",
+      "status": "active"
+    },
+    {
+      "plugin": "manage/manage",
+      "name": "Manage",
+      "version": "1.0.9",
+      "status": "active"
+    },
+    {
+      "plugin": "seo-by-rank-math/rank-math",
+      "name": "Rank Math SEO",
+      "version": "1.0.279",
+      "status": "active"
+    },
+    {
+      "plugin": "royal-elementor-addons/wpr-addons",
+      "name": "Royal Elementor Addons",
+      "version": "1.7.1068",
+      "status": "active"
+    },
+    {
+      "plugin": "safe-svg/safe-svg",
+      "name": "Safe SVG",
+      "version": "2.5.1",
+      "status": "active"
+    },
+    {
+      "plugin": "google-site-kit/google-site-kit",
+      "name": "Site Kit by Google",
+      "version": "1.188.0",
+      "status": "active"
+    },
+    {
+      "plugin": "sticklight/sticklight-connector",
+      "name": "Sticklight",
+      "version": "1.1.0",
+      "status": "active"
+    },
+    {
+      "plugin": "pojo-accessibility/pojo-accessibility",
+      "name": "Web Accessibility - WCAG Scanning, Guided Fixes, Usability Widget",
+      "version": "4.1.4",
+      "status": "active"
+    },
+    {
+      "plugin": "free-facebook-reviews-and-recommendations-widgets/free-facebook-reviews-and-recommendations-widgets",
+      "name": "Widgets for Reviews &amp; Recommendations",
+      "version": "14.2",
+      "status": "active"
+    },
+    {
+      "plugin": "wp-optimize/wp-optimize",
+      "name": "WP-Optimize - Clean, Compress, Cache",
+      "version": "4.7.0",
+      "status": "inactive"
+    },
+    {
+      "plugin": "insert-headers-and-footers/ihaf",
+      "name": "WPCode Lite",
+      "version": "2.3.9",
+      "status": "active"
+    },
+    {
+      "plugin": "wps-hide-login/wps-hide-login",
+      "name": "WPS הסתר התחברות",
+      "version": "1.9.19",
+      "status": "active"
+    }
+  ],
+  "elementor": {
+    "templateCount": 59,
+    "headerFooterCount": 36,
+    "floatingButtons": 0,
+    "snippets": 0,
+    "siteEditorTemplates": [
+      {
+        "template_id": 21881,
+        "source": "local",
+        "type": "footer",
+        "title": "אלמנטור פוטר #21881",
+        "thumbnail": "",
+        "date": 1768996722,
+        "human_date": "21/01/2026",
+        "human_modified_date": "26/02/2026",
+        "author": "צוות Adwrks",
+        "status": "publish",
+        "hasPageSettings": true,
+        "tags": [],
+        "export_link": "https://adwrks.co.il/wp-admin/admin-ajax.php?action=elementor_library_direct_actions&library_action=export_template&source=local&_nonce=0ec42a019a&template_id=21881",
+        "url": "https://adwrks.co.il/?elementor_library=%d7%90%d7%9c%d7%9e%d7%a0%d7%98%d7%95%d7%a8-%d7%a4%d7%95%d7%98%d7%a8-21881",
+        "instances": {
+          "general": "כל האתר"
+        },
+        "defaultCondition": "general",
+        "id": 21881,
+        "exportLink": "https://adwrks.co.il/wp-admin/admin-ajax.php?action=elementor_library_direct_actions&library_action=export_template&source=local&_nonce=0ec42a019a&template_id=21881",
+        "modifiedDate": "26/02/2026",
+        "editURL": "https://adwrks.co.il/wp-admin/post.php?post=21881&action=elementor",
+        "conditions": [
+          {
+            "type": "include",
+            "name": "general",
+            "sub_name": "",
+            "sub_id": "",
+            "sub": "",
+            "subId": ""
+          }
+        ],
+        "isActive": true,
+        "previewUrl": "https://adwrks.co.il/?elementor_library=%D7%90%D7%9C%D7%9E%D7%A0%D7%98%D7%95%D7%A8-%D7%A4%D7%95%D7%98%D7%A8-21881&post_id=21881&render_mode=template-preview&render_mode_nonce=0863d21a48&ver=1790676736",
+        "placeholderUrl": "https://adwrks.co.il/wp-content/plugins/elementor/assets/images/app/site-editor/footer.svg",
+        "pageLayout": "strip",
+        "supportsSiteEditor": true,
+        "showInstances": true,
+        "screenshot_url": "https://adwrks.co.il/?elementor_library=%D7%90%D7%9C%D7%9E%D7%A0%D7%98%D7%95%D7%A8-%D7%A4%D7%95%D7%98%D7%A8-21881&post_id=21881&render_mode=screenshot&render_mode_nonce=0863d21a48&ver=1790676736"
+      },
+      {
+        "template_id": 21879,
+        "source": "local",
+        "type": "footer",
+        "title": "אלמנטור פוטר #21879",
+        "thumbnail": "",
+        "date": 1768990543,
+        "human_date": "21/01/2026",
+        "human_modified_date": "21/01/2026",
+        "author": "צוות Adwrks",
+        "status": "draft",
+        "hasPageSettings": false,
+        "tags": [],
+        "export_link": "https://adwrks.co.il/wp-admin/admin-ajax.php?action=elementor_library_direct_actions&library_action=export_template&source=local&_nonce=0ec42a019a&template_id=21879",
+        "url": "https://adwrks.co.il/?post_type=elementor_library&p=21879",
+        "instances": {
+          "no_instances": "אין מופעים של תבנית זו"
+        },
+        "defaultCondition": "general",
+        "id": 21879,
+        "exportLink": "https://adwrks.co.il/wp-admin/admin-ajax.php?action=elementor_library_direct_actions&library_action=export_template&source=local&_nonce=0ec42a019a&template_id=21879",
+        "modifiedDate": "21/01/2026",
+        "editURL": "https://adwrks.co.il/wp-admin/post.php?post=21879&action=elementor",
+        "conditions": [],
+        "isActive": false,
+        "previewUrl": "https://adwrks.co.il/?post_type=elementor_library&p=21879&post_id=21879&render_mode=template-preview&render_mode_nonce=47803e1fa1&ver=1790676736",
+        "placeholderUrl": "https://adwrks.co.il/wp-content/plugins/elementor/assets/images/app/site-editor/footer.svg",
+        "pageLayout": "strip",
+        "supportsSiteEditor": true,
+        "showInstances": true,
+        "screenshot_url": "https://adwrks.co.il/?post_type=elementor_library&p=21879&post_id=21879&render_mode=screenshot&render_mode_nonce=47803e1fa1&ver=1790676736"
+      },
+      {
+        "template_id": 21027,
+        "source": "local",
+        "type": "archive",
+        "title": "אלמנטור ארכיון #21027",
+        "thumbnail": "",
+        "date": 1724740573,
+        "human_date": "27/08/2024",
+        "human_modified_date": "28/08/2024",
+        "author": "צוות Adwrks",
+        "status": "publish",
+        "hasPageSettings": true,
+        "tags": [],
+        "export_link": "https://adwrks.co.il/wp-admin/admin-ajax.php?action=elementor_library_direct_actions&library_action=export_template&source=local&_nonce=0ec42a019a&template_id=21027",
+        "url": "https://adwrks.co.il/?elementor_library=%d7%90%d7%9c%d7%9e%d7%a0%d7%98%d7%95%d7%a8-%d7%90%d7%a8%d7%9b%d7%99%d7%95%d7%9f-21027",
+        "instances": {
+          "archive": "כל הארכיונים"
+        },
+        "defaultCondition": "archive",
+        "id": 21027,
+        "exportLink": "https://adwrks.co.il/wp-admin/admin-ajax.php?action=elementor_library_direct_actions&library_action=export_template&source=local&_nonce=0ec42a019a&template_id=21027",
+        "modifiedDate": "28/08/2024",
+        "editURL": "https://adwrks.co.il/wp-admin/post.php?post=21027&action=elementor",
+        "conditions": [
+          {
+            "type": "include",
+            "name": "archive",
+            "sub_name": "",
+            "sub_id": "",
+            "sub": "",
+            "subId": ""
+          }
+        ],
+        "isActive": true,
+        "previewUrl": "https://adwrks.co.il/?elementor_library=%D7%90%D7%9C%D7%9E%D7%A0%D7%98%D7%95%D7%A8-%D7%90%D7%A8%D7%9B%D7%99%D7%95%D7%9F-21027&post_id=21027&render_mode=template-preview&render_mode_nonce=2d9b864a01&ver=1790676736",
+        "placeholderUrl": "https://adwrks.co.il/wp-content/plugins/elementor/assets/images/app/site-editor/archive.svg",
+        "pageLayout": "grid",
+        "supportsSiteEditor": true,
+        "showInstances": true
+      },
+      {
+        "template_id": 20578,
+        "source": "local",
+        "type": "single-post",
+        "title": "אלמנטור פוסט יחיד #20578",
+        "thumbnail": "",
+        "date": 1724248501,
+        "human_date": "21/08/2024",
+        "human_modified_date": "01/02/2026",
+        "author": "צוות Adwrks",
+        "status": "publish",
+        "hasPageSettings": true,
+        "tags": [],
+        "export_link": "https://adwrks.co.il/wp-admin/admin-ajax.php?action=elementor_library_direct_actions&library_action=export_template&source=local&_nonce=0ec42a019a&template_id=20578",
+        "url": "https://adwrks.co.il/?elementor_library=%d7%90%d7%9c%d7%9e%d7%a0%d7%98%d7%95%d7%a8-%d7%a4%d7%95%d7%a1%d7%98-%d7%99%d7%97%d7%99%d7%93-20578",
+        "instances": {
+          "post": "פוסטים"
+        },
+        "defaultCondition": "singular",
+        "id": 20578,
+        "exportLink": "https://adwrks.co.il/wp-admin/admin-ajax.php?action=elementor_library_direct_actions&library_action=export_template&source=local&_nonce=0ec42a019a&template_id=20578",
+        "modifiedDate": "01/02/2026",
+        "editURL": "https://adwrks.co.il/wp-admin/post.php?post=20578&action=elementor",
+        "conditions": [
+          {
+            "type": "include",
+            "name": "singular",
+            "sub_name": "post",
+            "sub_id": "",
+            "sub": "post",
+            "subId": ""
+          }
+        ],
+        "isActive": true,
+        "previewUrl": "https://adwrks.co.il/?elementor_library=%D7%90%D7%9C%D7%9E%D7%A0%D7%98%D7%95%D7%A8-%D7%A4%D7%95%D7%A1%D7%98-%D7%99%D7%97%D7%99%D7%93-20578&post_id=20578&render_mode=template-preview&render_mode_nonce=33d8148378&ver=1790676736",
+        "placeholderUrl": "https://adwrks.co.il/wp-content/plugins/elementor/assets/images/app/site-editor/single-post.svg",
+        "pageLayout": "grid",
+        "supportsSiteEditor": true,
+        "showInstances": true,
+        "screenshot_url": "https://adwrks.co.il/?elementor_library=%D7%90%D7%9C%D7%9E%D7%A0%D7%98%D7%95%D7%A8-%D7%A4%D7%95%D7%A1%D7%98-%D7%99%D7%97%D7%99%D7%93-20578&post_id=20578&render_mode=screenshot&render_mode_nonce=33d8148378&ver=1790676736"
+      },
+      {
+        "template_id": 18648,
+        "source": "local",
+        "type": "header",
+        "title": "אלמנטור הדר דף הבית",
+        "thumbnail": "",
+        "date": 1690899828,
+        "human_date": "01/08/2023",
+        "human_modified_date": "06/06/2025",
+        "author": "צוות Adwrks",
+        "status": "publish",
+        "hasPageSettings": true,
+        "tags": [],
+        "export_link": "https://adwrks.co.il/wp-admin/admin-ajax.php?action=elementor_library_direct_actions&library_action=export_template&source=local&_nonce=0ec42a019a&template_id=18648",
+        "url": "https://adwrks.co.il/?elementor_library=%d7%90%d7%9c%d7%9e%d7%a0%d7%98%d7%95%d7%a8-%d7%94%d7%93%d7%a8-18648",
+        "instances": {
+          "general": "כל האתר"
+        },
+        "defaultCondition": "general",
+        "id": 18648,
+        "exportLink": "https://adwrks.co.il/wp-admin/admin-ajax.php?action=elementor_library_direct_actions&library_action=export_template&source=local&_nonce=0ec42a019a&template_id=18648",
+        "modifiedDate": "06/06/2025",
+        "editURL": "https://adwrks.co.il/wp-admin/post.php?post=18648&action=elementor",
+        "conditions": [
+          {
+            "type": "include",
+            "name": "general",
+            "sub_name": "",
+            "sub_id": "",
+            "sub": "",
+            "subId": ""
+          }
+        ],
+        "isActive": true,
+        "previewUrl": "https://adwrks.co.il/?elementor_library=%D7%90%D7%9C%D7%9E%D7%A0%D7%98%D7%95%D7%A8-%D7%94%D7%93%D7%A8-18648&post_id=18648&render_mode=template-preview&render_mode_nonce=10c18093a2&ver=1790676736",
+        "placeholderUrl": "https://adwrks.co.il/wp-content/plugins/elementor/assets/images/app/site-editor/header.svg",
+        "pageLayout": "strip",
+        "supportsSiteEditor": true,
+        "showInstances": true
+      }
+    ],
+    "globalsAccessible": true
+  },
+  "rankMath": {
+    "seoRecords": 70,
+    "postLevelRedirects": 0,
+    "globalExportAccessible": true,
+    "internalLinksSample": {
+      "posts": [
+        {
+          "post_id": "22368",
+          "post_title": "SEO 2026: איך להופיע ב- AI overview(בסקירות AI של גוגל) ?",
+          "post_type": "post",
+          "post_modified": "2026-05-13 09:43:28",
+          "internal_link_count": 7,
+          "external_link_count": 5,
+          "incoming_link_count": 0,
+          "seo_score": 90,
+          "is_orphan": true,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=22368&action=edit",
+          "post_url": "/seo-2026-ai-answers/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "19644",
+          "post_title": "אחסון אתרי וורדפרס ותחזוקתם: החשיבות של שירות מקצועי",
+          "post_type": "post",
+          "post_modified": "2025-02-16 09:24:39",
+          "internal_link_count": 7,
+          "external_link_count": 6,
+          "incoming_link_count": 5,
+          "seo_score": 67,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=19644&action=edit",
+          "post_url": "/%d7%90%d7%97%d7%a1%d7%95%d7%9f-%d7%90%d7%aa%d7%a8%d7%99-%d7%95%d7%95%d7%a8%d7%93%d7%a4%d7%a8%d7%a1-%d7%95%d7%aa%d7%97%d7%96%d7%95%d7%a7%d7%aa%d7%9d/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "19933",
+          "post_title": "אחסון אתרים מנוהל - הפתרון המושלם לבעלי אתרים",
+          "post_type": "post",
+          "post_modified": "2024-08-23 06:33:30",
+          "internal_link_count": 7,
+          "external_link_count": 4,
+          "incoming_link_count": 3,
+          "seo_score": 80,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=19933&action=edit",
+          "post_url": "/%d7%90%d7%97%d7%a1%d7%95%d7%9f-%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%9e%d7%a0%d7%95%d7%94%d7%9c/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "19758",
+          "post_title": "אחסון ותחזוקת אתרים: המדריך השלם",
+          "post_type": "post",
+          "post_modified": "2025-02-16 09:23:51",
+          "internal_link_count": 4,
+          "external_link_count": 5,
+          "incoming_link_count": 2,
+          "seo_score": 74,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=19758&action=edit",
+          "post_url": "/%d7%90%d7%97%d7%a1%d7%95%d7%9f-%d7%95%d7%aa%d7%97%d7%96%d7%95%d7%a7%d7%aa-%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%94%d7%9e%d7%93%d7%a8%d7%99%d7%9a/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "19548",
+          "post_title": "אחסון ותחזוקת אתרים: למה זה חשוב?",
+          "post_type": "post",
+          "post_modified": "2025-02-16 09:26:35",
+          "internal_link_count": 5,
+          "external_link_count": 6,
+          "incoming_link_count": 3,
+          "seo_score": 73,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=19548&action=edit",
+          "post_url": "/%d7%90%d7%97%d7%a1%d7%95%d7%9f-%d7%95%d7%aa%d7%97%d7%96%d7%95%d7%a7%d7%aa-%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%9c%d7%9e%d7%94-%d7%96%d7%94-%d7%97%d7%a9%d7%95%d7%91/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "22694",
+          "post_title": "בדיקת התאמה",
+          "post_type": "page",
+          "post_modified": "2026-05-25 10:03:40",
+          "internal_link_count": 1,
+          "external_link_count": 0,
+          "incoming_link_count": 3,
+          "seo_score": 11,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=22694&action=edit",
+          "post_url": "/check-fit/",
+          "post_type_label": "עמוד"
+        },
+        {
+          "post_id": "21496",
+          "post_title": "בדיקת מהירות אתר | בדקו את האתר שלכם חינם",
+          "post_type": "post",
+          "post_modified": "2026-09-09 13:26:40",
+          "internal_link_count": 1,
+          "external_link_count": 1,
+          "incoming_link_count": 2,
+          "seo_score": 78,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=21496&action=edit",
+          "post_url": "/%d7%91%d7%93%d7%99%d7%a7%d7%aa-%d7%9e%d7%94%d7%99%d7%a8%d7%95%d7%aa-%d7%90%d7%aa%d7%a8/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "20230",
+          "post_title": "ביקורות גוגל: מה באמת השתנה, ומה עסקים צריכים לדעת היום",
+          "post_type": "post",
+          "post_modified": "2026-02-22 15:24:07",
+          "internal_link_count": 8,
+          "external_link_count": 1,
+          "incoming_link_count": 2,
+          "seo_score": 76,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=20230&action=edit",
+          "post_url": "/%d7%91%d7%99%d7%a7%d7%95%d7%a8%d7%95%d7%aa-%d7%92%d7%95%d7%92%d7%9c-%d7%9c%d7%90-%d7%a2%d7%95%d7%91%d7%93-%e2%9d%8c-%d7%96%d7%95-%d7%94%d7%a1%d7%99%d7%91%d7%94-%d7%9c%d7%9e%d7%94/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "20464",
+          "post_title": "בלוג",
+          "post_type": "page",
+          "post_modified": "2026-05-13 10:09:49",
+          "internal_link_count": 57,
+          "external_link_count": 0,
+          "incoming_link_count": 0,
+          "seo_score": 20,
+          "is_orphan": true,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=20464&action=edit",
+          "post_url": "/blog/",
+          "post_type_label": "עמוד"
+        },
+        {
+          "post_id": "22113",
+          "post_title": "בניית אתרים לעסקים",
+          "post_type": "page",
+          "post_modified": "2026-07-10 10:00:42",
+          "internal_link_count": 5,
+          "external_link_count": 6,
+          "incoming_link_count": 3,
+          "seo_score": 86,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=22113&action=edit",
+          "post_url": "/website-building/",
+          "post_type_label": "עמוד"
+        },
+        {
+          "post_id": "10983",
+          "post_title": "החיפושים הכי חמים בגוגל ישראל (בזמן אמת)",
+          "post_type": "post",
+          "post_modified": "2026-09-09 13:20:44",
+          "internal_link_count": 3,
+          "external_link_count": 0,
+          "incoming_link_count": 0,
+          "seo_score": 29,
+          "is_orphan": true,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=10983&action=edit",
+          "post_url": "/%d7%94%d7%97%d7%99%d7%a4%d7%95%d7%a9%d7%99%d7%9d-%d7%94%d7%9b%d7%99-%d7%a4%d7%95%d7%a4%d7%95%d7%9c%d7%a8%d7%99%d7%99%d7%9d-%d7%91%d7%92%d7%95%d7%92%d7%9c-%d7%94%d7%99%d7%95%d7%9d-%d7%91%d7%99%d7%a9/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "19398",
+          "post_title": "החשיבות של השקעה בפרסום גם בזמנים קשים",
+          "post_type": "post",
+          "post_modified": "2024-08-23 08:36:40",
+          "internal_link_count": 1,
+          "external_link_count": 2,
+          "incoming_link_count": 0,
+          "seo_score": 70,
+          "is_orphan": true,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=19398&action=edit",
+          "post_url": "/%d7%94%d7%a9%d7%a7%d7%a2%d7%94-%d7%91%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%92%d7%9d-%d7%91%d7%96%d7%9e%d7%a0%d7%99%d7%9d-%d7%a7%d7%a9%d7%99%d7%9d/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "19281",
+          "post_title": "החשיבות של משרד פרסום דיגיטלי",
+          "post_type": "post",
+          "post_modified": "2024-08-23 08:42:54",
+          "internal_link_count": 3,
+          "external_link_count": 2,
+          "incoming_link_count": 1,
+          "seo_score": 76,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=19281&action=edit",
+          "post_url": "/%d7%94%d7%97%d7%a9%d7%99%d7%91%d7%95%d7%aa-%d7%a9%d7%9c-%d7%9e%d7%a9%d7%a8%d7%93-%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "21776",
+          "post_title": "המדריך: אסטרטגיות שיווק דיגיטלי ל-2025 ואילך",
+          "post_type": "post",
+          "post_modified": "2026-07-09 11:43:25",
+          "internal_link_count": 9,
+          "external_link_count": 8,
+          "incoming_link_count": 4,
+          "seo_score": 90,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=21776&action=edit",
+          "post_url": "/%d7%90%d7%a1%d7%98%d7%a8%d7%98%d7%92%d7%99%d7%95%d7%aa-%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99-2025/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "20330",
+          "post_title": "הצהרת נגישות",
+          "post_type": "page",
+          "post_modified": "2026-02-09 14:46:19",
+          "internal_link_count": 0,
+          "external_link_count": 1,
+          "incoming_link_count": 0,
+          "seo_score": 14,
+          "is_orphan": true,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=20330&action=edit",
+          "post_url": "/accessibility-statement/",
+          "post_type_label": "עמוד"
+        },
+        {
+          "post_id": "173",
+          "post_title": "חבילות אחסון אתרי וורדפרס",
+          "post_type": "page",
+          "post_modified": "2024-08-19 08:14:03",
+          "internal_link_count": 2,
+          "external_link_count": 2,
+          "incoming_link_count": 5,
+          "seo_score": 67,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=173&action=edit",
+          "post_url": "/hosting-plans/",
+          "post_type_label": "עמוד"
+        },
+        {
+          "post_id": "20803",
+          "post_title": "חברה לשיווק דיגיטלי: בוסט לעסק שלך",
+          "post_type": "post",
+          "post_modified": "2025-04-07 10:12:01",
+          "internal_link_count": 10,
+          "external_link_count": 1,
+          "incoming_link_count": 2,
+          "seo_score": 78,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=20803&action=edit",
+          "post_url": "/%d7%97%d7%91%d7%a8%d7%94-%d7%9c%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "20029",
+          "post_title": "יועץ אינטרנט: המפתח להצלחה שלכם בעולם הדיגיטלי",
+          "post_type": "post",
+          "post_modified": "2024-08-24 09:40:55",
+          "internal_link_count": 3,
+          "external_link_count": 2,
+          "incoming_link_count": 7,
+          "seo_score": 77,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=20029&action=edit",
+          "post_url": "/%d7%99%d7%95%d7%a2%d7%a5-%d7%90%d7%99%d7%a0%d7%98%d7%a8%d7%a0%d7%98/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "20092",
+          "post_title": "יועץ דיגיטל הוא השותף שלך להצלחה",
+          "post_type": "post",
+          "post_modified": "2024-08-24 09:35:56",
+          "internal_link_count": 6,
+          "external_link_count": 2,
+          "incoming_link_count": 5,
+          "seo_score": 78,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=20092&action=edit",
+          "post_url": "/%d7%99%d7%95%d7%a2%d7%a5-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c-%d7%94%d7%95%d7%90-%d7%94%d7%a9%d7%95%d7%aa%d7%a3-%d7%a9%d7%9c%d7%9a-%d7%9c%d7%94%d7%a6%d7%9c%d7%97%d7%94/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "10373",
+          "post_title": "כוחם של ביקורות והמלצות ⭐️⭐️⭐️⭐️⭐️",
+          "post_type": "post",
+          "post_modified": "2023-12-27 08:15:29",
+          "internal_link_count": 0,
+          "external_link_count": 10,
+          "incoming_link_count": 1,
+          "seo_score": 71,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=10373&action=edit",
+          "post_url": "/%d7%9b%d7%95%d7%97%d7%9d-%d7%a9%d7%9c-%d7%91%d7%99%d7%a7%d7%95%d7%a8%d7%95%d7%aa-%d7%95%d7%94%d7%9e%d7%9c%d7%a6%d7%95%d7%aa/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "21716",
+          "post_title": "כך בוחרים חברה לשיווק דיגיטלי שתביא לכם תוצאות",
+          "post_type": "post",
+          "post_modified": "2026-05-13 11:43:10",
+          "internal_link_count": 8,
+          "external_link_count": 7,
+          "incoming_link_count": 4,
+          "seo_score": 92,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=21716&action=edit",
+          "post_url": "/%d7%9b%d7%9a-%d7%91%d7%95%d7%97%d7%a8%d7%99%d7%9d-%d7%97%d7%91%d7%a8%d7%94-%d7%9c%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "19792",
+          "post_title": "כמה עולה לבנות אתר אינטרנט ותחזוקה? | מחירון 2026",
+          "post_type": "post",
+          "post_modified": "2026-08-30 11:34:22",
+          "internal_link_count": 6,
+          "external_link_count": 4,
+          "incoming_link_count": 4,
+          "seo_score": 85,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=19792&action=edit",
+          "post_url": "/%d7%9b%d7%9e%d7%94-%d7%a2%d7%95%d7%9c%d7%94-%d7%9c%d7%91%d7%a0%d7%95%d7%aa-%d7%90%d7%aa%d7%a8-%d7%90%d7%99%d7%a0%d7%98%d7%a8%d7%a0%d7%98-%d7%91%d7%95%d7%95%d7%a8%d7%93%d7%a4%d7%a8%d7%a1/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "21189",
+          "post_title": "כמה עולה לבנות אתר? מחירון בניית אתרים עם מחשבון",
+          "post_type": "post",
+          "post_modified": "2025-09-17 14:07:57",
+          "internal_link_count": 8,
+          "external_link_count": 2,
+          "incoming_link_count": 9,
+          "seo_score": 84,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=21189&action=edit",
+          "post_url": "/%d7%9b%d7%9e%d7%94-%d7%a2%d7%95%d7%9c%d7%94-%d7%9c%d7%91%d7%a0%d7%95%d7%aa-%d7%90%d7%aa%d7%a8-%d7%9e%d7%97%d7%99%d7%a8%d7%95%d7%9f-%d7%9e%d7%97%d7%a9%d7%91%d7%95%d7%9f/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "21161",
+          "post_title": "כמה עולה לקדם אתר? מחיר קידום אתרים [מחירון + מחשבון]",
+          "post_type": "post",
+          "post_modified": "2026-07-09 11:43:24",
+          "internal_link_count": 5,
+          "external_link_count": 2,
+          "incoming_link_count": 4,
+          "seo_score": 73,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=21161&action=edit",
+          "post_url": "/%d7%9e%d7%97%d7%99%d7%a8-%d7%a7%d7%99%d7%93%d7%95%d7%9d-%d7%90%d7%aa%d7%a8%d7%99%d7%9d/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "21638",
+          "post_title": "כמה עולה פרסום בגוגל? תקציב יומי ממוצע לקמפיין ממומן",
+          "post_type": "post",
+          "post_modified": "2026-07-09 11:55:30",
+          "internal_link_count": 5,
+          "external_link_count": 7,
+          "incoming_link_count": 5,
+          "seo_score": 87,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=21638&action=edit",
+          "post_url": "/%d7%9b%d7%9e%d7%94-%d7%a2%d7%95%d7%9c%d7%94-%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%91%d7%92%d7%95%d7%92%d7%9c/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "19781",
+          "post_title": "כמה עולים שירותי אחסון ותחזוקת אתרים?",
+          "post_type": "post",
+          "post_modified": "2025-02-16 09:27:32",
+          "internal_link_count": 6,
+          "external_link_count": 5,
+          "incoming_link_count": 6,
+          "seo_score": 82,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=19781&action=edit",
+          "post_url": "/%d7%9b%d7%9e%d7%94-%d7%a2%d7%95%d7%9c%d7%99%d7%9d-%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99-%d7%90%d7%97%d7%a1%d7%95%d7%9f-%d7%95%d7%aa%d7%97%d7%96%d7%95%d7%a7%d7%aa-%d7%90%d7%aa%d7%a8%d7%99%d7%9d/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "2383",
+          "post_title": "מדיניות פרטיות – adwrks.co.il",
+          "post_type": "page",
+          "post_modified": "2026-02-11 09:04:03",
+          "internal_link_count": 0,
+          "external_link_count": 0,
+          "incoming_link_count": 0,
+          "seo_score": 14,
+          "is_orphan": true,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=2383&action=edit",
+          "post_url": "/privacy-policy/",
+          "post_type_label": "עמוד"
+        },
+        {
+          "post_id": "17923",
+          "post_title": "מדריך גוגל שופינג 2025: כלי שכל אתר מכירות חייב | Google Shopping",
+          "post_type": "post",
+          "post_modified": "2026-07-09 11:59:21",
+          "internal_link_count": 1,
+          "external_link_count": 7,
+          "incoming_link_count": 1,
+          "seo_score": 82,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=17923&action=edit",
+          "post_url": "/google-shopping-guide/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "19121",
+          "post_title": "מדריך: קידום העסק בגוגל",
+          "post_type": "post",
+          "post_modified": "2024-08-23 08:40:09",
+          "internal_link_count": 3,
+          "external_link_count": 2,
+          "incoming_link_count": 2,
+          "seo_score": 60,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=19121&action=edit",
+          "post_url": "/%d7%9e%d7%93%d7%a8%d7%99%d7%9a-%d7%a7%d7%99%d7%93%d7%95%d7%9d-%d7%94%d7%a2%d7%a1%d7%a7-%d7%91%d7%92%d7%95%d7%92%d7%9c/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "20529",
+          "post_title": "מה ההבדל בין SEM ל-PPC? יש הבדל 1 \"מרכזי\"",
+          "post_type": "post",
+          "post_modified": "2024-08-23 09:44:13",
+          "internal_link_count": 2,
+          "external_link_count": 1,
+          "incoming_link_count": 0,
+          "seo_score": 77,
+          "is_orphan": true,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=20529&action=edit",
+          "post_url": "/%d7%9e%d7%94-%d7%94%d7%94%d7%91%d7%93%d7%9c-%d7%91%d7%99%d7%9f-sem-%d7%9c-ppc/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "20081",
+          "post_title": "מה זה יועץ שיווק באינטרנט?",
+          "post_type": "post",
+          "post_modified": "2024-08-25 10:08:25",
+          "internal_link_count": 7,
+          "external_link_count": 2,
+          "incoming_link_count": 1,
+          "seo_score": 76,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=20081&action=edit",
+          "post_url": "/%d7%99%d7%95%d7%a2%d7%a5-%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%91%d7%90%d7%99%d7%a0%d7%98%d7%a8%d7%a0%d7%98/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "21339",
+          "post_title": "מהו AEO? האם יחליף את SEO? [המפתח לדירוג #1 ב-Google]",
+          "post_type": "post",
+          "post_modified": "2026-07-09 11:55:34",
+          "internal_link_count": 3,
+          "external_link_count": 1,
+          "incoming_link_count": 0,
+          "seo_score": 79,
+          "is_orphan": true,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=21339&action=edit",
+          "post_url": "/%d7%9e%d7%94%d7%95-aeo-%d7%94%d7%90%d7%9d-%d7%99%d7%97%d7%9c%d7%99%d7%a3-%d7%90%d7%aa-seo/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "21051",
+          "post_title": "מהו שיווק באינטרנט / שיווק דיגיטלי ? כל מה שצריך לדעת.",
+          "post_type": "post",
+          "post_modified": "2024-08-27 14:04:06",
+          "internal_link_count": 6,
+          "external_link_count": 2,
+          "incoming_link_count": 2,
+          "seo_score": 83,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=21051&action=edit",
+          "post_url": "/%d7%9e%d7%94%d7%95-%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%91%d7%90%d7%99%d7%a0%d7%98%d7%a8%d7%a0%d7%98/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "19143",
+          "post_title": "מהי סוכנות דיגיטלית ?",
+          "post_type": "post",
+          "post_modified": "2024-08-23 08:41:27",
+          "internal_link_count": 3,
+          "external_link_count": 2,
+          "incoming_link_count": 12,
+          "seo_score": 73,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=19143&action=edit",
+          "post_url": "/%d7%9e%d7%94%d7%99-%d7%a1%d7%95%d7%9b%d7%a0%d7%95%d7%aa-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99%d7%aa/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "22806",
+          "post_title": "מחירון שיווק דיגיטלי - מחשבון עלויות אינטראקטיבי",
+          "post_type": "page",
+          "post_modified": "2026-07-24 13:02:11",
+          "internal_link_count": 13,
+          "external_link_count": 1,
+          "incoming_link_count": 0,
+          "seo_score": 82,
+          "is_orphan": true,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=22806&action=edit",
+          "post_url": "/%d7%9e%d7%97%d7%99%d7%a8%d7%95%d7%9f-%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99/",
+          "post_type_label": "עמוד"
+        },
+        {
+          "post_id": "22727",
+          "post_title": "מחשבון ROI מעודכן 2026: איך לחשב החזר השקעה של קמפיין ממומן?",
+          "post_type": "post",
+          "post_modified": "2026-07-09 11:43:18",
+          "internal_link_count": 15,
+          "external_link_count": 3,
+          "incoming_link_count": 1,
+          "seo_score": 86,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=22727&action=edit",
+          "post_url": "/%d7%9e%d7%97%d7%a9%d7%91%d7%95%d7%9f-roi-%d7%9e%d7%a2%d7%95%d7%93%d7%9b%d7%9f-2026/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "92",
+          "post_title": "מי אנחנו",
+          "post_type": "page",
+          "post_modified": "2026-05-13 09:43:08",
+          "internal_link_count": 9,
+          "external_link_count": 1,
+          "incoming_link_count": 0,
+          "seo_score": 80,
+          "is_orphan": true,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=92&action=edit",
+          "post_url": "/about-us/",
+          "post_type_label": "עמוד"
+        },
+        {
+          "post_id": "18480",
+          "post_title": "מקסם את הנוכחות באינטרנט עם סוכנות שיווק דיגיטלית​",
+          "post_type": "post",
+          "post_modified": "2024-08-23 08:51:01",
+          "internal_link_count": 4,
+          "external_link_count": 2,
+          "incoming_link_count": 8,
+          "seo_score": 70,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=18480&action=edit",
+          "post_url": "/%d7%a1%d7%95%d7%9b%d7%a0%d7%95%d7%aa-%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99%d7%aa/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "10369",
+          "post_title": "משרד פרסום דיגיטלי - שיווק עסקים באינטרנט",
+          "post_type": "post",
+          "post_modified": "2025-02-16 09:29:57",
+          "internal_link_count": 1,
+          "external_link_count": 1,
+          "incoming_link_count": 12,
+          "seo_score": 66,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=10369&action=edit",
+          "post_url": "/%d7%9e%d7%a9%d7%a8%d7%93-%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "20051",
+          "post_title": "ניהול עסק בעידן הדיגיטלי: אתגרים והזדמנויות",
+          "post_type": "post",
+          "post_modified": "2024-08-24 09:39:09",
+          "internal_link_count": 1,
+          "external_link_count": 2,
+          "incoming_link_count": 7,
+          "seo_score": 83,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=20051&action=edit",
+          "post_url": "/%d7%a0%d7%99%d7%94%d7%95%d7%9c-%d7%a2%d7%a1%d7%a7-%d7%91%d7%a2%d7%99%d7%93%d7%9f-%d7%94%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "22151",
+          "post_title": "ניהול רשתות חברתיות",
+          "post_type": "page",
+          "post_modified": "2026-07-10 09:58:21",
+          "internal_link_count": 7,
+          "external_link_count": 6,
+          "incoming_link_count": 3,
+          "seo_score": 80,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=22151&action=edit",
+          "post_url": "/social-media-management/",
+          "post_type_label": "עמוד"
+        },
+        {
+          "post_id": "20506",
+          "post_title": "סוכנות לשיווק דיגיטלי: כל הפתרונות הדיגיטליים במקום אחד",
+          "post_type": "post",
+          "post_modified": "2024-08-25 10:04:35",
+          "internal_link_count": 8,
+          "external_link_count": 1,
+          "incoming_link_count": 6,
+          "seo_score": 72,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=20506&action=edit",
+          "post_url": "/%d7%a1%d7%95%d7%9b%d7%a0%d7%95%d7%aa-%d7%9c%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "21392",
+          "post_title": "סוכנות פרסום ⭐️ שיווק דיגיטלי מובילה בכרמיאל",
+          "post_type": "post",
+          "post_modified": "2025-04-07 10:11:29",
+          "internal_link_count": 17,
+          "external_link_count": 8,
+          "incoming_link_count": 1,
+          "seo_score": 89,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=21392&action=edit",
+          "post_url": "/%d7%a1%d7%95%d7%9b%d7%a0%d7%95%d7%aa-%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%91%d7%9b%d7%a8%d7%9e%d7%99%d7%90%d7%9c/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "7",
+          "post_title": "סוכנות שיווק דיגיטלי",
+          "post_type": "page",
+          "post_modified": "2026-07-23 13:14:27",
+          "internal_link_count": 13,
+          "external_link_count": 6,
+          "incoming_link_count": 63,
+          "seo_score": 91,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=7&action=edit",
+          "post_url": "/",
+          "post_type_label": "עמוד"
+        },
+        {
+          "post_id": "20403",
+          "post_title": "סוכנות שיווק דיגיטלי שתוביל את העסק שלכם קדימה",
+          "post_type": "post",
+          "post_modified": "2024-08-25 10:06:08",
+          "internal_link_count": 10,
+          "external_link_count": 1,
+          "incoming_link_count": 15,
+          "seo_score": 73,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=20403&action=edit",
+          "post_url": "/%d7%a1%d7%95%d7%9b%d7%a0%d7%95%d7%aa-%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "9103",
+          "post_title": "עמוד תודה",
+          "post_type": "page",
+          "post_modified": "2022-01-10 06:59:21",
+          "internal_link_count": 0,
+          "external_link_count": 0,
+          "incoming_link_count": 0,
+          "seo_score": 0,
+          "is_orphan": true,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=9103&action=edit",
+          "post_url": "/thank-you-page/",
+          "post_type_label": "עמוד"
+        },
+        {
+          "post_id": "21817",
+          "post_title": "עתיד ה-SEO: כך ייראה הקידום האורגני ב-2025 ומעבר",
+          "post_type": "post",
+          "post_modified": "2026-05-13 11:43:07",
+          "internal_link_count": 4,
+          "external_link_count": 7,
+          "incoming_link_count": 3,
+          "seo_score": 90,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=21817&action=edit",
+          "post_url": "/%d7%a2%d7%aa%d7%99%d7%93-%d7%94-seo-%d7%9b%d7%9a-%d7%99%d7%99%d7%a8%d7%90%d7%94-%d7%94%d7%a7%d7%99%d7%93%d7%95%d7%9d-%d7%94%d7%90%d7%95%d7%a8%d7%92%d7%a0%d7%99-%d7%91-2025-%d7%95%d7%9e%d7%a2%d7%91/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "21317",
+          "post_title": "פלטפורמה בניית אתר: איך לבחור מתוך 6 ?",
+          "post_type": "post",
+          "post_modified": "2025-09-17 14:07:27",
+          "internal_link_count": 2,
+          "external_link_count": 6,
+          "incoming_link_count": 2,
+          "seo_score": 86,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=21317&action=edit",
+          "post_url": "/%d7%a4%d7%9c%d7%98%d7%a4%d7%95%d7%a8%d7%9e%d7%94-%d7%91%d7%a0%d7%99%d7%99%d7%aa-%d7%90%d7%aa%d7%a8/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "14288",
+          "post_title": "פרופיל העסק בגוגל [גוגל מפות] - קידום בגוגל חינם",
+          "post_type": "post",
+          "post_modified": "2026-05-13 11:43:17",
+          "internal_link_count": 3,
+          "external_link_count": 8,
+          "incoming_link_count": 9,
+          "seo_score": 88,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=14288&action=edit",
+          "post_url": "/google-business-profile/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "20919",
+          "post_title": "פרסום בגוגל אדס: 10 שלבים פשוטים להתחלה",
+          "post_type": "post",
+          "post_modified": "2025-09-17 14:09:20",
+          "internal_link_count": 3,
+          "external_link_count": 1,
+          "incoming_link_count": 7,
+          "seo_score": 80,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=20919&action=edit",
+          "post_url": "/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%91%d7%92%d7%95%d7%92%d7%9c-%d7%90%d7%93%d7%a1-10-%d7%a9%d7%9c%d7%91%d7%99%d7%9d-%d7%a4%d7%a9%d7%95%d7%98%d7%99%d7%9d/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "20155",
+          "post_title": "פרסום בגוגל מפות - פרופיל העסק בגוגל [קידום חינם בגוגל]",
+          "post_type": "post",
+          "post_modified": "2026-05-13 11:43:15",
+          "internal_link_count": 3,
+          "external_link_count": 8,
+          "incoming_link_count": 8,
+          "seo_score": 90,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=20155&action=edit",
+          "post_url": "/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%91%d7%92%d7%95%d7%92%d7%9c-%d7%9e%d7%a4%d7%95%d7%aa/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "20897",
+          "post_title": "פרסום בגוגל: 7 אסטרטגיות שיגרמו לעסק שלך לצמוח",
+          "post_type": "post",
+          "post_modified": "2025-09-17 14:09:59",
+          "internal_link_count": 4,
+          "external_link_count": 1,
+          "incoming_link_count": 9,
+          "seo_score": 76,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=20897&action=edit",
+          "post_url": "/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%91%d7%92%d7%95%d7%92%d7%9c-7-%d7%90%d7%a1%d7%98%d7%a8%d7%98%d7%92%d7%99%d7%95%d7%aa/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "20350",
+          "post_title": "פרסום דיגיטלי בשפה הרוסית - שיווק למגזר הרוסי",
+          "post_type": "post",
+          "post_modified": "2026-02-09 15:00:13",
+          "internal_link_count": 6,
+          "external_link_count": 2,
+          "incoming_link_count": 5,
+          "seo_score": 70,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=20350&action=edit",
+          "post_url": "/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99-%d7%91%d7%a9%d7%a4%d7%94-%d7%94%d7%a8%d7%95%d7%a1%d7%99%d7%aa/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "19070",
+          "post_title": "פרסום לעסקים: חשיפה מוחלטת בעולם הדיגיטלי",
+          "post_type": "post",
+          "post_modified": "2024-08-23 08:47:23",
+          "internal_link_count": 4,
+          "external_link_count": 2,
+          "incoming_link_count": 8,
+          "seo_score": 73,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=19070&action=edit",
+          "post_url": "/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%9c%d7%a2%d7%a1%d7%a7%d7%99%d7%9d/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "22011",
+          "post_title": "פרסום ממומן בגוגל (Google Ads) לעסקים",
+          "post_type": "page",
+          "post_modified": "2026-07-10 09:55:38",
+          "internal_link_count": 8,
+          "external_link_count": 7,
+          "incoming_link_count": 22,
+          "seo_score": 81,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=22011&action=edit",
+          "post_url": "/google-ads/",
+          "post_type_label": "עמוד"
+        },
+        {
+          "post_id": "21249",
+          "post_title": "פרסום ממומן בפייסבוק: איך להגיע ללקוחות הנכונים בתקציב נכון",
+          "post_type": "post",
+          "post_modified": "2026-07-09 11:55:32",
+          "internal_link_count": 5,
+          "external_link_count": 1,
+          "incoming_link_count": 6,
+          "seo_score": 81,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=21249&action=edit",
+          "post_url": "/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%9e%d7%9e%d7%95%d7%9e%d7%9f-%d7%91%d7%a4%d7%99%d7%99%d7%a1%d7%91%d7%95%d7%a7/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "20969",
+          "post_title": "פרסום עסק חינם: 7 שיטות פשוטות לפרסום עצמי אפקטיבי",
+          "post_type": "post",
+          "post_modified": "2024-08-27 06:02:34",
+          "internal_link_count": 5,
+          "external_link_count": 4,
+          "incoming_link_count": 0,
+          "seo_score": 78,
+          "is_orphan": true,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=20969&action=edit",
+          "post_url": "/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%a2%d7%a1%d7%a7-%d7%97%d7%99%d7%a0%d7%9d/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "7969",
+          "post_title": "צור קשר עם Adwrks 365 – סוכנות שיווק דיגיטלי",
+          "post_type": "page",
+          "post_modified": "2026-02-09 14:46:49",
+          "internal_link_count": 0,
+          "external_link_count": 5,
+          "incoming_link_count": 24,
+          "seo_score": 63,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=7969&action=edit",
+          "post_url": "/contact-us/",
+          "post_type_label": "עמוד"
+        },
+        {
+          "post_id": "19100",
+          "post_title": "צמיחה עסקית באמצעות קידום באינטרנט",
+          "post_type": "post",
+          "post_modified": "2024-08-23 08:52:59",
+          "internal_link_count": 3,
+          "external_link_count": 2,
+          "incoming_link_count": 4,
+          "seo_score": 70,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=19100&action=edit",
+          "post_url": "/%d7%a6%d7%9e%d7%99%d7%97%d7%94-%d7%a2%d7%a1%d7%a7%d7%99%d7%aa-%d7%91%d7%90%d7%9e%d7%a6%d7%a2%d7%95%d7%aa-%d7%a7%d7%99%d7%93%d7%95%d7%9d-%d7%91%d7%90%d7%99%d7%a0%d7%98%d7%a8%d7%a0%d7%98/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "22078",
+          "post_title": "קידום אתרים אורגני (SEO)",
+          "post_type": "page",
+          "post_modified": "2026-07-10 09:58:57",
+          "internal_link_count": 8,
+          "external_link_count": 7,
+          "incoming_link_count": 6,
+          "seo_score": 75,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=22078&action=edit",
+          "post_url": "/seo/",
+          "post_type_label": "עמוד"
+        },
+        {
+          "post_id": "19428",
+          "post_title": "קידום אתרים בגוגל: למה חשוב להשקיע ?",
+          "post_type": "post",
+          "post_modified": "2024-08-23 09:18:52",
+          "internal_link_count": 4,
+          "external_link_count": 2,
+          "incoming_link_count": 18,
+          "seo_score": 76,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=19428&action=edit",
+          "post_url": "/%d7%a7%d7%99%d7%93%d7%95%d7%9d-%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%91%d7%92%d7%95%d7%92%d7%9c/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "21115",
+          "post_title": "קידום אתרים: מדריך מקיף למתחילים [6 שלבים]",
+          "post_type": "post",
+          "post_modified": "2025-09-17 14:08:30",
+          "internal_link_count": 8,
+          "external_link_count": 4,
+          "incoming_link_count": 2,
+          "seo_score": 82,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=21115&action=edit",
+          "post_url": "/%d7%a7%d7%99%d7%93%d7%95%d7%9d-%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%9e%d7%93%d7%a8%d7%99%d7%9a-%d7%9c%d7%9e%d7%aa%d7%97%d7%99%d7%9c%d7%99%d7%9d/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "21860",
+          "post_title": "קידום ממומן VS קידום אורגני - השוואה",
+          "post_type": "post",
+          "post_modified": "2026-07-09 11:43:22",
+          "internal_link_count": 0,
+          "external_link_count": 0,
+          "incoming_link_count": 9,
+          "seo_score": 71,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=21860&action=edit",
+          "post_url": "/%d7%a7%d7%99%d7%93%d7%95%d7%9d-%d7%9e%d7%9e%d7%95%d7%9e%d7%9f-%d7%9e%d7%95%d7%9c-%d7%a7%d7%99%d7%93%d7%95%d7%9d-%d7%90%d7%95%d7%a8%d7%92%d7%a0%d7%99/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "21272",
+          "post_title": "רימרקטינג – מה זה, איך עושים, ולמה הוא כל כך חשוב לעסק שלך?",
+          "post_type": "post",
+          "post_modified": "2026-07-09 11:59:18",
+          "internal_link_count": 7,
+          "external_link_count": 1,
+          "incoming_link_count": 1,
+          "seo_score": 85,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=21272&action=edit",
+          "post_url": "/%d7%a8%d7%99%d7%9e%d7%a8%d7%a7%d7%98%d7%99%d7%a0%d7%92-%d7%9e%d7%94-%d7%96%d7%94-%d7%90%d7%99%d7%9a-%d7%95%d7%9c%d7%9e%d7%94/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "21578",
+          "post_title": "שיווק בפייסבוק ואינסטגרם לעסקים ב-2025",
+          "post_type": "post",
+          "post_modified": "2026-05-13 11:43:13",
+          "internal_link_count": 0,
+          "external_link_count": 7,
+          "incoming_link_count": 3,
+          "seo_score": 80,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=21578&action=edit",
+          "post_url": "/%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%91%d7%a4%d7%99%d7%99%d7%a1%d7%91%d7%95%d7%a7-%d7%95%d7%90%d7%99%d7%a0%d7%a1%d7%98%d7%92%d7%a8%d7%9d/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "21068",
+          "post_title": "שיווק דיגיטלי לעסקים: 4 אסטרטגיות מרכזיות",
+          "post_type": "post",
+          "post_modified": "2025-04-07 10:10:34",
+          "internal_link_count": 4,
+          "external_link_count": 1,
+          "incoming_link_count": 6,
+          "seo_score": 79,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=21068&action=edit",
+          "post_url": "/%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99-%d7%9c%d7%a2%d7%a1%d7%a7%d7%99%d7%9d/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "20388",
+          "post_title": "שיווק מקצועי לקהל דובר רוסית",
+          "post_type": "post",
+          "post_modified": "2024-08-23 09:32:34",
+          "internal_link_count": 7,
+          "external_link_count": 2,
+          "incoming_link_count": 2,
+          "seo_score": 67,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=20388&action=edit",
+          "post_url": "/%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%9e%d7%a7%d7%a6%d7%95%d7%a2%d7%99-%d7%9c%d7%a7%d7%94%d7%9c-%d7%93%d7%95%d7%91%d7%a8-%d7%a8%d7%95%d7%a1%d7%99%d7%aa/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "22310",
+          "post_title": "שיפור מהירות אתר ביצועים וציון PageSpeed ב-2026",
+          "post_type": "post",
+          "post_modified": "2026-07-09 11:43:20",
+          "internal_link_count": 8,
+          "external_link_count": 2,
+          "incoming_link_count": 0,
+          "seo_score": 85,
+          "is_orphan": true,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=22310&action=edit",
+          "post_url": "/%d7%a9%d7%99%d7%a4%d7%95%d7%a8-%d7%9e%d7%94%d7%99%d7%a8%d7%95%d7%aa-%d7%90%d7%aa%d7%a8-2026-pagespeed/",
+          "post_type_label": "פוסט"
+        },
+        {
+          "post_id": "22065",
+          "post_title": "שירותי שיווק דיגיטלי לעסקים",
+          "post_type": "page",
+          "post_modified": "2026-05-13 09:43:09",
+          "internal_link_count": 6,
+          "external_link_count": 6,
+          "incoming_link_count": 2,
+          "seo_score": 81,
+          "is_orphan": false,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=22065&action=edit",
+          "post_url": "/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99-%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99/",
+          "post_type_label": "עמוד"
+        },
+        {
+          "post_id": "2385",
+          "post_title": "תקנון ותנאי שימוש מלאים – adwrks.co.il",
+          "post_type": "page",
+          "post_modified": "2026-02-11 09:03:14",
+          "internal_link_count": 0,
+          "external_link_count": 0,
+          "incoming_link_count": 0,
+          "seo_score": 7,
+          "is_orphan": true,
+          "edit_url": "https://adwrks.co.il/wp-admin/post.php?post=2385&action=edit",
+          "post_url": "/terms-of-use/",
+          "post_type_label": "עמוד"
+        }
+      ],
+      "total": 70,
+      "pages": 1
+    }
+  },
+  "customFields": {
+    "uniqueFieldKeys": 0,
+    "fields": {},
+    "acfDetected": false
+  }
+}

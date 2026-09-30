@@ -1,0 +1,562 @@
+[
+  {
+    "id": 22806,
+    "type": "page",
+    "slug": "%d7%9e%d7%97%d7%99%d7%a8%d7%95%d7%9f-%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99",
+    "link": "https://adwrks.co.il/%d7%9e%d7%97%d7%99%d7%a8%d7%95%d7%9f-%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99/",
+    "title": "מחירון שיווק דיגיטלי &#8211; מחשבון עלויות אינטראקטיבי",
+    "rankMath": {}
+  },
+  {
+    "id": 22113,
+    "type": "page",
+    "slug": "website-building",
+    "link": "https://adwrks.co.il/website-building/",
+    "title": "בניית אתרים לעסקים",
+    "rankMath": {}
+  },
+  {
+    "id": 22078,
+    "type": "page",
+    "slug": "seo",
+    "link": "https://adwrks.co.il/seo/",
+    "title": "קידום אתרים אורגני (SEO)",
+    "rankMath": {}
+  },
+  {
+    "id": 22011,
+    "type": "page",
+    "slug": "google-ads",
+    "link": "https://adwrks.co.il/google-ads/",
+    "title": "פרסום ממומן בגוגל (Google Ads) לעסקים",
+    "rankMath": {}
+  },
+  {
+    "id": 22151,
+    "type": "page",
+    "slug": "social-media-management",
+    "link": "https://adwrks.co.il/social-media-management/",
+    "title": "ניהול רשתות חברתיות",
+    "rankMath": {}
+  },
+  {
+    "id": 22694,
+    "type": "page",
+    "slug": "check-fit",
+    "link": "https://adwrks.co.il/check-fit/",
+    "title": "בדיקת התאמה",
+    "rankMath": {}
+  },
+  {
+    "id": 7969,
+    "type": "page",
+    "slug": "contact-us",
+    "link": "https://adwrks.co.il/contact-us/",
+    "title": "צור קשר עם Adwrks 365 – סוכנות שיווק דיגיטלי",
+    "rankMath": {}
+  },
+  {
+    "id": 92,
+    "type": "page",
+    "slug": "about-us",
+    "link": "https://adwrks.co.il/about-us/",
+    "title": "מי אנחנו",
+    "rankMath": {}
+  },
+  {
+    "id": 22065,
+    "type": "page",
+    "slug": "%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99-%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99",
+    "link": "https://adwrks.co.il/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99-%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99/",
+    "title": "שירותי שיווק דיגיטלי לעסקים",
+    "rankMath": {}
+  },
+  {
+    "id": 7,
+    "type": "page",
+    "slug": "home",
+    "link": "https://adwrks.co.il/",
+    "title": "סוכנות שיווק דיגיטלי",
+    "rankMath": {}
+  },
+  {
+    "id": 20464,
+    "type": "page",
+    "slug": "blog",
+    "link": "https://adwrks.co.il/blog/",
+    "title": "בלוג",
+    "rankMath": {}
+  },
+  {
+    "id": 2385,
+    "type": "page",
+    "slug": "terms-of-use",
+    "link": "https://adwrks.co.il/terms-of-use/",
+    "title": "תקנון ותנאי שימוש מלאים – adwrks.co.il",
+    "rankMath": {}
+  },
+  {
+    "id": 2383,
+    "type": "page",
+    "slug": "privacy-policy",
+    "link": "https://adwrks.co.il/privacy-policy/",
+    "title": "מדיניות פרטיות – adwrks.co.il",
+    "rankMath": {}
+  },
+  {
+    "id": 20330,
+    "type": "page",
+    "slug": "accessibility-statement",
+    "link": "https://adwrks.co.il/accessibility-statement/",
+    "title": "הצהרת נגישות",
+    "rankMath": {}
+  },
+  {
+    "id": 9103,
+    "type": "page",
+    "slug": "thank-you-page",
+    "link": "https://adwrks.co.il/thank-you-page/",
+    "title": "עמוד תודה",
+    "rankMath": {}
+  },
+  {
+    "id": 173,
+    "type": "page",
+    "slug": "hosting-plans",
+    "link": "https://adwrks.co.il/hosting-plans/",
+    "title": "חבילות אחסון אתרי וורדפרס",
+    "rankMath": {}
+  },
+  {
+    "id": 21496,
+    "type": "post",
+    "slug": "%d7%91%d7%93%d7%99%d7%a7%d7%aa-%d7%9e%d7%94%d7%99%d7%a8%d7%95%d7%aa-%d7%90%d7%aa%d7%a8",
+    "link": "https://adwrks.co.il/%d7%91%d7%93%d7%99%d7%a7%d7%aa-%d7%9e%d7%94%d7%99%d7%a8%d7%95%d7%aa-%d7%90%d7%aa%d7%a8/",
+    "title": "בדיקת מהירות אתר | בדקו את האתר שלכם חינם",
+    "rankMath": {}
+  },
+  {
+    "id": 22727,
+    "type": "post",
+    "slug": "%d7%9e%d7%97%d7%a9%d7%91%d7%95%d7%9f-roi-%d7%9e%d7%a2%d7%95%d7%93%d7%9b%d7%9f-2026",
+    "link": "https://adwrks.co.il/%d7%9e%d7%97%d7%a9%d7%91%d7%95%d7%9f-roi-%d7%9e%d7%a2%d7%95%d7%93%d7%9b%d7%9f-2026/",
+    "title": "מחשבון ROI מעודכן 2026: איך לחשב החזר השקעה של קמפיין ממומן?",
+    "rankMath": {}
+  },
+  {
+    "id": 22368,
+    "type": "post",
+    "slug": "seo-2026-ai-answers",
+    "link": "https://adwrks.co.il/seo-2026-ai-answers/",
+    "title": "SEO 2026: איך להופיע ב- AI overview(בסקירות AI של גוגל) ?",
+    "rankMath": {}
+  },
+  {
+    "id": 22310,
+    "type": "post",
+    "slug": "%d7%a9%d7%99%d7%a4%d7%95%d7%a8-%d7%9e%d7%94%d7%99%d7%a8%d7%95%d7%aa-%d7%90%d7%aa%d7%a8-2026-pagespeed",
+    "link": "https://adwrks.co.il/%d7%a9%d7%99%d7%a4%d7%95%d7%a8-%d7%9e%d7%94%d7%99%d7%a8%d7%95%d7%aa-%d7%90%d7%aa%d7%a8-2026-pagespeed/",
+    "title": "שיפור מהירות אתר ביצועים וציון PageSpeed ב-2026",
+    "rankMath": {}
+  },
+  {
+    "id": 20230,
+    "type": "post",
+    "slug": "%d7%91%d7%99%d7%a7%d7%95%d7%a8%d7%95%d7%aa-%d7%92%d7%95%d7%92%d7%9c-%d7%9c%d7%90-%d7%a2%d7%95%d7%91%d7%93-%e2%9d%8c-%d7%96%d7%95-%d7%94%d7%a1%d7%99%d7%91%d7%94-%d7%9c%d7%9e%d7%94",
+    "link": "https://adwrks.co.il/%d7%91%d7%99%d7%a7%d7%95%d7%a8%d7%95%d7%aa-%d7%92%d7%95%d7%92%d7%9c-%d7%9c%d7%90-%d7%a2%d7%95%d7%91%d7%93-%e2%9d%8c-%d7%96%d7%95-%d7%94%d7%a1%d7%99%d7%91%d7%94-%d7%9c%d7%9e%d7%94/",
+    "title": "ביקורות גוגל: מה באמת השתנה, ומה עסקים צריכים לדעת היום",
+    "rankMath": {}
+  },
+  {
+    "id": 21860,
+    "type": "post",
+    "slug": "%d7%a7%d7%99%d7%93%d7%95%d7%9d-%d7%9e%d7%9e%d7%95%d7%9e%d7%9f-%d7%9e%d7%95%d7%9c-%d7%a7%d7%99%d7%93%d7%95%d7%9d-%d7%90%d7%95%d7%a8%d7%92%d7%a0%d7%99",
+    "link": "https://adwrks.co.il/%d7%a7%d7%99%d7%93%d7%95%d7%9d-%d7%9e%d7%9e%d7%95%d7%9e%d7%9f-%d7%9e%d7%95%d7%9c-%d7%a7%d7%99%d7%93%d7%95%d7%9d-%d7%90%d7%95%d7%a8%d7%92%d7%a0%d7%99/",
+    "title": "קידום ממומן VS קידום אורגני &#8211; השוואה",
+    "rankMath": {}
+  },
+  {
+    "id": 21161,
+    "type": "post",
+    "slug": "%d7%9e%d7%97%d7%99%d7%a8-%d7%a7%d7%99%d7%93%d7%95%d7%9d-%d7%90%d7%aa%d7%a8%d7%99%d7%9d",
+    "link": "https://adwrks.co.il/%d7%9e%d7%97%d7%99%d7%a8-%d7%a7%d7%99%d7%93%d7%95%d7%9d-%d7%90%d7%aa%d7%a8%d7%99%d7%9d/",
+    "title": "כמה עולה לקדם אתר? מחיר קידום אתרים [מחירון + מחשבון]",
+    "rankMath": {}
+  },
+  {
+    "id": 21817,
+    "type": "post",
+    "slug": "%d7%a2%d7%aa%d7%99%d7%93-%d7%94-seo-%d7%9b%d7%9a-%d7%99%d7%99%d7%a8%d7%90%d7%94-%d7%94%d7%a7%d7%99%d7%93%d7%95%d7%9d-%d7%94%d7%90%d7%95%d7%a8%d7%92%d7%a0%d7%99-%d7%91-2025-%d7%95%d7%9e%d7%a2%d7%91",
+    "link": "https://adwrks.co.il/%d7%a2%d7%aa%d7%99%d7%93-%d7%94-seo-%d7%9b%d7%9a-%d7%99%d7%99%d7%a8%d7%90%d7%94-%d7%94%d7%a7%d7%99%d7%93%d7%95%d7%9d-%d7%94%d7%90%d7%95%d7%a8%d7%92%d7%a0%d7%99-%d7%91-2025-%d7%95%d7%9e%d7%a2%d7%91/",
+    "title": "עתיד ה-SEO: כך ייראה הקידום האורגני ב-2025 ומעבר",
+    "rankMath": {}
+  },
+  {
+    "id": 21776,
+    "type": "post",
+    "slug": "%d7%90%d7%a1%d7%98%d7%a8%d7%98%d7%92%d7%99%d7%95%d7%aa-%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99-2025",
+    "link": "https://adwrks.co.il/%d7%90%d7%a1%d7%98%d7%a8%d7%98%d7%92%d7%99%d7%95%d7%aa-%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99-2025/",
+    "title": "המדריך: אסטרטגיות שיווק דיגיטלי ל-2025 ואילך",
+    "rankMath": {}
+  },
+  {
+    "id": 19792,
+    "type": "post",
+    "slug": "%d7%9b%d7%9e%d7%94-%d7%a2%d7%95%d7%9c%d7%94-%d7%9c%d7%91%d7%a0%d7%95%d7%aa-%d7%90%d7%aa%d7%a8-%d7%90%d7%99%d7%a0%d7%98%d7%a8%d7%a0%d7%98-%d7%91%d7%95%d7%95%d7%a8%d7%93%d7%a4%d7%a8%d7%a1",
+    "link": "https://adwrks.co.il/%d7%9b%d7%9e%d7%94-%d7%a2%d7%95%d7%9c%d7%94-%d7%9c%d7%91%d7%a0%d7%95%d7%aa-%d7%90%d7%aa%d7%a8-%d7%90%d7%99%d7%a0%d7%98%d7%a8%d7%a0%d7%98-%d7%91%d7%95%d7%95%d7%a8%d7%93%d7%a4%d7%a8%d7%a1/",
+    "title": "כמה עולה לבנות אתר אינטרנט ותחזוקה? | מחירון 2026",
+    "rankMath": {}
+  },
+  {
+    "id": 21716,
+    "type": "post",
+    "slug": "%d7%9b%d7%9a-%d7%91%d7%95%d7%97%d7%a8%d7%99%d7%9d-%d7%97%d7%91%d7%a8%d7%94-%d7%9c%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99",
+    "link": "https://adwrks.co.il/%d7%9b%d7%9a-%d7%91%d7%95%d7%97%d7%a8%d7%99%d7%9d-%d7%97%d7%91%d7%a8%d7%94-%d7%9c%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99/",
+    "title": "כך בוחרים חברה לשיווק דיגיטלי שתביא לכם תוצאות",
+    "rankMath": {}
+  },
+  {
+    "id": 21638,
+    "type": "post",
+    "slug": "%d7%9b%d7%9e%d7%94-%d7%a2%d7%95%d7%9c%d7%94-%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%91%d7%92%d7%95%d7%92%d7%9c",
+    "link": "https://adwrks.co.il/%d7%9b%d7%9e%d7%94-%d7%a2%d7%95%d7%9c%d7%94-%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%91%d7%92%d7%95%d7%92%d7%9c/",
+    "title": "כמה עולה פרסום בגוגל? תקציב יומי ממוצע לקמפיין ממומן",
+    "rankMath": {}
+  },
+  {
+    "id": 21578,
+    "type": "post",
+    "slug": "%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%91%d7%a4%d7%99%d7%99%d7%a1%d7%91%d7%95%d7%a7-%d7%95%d7%90%d7%99%d7%a0%d7%a1%d7%98%d7%92%d7%a8%d7%9d",
+    "link": "https://adwrks.co.il/%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%91%d7%a4%d7%99%d7%99%d7%a1%d7%91%d7%95%d7%a7-%d7%95%d7%90%d7%99%d7%a0%d7%a1%d7%98%d7%92%d7%a8%d7%9d/",
+    "title": "שיווק בפייסבוק ואינסטגרם לעסקים ב-2025",
+    "rankMath": {}
+  },
+  {
+    "id": 17923,
+    "type": "post",
+    "slug": "google-shopping-guide",
+    "link": "https://adwrks.co.il/google-shopping-guide/",
+    "title": "מדריך גוגל שופינג 2025: כלי שכל אתר מכירות חייב | Google Shopping",
+    "rankMath": {}
+  },
+  {
+    "id": 10983,
+    "type": "post",
+    "slug": "%d7%94%d7%97%d7%99%d7%a4%d7%95%d7%a9%d7%99%d7%9d-%d7%94%d7%9b%d7%99-%d7%a4%d7%95%d7%a4%d7%95%d7%9c%d7%a8%d7%99%d7%99%d7%9d-%d7%91%d7%92%d7%95%d7%92%d7%9c-%d7%94%d7%99%d7%95%d7%9d-%d7%91%d7%99%d7%a9",
+    "link": "https://adwrks.co.il/%d7%94%d7%97%d7%99%d7%a4%d7%95%d7%a9%d7%99%d7%9d-%d7%94%d7%9b%d7%99-%d7%a4%d7%95%d7%a4%d7%95%d7%9c%d7%a8%d7%99%d7%99%d7%9d-%d7%91%d7%92%d7%95%d7%92%d7%9c-%d7%94%d7%99%d7%95%d7%9d-%d7%91%d7%99%d7%a9/",
+    "title": "החיפושים הכי חמים בגוגל ישראל (בזמן אמת)",
+    "rankMath": {}
+  },
+  {
+    "id": 21392,
+    "type": "post",
+    "slug": "%d7%a1%d7%95%d7%9b%d7%a0%d7%95%d7%aa-%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%91%d7%9b%d7%a8%d7%9e%d7%99%d7%90%d7%9c",
+    "link": "https://adwrks.co.il/%d7%a1%d7%95%d7%9b%d7%a0%d7%95%d7%aa-%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%91%d7%9b%d7%a8%d7%9e%d7%99%d7%90%d7%9c/",
+    "title": "סוכנות פרסום ⭐️ שיווק דיגיטלי מובילה בכרמיאל",
+    "rankMath": {}
+  },
+  {
+    "id": 21272,
+    "type": "post",
+    "slug": "%d7%a8%d7%99%d7%9e%d7%a8%d7%a7%d7%98%d7%99%d7%a0%d7%92-%d7%9e%d7%94-%d7%96%d7%94-%d7%90%d7%99%d7%9a-%d7%95%d7%9c%d7%9e%d7%94",
+    "link": "https://adwrks.co.il/%d7%a8%d7%99%d7%9e%d7%a8%d7%a7%d7%98%d7%99%d7%a0%d7%92-%d7%9e%d7%94-%d7%96%d7%94-%d7%90%d7%99%d7%9a-%d7%95%d7%9c%d7%9e%d7%94/",
+    "title": "רימרקטינג – מה זה, איך עושים, ולמה הוא כל כך חשוב לעסק שלך?",
+    "rankMath": {}
+  },
+  {
+    "id": 21339,
+    "type": "post",
+    "slug": "%d7%9e%d7%94%d7%95-aeo-%d7%94%d7%90%d7%9d-%d7%99%d7%97%d7%9c%d7%99%d7%a3-%d7%90%d7%aa-seo",
+    "link": "https://adwrks.co.il/%d7%9e%d7%94%d7%95-aeo-%d7%94%d7%90%d7%9d-%d7%99%d7%97%d7%9c%d7%99%d7%a3-%d7%90%d7%aa-seo/",
+    "title": "מהו AEO? האם יחליף את SEO? [המפתח לדירוג #1 ב-Google]",
+    "rankMath": {}
+  },
+  {
+    "id": 21317,
+    "type": "post",
+    "slug": "%d7%a4%d7%9c%d7%98%d7%a4%d7%95%d7%a8%d7%9e%d7%94-%d7%91%d7%a0%d7%99%d7%99%d7%aa-%d7%90%d7%aa%d7%a8",
+    "link": "https://adwrks.co.il/%d7%a4%d7%9c%d7%98%d7%a4%d7%95%d7%a8%d7%9e%d7%94-%d7%91%d7%a0%d7%99%d7%99%d7%aa-%d7%90%d7%aa%d7%a8/",
+    "title": "פלטפורמה בניית אתר: איך לבחור מתוך 6 ?",
+    "rankMath": {}
+  },
+  {
+    "id": 21249,
+    "type": "post",
+    "slug": "%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%9e%d7%9e%d7%95%d7%9e%d7%9f-%d7%91%d7%a4%d7%99%d7%99%d7%a1%d7%91%d7%95%d7%a7",
+    "link": "https://adwrks.co.il/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%9e%d7%9e%d7%95%d7%9e%d7%9f-%d7%91%d7%a4%d7%99%d7%99%d7%a1%d7%91%d7%95%d7%a7/",
+    "title": "פרסום ממומן בפייסבוק: איך להגיע ללקוחות הנכונים בתקציב נכון",
+    "rankMath": {}
+  },
+  {
+    "id": 21189,
+    "type": "post",
+    "slug": "%d7%9b%d7%9e%d7%94-%d7%a2%d7%95%d7%9c%d7%94-%d7%9c%d7%91%d7%a0%d7%95%d7%aa-%d7%90%d7%aa%d7%a8-%d7%9e%d7%97%d7%99%d7%a8%d7%95%d7%9f-%d7%9e%d7%97%d7%a9%d7%91%d7%95%d7%9f",
+    "link": "https://adwrks.co.il/%d7%9b%d7%9e%d7%94-%d7%a2%d7%95%d7%9c%d7%94-%d7%9c%d7%91%d7%a0%d7%95%d7%aa-%d7%90%d7%aa%d7%a8-%d7%9e%d7%97%d7%99%d7%a8%d7%95%d7%9f-%d7%9e%d7%97%d7%a9%d7%91%d7%95%d7%9f/",
+    "title": "כמה עולה לבנות אתר? מחירון בניית אתרים עם מחשבון",
+    "rankMath": {}
+  },
+  {
+    "id": 21115,
+    "type": "post",
+    "slug": "%d7%a7%d7%99%d7%93%d7%95%d7%9d-%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%9e%d7%93%d7%a8%d7%99%d7%9a-%d7%9c%d7%9e%d7%aa%d7%97%d7%99%d7%9c%d7%99%d7%9d",
+    "link": "https://adwrks.co.il/%d7%a7%d7%99%d7%93%d7%95%d7%9d-%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%9e%d7%93%d7%a8%d7%99%d7%9a-%d7%9c%d7%9e%d7%aa%d7%97%d7%99%d7%9c%d7%99%d7%9d/",
+    "title": "קידום אתרים: מדריך מקיף למתחילים [6 שלבים]",
+    "rankMath": {}
+  },
+  {
+    "id": 21068,
+    "type": "post",
+    "slug": "%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99-%d7%9c%d7%a2%d7%a1%d7%a7%d7%99%d7%9d",
+    "link": "https://adwrks.co.il/%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99-%d7%9c%d7%a2%d7%a1%d7%a7%d7%99%d7%9d/",
+    "title": "שיווק דיגיטלי לעסקים: 4 אסטרטגיות מרכזיות",
+    "rankMath": {}
+  },
+  {
+    "id": 21051,
+    "type": "post",
+    "slug": "%d7%9e%d7%94%d7%95-%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%91%d7%90%d7%99%d7%a0%d7%98%d7%a8%d7%a0%d7%98",
+    "link": "https://adwrks.co.il/%d7%9e%d7%94%d7%95-%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%91%d7%90%d7%99%d7%a0%d7%98%d7%a8%d7%a0%d7%98/",
+    "title": "מהו שיווק באינטרנט / שיווק דיגיטלי ? כל מה שצריך לדעת.",
+    "rankMath": {}
+  },
+  {
+    "id": 20969,
+    "type": "post",
+    "slug": "%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%a2%d7%a1%d7%a7-%d7%97%d7%99%d7%a0%d7%9d",
+    "link": "https://adwrks.co.il/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%a2%d7%a1%d7%a7-%d7%97%d7%99%d7%a0%d7%9d/",
+    "title": "פרסום עסק חינם: 7 שיטות פשוטות לפרסום עצמי אפקטיבי",
+    "rankMath": {}
+  },
+  {
+    "id": 20919,
+    "type": "post",
+    "slug": "%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%91%d7%92%d7%95%d7%92%d7%9c-%d7%90%d7%93%d7%a1-10-%d7%a9%d7%9c%d7%91%d7%99%d7%9d-%d7%a4%d7%a9%d7%95%d7%98%d7%99%d7%9d",
+    "link": "https://adwrks.co.il/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%91%d7%92%d7%95%d7%92%d7%9c-%d7%90%d7%93%d7%a1-10-%d7%a9%d7%9c%d7%91%d7%99%d7%9d-%d7%a4%d7%a9%d7%95%d7%98%d7%99%d7%9d/",
+    "title": "פרסום בגוגל אדס: 10 שלבים פשוטים להתחלה",
+    "rankMath": {}
+  },
+  {
+    "id": 20897,
+    "type": "post",
+    "slug": "%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%91%d7%92%d7%95%d7%92%d7%9c-7-%d7%90%d7%a1%d7%98%d7%a8%d7%98%d7%92%d7%99%d7%95%d7%aa",
+    "link": "https://adwrks.co.il/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%91%d7%92%d7%95%d7%92%d7%9c-7-%d7%90%d7%a1%d7%98%d7%a8%d7%98%d7%92%d7%99%d7%95%d7%aa/",
+    "title": "פרסום בגוגל: 7 אסטרטגיות שיגרמו לעסק שלך לצמוח",
+    "rankMath": {}
+  },
+  {
+    "id": 20803,
+    "type": "post",
+    "slug": "%d7%97%d7%91%d7%a8%d7%94-%d7%9c%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99",
+    "link": "https://adwrks.co.il/%d7%97%d7%91%d7%a8%d7%94-%d7%9c%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99/",
+    "title": "חברה לשיווק דיגיטלי: בוסט לעסק שלך",
+    "rankMath": {}
+  },
+  {
+    "id": 20529,
+    "type": "post",
+    "slug": "%d7%9e%d7%94-%d7%94%d7%94%d7%91%d7%93%d7%9c-%d7%91%d7%99%d7%9f-sem-%d7%9c-ppc",
+    "link": "https://adwrks.co.il/%d7%9e%d7%94-%d7%94%d7%94%d7%91%d7%93%d7%9c-%d7%91%d7%99%d7%9f-sem-%d7%9c-ppc/",
+    "title": "מה ההבדל בין SEM ל-PPC? יש הבדל 1 &quot;מרכזי&quot;",
+    "rankMath": {}
+  },
+  {
+    "id": 20506,
+    "type": "post",
+    "slug": "%d7%a1%d7%95%d7%9b%d7%a0%d7%95%d7%aa-%d7%9c%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99",
+    "link": "https://adwrks.co.il/%d7%a1%d7%95%d7%9b%d7%a0%d7%95%d7%aa-%d7%9c%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99/",
+    "title": "סוכנות לשיווק דיגיטלי: כל הפתרונות הדיגיטליים במקום אחד",
+    "rankMath": {}
+  },
+  {
+    "id": 20403,
+    "type": "post",
+    "slug": "%d7%a1%d7%95%d7%9b%d7%a0%d7%95%d7%aa-%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99",
+    "link": "https://adwrks.co.il/%d7%a1%d7%95%d7%9b%d7%a0%d7%95%d7%aa-%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99/",
+    "title": "סוכנות שיווק דיגיטלי שתוביל את העסק שלכם קדימה",
+    "rankMath": {}
+  },
+  {
+    "id": 20388,
+    "type": "post",
+    "slug": "%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%9e%d7%a7%d7%a6%d7%95%d7%a2%d7%99-%d7%9c%d7%a7%d7%94%d7%9c-%d7%93%d7%95%d7%91%d7%a8-%d7%a8%d7%95%d7%a1%d7%99%d7%aa",
+    "link": "https://adwrks.co.il/%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%9e%d7%a7%d7%a6%d7%95%d7%a2%d7%99-%d7%9c%d7%a7%d7%94%d7%9c-%d7%93%d7%95%d7%91%d7%a8-%d7%a8%d7%95%d7%a1%d7%99%d7%aa/",
+    "title": "שיווק מקצועי לקהל דובר רוסית",
+    "rankMath": {}
+  },
+  {
+    "id": 20350,
+    "type": "post",
+    "slug": "%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99-%d7%91%d7%a9%d7%a4%d7%94-%d7%94%d7%a8%d7%95%d7%a1%d7%99%d7%aa",
+    "link": "https://adwrks.co.il/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99-%d7%91%d7%a9%d7%a4%d7%94-%d7%94%d7%a8%d7%95%d7%a1%d7%99%d7%aa/",
+    "title": "פרסום דיגיטלי בשפה הרוסית &#8211; שיווק למגזר הרוסי",
+    "rankMath": {}
+  },
+  {
+    "id": 20155,
+    "type": "post",
+    "slug": "%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%91%d7%92%d7%95%d7%92%d7%9c-%d7%9e%d7%a4%d7%95%d7%aa",
+    "link": "https://adwrks.co.il/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%91%d7%92%d7%95%d7%92%d7%9c-%d7%9e%d7%a4%d7%95%d7%aa/",
+    "title": "פרסום בגוגל מפות &#8211; פרופיל העסק בגוגל [קידום חינם בגוגל]",
+    "rankMath": {}
+  },
+  {
+    "id": 14288,
+    "type": "post",
+    "slug": "google-business-profile",
+    "link": "https://adwrks.co.il/google-business-profile/",
+    "title": "פרופיל העסק בגוגל [גוגל מפות] &#8211; קידום בגוגל חינם",
+    "rankMath": {}
+  },
+  {
+    "id": 20092,
+    "type": "post",
+    "slug": "%d7%99%d7%95%d7%a2%d7%a5-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c-%d7%94%d7%95%d7%90-%d7%94%d7%a9%d7%95%d7%aa%d7%a3-%d7%a9%d7%9c%d7%9a-%d7%9c%d7%94%d7%a6%d7%9c%d7%97%d7%94",
+    "link": "https://adwrks.co.il/%d7%99%d7%95%d7%a2%d7%a5-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c-%d7%94%d7%95%d7%90-%d7%94%d7%a9%d7%95%d7%aa%d7%a3-%d7%a9%d7%9c%d7%9a-%d7%9c%d7%94%d7%a6%d7%9c%d7%97%d7%94/",
+    "title": "יועץ דיגיטל הוא השותף שלך להצלחה",
+    "rankMath": {}
+  },
+  {
+    "id": 20081,
+    "type": "post",
+    "slug": "%d7%99%d7%95%d7%a2%d7%a5-%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%91%d7%90%d7%99%d7%a0%d7%98%d7%a8%d7%a0%d7%98",
+    "link": "https://adwrks.co.il/%d7%99%d7%95%d7%a2%d7%a5-%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%91%d7%90%d7%99%d7%a0%d7%98%d7%a8%d7%a0%d7%98/",
+    "title": "מה זה יועץ שיווק באינטרנט?",
+    "rankMath": {}
+  },
+  {
+    "id": 20051,
+    "type": "post",
+    "slug": "%d7%a0%d7%99%d7%94%d7%95%d7%9c-%d7%a2%d7%a1%d7%a7-%d7%91%d7%a2%d7%99%d7%93%d7%9f-%d7%94%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99",
+    "link": "https://adwrks.co.il/%d7%a0%d7%99%d7%94%d7%95%d7%9c-%d7%a2%d7%a1%d7%a7-%d7%91%d7%a2%d7%99%d7%93%d7%9f-%d7%94%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99/",
+    "title": "ניהול עסק בעידן הדיגיטלי: אתגרים והזדמנויות",
+    "rankMath": {}
+  },
+  {
+    "id": 20029,
+    "type": "post",
+    "slug": "%d7%99%d7%95%d7%a2%d7%a5-%d7%90%d7%99%d7%a0%d7%98%d7%a8%d7%a0%d7%98",
+    "link": "https://adwrks.co.il/%d7%99%d7%95%d7%a2%d7%a5-%d7%90%d7%99%d7%a0%d7%98%d7%a8%d7%a0%d7%98/",
+    "title": "יועץ אינטרנט: המפתח להצלחה שלכם בעולם הדיגיטלי",
+    "rankMath": {}
+  },
+  {
+    "id": 19933,
+    "type": "post",
+    "slug": "%d7%90%d7%97%d7%a1%d7%95%d7%9f-%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%9e%d7%a0%d7%95%d7%94%d7%9c",
+    "link": "https://adwrks.co.il/%d7%90%d7%97%d7%a1%d7%95%d7%9f-%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%9e%d7%a0%d7%95%d7%94%d7%9c/",
+    "title": "אחסון אתרים מנוהל &#8211; הפתרון המושלם לבעלי אתרים",
+    "rankMath": {}
+  },
+  {
+    "id": 19781,
+    "type": "post",
+    "slug": "%d7%9b%d7%9e%d7%94-%d7%a2%d7%95%d7%9c%d7%99%d7%9d-%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99-%d7%90%d7%97%d7%a1%d7%95%d7%9f-%d7%95%d7%aa%d7%97%d7%96%d7%95%d7%a7%d7%aa-%d7%90%d7%aa%d7%a8%d7%99%d7%9d",
+    "link": "https://adwrks.co.il/%d7%9b%d7%9e%d7%94-%d7%a2%d7%95%d7%9c%d7%99%d7%9d-%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99-%d7%90%d7%97%d7%a1%d7%95%d7%9f-%d7%95%d7%aa%d7%97%d7%96%d7%95%d7%a7%d7%aa-%d7%90%d7%aa%d7%a8%d7%99%d7%9d/",
+    "title": "כמה עולים שירותי אחסון ותחזוקת אתרים?",
+    "rankMath": {}
+  },
+  {
+    "id": 19758,
+    "type": "post",
+    "slug": "%d7%90%d7%97%d7%a1%d7%95%d7%9f-%d7%95%d7%aa%d7%97%d7%96%d7%95%d7%a7%d7%aa-%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%94%d7%9e%d7%93%d7%a8%d7%99%d7%9a",
+    "link": "https://adwrks.co.il/%d7%90%d7%97%d7%a1%d7%95%d7%9f-%d7%95%d7%aa%d7%97%d7%96%d7%95%d7%a7%d7%aa-%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%94%d7%9e%d7%93%d7%a8%d7%99%d7%9a/",
+    "title": "אחסון ותחזוקת אתרים: המדריך השלם",
+    "rankMath": {}
+  },
+  {
+    "id": 19644,
+    "type": "post",
+    "slug": "%d7%90%d7%97%d7%a1%d7%95%d7%9f-%d7%90%d7%aa%d7%a8%d7%99-%d7%95%d7%95%d7%a8%d7%93%d7%a4%d7%a8%d7%a1-%d7%95%d7%aa%d7%97%d7%96%d7%95%d7%a7%d7%aa%d7%9d",
+    "link": "https://adwrks.co.il/%d7%90%d7%97%d7%a1%d7%95%d7%9f-%d7%90%d7%aa%d7%a8%d7%99-%d7%95%d7%95%d7%a8%d7%93%d7%a4%d7%a8%d7%a1-%d7%95%d7%aa%d7%97%d7%96%d7%95%d7%a7%d7%aa%d7%9d/",
+    "title": "אחסון אתרי וורדפרס ותחזוקתם: החשיבות של שירות מקצועי",
+    "rankMath": {}
+  },
+  {
+    "id": 19548,
+    "type": "post",
+    "slug": "%d7%90%d7%97%d7%a1%d7%95%d7%9f-%d7%95%d7%aa%d7%97%d7%96%d7%95%d7%a7%d7%aa-%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%9c%d7%9e%d7%94-%d7%96%d7%94-%d7%97%d7%a9%d7%95%d7%91",
+    "link": "https://adwrks.co.il/%d7%90%d7%97%d7%a1%d7%95%d7%9f-%d7%95%d7%aa%d7%97%d7%96%d7%95%d7%a7%d7%aa-%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%9c%d7%9e%d7%94-%d7%96%d7%94-%d7%97%d7%a9%d7%95%d7%91/",
+    "title": "אחסון ותחזוקת אתרים: למה זה חשוב?",
+    "rankMath": {}
+  },
+  {
+    "id": 19428,
+    "type": "post",
+    "slug": "%d7%a7%d7%99%d7%93%d7%95%d7%9d-%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%91%d7%92%d7%95%d7%92%d7%9c",
+    "link": "https://adwrks.co.il/%d7%a7%d7%99%d7%93%d7%95%d7%9d-%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%91%d7%92%d7%95%d7%92%d7%9c/",
+    "title": "קידום אתרים בגוגל: למה חשוב להשקיע ?",
+    "rankMath": {}
+  },
+  {
+    "id": 19398,
+    "type": "post",
+    "slug": "%d7%94%d7%a9%d7%a7%d7%a2%d7%94-%d7%91%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%92%d7%9d-%d7%91%d7%96%d7%9e%d7%a0%d7%99%d7%9d-%d7%a7%d7%a9%d7%99%d7%9d",
+    "link": "https://adwrks.co.il/%d7%94%d7%a9%d7%a7%d7%a2%d7%94-%d7%91%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%92%d7%9d-%d7%91%d7%96%d7%9e%d7%a0%d7%99%d7%9d-%d7%a7%d7%a9%d7%99%d7%9d/",
+    "title": "החשיבות של השקעה בפרסום גם בזמנים קשים",
+    "rankMath": {}
+  },
+  {
+    "id": 19281,
+    "type": "post",
+    "slug": "%d7%94%d7%97%d7%a9%d7%99%d7%91%d7%95%d7%aa-%d7%a9%d7%9c-%d7%9e%d7%a9%d7%a8%d7%93-%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99",
+    "link": "https://adwrks.co.il/%d7%94%d7%97%d7%a9%d7%99%d7%91%d7%95%d7%aa-%d7%a9%d7%9c-%d7%9e%d7%a9%d7%a8%d7%93-%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99/",
+    "title": "החשיבות של משרד פרסום דיגיטלי",
+    "rankMath": {}
+  },
+  {
+    "id": 19143,
+    "type": "post",
+    "slug": "%d7%9e%d7%94%d7%99-%d7%a1%d7%95%d7%9b%d7%a0%d7%95%d7%aa-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99%d7%aa",
+    "link": "https://adwrks.co.il/%d7%9e%d7%94%d7%99-%d7%a1%d7%95%d7%9b%d7%a0%d7%95%d7%aa-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99%d7%aa/",
+    "title": "מהי סוכנות דיגיטלית ?",
+    "rankMath": {}
+  },
+  {
+    "id": 19121,
+    "type": "post",
+    "slug": "%d7%9e%d7%93%d7%a8%d7%99%d7%9a-%d7%a7%d7%99%d7%93%d7%95%d7%9d-%d7%94%d7%a2%d7%a1%d7%a7-%d7%91%d7%92%d7%95%d7%92%d7%9c",
+    "link": "https://adwrks.co.il/%d7%9e%d7%93%d7%a8%d7%99%d7%9a-%d7%a7%d7%99%d7%93%d7%95%d7%9d-%d7%94%d7%a2%d7%a1%d7%a7-%d7%91%d7%92%d7%95%d7%92%d7%9c/",
+    "title": "מדריך: קידום העסק בגוגל",
+    "rankMath": {}
+  },
+  {
+    "id": 19100,
+    "type": "post",
+    "slug": "%d7%a6%d7%9e%d7%99%d7%97%d7%94-%d7%a2%d7%a1%d7%a7%d7%99%d7%aa-%d7%91%d7%90%d7%9e%d7%a6%d7%a2%d7%95%d7%aa-%d7%a7%d7%99%d7%93%d7%95%d7%9d-%d7%91%d7%90%d7%99%d7%a0%d7%98%d7%a8%d7%a0%d7%98",
+    "link": "https://adwrks.co.il/%d7%a6%d7%9e%d7%99%d7%97%d7%94-%d7%a2%d7%a1%d7%a7%d7%99%d7%aa-%d7%91%d7%90%d7%9e%d7%a6%d7%a2%d7%95%d7%aa-%d7%a7%d7%99%d7%93%d7%95%d7%9d-%d7%91%d7%90%d7%99%d7%a0%d7%98%d7%a8%d7%a0%d7%98/",
+    "title": "צמיחה עסקית באמצעות קידום באינטרנט",
+    "rankMath": {}
+  },
+  {
+    "id": 19070,
+    "type": "post",
+    "slug": "%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%9c%d7%a2%d7%a1%d7%a7%d7%99%d7%9d",
+    "link": "https://adwrks.co.il/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%9c%d7%a2%d7%a1%d7%a7%d7%99%d7%9d/",
+    "title": "פרסום לעסקים: חשיפה מוחלטת בעולם הדיגיטלי",
+    "rankMath": {}
+  },
+  {
+    "id": 18480,
+    "type": "post",
+    "slug": "%d7%a1%d7%95%d7%9b%d7%a0%d7%95%d7%aa-%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99%d7%aa",
+    "link": "https://adwrks.co.il/%d7%a1%d7%95%d7%9b%d7%a0%d7%95%d7%aa-%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99%d7%aa/",
+    "title": "מקסם את הנוכחות באינטרנט עם סוכנות שיווק דיגיטלית​",
+    "rankMath": {}
+  },
+  {
+    "id": 10373,
+    "type": "post",
+    "slug": "%d7%9b%d7%95%d7%97%d7%9d-%d7%a9%d7%9c-%d7%91%d7%99%d7%a7%d7%95%d7%a8%d7%95%d7%aa-%d7%95%d7%94%d7%9e%d7%9c%d7%a6%d7%95%d7%aa",
+    "link": "https://adwrks.co.il/%d7%9b%d7%95%d7%97%d7%9d-%d7%a9%d7%9c-%d7%91%d7%99%d7%a7%d7%95%d7%a8%d7%95%d7%aa-%d7%95%d7%94%d7%9e%d7%9c%d7%a6%d7%95%d7%aa/",
+    "title": "כוחם של ביקורות והמלצות ⭐️⭐️⭐️⭐️⭐️",
+    "rankMath": {}
+  },
+  {
+    "id": 10369,
+    "type": "post",
+    "slug": "%d7%9e%d7%a9%d7%a8%d7%93-%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99",
+    "link": "https://adwrks.co.il/%d7%9e%d7%a9%d7%a8%d7%93-%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99/",
+    "title": "משרד פרסום דיגיטלי &#8211; שיווק עסקים באינטרנט",
+    "rankMath": {}
+  }
+]

@@ -1,0 +1,827 @@
+[
+  {
+    "plugin": "angie/angie",
+    "status": "active",
+    "name": "Angie",
+    "plugin_uri": "https://elementor.com/pages/angie-early-access",
+    "author": "Elementor.com",
+    "author_uri": "https://elementor.com/?utm_source=wp-plugins-angie&#038;utm_campaign=author-uri&#038;utm_medium=wp-dash",
+    "description": {
+      "raw": "Agentic AI for WordPress",
+      "rendered": "Agentic AI for WordPress <cite>מאת <a href=\"https://elementor.com/?utm_source=wp-plugins-angie&#038;utm_campaign=author-uri&#038;utm_medium=wp-dash\">Elementor.com</a>.</cite>"
+    },
+    "version": "1.1.17",
+    "network_only": false,
+    "requires_wp": "6.9",
+    "requires_php": "7.4",
+    "textdomain": "angie",
+    "_links": {
+      "self": [
+        {
+          "href": "https://adwrks.co.il/wp-json/wp/v2/plugins/angie/angie",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "plugin": "astra-addon/astra-addon",
+    "status": "inactive",
+    "name": "Astra Pro",
+    "plugin_uri": "https://wpastra.com/",
+    "author": "Brainstorm Force",
+    "author_uri": "http://www.brainstormforce.com",
+    "description": {
+      "raw": "This plugin is an add-on for the Astra WordPress Theme. It offers premium features &amp; functionalities that enhance your theming experience at next level..",
+      "rendered": "This plugin is an add-on for the Astra WordPress Theme. It offers premium features &amp; functionalities that enhance your theming experience at next level.. <cite>מאת <a href=\"http://www.brainstormforce.com\">Brainstorm Force</a>.</cite>"
+    },
+    "version": "1.3.1",
+    "network_only": false,
+    "requires_wp": "",
+    "requires_php": "",
+    "textdomain": "astra-addon",
+    "_links": {
+      "self": [
+        {
+          "href": "https://adwrks.co.il/wp-json/wp/v2/plugins/astra-addon/astra-addon",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "plugin": "chaty/cht-icons",
+    "status": "active",
+    "name": "Chaty",
+    "plugin_uri": "",
+    "author": "Premio",
+    "author_uri": "https://premio.io/downloads/chaty/",
+    "description": {
+      "raw": "Chat with your website visitors via their favorite channels. Show a chat icon on the bottom of your site and communicate with your website visitors.",
+      "rendered": "Chat with your website visitors via their favorite channels. Show a chat icon on the bottom of your site and communicate with your website visitors. <cite>מאת <a href=\"https://premio.io/downloads/chaty/\">Premio</a>.</cite>"
+    },
+    "version": "3.6.1",
+    "network_only": false,
+    "requires_wp": "",
+    "requires_php": "",
+    "textdomain": "chaty",
+    "_links": {
+      "self": [
+        {
+          "href": "https://adwrks.co.il/wp-json/wp/v2/plugins/chaty/cht-icons",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "plugin": "classic-editor/classic-editor",
+    "status": "active",
+    "name": "העורך הקלאסי",
+    "plugin_uri": "https://he.wordpress.org/plugins/classic-editor/",
+    "author": "מפתחי וורדפרס שנרתמו לפרוייקט",
+    "author_uri": "https://github.com/WordPress/classic-editor/",
+    "description": {
+      "raw": "מאפשר שימוש בעורך הקלאסי של וורדפרס, בעיצוב הישן, מבנה עריכת עמוד / פוסט (הכוללים את עורך הטקסט הקודם, שימוש במטא-בוקס וכו'). תמיכה בתוספים ישנים, בעמוד העריכה.",
+      "rendered": "מאפשר שימוש בעורך הקלאסי של וורדפרס, בעיצוב הישן, מבנה עריכת עמוד / פוסט (הכוללים את עורך הטקסט הקודם, שימוש במטא-בוקס וכו'). תמיכה בתוספים ישנים, בעמוד העריכה. <cite>מאת <a href=\"https://github.com/WordPress/classic-editor/\">מפתחי וורדפרס שנרתמו לפרוייקט</a>.</cite>"
+    },
+    "version": "1.7.0",
+    "network_only": false,
+    "requires_wp": "4.9",
+    "requires_php": "5.2.4",
+    "textdomain": "classic-editor",
+    "_links": {
+      "self": [
+        {
+          "href": "https://adwrks.co.il/wp-json/wp/v2/plugins/classic-editor/classic-editor",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "plugin": "classic-widgets/classic-widgets",
+    "status": "active",
+    "name": "ויג'יטים קלאסי",
+    "plugin_uri": "https://wordpress.org/plugins/classic-widgets/",
+    "author": "תורמים וורדפרס",
+    "author_uri": "https://github.com/WordPress/classic-widgets/",
+    "description": {
+      "raw": "אתה מפעיל את מסכי הגדרות הווידג'טים הקלאסיים במראה - ווידג'טים והלקוח. משבית את עורך החסימות מניהול ווידג'טים.",
+      "rendered": "אתה מפעיל את מסכי הגדרות הווידג'טים הקלאסיים במראה &#8211; ווידג'טים והלקוח. משבית את עורך החסימות מניהול ווידג'טים. <cite>מאת <a href=\"https://github.com/WordPress/classic-widgets/\">תורמים וורדפרס</a>.</cite>"
+    },
+    "version": "0.3",
+    "network_only": false,
+    "requires_wp": "4.9",
+    "requires_php": "5.6 or later",
+    "textdomain": "classic-widgets",
+    "_links": {
+      "self": [
+        {
+          "href": "https://adwrks.co.il/wp-json/wp/v2/plugins/classic-widgets/classic-widgets",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "plugin": "duplicate-page/duplicatepage",
+    "status": "active",
+    "name": "Duplicate Page",
+    "plugin_uri": "https://duplicatepro.com/",
+    "author": "mndpsingh287",
+    "author_uri": "https://profiles.wordpress.org/mndpsingh287/",
+    "description": {
+      "raw": "Duplicate Posts, Pages and Custom Posts using single click.",
+      "rendered": "Duplicate Posts, Pages and Custom Posts using single click. <cite>מאת <a href=\"https://profiles.wordpress.org/mndpsingh287/\">mndpsingh287</a>.</cite>"
+    },
+    "version": "4.5.9",
+    "network_only": false,
+    "requires_wp": "",
+    "requires_php": "",
+    "textdomain": "duplicate-page",
+    "_links": {
+      "self": [
+        {
+          "href": "https://adwrks.co.il/wp-json/wp/v2/plugins/duplicate-page/duplicatepage",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "plugin": "elementor/elementor",
+    "status": "active",
+    "name": "אלמנטור",
+    "plugin_uri": "https://elementor.com/?utm_source=wp-plugins&#038;utm_campaign=plugin-uri&#038;utm_medium=wp-dash",
+    "author": "Elementor.com",
+    "author_uri": "https://elementor.com/?utm_source=wp-plugins&#038;utm_campaign=author-uri&#038;utm_medium=wp-dash",
+    "description": {
+      "raw": "The Elementor Website Builder has it all: drag and drop page builder, Atomic Editor, pixel perfect design, global and reusable style systems, mobile responsive editing, and more. Get started now!",
+      "rendered": "The Elementor Website Builder has it all: drag and drop page builder, Atomic Editor, pixel perfect design, global and reusable style systems, mobile responsive editing, and more. Get started now! <cite>מאת <a href=\"https://elementor.com/?utm_source=wp-plugins&#038;utm_campaign=author-uri&#038;utm_medium=wp-dash\">Elementor.com</a>.</cite>"
+    },
+    "version": "4.3.2",
+    "network_only": false,
+    "requires_wp": "6.8",
+    "requires_php": "7.4",
+    "textdomain": "elementor",
+    "_links": {
+      "self": [
+        {
+          "href": "https://adwrks.co.il/wp-json/wp/v2/plugins/elementor/elementor",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "plugin": "elementor-pro/elementor-pro",
+    "status": "active",
+    "name": "אלמנטור פרו",
+    "plugin_uri": "https://go.elementor.com/wp-dash-wp-plugins-author-uri/",
+    "author": "Elementor.com",
+    "author_uri": "https://go.elementor.com/wp-dash-wp-plugins-author-uri/",
+    "description": {
+      "raw": "Elevate your designs and unlock the full power of the Atomic Editor. Gain access to dozens of Pro widgets, Website Templates, Theme Builder, Pop Ups, Forms, reusable Components, and WooCommerce building capabilities.",
+      "rendered": "Elevate your designs and unlock the full power of the Atomic Editor. Gain access to dozens of Pro widgets, Website Templates, Theme Builder, Pop Ups, Forms, reusable Components, and WooCommerce building capabilities. <cite>מאת <a href=\"https://go.elementor.com/wp-dash-wp-plugins-author-uri/\">Elementor.com</a>.</cite>"
+    },
+    "version": "4.3.0",
+    "network_only": false,
+    "requires_wp": "6.8",
+    "requires_php": "7.4",
+    "textdomain": "elementor-pro",
+    "_links": {
+      "self": [
+        {
+          "href": "https://adwrks.co.il/wp-json/wp/v2/plugins/elementor-pro/elementor-pro",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "plugin": "rate-my-post/rate-my-post",
+    "status": "active",
+    "name": "FeedbackWP - Rate My Post - WP Rating System",
+    "plugin_uri": "https://feedbackwp.com",
+    "author": "FeedbackWP",
+    "author_uri": "https://feedbackwp.com/",
+    "description": {
+      "raw": "Allows you to easily add rating functionality to your WordPress website.",
+      "rendered": "Allows you to easily add rating functionality to your WordPress website. <cite>מאת <a href=\"https://feedbackwp.com/\">FeedbackWP</a>.</cite>"
+    },
+    "version": "4.5.2",
+    "network_only": false,
+    "requires_wp": "",
+    "requires_php": "",
+    "textdomain": "rate-my-post",
+    "_links": {
+      "self": [
+        {
+          "href": "https://adwrks.co.il/wp-json/wp/v2/plugins/rate-my-post/rate-my-post",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "plugin": "image-optimization/image-optimization",
+    "status": "active",
+    "name": "Image Optimization - Optimize Images and Convert to WebP or AVIF",
+    "plugin_uri": "https://go.elementor.com/wp-repo-description-tab-io-product-page/",
+    "author": "Elementor.com",
+    "author_uri": "https://go.elementor.com/author-uri-io/",
+    "description": {
+      "raw": "הקטן אוטומטית את גודל קבצי התמונה באתר שלך, התקדם לפורמט תמונה מודרני (WebP או AVIF). כווץ ודחוס את כל התמונות בבת אחת או בעת העלאה כדי לשפר את ביצועי האתר שלך.",
+      "rendered": "הקטן אוטומטית את גודל קבצי התמונה באתר שלך, התקדם לפורמט תמונה מודרני (WebP או AVIF). כווץ ודחוס את כל התמונות בבת אחת או בעת העלאה כדי לשפר את ביצועי האתר שלך. <cite>מאת <a href=\"https://go.elementor.com/author-uri-io/\">Elementor.com</a>.</cite>"
+    },
+    "version": "1.7.7",
+    "network_only": false,
+    "requires_wp": "",
+    "requires_php": "",
+    "textdomain": "image-optimization",
+    "_links": {
+      "self": [
+        {
+          "href": "https://adwrks.co.il/wp-json/wp/v2/plugins/image-optimization/image-optimization",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "plugin": "insytix-site-analytics/insytix-site-analytics",
+    "status": "active",
+    "name": "Insytix Site Analytics",
+    "plugin_uri": "https://insytix.co",
+    "author": "Insytix",
+    "author_uri": "https://insytix.co",
+    "description": {
+      "raw": "Complete analytics tracking for WordPress sites (including WooCommerce)",
+      "rendered": "Complete analytics tracking for WordPress sites (including WooCommerce) <cite>מאת <a href=\"https://insytix.co\">Insytix</a>.</cite>"
+    },
+    "version": "2.4.3",
+    "network_only": false,
+    "requires_wp": "5.0",
+    "requires_php": "7.2",
+    "textdomain": "insytix-site-analytics",
+    "_links": {
+      "self": [
+        {
+          "href": "https://adwrks.co.il/wp-json/wp/v2/plugins/insytix-site-analytics/insytix-site-analytics",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "plugin": "link-whisper/link-whisper",
+    "status": "inactive",
+    "name": "Link Whisper Free",
+    "plugin_uri": "",
+    "author": "Link Whisper",
+    "author_uri": "https://linkwhisper.com",
+    "description": {
+      "raw": "Quickly build smart internal links both to and from your content. Additionally, gain valuable insights with in-depth internal link reporting.",
+      "rendered": "Quickly build smart internal links both to and from your content. Additionally, gain valuable insights with in-depth internal link reporting. <cite>מאת <a href=\"https://linkwhisper.com\">Link Whisper</a>.</cite>"
+    },
+    "version": "0.9.7",
+    "network_only": false,
+    "requires_wp": "",
+    "requires_php": "",
+    "textdomain": "wpil",
+    "_links": {
+      "self": [
+        {
+          "href": "https://adwrks.co.il/wp-json/wp/v2/plugins/link-whisper/link-whisper",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "plugin": "litespeed-cache/litespeed-cache",
+    "status": "active",
+    "name": "מטמון LiteSpeed",
+    "plugin_uri": "https://www.litespeedtech.com/products/cache-plugins/wordpress-acceleration",
+    "author": "LiteSpeed Technologies",
+    "author_uri": "https://www.litespeedtech.com",
+    "description": {
+      "raw": "שמירה על ביצועים גבוהים של דפים במטמון ואופטימיזציה לאתר מ-LiteSpeed",
+      "rendered": "שמירה על ביצועים גבוהים של דפים במטמון ואופטימיזציה לאתר מ-LiteSpeed <cite>מאת <a href=\"https://www.litespeedtech.com\">LiteSpeed Technologies</a>.</cite>"
+    },
+    "version": "7.9.1",
+    "network_only": false,
+    "requires_wp": "",
+    "requires_php": "",
+    "textdomain": "litespeed-cache",
+    "_links": {
+      "self": [
+        {
+          "href": "https://adwrks.co.il/wp-json/wp/v2/plugins/litespeed-cache/litespeed-cache",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "plugin": "loco-translate/loco",
+    "status": "active",
+    "name": "Loco Translate",
+    "plugin_uri": "https://wordpress.org/plugins/loco-translate/",
+    "author": "Tim Whitlock",
+    "author_uri": "https://localise.biz/wordpress/plugin",
+    "description": {
+      "raw": "Translate themes and plugins directly in WordPress",
+      "rendered": "Translate themes and plugins directly in WordPress <cite>מאת <a href=\"https://localise.biz/wordpress/plugin\">Tim Whitlock</a>.</cite>"
+    },
+    "version": "2.8.8",
+    "network_only": false,
+    "requires_wp": "6.6",
+    "requires_php": "7.4",
+    "textdomain": "loco-translate",
+    "_links": {
+      "self": [
+        {
+          "href": "https://adwrks.co.il/wp-json/wp/v2/plugins/loco-translate/loco",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "plugin": "manage/manage",
+    "status": "active",
+    "name": "Manage",
+    "plugin_uri": "https://elementor.com/",
+    "author": "Elementor.com",
+    "author_uri": "http://go.elementor.com/author-uri-manage/",
+    "description": {
+      "raw": "Manage multiple WordPress websites from one place using your Elementor account. Safe updates, monitoring, and bulk actions powered by Elementor.",
+      "rendered": "Manage multiple WordPress websites from one place using your Elementor account. Safe updates, monitoring, and bulk actions powered by Elementor. <cite>מאת <a href=\"http://go.elementor.com/author-uri-manage/\">Elementor.com</a>.</cite>"
+    },
+    "version": "1.0.9",
+    "network_only": false,
+    "requires_wp": "",
+    "requires_php": "",
+    "textdomain": "manage",
+    "_links": {
+      "self": [
+        {
+          "href": "https://adwrks.co.il/wp-json/wp/v2/plugins/manage/manage",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "plugin": "seo-by-rank-math/rank-math",
+    "status": "active",
+    "name": "Rank Math SEO",
+    "plugin_uri": "https://rankmath.com/",
+    "author": "Rank Math SEO",
+    "author_uri": "https://rankmath.com/?utm_source=Plugin&#038;utm_medium=Readme%20Author%20URI&#038;utm_campaign=WP",
+    "description": {
+      "raw": "Rank Math SEO is the Best WordPress SEO plugin with the features of many SEO and AI SEO tools in a single package to help multiply your SEO traffic.",
+      "rendered": "Rank Math SEO is the Best WordPress SEO plugin with the features of many SEO and AI SEO tools in a single package to help multiply your SEO traffic. <cite>מאת <a href=\"https://rankmath.com/?utm_source=Plugin&#038;utm_medium=Readme%20Author%20URI&#038;utm_campaign=WP\">Rank Math SEO</a>.</cite>"
+    },
+    "version": "1.0.279",
+    "network_only": false,
+    "requires_wp": "",
+    "requires_php": "",
+    "textdomain": "seo-by-rank-math",
+    "_links": {
+      "self": [
+        {
+          "href": "https://adwrks.co.il/wp-json/wp/v2/plugins/seo-by-rank-math/rank-math",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "plugin": "royal-elementor-addons/wpr-addons",
+    "status": "active",
+    "name": "Royal Elementor Addons",
+    "plugin_uri": "https://royal-elementor-addons.com/",
+    "author": "WP Royal",
+    "author_uri": "https://royal-elementor-addons.com/",
+    "description": {
+      "raw": "The only plugin you need for Elementor page builder.",
+      "rendered": "The only plugin you need for Elementor page builder. <cite>מאת <a href=\"https://royal-elementor-addons.com/\">WP Royal</a>.</cite>"
+    },
+    "version": "1.7.1068",
+    "network_only": false,
+    "requires_wp": "",
+    "requires_php": "",
+    "textdomain": "wpr-addons",
+    "_links": {
+      "self": [
+        {
+          "href": "https://adwrks.co.il/wp-json/wp/v2/plugins/royal-elementor-addons/wpr-addons",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "plugin": "safe-svg/safe-svg",
+    "status": "active",
+    "name": "Safe SVG",
+    "plugin_uri": "https://wordpress.org/plugins/safe-svg/",
+    "author": "10up",
+    "author_uri": "https://10up.com",
+    "description": {
+      "raw": "Enable SVG uploads and sanitize them to stop XML/SVG vulnerabilities in your WordPress website",
+      "rendered": "Enable SVG uploads and sanitize them to stop XML/SVG vulnerabilities in your WordPress website <cite>מאת <a href=\"https://10up.com\">10up</a>.</cite>"
+    },
+    "version": "2.5.1",
+    "network_only": false,
+    "requires_wp": "",
+    "requires_php": "",
+    "textdomain": "safe-svg",
+    "_links": {
+      "self": [
+        {
+          "href": "https://adwrks.co.il/wp-json/wp/v2/plugins/safe-svg/safe-svg",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "plugin": "google-site-kit/google-site-kit",
+    "status": "active",
+    "name": "Site Kit by Google",
+    "plugin_uri": "https://sitekit.withgoogle.com",
+    "author": "Google",
+    "author_uri": "https://opensource.google.com",
+    "description": {
+      "raw": "Site Kit is a one-stop solution for WordPress users to use everything Google has to offer to make them successful on the web.",
+      "rendered": "Site Kit is a one-stop solution for WordPress users to use everything Google has to offer to make them successful on the web. <cite>מאת <a href=\"https://opensource.google.com\">Google</a>.</cite>"
+    },
+    "version": "1.188.0",
+    "network_only": false,
+    "requires_wp": "5.2",
+    "requires_php": "7.4",
+    "textdomain": "google-site-kit",
+    "_links": {
+      "self": [
+        {
+          "href": "https://adwrks.co.il/wp-json/wp/v2/plugins/google-site-kit/google-site-kit",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "plugin": "sticklight/sticklight-connector",
+    "status": "active",
+    "name": "Sticklight",
+    "plugin_uri": "https://sticklight.com/",
+    "author": "Elementor",
+    "author_uri": "https://elementor.com/",
+    "description": {
+      "raw": "Sticklight Connector for WordPress.",
+      "rendered": "Sticklight Connector for WordPress. <cite>מאת <a href=\"https://elementor.com/\">Elementor</a>.</cite>"
+    },
+    "version": "1.1.0",
+    "network_only": false,
+    "requires_wp": "6.8",
+    "requires_php": "7.4",
+    "textdomain": "sticklight",
+    "_links": {
+      "self": [
+        {
+          "href": "https://adwrks.co.il/wp-json/wp/v2/plugins/sticklight/sticklight-connector",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "plugin": "pojo-accessibility/pojo-accessibility",
+    "status": "active",
+    "name": "Web Accessibility - WCAG Scanning, Guided Fixes, Usability Widget",
+    "plugin_uri": "https://elementor.com/",
+    "author": "Elementor.com",
+    "author_uri": "https://elementor.com/",
+    "description": {
+      "raw": "Improve your website’s accessibility with ease. Customize capabilities such as text resizing, contrast modes, link highlights, and easily generate an accessibility statement to demonstrate your commitment to inclusivity.",
+      "rendered": "Improve your website’s accessibility with ease. Customize capabilities such as text resizing, contrast modes, link highlights, and easily generate an accessibility statement to demonstrate your commitment to inclusivity. <cite>מאת <a href=\"https://elementor.com/\">Elementor.com</a>.</cite>"
+    },
+    "version": "4.1.4",
+    "network_only": false,
+    "requires_wp": "",
+    "requires_php": "",
+    "textdomain": "pojo-accessibility",
+    "_links": {
+      "self": [
+        {
+          "href": "https://adwrks.co.il/wp-json/wp/v2/plugins/pojo-accessibility/pojo-accessibility",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "plugin": "free-facebook-reviews-and-recommendations-widgets/free-facebook-reviews-and-recommendations-widgets",
+    "status": "active",
+    "name": "Widgets for Reviews &amp; Recommendations",
+    "plugin_uri": "https://wordpress.org/plugins/free-facebook-reviews-and-recommendations-widgets/",
+    "author": "Trustindex.io ",
+    "author_uri": "https://www.trustindex.io/",
+    "description": {
+      "raw": "הטמע ביקורות של Facebook במהירות ובקלות באתר הוורדפרס שלך. הגדל קידום אתרים, אמון ומכירות באמצעות המלצות של Facebook.",
+      "rendered": "הטמע ביקורות של Facebook במהירות ובקלות באתר הוורדפרס שלך. הגדל קידום אתרים, אמון ומכירות באמצעות המלצות של Facebook. <cite>מאת <a href=\"https://www.trustindex.io/\">Trustindex.io </a>.</cite>"
+    },
+    "version": "14.2",
+    "network_only": false,
+    "requires_wp": "6.2",
+    "requires_php": "7.4",
+    "textdomain": "free-facebook-reviews-and-recommendations-widgets",
+    "_links": {
+      "self": [
+        {
+          "href": "https://adwrks.co.il/wp-json/wp/v2/plugins/free-facebook-reviews-and-recommendations-widgets/free-facebook-reviews-and-recommendations-widgets",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "plugin": "wp-optimize/wp-optimize",
+    "status": "inactive",
+    "name": "WP-Optimize - Clean, Compress, Cache",
+    "plugin_uri": "https://teamupdraft.com/wp-optimize",
+    "author": "TeamUpdraft, DavidAnderson",
+    "author_uri": "https://teamupdraft.com/wp-optimize?utm_source=wpo-wp-dir&#038;utm_medium=referral&#038;utm_campaign=plugin-dir&#038;utm_content=teamupdraft&#038;utm_creative_format=author",
+    "description": {
+      "raw": "WP-Optimize makes your site fast and efficient. It cleans the database, compresses images and caches pages. Fast sites attract more traffic and users.",
+      "rendered": "WP-Optimize makes your site fast and efficient. It cleans the database, compresses images and caches pages. Fast sites attract more traffic and users. <cite>מאת <a href=\"https://teamupdraft.com/wp-optimize?utm_source=wpo-wp-dir&#038;utm_medium=referral&#038;utm_campaign=plugin-dir&#038;utm_content=teamupdraft&#038;utm_creative_format=author\">TeamUpdraft, DavidAnderson</a>.</cite>"
+    },
+    "version": "4.7.0",
+    "network_only": false,
+    "requires_wp": "4.9",
+    "requires_php": "7.2",
+    "textdomain": "wp-optimize",
+    "_links": {
+      "self": [
+        {
+          "href": "https://adwrks.co.il/wp-json/wp/v2/plugins/wp-optimize/wp-optimize",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "plugin": "insert-headers-and-footers/ihaf",
+    "status": "active",
+    "name": "WPCode Lite",
+    "plugin_uri": "https://www.wpcode.com/",
+    "author": "WPCode",
+    "author_uri": "https://www.wpcode.com/",
+    "description": {
+      "raw": "Easily add code snippets in WordPress. Insert scripts to the header and footer, add PHP code snippets with conditional logic, insert ads pixel, custom content, and more.",
+      "rendered": "Easily add code snippets in WordPress. Insert scripts to the header and footer, add PHP code snippets with conditional logic, insert ads pixel, custom content, and more. <cite>מאת <a href=\"https://www.wpcode.com/\">WPCode</a>.</cite>"
+    },
+    "version": "2.3.9",
+    "network_only": false,
+    "requires_wp": "5.0",
+    "requires_php": "7.0",
+    "textdomain": "insert-headers-and-footers",
+    "_links": {
+      "self": [
+        {
+          "href": "https://adwrks.co.il/wp-json/wp/v2/plugins/insert-headers-and-footers/ihaf",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "plugin": "wps-hide-login/wps-hide-login",
+    "status": "active",
+    "name": "WPS הסתר התחברות",
+    "plugin_uri": "",
+    "author": "WPServeur, Nicolas Kulka, wpformation",
+    "author_uri": "https://wpserveur.net",
+    "description": {
+      "raw": "הגנה על האתר על ידי שינוי כתובת עמוד ההתחברות ומניעת גישה אל wp-login.php ולספריית wp-admin למשתמשים לא מחוברים.",
+      "rendered": "הגנה על האתר על ידי שינוי כתובת עמוד ההתחברות ומניעת גישה אל wp-login.php ולספריית wp-admin למשתמשים לא מחוברים. <cite>מאת <a href=\"https://wpserveur.net\">WPServeur, Nicolas Kulka, wpformation</a>.</cite>"
+    },
+    "version": "1.9.19",
+    "network_only": false,
+    "requires_wp": "4.1",
+    "requires_php": "7.0",
+    "textdomain": "wps-hide-login",
+    "_links": {
+      "self": [
+        {
+          "href": "https://adwrks.co.il/wp-json/wp/v2/plugins/wps-hide-login/wps-hide-login",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ]
+    }
+  }
+]

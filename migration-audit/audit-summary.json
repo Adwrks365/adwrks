@@ -1,0 +1,49 @@
+{
+  "completedAt": "2026-09-29T10:05:15.990Z",
+  "urlsDiscovered": 860,
+  "pages": 16,
+  "posts": 54,
+  "categories": 9,
+  "tags": 96,
+  "media": 467,
+  "seoPlugin": "Rank Math SEO",
+  "pageBuilder": "Elementor (+ Elementor Pro)",
+  "theme": "astra",
+  "customPostTypes": [
+    "e-floating-buttons",
+    "elementor_library",
+    "elementor_snippet",
+    "rm_content_editor"
+  ],
+  "authWorking": true,
+  "inaccessible": [
+    "No non-theme custom fields detected (ACF not installed)",
+    "Draft/private content included if accessible to migration user"
+  ],
+  "phase1b": {
+    "completedAt": "2026-09-29T10:12:19.257Z",
+    "authSucceeded": true,
+    "authenticatedUser": "migration",
+    "additionalData": {
+      "menus": 29,
+      "menuItems": 299,
+      "plugins": 25,
+      "elementorTemplates": 59,
+      "headerFooterTemplates": 36,
+      "rankMathSeoRecords": 70,
+      "postLevelRedirects": 0,
+      "customFieldKeys": 0,
+      "pagesWithElementorData": 16,
+      "postsWithElementorData": 52
+    },
+    "rankMathRedirectsRetrieved": true,
+    "rankMathRedirectsNote": "Rank Math has no public GET /redirections REST route; redirects collected from post-level meta where present.",
+    "elementorTemplatesRetrieved": true,
+    "menusRetrieved": true,
+    "remainingInaccessible": [
+      "No non-theme custom fields detected (ACF not installed)",
+      "Draft/private content included if accessible to migration user"
+    ],
+    "readyForMigration": true
+  }
+}

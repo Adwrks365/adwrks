@@ -1,0 +1,362 @@
+{
+  "timestamp": "2026-09-30T09:25:39.377Z",
+  "passed": 71,
+  "failed": 0,
+  "steps": [
+    {
+      "step": "390 home status",
+      "pass": true,
+      "detail": "200"
+    },
+    {
+      "step": "390 home no overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "390 about status",
+      "pass": true,
+      "detail": "200"
+    },
+    {
+      "step": "390 about no overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "390 contact status",
+      "pass": true,
+      "detail": "200"
+    },
+    {
+      "step": "390 contact no overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "390 services status",
+      "pass": true,
+      "detail": "200"
+    },
+    {
+      "step": "390 services no overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "390 seo status",
+      "pass": true,
+      "detail": "200"
+    },
+    {
+      "step": "390 seo no overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "390 google-ads-service status",
+      "pass": true,
+      "detail": "200"
+    },
+    {
+      "step": "390 google-ads-service no overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "390 social status",
+      "pass": true,
+      "detail": "200"
+    },
+    {
+      "step": "390 social no overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "390 website status",
+      "pass": true,
+      "detail": "200"
+    },
+    {
+      "step": "390 website no overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "390 blog status",
+      "pass": true,
+      "detail": "200"
+    },
+    {
+      "step": "390 blog no overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "390 category status",
+      "pass": true,
+      "detail": "200"
+    },
+    {
+      "step": "390 category no overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "390 article-pagespeed status",
+      "pass": true,
+      "detail": "200"
+    },
+    {
+      "step": "390 article-pagespeed no overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "390 article-roi status",
+      "pass": true,
+      "detail": "200"
+    },
+    {
+      "step": "390 article-roi no overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "390 article-seo status",
+      "pass": true,
+      "detail": "200"
+    },
+    {
+      "step": "390 article-seo no overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "390 article-gads status",
+      "pass": true,
+      "detail": "200"
+    },
+    {
+      "step": "390 article-gads no overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "390 article-ppc status",
+      "pass": true,
+      "detail": "200"
+    },
+    {
+      "step": "390 article-ppc no overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440 home status",
+      "pass": true,
+      "detail": "200"
+    },
+    {
+      "step": "1440 home no overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440 about status",
+      "pass": true,
+      "detail": "200"
+    },
+    {
+      "step": "1440 about no overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440 contact status",
+      "pass": true,
+      "detail": "200"
+    },
+    {
+      "step": "1440 contact no overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440 services status",
+      "pass": true,
+      "detail": "200"
+    },
+    {
+      "step": "1440 services no overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440 seo status",
+      "pass": true,
+      "detail": "200"
+    },
+    {
+      "step": "1440 seo no overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440 google-ads-service status",
+      "pass": true,
+      "detail": "200"
+    },
+    {
+      "step": "1440 google-ads-service no overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440 social status",
+      "pass": true,
+      "detail": "200"
+    },
+    {
+      "step": "1440 social no overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440 website status",
+      "pass": true,
+      "detail": "200"
+    },
+    {
+      "step": "1440 website no overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440 blog status",
+      "pass": true,
+      "detail": "200"
+    },
+    {
+      "step": "1440 blog no overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440 category status",
+      "pass": true,
+      "detail": "200"
+    },
+    {
+      "step": "1440 category no overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440 article-pagespeed status",
+      "pass": true,
+      "detail": "200"
+    },
+    {
+      "step": "1440 article-pagespeed no overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440 article-roi status",
+      "pass": true,
+      "detail": "200"
+    },
+    {
+      "step": "1440 article-roi no overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440 article-seo status",
+      "pass": true,
+      "detail": "200"
+    },
+    {
+      "step": "1440 article-seo no overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440 article-gads status",
+      "pass": true,
+      "detail": "200"
+    },
+    {
+      "step": "1440 article-gads no overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440 article-ppc status",
+      "pass": true,
+      "detail": "200"
+    },
+    {
+      "step": "1440 article-ppc no overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "home marquee",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "home results",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "google reviews link",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "no standalone authority badge",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "article h1",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "toc closed",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "helpful headline",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "no public vote total",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "privacy checkbox",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "email not required",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "a11y panel opens",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}

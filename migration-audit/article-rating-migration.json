@@ -1,0 +1,983 @@
+{
+  "generatedAt": "2026-09-30T13:10:09.677Z",
+  "plugin": "rate-my-post",
+  "source": "Live production HTML widget text and data-post-id. Not estimated. localStorage votes are not included.",
+  "note": "Production also emits AggregateRating inside a CreativeWorkSeason JSON-LD block from Rate My Post. That schema type was not added or extended in Next.js beyond the previously captured Rank Math/page JSON-LD. Do not treat these counts as a new AggregateRating implementation.",
+  "postsChecked": 54,
+  "withVotes": 54,
+  "withoutVotes": 0,
+  "articles": [
+    {
+      "productionUrl": "https://adwrks.co.il/בדיקת-מהירות-אתר/",
+      "localRoute": "/בדיקת-מהירות-אתר/",
+      "wordpressId": 21496,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 69,
+      "widgetPostId": "21496",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "69",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/החיפושים-הכי-פופולריים-בגוגל-היום-ביש/",
+      "localRoute": "/החיפושים-הכי-פופולריים-בגוגל-היום-ביש/",
+      "wordpressId": 10983,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "3.4",
+      "voteCount": 5,
+      "widgetPostId": "10983",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "3.4",
+        "ratingCount": "5",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/כמה-עולה-לבנות-אתר-אינטרנט-בוורדפרס/",
+      "localRoute": "/כמה-עולה-לבנות-אתר-אינטרנט-בוורדפרס/",
+      "wordpressId": 19792,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 48,
+      "widgetPostId": "19792",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "48",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/google-shopping-guide/",
+      "localRoute": "/google-shopping-guide/",
+      "wordpressId": 17923,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 57,
+      "widgetPostId": "17923",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "57",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/רימרקטינג-מה-זה-איך-ולמה/",
+      "localRoute": "/רימרקטינג-מה-זה-איך-ולמה/",
+      "wordpressId": 21272,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "4.9",
+      "voteCount": 60,
+      "widgetPostId": "21272",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "4.9",
+        "ratingCount": "60",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/מהו-aeo-האם-יחליף-את-seo/",
+      "localRoute": "/מהו-aeo-האם-יחליף-את-seo/",
+      "wordpressId": 21339,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 30,
+      "widgetPostId": "21339",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "30",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/פרסום-ממומן-בפייסבוק/",
+      "localRoute": "/פרסום-ממומן-בפייסבוק/",
+      "wordpressId": 21249,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 23,
+      "widgetPostId": "21249",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "23",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/כמה-עולה-פרסום-בגוגל/",
+      "localRoute": "/כמה-עולה-פרסום-בגוגל/",
+      "wordpressId": 21638,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 40,
+      "widgetPostId": "21638",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "40",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/אסטרטגיות-שיווק-דיגיטלי-2025/",
+      "localRoute": "/אסטרטגיות-שיווק-דיגיטלי-2025/",
+      "wordpressId": 21776,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 35,
+      "widgetPostId": "21776",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "35",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/מחיר-קידום-אתרים/",
+      "localRoute": "/מחיר-קידום-אתרים/",
+      "wordpressId": 21161,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 34,
+      "widgetPostId": "21161",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "34",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/קידום-ממומן-מול-קידום-אורגני/",
+      "localRoute": "/קידום-ממומן-מול-קידום-אורגני/",
+      "wordpressId": 21860,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 40,
+      "widgetPostId": "21860",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "40",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/שיפור-מהירות-אתר-2026-pagespeed/",
+      "localRoute": "/שיפור-מהירות-אתר-2026-pagespeed/",
+      "wordpressId": 22310,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 45,
+      "widgetPostId": "22310",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "45",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/מחשבון-roi-מעודכן-2026/",
+      "localRoute": "/מחשבון-roi-מעודכן-2026/",
+      "wordpressId": 22727,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 32,
+      "widgetPostId": "22727",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "32",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/google-business-profile/",
+      "localRoute": "/google-business-profile/",
+      "wordpressId": 14288,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 101,
+      "widgetPostId": "14288",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "101",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/פרסום-בגוגל-מפות/",
+      "localRoute": "/פרסום-בגוגל-מפות/",
+      "wordpressId": 20155,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 124,
+      "widgetPostId": "20155",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "124",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/שיווק-בפייסבוק-ואינסטגרם/",
+      "localRoute": "/שיווק-בפייסבוק-ואינסטגרם/",
+      "wordpressId": 21578,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 36,
+      "widgetPostId": "21578",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "36",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/כך-בוחרים-חברה-לשיווק-דיגיטלי/",
+      "localRoute": "/כך-בוחרים-חברה-לשיווק-דיגיטלי/",
+      "wordpressId": 21716,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 33,
+      "widgetPostId": "21716",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "33",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/עתיד-ה-seo-כך-ייראה-הקידום-האורגני-ב-2025-ומעב/",
+      "localRoute": "/עתיד-ה-seo-כך-ייראה-הקידום-האורגני-ב-2025-ומעב/",
+      "wordpressId": 21817,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 37,
+      "widgetPostId": "21817",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "37",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/seo-2026-ai-answers/",
+      "localRoute": "/seo-2026-ai-answers/",
+      "wordpressId": 22368,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 42,
+      "widgetPostId": "22368",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "42",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/ביקורות-גוגל-לא-עובד-❌-זו-הסיבה-למה/",
+      "localRoute": "/ביקורות-גוגל-לא-עובד-❌-זו-הסיבה-למה/",
+      "wordpressId": 20230,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 54,
+      "widgetPostId": "20230",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "54",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/פרסום-דיגיטלי-בשפה-הרוסית/",
+      "localRoute": "/פרסום-דיגיטלי-בשפה-הרוסית/",
+      "wordpressId": 20350,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 69,
+      "widgetPostId": "20350",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "69",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/פרסום-בגוגל-7-אסטרטגיות/",
+      "localRoute": "/פרסום-בגוגל-7-אסטרטגיות/",
+      "wordpressId": 20897,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 87,
+      "widgetPostId": "20897",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "87",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/פרסום-בגוגל-אדס-10-שלבים-פשוטים/",
+      "localRoute": "/פרסום-בגוגל-אדס-10-שלבים-פשוטים/",
+      "wordpressId": 20919,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 16,
+      "widgetPostId": "20919",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "16",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/קידום-אתרים-מדריך-למתחילים/",
+      "localRoute": "/קידום-אתרים-מדריך-למתחילים/",
+      "wordpressId": 21115,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 77,
+      "widgetPostId": "21115",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "77",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/כמה-עולה-לבנות-אתר-מחירון-מחשבון/",
+      "localRoute": "/כמה-עולה-לבנות-אתר-מחירון-מחשבון/",
+      "wordpressId": 21189,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 48,
+      "widgetPostId": "21189",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "48",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/פלטפורמה-בניית-אתר/",
+      "localRoute": "/פלטפורמה-בניית-אתר/",
+      "wordpressId": 21317,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 66,
+      "widgetPostId": "21317",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "66",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/חברה-לשיווק-דיגיטלי/",
+      "localRoute": "/חברה-לשיווק-דיגיטלי/",
+      "wordpressId": 20803,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 62,
+      "widgetPostId": "20803",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "62",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/סוכנות-פרסום-שיווק-בכרמיאל/",
+      "localRoute": "/סוכנות-פרסום-שיווק-בכרמיאל/",
+      "wordpressId": 21392,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 30,
+      "widgetPostId": "21392",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "30",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/שיווק-דיגיטלי-לעסקים/",
+      "localRoute": "/שיווק-דיגיטלי-לעסקים/",
+      "wordpressId": 21068,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 43,
+      "widgetPostId": "21068",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "43",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/משרד-פרסום-דיגיטלי/",
+      "localRoute": "/משרד-פרסום-דיגיטלי/",
+      "wordpressId": 10369,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 58,
+      "widgetPostId": "10369",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "58",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/כמה-עולים-שירותי-אחסון-ותחזוקת-אתרים/",
+      "localRoute": "/כמה-עולים-שירותי-אחסון-ותחזוקת-אתרים/",
+      "wordpressId": 19781,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 52,
+      "widgetPostId": "19781",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "52",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/אחסון-ותחזוקת-אתרים-למה-זה-חשוב/",
+      "localRoute": "/אחסון-ותחזוקת-אתרים-למה-זה-חשוב/",
+      "wordpressId": 19548,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 26,
+      "widgetPostId": "19548",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "26",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/אחסון-אתרי-וורדפרס-ותחזוקתם/",
+      "localRoute": "/אחסון-אתרי-וורדפרס-ותחזוקתם/",
+      "wordpressId": 19644,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 24,
+      "widgetPostId": "19644",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "24",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/אחסון-ותחזוקת-אתרים-המדריך/",
+      "localRoute": "/אחסון-ותחזוקת-אתרים-המדריך/",
+      "wordpressId": 19758,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 19,
+      "widgetPostId": "19758",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "19",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/מהו-שיווק-באינטרנט/",
+      "localRoute": "/מהו-שיווק-באינטרנט/",
+      "wordpressId": 21051,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "4.9",
+      "voteCount": 50,
+      "widgetPostId": "21051",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "4.9",
+        "ratingCount": "50",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/פרסום-עסק-חינם/",
+      "localRoute": "/פרסום-עסק-חינם/",
+      "wordpressId": 20969,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 44,
+      "widgetPostId": "20969",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "44",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/יועץ-שיווק-באינטרנט/",
+      "localRoute": "/יועץ-שיווק-באינטרנט/",
+      "wordpressId": 20081,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 36,
+      "widgetPostId": "20081",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "36",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/סוכנות-שיווק-דיגיטלי/",
+      "localRoute": "/סוכנות-שיווק-דיגיטלי/",
+      "wordpressId": 20403,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 32,
+      "widgetPostId": "20403",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "32",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/סוכנות-לשיווק-דיגיטלי/",
+      "localRoute": "/סוכנות-לשיווק-דיגיטלי/",
+      "wordpressId": 20506,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 24,
+      "widgetPostId": "20506",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "24",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/יועץ-אינטרנט/",
+      "localRoute": "/יועץ-אינטרנט/",
+      "wordpressId": 20029,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 25,
+      "widgetPostId": "20029",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "25",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/ניהול-עסק-בעידן-הדיגיטלי/",
+      "localRoute": "/ניהול-עסק-בעידן-הדיגיטלי/",
+      "wordpressId": 20051,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 57,
+      "widgetPostId": "20051",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "57",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/יועץ-דיגיטל-הוא-השותף-שלך-להצלחה/",
+      "localRoute": "/יועץ-דיגיטל-הוא-השותף-שלך-להצלחה/",
+      "wordpressId": 20092,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 22,
+      "widgetPostId": "20092",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "22",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/מה-ההבדל-בין-sem-ל-ppc/",
+      "localRoute": "/מה-ההבדל-בין-sem-ל-ppc/",
+      "wordpressId": 20529,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 17,
+      "widgetPostId": "20529",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "17",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/שיווק-מקצועי-לקהל-דובר-רוסית/",
+      "localRoute": "/שיווק-מקצועי-לקהל-דובר-רוסית/",
+      "wordpressId": 20388,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 32,
+      "widgetPostId": "20388",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "32",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/קידום-אתרים-בגוגל/",
+      "localRoute": "/קידום-אתרים-בגוגל/",
+      "wordpressId": 19428,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 47,
+      "widgetPostId": "19428",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "47",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/צמיחה-עסקית-באמצעות-קידום-באינטרנט/",
+      "localRoute": "/צמיחה-עסקית-באמצעות-קידום-באינטרנט/",
+      "wordpressId": 19100,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 27,
+      "widgetPostId": "19100",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "27",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/סוכנות-שיווק-דיגיטלית/",
+      "localRoute": "/סוכנות-שיווק-דיגיטלית/",
+      "wordpressId": 18480,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 42,
+      "widgetPostId": "18480",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "42",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/פרסום-לעסקים/",
+      "localRoute": "/פרסום-לעסקים/",
+      "wordpressId": 19070,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 26,
+      "widgetPostId": "19070",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "26",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/החשיבות-של-משרד-פרסום-דיגיטלי/",
+      "localRoute": "/החשיבות-של-משרד-פרסום-דיגיטלי/",
+      "wordpressId": 19281,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 28,
+      "widgetPostId": "19281",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "28",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/מהי-סוכנות-דיגיטלית/",
+      "localRoute": "/מהי-סוכנות-דיגיטלית/",
+      "wordpressId": 19143,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 70,
+      "widgetPostId": "19143",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "70",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/מדריך-קידום-העסק-בגוגל/",
+      "localRoute": "/מדריך-קידום-העסק-בגוגל/",
+      "wordpressId": 19121,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 47,
+      "widgetPostId": "19121",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "47",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/השקעה-בפרסום-גם-בזמנים-קשים/",
+      "localRoute": "/השקעה-בפרסום-גם-בזמנים-קשים/",
+      "wordpressId": 19398,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 61,
+      "widgetPostId": "19398",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "61",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/אחסון-אתרים-מנוהל/",
+      "localRoute": "/אחסון-אתרים-מנוהל/",
+      "wordpressId": 19933,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 33,
+      "widgetPostId": "19933",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "33",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    },
+    {
+      "productionUrl": "https://adwrks.co.il/כוחם-של-ביקורות-והמלצות/",
+      "localRoute": "/כוחם-של-ביקורות-והמלצות/",
+      "wordpressId": 10373,
+      "source": "live production HTML, Rate My Post widget (read-only)",
+      "plugin": "rate-my-post",
+      "recovered": true,
+      "average": "5",
+      "voteCount": 88,
+      "widgetPostId": "10373",
+      "productionSchema": {
+        "type": "CreativeWorkSeason",
+        "ratingValue": "5",
+        "ratingCount": "88",
+        "bestRating": "5"
+      },
+      "httpStatus": 200
+    }
+  ]
+}

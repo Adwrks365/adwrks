@@ -1,0 +1,31 @@
+{
+  "generatedAt": "2026-09-30T12:55:03.317Z",
+  "audited": 74,
+  "overall": {
+    "exact": 0,
+    "semanticallyPreserved": 73,
+    "needsManualReview": 1,
+    "seoSignificant": 0,
+    "local404": 0,
+    "production404": 0
+  },
+  "significantByField": {},
+  "canonicalHostIssues": [],
+  "titleMismatches": [],
+  "descriptionMismatches": [],
+  "h1Issues": [
+    {
+      "url": "/",
+      "classification": "NEEDS MANUAL REVIEW",
+      "production": [
+        "Adwrks 365 סוכנות שיווק דיגיטלי ואסטרטגיית צמיחה"
+      ],
+      "local": [
+        "Adwrks 365 שיווק דיגיטלי, ביצועים ו-SEO"
+      ]
+    }
+  ],
+  "ogTypeMismatches": [],
+  "schemaIssues": [],
+  "auditTitleConflicts": []
+}

@@ -1,0 +1,175 @@
+{
+  "generatedAt": "2026-09-30T13:10:09.677Z",
+  "localPages": 74,
+  "localNot200": [],
+  "contamination": [
+    {
+      "path": "/seo-2026-ai-answers/",
+      "badCanonical": false,
+      "www": false,
+      "localhostInHtml": false,
+      "httpResources": [
+        "href=\"http://amiam.co.il"
+      ]
+    },
+    {
+      "path": "/פרסום-עסק-חינם/",
+      "badCanonical": false,
+      "www": false,
+      "localhostInHtml": false,
+      "httpResources": [
+        "href=\"http://catalog.adwrks.co.il"
+      ]
+    }
+  ],
+  "multiOrMissingH1": [],
+  "stagingNoindex": 74,
+  "aggregateRatingLocalPages": 54,
+  "wpUploadHotlinkPages": 73,
+  "slash": [
+    {
+      "path": "/",
+      "withSlash": 200,
+      "withoutSlash": 200,
+      "withoutLocation": null
+    },
+    {
+      "path": "/seo/",
+      "withSlash": 200,
+      "withoutSlash": 308,
+      "withoutLocation": "/seo/"
+    },
+    {
+      "path": "/about-us/",
+      "withSlash": 200,
+      "withoutSlash": 308,
+      "withoutLocation": "/about-us/"
+    },
+    {
+      "path": "/blog/",
+      "withSlash": 200,
+      "withoutSlash": 308,
+      "withoutLocation": "/blog/"
+    },
+    {
+      "path": "/google-ads/",
+      "withSlash": 200,
+      "withoutSlash": 308,
+      "withoutLocation": "/google-ads/"
+    },
+    {
+      "path": "/%D7%A7%D7%99%D7%93%D7%95%D7%9D-%D7%90%D7%AA%D7%A8%D7%99%D7%9D-%D7%91%D7%92%D7%95%D7%92%D7%9C/",
+      "withSlash": 200,
+      "withoutSlash": 308,
+      "withoutLocation": "/%D7%A7%D7%99%D7%93%D7%95%D7%9D-%D7%90%D7%AA%D7%A8%D7%99%D7%9D-%D7%91%D7%92%D7%95%D7%92%D7%9C/"
+    }
+  ],
+  "missingPage": {
+    "status": 404,
+    "canonical": "https://adwrks.co.il/",
+    "title": "סוכנות שיווק דיגיטלי ⋆ Adwrks 365",
+    "h1": []
+  },
+  "plans": {
+    "status": 308,
+    "location": "/hosting-plans/"
+  },
+  "legacy": {
+    "landingLocal": 404,
+    "landingProd": 200,
+    "landingProdRobots": "follow, noindex",
+    "websiteDesignLocal": 404,
+    "websiteDesignProd": 404,
+    "organicLocal": 404,
+    "organicProd": 404
+  },
+  "homepage": {
+    "productionH1": [
+      "Adwrks 365 סוכנות שיווק דיגיטלי ואסטרטגיית צמיחה"
+    ],
+    "localH1": [
+      "Adwrks 365 שיווק דיגיטלי, ביצועים ו-SEO"
+    ],
+    "productionTitle": "סוכנות שיווק דיגיטלי ⋆ Adwrks 365",
+    "localTitle": "סוכנות שיווק דיגיטלי ⋆ Adwrks 365",
+    "oldH1StillOnLocal": false
+  },
+  "legalRows": [
+    {
+      "path": "/privacy-policy/",
+      "status": 200,
+      "title": "מדיניות פרטיות – adwrks.co.il ⋆ Adwrks 365",
+      "h1": [],
+      "textLength": 32742,
+      "elementor": true
+    },
+    {
+      "path": "/accessibility-statement/",
+      "status": 200,
+      "title": "הצהרת נגישות ⋆ Adwrks 365",
+      "h1": [],
+      "textLength": 31750,
+      "elementor": true
+    },
+    {
+      "path": "/terms-of-use/",
+      "status": 200,
+      "title": "תקנון ותנאי שימוש מלאים – adwrks.co.il ⋆ Adwrks 365",
+      "h1": [],
+      "textLength": 45612,
+      "elementor": true
+    }
+  ],
+  "assetStatus": [
+    {
+      "asset": "/wp-content/uploads/cropped-adwrks-white-32x32.webp",
+      "status": 200
+    },
+    {
+      "asset": "/wp-content/uploads/cropped-adwrks-white-180x180.webp",
+      "status": 200
+    },
+    {
+      "asset": "/wp-content/uploads/cropped-adwrks-white-192x192.webp",
+      "status": 200
+    },
+    {
+      "asset": "/favicon.ico",
+      "status": 200
+    }
+  ],
+  "forms": [
+    {
+      "name": "missing consent",
+      "status": 400,
+      "expected": 400,
+      "pass": true
+    },
+    {
+      "name": "article email optional",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "name": "honeypot",
+      "status": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "name": "bad email",
+      "status": 400,
+      "expected": 400,
+      "pass": true
+    }
+  ],
+  "ratings": {
+    "postsChecked": 54,
+    "recoveredWithVotes": 54,
+    "withoutVotesOrWidget": 0,
+    "schemaTypes": [
+      "CreativeWorkSeason"
+    ]
+  }
+}

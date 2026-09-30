@@ -1,0 +1,53 @@
+{
+  "generatedAt": "2026-09-30T12:55:30.000Z",
+  "rankMathRedirectionsModule": "off",
+  "auditHttpRedirects": [],
+  "existingObservedRedirects": [
+    {
+      "from": "https://adwrks.co.il/plans/",
+      "to": "https://adwrks.co.il/hosting-plans/",
+      "status": 308,
+      "source": "live production response",
+      "local": "implemented in next.config.ts as a permanent redirect"
+    }
+  ],
+  "requiredMigrationRedirects": [],
+  "normalizationRedirects": [
+    {
+      "rule": "trailing slash",
+      "behavior": "Next.js trailingSlash: true matches production permalinks",
+      "action": "already configured"
+    },
+    {
+      "rule": "www to non-www",
+      "behavior": "Canonicals already use https://adwrks.co.il. Host-level www redirect is a launch task, not a content change.",
+      "action": "not implemented in Phase 4A; DNS and hosting were not modified"
+    }
+  ],
+  "unresolved": [
+    {
+      "url": "/landing-page/",
+      "production": "200, robots noindex, title 'landing-page'. Media attachment page, not in the Rank Math sitemap.",
+      "local": "404",
+      "decision": "Do not create an attachment route and do not add it to the sitemap. Left for manual review."
+    },
+    {
+      "url": "/website-design/",
+      "production": "404",
+      "local": "404",
+      "decision": "Pre-existing broken in-content link on the pricing page. No redirect invented."
+    },
+    {
+      "url": "/קידום-אורגני/",
+      "production": "404",
+      "local": "404",
+      "decision": "Pre-existing broken in-content link on the pricing page. No redirect invented."
+    }
+  ],
+  "outOfScope": [
+    {
+      "host": "catalog.adwrks.co.il",
+      "note": "External catalog subdomain. Linked from a few articles. Not absorbed into this site."
+    }
+  ]
+}

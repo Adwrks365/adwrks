@@ -1,0 +1,18 @@
+{
+  "timestamp": "2026-09-30T08:44:31.375Z",
+  "base": "http://localhost:3000",
+  "urlsChecked": 74,
+  "fixesApplied": [
+    "decodeHtmlEntities multi-pass in paths.ts",
+    "decodeHtmlTextNodes in processContentHtml",
+    "formatExcerpt uses decodeHtmlEntities",
+    "TOC heading text decoded in extractArticleHeadings"
+  ],
+  "rawEntitiesBefore": 0,
+  "rawEntitiesAfter": 0,
+  "findingsBefore": [],
+  "findingsAfter": [],
+  "locationsAffected": [],
+  "remainingVisibleEntities": [],
+  "targetMet": true
+}

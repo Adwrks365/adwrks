@@ -1,0 +1,251 @@
+{
+  "timestamp": "2026-09-30T09:04:05.043Z",
+  "base": "http://localhost:3000",
+  "steps": [
+    {
+      "step": "360px pagespeed-2026 single article H1",
+      "pass": true,
+      "detail": "count=1"
+    },
+    {
+      "step": "360px roi-calculator single article H1",
+      "pass": true,
+      "detail": "count=1"
+    },
+    {
+      "step": "360px seo-2026-ai single article H1",
+      "pass": true,
+      "detail": "count=1"
+    },
+    {
+      "step": "360px google-ads single article H1",
+      "pass": true,
+      "detail": "count=1"
+    },
+    {
+      "step": "360px ppc-seo-cost single article H1",
+      "pass": true,
+      "detail": "count=1"
+    },
+    {
+      "step": "390px pagespeed-2026 single article H1",
+      "pass": true,
+      "detail": "count=1"
+    },
+    {
+      "step": "390px pagespeed-2026 vote touch target",
+      "pass": true,
+      "detail": "h=40"
+    },
+    {
+      "step": "390px roi-calculator single article H1",
+      "pass": true,
+      "detail": "count=1"
+    },
+    {
+      "step": "390px roi-calculator vote touch target",
+      "pass": true,
+      "detail": "h=40"
+    },
+    {
+      "step": "390px seo-2026-ai single article H1",
+      "pass": true,
+      "detail": "count=1"
+    },
+    {
+      "step": "390px seo-2026-ai vote touch target",
+      "pass": true,
+      "detail": "h=40"
+    },
+    {
+      "step": "390px google-ads single article H1",
+      "pass": true,
+      "detail": "count=1"
+    },
+    {
+      "step": "390px google-ads vote touch target",
+      "pass": true,
+      "detail": "h=40"
+    },
+    {
+      "step": "390px ppc-seo-cost single article H1",
+      "pass": true,
+      "detail": "count=1"
+    },
+    {
+      "step": "390px ppc-seo-cost vote touch target",
+      "pass": true,
+      "detail": "h=40"
+    },
+    {
+      "step": "430px pagespeed-2026 single article H1",
+      "pass": true,
+      "detail": "count=1"
+    },
+    {
+      "step": "430px roi-calculator single article H1",
+      "pass": true,
+      "detail": "count=1"
+    },
+    {
+      "step": "430px seo-2026-ai single article H1",
+      "pass": true,
+      "detail": "count=1"
+    },
+    {
+      "step": "430px google-ads single article H1",
+      "pass": true,
+      "detail": "count=1"
+    },
+    {
+      "step": "430px ppc-seo-cost single article H1",
+      "pass": true,
+      "detail": "count=1"
+    },
+    {
+      "step": "1440px pagespeed-2026 single article H1",
+      "pass": true,
+      "detail": "count=1"
+    },
+    {
+      "step": "1440px pagespeed-2026 end shell",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px pagespeed-2026 helpful vote end",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px pagespeed-2026 no sidebar vote",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px roi-calculator single article H1",
+      "pass": true,
+      "detail": "count=1"
+    },
+    {
+      "step": "1440px roi-calculator end shell",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px roi-calculator helpful vote end",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px roi-calculator no sidebar vote",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px seo-2026-ai single article H1",
+      "pass": true,
+      "detail": "count=1"
+    },
+    {
+      "step": "1440px seo-2026-ai end shell",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px seo-2026-ai helpful vote end",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px seo-2026-ai no sidebar vote",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px google-ads single article H1",
+      "pass": true,
+      "detail": "count=1"
+    },
+    {
+      "step": "1440px google-ads end shell",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px google-ads helpful vote end",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px google-ads no sidebar vote",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px ppc-seo-cost single article H1",
+      "pass": true,
+      "detail": "count=1"
+    },
+    {
+      "step": "1440px ppc-seo-cost end shell",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px ppc-seo-cost helpful vote end",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px ppc-seo-cost no sidebar vote",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "390px homepage platform section",
+      "pass": true,
+      "detail": "logos=8"
+    },
+    {
+      "step": "768px homepage platform section",
+      "pass": true,
+      "detail": "logos=8"
+    },
+    {
+      "step": "1440px homepage platform section",
+      "pass": true,
+      "detail": "logos=8"
+    },
+    {
+      "step": "scroll-top hidden at top",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "scroll-top visible after scroll",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "h1": {
+    "articlesScanned": 54,
+    "postsWithEmbeddedH1InSource": 2,
+    "embeddedH1InSourceBefore": 2,
+    "embeddedH1FixedByDowngrade": 2,
+    "remainingEmbeddedH1InSource": 0,
+    "note": "Runtime: all embedded H1 downgraded to H2 in prepareArticleBodyHtml",
+    "postsWithH1InSource": [
+      {
+        "path": "/%d7%9e%d7%97%d7%a9%d7%91%d7%95%d7%9f-roi-%d7%9e%d7%a2%d7%95%d7%93%d7%9b%d7%9f-2026/",
+        "count": 1
+      },
+      {
+        "path": "/%d7%9b%d7%9e%d7%94-%d7%a2%d7%95%d7%9c%d7%94-%d7%9c%d7%91%d7%a0%d7%95%d7%aa-%d7%90%d7%aa%d7%a8-%d7%9e%d7%97%d7%99%d7%a8%d7%95%d7%9f-%d7%9e%d7%97%d7%a9%d7%91%d7%95%d7%9f/",
+        "count": 1
+      }
+    ]
+  },
+  "passed": 45,
+  "failed": 0
+}

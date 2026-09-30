@@ -1,0 +1,114 @@
+{
+  "generatedAt": "2026-09-29T10:40:12.987Z",
+  "localBase": "http://localhost:3000",
+  "total": 1,
+  "exact": 0,
+  "acceptable": 1,
+  "seoSignificant": 0,
+  "missing": 0,
+  "results": [
+    {
+      "url": "https://adwrks.co.il/",
+      "localUrl": "http://localhost:3000/",
+      "comparisons": [
+        {
+          "field": "httpStatus",
+          "status": "exact",
+          "expected": 200,
+          "actual": 200
+        },
+        {
+          "field": "title",
+          "status": "exact",
+          "expected": "סוכנות שיווק דיגיטלי ⋆ Adwrks 365",
+          "actual": "סוכנות שיווק דיגיטלי ⋆ Adwrks 365"
+        },
+        {
+          "field": "metaDescription",
+          "status": "exact",
+          "expected": "Adwrks 365 – סוכנות שיווק דיגיטלי משנת 2018. בניית אתרים, SEO, פרסום ממומן וקידום AI שמביא לקוחות לעסקים. ליווי אישי, שקיפות ותוצאות ⭐⭐⭐⭐⭐",
+          "actual": "Adwrks 365 – סוכנות שיווק דיגיטלי משנת 2018. בניית אתרים, SEO, פרסום ממומן וקידום AI שמביא לקוחות לעסקים. ליווי אישי, שקיפות ותוצאות ⭐⭐⭐⭐⭐"
+        },
+        {
+          "field": "canonical",
+          "status": "exact",
+          "expected": "https://adwrks.co.il/",
+          "actual": "https://adwrks.co.il/"
+        },
+        {
+          "field": "robots",
+          "status": "acceptable",
+          "expected": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+          "actual": "noindex, nofollow",
+          "note": "staging noindex intentional"
+        },
+        {
+          "field": "ogTitle",
+          "status": "exact",
+          "expected": "סוכנות שיווק דיגיטלי ⋆ Adwrks 365",
+          "actual": "סוכנות שיווק דיגיטלי ⋆ Adwrks 365"
+        },
+        {
+          "field": "ogDescription",
+          "status": "exact",
+          "expected": "Adwrks 365 – סוכנות שיווק דיגיטלי משנת 2018. בניית אתרים, SEO, פרסום ממומן וקידום AI שמביא לקוחות לעסקים. ליווי אישי, שקיפות ותוצאות ⭐⭐⭐⭐⭐",
+          "actual": "Adwrks 365 – סוכנות שיווק דיגיטלי משנת 2018. בניית אתרים, SEO, פרסום ממומן וקידום AI שמביא לקוחות לעסקים. ליווי אישי, שקיפות ותוצאות ⭐⭐⭐⭐⭐"
+        },
+        {
+          "field": "h1",
+          "status": "acceptable",
+          "missing": [
+            "Adwrks 365 סוכנות שיווק דיגיטלי ואסטרטגיית צמיחה"
+          ],
+          "extra": [
+            "Adwrks 365סוכנות שיווק דיגיטלי ואסטרטגיית צמיחה"
+          ]
+        },
+        {
+          "field": "h2",
+          "status": "acceptable",
+          "missing": [
+            "Adwrks 365 המנוע מאחורי הסמכות הדיגיטלית שלכם"
+          ],
+          "extra": [
+            "Adwrks 365המנוע מאחורי הסמכות הדיגיטלית שלכם"
+          ]
+        },
+        {
+          "field": "jsonLdTypes",
+          "status": "exact"
+        },
+        {
+          "field": "internalLinks",
+          "status": "acceptable",
+          "missing": [],
+          "extra": [
+            "/_next/static/chunks/12geis06xw9t4.css",
+            "/_next/static/chunks/3s6nzrbk-8mnv.js",
+            "/_next/static/media/1c9ef42b327f16c7-s.p.0jgv4ivu1938h.woff2",
+            "/_next/static/media/86c8c58929c52757-s.p.3dq6enaul-s3b.woff2",
+            "/about-us/",
+            "/accessibility-statement/",
+            "/contact-us/",
+            "/digital-marketing/",
+            "/favicon.ico?favicon.2vob68tjqpejf.ico",
+            "/google-ads/",
+            "/hosting-plans/",
+            "/privacy-policy/",
+            "/seo-2026-ai-answers/",
+            "/seo/",
+            "/social-media-management/",
+            "/terms-of-use/",
+            "/website-building/",
+            "/בדיקת-מהירות-אתר/",
+            "/מחשבון-roi-מעודכן-2026/",
+            "/פרסום-בגוגל-מפות/",
+            "/שיווק-דיגיטלי-לעסקים/",
+            "/שירותי-שיווק-דיגיטלי/"
+          ]
+        }
+      ],
+      "overall": "acceptable"
+    }
+  ]
+}

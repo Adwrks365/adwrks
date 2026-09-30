@@ -1,0 +1,739 @@
+{
+  "base": "http://localhost:3000",
+  "timestamp": "2026-09-29T12:31:50.992Z",
+  "breakpoints": [
+    390,
+    1440
+  ],
+  "pages": [
+    {
+      "name": "homepage",
+      "path": "/",
+      "shots": [
+        {
+          "width": 390,
+          "file": "migration-audit/visual-qa-phase-3-2/homepage-390.png"
+        },
+        {
+          "width": 1440,
+          "file": "migration-audit/visual-qa-phase-3-2/homepage-1440.png"
+        }
+      ],
+      "checks": {
+        "390": {
+          "status": 200,
+          "overflow": false,
+          "brokenImages": [],
+          "emptyImageContainers": 0,
+          "rawShortcodes": [],
+          "h1": "Adwrks 365שיווק דיגיטלי, ביצועים ו-SEO",
+          "giantWhitespace": 0,
+          "contentMismatch": false,
+          "hasH1": true
+        },
+        "1440": {
+          "status": 200,
+          "overflow": false,
+          "brokenImages": [],
+          "emptyImageContainers": 0,
+          "rawShortcodes": [],
+          "h1": "Adwrks 365שיווק דיגיטלי, ביצועים ו-SEO",
+          "giantWhitespace": 0,
+          "contentMismatch": false,
+          "hasH1": true
+        }
+      }
+    },
+    {
+      "name": "about-us",
+      "path": "/about-us/",
+      "shots": [
+        {
+          "width": 390,
+          "file": "migration-audit/visual-qa-phase-3-2/about-us-390.png"
+        },
+        {
+          "width": 1440,
+          "file": "migration-audit/visual-qa-phase-3-2/about-us-1440.png"
+        }
+      ],
+      "checks": {
+        "390": {
+          "status": 200,
+          "overflow": false,
+          "brokenImages": [],
+          "emptyImageContainers": 0,
+          "rawShortcodes": [],
+          "h1": "Adwrks 365 – סוכנות שיווק דיגיטלי בוטיק",
+          "giantWhitespace": 0,
+          "contentMismatch": false,
+          "hasH1": true
+        },
+        "1440": {
+          "status": 200,
+          "overflow": false,
+          "brokenImages": [],
+          "emptyImageContainers": 0,
+          "rawShortcodes": [],
+          "h1": "Adwrks 365 – סוכנות שיווק דיגיטלי בוטיק",
+          "giantWhitespace": 0,
+          "contentMismatch": false,
+          "hasH1": true
+        }
+      }
+    },
+    {
+      "name": "contact-us",
+      "path": "/contact-us/",
+      "shots": [
+        {
+          "width": 390,
+          "file": "migration-audit/visual-qa-phase-3-2/contact-us-390.png"
+        },
+        {
+          "width": 1440,
+          "file": "migration-audit/visual-qa-phase-3-2/contact-us-1440.png"
+        }
+      ],
+      "checks": {
+        "390": {
+          "status": 200,
+          "overflow": false,
+          "brokenImages": [],
+          "emptyImageContainers": 0,
+          "rawShortcodes": [],
+          "h1": "צרו קשר עם Adwrks 365 סוכנות שיווק דיגיטלי",
+          "giantWhitespace": 0,
+          "contentMismatch": false,
+          "hasH1": true
+        },
+        "1440": {
+          "status": 200,
+          "overflow": false,
+          "brokenImages": [],
+          "emptyImageContainers": 0,
+          "rawShortcodes": [],
+          "h1": "צרו קשר עם Adwrks 365 סוכנות שיווק דיגיטלי",
+          "giantWhitespace": 0,
+          "contentMismatch": false,
+          "hasH1": true
+        }
+      }
+    },
+    {
+      "name": "services-main",
+      "path": "/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99-%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99/",
+      "shots": [
+        {
+          "width": 390,
+          "file": "migration-audit/visual-qa-phase-3-2/services-main-390.png"
+        },
+        {
+          "width": 1440,
+          "file": "migration-audit/visual-qa-phase-3-2/services-main-1440.png"
+        }
+      ],
+      "checks": {
+        "390": {
+          "status": 200,
+          "overflow": false,
+          "brokenImages": [],
+          "emptyImageContainers": 0,
+          "rawShortcodes": [],
+          "h1": "Adwrks 365 שירותי שיווק דיגיטלי",
+          "giantWhitespace": 0,
+          "contentMismatch": false,
+          "hasH1": true
+        },
+        "1440": {
+          "status": 200,
+          "overflow": false,
+          "brokenImages": [],
+          "emptyImageContainers": 0,
+          "rawShortcodes": [],
+          "h1": "Adwrks 365 שירותי שיווק דיגיטלי",
+          "giantWhitespace": 0,
+          "contentMismatch": false,
+          "hasH1": true
+        }
+      }
+    },
+    {
+      "name": "seo",
+      "path": "/seo/",
+      "shots": [
+        {
+          "width": 390,
+          "file": "migration-audit/visual-qa-phase-3-2/seo-390.png"
+        },
+        {
+          "width": 1440,
+          "file": "migration-audit/visual-qa-phase-3-2/seo-1440.png"
+        }
+      ],
+      "checks": {
+        "390": {
+          "status": 200,
+          "overflow": false,
+          "brokenImages": [],
+          "emptyImageContainers": 0,
+          "rawShortcodes": [],
+          "h1": "קידום אתרים אורגני (SEO)",
+          "giantWhitespace": 0,
+          "contentMismatch": false,
+          "hasH1": true
+        },
+        "1440": {
+          "status": 200,
+          "overflow": false,
+          "brokenImages": [],
+          "emptyImageContainers": 0,
+          "rawShortcodes": [],
+          "h1": "קידום אתרים אורגני (SEO)",
+          "giantWhitespace": 0,
+          "contentMismatch": false,
+          "hasH1": true
+        }
+      }
+    },
+    {
+      "name": "digital-marketing",
+      "path": "/digital-marketing/",
+      "shots": [
+        {
+          "width": 390,
+          "file": "migration-audit/visual-qa-phase-3-2/digital-marketing-390.png"
+        },
+        {
+          "width": 1440,
+          "file": "migration-audit/visual-qa-phase-3-2/digital-marketing-1440.png"
+        }
+      ],
+      "checks": {
+        "390": {
+          "status": 200,
+          "overflow": false,
+          "brokenImages": [],
+          "emptyImageContainers": 0,
+          "rawShortcodes": [],
+          "h1": "שיווק דיגיטלי",
+          "giantWhitespace": 0,
+          "contentMismatch": false,
+          "hasH1": true
+        },
+        "1440": {
+          "status": 200,
+          "overflow": false,
+          "brokenImages": [],
+          "emptyImageContainers": 0,
+          "rawShortcodes": [],
+          "h1": "שיווק דיגיטלי",
+          "giantWhitespace": 0,
+          "contentMismatch": false,
+          "hasH1": true
+        }
+      }
+    },
+    {
+      "name": "blog-listing",
+      "path": "/digital-marketing/",
+      "shots": [
+        {
+          "width": 390,
+          "file": "migration-audit/visual-qa-phase-3-2/blog-listing-390.png"
+        },
+        {
+          "width": 1440,
+          "file": "migration-audit/visual-qa-phase-3-2/blog-listing-1440.png"
+        }
+      ],
+      "checks": {
+        "390": {
+          "status": 200,
+          "overflow": false,
+          "brokenImages": [],
+          "emptyImageContainers": 0,
+          "rawShortcodes": [],
+          "h1": "שיווק דיגיטלי",
+          "giantWhitespace": 0,
+          "contentMismatch": false,
+          "hasH1": true
+        },
+        "1440": {
+          "status": 200,
+          "overflow": false,
+          "brokenImages": [],
+          "emptyImageContainers": 0,
+          "rawShortcodes": [],
+          "h1": "שיווק דיגיטלי",
+          "giantWhitespace": 0,
+          "contentMismatch": false,
+          "hasH1": true
+        }
+      }
+    },
+    {
+      "name": "category-google",
+      "path": "/digital-marketing/google/",
+      "shots": [
+        {
+          "width": 390,
+          "file": "migration-audit/visual-qa-phase-3-2/category-google-390.png"
+        },
+        {
+          "width": 1440,
+          "file": "migration-audit/visual-qa-phase-3-2/category-google-1440.png"
+        }
+      ],
+      "checks": {
+        "390": {
+          "status": 200,
+          "overflow": false,
+          "brokenImages": [],
+          "emptyImageContainers": 0,
+          "rawShortcodes": [],
+          "h1": "גוגל",
+          "giantWhitespace": 0,
+          "contentMismatch": false,
+          "hasH1": true
+        },
+        "1440": {
+          "status": 200,
+          "overflow": false,
+          "brokenImages": [],
+          "emptyImageContainers": 0,
+          "rawShortcodes": [],
+          "h1": "גוגל",
+          "giantWhitespace": 0,
+          "contentMismatch": false,
+          "hasH1": true
+        }
+      }
+    },
+    {
+      "name": "article-seo-2026",
+      "path": "/seo-2026-ai-answers/",
+      "shots": [
+        {
+          "width": 390,
+          "file": "migration-audit/visual-qa-phase-3-2/article-seo-2026-390.png"
+        },
+        {
+          "width": 1440,
+          "file": "migration-audit/visual-qa-phase-3-2/article-seo-2026-1440.png"
+        }
+      ],
+      "checks": {
+        "390": {
+          "status": 200,
+          "overflow": false,
+          "brokenImages": [
+            "http://localhost:3000/",
+            "http://localhost:3000/",
+            "http://localhost:3000/",
+            "http://localhost:3000/"
+          ],
+          "emptyImageContainers": 4,
+          "rawShortcodes": [],
+          "h1": "SEO 2026: איך להופיע ב- AI overview(בסקירות AI של גוגל) ?",
+          "giantWhitespace": 0,
+          "contentMismatch": false,
+          "hasH1": true
+        },
+        "1440": {
+          "status": 200,
+          "overflow": false,
+          "brokenImages": [
+            "http://localhost:3000/",
+            "http://localhost:3000/",
+            "http://localhost:3000/",
+            "http://localhost:3000/"
+          ],
+          "emptyImageContainers": 4,
+          "rawShortcodes": [],
+          "h1": "SEO 2026: איך להופיע ב- AI overview(בסקירות AI של גוגל) ?",
+          "giantWhitespace": 0,
+          "contentMismatch": false,
+          "hasH1": true
+        }
+      }
+    },
+    {
+      "name": "article-pagespeed",
+      "path": "/%d7%a9%d7%99%d7%a4%d7%95%d7%a8-%d7%9e%d7%94%d7%99%d7%a8%d7%95%d7%aa-%d7%90%d7%aa%d7%a8-2026-pagespeed/",
+      "shots": [
+        {
+          "width": 390,
+          "file": "migration-audit/visual-qa-phase-3-2/article-pagespeed-390.png"
+        },
+        {
+          "width": 1440,
+          "file": "migration-audit/visual-qa-phase-3-2/article-pagespeed-1440.png"
+        }
+      ],
+      "checks": {
+        "390": {
+          "status": 200,
+          "overflow": false,
+          "brokenImages": [
+            "http://localhost:3000/",
+            "http://localhost:3000/",
+            "http://localhost:3000/",
+            "http://localhost:3000/",
+            "http://localhost:3000/",
+            "http://localhost:3000/"
+          ],
+          "emptyImageContainers": 6,
+          "rawShortcodes": [],
+          "h1": "שיפור מהירות אתר ביצועים וציון PageSpeed ב-2026",
+          "giantWhitespace": 0,
+          "contentMismatch": false,
+          "hasH1": true
+        },
+        "1440": {
+          "status": 200,
+          "overflow": false,
+          "brokenImages": [
+            "http://localhost:3000/",
+            "http://localhost:3000/",
+            "http://localhost:3000/",
+            "http://localhost:3000/",
+            "http://localhost:3000/",
+            "http://localhost:3000/"
+          ],
+          "emptyImageContainers": 6,
+          "rawShortcodes": [],
+          "h1": "שיפור מהירות אתר ביצועים וציון PageSpeed ב-2026",
+          "giantWhitespace": 0,
+          "contentMismatch": false,
+          "hasH1": true
+        }
+      }
+    },
+    {
+      "name": "article-ppc",
+      "path": "/%d7%9b%d7%9e%d7%94-%d7%a2%d7%95%d7%9c%d7%94-%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%91%d7%92%d7%95%d7%92%d7%9c/",
+      "shots": [
+        {
+          "width": 390,
+          "file": "migration-audit/visual-qa-phase-3-2/article-ppc-390.png"
+        },
+        {
+          "width": 1440,
+          "file": "migration-audit/visual-qa-phase-3-2/article-ppc-1440.png"
+        }
+      ],
+      "checks": {
+        "390": {
+          "status": 200,
+          "overflow": false,
+          "brokenImages": [
+            "http://localhost:3000/",
+            "http://localhost:3000/",
+            "http://localhost:3000/",
+            "http://localhost:3000/"
+          ],
+          "emptyImageContainers": 4,
+          "rawShortcodes": [],
+          "h1": "כמה עולה פרסום בגוגל? תקציב יומי ממוצע לקמפיין ממומן",
+          "giantWhitespace": 0,
+          "contentMismatch": false,
+          "hasH1": true
+        },
+        "1440": {
+          "status": 200,
+          "overflow": false,
+          "brokenImages": [
+            "http://localhost:3000/",
+            "http://localhost:3000/",
+            "http://localhost:3000/",
+            "http://localhost:3000/"
+          ],
+          "emptyImageContainers": 4,
+          "rawShortcodes": [],
+          "h1": "כמה עולה פרסום בגוגל? תקציב יומי ממוצע לקמפיין ממומן",
+          "giantWhitespace": 0,
+          "contentMismatch": false,
+          "hasH1": true
+        }
+      }
+    },
+    {
+      "name": "article-long-seo",
+      "path": "/%d7%a2%d7%aa%d7%99%d7%93-%d7%94-seo-%d7%9b%d7%9a-%d7%99%d7%99%d7%a8%d7%90%d7%94-%d7%94%d7%a7%d7%99%d7%93%d7%95%d7%9d-%d7%94%d7%90%d7%95%d7%88%d7%92%d7%a0%d7%99-%d7%91-2025-%d7%95%d7%9e%d7%a2%d7%91/",
+      "shots": [
+        {
+          "width": 390,
+          "file": "migration-audit/visual-qa-phase-3-2/article-long-seo-390.png"
+        },
+        {
+          "width": 1440,
+          "file": "migration-audit/visual-qa-phase-3-2/article-long-seo-1440.png"
+        }
+      ],
+      "checks": {
+        "390": {
+          "status": 404,
+          "overflow": false,
+          "brokenImages": [],
+          "emptyImageContainers": 0,
+          "rawShortcodes": [],
+          "h1": "404",
+          "giantWhitespace": 0,
+          "contentMismatch": false,
+          "hasH1": true
+        },
+        "1440": {
+          "status": 404,
+          "overflow": false,
+          "brokenImages": [],
+          "emptyImageContainers": 0,
+          "rawShortcodes": [],
+          "h1": "404",
+          "giantWhitespace": 0,
+          "contentMismatch": false,
+          "hasH1": true
+        }
+      }
+    },
+    {
+      "name": "article-reviews",
+      "path": "/%d7%9b%d7%95%d7%97%d7%9d-%d7%a9%d7%9c-%d7%91%d7%99%d7%a7%d7%95%d7%88%d7%95%d7%aa-%d7%95%d7%94%d7%9e%d7%9c%d7%a6%d7%95%d7%aa/",
+      "shots": [
+        {
+          "width": 390,
+          "file": "migration-audit/visual-qa-phase-3-2/article-reviews-390.png"
+        },
+        {
+          "width": 1440,
+          "file": "migration-audit/visual-qa-phase-3-2/article-reviews-1440.png"
+        }
+      ],
+      "checks": {
+        "390": {
+          "status": 404,
+          "overflow": false,
+          "brokenImages": [],
+          "emptyImageContainers": 0,
+          "rawShortcodes": [],
+          "h1": "404",
+          "giantWhitespace": 0,
+          "contentMismatch": false,
+          "hasH1": true
+        },
+        "1440": {
+          "status": 404,
+          "overflow": false,
+          "brokenImages": [],
+          "emptyImageContainers": 0,
+          "rawShortcodes": [],
+          "h1": "404",
+          "giantWhitespace": 0,
+          "contentMismatch": false,
+          "hasH1": true
+        }
+      }
+    },
+    {
+      "name": "google-ads",
+      "path": "/google-ads/",
+      "shots": [
+        {
+          "width": 390,
+          "file": "migration-audit/visual-qa-phase-3-2/google-ads-390.png"
+        },
+        {
+          "width": 1440,
+          "file": "migration-audit/visual-qa-phase-3-2/google-ads-1440.png"
+        }
+      ],
+      "checks": {
+        "390": {
+          "status": 200,
+          "overflow": false,
+          "brokenImages": [],
+          "emptyImageContainers": 0,
+          "rawShortcodes": [],
+          "h1": "פרסום ממומן בגוגל (Google Ads) לעסקים",
+          "giantWhitespace": 0,
+          "contentMismatch": false,
+          "hasH1": true
+        },
+        "1440": {
+          "status": 200,
+          "overflow": false,
+          "brokenImages": [],
+          "emptyImageContainers": 0,
+          "rawShortcodes": [],
+          "h1": "פרסום ממומן בגוגל (Google Ads) לעסקים",
+          "giantWhitespace": 0,
+          "contentMismatch": false,
+          "hasH1": true
+        }
+      }
+    }
+  ],
+  "issues": [
+    {
+      "page": "article-seo-2026",
+      "width": 390,
+      "type": "broken-images",
+      "detail": [
+        "http://localhost:3000/",
+        "http://localhost:3000/",
+        "http://localhost:3000/",
+        "http://localhost:3000/"
+      ]
+    },
+    {
+      "page": "article-seo-2026",
+      "width": 390,
+      "type": "empty-image-containers",
+      "count": 4
+    },
+    {
+      "page": "article-seo-2026",
+      "width": 1440,
+      "type": "broken-images",
+      "detail": [
+        "http://localhost:3000/",
+        "http://localhost:3000/",
+        "http://localhost:3000/",
+        "http://localhost:3000/"
+      ]
+    },
+    {
+      "page": "article-seo-2026",
+      "width": 1440,
+      "type": "empty-image-containers",
+      "count": 4
+    },
+    {
+      "page": "article-pagespeed",
+      "width": 390,
+      "type": "broken-images",
+      "detail": [
+        "http://localhost:3000/",
+        "http://localhost:3000/",
+        "http://localhost:3000/",
+        "http://localhost:3000/",
+        "http://localhost:3000/",
+        "http://localhost:3000/"
+      ]
+    },
+    {
+      "page": "article-pagespeed",
+      "width": 390,
+      "type": "empty-image-containers",
+      "count": 6
+    },
+    {
+      "page": "article-pagespeed",
+      "width": 1440,
+      "type": "broken-images",
+      "detail": [
+        "http://localhost:3000/",
+        "http://localhost:3000/",
+        "http://localhost:3000/",
+        "http://localhost:3000/",
+        "http://localhost:3000/",
+        "http://localhost:3000/"
+      ]
+    },
+    {
+      "page": "article-pagespeed",
+      "width": 1440,
+      "type": "empty-image-containers",
+      "count": 6
+    },
+    {
+      "page": "article-ppc",
+      "width": 390,
+      "type": "broken-images",
+      "detail": [
+        "http://localhost:3000/",
+        "http://localhost:3000/",
+        "http://localhost:3000/",
+        "http://localhost:3000/"
+      ]
+    },
+    {
+      "page": "article-ppc",
+      "width": 390,
+      "type": "empty-image-containers",
+      "count": 4
+    },
+    {
+      "page": "article-ppc",
+      "width": 1440,
+      "type": "broken-images",
+      "detail": [
+        "http://localhost:3000/",
+        "http://localhost:3000/",
+        "http://localhost:3000/",
+        "http://localhost:3000/"
+      ]
+    },
+    {
+      "page": "article-ppc",
+      "width": 1440,
+      "type": "empty-image-containers",
+      "count": 4
+    }
+  ],
+  "consoleErrors": [
+    {
+      "page": "article-long-seo",
+      "width": 390,
+      "errors": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ]
+    },
+    {
+      "page": "article-long-seo",
+      "width": 1440,
+      "errors": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ]
+    },
+    {
+      "page": "article-reviews",
+      "width": 390,
+      "errors": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ]
+    },
+    {
+      "page": "article-reviews",
+      "width": 1440,
+      "errors": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ]
+    }
+  ],
+  "networkFailures": [],
+  "inspected": [
+    "homepage",
+    "about-us",
+    "contact-us",
+    "services-main",
+    "seo",
+    "digital-marketing",
+    "blog-listing",
+    "category-google",
+    "article-seo-2026",
+    "article-pagespeed",
+    "article-ppc",
+    "article-long-seo",
+    "article-reviews",
+    "google-ads"
+  ],
+  "summary": {
+    "pagesInspected": 14,
+    "totalIssues": 12,
+    "issueTypes": [
+      "broken-images",
+      "empty-image-containers"
+    ]
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "generatedAt": "2026-09-29T12:50:07.408Z",
+  "blogDestination": {
+    "productionUrl": "https://adwrks.co.il/blog/",
+    "localUrl": "/blog/",
+    "productionLabel": "מידע מקצועי",
+    "previousLocalIncorrect": "/digital-marketing/",
+    "evidence": "Live production header menu + dedicated /blog/ page with H1 'חדשות ומידע מקצועי'",
+    "status": "corrected"
+  },
+  "items": [
+    {
+      "order": 1,
+      "label": "דף הבית",
+      "productionUrl": "https://adwrks.co.il/",
+      "localHref": "/",
+      "dropdownParent": false,
+      "children": [],
+      "status": "matched"
+    },
+    {
+      "order": 2,
+      "label": "שירותים",
+      "productionUrl": "https://adwrks.co.il/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99-%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99/",
+      "localHref": "/שירותי-שיווק-דיגיטלי/",
+      "dropdownParent": true,
+      "children": [
+        {
+          "label": "פרסום ממומן בגוגל (Google Ads)",
+          "localHref": "/google-ads/"
+        },
+        {
+          "label": "קידום אתרים אורגני (SEO)",
+          "localHref": "/seo/"
+        },
+        {
+          "label": "ניהול רשתות חברתיות",
+          "localHref": "/social-media-management/"
+        },
+        {
+          "label": "בניית אתרים [וורדפרס]",
+          "localHref": "/website-building/"
+        },
+        {
+          "label": "אחסון אתרים",
+          "localHref": "/hosting-plans/"
+        },
+        {
+          "label": "מחירון שיווק דיגיטלי",
+          "localHref": "/מחירון-שיווק-דיגיטלי/"
+        }
+      ],
+      "status": "matched"
+    },
+    {
+      "order": 3,
+      "label": "מי אנחנו",
+      "productionUrl": "https://adwrks.co.il/about-us/",
+      "localHref": "/about-us/",
+      "dropdownParent": false,
+      "children": [],
+      "status": "matched"
+    },
+    {
+      "order": 4,
+      "label": "מידע מקצועי",
+      "productionUrl": "https://adwrks.co.il/blog/",
+      "localHref": "/blog/",
+      "dropdownParent": true,
+      "children": [
+        {
+          "label": "שיווק דיגיטלי",
+          "localHref": "/digital-marketing/"
+        },
+        {
+          "label": "קידום ממומן",
+          "localHref": "/digital-marketing/ads/"
+        },
+        {
+          "label": "בניית אתרים",
+          "localHref": "/digital-marketing/websites/"
+        },
+        {
+          "label": "קידום אורגני",
+          "localHref": "/digital-marketing/seo/"
+        }
+      ],
+      "status": "matched"
+    },
+    {
+      "order": 5,
+      "label": "יצירת קשר",
+      "productionUrl": "https://adwrks.co.il/contact-us/",
+      "localHref": "/contact-us/",
+      "dropdownParent": false,
+      "children": [],
+      "status": "matched"
+    }
+  ],
+  "corrections": [
+    {
+      "field": "blog link",
+      "before": {
+        "label": "בלוג",
+        "href": "/digital-marketing/"
+      },
+      "after": {
+        "label": "מידע מקצועי",
+        "href": "/blog/"
+      }
+    },
+    {
+      "field": "contact label",
+      "before": "צור קשר",
+      "after": "יצירת קשר"
+    },
+    {
+      "field": "services dropdown",
+      "action": "Reordered to match production; added pricing + Google Ads first"
+    },
+    {
+      "field": "dropdown behavior",
+      "action": "CSS :hover replaced with JS state; closes on navigation/Escape"
+    }
+  ]
+}

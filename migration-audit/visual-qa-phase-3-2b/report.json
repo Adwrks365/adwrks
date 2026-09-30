@@ -1,0 +1,119 @@
+{
+  "base": "http://localhost:3000",
+  "timestamp": "2026-09-29T12:51:03.910Z",
+  "breakpoints": [
+    390,
+    1440
+  ],
+  "pages": [
+    {
+      "name": "homepage",
+      "path": "/",
+      "shots": [
+        "homepage-390.png",
+        "homepage-1440.png"
+      ],
+      "checks": {}
+    },
+    {
+      "name": "blog-landing",
+      "path": "/blog/",
+      "shots": [
+        "blog-landing-390.png",
+        "blog-landing-1440.png"
+      ],
+      "checks": {
+        "חדשות ומידע מקצועי": true
+      }
+    },
+    {
+      "name": "about-us",
+      "path": "/about-us/",
+      "shots": [
+        "about-us-390.png",
+        "about-us-1440.png"
+      ],
+      "checks": {}
+    },
+    {
+      "name": "contact-us",
+      "path": "/contact-us/",
+      "shots": [
+        "contact-us-390.png",
+        "contact-us-1440.png"
+      ],
+      "checks": {}
+    },
+    {
+      "name": "services-main",
+      "path": "/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99-%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99/",
+      "shots": [
+        "services-main-390.png",
+        "services-main-1440.png"
+      ],
+      "checks": {}
+    },
+    {
+      "name": "seo",
+      "path": "/seo/",
+      "shots": [
+        "seo-390.png",
+        "seo-1440.png"
+      ],
+      "checks": {}
+    },
+    {
+      "name": "google-ads",
+      "path": "/google-ads/",
+      "shots": [
+        "google-ads-390.png",
+        "google-ads-1440.png"
+      ],
+      "checks": {}
+    },
+    {
+      "name": "website-building",
+      "path": "/website-building/",
+      "shots": [
+        "website-building-390.png",
+        "website-building-1440.png"
+      ],
+      "checks": {
+        "למי שירות בניית אתרים": true,
+        "מה כולל תהליך": true,
+        "למה לבנות את האתר": true
+      }
+    },
+    {
+      "name": "social-media-management",
+      "path": "/social-media-management/",
+      "shots": [
+        "social-media-management-390.png",
+        "social-media-management-1440.png"
+      ],
+      "checks": {}
+    },
+    {
+      "name": "hosting-plans",
+      "path": "/hosting-plans/",
+      "shots": [
+        "hosting-plans-390.png",
+        "hosting-plans-1440.png"
+      ],
+      "checks": {}
+    }
+  ],
+  "issues": [],
+  "inspected": [
+    "homepage",
+    "blog-landing",
+    "about-us",
+    "contact-us",
+    "services-main",
+    "seo",
+    "google-ads",
+    "website-building",
+    "social-media-management",
+    "hosting-plans"
+  ]
+}

@@ -1,0 +1,24 @@
+# Repo root is the migration workspace. The Next.js app lives in web/
+# and keeps its own ignore rules there.
+
+# Root tooling (Playwright was installed here, not inside the app)
+/node_modules/
+
+# Secrets. web/.gitignore covers the app directory.
+.env
+.env.*
+!.env.example
+
+# Local browser and test output
+/playwright-report/
+/test-results/
+/blob-report/
+*.log
+
+# Temporary visual-QA screenshots. Written reports and JSON audits stay tracked.
+/migration-audit/**/*.png
+
+# OS / keys
+.DS_Store
+Thumbs.db
+*.pem

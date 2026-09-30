@@ -1,0 +1,74 @@
+{
+  "timestamp": "2026-09-30T06:44:38.383Z",
+  "base": "http://localhost:3000",
+  "steps": [
+    {
+      "step": "homepage loads",
+      "pass": true,
+      "detail": "סוכנות שיווק דיגיטלי ⋆ Adwrks 365",
+      "viewport": "desktop"
+    },
+    {
+      "step": "services dropdown opens on hover",
+      "pass": true,
+      "detail": "true",
+      "viewport": "desktop"
+    },
+    {
+      "step": "navigate to service",
+      "pass": true,
+      "detail": "http://localhost:3000/seo/",
+      "viewport": "desktop"
+    },
+    {
+      "step": "dropdown closed after navigation",
+      "pass": true,
+      "detail": "true",
+      "viewport": "desktop"
+    },
+    {
+      "step": "dropdown remains closed after scroll",
+      "pass": true,
+      "detail": "true",
+      "viewport": "desktop"
+    },
+    {
+      "step": "dropdown closes on Escape",
+      "pass": true,
+      "detail": "true",
+      "viewport": "desktop"
+    },
+    {
+      "step": "blog link goes to /blog/",
+      "pass": true,
+      "detail": "http://localhost:3000/blog/",
+      "viewport": "desktop"
+    },
+    {
+      "step": "homepage loads",
+      "pass": true,
+      "detail": "סוכנות שיווק דיגיטלי ⋆ Adwrks 365",
+      "viewport": "mobile"
+    },
+    {
+      "step": "mobile menu opens",
+      "pass": true,
+      "detail": "true",
+      "viewport": "mobile"
+    },
+    {
+      "step": "mobile blog navigation",
+      "pass": true,
+      "detail": "http://localhost:3000/blog/",
+      "viewport": "mobile"
+    },
+    {
+      "step": "mobile menu closed after nav",
+      "pass": true,
+      "detail": "true",
+      "viewport": "mobile"
+    }
+  ],
+  "passed": 11,
+  "failed": 0
+}

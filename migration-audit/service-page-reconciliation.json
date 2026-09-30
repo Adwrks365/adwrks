@@ -1,0 +1,328 @@
+{
+  "generatedAt": "2026-09-29T12:50:07.455Z",
+  "pages": [
+    {
+      "url": "/seo/",
+      "productionUrl": "https://adwrks.co.il/seo/",
+      "hero": {
+        "title": "קידום אתרים אורגני (SEO)",
+        "subtitle": "קידום אתרים אורגני הוא הבסיס לנוכחות דיגיטלית יציבה בגוגל. ב־Adwrks 365 אנו מתמק"
+      },
+      "sections": [
+        {
+          "order": 1,
+          "productionHeading": "מה זה קידום אתרים אורגני (SEO) היום?",
+          "localHeading": "מה זה קידום אתרים אורגני (SEO) היום?",
+          "hasContent": true,
+          "hasImage": true,
+          "localComponent": "VerifiedServicePage",
+          "status": "verified"
+        },
+        {
+          "order": 2,
+          "productionHeading": "למי קידום אתרים אורגני מתאים?",
+          "localHeading": "למי קידום אתרים אורגני מתאים?",
+          "hasContent": true,
+          "hasImage": false,
+          "localComponent": "VerifiedServicePage",
+          "status": "verified"
+        },
+        {
+          "order": 3,
+          "productionHeading": "תהליך קידום האתרים שלנו",
+          "localHeading": "תהליך קידום האתרים שלנו",
+          "hasContent": true,
+          "hasImage": true,
+          "localComponent": "VerifiedServicePage",
+          "status": "verified"
+        },
+        {
+          "order": 4,
+          "productionHeading": "למה לבחור ב-Adwrks 365 לקידום אתרים?",
+          "localHeading": "למה לבחור ב-Adwrks 365 לקידום אתרים?",
+          "hasContent": true,
+          "hasImage": false,
+          "localComponent": "VerifiedServicePage",
+          "status": "verified"
+        },
+        {
+          "order": 5,
+          "productionHeading": "SEO ממוקד תוצאות לעסקים",
+          "localHeading": "SEO ממוקד תוצאות לעסקים",
+          "hasContent": true,
+          "hasImage": false,
+          "localComponent": "VerifiedServicePage",
+          "status": "verified"
+        }
+      ],
+      "status": "rebuilt-verified"
+    },
+    {
+      "url": "/google-ads/",
+      "productionUrl": "https://adwrks.co.il/google-ads/",
+      "hero": {
+        "title": "פרסום ממומן בגוגל (Google Ads) לעסקים",
+        "subtitle": "פרסום ממומן בגוגל (Google Ads) הוא הדרך המהירה ביותר להביא לקוחות לעסק בדיוק ברג"
+      },
+      "sections": [
+        {
+          "order": 1,
+          "productionHeading": "מה זה פרסום ממומן בגוגל (Google Ads)?",
+          "localHeading": "מה זה פרסום ממומן בגוגל (Google Ads)?",
+          "hasContent": true,
+          "hasImage": true,
+          "localComponent": "VerifiedServicePage",
+          "status": "verified"
+        },
+        {
+          "order": 2,
+          "productionHeading": "שירותי Google Ads שאנו מנהלים",
+          "localHeading": "שירותי Google Ads שאנו מנהלים",
+          "hasContent": true,
+          "hasImage": false,
+          "localComponent": "VerifiedServicePage",
+          "status": "verified"
+        },
+        {
+          "order": 3,
+          "productionHeading": "למי מתאים פרסום ממומן בגוגל?",
+          "localHeading": "למי מתאים פרסום ממומן בגוגל?",
+          "hasContent": true,
+          "hasImage": true,
+          "localComponent": "VerifiedServicePage",
+          "status": "verified"
+        },
+        {
+          "order": 4,
+          "productionHeading": "למה לבחור ב-Adwrks 365 לניהול פרסום בגוגל?",
+          "localHeading": "למה לבחור ב-Adwrks 365 לניהול פרסום בגוגל?",
+          "hasContent": true,
+          "hasImage": false,
+          "localComponent": "VerifiedServicePage",
+          "status": "verified"
+        },
+        {
+          "order": 5,
+          "productionHeading": "רוצים לדעת אם Google Ads מתאים לעסק שלכם?",
+          "localHeading": "רוצים לדעת אם Google Ads מתאים לעסק שלכם?",
+          "hasContent": true,
+          "hasImage": false,
+          "localComponent": "VerifiedServicePage",
+          "status": "verified"
+        }
+      ],
+      "status": "rebuilt-verified"
+    },
+    {
+      "url": "/website-building/",
+      "productionUrl": "https://adwrks.co.il/website-building/",
+      "hero": {
+        "title": "בניית אתרים לעסקים",
+        "subtitle": "מאז 2018 Adwrks 365 מלווה עסקים בבניית אתרים שמחוברים לתוצאות. אנחנו משלבים עיצו"
+      },
+      "sections": [
+        {
+          "order": 1,
+          "productionHeading": "מה חשוב באתר עסקי שמביא תוצאות?",
+          "localHeading": "מה חשוב באתר עסקי שמביא תוצאות?",
+          "hasContent": true,
+          "hasImage": true,
+          "localComponent": "VerifiedServicePage",
+          "status": "verified"
+        },
+        {
+          "order": 2,
+          "productionHeading": "למי שירות בניית אתרים שלנו מתאים?",
+          "localHeading": "למי שירות בניית אתרים שלנו מתאים?",
+          "hasContent": true,
+          "hasImage": false,
+          "localComponent": "VerifiedServicePage",
+          "status": "verified"
+        },
+        {
+          "order": 3,
+          "productionHeading": "מה כולל תהליך בניית אתר אצלנו?",
+          "localHeading": "מה כולל תהליך בניית אתר אצלנו?",
+          "hasContent": true,
+          "hasImage": true,
+          "localComponent": "VerifiedServicePage",
+          "status": "verified"
+        },
+        {
+          "order": 4,
+          "productionHeading": "יתרונות שמבדילים אותנו",
+          "localHeading": "יתרונות שמבדילים אותנו",
+          "hasContent": true,
+          "hasImage": false,
+          "localComponent": "VerifiedServicePage",
+          "status": "verified"
+        },
+        {
+          "order": 5,
+          "productionHeading": "שאלות נפוצות על בניית אתרים",
+          "localHeading": "שאלות נפוצות על בניית אתרים",
+          "hasContent": true,
+          "hasImage": false,
+          "localComponent": "VerifiedServicePage",
+          "status": "verified"
+        },
+        {
+          "order": 6,
+          "productionHeading": "אתר עסקי שמביא פניות – לא רק נראה טוב",
+          "localHeading": "אתר עסקי שמביא פניות – לא רק נראה טוב",
+          "hasContent": true,
+          "hasImage": false,
+          "localComponent": "VerifiedServicePage",
+          "status": "verified"
+        }
+      ],
+      "status": "rebuilt-verified"
+    },
+    {
+      "url": "/social-media-management/",
+      "productionUrl": "https://adwrks.co.il/social-media-management/",
+      "hero": {
+        "title": "ניהול רשתות חברתיות (פייסבוק ואינסטגרם)",
+        "subtitle": "ניהול רשתות חברתיות הוא הרבה מעבר להעלאת פוסטים. ב-Adwrks 365 אנו מתמחים בניהול "
+      },
+      "sections": [
+        {
+          "order": 1,
+          "productionHeading": "ניהול רשתות חברתיות לעסקים",
+          "localHeading": "ניהול רשתות חברתיות לעסקים",
+          "hasContent": true,
+          "hasImage": false,
+          "localComponent": "VerifiedServicePage",
+          "status": "verified"
+        },
+        {
+          "order": 2,
+          "productionHeading": "ניהול עמוד פייסבוק עסקי",
+          "localHeading": "ניהול עמוד פייסבוק עסקי",
+          "hasContent": true,
+          "hasImage": false,
+          "localComponent": "VerifiedServicePage",
+          "status": "verified"
+        },
+        {
+          "order": 3,
+          "productionHeading": "מה כולל השירות?",
+          "localHeading": "מה כולל השירות?",
+          "hasContent": true,
+          "hasImage": false,
+          "localComponent": "VerifiedServicePage",
+          "status": "verified"
+        },
+        {
+          "order": 4,
+          "productionHeading": "מוכנים לחזק את הנוכחות שלכם ברשתות?",
+          "localHeading": "מוכנים לחזק את הנוכחות שלכם ברשתות?",
+          "hasContent": true,
+          "hasImage": false,
+          "localComponent": "VerifiedServicePage",
+          "status": "verified"
+        }
+      ],
+      "status": "rebuilt-verified"
+    },
+    {
+      "url": "/hosting-plans/",
+      "productionUrl": "https://adwrks.co.il/hosting-plans/",
+      "hero": {
+        "title": "שרות אחסון ותחזוקת אתרי WordPress",
+        "subtitle": "שירותי האחסון ותחזוקת אתרים שלנו, כולל חבילות אחסון אתרי וורדפרס מותאמות אישית, "
+      },
+      "sections": [
+        {
+          "order": 1,
+          "productionHeading": "חבילות אחסון",
+          "localHeading": "חבילות אחסון",
+          "hasContent": true,
+          "hasImage": false,
+          "localComponent": "VerifiedServicePage",
+          "status": "verified"
+        },
+        {
+          "order": 2,
+          "productionHeading": "למה תחזוקת אתרים חשובה?",
+          "localHeading": "למה תחזוקת אתרים חשובה?",
+          "hasContent": true,
+          "hasImage": false,
+          "localComponent": "VerifiedServicePage",
+          "status": "verified"
+        },
+        {
+          "order": 3,
+          "productionHeading": "צריכים אחסון ותחזוקה לאתר?",
+          "localHeading": "צריכים אחסון ותחזוקה לאתר?",
+          "hasContent": true,
+          "hasImage": false,
+          "localComponent": "VerifiedServicePage",
+          "status": "verified"
+        }
+      ],
+      "status": "rebuilt-verified"
+    },
+    {
+      "url": "/שירותי-שיווק-דיגיטלי/",
+      "productionUrl": "https://adwrks.co.il/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99-%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99/",
+      "hero": {
+        "title": "Adwrks 365 שירותי שיווק דיגיטלי",
+        "subtitle": "מאז 2018 Adwrks 365 מלווה עסקים מכל התחומים ביצירת נוכחות דיגיטלית שמביאה תוצאות"
+      },
+      "sections": [
+        {
+          "order": 1,
+          "productionHeading": "פרסום ממומן בגוגל (Google Ads)",
+          "localHeading": "פרסום ממומן בגוגל (Google Ads)",
+          "hasContent": true,
+          "hasImage": true,
+          "localComponent": "VerifiedServicePage",
+          "status": "verified"
+        },
+        {
+          "order": 2,
+          "productionHeading": "קידום אתרים אורגני (SEO)",
+          "localHeading": "קידום אתרים אורגני (SEO)",
+          "hasContent": true,
+          "hasImage": true,
+          "localComponent": "VerifiedServicePage",
+          "status": "verified"
+        },
+        {
+          "order": 3,
+          "productionHeading": "ניהול רשתות חברתיות",
+          "localHeading": "ניהול רשתות חברתיות",
+          "hasContent": true,
+          "hasImage": false,
+          "localComponent": "VerifiedServicePage",
+          "status": "verified"
+        },
+        {
+          "order": 4,
+          "productionHeading": "בניית אתרים לעסקים",
+          "localHeading": "בניית אתרים לעסקים",
+          "hasContent": true,
+          "hasImage": false,
+          "localComponent": "VerifiedServicePage",
+          "status": "verified"
+        },
+        {
+          "order": 5,
+          "productionHeading": "מעטפת שיווק דיגיטלי 360° לעסק שלכם",
+          "localHeading": "מעטפת שיווק דיגיטלי 360° לעסק שלכם",
+          "hasContent": true,
+          "hasImage": false,
+          "localComponent": "VerifiedServicePage",
+          "status": "verified"
+        }
+      ],
+      "status": "rebuilt-verified"
+    }
+  ],
+  "summary": {
+    "pagesVerified": 6,
+    "emptyHeadingOnlySections": 0,
+    "websiteBuildingManualRepair": true
+  }
+}

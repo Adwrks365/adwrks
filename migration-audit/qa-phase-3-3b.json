@@ -1,0 +1,103 @@
+{
+  "timestamp": "2026-09-30T07:12:09.765Z",
+  "base": "http://localhost:3000",
+  "steps": [
+    {
+      "step": "390px carousel left arrow points left",
+      "pass": true,
+      "detail": "M15 18l-6-6 6-6"
+    },
+    {
+      "step": "390px carousel right arrow points right",
+      "pass": true,
+      "detail": "M9 18l6-6-6-6"
+    },
+    {
+      "step": "390px footer follow excludes WhatsApp",
+      "pass": true,
+      "detail": "Facebook\nInstagram\nYouTube"
+    },
+    {
+      "step": "390px floating contact rail",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "390px scroll to top",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "390px accessibility",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "390px left util group",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "390px contact in nav",
+      "pass": true,
+      "detail": "דף הבית, שירותים, מי אנחנו, מידע מקצועי, יצירת קשר"
+    },
+    {
+      "step": "1440px carousel left arrow points left",
+      "pass": true,
+      "detail": "M15 18l-6-6 6-6"
+    },
+    {
+      "step": "1440px carousel right arrow points right",
+      "pass": true,
+      "detail": "M9 18l6-6-6-6"
+    },
+    {
+      "step": "1440px footer follow excludes WhatsApp",
+      "pass": true,
+      "detail": "Facebook\nInstagram\nYouTube"
+    },
+    {
+      "step": "1440px floating contact rail",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px scroll to top",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px accessibility",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px left util group",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "1440px contact in nav",
+      "pass": true,
+      "detail": "דף הבית, שירותים, מי אנחנו, מידע מקצועי, יצירת קשר"
+    },
+    {
+      "step": "nav order includes services+blog dropdowns",
+      "pass": true,
+      "detail": "דף הבית | שירותיםשירותיםפרסום  | מי אנחנו | מידע מקצועיכל המאמרי | יצירת קשר"
+    },
+    {
+      "step": "services dropdown opens",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "dropdown closes after nav",
+      "pass": true,
+      "detail": "http://localhost:3000/google-ads/"
+    }
+  ],
+  "passed": 19,
+  "failed": 0
+}

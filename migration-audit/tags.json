@@ -1,0 +1,962 @@
+[
+  {
+    "id": 287,
+    "slug": "24-%d7%a9%d7%a2%d7%95%d7%aa-%d7%91%d7%99%d7%9e%d7%9e%d7%94",
+    "link": "https://adwrks.co.il/tag/24-%d7%a9%d7%a2%d7%95%d7%aa-%d7%91%d7%99%d7%9e%d7%9e%d7%94/",
+    "title": "24 שעות ביממה",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 342,
+    "slug": "24-7",
+    "link": "https://adwrks.co.il/tag/24-7/",
+    "title": "24/7",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 408,
+    "slug": "aeo",
+    "link": "https://adwrks.co.il/tag/aeo/",
+    "title": "AEO",
+    "type": "tag",
+    "description": "",
+    "count": 2,
+    "parent": 0
+  },
+  {
+    "id": 348,
+    "slug": "facebook",
+    "link": "https://adwrks.co.il/tag/facebook/",
+    "title": "Facebook",
+    "type": "tag",
+    "description": "",
+    "count": 10,
+    "parent": 0
+  },
+  {
+    "id": 413,
+    "slug": "geo",
+    "link": "https://adwrks.co.il/tag/geo/",
+    "title": "GEO",
+    "type": "tag",
+    "description": "",
+    "count": 1,
+    "parent": 0
+  },
+  {
+    "id": 254,
+    "slug": "google",
+    "link": "https://adwrks.co.il/tag/google/",
+    "title": "Google",
+    "type": "tag",
+    "description": "",
+    "count": 25,
+    "parent": 0
+  },
+  {
+    "id": 426,
+    "slug": "google-ads",
+    "link": "https://adwrks.co.il/tag/google-ads/",
+    "title": "Google Ads",
+    "type": "tag",
+    "description": "",
+    "count": 1,
+    "parent": 0
+  },
+  {
+    "id": 322,
+    "slug": "google-my-profile",
+    "link": "https://adwrks.co.il/tag/google-my-profile/",
+    "title": "Google My Profile",
+    "type": "tag",
+    "description": "",
+    "count": 2,
+    "parent": 0
+  },
+  {
+    "id": 351,
+    "slug": "google-shopping",
+    "link": "https://adwrks.co.il/tag/google-shopping/",
+    "title": "Google Shopping",
+    "type": "tag",
+    "description": "",
+    "count": 1,
+    "parent": 0
+  },
+  {
+    "id": 349,
+    "slug": "instagram",
+    "link": "https://adwrks.co.il/tag/instagram/",
+    "title": "Instagram",
+    "type": "tag",
+    "description": "",
+    "count": 9,
+    "parent": 0
+  },
+  {
+    "id": 397,
+    "slug": "ppc",
+    "link": "https://adwrks.co.il/tag/ppc/",
+    "title": "PPC",
+    "type": "tag",
+    "description": "",
+    "count": 6,
+    "parent": 0
+  },
+  {
+    "id": 407,
+    "slug": "remarketing",
+    "link": "https://adwrks.co.il/tag/remarketing/",
+    "title": "Remarketing",
+    "type": "tag",
+    "description": "",
+    "count": 2,
+    "parent": 0
+  },
+  {
+    "id": 425,
+    "slug": "roi",
+    "link": "https://adwrks.co.il/tag/roi/",
+    "title": "ROI",
+    "type": "tag",
+    "description": "",
+    "count": 1,
+    "parent": 0
+  },
+  {
+    "id": 398,
+    "slug": "sem",
+    "link": "https://adwrks.co.il/tag/sem/",
+    "title": "SEM",
+    "type": "tag",
+    "description": "",
+    "count": 5,
+    "parent": 0
+  },
+  {
+    "id": 399,
+    "slug": "seo",
+    "link": "https://adwrks.co.il/tag/seo/",
+    "title": "SEO",
+    "type": "tag",
+    "description": "",
+    "count": 11,
+    "parent": 0
+  },
+  {
+    "id": 350,
+    "slug": "shopping",
+    "link": "https://adwrks.co.il/tag/shopping/",
+    "title": "Shopping",
+    "type": "tag",
+    "description": "",
+    "count": 1,
+    "parent": 0
+  },
+  {
+    "id": 411,
+    "slug": "wordpress",
+    "link": "https://adwrks.co.il/tag/wordpress/",
+    "title": "WordPress",
+    "type": "tag",
+    "description": "",
+    "count": 5,
+    "parent": 0
+  },
+  {
+    "id": 340,
+    "slug": "%d1%81%d0%bb%d0%b5%d1%81%d0%b0%d1%80%d1%8c-%d0%b2-%d0%ba%d1%80%d0%b0%d0%b9%d0%be%d1%82",
+    "link": "https://adwrks.co.il/tag/%d1%81%d0%bb%d0%b5%d1%81%d0%b0%d1%80%d1%8c-%d0%b2-%d0%ba%d1%80%d0%b0%d0%b9%d0%be%d1%82/",
+    "title": "Слесарь в Крайот",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 339,
+    "slug": "%d1%81%d0%bb%d0%b5%d1%81%d0%b0%d1%80%d1%8c-%d0%b2-%d1%85%d0%b0%d0%b9%d1%84%d0%b5",
+    "link": "https://adwrks.co.il/tag/%d1%81%d0%bb%d0%b5%d1%81%d0%b0%d1%80%d1%8c-%d0%b2-%d1%85%d0%b0%d0%b9%d1%84%d0%b5/",
+    "title": "Слесарь в Хайфе",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 341,
+    "slug": "%d1%81%d0%bb%d0%b5%d1%81%d0%b0%d1%80%d1%8c-%d0%bd%d0%b0-%d1%81%d0%b5%d0%b2%d0%b5%d1%80%d0%b5",
+    "link": "https://adwrks.co.il/tag/%d1%81%d0%bb%d0%b5%d1%81%d0%b0%d1%80%d1%8c-%d0%bd%d0%b0-%d1%81%d0%b5%d0%b2%d0%b5%d1%80%d0%b5/",
+    "title": "Слесарь на севере",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 288,
+    "slug": "%d7%90%d7%96%d7%95%d7%a8-%d7%94%d7%9e%d7%a8%d7%9b%d7%96",
+    "link": "https://adwrks.co.il/tag/%d7%90%d7%96%d7%95%d7%a8-%d7%94%d7%9e%d7%a8%d7%9b%d7%96/",
+    "title": "אזור המרכז",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 362,
+    "slug": "%d7%90%d7%97%d7%a1%d7%95%d7%9f-%d7%90%d7%aa%d7%a8%d7%99%d7%9d",
+    "link": "https://adwrks.co.il/tag/%d7%90%d7%97%d7%a1%d7%95%d7%9f-%d7%90%d7%aa%d7%a8%d7%99%d7%9d/",
+    "title": "אחסון אתרים",
+    "type": "tag",
+    "description": "",
+    "count": 6,
+    "parent": 0
+  },
+  {
+    "id": 276,
+    "slug": "%d7%90%d7%99%d7%a0%d7%a1%d7%98%d7%9c%d7%98%d7%95%d7%a8-%d7%9e%d7%95%d7%9e%d7%9c%d7%a5",
+    "link": "https://adwrks.co.il/tag/%d7%90%d7%99%d7%a0%d7%a1%d7%98%d7%9c%d7%98%d7%95%d7%a8-%d7%9e%d7%95%d7%9e%d7%9c%d7%a5/",
+    "title": "אינסטלטור מומלץ",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 379,
+    "slug": "%d7%91%d7%99%d7%a7%d7%95%d7%a8%d7%95%d7%aa",
+    "link": "https://adwrks.co.il/tag/%d7%91%d7%99%d7%a7%d7%95%d7%a8%d7%95%d7%aa/",
+    "title": "ביקורות",
+    "type": "tag",
+    "description": "",
+    "count": 1,
+    "parent": 0
+  },
+  {
+    "id": 365,
+    "slug": "%d7%91%d7%a0%d7%99%d7%99%d7%aa-%d7%90%d7%aa%d7%a8",
+    "link": "https://adwrks.co.il/tag/%d7%91%d7%a0%d7%99%d7%99%d7%aa-%d7%90%d7%aa%d7%a8/",
+    "title": "בניית אתר",
+    "type": "tag",
+    "description": "",
+    "count": 4,
+    "parent": 0
+  },
+  {
+    "id": 253,
+    "slug": "%d7%92%d7%95%d7%92%d7%9c",
+    "link": "https://adwrks.co.il/tag/%d7%92%d7%95%d7%92%d7%9c/",
+    "title": "גוגל",
+    "type": "tag",
+    "description": "",
+    "count": 9,
+    "parent": 0
+  },
+  {
+    "id": 324,
+    "slug": "%d7%92%d7%95%d7%92%d7%9c-%d7%9c%d7%a2%d7%a1%d7%a7-%d7%a9%d7%9c%d7%99",
+    "link": "https://adwrks.co.il/tag/%d7%92%d7%95%d7%92%d7%9c-%d7%9c%d7%a2%d7%a1%d7%a7-%d7%a9%d7%9c%d7%99/",
+    "title": "גוגל לעסק שלי",
+    "type": "tag",
+    "description": "",
+    "count": 3,
+    "parent": 0
+  },
+  {
+    "id": 308,
+    "slug": "%d7%92%d7%99%d7%a0%d7%95%d7%9f",
+    "link": "https://adwrks.co.il/tag/%d7%92%d7%99%d7%a0%d7%95%d7%9f/",
+    "title": "גינון",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 310,
+    "slug": "%d7%92%d7%a0%d7%9f-%d7%91%d7%99%d7%a8%d7%95%d7%a9%d7%9c%d7%99%d7%9d",
+    "link": "https://adwrks.co.il/tag/%d7%92%d7%a0%d7%9f-%d7%91%d7%99%d7%a8%d7%95%d7%a9%d7%9c%d7%99%d7%9d/",
+    "title": "גנן בירושלים",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 306,
+    "slug": "%d7%92%d7%a0%d7%9f-%d7%9e%d7%95%d7%9e%d7%9c%d7%a5",
+    "link": "https://adwrks.co.il/tag/%d7%92%d7%a0%d7%9f-%d7%9e%d7%95%d7%9e%d7%9c%d7%a5/",
+    "title": "גנן מומלץ",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 326,
+    "slug": "%d7%93%d7%95%d7%97%d7%95%d7%aa-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%94",
+    "link": "https://adwrks.co.il/tag/%d7%93%d7%95%d7%97%d7%95%d7%aa-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%94/",
+    "title": "דוחות תעבורה",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 281,
+    "slug": "%d7%93%d7%99%d7%a0%d7%99-%d7%a0%d7%96%d7%99%d7%a7%d7%99%d7%9f",
+    "link": "https://adwrks.co.il/tag/%d7%93%d7%99%d7%a0%d7%99-%d7%a0%d7%96%d7%99%d7%a7%d7%99%d7%9f/",
+    "title": "דיני נזיקין",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 328,
+    "slug": "%d7%93%d7%99%d7%a0%d7%99-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%94",
+    "link": "https://adwrks.co.il/tag/%d7%93%d7%99%d7%a0%d7%99-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%94/",
+    "title": "דיני תעבורה",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 424,
+    "slug": "%d7%94%d7%97%d7%96%d7%a8-%d7%94%d7%a9%d7%a7%d7%a2%d7%94",
+    "link": "https://adwrks.co.il/tag/%d7%94%d7%97%d7%96%d7%a8-%d7%94%d7%a9%d7%a7%d7%a2%d7%94/",
+    "title": "החזר השקעה",
+    "type": "tag",
+    "description": "",
+    "count": 1,
+    "parent": 0
+  },
+  {
+    "id": 366,
+    "slug": "%d7%94%d7%a7%d7%9e%d7%aa-%d7%90%d7%aa%d7%a8",
+    "link": "https://adwrks.co.il/tag/%d7%94%d7%a7%d7%9e%d7%aa-%d7%90%d7%aa%d7%a8/",
+    "title": "הקמת אתר",
+    "type": "tag",
+    "description": "",
+    "count": 2,
+    "parent": 0
+  },
+  {
+    "id": 363,
+    "slug": "%d7%95%d7%95%d7%a8%d7%93%d7%a4%d7%a8%d7%a1",
+    "link": "https://adwrks.co.il/tag/%d7%95%d7%95%d7%a8%d7%93%d7%a4%d7%a8%d7%a1/",
+    "title": "וורדפרס",
+    "type": "tag",
+    "description": "",
+    "count": 6,
+    "parent": 0
+  },
+  {
+    "id": 312,
+    "slug": "%d7%97%d7%91%d7%a8%d7%aa-%d7%92%d7%99%d7%a0%d7%95%d7%9f",
+    "link": "https://adwrks.co.il/tag/%d7%97%d7%91%d7%a8%d7%aa-%d7%92%d7%99%d7%a0%d7%95%d7%9f/",
+    "title": "חברת גינון",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 266,
+    "slug": "%d7%97%d7%93%d7%a9%d7%95%d7%aa-%d7%a1%d7%a4%d7%95%d7%a8%d7%98",
+    "link": "https://adwrks.co.il/tag/%d7%97%d7%93%d7%a9%d7%95%d7%aa-%d7%a1%d7%a4%d7%95%d7%a8%d7%98/",
+    "title": "חדשות ספורט",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 255,
+    "slug": "%d7%97%d7%99%d7%a4%d7%95%d7%a9%d7%99%d7%9d-%d7%a4%d7%95%d7%a4%d7%95%d7%9c%d7%a8%d7%99%d7%99%d7%9d",
+    "link": "https://adwrks.co.il/tag/%d7%97%d7%99%d7%a4%d7%95%d7%a9%d7%99%d7%9d-%d7%a4%d7%95%d7%a4%d7%95%d7%9c%d7%a8%d7%99%d7%99%d7%9d/",
+    "title": "חיפושים פופולריים",
+    "type": "tag",
+    "description": "",
+    "count": 1,
+    "parent": 0
+  },
+  {
+    "id": 291,
+    "slug": "%d7%98%d7%9b%d7%a0%d7%90%d7%99-%d7%93%d7%95%d7%93%d7%99%d7%9d-%d7%9e%d7%95%d7%9e%d7%9c%d7%a5",
+    "link": "https://adwrks.co.il/tag/%d7%98%d7%9b%d7%a0%d7%90%d7%99-%d7%93%d7%95%d7%93%d7%99%d7%9d-%d7%9e%d7%95%d7%9e%d7%9c%d7%a5/",
+    "title": "טכנאי דודים מומלץ",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 290,
+    "slug": "%d7%98%d7%9b%d7%a0%d7%90%d7%99-%d7%9e%d7%95%d7%9e%d7%9c%d7%a5",
+    "link": "https://adwrks.co.il/tag/%d7%98%d7%9b%d7%a0%d7%90%d7%99-%d7%9e%d7%95%d7%9e%d7%9c%d7%a5/",
+    "title": "טכנאי מומלץ",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 377,
+    "slug": "%d7%99%d7%95%d7%a2%d7%a5-%d7%90%d7%99%d7%a0%d7%98%d7%a8%d7%a0%d7%98",
+    "link": "https://adwrks.co.il/tag/%d7%99%d7%95%d7%a2%d7%a5-%d7%90%d7%99%d7%a0%d7%98%d7%a8%d7%a0%d7%98/",
+    "title": "יועץ אינטרנט",
+    "type": "tag",
+    "description": "",
+    "count": 7,
+    "parent": 0
+  },
+  {
+    "id": 241,
+    "slug": "%d7%9e%d7%91%d7%96%d7%a7%d7%99-%d7%97%d7%93%d7%a9%d7%95%d7%aa",
+    "link": "https://adwrks.co.il/tag/%d7%9e%d7%91%d7%96%d7%a7%d7%99-%d7%97%d7%93%d7%a9%d7%95%d7%aa/",
+    "title": "מבזקי חדשות",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 244,
+    "slug": "%d7%9e%d7%91%d7%96%d7%a7%d7%99%d7%9d-24-7",
+    "link": "https://adwrks.co.il/tag/%d7%9e%d7%91%d7%96%d7%a7%d7%99%d7%9d-24-7/",
+    "title": "מבזקים 24/7",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 274,
+    "slug": "%d7%9e%d7%93%d7%91%d7%99%d7%a8-%d7%9e%d7%95%d7%9e%d7%9c%d7%a5",
+    "link": "https://adwrks.co.il/tag/%d7%9e%d7%93%d7%91%d7%99%d7%a8-%d7%9e%d7%95%d7%9e%d7%9c%d7%a5/",
+    "title": "מדביר מומלץ",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 275,
+    "slug": "%d7%9e%d7%93%d7%91%d7%99%d7%a8-%d7%9e%d7%95%d7%a8%d7%a9%d7%94",
+    "link": "https://adwrks.co.il/tag/%d7%9e%d7%93%d7%91%d7%99%d7%a8-%d7%9e%d7%95%d7%a8%d7%a9%d7%94/",
+    "title": "מדביר מורשה",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 292,
+    "slug": "%d7%9e%d7%95%d7%9e%d7%9c%d7%a5",
+    "link": "https://adwrks.co.il/tag/%d7%9e%d7%95%d7%9e%d7%9c%d7%a5/",
+    "title": "מומלץ",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 401,
+    "slug": "%d7%9e%d7%97%d7%99%d7%a8%d7%95%d7%9f",
+    "link": "https://adwrks.co.il/tag/%d7%9e%d7%97%d7%99%d7%a8%d7%95%d7%9f/",
+    "title": "מחירון",
+    "type": "tag",
+    "description": "",
+    "count": 2,
+    "parent": 0
+  },
+  {
+    "id": 427,
+    "slug": "%d7%9e%d7%97%d7%a9%d7%91%d7%95%d7%9f-roi",
+    "link": "https://adwrks.co.il/tag/%d7%9e%d7%97%d7%a9%d7%91%d7%95%d7%9f-roi/",
+    "title": "מחשבון ROI",
+    "type": "tag",
+    "description": "",
+    "count": 1,
+    "parent": 0
+  },
+  {
+    "id": 316,
+    "slug": "%d7%9e%d7%99%d7%93%d7%a2-%d7%9e%d7%a9%d7%a4%d7%98%d7%99",
+    "link": "https://adwrks.co.il/tag/%d7%9e%d7%99%d7%93%d7%a2-%d7%9e%d7%a9%d7%a4%d7%98%d7%99/",
+    "title": "מידע משפטי",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 273,
+    "slug": "%d7%9e%d7%a0%d7%a2%d7%95%d7%9c%d7%9f-%d7%9e%d7%95%d7%9e%d7%9c%d7%a5",
+    "link": "https://adwrks.co.il/tag/%d7%9e%d7%a0%d7%a2%d7%95%d7%9c%d7%9f-%d7%9e%d7%95%d7%9e%d7%9c%d7%a5/",
+    "title": "מנעולן מומלץ",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 239,
+    "slug": "%d7%9e%d7%a1%d7%90%d7%92-%d7%aa%d7%90%d7%99%d7%9c%d7%a0%d7%93%d7%99",
+    "link": "https://adwrks.co.il/tag/%d7%9e%d7%a1%d7%90%d7%92-%d7%aa%d7%90%d7%99%d7%9c%d7%a0%d7%93%d7%99/",
+    "title": "מסאג' תאילנדי",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 249,
+    "slug": "%d7%9e%d7%aa%d7%9b%d7%95%d7%9f-%d7%91%d7%a8%d7%99%d7%90",
+    "link": "https://adwrks.co.il/tag/%d7%9e%d7%aa%d7%9b%d7%95%d7%9f-%d7%91%d7%a8%d7%99%d7%90/",
+    "title": "מתכון בריא",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 248,
+    "slug": "%d7%9e%d7%aa%d7%9b%d7%95%d7%9f-%d7%9e%d7%94%d7%99%d7%a8",
+    "link": "https://adwrks.co.il/tag/%d7%9e%d7%aa%d7%9b%d7%95%d7%9f-%d7%9e%d7%94%d7%99%d7%a8/",
+    "title": "מתכון מהיר",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 251,
+    "slug": "%d7%9e%d7%aa%d7%9b%d7%95%d7%9f-%d7%a2%d7%95%d7%92%d7%99%d7%95%d7%aa",
+    "link": "https://adwrks.co.il/tag/%d7%9e%d7%aa%d7%9b%d7%95%d7%9f-%d7%a2%d7%95%d7%92%d7%99%d7%95%d7%aa/",
+    "title": "מתכון עוגיות",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 246,
+    "slug": "%d7%9e%d7%aa%d7%9b%d7%95%d7%9f-%d7%a4%d7%a0%d7%a7%d7%99%d7%99%d7%a7-%d7%90%d7%95%d7%95%d7%a8%d7%99%d7%a8%d7%99",
+    "link": "https://adwrks.co.il/tag/%d7%9e%d7%aa%d7%9b%d7%95%d7%9f-%d7%a4%d7%a0%d7%a7%d7%99%d7%99%d7%a7-%d7%90%d7%95%d7%95%d7%a8%d7%99%d7%a8%d7%99/",
+    "title": "מתכון פנקייק אוורירי",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 247,
+    "slug": "%d7%9e%d7%aa%d7%9b%d7%95%d7%9f-%d7%a7%d7%9c",
+    "link": "https://adwrks.co.il/tag/%d7%9e%d7%aa%d7%9b%d7%95%d7%9f-%d7%a7%d7%9c/",
+    "title": "מתכון קל",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 245,
+    "slug": "%d7%9e%d7%aa%d7%9b%d7%95%d7%a0%d7%99%d7%9d",
+    "link": "https://adwrks.co.il/tag/%d7%9e%d7%aa%d7%9b%d7%95%d7%a0%d7%99%d7%9d/",
+    "title": "מתכונים",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 277,
+    "slug": "%d7%a0%d7%96%d7%a7%d7%99-%d7%92%d7%95%d7%a3",
+    "link": "https://adwrks.co.il/tag/%d7%a0%d7%96%d7%a7%d7%99-%d7%92%d7%95%d7%a3/",
+    "title": "נזקי גוף",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 258,
+    "slug": "%d7%a1%d7%95%d7%9b%d7%a0%d7%95%d7%aa-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c",
+    "link": "https://adwrks.co.il/tag/%d7%a1%d7%95%d7%9b%d7%a0%d7%95%d7%aa-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c/",
+    "title": "סוכנות דיגיטל",
+    "type": "tag",
+    "description": "",
+    "count": 2,
+    "parent": 0
+  },
+  {
+    "id": 311,
+    "slug": "%d7%a2%d7%91%d7%95%d7%93%d7%95%d7%aa-%d7%92%d7%99%d7%a0%d7%95%d7%9f",
+    "link": "https://adwrks.co.il/tag/%d7%a2%d7%91%d7%95%d7%93%d7%95%d7%aa-%d7%92%d7%99%d7%a0%d7%95%d7%9f/",
+    "title": "עבודות גינון",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 327,
+    "slug": "%d7%a2%d7%91%d7%99%d7%a8%d7%95%d7%aa-%d7%aa%d7%a0%d7%95%d7%a2%d7%94",
+    "link": "https://adwrks.co.il/tag/%d7%a2%d7%91%d7%99%d7%a8%d7%95%d7%aa-%d7%aa%d7%a0%d7%95%d7%a2%d7%94/",
+    "title": "עבירות תנועה",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 243,
+    "slug": "%d7%a2%d7%93%d7%9b%d7%95%d7%a0%d7%99-%d7%97%d7%93%d7%a9%d7%95%d7%aa",
+    "link": "https://adwrks.co.il/tag/%d7%a2%d7%93%d7%9b%d7%95%d7%a0%d7%99-%d7%97%d7%93%d7%a9%d7%95%d7%aa/",
+    "title": "עדכוני חדשות",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 242,
+    "slug": "%d7%a2%d7%93%d7%9b%d7%95%d7%a0%d7%99%d7%9d-%d7%91%d7%96%d7%9e%d7%9f-%d7%90%d7%9e%d7%aa",
+    "link": "https://adwrks.co.il/tag/%d7%a2%d7%93%d7%9b%d7%95%d7%a0%d7%99%d7%9d-%d7%91%d7%96%d7%9e%d7%9f-%d7%90%d7%9e%d7%aa/",
+    "title": "עדכונים בזמן אמת",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 252,
+    "slug": "%d7%a2%d7%95%d7%92%d7%99%d7%95%d7%aa-%d7%91%d7%a8%d7%99%d7%90%d7%95%d7%aa",
+    "link": "https://adwrks.co.il/tag/%d7%a2%d7%95%d7%92%d7%99%d7%95%d7%aa-%d7%91%d7%a8%d7%99%d7%90%d7%95%d7%aa/",
+    "title": "עוגיות בריאות",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 282,
+    "slug": "%d7%a2%d7%95%d7%a8%d7%9a-%d7%93%d7%99%d7%9f-%d7%a0%d7%96%d7%99%d7%a7%d7%99%d7%9f",
+    "link": "https://adwrks.co.il/tag/%d7%a2%d7%95%d7%a8%d7%9a-%d7%93%d7%99%d7%9f-%d7%a0%d7%96%d7%99%d7%a7%d7%99%d7%9f/",
+    "title": "עורך דין נזיקין",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 303,
+    "slug": "%d7%a2%d7%95%d7%a8%d7%9a-%d7%93%d7%99%d7%9f-%d7%a0%d7%96%d7%a7%d7%99-%d7%92%d7%95%d7%a3",
+    "link": "https://adwrks.co.il/tag/%d7%a2%d7%95%d7%a8%d7%9a-%d7%93%d7%99%d7%9f-%d7%a0%d7%96%d7%a7%d7%99-%d7%92%d7%95%d7%a3/",
+    "title": "עורך דין נזקי גוף",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 302,
+    "slug": "%d7%a2%d7%95%d7%a8%d7%9a-%d7%93%d7%99%d7%9f-%d7%aa%d7%90%d7%95%d7%a0%d7%95%d7%aa-%d7%93%d7%a8%d7%9b%d7%99%d7%9d",
+    "link": "https://adwrks.co.il/tag/%d7%a2%d7%95%d7%a8%d7%9a-%d7%93%d7%99%d7%9f-%d7%aa%d7%90%d7%95%d7%a0%d7%95%d7%aa-%d7%93%d7%a8%d7%9b%d7%99%d7%9d/",
+    "title": "עורך דין תאונות דרכים",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 329,
+    "slug": "%d7%a2%d7%95%d7%a8%d7%9a-%d7%93%d7%99%d7%9f-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%94",
+    "link": "https://adwrks.co.il/tag/%d7%a2%d7%95%d7%a8%d7%9a-%d7%93%d7%99%d7%9f-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%94/",
+    "title": "עורך דין תעבורה",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 240,
+    "slug": "%d7%a2%d7%99%d7%a1%d7%95%d7%99-%d7%9e%d7%a1%d7%95%d7%a8%d7%aa%d7%99",
+    "link": "https://adwrks.co.il/tag/%d7%a2%d7%99%d7%a1%d7%95%d7%99-%d7%9e%d7%a1%d7%95%d7%a8%d7%aa%d7%99/",
+    "title": "עיסוי מסורתי",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 238,
+    "slug": "%d7%a2%d7%99%d7%a1%d7%95%d7%99-%d7%aa%d7%90%d7%99%d7%9c%d7%a0%d7%93%d7%99",
+    "link": "https://adwrks.co.il/tag/%d7%a2%d7%99%d7%a1%d7%95%d7%99-%d7%aa%d7%90%d7%99%d7%9c%d7%a0%d7%93%d7%99/",
+    "title": "עיסוי תאילנדי",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 309,
+    "slug": "%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%92%d7%99%d7%a0%d7%95%d7%aa",
+    "link": "https://adwrks.co.il/tag/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%92%d7%99%d7%a0%d7%95%d7%aa/",
+    "title": "עיצוב גינות",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 323,
+    "slug": "%d7%a4%d7%a8%d7%95%d7%a4%d7%99%d7%9c-%d7%94%d7%a2%d7%a1%d7%a7-%d7%91%d7%92%d7%95%d7%92%d7%9c",
+    "link": "https://adwrks.co.il/tag/%d7%a4%d7%a8%d7%95%d7%a4%d7%99%d7%9c-%d7%94%d7%a2%d7%a1%d7%a7-%d7%91%d7%92%d7%95%d7%92%d7%9c/",
+    "title": "פרופיל העסק בגוגל",
+    "type": "tag",
+    "description": "",
+    "count": 3,
+    "parent": 0
+  },
+  {
+    "id": 256,
+    "slug": "%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%91%d7%90%d7%99%d7%a0%d7%98%d7%a8%d7%a0%d7%98",
+    "link": "https://adwrks.co.il/tag/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%91%d7%90%d7%99%d7%a0%d7%98%d7%a8%d7%a0%d7%98/",
+    "title": "פרסום באינטרנט",
+    "type": "tag",
+    "description": "",
+    "count": 31,
+    "parent": 0
+  },
+  {
+    "id": 402,
+    "slug": "%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%91%d7%a4%d7%99%d7%99%d7%a1%d7%91%d7%95%d7%a7",
+    "link": "https://adwrks.co.il/tag/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%91%d7%a4%d7%99%d7%99%d7%a1%d7%91%d7%95%d7%a7/",
+    "title": "פרסום בפייסבוק",
+    "type": "tag",
+    "description": "",
+    "count": 3,
+    "parent": 0
+  },
+  {
+    "id": 396,
+    "slug": "%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%91%d7%a8%d7%95%d7%a1%d7%99%d7%aa",
+    "link": "https://adwrks.co.il/tag/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%91%d7%a8%d7%95%d7%a1%d7%99%d7%aa/",
+    "title": "פרסום ברוסית",
+    "type": "tag",
+    "description": "",
+    "count": 4,
+    "parent": 0
+  },
+  {
+    "id": 404,
+    "slug": "%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%9e%d7%9e%d7%95%d7%9e%d7%9f",
+    "link": "https://adwrks.co.il/tag/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%9e%d7%9e%d7%95%d7%9e%d7%9f/",
+    "title": "פרסום ממומן",
+    "type": "tag",
+    "description": "",
+    "count": 7,
+    "parent": 0
+  },
+  {
+    "id": 410,
+    "slug": "%d7%a7%d7%99%d7%93%d7%95%d7%9d-%d7%90%d7%95%d7%a8%d7%92%d7%a0%d7%99",
+    "link": "https://adwrks.co.il/tag/%d7%a7%d7%99%d7%93%d7%95%d7%9d-%d7%90%d7%95%d7%a8%d7%92%d7%a0%d7%99/",
+    "title": "קידום אורגני",
+    "type": "tag",
+    "description": "",
+    "count": 5,
+    "parent": 0
+  },
+  {
+    "id": 360,
+    "slug": "%d7%a7%d7%99%d7%93%d7%95%d7%9d-%d7%91%d7%92%d7%95%d7%92%d7%9c",
+    "link": "https://adwrks.co.il/tag/%d7%a7%d7%99%d7%93%d7%95%d7%9d-%d7%91%d7%92%d7%95%d7%92%d7%9c/",
+    "title": "קידום בגוגל",
+    "type": "tag",
+    "description": "",
+    "count": 16,
+    "parent": 0
+  },
+  {
+    "id": 259,
+    "slug": "%d7%a7%d7%99%d7%93%d7%95%d7%9d-%d7%a2%d7%a1%d7%a7%d7%99%d7%9d-%d7%91%d7%90%d7%99%d7%a0%d7%98%d7%a8%d7%a0%d7%98",
+    "link": "https://adwrks.co.il/tag/%d7%a7%d7%99%d7%93%d7%95%d7%9d-%d7%a2%d7%a1%d7%a7%d7%99%d7%9d-%d7%91%d7%90%d7%99%d7%a0%d7%98%d7%a8%d7%a0%d7%98/",
+    "title": "קידום עסקים באינטרנט",
+    "type": "tag",
+    "description": "",
+    "count": 24,
+    "parent": 0
+  },
+  {
+    "id": 250,
+    "slug": "%d7%a7%d7%99%d7%a0%d7%95%d7%97%d7%99%d7%9d",
+    "link": "https://adwrks.co.il/tag/%d7%a7%d7%99%d7%a0%d7%95%d7%97%d7%99%d7%9d/",
+    "title": "קינוחים",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 406,
+    "slug": "%d7%a8%d7%99%d7%9e%d7%a8%d7%a7%d7%98%d7%99%d7%a0%d7%92",
+    "link": "https://adwrks.co.il/tag/%d7%a8%d7%99%d7%9e%d7%a8%d7%a7%d7%98%d7%99%d7%a0%d7%92/",
+    "title": "רימרקטינג",
+    "type": "tag",
+    "description": "",
+    "count": 1,
+    "parent": 0
+  },
+  {
+    "id": 278,
+    "slug": "%d7%a8%d7%a9%d7%9c%d7%a0%d7%95%d7%aa-%d7%a8%d7%a4%d7%95%d7%90%d7%99%d7%aa",
+    "link": "https://adwrks.co.il/tag/%d7%a8%d7%a9%d7%9c%d7%a0%d7%95%d7%aa-%d7%a8%d7%a4%d7%95%d7%90%d7%99%d7%aa/",
+    "title": "רשלנות רפואית",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 409,
+    "slug": "%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%91%d7%90%d7%99%d7%a0%d7%a1%d7%98%d7%92%d7%a8%d7%9d",
+    "link": "https://adwrks.co.il/tag/%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%91%d7%90%d7%99%d7%a0%d7%a1%d7%98%d7%92%d7%a8%d7%9d/",
+    "title": "שיווק באינסטגרם",
+    "type": "tag",
+    "description": "",
+    "count": 1,
+    "parent": 0
+  },
+  {
+    "id": 403,
+    "slug": "%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%91%d7%9e%d7%93%d7%99%d7%94-%d7%97%d7%91%d7%a8%d7%aa%d7%99%d7%aa",
+    "link": "https://adwrks.co.il/tag/%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%91%d7%9e%d7%93%d7%99%d7%94-%d7%97%d7%91%d7%a8%d7%aa%d7%99%d7%aa/",
+    "title": "שיווק במדיה חברתית",
+    "type": "tag",
+    "description": "",
+    "count": 5,
+    "parent": 0
+  },
+  {
+    "id": 405,
+    "slug": "%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%91%d7%a4%d7%99%d7%99%d7%a1%d7%91%d7%95%d7%a7",
+    "link": "https://adwrks.co.il/tag/%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%91%d7%a4%d7%99%d7%99%d7%a1%d7%91%d7%95%d7%a7/",
+    "title": "שיווק בפייסבוק",
+    "type": "tag",
+    "description": "",
+    "count": 3,
+    "parent": 0
+  },
+  {
+    "id": 378,
+    "slug": "%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99",
+    "link": "https://adwrks.co.il/tag/%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99/",
+    "title": "שיווק דיגיטלי",
+    "type": "tag",
+    "description": "",
+    "count": 16,
+    "parent": 0
+  },
+  {
+    "id": 257,
+    "slug": "%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%a2%d7%a1%d7%a7%d7%99%d7%9d",
+    "link": "https://adwrks.co.il/tag/%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%a2%d7%a1%d7%a7%d7%99%d7%9d/",
+    "title": "שיווק עסקים",
+    "type": "tag",
+    "description": "",
+    "count": 2,
+    "parent": 0
+  },
+  {
+    "id": 286,
+    "slug": "%d7%a9%d7%99%d7%a8%d7%95%d7%aa-24-7",
+    "link": "https://adwrks.co.il/tag/%d7%a9%d7%99%d7%a8%d7%95%d7%aa-24-7/",
+    "title": "שירות 24/7",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 279,
+    "slug": "%d7%aa%d7%90%d7%95%d7%a0%d7%95%d7%aa-%d7%93%d7%a8%d7%9b%d7%99%d7%9d",
+    "link": "https://adwrks.co.il/tag/%d7%aa%d7%90%d7%95%d7%a0%d7%95%d7%aa-%d7%93%d7%a8%d7%9b%d7%99%d7%9d/",
+    "title": "תאונות דרכים",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 280,
+    "slug": "%d7%aa%d7%90%d7%95%d7%a0%d7%95%d7%aa-%d7%a2%d7%91%d7%95%d7%93%d7%94",
+    "link": "https://adwrks.co.il/tag/%d7%aa%d7%90%d7%95%d7%a0%d7%95%d7%aa-%d7%a2%d7%91%d7%95%d7%93%d7%94/",
+    "title": "תאונות עבודה",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 317,
+    "slug": "%d7%aa%d7%91%d7%99%d7%a2%d7%95%d7%aa-%d7%a0%d7%96%d7%99%d7%a7%d7%99%d7%9f",
+    "link": "https://adwrks.co.il/tag/%d7%aa%d7%91%d7%99%d7%a2%d7%95%d7%aa-%d7%a0%d7%96%d7%99%d7%a7%d7%99%d7%9f/",
+    "title": "תביעות נזיקין",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 319,
+    "slug": "%d7%aa%d7%91%d7%99%d7%a2%d7%95%d7%aa-%d7%a8%d7%a9%d7%9c%d7%a0%d7%95%d7%aa-%d7%a8%d7%a4%d7%95%d7%90%d7%99%d7%aa",
+    "link": "https://adwrks.co.il/tag/%d7%aa%d7%91%d7%99%d7%a2%d7%95%d7%aa-%d7%a8%d7%a9%d7%9c%d7%a0%d7%95%d7%aa-%d7%a8%d7%a4%d7%95%d7%90%d7%99%d7%aa/",
+    "title": "תביעות רשלנות רפואית",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 318,
+    "slug": "%d7%aa%d7%91%d7%99%d7%a2%d7%95%d7%aa-%d7%aa%d7%90%d7%95%d7%a0%d7%95%d7%aa-%d7%93%d7%a8%d7%9b%d7%99%d7%9d",
+    "link": "https://adwrks.co.il/tag/%d7%aa%d7%91%d7%99%d7%a2%d7%95%d7%aa-%d7%aa%d7%90%d7%95%d7%a0%d7%95%d7%aa-%d7%93%d7%a8%d7%9b%d7%99%d7%9d/",
+    "title": "תביעות תאונות דרכים",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  },
+  {
+    "id": 364,
+    "slug": "%d7%aa%d7%97%d7%96%d7%95%d7%a7%d7%aa-%d7%90%d7%aa%d7%a8%d7%99%d7%9d",
+    "link": "https://adwrks.co.il/tag/%d7%aa%d7%97%d7%96%d7%95%d7%a7%d7%aa-%d7%90%d7%aa%d7%a8%d7%99%d7%9d/",
+    "title": "תחזוקת אתרים",
+    "type": "tag",
+    "description": "",
+    "count": 7,
+    "parent": 0
+  },
+  {
+    "id": 289,
+    "slug": "%d7%aa%d7%9c-%d7%90%d7%91%d7%99%d7%91-%d7%95%d7%94%d7%a1%d7%91%d7%99%d7%91%d7%94",
+    "link": "https://adwrks.co.il/tag/%d7%aa%d7%9c-%d7%90%d7%91%d7%99%d7%91-%d7%95%d7%94%d7%a1%d7%91%d7%99%d7%91%d7%94/",
+    "title": "תל אביב והסביבה",
+    "type": "tag",
+    "description": "",
+    "count": 0,
+    "parent": 0
+  }
+]

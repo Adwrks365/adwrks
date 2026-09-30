@@ -1,0 +1,3004 @@
+{
+  "timestamp": "2026-09-29T12:21:04.098Z",
+  "urlsScanned": 74,
+  "urlsWithShortcodes": 57,
+  "totalShortcodes": 423,
+  "fixed": 6,
+  "remaining": 417,
+  "entries": [
+    {
+      "url": "/%d7%91%d7%93%d7%99%d7%a7%d7%aa-%d7%9e%d7%94%d7%99%d7%a8%d7%95%d7%aa-%d7%90%d7%aa%d7%a8/",
+      "wordpressId": 21496,
+      "contentType": "post",
+      "title": "בדיקת מהירות אתר | בדקו את האתר שלכם חינם",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "message",
+          "full": "[message]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_05180bf",
+          "full": "[field_05180bf]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%94%d7%97%d7%99%d7%a4%d7%95%d7%a9%d7%99%d7%9d-%d7%94%d7%9b%d7%99-%d7%a4%d7%95%d7%a4%d7%95%d7%9c%d7%a8%d7%99%d7%99%d7%9d-%d7%91%d7%92%d7%95%d7%92%d7%9c-%d7%94%d7%99%d7%95%d7%9d-%d7%91%d7%99%d7%a9/",
+      "wordpressId": 10983,
+      "contentType": "post",
+      "title": "החיפושים הכי חמים בגוגל ישראל (בזמן אמת)",
+      "shortcodes": [
+        {
+          "tag": "google_trends_live",
+          "full": "[google_trends_live]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%9b%d7%9e%d7%94-%d7%a2%d7%95%d7%9c%d7%94-%d7%9c%d7%91%d7%a0%d7%95%d7%aa-%d7%90%d7%aa%d7%a8-%d7%90%d7%99%d7%a0%d7%98%d7%a8%d7%a0%d7%98-%d7%91%d7%95%d7%95%d7%a8%d7%93%d7%a4%d7%a8%d7%a1/",
+      "wordpressId": 19792,
+      "contentType": "post",
+      "title": "כמה עולה לבנות אתר אינטרנט ותחזוקה? | מחירון 2026",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_05180bf",
+          "full": "[field_05180bf]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/google-shopping-guide/",
+      "wordpressId": 17923,
+      "contentType": "post",
+      "title": "מדריך גוגל שופינג 2025: כלי שכל אתר מכירות חייב | Google Shopping",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_5caea47",
+          "full": "[field_5caea47]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "message",
+          "full": "[message]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "elfsight_click_to_call",
+          "full": "[elfsight_click_to_call id=\"2\"]",
+          "purpose": "Elfsight widget (click-to-call / WhatsApp chat)",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "elfsight_whatsapp_chat",
+          "full": "[elfsight_whatsapp_chat id=\"1\"]",
+          "purpose": "Elfsight widget (click-to-call / WhatsApp chat)",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "elfsight_click_to_call",
+          "full": "[elfsight_click_to_call id=\"2\"]",
+          "purpose": "Elfsight widget (click-to-call / WhatsApp chat)",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "elfsight_whatsapp_chat",
+          "full": "[elfsight_whatsapp_chat id=\"1\"]",
+          "purpose": "Elfsight widget (click-to-call / WhatsApp chat)",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%a8%d7%99%d7%9e%d7%a8%d7%a7%d7%98%d7%99%d7%a0%d7%92-%d7%9e%d7%94-%d7%96%d7%94-%d7%90%d7%99%d7%9a-%d7%95%d7%9c%d7%9e%d7%94/",
+      "wordpressId": 21272,
+      "contentType": "post",
+      "title": "רימרקטינג – מה זה, איך עושים, ולמה הוא כל כך חשוב לעסק שלך?",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_05180bf",
+          "full": "[field_05180bf]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%9e%d7%94%d7%95-aeo-%d7%94%d7%90%d7%9d-%d7%99%d7%97%d7%9c%d7%99%d7%a3-%d7%90%d7%aa-seo/",
+      "wordpressId": 21339,
+      "contentType": "post",
+      "title": "מהו AEO? האם יחליף את SEO? [המפתח לדירוג #1 ב-Google]",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_05180bf",
+          "full": "[field_05180bf]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%9e%d7%9e%d7%95%d7%9e%d7%9f-%d7%91%d7%a4%d7%99%d7%99%d7%a1%d7%91%d7%95%d7%a7/",
+      "wordpressId": 21249,
+      "contentType": "post",
+      "title": "פרסום ממומן בפייסבוק: איך להגיע ללקוחות הנכונים בתקציב נכון",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_05180bf",
+          "full": "[field_05180bf]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%9b%d7%9e%d7%94-%d7%a2%d7%95%d7%9c%d7%94-%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%91%d7%92%d7%95%d7%92%d7%9c/",
+      "wordpressId": 21638,
+      "contentType": "post",
+      "title": "כמה עולה פרסום בגוגל? תקציב יומי ממוצע לקמפיין ממומן",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_5caea47",
+          "full": "[field_5caea47]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "message",
+          "full": "[message]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "elfsight_click_to_call",
+          "full": "[elfsight_click_to_call id=\"2\"]",
+          "purpose": "Elfsight widget (click-to-call / WhatsApp chat)",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "elfsight_whatsapp_chat",
+          "full": "[elfsight_whatsapp_chat id=\"1\"]",
+          "purpose": "Elfsight widget (click-to-call / WhatsApp chat)",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "elfsight_click_to_call",
+          "full": "[elfsight_click_to_call id=\"2\"]",
+          "purpose": "Elfsight widget (click-to-call / WhatsApp chat)",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "elfsight_whatsapp_chat",
+          "full": "[elfsight_whatsapp_chat id=\"1\"]",
+          "purpose": "Elfsight widget (click-to-call / WhatsApp chat)",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%90%d7%a1%d7%98%d7%a8%d7%98%d7%92%d7%99%d7%95%d7%aa-%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99-2025/",
+      "wordpressId": 21776,
+      "contentType": "post",
+      "title": "המדריך: אסטרטגיות שיווק דיגיטלי ל-2025 ואילך",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_5caea47",
+          "full": "[field_5caea47]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "message",
+          "full": "[message]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "elfsight_click_to_call",
+          "full": "[elfsight_click_to_call id=\"2\"]",
+          "purpose": "Elfsight widget (click-to-call / WhatsApp chat)",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "elfsight_whatsapp_chat",
+          "full": "[elfsight_whatsapp_chat id=\"1\"]",
+          "purpose": "Elfsight widget (click-to-call / WhatsApp chat)",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "elfsight_click_to_call",
+          "full": "[elfsight_click_to_call id=\"2\"]",
+          "purpose": "Elfsight widget (click-to-call / WhatsApp chat)",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "elfsight_whatsapp_chat",
+          "full": "[elfsight_whatsapp_chat id=\"1\"]",
+          "purpose": "Elfsight widget (click-to-call / WhatsApp chat)",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%9e%d7%97%d7%99%d7%a8-%d7%a7%d7%99%d7%93%d7%95%d7%9d-%d7%90%d7%aa%d7%a8%d7%99%d7%9d/",
+      "wordpressId": 21161,
+      "contentType": "post",
+      "title": "כמה עולה לקדם אתר? מחיר קידום אתרים [מחירון + מחשבון]",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_05180bf",
+          "full": "[field_05180bf]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/google-business-profile/",
+      "wordpressId": 14288,
+      "contentType": "post",
+      "title": "פרופיל העסק בגוגל [גוגל מפות] &#8211; קידום בגוגל חינם",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_05180bf",
+          "full": "[field_05180bf]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_5caea47",
+          "full": "[field_5caea47]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "message",
+          "full": "[message]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "elfsight_click_to_call",
+          "full": "[elfsight_click_to_call id=\"2\"]",
+          "purpose": "Elfsight widget (click-to-call / WhatsApp chat)",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "elfsight_whatsapp_chat",
+          "full": "[elfsight_whatsapp_chat id=\"1\"]",
+          "purpose": "Elfsight widget (click-to-call / WhatsApp chat)",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "elfsight_click_to_call",
+          "full": "[elfsight_click_to_call id=\"2\"]",
+          "purpose": "Elfsight widget (click-to-call / WhatsApp chat)",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "elfsight_whatsapp_chat",
+          "full": "[elfsight_whatsapp_chat id=\"1\"]",
+          "purpose": "Elfsight widget (click-to-call / WhatsApp chat)",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%91%d7%92%d7%95%d7%92%d7%9c-%d7%9e%d7%a4%d7%95%d7%aa/",
+      "wordpressId": 20155,
+      "contentType": "post",
+      "title": "פרסום בגוגל מפות &#8211; פרופיל העסק בגוגל [קידום חינם בגוגל]",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_05180bf",
+          "full": "[field_05180bf]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_5caea47",
+          "full": "[field_5caea47]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "message",
+          "full": "[message]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "elfsight_click_to_call",
+          "full": "[elfsight_click_to_call id=\"2\"]",
+          "purpose": "Elfsight widget (click-to-call / WhatsApp chat)",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "elfsight_whatsapp_chat",
+          "full": "[elfsight_whatsapp_chat id=\"1\"]",
+          "purpose": "Elfsight widget (click-to-call / WhatsApp chat)",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "elfsight_click_to_call",
+          "full": "[elfsight_click_to_call id=\"2\"]",
+          "purpose": "Elfsight widget (click-to-call / WhatsApp chat)",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "elfsight_whatsapp_chat",
+          "full": "[elfsight_whatsapp_chat id=\"1\"]",
+          "purpose": "Elfsight widget (click-to-call / WhatsApp chat)",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%91%d7%a4%d7%99%d7%99%d7%a1%d7%91%d7%95%d7%a7-%d7%95%d7%90%d7%99%d7%a0%d7%a1%d7%98%d7%92%d7%a8%d7%9d/",
+      "wordpressId": 21578,
+      "contentType": "post",
+      "title": "שיווק בפייסבוק ואינסטגרם לעסקים ב-2025",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_5caea47",
+          "full": "[field_5caea47]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "message",
+          "full": "[message]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "elfsight_click_to_call",
+          "full": "[elfsight_click_to_call id=\"2\"]",
+          "purpose": "Elfsight widget (click-to-call / WhatsApp chat)",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "elfsight_whatsapp_chat",
+          "full": "[elfsight_whatsapp_chat id=\"1\"]",
+          "purpose": "Elfsight widget (click-to-call / WhatsApp chat)",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "elfsight_click_to_call",
+          "full": "[elfsight_click_to_call id=\"2\"]",
+          "purpose": "Elfsight widget (click-to-call / WhatsApp chat)",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "elfsight_whatsapp_chat",
+          "full": "[elfsight_whatsapp_chat id=\"1\"]",
+          "purpose": "Elfsight widget (click-to-call / WhatsApp chat)",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%9b%d7%9a-%d7%91%d7%95%d7%97%d7%a8%d7%99%d7%9d-%d7%97%d7%91%d7%a8%d7%94-%d7%9c%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99/",
+      "wordpressId": 21716,
+      "contentType": "post",
+      "title": "כך בוחרים חברה לשיווק דיגיטלי שתביא לכם תוצאות",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_5caea47",
+          "full": "[field_5caea47]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "message",
+          "full": "[message]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "elfsight_click_to_call",
+          "full": "[elfsight_click_to_call id=\"2\"]",
+          "purpose": "Elfsight widget (click-to-call / WhatsApp chat)",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "elfsight_whatsapp_chat",
+          "full": "[elfsight_whatsapp_chat id=\"1\"]",
+          "purpose": "Elfsight widget (click-to-call / WhatsApp chat)",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "elfsight_click_to_call",
+          "full": "[elfsight_click_to_call id=\"2\"]",
+          "purpose": "Elfsight widget (click-to-call / WhatsApp chat)",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "elfsight_whatsapp_chat",
+          "full": "[elfsight_whatsapp_chat id=\"1\"]",
+          "purpose": "Elfsight widget (click-to-call / WhatsApp chat)",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%a2%d7%aa%d7%99%d7%93-%d7%94-seo-%d7%9b%d7%9a-%d7%99%d7%99%d7%a8%d7%90%d7%94-%d7%94%d7%a7%d7%99%d7%93%d7%95%d7%9d-%d7%94%d7%90%d7%95%d7%a8%d7%92%d7%a0%d7%99-%d7%91-2025-%d7%95%d7%9e%d7%a2%d7%91/",
+      "wordpressId": 21817,
+      "contentType": "post",
+      "title": "עתיד ה-SEO: כך ייראה הקידום האורגני ב-2025 ומעבר",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_5caea47",
+          "full": "[field_5caea47]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "message",
+          "full": "[message]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "elfsight_click_to_call",
+          "full": "[elfsight_click_to_call id=\"2\"]",
+          "purpose": "Elfsight widget (click-to-call / WhatsApp chat)",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "elfsight_whatsapp_chat",
+          "full": "[elfsight_whatsapp_chat id=\"1\"]",
+          "purpose": "Elfsight widget (click-to-call / WhatsApp chat)",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "elfsight_click_to_call",
+          "full": "[elfsight_click_to_call id=\"2\"]",
+          "purpose": "Elfsight widget (click-to-call / WhatsApp chat)",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "elfsight_whatsapp_chat",
+          "full": "[elfsight_whatsapp_chat id=\"1\"]",
+          "purpose": "Elfsight widget (click-to-call / WhatsApp chat)",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%91%d7%99%d7%a7%d7%95%d7%a8%d7%95%d7%aa-%d7%92%d7%95%d7%92%d7%9c-%d7%9c%d7%90-%d7%a2%d7%95%d7%91%d7%93-%e2%9d%8c-%d7%96%d7%95-%d7%94%d7%a1%d7%99%d7%91%d7%94-%d7%9c%d7%9e%d7%94/",
+      "wordpressId": 20230,
+      "contentType": "post",
+      "title": "ביקורות גוגל: מה באמת השתנה, ומה עסקים צריכים לדעת היום",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_05180bf",
+          "full": "[field_05180bf]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99-%d7%91%d7%a9%d7%a4%d7%94-%d7%94%d7%a8%d7%95%d7%a1%d7%99%d7%aa/",
+      "wordpressId": 20350,
+      "contentType": "post",
+      "title": "פרסום דיגיטלי בשפה הרוסית &#8211; שיווק למגזר הרוסי",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_05180bf",
+          "full": "[field_05180bf]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%91%d7%92%d7%95%d7%92%d7%9c-7-%d7%90%d7%a1%d7%98%d7%a8%d7%98%d7%92%d7%99%d7%95%d7%aa/",
+      "wordpressId": 20897,
+      "contentType": "post",
+      "title": "פרסום בגוגל: 7 אסטרטגיות שיגרמו לעסק שלך לצמוח",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_05180bf",
+          "full": "[field_05180bf]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%91%d7%92%d7%95%d7%92%d7%9c-%d7%90%d7%93%d7%a1-10-%d7%a9%d7%9c%d7%91%d7%99%d7%9d-%d7%a4%d7%a9%d7%95%d7%98%d7%99%d7%9d/",
+      "wordpressId": 20919,
+      "contentType": "post",
+      "title": "פרסום בגוגל אדס: 10 שלבים פשוטים להתחלה",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_05180bf",
+          "full": "[field_05180bf]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%a7%d7%99%d7%93%d7%95%d7%9d-%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%9e%d7%93%d7%a8%d7%99%d7%9a-%d7%9c%d7%9e%d7%aa%d7%97%d7%99%d7%9c%d7%99%d7%9d/",
+      "wordpressId": 21115,
+      "contentType": "post",
+      "title": "קידום אתרים: מדריך מקיף למתחילים [6 שלבים]",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_05180bf",
+          "full": "[field_05180bf]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%9b%d7%9e%d7%94-%d7%a2%d7%95%d7%9c%d7%94-%d7%9c%d7%91%d7%a0%d7%95%d7%aa-%d7%90%d7%aa%d7%a8-%d7%9e%d7%97%d7%99%d7%a8%d7%95%d7%9f-%d7%9e%d7%97%d7%a9%d7%91%d7%95%d7%9f/",
+      "wordpressId": 21189,
+      "contentType": "post",
+      "title": "כמה עולה לבנות אתר? מחירון בניית אתרים עם מחשבון",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_05180bf",
+          "full": "[field_05180bf]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%a4%d7%9c%d7%98%d7%a4%d7%95%d7%a8%d7%9e%d7%94-%d7%91%d7%a0%d7%99%d7%99%d7%aa-%d7%90%d7%aa%d7%a8/",
+      "wordpressId": 21317,
+      "contentType": "post",
+      "title": "פלטפורמה בניית אתר: איך לבחור מתוך 6 ?",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_05180bf",
+          "full": "[field_05180bf]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%97%d7%91%d7%a8%d7%94-%d7%9c%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99/",
+      "wordpressId": 20803,
+      "contentType": "post",
+      "title": "חברה לשיווק דיגיטלי: בוסט לעסק שלך",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_05180bf",
+          "full": "[field_05180bf]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%a1%d7%95%d7%9b%d7%a0%d7%95%d7%aa-%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%91%d7%9b%d7%a8%d7%9e%d7%99%d7%90%d7%9c/",
+      "wordpressId": 21392,
+      "contentType": "post",
+      "title": "סוכנות פרסום ⭐️ שיווק דיגיטלי מובילה בכרמיאל",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_05180bf",
+          "full": "[field_05180bf]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "trustindex",
+          "full": "[trustindex no-registration=facebook]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99-%d7%9c%d7%a2%d7%a1%d7%a7%d7%99%d7%9d/",
+      "wordpressId": 21068,
+      "contentType": "post",
+      "title": "שיווק דיגיטלי לעסקים: 4 אסטרטגיות מרכזיות",
+      "shortcodes": [
+        {
+          "tag": "20px",
+          "full": "[20px]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "3px",
+          "full": "[3px]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_05180bf",
+          "full": "[field_05180bf]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "20px",
+          "full": "[20px]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "3px",
+          "full": "[3px]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%9b%d7%9e%d7%94-%d7%a2%d7%95%d7%9c%d7%99%d7%9d-%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99-%d7%90%d7%97%d7%a1%d7%95%d7%9f-%d7%95%d7%aa%d7%97%d7%96%d7%95%d7%a7%d7%aa-%d7%90%d7%aa%d7%a8%d7%99%d7%9d/",
+      "wordpressId": 19781,
+      "contentType": "post",
+      "title": "כמה עולים שירותי אחסון ותחזוקת אתרים?",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_05180bf",
+          "full": "[field_05180bf]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%90%d7%97%d7%a1%d7%95%d7%9f-%d7%95%d7%aa%d7%97%d7%96%d7%95%d7%a7%d7%aa-%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%9c%d7%9e%d7%94-%d7%96%d7%94-%d7%97%d7%a9%d7%95%d7%91/",
+      "wordpressId": 19548,
+      "contentType": "post",
+      "title": "אחסון ותחזוקת אתרים: למה זה חשוב?",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_05180bf",
+          "full": "[field_05180bf]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%90%d7%97%d7%a1%d7%95%d7%9f-%d7%90%d7%aa%d7%a8%d7%99-%d7%95%d7%95%d7%a8%d7%93%d7%a4%d7%a8%d7%a1-%d7%95%d7%aa%d7%97%d7%96%d7%95%d7%a7%d7%aa%d7%9d/",
+      "wordpressId": 19644,
+      "contentType": "post",
+      "title": "אחסון אתרי וורדפרס ותחזוקתם: החשיבות של שירות מקצועי",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_05180bf",
+          "full": "[field_05180bf]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%90%d7%97%d7%a1%d7%95%d7%9f-%d7%95%d7%aa%d7%97%d7%96%d7%95%d7%a7%d7%aa-%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%94%d7%9e%d7%93%d7%a8%d7%99%d7%9a/",
+      "wordpressId": 19758,
+      "contentType": "post",
+      "title": "אחסון ותחזוקת אתרים: המדריך השלם",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_05180bf",
+          "full": "[field_05180bf]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%9e%d7%94%d7%95-%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%91%d7%90%d7%99%d7%a0%d7%98%d7%a8%d7%a0%d7%98/",
+      "wordpressId": 21051,
+      "contentType": "post",
+      "title": "מהו שיווק באינטרנט / שיווק דיגיטלי ? כל מה שצריך לדעת.",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_05180bf",
+          "full": "[field_05180bf]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%a2%d7%a1%d7%a7-%d7%97%d7%99%d7%a0%d7%9d/",
+      "wordpressId": 20969,
+      "contentType": "post",
+      "title": "פרסום עסק חינם: 7 שיטות פשוטות לפרסום עצמי אפקטיבי",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_05180bf",
+          "full": "[field_05180bf]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%99%d7%95%d7%a2%d7%a5-%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%91%d7%90%d7%99%d7%a0%d7%98%d7%a8%d7%a0%d7%98/",
+      "wordpressId": 20081,
+      "contentType": "post",
+      "title": "מה זה יועץ שיווק באינטרנט?",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_05180bf",
+          "full": "[field_05180bf]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%a1%d7%95%d7%9b%d7%a0%d7%95%d7%aa-%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99/",
+      "wordpressId": 20403,
+      "contentType": "post",
+      "title": "סוכנות שיווק דיגיטלי שתוביל את העסק שלכם קדימה",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_05180bf",
+          "full": "[field_05180bf]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%a1%d7%95%d7%9b%d7%a0%d7%95%d7%aa-%d7%9c%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99/",
+      "wordpressId": 20506,
+      "contentType": "post",
+      "title": "סוכנות לשיווק דיגיטלי: כל הפתרונות הדיגיטליים במקום אחד",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_05180bf",
+          "full": "[field_05180bf]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%99%d7%95%d7%a2%d7%a5-%d7%90%d7%99%d7%a0%d7%98%d7%a8%d7%a0%d7%98/",
+      "wordpressId": 20029,
+      "contentType": "post",
+      "title": "יועץ אינטרנט: המפתח להצלחה שלכם בעולם הדיגיטלי",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_05180bf",
+          "full": "[field_05180bf]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%a0%d7%99%d7%94%d7%95%d7%9c-%d7%a2%d7%a1%d7%a7-%d7%91%d7%a2%d7%99%d7%93%d7%9f-%d7%94%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99/",
+      "wordpressId": 20051,
+      "contentType": "post",
+      "title": "ניהול עסק בעידן הדיגיטלי: אתגרים והזדמנויות",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_05180bf",
+          "full": "[field_05180bf]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%99%d7%95%d7%a2%d7%a5-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c-%d7%94%d7%95%d7%90-%d7%94%d7%a9%d7%95%d7%aa%d7%a3-%d7%a9%d7%9c%d7%9a-%d7%9c%d7%94%d7%a6%d7%9c%d7%97%d7%94/",
+      "wordpressId": 20092,
+      "contentType": "post",
+      "title": "יועץ דיגיטל הוא השותף שלך להצלחה",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_05180bf",
+          "full": "[field_05180bf]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%9e%d7%94-%d7%94%d7%94%d7%91%d7%93%d7%9c-%d7%91%d7%99%d7%9f-sem-%d7%9c-ppc/",
+      "wordpressId": 20529,
+      "contentType": "post",
+      "title": "מה ההבדל בין SEM ל-PPC? יש הבדל 1 &quot;מרכזי&quot;",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_05180bf",
+          "full": "[field_05180bf]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%9e%d7%a7%d7%a6%d7%95%d7%a2%d7%99-%d7%9c%d7%a7%d7%94%d7%9c-%d7%93%d7%95%d7%91%d7%a8-%d7%a8%d7%95%d7%a1%d7%99%d7%aa/",
+      "wordpressId": 20388,
+      "contentType": "post",
+      "title": "שיווק מקצועי לקהל דובר רוסית",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_05180bf",
+          "full": "[field_05180bf]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%a7%d7%99%d7%93%d7%95%d7%9d-%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%91%d7%92%d7%95%d7%92%d7%9c/",
+      "wordpressId": 19428,
+      "contentType": "post",
+      "title": "קידום אתרים בגוגל: למה חשוב להשקיע ?",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_05180bf",
+          "full": "[field_05180bf]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%a6%d7%9e%d7%99%d7%97%d7%94-%d7%a2%d7%a1%d7%a7%d7%99%d7%aa-%d7%91%d7%90%d7%9e%d7%a6%d7%a2%d7%95%d7%aa-%d7%a7%d7%99%d7%93%d7%95%d7%9d-%d7%91%d7%90%d7%99%d7%a0%d7%98%d7%a8%d7%a0%d7%98/",
+      "wordpressId": 19100,
+      "contentType": "post",
+      "title": "צמיחה עסקית באמצעות קידום באינטרנט",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_05180bf",
+          "full": "[field_05180bf]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%a1%d7%95%d7%9b%d7%a0%d7%95%d7%aa-%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99%d7%aa/",
+      "wordpressId": 18480,
+      "contentType": "post",
+      "title": "מקסם את הנוכחות באינטרנט עם סוכנות שיווק דיגיטלית​",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_05180bf",
+          "full": "[field_05180bf]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%9c%d7%a2%d7%a1%d7%a7%d7%99%d7%9d/",
+      "wordpressId": 19070,
+      "contentType": "post",
+      "title": "פרסום לעסקים: חשיפה מוחלטת בעולם הדיגיטלי",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_05180bf",
+          "full": "[field_05180bf]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%94%d7%97%d7%a9%d7%99%d7%91%d7%95%d7%aa-%d7%a9%d7%9c-%d7%9e%d7%a9%d7%a8%d7%93-%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99/",
+      "wordpressId": 19281,
+      "contentType": "post",
+      "title": "החשיבות של משרד פרסום דיגיטלי",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_05180bf",
+          "full": "[field_05180bf]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%9e%d7%94%d7%99-%d7%a1%d7%95%d7%9b%d7%a0%d7%95%d7%aa-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99%d7%aa/",
+      "wordpressId": 19143,
+      "contentType": "post",
+      "title": "מהי סוכנות דיגיטלית ?",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_05180bf",
+          "full": "[field_05180bf]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%9e%d7%93%d7%a8%d7%99%d7%9a-%d7%a7%d7%99%d7%93%d7%95%d7%9d-%d7%94%d7%a2%d7%a1%d7%a7-%d7%91%d7%92%d7%95%d7%92%d7%9c/",
+      "wordpressId": 19121,
+      "contentType": "post",
+      "title": "מדריך: קידום העסק בגוגל",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_05180bf",
+          "full": "[field_05180bf]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%94%d7%a9%d7%a7%d7%a2%d7%94-%d7%91%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%92%d7%9d-%d7%91%d7%96%d7%9e%d7%a0%d7%99%d7%9d-%d7%a7%d7%a9%d7%99%d7%9d/",
+      "wordpressId": 19398,
+      "contentType": "post",
+      "title": "החשיבות של השקעה בפרסום גם בזמנים קשים",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_05180bf",
+          "full": "[field_05180bf]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%90%d7%97%d7%a1%d7%95%d7%9f-%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%9e%d7%a0%d7%95%d7%94%d7%9c/",
+      "wordpressId": 19933,
+      "contentType": "post",
+      "title": "אחסון אתרים מנוהל &#8211; הפתרון המושלם לבעלי אתרים",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_05180bf",
+          "full": "[field_05180bf]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/",
+      "wordpressId": 7,
+      "contentType": "page",
+      "title": "סוכנות שיווק דיגיטלי",
+      "shortcodes": [
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "trustindex",
+          "full": "[trustindex no-registration=facebook]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/website-building/",
+      "wordpressId": 22113,
+      "contentType": "page",
+      "title": "בניית אתרים לעסקים",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_d0ccab9",
+          "full": "[field_d0ccab9]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_48b1359",
+          "full": "[field_48b1359]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_fd56d31",
+          "full": "[field_fd56d31]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_294e009",
+          "full": "[field_294e009]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_daf56e3",
+          "full": "[field_daf56e3]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "trustindex",
+          "full": "[trustindex no-registration=facebook]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/seo/",
+      "wordpressId": 22078,
+      "contentType": "page",
+      "title": "קידום אתרים אורגני (SEO)",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_d0ccab9",
+          "full": "[field_d0ccab9]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_48b1359",
+          "full": "[field_48b1359]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_294e009",
+          "full": "[field_294e009]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_daf56e3",
+          "full": "[field_daf56e3]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "trustindex",
+          "full": "[trustindex no-registration=facebook]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/social-media-management/",
+      "wordpressId": 22151,
+      "contentType": "page",
+      "title": "ניהול רשתות חברתיות",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_d0ccab9",
+          "full": "[field_d0ccab9]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_48b1359",
+          "full": "[field_48b1359]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_fd56d31",
+          "full": "[field_fd56d31]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_294e009",
+          "full": "[field_294e009]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_daf56e3",
+          "full": "[field_daf56e3]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "trustindex",
+          "full": "[trustindex no-registration=facebook]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/google-ads/",
+      "wordpressId": 22011,
+      "contentType": "page",
+      "title": "פרסום ממומן בגוגל (Google Ads) לעסקים",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_d0ccab9",
+          "full": "[field_d0ccab9]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_48b1359",
+          "full": "[field_48b1359]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_daf56e3",
+          "full": "[field_daf56e3]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "trustindex",
+          "full": "[trustindex no-registration=facebook]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/blog/",
+      "wordpressId": 20464,
+      "contentType": "page",
+      "title": "בלוג",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_5caea47",
+          "full": "[field_5caea47]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "message",
+          "full": "[message]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "elfsight_click_to_call",
+          "full": "[elfsight_click_to_call id=\"2\"]",
+          "purpose": "Elfsight widget (click-to-call / WhatsApp chat)",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "elfsight_whatsapp_chat",
+          "full": "[elfsight_whatsapp_chat id=\"1\"]",
+          "purpose": "Elfsight widget (click-to-call / WhatsApp chat)",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99-%d7%a9%d7%99%d7%95%d7%95%d7%a7-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99/",
+      "wordpressId": 22065,
+      "contentType": "page",
+      "title": "שירותי שיווק דיגיטלי לעסקים",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_d0ccab9",
+          "full": "[field_d0ccab9]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_48b1359",
+          "full": "[field_48b1359]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_daf56e3",
+          "full": "[field_daf56e3]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "trustindex",
+          "full": "[trustindex no-registration=facebook]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/about-us/",
+      "wordpressId": 92,
+      "contentType": "page",
+      "title": "מי אנחנו",
+      "shortcodes": [
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "trustindex",
+          "full": "[trustindex no-registration=facebook]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        }
+      ]
+    },
+    {
+      "url": "/contact-us/",
+      "wordpressId": 7969,
+      "contentType": "page",
+      "title": "צור קשר עם Adwrks 365 – סוכנות שיווק דיגיטלי",
+      "shortcodes": [
+        {
+          "tag": "name",
+          "full": "[name]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_5caea47",
+          "full": "[field_5caea47]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "0-9",
+          "full": "[0-9()#&amp;+*-=.]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "email",
+          "full": "[email]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_d8f5edd",
+          "full": "[field_d8f5edd]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "message",
+          "full": "[message]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "field_9136697",
+          "full": "[field_9136697]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "elfsight_click_to_call",
+          "full": "[elfsight_click_to_call id=\"2\"]",
+          "purpose": "Elfsight widget (click-to-call / WhatsApp chat)",
+          "fixStatus": "replaced-with-ui"
+        },
+        {
+          "tag": "elfsight_whatsapp_chat",
+          "full": "[elfsight_whatsapp_chat id=\"1\"]",
+          "purpose": "Elfsight widget (click-to-call / WhatsApp chat)",
+          "fixStatus": "replaced-with-ui"
+        },
+        {
+          "tag": "elfsight_click_to_call",
+          "full": "[elfsight_click_to_call id=&quot;2&quot;]",
+          "purpose": "Elfsight widget (click-to-call / WhatsApp chat)",
+          "fixStatus": "replaced-with-ui"
+        },
+        {
+          "tag": "elfsight_whatsapp_chat",
+          "full": "[elfsight_whatsapp_chat id=&quot;1&quot;]",
+          "purpose": "Elfsight widget (click-to-call / WhatsApp chat)",
+          "fixStatus": "replaced-with-ui"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "all-fields",
+          "full": "[all-fields]",
+          "purpose": "WordPress plugin shortcode",
+          "fixStatus": "needs-review"
+        },
+        {
+          "tag": "elfsight_click_to_call",
+          "full": "[elfsight_click_to_call id=\"2\"]",
+          "purpose": "Elfsight widget (click-to-call / WhatsApp chat)",
+          "fixStatus": "replaced-with-ui"
+        },
+        {
+          "tag": "elfsight_whatsapp_chat",
+          "full": "[elfsight_whatsapp_chat id=\"1\"]",
+          "purpose": "Elfsight widget (click-to-call / WhatsApp chat)",
+          "fixStatus": "replaced-with-ui"
+        }
+      ]
+    }
+  ]
+}

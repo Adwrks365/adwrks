@@ -1,0 +1,112 @@
+{
+  "timestamp": "2026-09-30T06:25:22.836Z",
+  "base": "http://localhost:3000",
+  "steps": [
+    {
+      "step": "testimonials visible",
+      "pass": true,
+      "viewport": "desktop"
+    },
+    {
+      "step": "testimonials dots",
+      "pass": true,
+      "detail": "5",
+      "viewport": "desktop"
+    },
+    {
+      "step": "testimonials next button",
+      "pass": true,
+      "viewport": "desktop"
+    },
+    {
+      "step": "testimonials prev button",
+      "pass": true,
+      "viewport": "desktop"
+    },
+    {
+      "step": "testimonials keyboard",
+      "pass": true,
+      "viewport": "desktop"
+    },
+    {
+      "step": "portfolio visible",
+      "pass": true,
+      "viewport": "desktop"
+    },
+    {
+      "step": "portfolio dots",
+      "pass": true,
+      "detail": "14",
+      "viewport": "desktop"
+    },
+    {
+      "step": "portfolio next button",
+      "pass": true,
+      "viewport": "desktop"
+    },
+    {
+      "step": "portfolio prev button",
+      "pass": true,
+      "viewport": "desktop"
+    },
+    {
+      "step": "portfolio keyboard",
+      "pass": true,
+      "viewport": "desktop"
+    },
+    {
+      "step": "testimonials visible",
+      "pass": true,
+      "viewport": "mobile"
+    },
+    {
+      "step": "testimonials dots",
+      "pass": true,
+      "detail": "5",
+      "viewport": "mobile"
+    },
+    {
+      "step": "testimonials next button",
+      "pass": true,
+      "viewport": "mobile"
+    },
+    {
+      "step": "testimonials prev button",
+      "pass": true,
+      "viewport": "mobile"
+    },
+    {
+      "step": "testimonials keyboard",
+      "pass": true,
+      "viewport": "mobile"
+    },
+    {
+      "step": "portfolio visible",
+      "pass": true,
+      "viewport": "mobile"
+    },
+    {
+      "step": "portfolio dots",
+      "pass": true,
+      "detail": "14",
+      "viewport": "mobile"
+    },
+    {
+      "step": "portfolio next button",
+      "pass": true,
+      "viewport": "mobile"
+    },
+    {
+      "step": "portfolio prev button",
+      "pass": true,
+      "viewport": "mobile"
+    },
+    {
+      "step": "portfolio keyboard",
+      "pass": true,
+      "viewport": "mobile"
+    }
+  ],
+  "passed": 20,
+  "failed": 0
+}

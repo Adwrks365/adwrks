@@ -1,0 +1,65 @@
+{
+  "timestamp": "2026-09-29T12:50:29.883Z",
+  "base": "http://localhost:3000",
+  "pagesScanned": 10,
+  "pagesWithIssues": 2,
+  "findings": [
+    {
+      "page": "/",
+      "issues": [
+        {
+          "type": "broken-images",
+          "count": 5,
+          "heading": "מה הלקוחות אומרים עלינו"
+        },
+        {
+          "type": "giant-whitespace",
+          "heading": "דוגמאות לאתרים",
+          "height": 1898
+        },
+        {
+          "type": "broken-images",
+          "count": 14,
+          "heading": "דוגמאות לאתרים"
+        },
+        {
+          "type": "heading-without-body",
+          "heading": "פרסום יעיל בפלטפורמות המובילות",
+          "height": 329
+        },
+        {
+          "type": "broken-images",
+          "count": 8,
+          "heading": "פרסום יעיל בפלטפורמות המובילות"
+        },
+        {
+          "type": "broken-images",
+          "count": 3,
+          "heading": "מאמרים אחרונים"
+        }
+      ]
+    },
+    {
+      "page": "/contact-us/",
+      "issues": [
+        {
+          "type": "duplicate-paragraphs",
+          "items": [
+            {
+              "text": "מחפשים סוכנות שיווק דיגיטלי שמבינה עסקים ולא רק קליקים?",
+              "count": 2
+            },
+            {
+              "text": "נשמח להכיר אתכם, להבין את המטרות והאתגרים, ולהראות לכם איך אפשר להביא יותר לידים",
+              "count": 2
+            },
+            {
+              "text": "השיחה ללא התחייבות וללא עלות – המטרה היא להבין האם יש חיבור ומה הדרך הנכונה לקדם",
+              "count": 2
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

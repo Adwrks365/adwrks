@@ -1,0 +1,43 @@
+{
+  "wordpressId": 9103,
+  "slug": "thank-you-page",
+  "path": "/thank-you-page/",
+  "title": "עמוד תודה",
+  "blocks": [
+    {
+      "type": "image",
+      "url": "https://www.adwrks.co.il/wp-content/uploads/Oval.png",
+      "alt": ""
+    },
+    {
+      "type": "image",
+      "url": "https://www.adwrks.co.il/wp-content/uploads/Fill-1.png",
+      "alt": ""
+    },
+    {
+      "type": "image",
+      "url": "https://www.adwrks.co.il/wp-content/uploads/Oval-Copy.png",
+      "alt": ""
+    },
+    {
+      "type": "heading",
+      "level": "h2",
+      "text": "תודה שהתעניינתם בפתרונות של Adwrks 365"
+    },
+    {
+      "type": "heading",
+      "level": "h2",
+      "text": "אנו מציעים שירותי בניית אתרים, קידום, פרסום ושיווק באינטרנט לעסקים, חברות ובעלי מקצוע.."
+    },
+    {
+      "type": "heading",
+      "level": "h2",
+      "text": "אנו מתחייבים ליצור אתכם קשר עד יום העסקים הבא."
+    },
+    {
+      "type": "button",
+      "text": "חזרה לדף הבית",
+      "url": ""
+    }
+  ]
+}
