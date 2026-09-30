@@ -83,9 +83,19 @@ Code: `web/src/lib/email/lead-email-template.ts`, `contact-form-attribution.ts`,
 - Client adds `pageUrl` from `window.location.href` at submit time
 - Server builds canonical `https://adwrks.co.il{path}` and environment label (Vercel Preview / Production)
 
-### Phase 5B.1 inbox tests
+### Phase 5B.1 inbox tests (deploy `8b5b120`)
 
-See final status in Phase 5B.1 completion report (post-deploy verification).
+Controlled API submissions from `https://adwrks.vercel.app` after redeploy:
+
+| Form ID | Test name | API | Expected subject |
+|---|---|---|---|
+| `homepage-contact` | Phase5B1 Homepage Test | 200 OK | `ליד חדש \| Adwrks 365 \| טופס יצירת קשר – דף הבית \| סוכנות שיווק דיגיטלי` |
+| `contact-page` | Phase5B1 Contact Test | 200 OK | `ליד חדש \| Adwrks 365 \| טופס צור קשר \| צור קשר` |
+| `article-sidebar` | Phase5B1 Article Test | 200 OK | `ליד חדש \| Adwrks 365 \| טופס צדדי – מאמר \| כמה עולה פרסום בגוגל?` |
+
+All three returned success UI payload. Reply-To set to test visitor emails where supplied.
+
+**Owner inbox check:** Confirm the three redesigned emails in `info@adwrks.co.il` Gmail (RTL layout, מקור הליד section, correct attribution). Infrastructure was previously verified by owner with first live submission.
 
 ---
 
