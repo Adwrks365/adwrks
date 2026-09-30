@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { CONTENT_DATA_DIR } from "@/lib/content/data-dir";
 import { toLocalMediaUrl } from "./urls";
 
 type MediaRecord = {
@@ -13,7 +14,7 @@ let _byId: Map<number, MediaRecord> | null = null;
 
 function loadMediaIndex(): Map<number, MediaRecord> {
   if (_byId) return _byId;
-  const filePath = path.join(process.cwd(), "..", "migration-audit", "media.json");
+  const filePath = path.join(CONTENT_DATA_DIR, "media.json");
   const raw = JSON.parse(fs.readFileSync(filePath, "utf8")) as MediaRecord[];
   _byId = new Map(raw.map((m) => [m.id, m]));
   return _byId;

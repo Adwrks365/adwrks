@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { CONTENT_DATA_DIR } from "@/lib/content/data-dir";
 
 const UPLOAD_PREFIX = "/wp-content/uploads/";
 
@@ -12,7 +13,7 @@ let _map: Record<string, string> | null = null;
 
 function loadMap(): Record<string, string> {
   if (_map) return _map;
-  const mapPath = path.join(process.cwd(), "..", "migration-audit", "media-map.json");
+  const mapPath = path.join(CONTENT_DATA_DIR, "media-map.json");
   if (fs.existsSync(mapPath)) {
     const data = JSON.parse(fs.readFileSync(mapPath, "utf8")) as { mapping?: Record<string, string> };
     _map = data.mapping ?? {};

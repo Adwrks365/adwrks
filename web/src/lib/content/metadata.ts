@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { isIndexableProduction } from "@/lib/indexing";
 import { SITE } from "@/lib/site";
 import { getSeoByPath } from "./loader";
 import { absoluteUrl } from "./paths";
@@ -85,8 +86,6 @@ export function isProductionCanonical(): boolean {
 }
 
 export function stagingRobots(): Metadata["robots"] {
-  if (process.env.NODE_ENV === "production" && process.env.VERCEL_ENV === "production") {
-    return undefined;
-  }
+  if (isIndexableProduction()) return undefined;
   return { index: false, follow: false };
 }

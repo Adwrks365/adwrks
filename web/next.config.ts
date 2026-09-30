@@ -2,6 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   trailingSlash: true,
+  outputFileTracingIncludes: {
+    "/*": ["./src/data/content/**/*.json"],
+  },
   async redirects() {
     return [
       {

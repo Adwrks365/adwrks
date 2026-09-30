@@ -9,11 +9,12 @@ import {
   pathFromLink,
   slugSegmentsFromPath,
 } from "./paths";
+import { CONTENT_DATA_DIR } from "./data-dir";
 
-const AUDIT_DIR = path.join(process.cwd(), "..", "migration-audit");
+const DATA_DIR = CONTENT_DATA_DIR;
 
 function readJson<T>(filename: string): T {
-  const filePath = path.join(AUDIT_DIR, filename);
+  const filePath = path.join(DATA_DIR, filename);
   return JSON.parse(fs.readFileSync(filePath, "utf8")) as T;
 }
 
