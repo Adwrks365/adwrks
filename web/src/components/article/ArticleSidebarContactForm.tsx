@@ -2,10 +2,16 @@
 
 import { FormEvent, useState } from "react";
 import { PrivacyConsent } from "@/components/forms/PrivacyConsent";
+import { submitContactForm } from "@/lib/forms/submit-contact-form";
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
-export function ArticleSidebarContactForm() {
+type ArticleSidebarContactFormProps = {
+  pageTitle: string;
+  pagePath: string;
+};
+
+export function ArticleSidebarContactForm({ pageTitle, pagePath }: ArticleSidebarContactFormProps) {
   const [status, setStatus] = useState<FormStatus>("idle");
   const [feedback, setFeedback] = useState("");
 
@@ -17,19 +23,19 @@ export function ArticleSidebarContactForm() {
     const data = Object.fromEntries(new FormData(form).entries());
 
     try {
-      const res = await fetch("/api/contact/", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, formType: "article" }),
+      const result = await submitContactForm({
+        ...data,
+        formId: "article-sidebar",
+        pageTitle,
+        pagePath,
       });
-      const json = (await res.json()) as { ok?: boolean; message?: string };
-      if (!res.ok || !json.ok) {
+      if (!result.ok) {
         setStatus("error");
-        setFeedback(json.message || "לא ניתן לשלוח את הטופס כרגע.");
+        setFeedback(result.message);
         return;
       }
       setStatus("success");
-      setFeedback(json.message || "ההודעה נשלחה בהצלחה.");
+      setFeedback(result.message || "ההודעה נשלחה בהצלחה.");
       form.reset();
     } catch {
       setStatus("error");

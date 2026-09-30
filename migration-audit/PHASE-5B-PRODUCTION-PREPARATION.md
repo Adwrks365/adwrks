@@ -35,11 +35,57 @@
 
 Owner must verify sending domain in Resend before cutover.
 
-### Actual inbox test result
+### Actual inbox test result (Phase 5B initial)
 
-**EMAIL DELIVERY CONFIGURATION REQUIRED**
+**EMAIL DELIVERY CONFIGURATION REQUIRED** at Phase 5B commit time.
 
-`RESEND_API_KEY` and `CONTACT_FORM_FROM` are not configured on Vercel. Forms return HTTP 503 until credentials are set. Inbox receipt has **not** been verified.
+Subsequently verified by owner: Resend domain `adwrks.co.il` verified; Vercel env configured; first live submission from `adwrks.vercel.app` arrived at `info@adwrks.co.il`.
+
+---
+
+## A2. Contact Email Design & Attribution (Phase 5B.1)
+
+### Form inventory
+
+| Form ID | Component | Pages | Fields | API | Recipient |
+|---|---|---|---|---|---|
+| `homepage-contact` | `ContactForm` (compact) | Homepage (`/`) | name*, phone*, email*, message, privacy | `/api/contact/` | `info@adwrks.co.il` |
+| `contact-page` | `ContactForm` (default) | `/contact-us/` | name*, phone*, email*, message, privacy | `/api/contact/` | `info@adwrks.co.il` |
+| `article-sidebar` | `ArticleSidebarContactForm` | All 54 article pages (sidebar) | name*, phone*, email (optional), privacy, hidden message | `/api/contact/` | `info@adwrks.co.il` |
+
+**Not lead forms:** `GlobalFloatingUI` (WhatsApp + tel links only). No footer form. No service-page submit forms.
+
+### Form ID → Hebrew label (server allowlist)
+
+| ID | Label |
+|---|---|
+| `homepage-contact` | טופס יצירת קשר – דף הבית |
+| `contact-page` | טופס צור קשר |
+| `article-sidebar` | טופס צדדי – מאמר |
+| unknown / legacy | טופס יצירת קשר (fallback) |
+
+Legacy `formType: article` maps to `article-sidebar`.
+
+### Email design
+
+- RTL Hebrew HTML card email + plain-text fallback
+- Header: Adwrks 365 + “ליד חדש מהאתר” + form badge
+- Section: פרטי הלקוח (non-empty fields only; tel:/mailto: links)
+- Section: מקור הליד (form, page title, path, canonical URL, submitted URL when different)
+- Footer: פרטי שליחה (Israel date/time, environment label)
+- Subject: `ליד חדש | Adwrks 365 | [Form Name] | [Page Name]`
+
+Code: `web/src/lib/email/lead-email-template.ts`, `contact-form-attribution.ts`, `contact-form-ids.ts`
+
+### Source-page attribution
+
+- Server props pass `pageTitle` + `pagePath` from each page (article title/path, homepage, contact page)
+- Client adds `pageUrl` from `window.location.href` at submit time
+- Server builds canonical `https://adwrks.co.il{path}` and environment label (Vercel Preview / Production)
+
+### Phase 5B.1 inbox tests
+
+See final status in Phase 5B.1 completion report (post-deploy verification).
 
 ---
 

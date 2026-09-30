@@ -291,7 +291,12 @@ export function HomePage() {
               </ul>
             </div>
             <div className="home-contact-card">
-              <ContactForm variant="compact" />
+              <ContactForm
+                variant="compact"
+                formId="homepage-contact"
+                pageTitle="סוכנות שיווק דיגיטלי"
+                pagePath="/"
+              />
             </div>
           </div>
         </Container>

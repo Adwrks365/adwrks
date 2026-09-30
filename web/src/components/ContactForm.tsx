@@ -2,14 +2,19 @@
 
 import { FormEvent, useState } from "react";
 import { PrivacyConsent } from "@/components/forms/PrivacyConsent";
+import type { ContactFormId } from "@/lib/email/contact-form-ids";
+import { submitContactForm } from "@/lib/forms/submit-contact-form";
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
 type ContactFormProps = {
   variant?: "default" | "compact";
+  formId: ContactFormId;
+  pageTitle: string;
+  pagePath: string;
 };
 
-export function ContactForm({ variant = "default" }: ContactFormProps) {
+export function ContactForm({ variant = "default", formId, pageTitle, pagePath }: ContactFormProps) {
   const compact = variant === "compact";
   const [status, setStatus] = useState<FormStatus>("idle");
   const [feedback, setFeedback] = useState("");
@@ -22,19 +27,19 @@ export function ContactForm({ variant = "default" }: ContactFormProps) {
     const data = Object.fromEntries(new FormData(form).entries());
 
     try {
-      const res = await fetch("/api/contact/", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+      const result = await submitContactForm({
+        ...data,
+        formId,
+        pageTitle,
+        pagePath,
       });
-      const json = (await res.json()) as { ok?: boolean; message?: string };
-      if (!res.ok || !json.ok) {
+      if (!result.ok) {
         setStatus("error");
-        setFeedback(json.message || "לא ניתן לשלוח את הטופס כרגע.");
+        setFeedback(result.message);
         return;
       }
       setStatus("success");
-      setFeedback(json.message || "ההודעה נשלחה בהצלחה.");
+      setFeedback(result.message || "ההודעה נשלחה בהצלחה.");
       form.reset();
     } catch {
       setStatus("error");

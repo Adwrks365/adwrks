@@ -5,9 +5,11 @@ import type { ContentItem } from "@/lib/content/types";
 
 type ArticleSidebarCardsProps = {
   related: ContentItem[];
+  pageTitle: string;
+  pagePath: string;
 };
 
-export function ArticleSidebarCards({ related }: ArticleSidebarCardsProps) {
+export function ArticleSidebarCards({ related, pageTitle, pagePath }: ArticleSidebarCardsProps) {
   return (
     <div className="article-sidebar-stack">
       <ArticleFacebookSocialProof />
@@ -22,7 +24,7 @@ export function ArticleSidebarCards({ related }: ArticleSidebarCardsProps) {
         />
       </div>
 
-      <ArticleSidebarContactForm />
+      <ArticleSidebarContactForm pageTitle={pageTitle} pagePath={pagePath} />
     </div>
   );
 }

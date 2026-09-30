@@ -20,15 +20,17 @@ Do not execute DNS cutover until every **REQUIRED BEFORE DOMAIN** item below is 
 - [x] `/plans/` returns 308 to `/hosting-plans/`
 - [x] Custom 404 works
 - [x] Analytics **not** loaded on Preview (production-host gate)
-- [ ] **EMAIL DELIVERY** — set `RESEND_API_KEY` + `CONTACT_FORM_FROM` on Vercel, submit homepage + contact + article forms, confirm inbox receipt at `info@adwrks.co.il`
+- [x] Resend domain `adwrks.co.il` verified
+- [x] `RESEND_API_KEY` + `CONTACT_FORM_FROM` configured on Vercel
+- [ ] **EMAIL DELIVERY = PASS** — confirm redesigned emails for all 3 form types in `info@adwrks.co.il` inbox (see Phase 5B.1 tests)
 
 ## Production project before DNS
 
 ### REQUIRED BEFORE DOMAIN
 
-- [ ] `RESEND_API_KEY` set in Vercel Production
-- [ ] `CONTACT_FORM_FROM` set to verified Resend sender on `adwrks.co.il`
-- [ ] Real form test delivered to `info@adwrks.co.il` (not HTTP 200 alone)
+- [x] `RESEND_API_KEY` set in Vercel
+- [x] `CONTACT_FORM_FROM` = `Adwrks 365 <leads@adwrks.co.il>` (verified sender)
+- [ ] All 3 form types delivered with correct attribution/design in inbox
 - [ ] Add domains `adwrks.co.il` and `www.adwrks.co.il` in Vercel **without changing DNS yet**
 - [ ] Plan www redirect: `https://www.adwrks.co.il/{path}` → `https://adwrks.co.il/{path}` (single hop in Vercel domain settings)
 - [ ] Verify SSL certificates issued for both hosts in Vercel before DNS change

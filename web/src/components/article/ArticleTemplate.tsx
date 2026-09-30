@@ -53,7 +53,11 @@ export function ArticleTemplate({ content }: ArticleTemplateProps) {
           </div>
 
           <aside className="article-aside" aria-label="מידע נלווה למאמר">
-            <ArticleSidebarCards related={related} />
+            <ArticleSidebarCards
+              related={related}
+              pageTitle={content.title}
+              pagePath={content.path}
+            />
           </aside>
         </div>
 

@@ -1,8 +1,24 @@
 import { NextResponse } from "next/server";
+import { resolveFormId } from "@/lib/email/contact-form-ids";
 import {
   isContactFormEmailConfigured,
   sendContactFormEmail,
 } from "@/lib/email/send-contact-form-email";
+
+const FIELD_LIMITS = {
+  name: 200,
+  phone: 50,
+  email: 254,
+  message: 5000,
+  pageTitle: 300,
+  pagePath: 500,
+  pageUrl: 2000,
+  formId: 64,
+} as const;
+
+function clamp(value: string | undefined, max: number): string {
+  return (value || "").trim().slice(0, max);
+}
 
 export async function POST(request: Request) {
   try {
@@ -12,8 +28,11 @@ export async function POST(request: Request) {
       email?: string;
       message?: string;
       website?: string;
+      formId?: string;
       formType?: string;
       privacyConsent?: boolean | string;
+      pageTitle?: string;
+      pagePath?: string;
       pageUrl?: string;
     };
 
@@ -21,11 +40,13 @@ export async function POST(request: Request) {
       return NextResponse.json({ ok: true, message: "ההודעה נשלחה בהצלחה." });
     }
 
-    const name = (body.name || "").trim();
-    const phone = (body.phone || "").trim();
-    const email = (body.email || "").trim();
-    const message = (body.message || "").trim();
-    const isArticleForm = body.formType === "article";
+    const formId = resolveFormId(clamp(body.formId, FIELD_LIMITS.formId), body.formType);
+    const isArticleForm = formId === "article-sidebar";
+
+    const name = clamp(body.name, FIELD_LIMITS.name);
+    const phone = clamp(body.phone, FIELD_LIMITS.phone);
+    const email = clamp(body.email, FIELD_LIMITS.email);
+    const message = clamp(body.message, FIELD_LIMITS.message);
     const consented =
       body.privacyConsent === true ||
       body.privacyConsent === "on" ||
@@ -71,15 +92,17 @@ export async function POST(request: Request) {
     }
 
     const referer = request.headers.get("referer")?.trim();
-    const pageUrl = (body.pageUrl || referer || "").trim() || undefined;
 
     const delivery = await sendContactFormEmail({
+      formId: formId === "unknown" ? clamp(body.formId, FIELD_LIMITS.formId) || "unknown" : formId,
       name,
       phone,
       email: email || undefined,
       message: message || undefined,
-      formType: isArticleForm ? "article" : "site",
-      pageUrl,
+      pageTitle: clamp(body.pageTitle, FIELD_LIMITS.pageTitle) || undefined,
+      pagePath: clamp(body.pagePath, FIELD_LIMITS.pagePath) || undefined,
+      pageUrl: clamp(body.pageUrl, FIELD_LIMITS.pageUrl) || undefined,
+      referer,
     });
 
     if (!delivery.ok) {

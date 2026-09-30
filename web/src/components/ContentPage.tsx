@@ -87,7 +87,7 @@ export function ContentPage({ content }: ContentPageProps) {
         {isContact && (
           <section className="mx-auto mt-10 max-w-xl">
             <h2 className="mb-4 text-xl font-bold text-slate-900">טופס יצירת קשר</h2>
-            <ContactForm />
+            <ContactForm formId="contact-page" pageTitle="צור קשר" pagePath="/contact-us/" />
           </section>
         )}
       </Container>

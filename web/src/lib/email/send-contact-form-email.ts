@@ -1,48 +1,31 @@
+import { buildLeadAttribution } from "@/lib/email/contact-form-attribution";
+import { resolveFormId, resolveFormLabel } from "@/lib/email/contact-form-ids";
+import { buildLeadEmail } from "@/lib/email/lead-email-template";
 import { SITE } from "@/lib/site";
 
 const LEAD_DESTINATION = SITE.email;
 
+const FIELD_LIMITS = {
+  name: 200,
+  phone: 50,
+  email: 254,
+  message: 5000,
+} as const;
+
 export type ContactFormPayload = {
+  formId: string;
   name: string;
   phone: string;
   email?: string;
   message?: string;
-  formType: "article" | "site";
+  pageTitle?: string;
+  pagePath?: string;
   pageUrl?: string;
+  referer?: string;
 };
 
-function escapeHtml(value: string): string {
-  return value
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
-}
-
-function buildEmailBody(payload: ContactFormPayload): { text: string; html: string } {
-  const timestamp = new Date().toLocaleString("he-IL", { timeZone: "Asia/Jerusalem" });
-  const formLabel = payload.formType === "article" ? "טופס צד מאמר" : "טופס יצירת קשר";
-
-  const rows: Array<[string, string]> = [
-    ["מקור", formLabel],
-    ["שם", payload.name],
-    ["טלפון", payload.phone],
-  ];
-
-  if (payload.email) rows.push(["אימייל", payload.email]);
-  if (payload.message) rows.push(["הודעה", payload.message]);
-  if (payload.pageUrl) rows.push(["עמוד מקור", payload.pageUrl]);
-  rows.push(["זמן שליחה", timestamp]);
-
-  const text = rows.map(([label, value]) => `${label}: ${value}`).join("\n");
-  const html = rows
-    .map(
-      ([label, value]) =>
-        `<p><strong>${escapeHtml(label)}:</strong> ${escapeHtml(value)}</p>`,
-    )
-    .join("");
-
-  return { text, html };
+function clampField(value: string, max: number): string {
+  return value.trim().slice(0, max);
 }
 
 export function isContactFormEmailConfigured(): boolean {
@@ -59,7 +42,25 @@ export async function sendContactFormEmail(
     return { ok: false, reason: "missing-config" };
   }
 
-  const { text, html } = buildEmailBody(payload);
+  const resolvedFormId = resolveFormId(payload.formId);
+  const formLabel = resolveFormLabel(resolvedFormId === "unknown" ? payload.formId : resolvedFormId);
+  const attribution = buildLeadAttribution({
+    pageTitle: payload.pageTitle,
+    pagePath: payload.pagePath,
+    pageUrl: payload.pageUrl,
+    referer: payload.referer,
+  });
+
+  const { subject, text, html } = buildLeadEmail({
+    formId: resolvedFormId === "unknown" ? payload.formId : resolvedFormId,
+    formLabel,
+    name: clampField(payload.name, FIELD_LIMITS.name),
+    phone: clampField(payload.phone, FIELD_LIMITS.phone),
+    email: payload.email ? clampField(payload.email, FIELD_LIMITS.email) : undefined,
+    message: payload.message ? clampField(payload.message, FIELD_LIMITS.message) : undefined,
+    attribution,
+    submittedAt: new Date(),
+  });
 
   const body: {
     from: string;
@@ -71,13 +72,13 @@ export async function sendContactFormEmail(
   } = {
     from,
     to: [LEAD_DESTINATION],
-    subject: "ליד חדש מאתר Adwrks 365",
+    subject,
     text,
     html,
   };
 
   if (payload.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email)) {
-    body.reply_to = payload.email;
+    body.reply_to = clampField(payload.email, FIELD_LIMITS.email);
   }
 
   const response = await fetch("https://api.resend.com/emails", {
@@ -93,6 +94,7 @@ export async function sendContactFormEmail(
     const errorBody = await response.text().catch(() => "");
     console.error("[contact-form] email provider rejected submission", {
       status: response.status,
+      formId: payload.formId,
       detail: errorBody.slice(0, 200),
     });
     return { ok: false, reason: "provider-error" };

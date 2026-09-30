@@ -128,7 +128,11 @@ export function ContactPage({ data }: ContactPageProps) {
             <p className="mb-4 text-slate-600">
               יש לך שאלה / זקוק לייעוץ? אנו מצפים לשמוע ממך!
             </p>
-            <ContactForm />
+            <ContactForm
+              formId="contact-page"
+              pageTitle={hero.title || "צור קשר"}
+              pagePath="/contact-us/"
+            />
             {privacyNote?.type === "text" && (
               <p className="mt-4 text-sm text-slate-500">{privacyNote.text}</p>
             )}
