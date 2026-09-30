@@ -1,53 +1,63 @@
 # Go-live checklist
 
-Do not execute this during Phase 4B. DNS, Vercel, WordPress, and Search Console stay untouched until a later approved step.
+Do not execute DNS cutover until every **REQUIRED BEFORE DOMAIN** item below is verified.
 
 ## Before GitHub / Vercel
 
-- [ ] Phase 4B report reviewed
-- [ ] Homepage H1 decision recorded
-- [ ] `npm run lint`, `npx tsc --noEmit`, and `npm run build` still pass
-- [ ] No `.env` files with secrets are committed
-- [ ] `WP_USER` / `WP_PASS` stay off the Vercel project
+- [x] Phase 4B report reviewed
+- [x] Homepage H1 decision recorded (`סוכנות שיווק דיגיטלי`)
+- [x] `npm run lint`, `npx tsc --noEmit`, and `npm run build` pass after Phase 5B
+- [x] No `.env` files with secrets are committed
+- [x] `WP_USER` / `WP_PASS` stay off the Vercel project
 
-## Vercel Preview
+## Vercel Preview (current state)
 
-- [ ] Import the project. Do not attach the production domain yet
-- [ ] Confirm Preview has `VERCEL_ENV=preview`
-- [ ] Confirm Preview `robots.txt` is `Disallow: /` and pages are noindex
-- [ ] Set `CONTACT_FORM_WEBHOOK_URL` to a test inbox only if a form test is wanted
-- [ ] Submit one homepage form, one contact-page form, and one article form to that test inbox
-- [ ] Check 360 / 390 / 1440 on homepage, one service, one article, contact
-- [ ] Check `/plans/` returns 308 to `/hosting-plans/`
-- [ ] Check a fake URL returns 404, not a 200 of another page
-- [ ] Do not install analytics on Preview unless a test property is explicitly chosen
+- [x] Project imported; production domain **not** attached
+- [x] Preview has `VERCEL_ENV=preview`
+- [x] Preview `robots.txt` is `Disallow: /` and pages are noindex
+- [x] 74 / 74 sitemap URLs return 200 on `adwrks.vercel.app`
+- [x] Canonicals remain `https://adwrks.co.il/...`
+- [x] `/plans/` returns 308 to `/hosting-plans/`
+- [x] Custom 404 works
+- [x] Analytics **not** loaded on Preview (production-host gate)
+- [ ] **EMAIL DELIVERY** — set `RESEND_API_KEY` + `CONTACT_FORM_FROM` on Vercel, submit homepage + contact + article forms, confirm inbox receipt at `info@adwrks.co.il`
 
 ## Production project before DNS
 
-- [ ] Production environment: `VERCEL_ENV=production` (platform-set)
-- [ ] `CONTACT_FORM_WEBHOOK_URL` points at the real delivery target
-- [ ] Add domains `adwrks.co.il` and `www.adwrks.co.il` in Vercel, without changing DNS yet
-- [ ] Plan one direct redirect: `https://www.adwrks.co.il/{path}` → `https://adwrks.co.il/{path}`
-- [ ] Avoid a chain of HTTP www → HTTPS www → HTTPS non-www if the host can do one hop
-- [ ] SSL certificates ready for both hosts
-- [ ] Production robots must allow crawling and reference `https://adwrks.co.il/sitemap.xml`
-- [ ] Decide Google Analytics `G-T4TE22LLC1` and Google Ads `AW-11221673873` before cutover
-- [ ] Confirm Search Console already verifies the existing property (DNS or meta). Do not use Change of Address
+### REQUIRED BEFORE DOMAIN
+
+- [ ] `RESEND_API_KEY` set in Vercel Production
+- [ ] `CONTACT_FORM_FROM` set to verified Resend sender on `adwrks.co.il`
+- [ ] Real form test delivered to `info@adwrks.co.il` (not HTTP 200 alone)
+- [ ] Add domains `adwrks.co.il` and `www.adwrks.co.il` in Vercel **without changing DNS yet**
+- [ ] Plan www redirect: `https://www.adwrks.co.il/{path}` → `https://adwrks.co.il/{path}` (single hop in Vercel domain settings)
+- [ ] Verify SSL certificates issued for both hosts in Vercel before DNS change
+
+### Activates automatically after domain attach
+
+- [ ] `VERCEL_PROJECT_PRODUCTION_URL=adwrks.co.il` (Vercel-set)
+- [ ] Production robots allow crawling; sitemap `https://adwrks.co.il/sitemap.xml`
+- [ ] Per-page indexability from preserved SEO data
+- [ ] Google Analytics `G-T4TE22LLC1` and Google Ads `AW-11221673873` tags load (hard-coded, production-host only)
+
+### OPTIONAL / DEFERRED
+
+- [ ] Article rating persistence backend (owner approval required — see Phase 5B report)
+- [ ] Google Ads conversion actions (none discovered on current WordPress — base tag only)
 
 ## Immediately before DNS cutover
 
 - [ ] Fresh WordPress backup / snapshot
-- [ ] Export or confirm `migration-audit/article-rating-migration.json` is stored outside the old server
-- [ ] Re-check `/plans/` and the 74 sitemap URLs on the production deployment hostname
-- [ ] Send a real form test to the production webhook and confirm it arrives
-- [ ] Analytics present or explicitly deferred
-- [ ] Homepage, contact, one service, one article, one category open on the new host
+- [ ] Confirm `migration-audit/article-rating-migration.json` stored outside old server
+- [ ] Re-check `/plans/` and 74 sitemap URLs on production deployment hostname
+- [ ] Send production-domain form test and confirm inbox delivery
+- [ ] Homepage, contact, one service, one article, one category open on new host
 
 ## DNS cutover
 
-- [ ] Point only the records required for `adwrks.co.il` and `www.adwrks.co.il`
+- [ ] Point only records required for `adwrks.co.il` and `www.adwrks.co.il`
 - [ ] Do not change unrelated records
-- [ ] Keep the previous records noted for rollback
+- [ ] Keep previous records noted for rollback
 
 ## Immediately after cutover
 
@@ -56,36 +66,28 @@ Do not execute this during Phase 4B. DNS, Vercel, WordPress, and Search Console 
 - [ ] HTTP is one hop to HTTPS non-www where possible
 - [ ] Canonicals are `https://adwrks.co.il/...`
 - [ ] `robots.txt` is not `Disallow: /`
-- [ ] `sitemap.xml` lists 74 production URLs and no localhost or Vercel host
-- [ ] SSL is valid
-- [ ] Forms deliver
-- [ ] Analytics requests fire, if enabled
+- [ ] `sitemap.xml` lists 74 production URLs
+- [ ] SSL valid on apex and www
+- [ ] Forms deliver to `info@adwrks.co.il`
+- [ ] Analytics requests fire on production domain
 - [ ] `/plans/` still redirects to `/hosting-plans/`
 
 ## Search engines
 
-- [ ] Use the existing Search Console property
-- [ ] Do not use Change of Address
-- [ ] Submit or refresh `https://adwrks.co.il/sitemap.xml`
+- [ ] Use existing Search Console property — do not use Change of Address
+- [ ] Submit or refresh `https://adwrks.co.il/sitemap.xml` only after robots is indexable
 - [ ] Inspect homepage, one service, and one article
-- [ ] Do this only after robots is indexable
 
 ## First 24–72 hours
 
-- [ ] Watch 404s
-- [ ] Watch crawl stats and indexing
-- [ ] Watch analytics and form delivery
-- [ ] Watch server errors
-- [ ] Check Core Web Vitals only from field data, not from localhost
+- [ ] Watch 404s, crawl stats, analytics, form delivery, server errors
 
 ## Rollback
 
-Return DNS to the current WordPress host if any of these stay broken after a short check:
+Return DNS to WordPress if any of these stay broken:
 
 - Homepage or contact returns 5xx
 - Forms do not deliver and leads are being lost
-- `robots.txt` still disallows the whole site on the production domain
-- Canonicals point at a Vercel or localhost host
-- SSL fails for the apex domain
-
-WordPress can stay up as the rollback copy. The new site does not need it to render pages.
+- `robots.txt` still disallows the whole site on production domain
+- Canonicals point at Vercel or localhost
+- SSL fails for apex domain

@@ -1,4 +1,8 @@
 import { NextResponse } from "next/server";
+import {
+  isContactFormEmailConfigured,
+  sendContactFormEmail,
+} from "@/lib/email/send-contact-form-email";
 
 export async function POST(request: Request) {
   try {
@@ -10,6 +14,7 @@ export async function POST(request: Request) {
       website?: string;
       formType?: string;
       privacyConsent?: boolean | string;
+      pageUrl?: string;
     };
 
     if (body.website?.trim()) {
@@ -54,42 +59,44 @@ export async function POST(request: Request) {
       );
     }
 
-    const webhookUrl = process.env.CONTACT_FORM_WEBHOOK_URL;
-    if (webhookUrl) {
-      const res = await fetch(webhookUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name,
-          phone,
-          email,
-          message,
-          source: isArticleForm ? "article-sidebar" : "nextjs-migration",
-        }),
-      });
-      if (!res.ok) {
-        return NextResponse.json(
-          { ok: false, message: "לא ניתן לשלוח את הטופס כרגע. נסו שוב מאוחר יותר." },
-          { status: 502 },
-        );
-      }
-      return NextResponse.json({
-        ok: true,
-        message: "ההודעה נשלחה בהצלחה. נחזור אליכם בהקדם.",
-      });
+    if (!isContactFormEmailConfigured()) {
+      console.warn("[contact-form] email delivery not configured");
+      return NextResponse.json(
+        {
+          ok: false,
+          message: "לא ניתן לשלוח את הטופס כרגע. נסו שוב מאוחר יותר.",
+        },
+        { status: 503 },
+      );
     }
 
-    console.info("[contact-form] submission captured (no webhook configured)", {
+    const referer = request.headers.get("referer")?.trim();
+    const pageUrl = (body.pageUrl || referer || "").trim() || undefined;
+
+    const delivery = await sendContactFormEmail({
+      name,
+      phone,
+      email: email || undefined,
+      message: message || undefined,
       formType: isArticleForm ? "article" : "site",
-      messageLength: message.length,
+      pageUrl,
     });
+
+    if (!delivery.ok) {
+      return NextResponse.json(
+        { ok: false, message: "לא ניתן לשלוח את הטופס כרגע. נסו שוב מאוחר יותר." },
+        { status: 502 },
+      );
+    }
 
     return NextResponse.json({
       ok: true,
-      message:
-        "הפרטים התקבלו (מצב פיתוח). חיבור לשירות הדיוור/CRM יוגדר לפני עלייה ל-pre-production.",
+      message: "ההודעה נשלחה בהצלחה. נחזור אליכם בהקדם.",
     });
-  } catch {
+  } catch (error) {
+    console.error("[contact-form] unexpected submission error", {
+      message: error instanceof Error ? error.message : "unknown",
+    });
     return NextResponse.json(
       { ok: false, message: "לא ניתן לשלוח את הטופס כרגע. נסו שוב מאוחר יותר." },
       { status: 500 },

@@ -2,29 +2,54 @@
 
 No secret values are listed here.
 
-The Next.js app currently reads three environment signals. WordPress audit scripts read two more, and those scripts are not part of the site runtime.
+## Vercel Production — required before domain cutover
 
-| Variable | Purpose | Required | Scope | Vercel production | Vercel preview | Secret | Referenced by |
-|---|---|---|---|---|---|---|---|
-| `NODE_ENV` | Set by Next itself (`development` / `production`) | Automatic | Server | Yes, set by the platform | Yes, set by the platform | No | `web/src/lib/content/metadata.ts`, `web/src/app/robots.ts` |
-| `VERCEL_ENV` | Distinguishes Production from Preview | Required for indexing to turn on | Server | Must be `production` on the production deployment | `preview` on preview deployments | No | same files as above |
-| `CONTACT_FORM_WEBHOOK_URL` | Server-side destination for lead forms | Required before real leads are expected | Server only | Yes, before DNS cutover | Optional, use a test inbox | Yes | `web/src/app/api/contact/route.ts` |
-| `WP_USER` | Read-only WordPress audit login | Not used by the website | Local scripts only | No | No | Yes, if set | `scripts/run-migration-audit.js`, `scripts/run-phase1b-audit.js` |
-| `WP_PASS` | Read-only WordPress application password | Not used by the website | Local scripts only | No | No | Yes | same scripts |
+| Variable | Purpose | Secret | Preview required | Production required |
+|---|---|---|---|---|
+| `NODE_ENV` | Set by Next.js / Vercel (`production` on deployed builds) | No | Automatic | Automatic |
+| `VERCEL_ENV` | Distinguishes Production from Preview | No | Automatic (`preview`) | Automatic (`production`) |
+| `VERCEL_PROJECT_PRODUCTION_URL` | Must equal `adwrks.co.il` for indexing and analytics to activate | No | Automatic (preview hostname) | Automatic after domain attach |
+| `RESEND_API_KEY` | Resend API key for server-side form email delivery | Yes | Optional (only for inbox test) | **Yes — before DNS cutover** |
+| `CONTACT_FORM_FROM` | Verified Resend sender address used as the authenticated From header | No (address, not password) | Optional (must match verified domain) | **Yes — before DNS cutover** |
 
-## Indexing switch
+Lead destination `info@adwrks.co.il` is hard-coded in the app. It is not an environment variable.
 
-Production indexing is enabled only when both are true:
+## Vercel Production — optional / automatic
+
+| Variable | Purpose | Secret | Preview | Production |
+|---|---|---|---|---|
+| Analytics IDs (`G-T4TE22LLC1`, `AW-11221673873`) | Hard-coded; tags load only when `isIndexableProduction()` is true | No | Not loaded | Loaded after domain attach |
+
+## Local audit scripts only (never on Vercel)
+
+| Variable | Purpose | Secret | Vercel |
+|---|---|---|---|
+| `WP_USER` | Read-only WordPress audit login | Yes | No |
+| `WP_PASS` / `WP_APP_PASS` | WordPress application password | Yes | No |
+
+## Indexing and analytics activation
+
+Both production indexing (`robots.txt`, page `robots` meta) and Google tag loading require **all** of:
 
 - `NODE_ENV === "production"`
 - `VERCEL_ENV === "production"`
+- `VERCEL_PROJECT_PRODUCTION_URL === "adwrks.co.il"`
 
-Otherwise `robots.ts` returns `Disallow: /`, and page metadata is `noindex, nofollow`.
+Until the production domain is attached and Vercel sets the last value, every `*.vercel.app` deployment stays `noindex, nofollow` with `robots.txt → Disallow: /`, and analytics tags are not injected.
 
-A production deployment must not set `VERCEL_ENV` manually to anything else. Vercel sets it. Preview deployments stay noindex.
+## Email provider setup (owner action)
+
+1. Create a Resend account and verify the sending domain (`adwrks.co.il`).
+2. Create an API key → set as `RESEND_API_KEY` in Vercel Production (and Preview if testing).
+3. Set `CONTACT_FORM_FROM` to a verified sender on that domain (not the visitor's email).
+4. Submit a real test form from `https://adwrks.vercel.app` and confirm delivery to `info@adwrks.co.il`.
+
+## Removed
+
+`CONTACT_FORM_WEBHOOK_URL` — replaced by direct Resend email delivery in Phase 5B.
 
 ## Not used
 
-No `NEXT_PUBLIC_*` variables are referenced. There is no Supabase, Resend, or SMTP variable in the app.
+No `NEXT_PUBLIC_*` variables. No Supabase or SMTP variables in the app runtime.
 
-`.env*` is gitignored under `web/.gitignore`. No `.env` file is present in the workspace.
+`.env*` is gitignored under `web/.gitignore`.

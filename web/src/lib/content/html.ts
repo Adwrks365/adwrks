@@ -73,7 +73,8 @@ export function processContentHtml(html: string): string {
     .replace(/data-src="/gi, 'src="')
     .replace(/<noscript>[\s\S]*?<\/noscript>/gi, "")
     .replace(/<img[^>]+graph\.facebook\.com[^>]*>/gi, "")
-    .replace(/<iframe[^>]+trustindex[^>]*>[\s\S]*?<\/iframe>/gi, "");
+    .replace(/<iframe[^>]+trustindex[^>]*>[\s\S]*?<\/iframe>/gi, "")
+    .replace(/<link[^>]+trustindex[^>]*>/gi, "");
 
   processed = processed.replace(/\ssrc="([^"]+)"/gi, (_m, src: string) => {
     const cleaned = cleanUploadUrl(src);

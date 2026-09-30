@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Heebo } from "next/font/google";
 import { GlobalFloatingUI } from "@/components/GlobalFloatingUI";
+import { GoogleTags } from "@/components/GoogleTags";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { buildPageMetadata, stagingRobots } from "@/lib/content/metadata";
+import { isIndexableProduction } from "@/lib/indexing";
 import { SITE } from "@/lib/site";
 import "./globals.css";
 
@@ -36,6 +38,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <main className="flex-1">{children}</main>
         <SiteFooter />
         <GlobalFloatingUI />
+        {isIndexableProduction() ? <GoogleTags /> : null}
       </body>
     </html>
   );
