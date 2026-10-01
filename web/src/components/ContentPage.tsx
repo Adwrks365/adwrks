@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import { ContextualLeadPopupHost } from "@/components/popups/ContextualLeadPopupHost";
+import { ContextualPopupRegistrar } from "@/components/popups/ContextualPopupRegistrar";
 import { HtmlContent } from "@/components/HtmlContent";
 import { AboutPage } from "@/components/pages/AboutPage";
 import { ContactPage } from "@/components/pages/ContactPage";
@@ -99,7 +99,7 @@ export function ContentPage({ content }: ContentPageProps) {
         )}
       </Container>
 
-      {legacyServicePopup && <ContextualLeadPopupHost config={legacyServicePopup} />}
+      {legacyServicePopup && <ContextualPopupRegistrar config={legacyServicePopup} />}
     </article>
   );
 }

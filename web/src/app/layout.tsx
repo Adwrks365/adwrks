@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Heebo } from "next/font/google";
+import { ContextualPopupProvider } from "@/components/popups/ContextualPopupProvider";
 import { GlobalFloatingUI } from "@/components/GlobalFloatingUI";
 import { GoogleTags } from "@/components/GoogleTags";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -34,10 +35,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang={SITE.language} dir={SITE.dir} className={`${heebo.variable} h-full`}>
       <body className="flex min-h-full flex-col bg-white font-sans text-slate-900 antialiased">
-        <SiteHeader />
-        <main className="flex-1">{children}</main>
-        <SiteFooter />
-        <GlobalFloatingUI />
+        <ContextualPopupProvider>
+          <SiteHeader />
+          <main className="flex-1">{children}</main>
+          <SiteFooter />
+          <GlobalFloatingUI />
+        </ContextualPopupProvider>
         {shouldAllowIndexing() ? <GoogleTags /> : null}
       </body>
     </html>

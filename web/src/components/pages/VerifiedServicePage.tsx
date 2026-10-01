@@ -1,4 +1,4 @@
-import { ContextualLeadPopupHost } from "@/components/popups/ContextualLeadPopupHost";
+import { ContextualPopupRegistrar } from "@/components/popups/ContextualPopupRegistrar";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Section } from "@/components/ui/Section";
@@ -192,7 +192,7 @@ export function VerifiedServicePage({ content }: VerifiedServicePageProps) {
         </Section>
       )}
 
-      {popupConfig && <ContextualLeadPopupHost config={popupConfig} />}
+      {popupConfig && <ContextualPopupRegistrar config={popupConfig} />}
     </article>
   );
 }

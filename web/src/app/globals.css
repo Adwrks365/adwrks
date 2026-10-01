@@ -4413,6 +4413,118 @@ html {
   }
 }
 
+/* Minimized lead CTA — fixed pill, center-bottom, clear of corner floating rails */
+.popup-minimized-cta {
+  align-items: center;
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+  box-shadow: 0 8px 24px rgba(2, 132, 199, 0.28);
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  gap: 0.5rem;
+  left: 50%;
+  max-width: calc(100vw - 8.5rem);
+  padding: 0.45rem 0.85rem 0.45rem 0.65rem;
+  position: fixed;
+  transform: translateX(-50%);
+  transition: box-shadow 0.2s ease, transform 0.2s ease, filter 0.2s ease;
+  z-index: 44;
+}
+
+.popup-minimized-cta:hover {
+  box-shadow: 0 10px 28px rgba(2, 132, 199, 0.34);
+  filter: brightness(1.03);
+  transform: translateX(-50%) translateY(-1px);
+}
+
+.popup-minimized-cta:focus-visible {
+  outline: 2px solid #7dd3fc;
+  outline-offset: 3px;
+}
+
+.popup-minimized-cta-icon {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  display: inline-flex;
+  flex-shrink: 0;
+  height: 1.75rem;
+  justify-content: center;
+  width: 1.75rem;
+}
+
+.popup-minimized-cta-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.05rem;
+  line-height: 1.2;
+  min-width: 0;
+  text-align: start;
+}
+
+.popup-minimized-cta-title {
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.popup-minimized-cta-sub {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  opacity: 0.92;
+}
+
+@media (max-width: 429px) {
+  .popup-minimized-cta-sub {
+    display: none;
+  }
+
+  .popup-minimized-cta {
+    padding: 0.42rem 0.75rem 0.42rem 0.55rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .popup-minimized-cta {
+    bottom: 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .popup-minimized-cta {
+    animation: popup-minimized-enter 0.35s ease both;
+  }
+}
+
+@keyframes popup-minimized-enter {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .popup-minimized-cta {
+    animation: none;
+  }
+}
+
+.a11y-reduce-motion .popup-minimized-cta {
+  animation: none;
+  transition: none;
+}
+
+.a11y-reduce-motion .popup-minimized-cta:hover {
+  transform: translateX(-50%);
+}
+
 /* Contextual lead popup — client-only overlay, no layout footprint until open */
 body.contextual-popup-open {
   overflow: hidden;

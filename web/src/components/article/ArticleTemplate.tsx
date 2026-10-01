@@ -1,4 +1,4 @@
-import { ContextualLeadPopupHost } from "@/components/popups/ContextualLeadPopupHost";
+import { ContextualPopupRegistrar } from "@/components/popups/ContextualPopupRegistrar";
 import { HtmlContent } from "@/components/HtmlContent";
 import { PageHero } from "@/components/ui/PageHero";
 import { ArticleMeta } from "@/components/ui/ArticleMeta";
@@ -71,7 +71,7 @@ export function ArticleTemplate({ content }: ArticleTemplateProps) {
         />
       </Container>
 
-      <ContextualLeadPopupHost config={popupConfig} />
+      <ContextualPopupRegistrar config={popupConfig} />
     </article>
   );
 }

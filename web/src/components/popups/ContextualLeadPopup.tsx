@@ -2,16 +2,22 @@
 
 import { useEffect, useId, useRef } from "react";
 import { ContextualLeadPopupForm } from "@/components/popups/ContextualLeadPopupForm";
-import { trackPopupEvent } from "@/lib/analytics/popup-events";
+import { trackPopupEvent, type PopupOpenMethod } from "@/lib/analytics/popup-events";
 import type { PopupConfig } from "@/lib/popups/types";
 
 type ContextualLeadPopupProps = {
   config: PopupConfig;
+  openMethod: PopupOpenMethod;
   onClose: () => void;
   onDismiss: () => void;
 };
 
-export function ContextualLeadPopup({ config, onClose, onDismiss }: ContextualLeadPopupProps) {
+export function ContextualLeadPopup({
+  config,
+  openMethod,
+  onClose,
+  onDismiss,
+}: ContextualLeadPopupProps) {
   const titleId = useId();
   const descId = useId();
   const dialogRef = useRef<HTMLDivElement>(null);
@@ -22,6 +28,7 @@ export function ContextualLeadPopup({ config, onClose, onDismiss }: ContextualLe
       popup_id: config.popupId,
       popup_context: config.popupContext,
       page_path: config.pagePath,
+      open_method: openMethod,
     });
 
     const previousFocus = document.activeElement as HTMLElement | null;
@@ -47,7 +54,7 @@ export function ContextualLeadPopup({ config, onClose, onDismiss }: ContextualLe
       document.body.classList.remove("contextual-popup-open");
       previousFocus?.focus?.();
     };
-  }, [config, onDismiss]);
+  }, [config, onDismiss, openMethod]);
 
   function handleClose() {
     trackPopupEvent("popup_close", {
