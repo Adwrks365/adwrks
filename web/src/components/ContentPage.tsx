@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import { ContextualLeadPopupHost } from "@/components/popups/ContextualLeadPopupHost";
 import { HtmlContent } from "@/components/HtmlContent";
 import { AboutPage } from "@/components/pages/AboutPage";
 import { ContactPage } from "@/components/pages/ContactPage";
@@ -8,6 +9,7 @@ import { ArticleTemplate } from "@/components/article/ArticleTemplate";
 import { Container } from "@/components/ui/Container";
 import { getExtractedPage } from "@/lib/content/elementor-extract";
 import { getVerifiedServicePage } from "@/lib/pages/services";
+import { getServicePopupConfig, isServicePopupPath } from "@/lib/popups/service-pages";
 import type { ContentItem } from "@/lib/content/types";
 
 const ContactForm = dynamic(
@@ -68,6 +70,11 @@ export function ContentPage({ content }: ContentPageProps) {
     return <ArticleTemplate content={content} />;
   }
 
+  const legacyServicePopup =
+    isServicePopupPath(content.path) && !getVerifiedServicePage(content.path)
+      ? getServicePopupConfig(content.path, content.title)
+      : null;
+
   return (
     <article className="content-page-shell">
       <Container className="content-page-wide py-6 md:py-10">
@@ -91,6 +98,8 @@ export function ContentPage({ content }: ContentPageProps) {
           </section>
         )}
       </Container>
+
+      {legacyServicePopup && <ContextualLeadPopupHost config={legacyServicePopup} />}
     </article>
   );
 }

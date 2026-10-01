@@ -3452,20 +3452,25 @@ body {
 .site-footer-brand {
   display: flex;
   flex-direction: column;
-  gap: 0.45rem;
+  gap: 0.2rem;
   max-width: 46rem;
 }
 
 .site-footer-logo-link {
   display: inline-flex;
+  margin-bottom: 0.05rem;
   width: fit-content;
+}
+
+.site-footer-logo {
+  display: block;
 }
 
 .site-footer-brand-title {
   font-size: 0.9375rem;
   font-weight: 700;
-  line-height: 1.4;
-  margin: 0.15rem 0 0;
+  line-height: 1.35;
+  margin: 0;
 }
 
 .site-footer-brand-title a {
@@ -3480,7 +3485,7 @@ body {
 .site-footer-desc {
   display: flex;
   flex-direction: column;
-  gap: 0.32rem;
+  gap: 0.2rem;
   max-width: 38rem;
 }
 
@@ -4341,5 +4346,174 @@ html {
   .blog-page .blog-post-count,
   .archive-page .blog-post-count {
     text-align: center;
+  }
+}
+
+/* Contextual lead popup — client-only overlay, no layout footprint until open */
+body.contextual-popup-open {
+  overflow: hidden;
+}
+
+.contextual-popup-root {
+  inset: 0;
+  position: fixed;
+  z-index: 120;
+}
+
+.contextual-popup-backdrop {
+  background: rgba(15, 23, 42, 0.55);
+  border: 0;
+  cursor: pointer;
+  inset: 0;
+  position: absolute;
+}
+
+.contextual-popup-dialog {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  box-shadow: 0 24px 48px rgba(15, 23, 42, 0.18);
+  inset-inline: max(1rem, env(safe-area-inset-left, 0px)) max(1rem, env(safe-area-inset-right, 0px));
+  margin: auto;
+  max-height: min(90vh, 640px);
+  max-width: 26rem;
+  overflow: auto;
+  padding: 1.15rem 1.15rem 1.25rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: calc(100% - 2rem);
+}
+
+.contextual-popup-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.55rem;
+}
+
+.contextual-popup-brand {
+  color: #0284c7;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.contextual-popup-close {
+  align-items: center;
+  background: #f1f5f9;
+  border: 0;
+  border-radius: 999px;
+  color: #334155;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 1.35rem;
+  height: 2rem;
+  justify-content: center;
+  line-height: 1;
+  width: 2rem;
+}
+
+.contextual-popup-close:hover,
+.contextual-popup-close:focus-visible {
+  background: #e2e8f0;
+  outline: 2px solid #0284c7;
+  outline-offset: 2px;
+}
+
+.contextual-popup-title {
+  color: #0f172a;
+  font-size: 1.125rem;
+  font-weight: 800;
+  line-height: 1.35;
+  margin: 0 0 0.45rem;
+}
+
+.contextual-popup-description {
+  color: #475569;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  margin: 0 0 0.85rem;
+}
+
+.contextual-popup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.contextual-popup-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.contextual-popup-field span {
+  color: #334155;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.contextual-popup-field input {
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  padding: 0.55rem 0.65rem;
+}
+
+.contextual-popup-field input:focus-visible {
+  border-color: #0284c7;
+  outline: 2px solid #bae6fd;
+  outline-offset: 1px;
+}
+
+.contextual-popup-form .privacy-consent {
+  font-size: 0.75rem;
+}
+
+.contextual-popup-submit {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  border: 0;
+  border-radius: 0.55rem;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 700;
+  margin-top: 0.15rem;
+  padding: 0.65rem 1rem;
+}
+
+.contextual-popup-submit:hover {
+  filter: brightness(1.03);
+}
+
+.contextual-popup-submit:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.contextual-popup-feedback {
+  border-radius: 0.45rem;
+  font-size: 0.8125rem;
+  margin: 0;
+  padding: 0.45rem 0.55rem;
+}
+
+.contextual-popup-feedback.is-error {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.contextual-popup-feedback.is-success {
+  background: #ecfdf5;
+  color: #047857;
+}
+
+@media (min-width: 768px) {
+  .contextual-popup-dialog {
+    max-width: 28rem;
+    padding: 1.25rem 1.35rem 1.35rem;
   }
 }

@@ -4,6 +4,7 @@ import {
   isContactFormEmailConfigured,
   sendContactFormEmail,
 } from "@/lib/email/send-contact-form-email";
+import { isAllowedPopupContext } from "@/lib/popups/context-labels";
 
 const FIELD_LIMITS = {
   name: 200,
@@ -14,6 +15,7 @@ const FIELD_LIMITS = {
   pagePath: 500,
   pageUrl: 2000,
   formId: 64,
+  popupContext: 32,
 } as const;
 
 function clamp(value: string | undefined, max: number): string {
@@ -30,6 +32,7 @@ export async function POST(request: Request) {
       website?: string;
       formId?: string;
       formType?: string;
+      popupContext?: string;
       privacyConsent?: boolean | string;
       pageTitle?: string;
       pagePath?: string;
@@ -42,6 +45,15 @@ export async function POST(request: Request) {
 
     const formId = resolveFormId(clamp(body.formId, FIELD_LIMITS.formId), body.formType);
     const isArticleForm = formId === "article-sidebar";
+    const isPopupForm = formId === "contextual-popup";
+    const popupContextRaw = clamp(body.popupContext, FIELD_LIMITS.popupContext);
+
+    if (isPopupForm && !isAllowedPopupContext(popupContextRaw)) {
+      return NextResponse.json(
+        { ok: false, message: "לא ניתן לשלוח את הטופס כרגע. נסו שוב מאוחר יותר." },
+        { status: 400 },
+      );
+    }
 
     const name = clamp(body.name, FIELD_LIMITS.name);
     const phone = clamp(body.phone, FIELD_LIMITS.phone);
@@ -66,7 +78,7 @@ export async function POST(request: Request) {
       );
     }
 
-    if (!isArticleForm && !email) {
+    if (!isArticleForm && !isPopupForm && !email) {
       return NextResponse.json(
         { ok: false, message: "יש למלא את כל השדות המסומנים." },
         { status: 400 },
@@ -99,6 +111,7 @@ export async function POST(request: Request) {
       phone,
       email: email || undefined,
       message: message || undefined,
+      popupContext: isPopupForm ? popupContextRaw : undefined,
       pageTitle: clamp(body.pageTitle, FIELD_LIMITS.pageTitle) || undefined,
       pagePath: clamp(body.pagePath, FIELD_LIMITS.pagePath) || undefined,
       pageUrl: clamp(body.pageUrl, FIELD_LIMITS.pageUrl) || undefined,

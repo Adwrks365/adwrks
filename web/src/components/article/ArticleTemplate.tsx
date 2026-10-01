@@ -1,3 +1,4 @@
+import { ContextualLeadPopupHost } from "@/components/popups/ContextualLeadPopupHost";
 import { HtmlContent } from "@/components/HtmlContent";
 import { PageHero } from "@/components/ui/PageHero";
 import { ArticleMeta } from "@/components/ui/ArticleMeta";
@@ -12,6 +13,7 @@ import {
   prepareArticleBodyHtml,
 } from "@/lib/content/article";
 import { processContentHtml } from "@/lib/content/html";
+import { resolveArticlePopupConfig } from "@/lib/popups/article-pages";
 import type { ContentItem } from "@/lib/content/types";
 
 type ArticleTemplateProps = {
@@ -24,6 +26,7 @@ export function ArticleTemplate({ content }: ArticleTemplateProps) {
   const category = getCategoryLabel(content);
   const related = getRelatedArticles(content, 4);
   const showHeroImage = Boolean(content.featuredImageUrl);
+  const popupConfig = resolveArticlePopupConfig(content);
 
   return (
     <article className="content-page-shell article-page">
@@ -67,6 +70,8 @@ export function ArticleTemplate({ content }: ArticleTemplateProps) {
           postPath={content.path}
         />
       </Container>
+
+      <ContextualLeadPopupHost config={popupConfig} />
     </article>
   );
 }

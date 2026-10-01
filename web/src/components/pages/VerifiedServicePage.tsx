@@ -1,7 +1,9 @@
+import { ContextualLeadPopupHost } from "@/components/popups/ContextualLeadPopupHost";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Section } from "@/components/ui/Section";
 import { PageHero } from "@/components/ui/PageHero";
+import { getServicePopupConfig } from "@/lib/popups/service-pages";
 import type { ServicePageContent, ServiceSection } from "@/lib/pages/services/types";
 import { sectionHasContent } from "@/lib/pages/services/types";
 import { PageImage } from "./PageImage";
@@ -133,6 +135,7 @@ export function VerifiedServicePage({ content }: VerifiedServicePageProps) {
   if (content.hero.image) usedImages.add(content.hero.image.src);
 
   const sections = content.sections.filter(sectionHasContent);
+  const popupConfig = getServicePopupConfig(content.path, content.title);
 
   return (
     <article className="structured-page service-page verified-service-page">
@@ -188,6 +191,8 @@ export function VerifiedServicePage({ content }: VerifiedServicePageProps) {
           </div>
         </Section>
       )}
+
+      {popupConfig && <ContextualLeadPopupHost config={popupConfig} />}
     </article>
   );
 }

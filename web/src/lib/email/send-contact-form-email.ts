@@ -1,6 +1,7 @@
 import { buildLeadAttribution } from "@/lib/email/contact-form-attribution";
 import { resolveFormId, resolveFormLabel } from "@/lib/email/contact-form-ids";
 import { buildLeadEmail } from "@/lib/email/lead-email-template";
+import { resolvePopupContextLabel } from "@/lib/popups/context-labels";
 import { SITE } from "@/lib/site";
 
 const LEAD_DESTINATION = SITE.email;
@@ -18,6 +19,7 @@ export type ContactFormPayload = {
   phone: string;
   email?: string;
   message?: string;
+  popupContext?: string;
   pageTitle?: string;
   pagePath?: string;
   pageUrl?: string;
@@ -43,7 +45,13 @@ export async function sendContactFormEmail(
   }
 
   const resolvedFormId = resolveFormId(payload.formId);
-  const formLabel = resolveFormLabel(resolvedFormId === "unknown" ? payload.formId : resolvedFormId);
+  const popupContextLabel = payload.popupContext
+    ? resolvePopupContextLabel(payload.popupContext)
+    : null;
+  const formLabel = resolveFormLabel(
+    resolvedFormId === "unknown" ? payload.formId : resolvedFormId,
+    popupContextLabel ?? undefined,
+  );
   const attribution = buildLeadAttribution({
     pageTitle: payload.pageTitle,
     pagePath: payload.pagePath,

@@ -2,6 +2,7 @@ export const CONTACT_FORM_IDS = [
   "homepage-contact",
   "contact-page",
   "article-sidebar",
+  "contextual-popup",
 ] as const;
 
 export type ContactFormId = (typeof CONTACT_FORM_IDS)[number];
@@ -10,6 +11,7 @@ const FORM_LABELS: Record<ContactFormId, string> = {
   "homepage-contact": "טופס יצירת קשר – דף הבית",
   "contact-page": "טופס צור קשר",
   "article-sidebar": "טופס צדדי – מאמר",
+  "contextual-popup": "פופאפ – ייעוץ",
 };
 
 const DEFAULT_FORM_LABEL = "טופס יצירת קשר";
@@ -18,7 +20,10 @@ export function isContactFormId(value: string): value is ContactFormId {
   return (CONTACT_FORM_IDS as readonly string[]).includes(value);
 }
 
-export function resolveFormLabel(formId: string): string {
+export function resolveFormLabel(formId: string, popupContextLabel?: string): string {
+  if (formId === "contextual-popup" && popupContextLabel) {
+    return `פופאפ – ${popupContextLabel}`;
+  }
   if (isContactFormId(formId)) return FORM_LABELS[formId];
   return DEFAULT_FORM_LABEL;
 }
