@@ -6,7 +6,9 @@ export type RatingsConfig = {
 
 export function getRatingsConfig(): RatingsConfig | null {
   const url = process.env.SUPABASE_URL?.trim();
-  const secretKey = process.env.SUPABASE_SECRET_KEY?.trim();
+  const secretKey = (
+    process.env.SUPABASE_SECRET_KEY ?? process.env.SUPABASE_SERVICE_ROLE_KEY
+  )?.trim();
   const voterSecret = process.env.ARTICLE_RATING_VOTER_SECRET?.trim();
 
   if (!url || !secretKey || !voterSecret) {
