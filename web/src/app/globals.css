@@ -3539,7 +3539,7 @@ body {
 
 /* Portfolio carousel */
 .carousel-portfolio .carousel-slide {
-  flex: 0 0 85%;
+  flex: 0 0 88%;
 }
 
 .portfolio-browser-frame {
@@ -3599,6 +3599,179 @@ body {
 
 .portfolio-carousel-item:hover .portfolio-carousel-image {
   transform: scale(1.02);
+}
+
+/* Portfolio showcase (Phase 5H.2) */
+.portfolio-showcase-card {
+  margin: 0;
+}
+
+.portfolio-showcase-frame {
+  background: #fff;
+  border: 1px solid rgb(15 23 42 / 0.08);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 24px rgb(15 23 42 / 0.06);
+  overflow: hidden;
+  transition: box-shadow 0.28s ease, transform 0.28s ease;
+}
+
+.portfolio-showcase-chrome {
+  align-items: center;
+  background: #f8fafc;
+  border-bottom: 1px solid rgb(15 23 42 / 0.06);
+  display: flex;
+  gap: 0.3rem;
+  padding: 0.45rem 0.65rem;
+}
+
+.portfolio-showcase-chrome span {
+  background: #cbd5e1;
+  border-radius: 999px;
+  height: 0.4rem;
+  width: 0.4rem;
+}
+
+.portfolio-showcase-chrome span:first-child {
+  background: #fca5a5;
+}
+
+.portfolio-showcase-chrome span:nth-child(2) {
+  background: #fcd34d;
+}
+
+.portfolio-showcase-chrome span:nth-child(3) {
+  background: #6ee7b7;
+}
+
+.portfolio-showcase-screen {
+  aspect-ratio: 5 / 6;
+  background: #f1f5f9;
+  overflow: hidden;
+  position: relative;
+}
+
+.portfolio-showcase-shot-wrap {
+  height: 100%;
+  inset: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.portfolio-showcase-screenshot {
+  display: block;
+  height: auto;
+  min-height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.45s ease;
+  width: 100%;
+}
+
+.portfolio-showcase-continuity {
+  background: linear-gradient(
+    to bottom,
+    rgb(15 23 42 / 0) 55%,
+    rgb(15 23 42 / 0.08) 82%,
+    rgb(15 23 42 / 0.18) 100%
+  );
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.portfolio-showcase-continuity::after {
+  background: rgb(255 255 255 / 0.92);
+  border-radius: 999px;
+  bottom: 0.55rem;
+  box-shadow: 0 1px 3px rgb(15 23 42 / 0.08);
+  content: "";
+  height: 0.2rem;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 2rem;
+}
+
+.portfolio-showcase-caption {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin-top: 0.7rem;
+  text-align: center;
+}
+
+.portfolio-showcase-caption-title {
+  color: var(--text-primary, #0f172a);
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.portfolio-showcase-caption-sub {
+  color: var(--text-secondary, #64748b);
+  font-size: 0.8125rem;
+  font-weight: 400;
+}
+
+.portfolio-showcase-inline-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+.portfolio-showcase-inline-cta {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.portfolio-showcase-inline-cta a {
+  color: var(--brand-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.portfolio-showcase-inline-cta a:hover {
+  text-decoration: underline;
+}
+
+.portfolio-showcase-rich-note {
+  color: var(--text-secondary, #64748b);
+  font-size: 0.8125rem;
+  margin-top: 0.75rem;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .portfolio-showcase-inline-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .portfolio-showcase-card:hover .portfolio-showcase-frame {
+    box-shadow: 0 12px 36px rgb(15 23 42 / 0.1);
+    transform: translateY(-2px);
+  }
+
+  .portfolio-showcase-card:hover .portfolio-showcase-screenshot {
+    transform: translateY(calc(-1 * var(--portfolio-reveal, 10%)));
+  }
+
+  .portfolio-showcase-card:hover .portfolio-showcase-continuity {
+    opacity: 0.65;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-showcase-frame,
+  .portfolio-showcase-screenshot {
+    transition: none;
+  }
+
+  .portfolio-showcase-card:hover .portfolio-showcase-frame,
+  .portfolio-showcase-card:hover .portfolio-showcase-screenshot {
+    transform: none;
+  }
 }
 
 /* Article cards premium */
@@ -3666,7 +3839,7 @@ body {
   }
 
   .carousel-portfolio .carousel-slide {
-    flex: 0 0 calc(55% - 0.5rem);
+    flex: 0 0 calc(58% - 0.5rem);
   }
 }
 
@@ -3680,13 +3853,13 @@ body {
   }
 
   .carousel-portfolio .carousel-slide {
-    flex: 0 0 calc(33.333% - 0.667rem);
+    flex: 0 0 calc(46% - 0.5rem);
   }
 }
 
 @media (min-width: 1280px) {
   .carousel-portfolio .carousel-slide {
-    flex: 0 0 calc(28% - 0.75rem);
+    flex: 0 0 calc(32% - 0.75rem);
   }
 }
 

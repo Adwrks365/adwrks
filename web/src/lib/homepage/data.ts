@@ -144,22 +144,8 @@ export const HOMEPAGE_RESULT_QUOTES = [
   },
 ] as const;
 
-export const HOMEPAGE_PORTFOLIO = [
-  u("3-1.png"),
-  u("omanut.png"),
-  u("2.png"),
-  u("5.png"),
-  u("aharon-plumber.png"),
-  u("1-1.png"),
-  u("bali_burger.png"),
-  u("6.png"),
-  u("dudizehavi-ins.png"),
-  u("7.png"),
-  u("4-1.png"),
-  u("amit-bageva.png"),
-  u("betkal-pro.png"),
-  u("amir-madari.png"),
-] as const;
+/** @deprecated Use PORTFOLIO_PROJECTS from @/lib/portfolio/projects */
+export { LEGACY_HOMEPAGE_PORTFOLIO_URLS as HOMEPAGE_PORTFOLIO } from "@/lib/portfolio/projects";
 
 /** Marketing channels first, then creation/CMS/AI tools — verified local assets. */
 export const HOMEPAGE_PLATFORM_LOGOS = [

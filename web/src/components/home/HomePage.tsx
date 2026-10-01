@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ContactForm } from "@/components/ContactForm";
-import { PortfolioCarousel } from "@/components/home/PortfolioCarousel";
+import { PortfolioShowcase } from "@/components/portfolio/PortfolioShowcase";
 import { StatCounters } from "@/components/home/StatCounters";
 import { TestimonialCarousel } from "@/components/home/TestimonialCarousel";
 import { Button } from "@/components/ui/Button";
@@ -16,7 +16,6 @@ import {
   HOMEPAGE_FAQ_AUTHORITY,
   HOMEPAGE_IMAGES,
   HOMEPAGE_PLATFORM_LOGOS,
-  HOMEPAGE_PORTFOLIO,
   HOMEPAGE_RESULT_QUOTES,
   HOMEPAGE_SERVICE_LIST,
   HOMEPAGE_TESTIMONIALS,
@@ -383,7 +382,7 @@ export function HomePage() {
         title="דוגמאות לאתרים"
       >
         <div className="reveal">
-          <PortfolioCarousel images={HOMEPAGE_PORTFOLIO} />
+          <PortfolioShowcase variant="compact" />
         </div>
         <div className="mt-10 text-center">
           <Button href="/contact-us/" variant="secondary">
