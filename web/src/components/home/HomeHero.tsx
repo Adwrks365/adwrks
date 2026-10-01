@@ -1,13 +1,14 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ContextualPopupTrigger } from "@/components/popups/ContextualPopupTrigger";
 import { Container } from "@/components/ui/Container";
-import { HOMEPAGE_CAPABILITY_CHIPS } from "@/lib/homepage/data";
+import { HOMEPAGE_CAPABILITY_CHIPS, HOMEPAGE_IMAGES } from "@/lib/homepage/data";
 import { SITE } from "@/lib/site";
 
-function HeroPattern({ className = "" }: { className?: string }) {
+function HeroPattern() {
   return (
     <svg
-      className={`home-hero-v2-pattern ${className}`.trim()}
+      className="home-hero-v2-pattern home-hero-v2-pattern--mobile"
       viewBox="0 0 800 400"
       preserveAspectRatio="xMidYMid slice"
       aria-hidden="true"
@@ -39,7 +40,7 @@ function HeroPattern({ className = "" }: { className?: string }) {
 export function HomeHero() {
   return (
     <section className="home-hero-v2 home-hero-v2--text-led" aria-labelledby="home-hero-heading">
-      <HeroPattern className="home-hero-v2-pattern--mobile" />
+      <HeroPattern />
       <Container>
         <div className="home-hero-v2-shell">
           <div className="home-hero-v2-inner">
@@ -70,8 +71,17 @@ export function HomeHero() {
               </Link>
             </div>
           </div>
-          <div className="home-hero-v2-atmosphere" aria-hidden="true">
-            <HeroPattern className="home-hero-v2-pattern--desktop" />
+          <div className="home-hero-v2-visual">
+            <div className="home-hero-visual-glow" aria-hidden="true" />
+            <Image
+              src={HOMEPAGE_IMAGES.heroPhoto}
+              alt={HOMEPAGE_IMAGES.heroPhotoAlt}
+              width={560}
+              height={560}
+              loading="lazy"
+              sizes="(min-width: 1024px) 420px, 0px"
+              className="home-hero-v2-image"
+            />
           </div>
         </div>
       </Container>
