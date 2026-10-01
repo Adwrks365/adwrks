@@ -50,7 +50,7 @@ export async function GET(request: Request) {
     });
   } catch (error) {
     console.error("[article-rating] GET failed", {
-      message: error instanceof Error ? error.message : "unknown",
+      code: error instanceof Error ? error.message : "unknown",
     });
     return NextResponse.json(
       { ok: false, message: "לא ניתן לטעון את הדירוג כרגע." },
@@ -104,7 +104,7 @@ export async function POST(request: Request) {
     });
   } catch (error) {
     console.error("[article-rating] POST failed", {
-      message: error instanceof Error ? error.message : "unknown",
+      code: error instanceof Error ? error.message : "unknown",
     });
     return NextResponse.json(
       { ok: false, message: "לא ניתן לשמור את הדירוג כרגע." },

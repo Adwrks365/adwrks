@@ -34,6 +34,12 @@ function parseAverage(value: number | string | null): number | null {
   return Number.isFinite(num) ? num : null;
 }
 
+/** PostgREST eq filter for paths and other values that contain reserved characters. */
+function encodePostgrestEquals(value: string): string {
+  const escaped = value.replace(/\\/g, "\\\\").replace(/"/g, '\\"');
+  return encodeURIComponent(`"${escaped}"`);
+}
+
 export function normalizeArticlePath(input: string): string {
   return normalizePath(input);
 }
@@ -42,14 +48,14 @@ export async function fetchArticleRatingAggregate(
   articlePath: string,
 ): Promise<ArticleRatingAggregate | null> {
   const path = normalizeArticlePath(articlePath);
-  const encodedPath = encodeURIComponent(path);
+  const encodedPath = encodePostgrestEquals(path);
 
   const response = await supabaseFetch(
     `article_rating_aggregates?article_path=eq.${encodedPath}&select=average_rating,total_vote_count&limit=1`,
   );
 
   if (!response.ok) {
-    throw new Error("aggregate_fetch_failed");
+    throw new Error(`aggregate_fetch_failed:${response.status}`);
   }
 
   const rows = (await response.json()) as AggregateRow[];
@@ -66,15 +72,15 @@ export async function fetchVisitorArticleRating(
   voterHash: string,
 ): Promise<number | null> {
   const path = normalizeArticlePath(articlePath);
-  const encodedPath = encodeURIComponent(path);
-  const encodedHash = encodeURIComponent(voterHash);
+  const encodedPath = encodePostgrestEquals(path);
+  const encodedHash = encodePostgrestEquals(voterHash);
 
   const response = await supabaseFetch(
     `article_rating_votes?article_path=eq.${encodedPath}&voter_hash=eq.${encodedHash}&select=rating&limit=1`,
   );
 
   if (!response.ok) {
-    throw new Error("vote_lookup_failed");
+    throw new Error(`vote_lookup_failed:${response.status}`);
   }
 
   const rows = (await response.json()) as VoteRow[];
@@ -98,7 +104,7 @@ export async function submitArticleRating(
   });
 
   if (!response.ok) {
-    throw new Error("vote_submit_failed");
+    throw new Error(`vote_submit_failed:${response.status}`);
   }
 
   const rows = (await response.json()) as RpcRow[];
