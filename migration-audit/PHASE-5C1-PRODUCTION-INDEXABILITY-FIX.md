@@ -139,6 +139,20 @@ npm run build      → PASS
 
 ---
 
+## Follow-up — GSC Live URL Test (2026-10-01 ~09:06 IST)
+
+Google Search Console Live URL Test still reported `blocked by robots.txt` shortly after 5C.1 deploy.
+
+**Investigation:** External curls at 09:07+ already returned `Allow: /` for browser, Googlebot, Googlebot Smartphone, and Google-InspectionTool UAs. Homepage had no `noindex` meta and no `X-Robots-Tag` on `adwrks.co.il`.
+
+**Root cause:** Phase 5C.1 used `force-dynamic` robots.txt with runtime `headers().get("host")` + `shouldAllowIndexing(host)`. Any request where Host was missing or non-production at the edge could emit `Disallow: /`. During deploy rollouts / edge variance, Google could fetch that variant. GSC may also reflect a fetch from the pre-5C.1 `Disallow: /` window if tested within minutes of cutover.
+
+**Fix (commit after this section):** Replaced dynamic hostname-aware `robots.ts` with **build-time static** robots on production Vercel deployments (`VERCEL_ENV=production` → always `Allow: /`). Excluded `robots.txt` and `sitemap.xml` from middleware matcher. `*.vercel.app` protection remains via middleware `X-Robots-Tag` only.
+
+Build output confirms static prerender: `○ /robots.txt` (was `ƒ /robots.txt` dynamic).
+
+---
+
 ## Final Status
 
 ```

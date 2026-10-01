@@ -1,14 +1,14 @@
 import type { MetadataRoute } from "next";
-import { headers } from "next/headers";
-import { shouldAllowIndexing } from "@/lib/indexing";
+import { isPreviewOrNonProductionDeployment } from "@/lib/indexing";
 import { SITE } from "@/lib/site";
 
-export const dynamic = "force-dynamic";
-
-export default async function robots(): Promise<MetadataRoute.Robots> {
-  const host = (await headers()).get("host");
-
-  if (!shouldAllowIndexing(host)) {
+/**
+ * Build-time robots.txt.
+ * Production Vercel deployments always allow crawling — no runtime Host header dependency.
+ * Non-production hosts (e.g. *.vercel.app) use middleware X-Robots-Tag instead.
+ */
+export default function robots(): MetadataRoute.Robots {
+  if (isPreviewOrNonProductionDeployment()) {
     return {
       rules: { userAgent: "*", disallow: "/" },
     };
