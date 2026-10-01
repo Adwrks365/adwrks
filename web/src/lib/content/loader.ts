@@ -228,7 +228,7 @@ export function resolveRoute(pathKey: string): {
   return { content: null, pagination: null, categoryArchive: null, blogArchive: null };
 }
 
-export const POSTS_PER_PAGE = 10;
+export const POSTS_PER_PAGE = 9;
 
 /** All static route params for optional catch-all [[...slug]]. */
 export function getAllStaticParams(): { slug?: string[] }[] {

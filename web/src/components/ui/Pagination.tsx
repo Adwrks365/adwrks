@@ -19,7 +19,7 @@ export function Pagination({
     <nav className="pagination-nav" aria-label={ariaLabel}>
       {currentPage > 1 && (
         <Link href={getHref(currentPage - 1)} className="pagination-btn pagination-btn-nav">
-          ← הקודם
+          הקודם →
         </Link>
       )}
       <div className="pagination-pages">
@@ -36,7 +36,7 @@ export function Pagination({
       </div>
       {currentPage < totalPages && (
         <Link href={getHref(currentPage + 1)} className="pagination-btn pagination-btn-nav">
-          הבא →
+          ← הבא
         </Link>
       )}
     </nav>

@@ -1,5 +1,9 @@
 import { decodeHtmlEntities } from "./paths";
 import { getAllPosts, getCategories, getPostsForCategory } from "./loader";
+import {
+  stripEmptyElementorSections,
+  stripLegacyArticleContactBlocks,
+} from "./legacy-blocks";
 import type { ContentItem } from "./types";
 
 export type ArticleHeading = {
@@ -127,6 +131,8 @@ export function prepareArticleBodyHtml(rawHtml: string): {
   headings: ArticleHeading[];
 } {
   let html = stripEmbeddedArticleSidebar(rawHtml);
+  html = stripLegacyArticleContactBlocks(html);
+  html = stripEmptyElementorSections(html);
   html = html.replace(
     /<div class="elementor-widget-container">\s*<h1[^>]*>[\s\S]*?<\/h1>\s*<\/div>/i,
     "",
@@ -172,4 +178,23 @@ export function getRelatedArticles(content: ContentItem, limit = 4): ContentItem
   }
 
   return posts.slice(0, limit);
+}
+
+export type AdjacentArticles = {
+  previous: ContentItem | null;
+  next: ContentItem | null;
+};
+
+/** Previous = older article; next = newer article (matches blog date order). */
+export function getAdjacentArticles(content: ContentItem): AdjacentArticles {
+  const posts = getAllPosts();
+  const index = posts.findIndex((post) => post.path === content.path);
+  if (index === -1) {
+    return { previous: null, next: null };
+  }
+
+  return {
+    previous: posts[index + 1] ?? null,
+    next: posts[index - 1] ?? null,
+  };
 }

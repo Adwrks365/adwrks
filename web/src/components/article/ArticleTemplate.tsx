@@ -8,6 +8,7 @@ import { ArticleSidebarCards } from "@/components/article/ArticleSidebarCards";
 import { ArticleEndSection } from "@/components/article/ArticleEndSection";
 import {
   ARTICLE_AUTHOR,
+  getAdjacentArticles,
   getCategoryLabel,
   getRelatedArticles,
   prepareArticleBodyHtml,
@@ -25,6 +26,7 @@ export function ArticleTemplate({ content }: ArticleTemplateProps) {
   const processedHtml = processContentHtml(bodyHtml);
   const category = getCategoryLabel(content);
   const related = getRelatedArticles(content, 4);
+  const adjacent = getAdjacentArticles(content);
   const showHeroImage = Boolean(content.featuredImageUrl);
   const popupConfig = resolveArticlePopupConfig(content);
 
@@ -68,6 +70,7 @@ export function ArticleTemplate({ content }: ArticleTemplateProps) {
           related={related}
           author={ARTICLE_AUTHOR}
           postPath={content.path}
+          adjacent={adjacent}
         />
       </Container>
 

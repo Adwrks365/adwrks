@@ -1,22 +1,30 @@
 import Link from "next/link";
+import { ArticleAdjacentNav } from "@/components/article/ArticleAdjacentNav";
 import { ArticleAuthorCard } from "@/components/article/ArticleAuthorCard";
 import { ArticleRating } from "@/components/article/ArticleRating";
 import { RelatedArticleCards } from "@/components/article/RelatedArticleCards";
-import type { ArticleAuthor } from "@/lib/content/article";
+import type { AdjacentArticles, ArticleAuthor } from "@/lib/content/article";
 import type { ContentItem } from "@/lib/content/types";
 
 type ArticleEndSectionProps = {
   related: ContentItem[];
   author: ArticleAuthor;
   postPath: string;
+  adjacent: AdjacentArticles;
 };
 
-export function ArticleEndSection({ related, author, postPath }: ArticleEndSectionProps) {
+export function ArticleEndSection({
+  related,
+  author,
+  postPath,
+  adjacent,
+}: ArticleEndSectionProps) {
   return (
     <div className="article-end-wrapper">
       <div className="article-end-shell">
         <section className="article-end-section" aria-label="סיום המאמר">
           <ArticleRating postPath={postPath} />
+          <ArticleAdjacentNav previous={adjacent.previous} next={adjacent.next} />
           <ArticleAuthorCard author={author} />
 
           <div className="article-end-related-rich">
