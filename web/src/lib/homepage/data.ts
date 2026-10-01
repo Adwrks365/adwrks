@@ -54,6 +54,79 @@ export const HOMEPAGE_SERVICE_LIST = [
   { text: "עיצוב ושיווק תכנים בהתאמה אישית" },
 ] as const;
 
+/** Hero capability chips — links to verified service routes. */
+export const HOMEPAGE_CAPABILITY_CHIPS = [
+  { label: "SEO", href: "/seo/" },
+  { label: "Google Ads", href: "/google-ads/" },
+  { label: "Meta", href: "/social-media-management/" },
+  { label: "בניית אתרים", href: "/website-building/" },
+] as const;
+
+/** Curated knowledge hub guides (verified post paths). */
+export const HOMEPAGE_CURATED_GUIDE_PATHS = [
+  "/כמה-עולה-לבנות-אתר-אינטרנט-בוורדפרס/",
+  "/פלטפורמה-בניית-אתר/",
+  "/seo-2026-ai-answers/",
+] as const;
+
+/** Four principles for How We Work — from existing value card copy. */
+export const HOMEPAGE_HOW_WE_WORK = [
+  {
+    title: "ליווי אסטרטגי אישי",
+    description:
+      "תכנון אסטרטגי המותאם אישית למבנה העסק, למתחרים וליעדי הרווחיות שלכם.",
+  },
+  {
+    title: "ביסוס סמכות ומותג",
+    description:
+      "בניית נכסים דיגיטליים שהופכים אתכם לאוטוריטה בתחומכם ומייצרים צמיחה יציבה.",
+  },
+  {
+    title: "שיווק מבוסס תוצאות",
+    description:
+      'אופטימיזציה שוטפת לשיפור איכות הפניות במינימום עלות ע"י שימוש בטכנולוגיות AI ו-AIO.',
+  },
+  {
+    title: "מעטפת שיווק דיגיטלי 360°",
+    description:
+      "ניהול מלא של כל ערוצי השיווק (SEO, PPC, Web) בסנכרון מלא להשגת תוצאות מקסימליות.",
+  },
+] as const;
+
+export const HOMEPAGE_PRIMARY_SERVICES = [
+  {
+    title: "בניית אתרים",
+    description: "אתרים ודפי נחיתה אפקטיביים — בסיס לכל פעילות שיווקית.",
+    href: "/website-building/",
+    featured: true,
+  },
+  {
+    title: "קידום אורגני SEO",
+    description: "קידום אורגני ואופטימיזציית AI — נוכחות ארוכת טווח בגוגל.",
+    href: "/seo/",
+    featured: false,
+  },
+  {
+    title: "Google Ads",
+    description: "קמפיינים ממוקדי המרה ו-ROI בגוגל.",
+    href: "/google-ads/",
+    featured: false,
+  },
+  {
+    title: "ניהול רשתות חברתיות",
+    description: "פרסום וניהול תוכן ב-Facebook, Instagram ו-Meta.",
+    href: "/social-media-management/",
+    featured: false,
+  },
+] as const;
+
+export const HOMEPAGE_SECONDARY_SERVICES = [
+  { label: "פרסום בגוגל מפות", href: "/פרסום-בגוגל-מפות/" },
+  { label: "אחסון ותחזוקה", href: "/hosting-plans/" },
+  { label: "שיווק דיגיטלי לעסקים", href: "/שיווק-דיגיטלי-לעסקים/" },
+  { label: "מחירון שיווק דיגיטלי", href: "/מחירון-שיווק-דיגיטלי/" },
+] as const;
+
 export const HOMEPAGE_VALUE_CARDS = [
   {
     title: "ליווי אסטרטגי אישי",
@@ -194,6 +267,33 @@ export const HOMEPAGE_FAQ = [
 
 export const HOMEPAGE_FAQ_AUTHORITY =
   "התשובות מבוססות על ניסיון מעשי בשיווק דיגיטלי, קידום אתרים, ניהול קמפיינים ממומנים וליווי עסקים מכל התחומים בישראל.";
+
+export const HOMEPAGE_AI_SEARCH = {
+  title: "אנחנו מכינים את העסק שלך לעידן ה-AI Search",
+  body: "האם האתר שלך יופיע בתשובות של גוגל ב-2026? הצטרפו למהפכת ה-AIO (אופטימיזציה לבינה מלאכותית) עם Adwrks 365",
+  ctaLabel: "קידום אורגני ו-AIO",
+  ctaHref: "/seo/",
+} as const;
+
+export const HOMEPAGE_VISION = {
+  kicker: "AIO · SEO · PPC",
+  title: "החזון הטכנולוגי שלנו ל-2026",
+  body: "כסוכנות בוטיק לאסטרטגיה דיגיטלית, Adwrks 365 מתווה את הדרך בתחום ה-AIO (AI Optimization). אנו משלבים כלי בינה מלאכותית מתקדמים באסטרטגיות SEO ו-PPC כדי להעניק ללקוחותינו יתרון תחרותי ממשי. המומחיות שלנו היא הנגשת עסקים לחיפוש סמנטי ובניית סמכות דיגיטלית מבוססת E-E-A-T, המותאמת במדויק למנועי החיפוש וה-AI של שנת 2026.",
+  envelope:
+    "אנו מאמינים שצמיחה אמיתית בישראל דורשת יותר מסתם 'קידום' - היא דורשת הבנה עמוקה של הצרכן הישראלי. אנו משלבים טכנולוגיות פרסום מתקדמות עם מומחיות ייחודית בפנייה לקהלים מגוונים, כולל שליטה מלאה בשוק דוברי הרוסית והאנגלית בארץ. השילוב בין ליווי אישי צמוד לבין אופטימיזציה מבוססת תוצאות, מבטיח שהעסק שלכם יבלוט מעל כולם ויהפוך למותג מוביל, מבוקש ורווחי בכל קנה מידה.",
+} as const;
+
+export const HOMEPAGE_PARTNERS = {
+  body: "אנו לא רק סוכנות שיווק דיגיטלית, אנחנו לא רק סוכנות שיווק, אנו שותפים אסטרטגיים לצמיחה. השילוב הייחודי שלנו בין ניסיון מוכח מאז 2018 לבין טכנולוגיות ה-AI המתקדמות ביותר, מאפשר לנו לבנות עבורכם נוכחות דומיננטית שממירה גולשים ללקוחות.",
+} as const;
+
+export const HOMEPAGE_ABOUT = {
+  label: "שותפים מוסמכים של Facebook & Google",
+  title: "סוכנות בוטיק לאסטרטגיה וצמיחה דיגיטלית",
+  subtitle: "מבססים את הסמכות הדיגיטלית שלך בעידן ה-AI",
+  lead: "מבססים את הסמכות הדיגיטלית שלך בעידן ה-AI",
+  body: "סוכנות Adwrks 365 מלווה עסקים וחברות מאז 2018 בדרך להצלחה דיגיטלית מדידה. אנו מתמחים ביצירת נוכחות עוצמתית המשלבת אסטרטגיה חכמה, טכנולוגיה מתקדמת וקריאייטיב מנצח. אנו מחויבים למקצוענות ללא פשרות ולליווי אישי, תוך התאמת פתרונות שיווק מתקדמים הממוקדים ב-ROI ובצמיחה עסקית ארוכת טווח.",
+} as const;
 
 /** Post thumbnail URLs from production homepage (seo audit). */
 export const RECENT_POST_IMAGES: Record<string, string> = {
