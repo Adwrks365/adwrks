@@ -34,10 +34,9 @@ function parseAverage(value: number | string | null): number | null {
   return Number.isFinite(num) ? num : null;
 }
 
-/** PostgREST eq filter for paths and other values that contain reserved characters. */
+/** PostgREST eq filter value — percent-encode only; do not wrap in quotes. */
 function encodePostgrestEquals(value: string): string {
-  const escaped = value.replace(/\\/g, "\\\\").replace(/"/g, '\\"');
-  return encodeURIComponent(`"${escaped}"`);
+  return encodeURIComponent(value);
 }
 
 export function normalizeArticlePath(input: string): string {
