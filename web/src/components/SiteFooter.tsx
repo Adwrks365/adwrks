@@ -150,8 +150,8 @@ export function SiteFooter() {
                 <Image
                   src={SITE.logoFull}
                   alt=""
-                  width={120}
-                  height={36}
+                  width={156}
+                  height={52}
                   loading="lazy"
                   className="site-footer-logo brightness-0 invert"
                 />
@@ -167,7 +167,7 @@ export function SiteFooter() {
             </div>
           </div>
 
-          <div className="site-footer-col">
+          <div className="site-footer-col site-footer-nav-col">
             <h2 className="site-footer-heading">ניווט</h2>
             <ul className="site-footer-links">
               {FOOTER_NAV_LINKS.map((item) => (
@@ -178,7 +178,7 @@ export function SiteFooter() {
             </ul>
           </div>
 
-          <div className="site-footer-col">
+          <div className="site-footer-col site-footer-services-col">
             <h2 className="site-footer-heading">שירותים</h2>
             <ul className="site-footer-links">
               {FOOTER_SERVICE_LINKS.map((item) => (

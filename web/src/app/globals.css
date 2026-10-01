@@ -3426,6 +3426,7 @@ body {
 
 @media (min-width: 700px) {
   .site-footer-grid {
+    align-items: start;
     gap: 1.15rem 1.5rem;
   }
 
@@ -3467,18 +3468,18 @@ body {
 .site-footer-logo-link {
   display: block;
   flex-shrink: 0;
-  height: 2.25rem;
+  height: 3.25rem;
   line-height: 0;
   overflow: hidden;
-  width: 7.5rem;
+  width: 9rem;
 }
 
 .site-footer-logo {
   display: block;
-  height: 2.25rem;
+  height: 3.25rem;
   object-fit: contain;
   object-position: top center;
-  width: 7.5rem;
+  width: 9rem;
 }
 
 .site-footer-brand-title {
@@ -3541,8 +3542,23 @@ body {
     padding-top: 0.1rem;
   }
 
+  .site-footer-brand-top {
+    gap: 0.625rem;
+  }
+
   .site-footer-desc {
     max-width: 36rem;
+  }
+
+  .site-footer-nav-col,
+  .site-footer-services-col {
+    padding-top: 0.1rem;
+  }
+
+  .site-footer-nav-col .site-footer-heading,
+  .site-footer-services-col .site-footer-heading {
+    line-height: 1.25;
+    margin-block: 0 0.45rem;
   }
 }
 
@@ -3749,28 +3765,29 @@ body {
   }
 
   /* Nav + services: heading and links share the same RTL start edge */
-  .site-footer-grid > .site-footer-col .site-footer-heading {
+  .site-footer-grid > .site-footer-nav-col .site-footer-heading,
+  .site-footer-grid > .site-footer-services-col .site-footer-heading {
     text-align: start;
+    width: 100%;
   }
 
-  .site-footer-grid > .site-footer-col .site-footer-links {
+  .site-footer-grid > .site-footer-nav-col .site-footer-links,
+  .site-footer-grid > .site-footer-services-col .site-footer-links {
     align-items: stretch;
     text-align: start;
     width: 100%;
   }
 
-  .site-footer-grid > .site-footer-col .site-footer-links li {
+  .site-footer-grid > .site-footer-nav-col .site-footer-links li,
+  .site-footer-grid > .site-footer-services-col .site-footer-links li {
     display: block;
     text-align: start;
   }
 
-  .site-footer-grid > .site-footer-col .site-footer-heading {
-    width: 100%;
-  }
-
-  .site-footer-contact-col .site-footer-heading,
-  .site-footer-social-col .site-footer-heading {
+  .site-footer-grid > .site-footer-contact-col .site-footer-heading,
+  .site-footer-grid > .site-footer-social-col .site-footer-heading {
     text-align: center;
+    width: 100%;
   }
 
   .site-footer-contact,
