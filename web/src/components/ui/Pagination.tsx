@@ -37,7 +37,7 @@ export function Pagination({
       </div>
       {currentPage < totalPages && (
         <Link href={getHref(currentPage + 1)} className="pagination-btn pagination-btn-nav">
-          <PhysicalNavRow label="הבא" arrow="left" />
+          <PhysicalNavRow label="הבא" arrow="left" arrowPosition="start" />
         </Link>
       )}
     </nav>

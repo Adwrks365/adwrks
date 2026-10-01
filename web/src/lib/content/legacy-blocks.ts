@@ -6,12 +6,25 @@ const LEGACY_CONTACT_SECTION_MARKERS = [
   "elementor-widget-form",
 ] as const;
 
+function hasValidImageSrc(sectionHtml: string): boolean {
+  const imgs = sectionHtml.match(/<img[^>]*>/gi) ?? [];
+  return imgs.some((tag) => {
+    const src = tag.match(/\ssrc="([^"]*)"/i)?.[1] ?? "";
+    if (!src || src === '""') return false;
+    if (src.startsWith("data:image/svg")) return false;
+    return src.startsWith("http") || src.startsWith("/");
+  });
+}
+
 function hasVisibleElementorContent(sectionHtml: string): boolean {
-  if (/<img[^>]+src="(?:https?:|\/)/i.test(sectionHtml)) return true;
+  if (hasValidImageSrc(sectionHtml)) return true;
   if (/<iframe[\s>]/i.test(sectionHtml)) return true;
   if (/<video[\s>]/i.test(sectionHtml)) return true;
   if (/elementor-widget-form/i.test(sectionHtml)) return true;
   if (/elementor-button-text[^>]*>[\s\S]*?\S/i.test(sectionHtml)) return true;
+  if (/elementor-widget-text-editor[\s\S]*?<(?:p|h[2-6])[^>]*>[\s\S]*?\S/i.test(sectionHtml)) {
+    return true;
+  }
   if (/<(?:p|h[1-6]|li|td|th|figcaption|blockquote)[^>]*>[\s\S]*?\S/i.test(sectionHtml)) {
     return true;
   }
@@ -101,6 +114,14 @@ export function stripLegacyArticleContactBlocks(html: string): string {
   }
 
   return result;
+}
+
+/** Remove image widgets with no real src (placeholder shells that reserve height). */
+export function stripEmptyImageWidgets(html: string): string {
+  return html.replace(
+    /<div[^>]*\belementor-widget-image\b[^>]*>[\s\S]*?<\/div>\s*<\/div>/gi,
+    (widget) => (hasValidImageSrc(widget) ? widget : ""),
+  );
 }
 
 /** Remove empty Elementor top-level sections left by migration (e.g. blank hero shells). */

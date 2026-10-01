@@ -1,7 +1,9 @@
 import { decodeHtmlEntities } from "./paths";
 import { getAllPosts, getCategories, getPostsForCategory } from "./loader";
+import { repairArticleCtaLinks } from "./article-ctas";
 import {
   stripEmptyElementorSections,
+  stripEmptyImageWidgets,
   stripLeadingRedundantElementorSections,
   stripLegacyArticleContactBlocks,
 } from "./legacy-blocks";
@@ -133,8 +135,11 @@ export function prepareArticleBodyHtml(rawHtml: string): {
 } {
   let html = stripEmbeddedArticleSidebar(rawHtml);
   html = stripLegacyArticleContactBlocks(html);
+  html = stripEmptyImageWidgets(html);
   html = stripEmptyElementorSections(html);
   html = stripLeadingRedundantElementorSections(html);
+  html = stripEmptyImageWidgets(html);
+  html = repairArticleCtaLinks(html);
   html = html.replace(
     /<div class="elementor-widget-container">\s*<h1[^>]*>[\s\S]*?<\/h1>\s*<\/div>/i,
     "",

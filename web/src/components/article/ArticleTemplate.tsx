@@ -1,8 +1,9 @@
 import { ContextualPopupRegistrar } from "@/components/popups/ContextualPopupRegistrar";
 import { HtmlContent } from "@/components/HtmlContent";
 import { PageHero } from "@/components/ui/PageHero";
-import { ArticleMeta } from "@/components/ui/ArticleMeta";
 import { Container } from "@/components/ui/Container";
+import { ArticleBodyInteractions } from "@/components/article/ArticleBodyInteractions";
+import { ArticleTopMeta } from "@/components/article/ArticleTopMeta";
 import { ArticleToc } from "@/components/article/ArticleToc";
 import { ArticleSidebarCards } from "@/components/article/ArticleSidebarCards";
 import { ArticleEndSection } from "@/components/article/ArticleEndSection";
@@ -39,21 +40,18 @@ export function ArticleTemplate({ content }: ArticleTemplateProps) {
         image={showHeroImage ? content.featuredImageUrl : undefined}
         imageAlt={content.featuredImageAlt || content.title}
         compact
-        meta={
-          <ArticleMeta
-            date={content.date}
-            label={category ? undefined : "מאמר"}
-          />
-        }
       />
 
       <Container className="article-template-body">
         <div className="article-layout">
           <div className="article-main">
+            <ArticleTopMeta date={content.date} author={ARTICLE_AUTHOR} />
             <ArticleToc headings={headings} className="article-toc-inline" />
 
             <div className="article-template-prose">
-              <HtmlContent html={processedHtml} className="article-body-html" />
+              <ArticleBodyInteractions>
+                <HtmlContent html={processedHtml} className="article-body-html" />
+              </ArticleBodyInteractions>
             </div>
           </div>
 

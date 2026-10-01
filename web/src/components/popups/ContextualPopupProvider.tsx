@@ -36,6 +36,7 @@ const ContextualLeadPopup = dynamic(
 
 type ContextualPopupContextValue = {
   registerConfig: (config: PopupConfig | null) => void;
+  openContextualPopup: (method: PopupOpenMethod) => void;
 };
 
 const ContextualPopupContext = createContext<ContextualPopupContextValue | null>(null);
@@ -48,6 +49,14 @@ export function useContextualPopupRegistrar() {
   return ctx;
 }
 
+export function useContextualPopup() {
+  const ctx = useContext(ContextualPopupContext);
+  if (!ctx) {
+    throw new Error("useContextualPopup must be used within ContextualPopupProvider");
+  }
+  return ctx;
+}
+
 export function ContextualPopupProvider({ children }: { children: ReactNode }) {
   const [activeConfig, setActiveConfig] = useState<PopupConfig | null>(null);
   const [popupOpen, setPopupOpen] = useState(false);
@@ -55,6 +64,7 @@ export function ContextualPopupProvider({ children }: { children: ReactNode }) {
   const [minimizedVisible, setMinimizedVisible] = useState(() =>
     typeof window !== "undefined" ? shouldShowMinimizedCta() : false,
   );
+  const [minimizedDismissedPath, setMinimizedDismissedPath] = useState<string | null>(null);
   const autoTriggeredRef = useRef(false);
   const ctaViewTrackedRef = useRef<string | null>(null);
 
@@ -150,7 +160,18 @@ export function ContextualPopupProvider({ children }: { children: ReactNode }) {
     openPopup("minimized_cta");
   }, [activeConfig, openPopup]);
 
-  const showCta = Boolean(activeConfig && minimizedVisible && !popupOpen);
+  const handleMinimizedDismiss = useCallback(() => {
+    if (activeConfig) {
+      setMinimizedDismissedPath(activeConfig.pagePath);
+    }
+  }, [activeConfig]);
+
+  const showCta = Boolean(
+    activeConfig &&
+      minimizedVisible &&
+      minimizedDismissedPath !== activeConfig.pagePath &&
+      !popupOpen,
+  );
 
   useEffect(() => {
     if (!showCta || !activeConfig) return;
@@ -171,9 +192,13 @@ export function ContextualPopupProvider({ children }: { children: ReactNode }) {
   }, [activeConfig]);
 
   return (
-    <ContextualPopupContext.Provider value={{ registerConfig }}>
+    <ContextualPopupContext.Provider
+      value={{ registerConfig, openContextualPopup: openPopup }}
+    >
       {children}
-      {showCta && <MinimizedLeadCta onClick={handleMinimizedClick} />}
+      {showCta && (
+        <MinimizedLeadCta onClick={handleMinimizedClick} onDismiss={handleMinimizedDismiss} />
+      )}
       {popupOpen && activeConfig && (
         <ContextualLeadPopup
           config={activeConfig}

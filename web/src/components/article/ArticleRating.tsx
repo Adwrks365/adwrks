@@ -49,6 +49,25 @@ function formatRatingSummary(averageRating: number | null, totalVoteCount: numbe
   return `דירוג ${formatAverage(averageRating)} מתוך 5 · ${totalVoteCount.toLocaleString("he-IL")} דירוגים`;
 }
 
+function StarIcon({ filled }: { filled: boolean }) {
+  return (
+    <svg
+      className="article-rating-star-icon"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path
+        d="M12 2.5l2.93 5.94 6.57.96-4.75 4.63 1.12 6.54L12 17.77l-5.87 3.2 1.12-6.54-4.75-4.63 6.57-.96L12 2.5z"
+        fill={filled ? "currentColor" : "none"}
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export function ArticleRating({ postPath }: ArticleRatingProps) {
   const [rating, setRating] = useState<RatingState | null>(null);
   const [hoverValue, setHoverValue] = useState<number | null>(null);
@@ -166,8 +185,8 @@ export function ArticleRating({ postPath }: ArticleRatingProps) {
     : "טוען דירוג…";
 
   return (
-    <div className="article-end-module article-rating">
-      <h2 className="article-end-module-title">דרגו את המאמר</h2>
+    <div className="article-rating article-rating--compact">
+      <h2 className="article-rating-title">דרגו את המאמר</h2>
 
       <div
         className="article-rating-stars"
@@ -195,16 +214,20 @@ export function ArticleRating({ postPath }: ArticleRatingProps) {
               onBlur={() => setHoverValue(null)}
               onClick={() => void handleSubmit(value)}
             >
-              {filled ? "★" : "☆"}
+              <StarIcon filled={filled} />
             </button>
           );
         })}
       </div>
 
       <p className="article-rating-summary" aria-live="polite">
-        {thankYou ? "תודה על הדירוג!" : null}
-        {thankYou ? " · " : null}
-        {summaryText}
+        {thankYou ? (
+          <>
+            <span className="article-rating-thanks">תודה על הדירוג!</span>
+            <span className="article-rating-summary-sep"> · </span>
+          </>
+        ) : null}
+        <span>{summaryText}</span>
       </p>
 
       {rating?.hasVoted && !thankYou ? (

@@ -16,23 +16,38 @@ function ChatIcon() {
 
 type MinimizedLeadCtaProps = {
   onClick: () => void;
+  onDismiss: () => void;
 };
 
-export function MinimizedLeadCta({ onClick }: MinimizedLeadCtaProps) {
+export function MinimizedLeadCta({ onClick, onDismiss }: MinimizedLeadCtaProps) {
   return (
-    <button
-      type="button"
-      className="popup-minimized-cta"
-      onClick={onClick}
-      aria-label="בואו נדבר — פתיחת טופס ייעוץ"
-    >
-      <span className="popup-minimized-cta-icon" aria-hidden="true">
-        <ChatIcon />
-      </span>
-      <span className="popup-minimized-cta-text">
-        <span className="popup-minimized-cta-title">בואו נדבר</span>
-        <span className="popup-minimized-cta-sub">ייעוץ ראשוני ללא התחייבות</span>
-      </span>
-    </button>
+    <div className="popup-minimized-cta-wrap">
+      <button
+        type="button"
+        className="popup-minimized-cta"
+        onClick={onClick}
+        aria-label="בואו נדבר — פתיחת טופס ייעוץ"
+      >
+        <span className="popup-minimized-cta-icon" aria-hidden="true">
+          <ChatIcon />
+        </span>
+        <span className="popup-minimized-cta-text">
+          <span className="popup-minimized-cta-title">בואו נדבר</span>
+          <span className="popup-minimized-cta-sub">ייעוץ ראשוני ללא התחייבות</span>
+        </span>
+      </button>
+      <button
+        type="button"
+        className="popup-minimized-cta-close"
+        aria-label="סגירת כפתור יצירת קשר"
+        onClick={(event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          onDismiss();
+        }}
+      >
+        ×
+      </button>
+    </div>
   );
 }

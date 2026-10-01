@@ -7,7 +7,7 @@ export type PopupAnalyticsEvent =
   | "popup_minimized_cta_view"
   | "popup_minimized_cta_click";
 
-export type PopupOpenMethod = "automatic" | "minimized_cta";
+export type PopupOpenMethod = "automatic" | "minimized_cta" | "in_article_cta";
 
 export type PopupEventParams = {
   popup_id: string;

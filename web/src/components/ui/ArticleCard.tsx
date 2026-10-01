@@ -55,7 +55,7 @@ export function ArticleCard({ post }: ArticleCardProps) {
         </h2>
         {excerpt && <p className="article-card-excerpt">{excerpt}</p>}
         <Link href={post.path} className="article-card-link">
-          <PhysicalNavRow label="קרא עוד" arrow="left" />
+          <PhysicalNavRow label="קרא עוד" arrow="left" arrowPosition="start" />
         </Link>
       </div>
     </article>
