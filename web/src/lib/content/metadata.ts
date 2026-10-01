@@ -48,11 +48,7 @@ function present(value?: string | null): string | undefined {
   return text ? text : undefined;
 }
 
-export function buildPageMetadata(
-  pathKey: string,
-  fallbackTitle?: string,
-  host?: string | null,
-): Metadata {
+export function buildPageMetadata(pathKey: string, fallbackTitle?: string): Metadata {
   const seo = getSeoByPath(pathKey);
   const canonical = productionCanonical(seo?.canonical, pathKey);
   const title = seo?.title || fallbackTitle || SITE.name;
@@ -66,7 +62,7 @@ export function buildPageMetadata(
     title,
     description: description ?? null,
     alternates: { canonical },
-    robots: mergeRobots(parseRobots(seo?.robots), stagingRobots(host)),
+    robots: mergeRobots(parseRobots(seo?.robots), stagingRobots()),
     openGraph: {
       title: seo?.ogTitle || title,
       url: canonical,
@@ -89,7 +85,7 @@ export function isProductionCanonical(): boolean {
   return true;
 }
 
-export function stagingRobots(host?: string | null): Metadata["robots"] {
-  if (shouldAllowIndexing(host)) return undefined;
+export function stagingRobots(): Metadata["robots"] {
+  if (shouldAllowIndexing()) return undefined;
   return { index: false, follow: false };
 }
