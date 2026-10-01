@@ -1,16 +1,7 @@
-import { googleAdsPage } from "./google-ads";
-import { hostingPlansPage } from "./hosting-plans";
-import { mainServicesPage } from "./main-services";
-import { seoPage } from "./seo";
-import { socialMediaPage } from "./social-media-management";
 import type { ServicePageContent } from "./types";
-const SERVICE_PAGES: ServicePageContent[] = [
-  seoPage,
-  googleAdsPage,
-  socialMediaPage,
-  hostingPlansPage,
-  mainServicesPage,
-];
+
+/** Legacy verified pages — active routes use dedicated composers in ContentPage. */
+const SERVICE_PAGES: ServicePageContent[] = [];
 
 const byPath = new Map<string, ServicePageContent>(
   SERVICE_PAGES.map((p) => [p.path, p]),

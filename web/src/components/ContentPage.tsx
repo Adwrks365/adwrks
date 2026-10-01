@@ -4,6 +4,11 @@ import { HtmlContent } from "@/components/HtmlContent";
 import { AboutPage } from "@/components/pages/AboutPage";
 import { ContactPage } from "@/components/pages/ContactPage";
 import { VerifiedServicePage } from "@/components/pages/VerifiedServicePage";
+import { GoogleAdsServicePage } from "@/components/services/GoogleAdsServicePage";
+import { HostingPlansServicePage } from "@/components/services/HostingPlansServicePage";
+import { SeoServicePage } from "@/components/services/SeoServicePage";
+import { ServiceHubPage } from "@/components/services/ServiceHubPage";
+import { SocialMediaServicePage } from "@/components/services/SocialMediaServicePage";
 import { WebsiteBuildingServicePage } from "@/components/services/WebsiteBuildingServicePage";
 import { PricingCalculatorIframe } from "@/components/PricingCalculatorIframe";
 import { ArticleTemplate } from "@/components/article/ArticleTemplate";
@@ -28,6 +33,21 @@ type ContentPageProps = {
 export function ContentPage({ content }: ContentPageProps) {
   if (content.path === "/website-building/") {
     return <WebsiteBuildingServicePage />;
+  }
+  if (content.path === "/שירותי-שיווק-דיגיטלי/") {
+    return <ServiceHubPage />;
+  }
+  if (content.path === "/seo/") {
+    return <SeoServicePage />;
+  }
+  if (content.path === "/google-ads/") {
+    return <GoogleAdsServicePage />;
+  }
+  if (content.path === "/social-media-management/") {
+    return <SocialMediaServicePage />;
+  }
+  if (content.path === "/hosting-plans/") {
+    return <HostingPlansServicePage />;
   }
 
   const verifiedService = getVerifiedServicePage(content.path);

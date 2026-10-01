@@ -73,7 +73,7 @@ export const PRIMARY_NAV: NavItem[] = [
       { label: "פרסום ממומן בגוגל (Google Ads)", href: "/google-ads/" },
       { label: "קידום אתרים אורגני (SEO)", href: "/seo/" },
       { label: "ניהול רשתות חברתיות", href: "/social-media-management/" },
-      { label: "בניית אתרים [וורדפרס]", href: "/website-building/" },
+      { label: "בניית אתרים", href: "/website-building/" },
       { label: "אחסון אתרים", href: "/hosting-plans/" },
       { label: "מחירון שיווק דיגיטלי", href: "/מחירון-שיווק-דיגיטלי/" },
     ],
