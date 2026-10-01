@@ -2345,6 +2345,123 @@ body {
   margin-block: 1.1rem;
 }
 
+/* Phase 5G.5 — repaired in-article CTA visual normalization */
+.article-body-html .article-inline-cta-block {
+  clear: both;
+  display: block;
+  margin-block: 1.25rem 2.25rem;
+  max-width: 100%;
+  text-align: right;
+  width: 100%;
+}
+
+.article-body-html .article-inline-cta-block--solo {
+  margin-top: 1.25rem;
+}
+
+.article-body-html .article-inline-cta-block .elementor-widget-heading {
+  margin: 0 0 0.625rem;
+  padding: 0;
+  text-align: right;
+}
+
+.article-body-html .article-inline-cta-block .elementor-widget-heading .elementor-heading-title {
+  color: #0f172a;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.article-body-html .article-inline-cta-block .elementor-widget-button {
+  margin: 0;
+  padding: 0;
+  text-align: right;
+}
+
+.article-body-html .article-inline-cta-block .elementor-align-center,
+.article-body-html .article-inline-cta-block .elementor-align-center .elementor-button-wrapper {
+  text-align: right;
+}
+
+.article-body-html .article-inline-cta-block + .elementor-widget-heading h2,
+.article-body-html .article-inline-cta-block + .elementor-widget-heading .elementor-heading-title {
+  margin-top: 0.25rem;
+}
+
+.article-body-html .elementor-button[data-open-contextual-popup="true"] {
+  align-items: center;
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  border: 0;
+  border-radius: 0.6875rem;
+  box-shadow: none;
+  color: #fff !important;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  max-width: 100%;
+  min-height: 2.75rem;
+  padding: 0.625rem 1.375rem;
+  text-align: center;
+  text-decoration: none !important;
+  transition:
+    background 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.15s ease;
+  vertical-align: middle;
+  white-space: normal;
+  width: auto;
+}
+
+.article-body-html .elementor-button[data-open-contextual-popup="true"]:hover {
+  background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.22);
+  transform: translateY(-1px);
+}
+
+.article-body-html .elementor-button[data-open-contextual-popup="true"]:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 3px;
+}
+
+.article-body-html .elementor-button[data-open-contextual-popup="true"] .elementor-button-content-wrapper {
+  gap: 0;
+}
+
+.article-body-html .elementor-button[data-open-contextual-popup="true"] .elementor-button-text {
+  line-height: 1.25;
+}
+
+.article-body-html .article-inline-cta-block .elementor-section,
+.article-body-html .article-inline-cta-block .elementor-container,
+.article-body-html .article-inline-cta-block .elementor-column,
+.article-body-html .article-inline-cta-block .elementor-widget-wrap {
+  margin: 0;
+  padding: 0;
+}
+
+.article-body-html .article-inline-cta-block--price-table {
+  margin-block: 1rem 1.75rem;
+}
+
+.article-body-html .article-inline-cta-block--price-table .elementor-price-table__footer {
+  margin: 0;
+  padding: 0;
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .article-body-html .elementor-button[data-open-contextual-popup="true"] {
+    font-size: 0.9375rem;
+    min-height: 2.625rem;
+    padding: 0.5625rem 1.125rem;
+  }
+}
+
 .article-body-html ul,
 .article-body-html ol {
   margin-block: 1.1rem;

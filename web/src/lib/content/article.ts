@@ -1,6 +1,6 @@
 import { decodeHtmlEntities } from "./paths";
 import { getAllPosts, getCategories, getPostsForCategory } from "./loader";
-import { repairArticleCtaLinks } from "./article-ctas";
+import { repairArticleCtaLinks, wrapRepairedArticleCtaBlocks } from "./article-ctas";
 import {
   stripEmptyElementorSections,
   stripEmptyImageWidgets,
@@ -140,6 +140,7 @@ export function prepareArticleBodyHtml(rawHtml: string): {
   html = stripLeadingRedundantElementorSections(html);
   html = stripEmptyImageWidgets(html);
   html = repairArticleCtaLinks(html);
+  html = wrapRepairedArticleCtaBlocks(html);
   html = html.replace(
     /<div class="elementor-widget-container">\s*<h1[^>]*>[\s\S]*?<\/h1>\s*<\/div>/i,
     "",

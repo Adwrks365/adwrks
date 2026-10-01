@@ -109,6 +109,60 @@ export function repairArticleCtaLinks(html: string): string {
   });
 }
 
+const REPAIRED_BUTTON_WIDGET_RE =
+  /<div class="elementor-element[^"]*\belementor-widget-button\b[^"]*"[^>]*>\s*<a\s[^>]*\bdata-open-contextual-popup="true"[^>]*>[\s\S]*?<\/a>\s*<\/div>/gi;
+
+const REPAIRED_PRICE_TABLE_FOOTER_RE =
+  /<div class="elementor-price-table__footer">\s*(<a\s[^>]*\bdata-open-contextual-popup="true"[^>]*>[\s\S]*?<\/a>)\s*<\/div>/gi;
+
+const HEADING_WIDGET_TAIL_RE =
+  /<div class="elementor-element[^"]*\belementor-widget-heading\b[^"]*"[^>]*>[\s\S]*?<\/div>\s*$/i;
+
+/**
+ * Wrap repaired CTA widgets in a dedicated block so spacing/alignment can be normalized globally.
+ * Does not alter popup attributes, hrefs, or CTA copy.
+ */
+export function wrapRepairedArticleCtaBlocks(html: string): string {
+  const spans: Array<{ start: number; end: number; solo: boolean }> = [];
+  let match: RegExpExecArray | null;
+
+  REPAIRED_BUTTON_WIDGET_RE.lastIndex = 0;
+  while ((match = REPAIRED_BUTTON_WIDGET_RE.exec(html)) !== null) {
+    const before = html.slice(Math.max(0, match.index - 1200), match.index);
+    const heading = before.match(HEADING_WIDGET_TAIL_RE);
+    const start = heading ? match.index - heading[0].length : match.index;
+    spans.push({
+      start,
+      end: match.index + match[0].length,
+      solo: !heading,
+    });
+  }
+
+  let result = html;
+  if (spans.length > 0) {
+    result = "";
+    let cursor = 0;
+
+    for (const span of spans) {
+      if (span.start < cursor) continue;
+      result += html.slice(cursor, span.start);
+      const inner = html.slice(span.start, span.end);
+      const modifier = span.solo ? " article-inline-cta-block--solo" : "";
+      result += `<div class="article-inline-cta-block${modifier}">${inner}</div>`;
+      cursor = span.end;
+    }
+
+    result += html.slice(cursor);
+  }
+
+  result = result.replace(
+    REPAIRED_PRICE_TABLE_FOOTER_RE,
+    '<div class="article-inline-cta-block article-inline-cta-block--solo article-inline-cta-block--price-table"><div class="elementor-price-table__footer">$1</div></div>',
+  );
+
+  return result;
+}
+
 /** Summarize audit results across all articles. */
 export function summarizeCtaAudits(results: ArticleCtaAuditResult[]): {
   totalButtons: number;

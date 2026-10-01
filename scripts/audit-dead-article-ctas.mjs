@@ -4,6 +4,7 @@ import {
   isBrokenArticleCtaHref,
   isRepairedArticleCtaAnchor,
   repairArticleCtaLinks,
+  wrapRepairedArticleCtaBlocks,
 } from "../web/src/lib/content/article-ctas.ts";
 import {
   stripEmptyElementorSections,
@@ -31,6 +32,7 @@ function prepareForRender(raw) {
   html = stripLeadingRedundantElementorSections(html);
   html = stripEmptyImageWidgets(html);
   html = repairArticleCtaLinks(html);
+  html = wrapRepairedArticleCtaBlocks(html);
   return html;
 }
 
