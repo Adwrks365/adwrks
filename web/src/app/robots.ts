@@ -1,9 +1,14 @@
 import type { MetadataRoute } from "next";
-import { isIndexableProduction } from "@/lib/indexing";
+import { headers } from "next/headers";
+import { shouldAllowIndexing } from "@/lib/indexing";
 import { SITE } from "@/lib/site";
 
-export default function robots(): MetadataRoute.Robots {
-  if (!isIndexableProduction()) {
+export const dynamic = "force-dynamic";
+
+export default async function robots(): Promise<MetadataRoute.Robots> {
+  const host = (await headers()).get("host");
+
+  if (!shouldAllowIndexing(host)) {
     return {
       rules: { userAgent: "*", disallow: "/" },
     };

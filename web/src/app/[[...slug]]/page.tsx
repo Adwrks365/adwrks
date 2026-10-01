@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 import { CategoryArchive } from "@/components/CategoryArchive";
 import { ContentPage } from "@/components/ContentPage";
@@ -28,6 +29,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
+  const host = (await headers()).get("host");
   const pathKey = pathFromSlugSegments(slug);
   const resolved = resolveRoute(pathKey);
 
@@ -37,20 +39,21 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return buildPageMetadata(
       pagePath,
       `בלוג${resolved.blogArchive.page > 1 ? ` – עמוד ${resolved.blogArchive.page}` : ""}`,
+      host,
     );
   }
 
   if (resolved.categoryArchive) {
     const { category, page } = resolved.categoryArchive;
     const pagePath = page === 1 ? category.path : `${category.path}page/${page}/`;
-    return buildPageMetadata(pagePath, `${category.title}${page > 1 ? ` – עמוד ${page}` : ""}`);
+    return buildPageMetadata(pagePath, `${category.title}${page > 1 ? ` – עמוד ${page}` : ""}`, host);
   }
 
   if (resolved.content) {
-    return buildPageMetadata(pathKey, resolved.content.title);
+    return buildPageMetadata(pathKey, resolved.content.title, host);
   }
 
-  return buildPageMetadata(pathKey);
+  return buildPageMetadata(pathKey, undefined, host);
 }
 
 export default async function CatchAllPage({ params }: PageProps) {
