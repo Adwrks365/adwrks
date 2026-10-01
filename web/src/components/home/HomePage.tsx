@@ -63,7 +63,7 @@ export function HomePage() {
   return (
     <div className="homepage">
       {/* Premium light hero */}
-      <section className="home-hero-premium reveal">
+      <section className="home-hero-premium">
         <Container>
           <div className="home-hero-grid">
             <div className="text-center lg:text-start">
