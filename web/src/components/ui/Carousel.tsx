@@ -14,6 +14,7 @@ type CarouselProps = {
   ariaLabel: string;
   itemCount: number;
   className?: string;
+  onActiveIndexChange?: (index: number) => void;
 };
 
 /** Physical arrow icons: left ← and right → (outward from center). */
@@ -39,7 +40,13 @@ function ArrowIcon({ direction }: { direction: "left" | "right" }) {
   );
 }
 
-export function Carousel({ children, ariaLabel, itemCount, className = "" }: CarouselProps) {
+export function Carousel({
+  children,
+  ariaLabel,
+  itemCount,
+  className = "",
+  onActiveIndexChange,
+}: CarouselProps) {
   const trackRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const slideRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -62,7 +69,8 @@ export function Carousel({ children, ariaLabel, itemCount, className = "" }: Car
       }
     });
     setActiveIndex(closest);
-  }, []);
+    onActiveIndexChange?.(closest);
+  }, [onActiveIndexChange]);
 
   useEffect(() => {
     const track = trackRef.current;
@@ -85,7 +93,8 @@ export function Carousel({ children, ariaLabel, itemCount, className = "" }: Car
     const slide = slideRefs.current[index];
     slide?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
     setActiveIndex(index);
-  }, []);
+    onActiveIndexChange?.(index);
+  }, [onActiveIndexChange]);
 
   const goPrevious = useCallback(() => {
     const next = Math.max(0, activeIndex - 1);

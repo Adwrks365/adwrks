@@ -4,6 +4,7 @@ import { HtmlContent } from "@/components/HtmlContent";
 import { AboutPage } from "@/components/pages/AboutPage";
 import { ContactPage } from "@/components/pages/ContactPage";
 import { VerifiedServicePage } from "@/components/pages/VerifiedServicePage";
+import { WebsiteBuildingServicePage } from "@/components/services/WebsiteBuildingServicePage";
 import { PricingCalculatorIframe } from "@/components/PricingCalculatorIframe";
 import { ArticleTemplate } from "@/components/article/ArticleTemplate";
 import { Container } from "@/components/ui/Container";
@@ -25,6 +26,10 @@ type ContentPageProps = {
 };
 
 export function ContentPage({ content }: ContentPageProps) {
+  if (content.path === "/website-building/") {
+    return <WebsiteBuildingServicePage />;
+  }
+
   const verifiedService = getVerifiedServicePage(content.path);
   if (verifiedService) {
     return <VerifiedServicePage content={verifiedService} />;

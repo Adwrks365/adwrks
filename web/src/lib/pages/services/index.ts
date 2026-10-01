@@ -4,12 +4,9 @@ import { mainServicesPage } from "./main-services";
 import { seoPage } from "./seo";
 import { socialMediaPage } from "./social-media-management";
 import type { ServicePageContent } from "./types";
-import { websiteBuildingPage } from "./website-building";
-
 const SERVICE_PAGES: ServicePageContent[] = [
   seoPage,
   googleAdsPage,
-  websiteBuildingPage,
   socialMediaPage,
   hostingPlansPage,
   mainServicesPage,
