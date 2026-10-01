@@ -145,19 +145,21 @@ export function SiteFooter() {
       <Container className="site-footer-main">
         <div className="site-footer-grid">
           <div className="site-footer-brand site-footer-span">
-            <Link href="/" className="site-footer-logo-link" aria-label={SITE.name}>
-              <Image
-                src={SITE.logoFull}
-                alt=""
-                width={140}
-                height={48}
-                loading="lazy"
-                className="site-footer-logo h-auto w-[120px] brightness-0 invert"
-              />
-            </Link>
-            <h2 className="site-footer-brand-title">
-              <Link href="/">{FOOTER_BRAND.heading}</Link>
-            </h2>
+            <div className="site-footer-brand-top">
+              <Link href="/" className="site-footer-logo-link" aria-label={SITE.name}>
+                <Image
+                  src={SITE.logoFull}
+                  alt=""
+                  width={120}
+                  height={36}
+                  loading="lazy"
+                  className="site-footer-logo brightness-0 invert"
+                />
+              </Link>
+              <h2 className="site-footer-brand-title">
+                <Link href="/">{FOOTER_BRAND.heading}</Link>
+              </h2>
+            </div>
             <div className="site-footer-desc">
               {FOOTER_BRAND.paragraphs.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
