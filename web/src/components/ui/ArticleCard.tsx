@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { PhysicalNavRow } from "@/components/ui/PhysicalNavRow";
 import { formatExcerpt } from "@/lib/content/excerpt";
 import type { ContentItem } from "@/lib/content/types";
 
@@ -54,7 +55,7 @@ export function ArticleCard({ post }: ArticleCardProps) {
         </h2>
         {excerpt && <p className="article-card-excerpt">{excerpt}</p>}
         <Link href={post.path} className="article-card-link">
-          <span aria-hidden="true">←</span> קרא עוד
+          <PhysicalNavRow label="קרא עוד" arrow="left" />
         </Link>
       </div>
     </article>

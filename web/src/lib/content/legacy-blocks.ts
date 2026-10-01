@@ -46,6 +46,39 @@ function isEmptyTopLevelSection(sectionHtml: string): boolean {
   return !hasVisibleElementorContent(sectionHtml);
 }
 
+/** First section is only a duplicate Elementor heading (no paragraphs, lists, media, buttons). */
+function isHeadingOnlyTopSection(sectionHtml: string): boolean {
+  const hasHeading = /elementor-widget-heading/i.test(sectionHtml);
+  if (!hasHeading) return false;
+
+  const hasSubstantiveContent =
+    /<p[^>]*>[\s\S]*?\S/i.test(sectionHtml) ||
+    /<ul[^>]*>[\s\S]*?<li/i.test(sectionHtml) ||
+    /<ol[^>]*>[\s\S]*?<li/i.test(sectionHtml) ||
+    /<img[^>]+src="(?:https?:|\/)/i.test(sectionHtml) ||
+    /<iframe[\s>]/i.test(sectionHtml) ||
+    /elementor-widget-form/i.test(sectionHtml) ||
+    /elementor-button-text[^>]*>[\s\S]*?\S/i.test(sectionHtml) ||
+    /elementor-widget-text-editor/i.test(sectionHtml);
+
+  return !hasSubstantiveContent;
+}
+
+function getLeadingTopLevelSection(html: string): string | null {
+  const match = html.match(
+    /<section\s[^>]*class="[^"]*elementor-top-section[^"]*"[^>]*>[\s\S]*?<\/section>/i,
+  );
+  return match?.[0] ?? null;
+}
+
+function removeLeadingTopLevelSection(html: string): string {
+  const pattern =
+    /<section\s[^>]*class="[^"]*elementor-top-section[^"]*"[^>]*>[\s\S]*?<\/section>/i;
+  const match = html.match(pattern);
+  if (!match || match.index === undefined) return html;
+  return html.slice(0, match.index) + html.slice(match.index + match[0].length);
+}
+
 function removeTopLevelElementorSections(
   html: string,
   shouldRemove: (sectionHtml: string) => boolean,
@@ -80,6 +113,29 @@ export function stripEmptyElementorSections(html: string): string {
     safety++;
     previous = result;
     result = removeTopLevelElementorSections(result, isEmptyTopLevelSection);
+  }
+
+  return result;
+}
+
+/**
+ * Remove redundant leading top-level sections: empty shells and heading-only
+ * duplicates left before the real article body (common WordPress/Elementor pattern).
+ */
+export function stripLeadingRedundantElementorSections(html: string): string {
+  let result = html;
+  let safety = 0;
+
+  while (safety < 20) {
+    safety++;
+    const leading = getLeadingTopLevelSection(result);
+    if (!leading) break;
+
+    const shouldRemove =
+      isEmptyTopLevelSection(leading) || isHeadingOnlyTopSection(leading);
+    if (!shouldRemove) break;
+
+    result = removeLeadingTopLevelSection(result);
   }
 
   return result;

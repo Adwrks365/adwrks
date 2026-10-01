@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { PhysicalNavRow } from "@/components/ui/PhysicalNavRow";
 
 type PaginationProps = {
   currentPage: number;
@@ -19,7 +20,7 @@ export function Pagination({
     <nav className="pagination-nav" aria-label={ariaLabel}>
       {currentPage > 1 && (
         <Link href={getHref(currentPage - 1)} className="pagination-btn pagination-btn-nav">
-          הקודם →
+          <PhysicalNavRow label="הקודם" arrow="right" />
         </Link>
       )}
       <div className="pagination-pages">
@@ -36,7 +37,7 @@ export function Pagination({
       </div>
       {currentPage < totalPages && (
         <Link href={getHref(currentPage + 1)} className="pagination-btn pagination-btn-nav">
-          ← הבא
+          <PhysicalNavRow label="הבא" arrow="left" />
         </Link>
       )}
     </nav>

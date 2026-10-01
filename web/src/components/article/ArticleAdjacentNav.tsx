@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { PhysicalNavRow } from "@/components/ui/PhysicalNavRow";
 import type { ContentItem } from "@/lib/content/types";
 
 type ArticleAdjacentNavProps = {
@@ -14,10 +15,7 @@ export function ArticleAdjacentNav({ previous, next }: ArticleAdjacentNavProps) 
       {next ? (
         <Link href={next.path} className="article-adjacent-link article-adjacent-link-next">
           <span className="article-adjacent-meta">
-            <span className="article-adjacent-arrow" aria-hidden="true">
-              ←
-            </span>
-            <span className="article-adjacent-label">המאמר הבא</span>
+            <PhysicalNavRow label="המאמר הבא" arrow="left" />
           </span>
           <span className="article-adjacent-title">{next.title}</span>
         </Link>
@@ -28,10 +26,7 @@ export function ArticleAdjacentNav({ previous, next }: ArticleAdjacentNavProps) 
       {previous ? (
         <Link href={previous.path} className="article-adjacent-link article-adjacent-link-prev">
           <span className="article-adjacent-meta">
-            <span className="article-adjacent-label">המאמר הקודם</span>
-            <span className="article-adjacent-arrow" aria-hidden="true">
-              →
-            </span>
+            <PhysicalNavRow label="המאמר הקודם" arrow="right" />
           </span>
           <span className="article-adjacent-title">{previous.title}</span>
         </Link>

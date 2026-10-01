@@ -2,6 +2,7 @@ import { decodeHtmlEntities } from "./paths";
 import { getAllPosts, getCategories, getPostsForCategory } from "./loader";
 import {
   stripEmptyElementorSections,
+  stripLeadingRedundantElementorSections,
   stripLegacyArticleContactBlocks,
 } from "./legacy-blocks";
 import type { ContentItem } from "./types";
@@ -133,6 +134,7 @@ export function prepareArticleBodyHtml(rawHtml: string): {
   let html = stripEmbeddedArticleSidebar(rawHtml);
   html = stripLegacyArticleContactBlocks(html);
   html = stripEmptyElementorSections(html);
+  html = stripLeadingRedundantElementorSections(html);
   html = html.replace(
     /<div class="elementor-widget-container">\s*<h1[^>]*>[\s\S]*?<\/h1>\s*<\/div>/i,
     "",

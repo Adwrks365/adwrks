@@ -57,30 +57,53 @@ function hasVisibleElementorContent(sectionHtml) {
 }
 
 function isLegacyContactSection(sectionHtml) {
-  if (LEGACY_CONTACT_SECTION_MARKERS.some((marker) => sectionHtml.includes(marker))) {
-    return true;
-  }
-  const hasOfficePhone =
-    /tel:0795599449|tel:079-5599449|079-55-99-449|079-5599449/i.test(sectionHtml);
-  const hasSocialWidget = /elementor-social-icon|elementor-widget-social-icons/i.test(
-    sectionHtml,
-  );
-  const hasPartnerBadge =
-    /meta-parners|google-meta-partners|Google Partner|Meta Partner/i.test(sectionHtml);
-  const hasOfficeHoursBlock =
-    /שעות פתיחה[\s\S]{0,400}09:00|שעות פתיחה[\s\S]{0,400}א['']-ה['']/i.test(
-      sectionHtml,
-    );
-  if (hasOfficePhone && (hasSocialWidget || hasPartnerBadge || hasOfficeHoursBlock)) {
-    return true;
-  }
-  return false;
+  return LEGACY_CONTACT_SECTION_MARKERS.some((marker) => sectionHtml.includes(marker));
+}
+
+function isHeadingOnlyTopSection(sectionHtml) {
+  const hasHeading = /elementor-widget-heading/i.test(sectionHtml);
+  if (!hasHeading) return false;
+  const hasSubstantiveContent =
+    /<p[^>]*>[\s\S]*?\S/i.test(sectionHtml) ||
+    /<ul[^>]*>[\s\S]*?<li/i.test(sectionHtml) ||
+    /<ol[^>]*>[\s\S]*?<li/i.test(sectionHtml) ||
+    /<img[^>]+src="(?:https?:|\/)/i.test(sectionHtml) ||
+    /<iframe[\s>]/i.test(sectionHtml) ||
+    /elementor-widget-form/i.test(sectionHtml) ||
+    /elementor-button-text[^>]*>[\s\S]*?\S/i.test(sectionHtml) ||
+    /elementor-widget-text-editor/i.test(sectionHtml);
+  return !hasSubstantiveContent;
 }
 
 function removeTopLevelElementorSections(html, shouldRemove) {
   const sectionPattern =
     /<section\s[^>]*class="[^"]*elementor-top-section[^"]*"[^>]*>[\s\S]*?<\/section>/gi;
   return html.replace(sectionPattern, (section) => (shouldRemove(section) ? "" : section));
+}
+
+function removeLeadingTopLevelSection(html) {
+  return html.replace(
+    /<section\s[^>]*class="[^"]*elementor-top-section[^"]*"[^>]*>[\s\S]*?<\/section>/i,
+    "",
+    1,
+  );
+}
+
+function stripLeadingRedundantElementorSections(html) {
+  let result = html;
+  let safety = 0;
+  while (safety < 20) {
+    safety++;
+    const leading = result.match(
+      /<section\s[^>]*class="[^"]*elementor-top-section[^"]*"[^>]*>[\s\S]*?<\/section>/i,
+    )?.[0];
+    if (!leading) break;
+    const shouldRemove =
+      !hasVisibleElementorContent(leading) || isHeadingOnlyTopSection(leading);
+    if (!shouldRemove) break;
+    result = removeLeadingTopLevelSection(result);
+  }
+  return result;
 }
 
 function prepareArticleBodyHtml(rawHtml) {
@@ -93,9 +116,13 @@ function prepareArticleBodyHtml(rawHtml) {
   }
   for (let i = 0; i < 20; i++) {
     previous = html;
-    html = removeTopLevelElementorSections(html, (section) => !hasVisibleElementorContent(section));
+    html = removeTopLevelElementorSections(
+      html,
+      (section) => !hasVisibleElementorContent(section),
+    );
     if (html === previous) break;
   }
+  html = stripLeadingRedundantElementorSections(html);
   return html;
 }
 
@@ -104,11 +131,22 @@ function hasEmptyLeadingSection(html) {
     /<section\s[^>]*elementor-top-section[^>]*>[\s\S]*?<\/section>/i,
   );
   if (!match) return false;
-  return !hasVisibleElementorContent(match[0]);
+  return (
+    !hasVisibleElementorContent(match[0]) || isHeadingOnlyTopSection(match[0])
+  );
 }
 
 const hits = posts.filter((post) =>
   hasEmptyLeadingSection(prepareArticleBodyHtml(post.content)),
 );
 
-console.log(JSON.stringify({ emptyLeadingAfterCleanup: hits.length, ids: hits.map((p) => p.id) }, null, 2));
+console.log(
+  JSON.stringify(
+    {
+      redundantLeadingAfterCleanup: hits.length,
+      ids: hits.map((p) => p.id),
+    },
+    null,
+    2,
+  ),
+);
