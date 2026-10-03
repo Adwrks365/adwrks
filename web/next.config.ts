@@ -12,6 +12,11 @@ const nextConfig: NextConfig = {
         destination: "/hosting-plans/",
         permanent: true,
       },
+      {
+        source: "/contact/",
+        destination: "/contact-us/",
+        permanent: true,
+      },
     ];
   },
   images: {

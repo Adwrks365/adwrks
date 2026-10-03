@@ -10,7 +10,7 @@ import { SeoServicePage } from "@/components/services/SeoServicePage";
 import { ServiceHubPage } from "@/components/services/ServiceHubPage";
 import { SocialMediaServicePage } from "@/components/services/SocialMediaServicePage";
 import { WebsiteBuildingServicePage } from "@/components/services/WebsiteBuildingServicePage";
-import { PricingCalculatorIframe } from "@/components/PricingCalculatorIframe";
+import { PricingPage } from "@/components/pages/PricingPage";
 import { ArticleTemplate } from "@/components/article/ArticleTemplate";
 import { Container } from "@/components/ui/Container";
 import { getExtractedPage } from "@/lib/content/elementor-extract";
@@ -22,9 +22,6 @@ const ContactForm = dynamic(
   () => import("@/components/ContactForm").then((m) => m.ContactForm),
   { loading: () => <p className="text-sm text-slate-500">טוען טופס...</p> },
 );
-
-const PRICING_CALCULATOR_SRC =
-  "https://a2f55361-9e5b-4902-aac9-a41086cfeb54-krtyyh.sticklight.app/pricing-calculator";
 
 type ContentPageProps = {
   content: ContentItem;
@@ -49,6 +46,9 @@ export function ContentPage({ content }: ContentPageProps) {
   if (content.path === "/hosting-plans/") {
     return <HostingPlansServicePage />;
   }
+  if (content.path === "/מחירון-שיווק-דיגיטלי/") {
+    return <PricingPage />;
+  }
 
   const verifiedService = getVerifiedServicePage(content.path);
   if (verifiedService) {
@@ -66,22 +66,8 @@ export function ContentPage({ content }: ContentPageProps) {
 
   const isContact = content.path === "/contact-us/";
   const isHome = content.path === "/";
-  const isPricing =
-    content.path === "/מחירון-שיווק-דיגיטלי/" ||
-    content.slug.includes("מחירון") ||
-    content.title.includes("מחירון");
 
-  let html = content.content;
-  if (isPricing) {
-    html = html.replace(
-      /<iframe[^>]*id="pricing-calculator-iframe"[^>]*><\/iframe>/i,
-      "<!--pricing-calculator-placeholder-->",
-    );
-    html = html.replace(
-      /<iframe[^>]*pricing-calculator[^>]*><\/iframe>/i,
-      "<!--pricing-calculator-placeholder-->",
-    );
-  }
+  const html = content.content;
 
   if (isHome) {
     return (
@@ -106,15 +92,6 @@ export function ContentPage({ content }: ContentPageProps) {
         <div className="content-page-wide content-html-elementor">
           <HtmlContent html={html} className="content-html--page" />
         </div>
-
-        {isPricing && (
-          <div className="mt-8">
-            <PricingCalculatorIframe
-              src={PRICING_CALCULATOR_SRC}
-              title="מחשבון מחירי שיווק דיגיטלי"
-            />
-          </div>
-        )}
 
         {isContact && (
           <section className="mx-auto mt-10 max-w-xl">
