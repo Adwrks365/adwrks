@@ -1,5 +1,5 @@
 import Image from "next/image";
-import type { CSSProperties } from "react";
+import { ServiceCampaignIcon } from "./ServiceCampaignIcon";
 
 /** Abstract SERP/search composition — no fake rankings or metrics */
 export function SeoHeroVisual() {
@@ -35,20 +35,52 @@ export function SeoHeroVisual() {
   );
 }
 
-/** Campaign ecosystem chips — no fake dashboard data */
-export function GoogleAdsHeroVisual() {
-  const chips = ["Search", "Display", "YouTube", "Shopping", "Local"];
+type GoogleAdsHeroVisualProps = {
+  image: { src: string; alt: string; width: number; height: number };
+  partnerBadge: { src: string; alt: string };
+  campaigns: readonly { label: string; icon: "search" | "display" | "youtube" | "shopping" | "local" }[];
+};
+
+/** Campaign ecosystem card — real asset focal point + structured campaign rail */
+export function GoogleAdsHeroVisual({ image, partnerBadge, campaigns }: GoogleAdsHeroVisualProps) {
   return (
-    <div className="sp-compose sp-compose--gads" aria-hidden="true">
-      <div className="sp-compose-gads-orbit">
-        {chips.map((chip, i) => (
-          <span key={chip} className="sp-compose-gads-chip" style={{ "--chip-i": i } as CSSProperties}>
-            {chip}
-          </span>
-        ))}
-        <div className="sp-compose-gads-core">
-          <span className="sp-compose-gads-core-label">קמפיין</span>
-          <span className="sp-compose-gads-core-sub">מדידה ← אופטימיזציה</span>
+    <div className="sp-gads-hero-visual">
+      <div className="sp-gads-hero-card">
+        <div className="sp-gads-hero-glow" aria-hidden="true" />
+        <div className="sp-gads-hero-frame">
+          <div className="sp-gads-hero-frame-bar" aria-hidden="true">
+            <span />
+            <span />
+            <span />
+          </div>
+          <Image
+            src={image.src}
+            alt={image.alt}
+            width={image.width}
+            height={image.height}
+            className="sp-gads-hero-image"
+            sizes="(min-width: 768px) 42vw, 100vw"
+            priority
+          />
+        </div>
+        <ul className="sp-gads-hero-rail" aria-hidden="true">
+          {campaigns.map((item) => (
+            <li key={item.label} className="sp-gads-hero-rail-item">
+              <ServiceCampaignIcon kind={item.icon} />
+              <span>{item.label}</span>
+            </li>
+          ))}
+        </ul>
+        <div className="sp-gads-hero-partner">
+          <Image
+            src={partnerBadge.src}
+            alt={partnerBadge.alt}
+            width={72}
+            height={72}
+            className="sp-gads-hero-partner-badge"
+            sizes="72px"
+          />
+          <span className="sp-gads-hero-partner-text">Google Partner • מאז 2018</span>
         </div>
       </div>
     </div>
@@ -92,6 +124,13 @@ const HUB_NODES = [
 export function HubEcosystemVisual() {
   return (
     <div className="sp-hub-ecosystem" aria-hidden="true">
+      <svg className="sp-hub-ecosystem-lines" viewBox="0 0 200 200" preserveAspectRatio="none">
+        <line x1="100" y1="100" x2="100" y2="24" />
+        <line x1="100" y1="100" x2="172" y2="68" />
+        <line x1="100" y1="100" x2="156" y2="156" />
+        <line x1="100" y1="100" x2="44" y2="156" />
+        <line x1="100" y1="100" x2="28" y2="68" />
+      </svg>
       <div className="sp-hub-ecosystem-core">
         <span className="sp-hub-ecosystem-brand">Adwrks</span>
         <span className="sp-hub-ecosystem-sub">שיווק דיגיטלי 360°</span>
@@ -107,15 +146,45 @@ export function HubEcosystemVisual() {
   );
 }
 
-/** Hosting hero: infrastructure grid motif */
+/** Hosting hero: two-path infrastructure — WordPress + modern stack */
 export function HostingHeroVisual() {
   return (
-    <div className="sp-compose sp-compose--hosting" aria-hidden="true">
-      <div className="sp-compose-hosting-grid">
-        <div className="sp-compose-hosting-node sp-compose-hosting-node--wp">WordPress</div>
-        <div className="sp-compose-hosting-node sp-compose-hosting-node--app">אתר מודרני</div>
-        <div className="sp-compose-hosting-lines" />
-        <div className="sp-compose-hosting-pulse" />
+    <div className="sp-hosting-hero-visual" aria-hidden="true">
+      <div className="sp-hosting-hero-diagram">
+        <div className="sp-hosting-hero-site">
+          <span className="sp-hosting-hero-site-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75">
+              <rect x="3" y="4" width="18" height="14" rx="2" />
+              <path d="M8 21h8M12 18v3" />
+            </svg>
+          </span>
+          <span className="sp-hosting-hero-site-label">האתר שלכם</span>
+        </div>
+        <div className="sp-hosting-hero-trunk" />
+        <div className="sp-hosting-hero-paths">
+          <div className="sp-hosting-hero-path sp-hosting-hero-path--wp">
+            <span className="sp-hosting-hero-path-badge">WordPress</span>
+            <ul className="sp-hosting-hero-path-points">
+              <li>אחסון מנוהל</li>
+              <li>תחזוקה</li>
+              <li>גיבויים + SSL</li>
+            </ul>
+          </div>
+          <div className="sp-hosting-hero-path sp-hosting-hero-path--modern">
+            <span className="sp-hosting-hero-path-badge">אתר מודרני</span>
+            <ul className="sp-hosting-hero-path-points">
+              <li>תשתית מותאמת</li>
+              <li>
+                <span className="sp-hosting-hero-vendors">
+                  <span>Next.js</span>
+                  <span>Vercel</span>
+                  <span>Supabase</span>
+                </span>
+              </li>
+            </ul>
+            <span className="sp-hosting-hero-path-note">לפי ארכיטקטורת הפרויקט</span>
+          </div>
+        </div>
       </div>
     </div>
   );

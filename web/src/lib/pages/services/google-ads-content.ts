@@ -123,6 +123,12 @@ export const GOOGLE_ADS_PARTNER_BADGE = {
 };
 
 export const GOOGLE_ADS_IMAGES = {
+  hero: {
+    src: "https://adwrks.co.il/wp-content/uploads/1-3.png",
+    alt: "פרסום ממומן בגוגל – מערכת קמפיינים",
+    width: 800,
+    height: 600,
+  },
   intro: {
     src: "https://adwrks.co.il/wp-content/uploads/1-3.png",
     alt: "פרסום ממומן בגוגל לעסקים",
@@ -136,3 +142,11 @@ export const GOOGLE_ADS_IMAGES = {
     height: 600,
   },
 } as const;
+
+export const GOOGLE_ADS_HERO_CAMPAIGNS = [
+  { label: "Search", icon: "search" as const },
+  { label: "Display", icon: "display" as const },
+  { label: "YouTube", icon: "youtube" as const },
+  { label: "Shopping", icon: "shopping" as const },
+  { label: "Local", icon: "local" as const },
+] as const;

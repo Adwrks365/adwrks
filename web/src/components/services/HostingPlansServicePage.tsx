@@ -37,7 +37,7 @@ export function HostingPlansServicePage() {
         visual={<HostingHeroVisual />}
         actions={
           <ServiceCtaRow
-            primaryLabel="ייעוץ לבחירת חבילת אחסון"
+            primaryLabel={HOSTING_HERO.ctaLabel}
             secondary={<ServicePhoneLink tone="light" />}
             tertiary={<ServiceContactButton />}
           />

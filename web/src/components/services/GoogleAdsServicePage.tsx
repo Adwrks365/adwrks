@@ -9,6 +9,7 @@ import {
   GOOGLE_ADS_FINAL_CTA,
   GOOGLE_ADS_GUIDE_PATHS,
   GOOGLE_ADS_HERO,
+  GOOGLE_ADS_HERO_CAMPAIGNS,
   GOOGLE_ADS_IMAGES,
   GOOGLE_ADS_INTRO,
   GOOGLE_ADS_LANDING,
@@ -42,8 +43,13 @@ export function GoogleAdsServicePage() {
         badge={GOOGLE_ADS_HERO.badge}
         title={GOOGLE_ADS_HERO.title}
         lead={GOOGLE_ADS_HERO.lead}
-        proofImage={GOOGLE_ADS_PARTNER_BADGE}
-        visual={<GoogleAdsHeroVisual />}
+        visual={
+          <GoogleAdsHeroVisual
+            image={GOOGLE_ADS_IMAGES.hero}
+            partnerBadge={GOOGLE_ADS_PARTNER_BADGE}
+            campaigns={GOOGLE_ADS_HERO_CAMPAIGNS}
+          />
+        }
         actions={
           <ServiceCtaRow
             primaryLabel="ייעוץ Google Ads"
