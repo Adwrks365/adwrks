@@ -71,24 +71,40 @@ async function main() {
   // Pricing page desktop
   await page.setViewportSize({ width: 1440, height: 900 });
   const pricingUrl = `${BASE}${PRICING_PATH}`;
-  const pricingRes = await page.goto(pricingUrl, { waitUntil: "networkidle" });
+  const pricingRes = await page.goto(pricingUrl, { waitUntil: "domcontentloaded" });
   report.pricing = {
     url: pricingUrl,
     status: pricingRes?.status(),
     ...(await pageMeta(page)),
   };
-  const desktopShot = path.join(OUT_DIR, "pricing-1440.png");
-  await page.screenshot({ path: desktopShot, fullPage: true });
-  report.screenshots.push(desktopShot);
+  await page.locator(".pp-hero").scrollIntoViewIfNeeded();
+  const heroShot = path.join(OUT_DIR, "pricing-hero-1440.png");
+  await page.screenshot({ path: heroShot });
+  report.screenshots.push(heroShot);
 
   await page.locator(".pp-section-cards").scrollIntoViewIfNeeded();
   const cardsShot = path.join(OUT_DIR, "pricing-cards-1440.png");
   await page.screenshot({ path: cardsShot });
   report.screenshots.push(cardsShot);
 
+  await page.evaluate(() => document.querySelector(".pp-section-factors")?.scrollIntoView({ block: "center" }));
+  const editorialShot = path.join(OUT_DIR, "pricing-editorial-1440.png");
+  await page.screenshot({ path: editorialShot });
+  report.screenshots.push(editorialShot);
+
+  await page.evaluate(() => document.querySelector(".pp-trust-strip")?.scrollIntoView({ block: "center" }));
+  const trustShot = path.join(OUT_DIR, "pricing-trust-1440.png");
+  await page.screenshot({ path: trustShot });
+  report.screenshots.push(trustShot);
+
+  await page.evaluate(() => window.scrollTo(0, 0));
+  const desktopShot = path.join(OUT_DIR, "pricing-1440.png");
+  await page.screenshot({ path: desktopShot, fullPage: true });
+  report.screenshots.push(desktopShot);
+
   // Mobile
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto(pricingUrl, { waitUntil: "networkidle" });
+  await page.goto(pricingUrl, { waitUntil: "domcontentloaded" });
   report.pricing.mobile = {
     ...(await pageMeta(page)),
     viewport: "390x844",

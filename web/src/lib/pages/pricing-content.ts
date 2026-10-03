@@ -4,9 +4,11 @@ export const PRICING_PATH = "/מחירון-שיווק-דיגיטלי/" as const;
 
 export const PRICING_HERO = {
   eyebrow: "מחירון • סוכנות שיווק דיגיטלי",
-  /** Preserve existing H1 verbatim */
-  title: "מחירון שיווק דיגיטלי - מחשבון עלויות אינטראקטיבי",
-  lead: "שקוף, מדויק ומותאם לתקציב העסק שלך. חשבו בלייב את העלויות הצפויות לקידום אורגני (SEO), קמפיינים ממומנים (PPC) ובניית אתרים – ללא אותיות קטנות וללא הצעות מנופחות.",
+  /** Visible Hero H1 (Phase 5I.1B) — SEO title/meta unchanged in seo.json */
+  h1: "מחירון שיווק דיגיטלי לעסקים",
+  /** Popup / legacy page title reference — not used for document title */
+  seoPageTitle: "מחירון שיווק דיגיטלי - מחשבון עלויות אינטראקטיבי",
+  lead: "מחירי התחלה לשירותי פרסום, SEO, רשתות חברתיות ובניית אתרים, לצד מחשבון עלויות אינטראקטיבי לקבלת הערכה ראשונית. המחיר הסופי נקבע לפי היקף, תחרות וצרכי העסק.",
   primaryCta: "קבלת הצעה מותאמת לעסק",
 } as const;
 
@@ -226,6 +228,8 @@ export const PRICING_CHANNELS = {
 export const PRICING_TRUST = {
   badge: "Google Partner",
   since: "סוכנות שיווק דיגיטלי מאז 2018",
+  supporting:
+    "ליווי אישי, שקיפות מלאה ומחירי התחלה ברורים — כדי שתדעו מה מצפה לכם לפני שמתחילים.",
   partnerImage: "/wp-content/uploads/Partner-CMYK-.webp",
 } as const;
 

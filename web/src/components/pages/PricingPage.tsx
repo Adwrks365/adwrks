@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { ContextualPopupRegistrar } from "@/components/popups/ContextualPopupRegistrar";
 import { ServiceFaq } from "@/components/services/shared/ServiceFaq";
 import { ServiceRelatedServices } from "@/components/services/shared/ServiceRelatedServices";
@@ -30,8 +31,17 @@ import { PricingCalculatorSection } from "./PricingCalculatorSection";
 import { PricingCard } from "./PricingCard";
 import { PricingHeroVisual } from "./PricingHeroVisual";
 
+function EditorialPoint({ title, children }: { title: string; children: ReactNode }) {
+  return (
+    <article className="pp-editorial-point">
+      <h3 className="pp-editorial-point-title">{title}</h3>
+      <p className="pp-editorial-point-text">{children}</p>
+    </article>
+  );
+}
+
 export function PricingPage() {
-  const popupConfig = getServicePopupConfig(PRICING_PATH, PRICING_HERO.title);
+  const popupConfig = getServicePopupConfig(PRICING_PATH, PRICING_HERO.seoPageTitle);
 
   return (
     <article className="pp-page structured-page">
@@ -41,7 +51,7 @@ export function PricingPage() {
           <div className="pp-hero-shell">
             <div className="pp-hero-copy">
               <p className="pp-hero-eyebrow">{PRICING_HERO.eyebrow}</p>
-              <h1 className="pp-hero-title">{PRICING_HERO.title}</h1>
+              <h1 className="pp-hero-title">{PRICING_HERO.h1}</h1>
               <p className="pp-hero-lead">{PRICING_HERO.lead}</p>
               <ServiceCtaRow
                 primaryLabel={PRICING_HERO.primaryCta}
@@ -59,8 +69,10 @@ export function PricingPage() {
       </header>
 
       <Section tone="white" align="start" className="pp-section-intro">
-        <p className="pp-body-lead">{PRICING_INTRO.text}</p>
-        <p className="pp-disclaimer">{PRICING_INTRO.disclaimer}</p>
+        <div className="pp-editorial-body">
+          <p className="pp-body-lead">{PRICING_INTRO.text}</p>
+          <p className="pp-disclaimer">{PRICING_INTRO.disclaimer}</p>
+        </div>
       </Section>
 
       <Section
@@ -85,14 +97,20 @@ export function PricingPage() {
         </div>
       </Section>
 
-      <Section tone="white" title={PRICING_FACTORS.title} subtitle={PRICING_FACTORS.intro} align="start">
-        <ul className="pp-factors-list">
+      <Section
+        tone="white"
+        title={PRICING_FACTORS.title}
+        subtitle={PRICING_FACTORS.intro}
+        align="start"
+        className="pp-section-editorial pp-section-factors"
+      >
+        <div className="pp-editorial-grid pp-editorial-grid--two">
           {PRICING_FACTORS.items.map((item) => (
-            <li key={item.title}>
-              <strong>{item.title}:</strong> {item.text}
-            </li>
+            <EditorialPoint key={item.title} title={item.title}>
+              {item.text}
+            </EditorialPoint>
           ))}
-        </ul>
+        </div>
         <div className="pp-highlight-box">
           <p>
             {PRICING_TRANSPARENCY.text}{" "}
@@ -101,34 +119,46 @@ export function PricingPage() {
         </div>
       </Section>
 
-      <Section tone="sky" title={PRICING_WHY_INVEST.title} subtitle={PRICING_WHY_INVEST.intro} align="start">
-        <ul className="pp-benefits-list">
+      <Section
+        tone="muted"
+        title={PRICING_WHY_INVEST.title}
+        subtitle={PRICING_WHY_INVEST.intro}
+        align="start"
+        className="pp-section-editorial pp-section-invest"
+      >
+        <div className="pp-editorial-grid pp-editorial-grid--benefits">
           {PRICING_WHY_INVEST.benefits.map((item) => (
-            <li key={item.title}>
-              <strong>{item.title}:</strong> {item.text}
-            </li>
+            <EditorialPoint key={item.title} title={item.title}>
+              {item.text}
+            </EditorialPoint>
           ))}
-        </ul>
-        <p className="pp-body-text">
+        </div>
+        <p className="pp-body-text pp-editorial-body">
           {PRICING_WHY_INVEST.roiNote}{" "}
           <Link href={PRICING_WHY_INVEST.roiCalculatorHref}>{PRICING_WHY_INVEST.roiCalculatorLabel} ←</Link>
         </p>
       </Section>
 
-      <Section tone="white" title={PRICING_CHANNELS.title} subtitle={PRICING_CHANNELS.intro} align="start">
-        <ul className="pp-channels-list">
+      <Section
+        tone="white"
+        title={PRICING_CHANNELS.title}
+        subtitle={PRICING_CHANNELS.intro}
+        align="start"
+        className="pp-section-editorial pp-section-channels"
+      >
+        <div className="pp-editorial-grid pp-editorial-grid--channels">
           {PRICING_CHANNELS.items.map((item) => (
-            <li key={item.title}>
-              <strong>{item.title}:</strong> {item.text}
+            <EditorialPoint key={item.title} title={item.title}>
+              {item.text}
               {"href" in item && item.href && item.linkLabel && (
                 <>
                   {" "}
                   <Link href={item.href}>{item.linkLabel}</Link>
                 </>
               )}
-            </li>
+            </EditorialPoint>
           ))}
-        </ul>
+        </div>
       </Section>
 
       <Section
@@ -142,31 +172,29 @@ export function PricingPage() {
         <PricingCalculatorSection />
       </Section>
 
-      <Section tone="white" align="start" className="pp-section-trust">
-        <div className="pp-trust-row">
-          <div className="pp-trust-copy">
-            <p className="pp-trust-badge">{PRICING_TRUST.badge}</p>
-            <p className="pp-trust-since">{PRICING_TRUST.since}</p>
-            <p className="pp-trust-text">
-              ליווי אישי, שקיפות מלאה ומחירי התחלה ברורים — כדי שתדעו מה מצפה לכם לפני שמתחילים.
-            </p>
-          </div>
+      <Section tone="sky" align="start" className="pp-section-trust">
+        <div className="pp-trust-strip">
           <Image
             src={PRICING_TRUST.partnerImage}
-            alt=""
-            width={160}
-            height={153}
-            className="pp-trust-partner"
+            alt="Google Partner"
+            width={120}
+            height={115}
+            className="pp-trust-strip-badge"
             loading="lazy"
           />
+          <div className="pp-trust-strip-copy">
+            <p className="pp-trust-strip-label">{PRICING_TRUST.badge}</p>
+            <p className="pp-trust-strip-since">{PRICING_TRUST.since}</p>
+            <p className="pp-trust-strip-text">{PRICING_TRUST.supporting}</p>
+          </div>
         </div>
       </Section>
 
-      <Section tone="sky" title="שאלות ותשובות נפוצות על מחירי שיווק" align="start" className="pp-section-faq">
+      <Section tone="white" title="שאלות ותשובות נפוצות על מחירי שיווק" align="start" className="pp-section-faq">
         <ServiceFaq items={PRICING_FAQ} className="pp-faq-list" />
       </Section>
 
-      <Section tone="white" title="שירותים קשורים" align="start">
+      <Section tone="muted" title="שירותים קשורים" align="start">
         <ServiceRelatedServices services={PRICING_RELATED_SERVICES} />
       </Section>
 
