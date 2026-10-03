@@ -6,6 +6,11 @@ export const SOCIAL_HERO = {
   lead: "ניהול רשתות חברתיות הוא הרבה מעבר להעלאת פוסטים. ב-Adwrks 365 אנו מתמחים בניהול פייסבוק ואינסטגרם לעסקים, עם שילוב של תוכן, אסטרטגיה ופרסום ממומן – במטרה לבנות נוכחות דיגיטלית חזקה, לייצר מעורבות ולהפוך עוקבים לפניות ולקוחות.",
 };
 
+export const SOCIAL_HERO_IMAGE = {
+  src: "https://adwrks.co.il/wp-content/uploads/8e68e316-a0b5-4c8f-92ff-77950518d1c5.webp",
+  alt: "ניהול רשתות חברתיות לעסקים",
+} as const;
+
 export const SOCIAL_INTRO = {
   label: "נוכחות שמייצרת חיבור",
   title: "ניהול רשתות חברתיות לעסקים",

@@ -127,3 +127,18 @@ export const SEO_PARTNER_BADGE = {
   src: "https://adwrks.co.il/wp-content/uploads/gogle-artner-badge-1.png",
   alt: "Google Partner",
 };
+
+export const SEO_IMAGES = {
+  intro: {
+    src: "https://adwrks.co.il/wp-content/uploads/seo-1.jpg",
+    alt: "קידום אתרים אורגני לעסקים",
+    width: 800,
+    height: 600,
+  },
+  process: {
+    src: "https://adwrks.co.il/wp-content/uploads/13.jpg",
+    alt: "תהליך קידום אתרים מבוסס נתונים",
+    width: 800,
+    height: 600,
+  },
+} as const;

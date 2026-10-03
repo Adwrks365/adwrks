@@ -1,10 +1,15 @@
 export const HOSTING_PATH = "/hosting-plans/" as const;
 
 export const HOSTING_HERO = {
-  badge: "אחסון וורדפרס • תחזוקה",
-  title: "שירות אחסון ותחזוקת אתרי WordPress",
-  lead: "שירותי האחסון ותחזוקת אתרים שלנו, כולל חבילות אחסון אתרי וורדפרס מותאמות אישית, מספקים שקט נפשי בכל הקשור לאתר שלכם. תוכלו להתרכז בעסק שלכם ברוגע, ולבצע את הדברים החשובים ללא כאבי ראש.",
+  badge: "אחסון • תחזוקה • יציבות",
+  title: "אחסון ותחזוקת אתרים",
+  lead: "שירותי האחסון ותחזוקת האתרים שלנו מספקים שקט נפשי – מחבילות אחסון ותחזוקה לאתרי WordPress ועד תשתיות לאתרים מודרניים, בהתאם לצורכי הפרויקט. תוכלו להתרכז בעסק, ואנחנו נדאג שהאתר יישאר זמין, מאובטח ויציב.",
 };
+
+export const HOSTING_WORDPRESS_SECTION = {
+  title: "חבילות אחסון ותחזוקה לאתרי WordPress",
+  intro: "חבילות מותאמות לאתרי WordPress – עם גיבויים, SSL, תחזוקה שוטפת ותמיכה.",
+} as const;
 
 export const HOSTING_PLANS = [
   {
@@ -57,6 +62,29 @@ export const HOSTING_PLANS = [
     ],
   },
 ] as const;
+
+export const HOSTING_MODERN_INFRA = {
+  label: "תשתיות מודרניות",
+  title: "אחסון ותשתיות לאתרים מודרניים",
+  intro:
+    "לא כל אתר עובד כמו אתר WordPress מסורתי. אתרים ואפליקציות מודרניים נבנים לפי ארכיטקטורת הפרויקט – ויכולים להשתמש בתשתיות כמו Next.js, Vercel ו-Supabase, בהתאם לצורכי האתר.",
+  points: [
+    {
+      name: "Next.js",
+      text: "מסגרת application architecture – מבנה האפליקציה והאתר.",
+    },
+    {
+      name: "Vercel",
+      text: "פריסה, CDN ותשתית פלטפורמה – איפה שהאפליקציה רצה ומוגשת למשתמשים.",
+    },
+    {
+      name: "Supabase",
+      text: "יכולות backend – מסד נתונים, אימות, storage ועוד, כשהפרויקט דורש.",
+    },
+  ],
+  pricingNote: "תמחור בהתאם לארכיטקטורה ולצורכי הפרויקט",
+  ctaLabel: "ייעוץ לתשתית האתר",
+} as const;
 
 export const HOSTING_MAINTENANCE = {
   label: "למה זה חשוב",

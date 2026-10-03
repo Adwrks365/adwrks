@@ -14,7 +14,7 @@ const routes = [
   { path: "/seo/", key: "seo", marker: "sp-page--seo", faq: 6 },
   { path: "/google-ads/", key: "gads", marker: "sp-page--google-ads", faq: 6 },
   { path: "/social-media-management/", key: "social", marker: "sp-page--social", faq: 6 },
-  { path: "/hosting-plans/", key: "hosting", marker: "sp-page--hosting", h1: "שירות אחסון ותחזוקת אתרי WordPress" },
+  { path: "/hosting-plans/", key: "hosting", marker: "sp-page--hosting", h1: "אחסון ותחזוקת אתרים" },
   { path: "/website-building/", key: "wb", marker: "wb-page", faq: 6 },
 ];
 

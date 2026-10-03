@@ -15,6 +15,7 @@ import { getServicePopupConfig } from "@/lib/popups/service-pages";
 import { ServiceCtaRow, ServiceContactButton, ServicePhoneLink } from "./shared/ServiceCtas";
 import { ServiceHero } from "./shared/ServiceHero";
 import { ServiceRelatedGuides } from "./shared/ServiceRelatedGuides";
+import { HubEcosystemVisual } from "./shared/ServiceVisualCompositions";
 
 export function ServiceHubPage() {
   const popupConfig = getServicePopupConfig(HUB_PATH, HUB_HERO.title);
@@ -42,7 +43,7 @@ export function ServiceHubPage() {
         <ul className="sp-hub-grid">
           {HUB_SERVICES.map((service) => (
             <li key={service.href}>
-              <Link href={service.href} className="sp-hub-card">
+              <Link href={service.href} className={`sp-hub-card sp-hub-card--${service.accent}`}>
                 <span className="sp-hub-intent">{service.intent}</span>
                 <h3 className="sp-hub-title">{service.title}</h3>
                 <p className="sp-hub-text">{service.text}</p>
@@ -53,13 +54,24 @@ export function ServiceHubPage() {
         </ul>
       </Section>
 
-      <Section tone="sky" label={HUB_INTEGRATION.label} title={HUB_INTEGRATION.title} align="start">
-        <p className="sp-body-lead">{HUB_INTEGRATION.body}</p>
-        <ul className="sp-check-list sp-check-list--compact">
-          {HUB_INTEGRATION.points.map((point) => (
-            <li key={point}>{point}</li>
-          ))}
-        </ul>
+      <Section
+        tone="sky"
+        label={HUB_INTEGRATION.label}
+        title={HUB_INTEGRATION.title}
+        align="start"
+        className="sp-section-ecosystem sp-section-signature"
+      >
+        <div className="sp-hub-integration">
+          <div className="sp-hub-integration-copy">
+            <p className="sp-body-lead">{HUB_INTEGRATION.body}</p>
+            <ul className="sp-check-list sp-check-list--compact">
+              {HUB_INTEGRATION.points.map((point) => (
+                <li key={point}>{point}</li>
+              ))}
+            </ul>
+          </div>
+          <HubEcosystemVisual />
+        </div>
       </Section>
 
       <Section tone="muted" label={HUB_PRICING.label} title={HUB_PRICING.title} align="start">

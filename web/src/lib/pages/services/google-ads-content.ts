@@ -18,12 +18,12 @@ export const GOOGLE_ADS_CAMPAIGNS = {
   label: "סוגי קמפיינים",
   title: "שירותי Google Ads שאנו מנהלים",
   items: [
-    { title: "Search", text: "קמפיינים בחיפוש – מילות מפתח עם כוונת רכישה גבוהה." },
-    { title: "Display", text: "קמפיינים ברשת התצוגה – חשיפה ורימarketing." },
-    { title: "YouTube", text: "וידאו ומודעות ממוקדות ב-YouTube." },
-    { title: "Shopping", text: "Google Shopping – למוצרים וחנויות אונליין." },
-    { title: "Local", text: "קמפיינים מקומיים – Google Maps ו-Local Services." },
-    { title: "אופטימיזציה", text: "A/B testing, דוחות ROI ושיפור מתמשך." },
+    { title: "Search", text: "קמפיינים בחיפוש – מילות מפתח עם כוונת רכישה גבוהה.", icon: "search" as const },
+    { title: "Display", text: "קמפיינים ברשת התצוגה – חשיפה ורימarketing.", icon: "display" as const },
+    { title: "YouTube", text: "וידאו ומודעות ממוקדות ב-YouTube.", icon: "youtube" as const },
+    { title: "Shopping", text: "Google Shopping – למוצרים וחנויות אונליין.", icon: "shopping" as const },
+    { title: "Local", text: "קמפיינים מקומיים – Google Maps ו-Local Services.", icon: "local" as const },
+    { title: "אופטימיזציה", text: "A/B testing, דוחות ROI ושיפור מתמשך.", icon: "optimize" as const },
   ],
 };
 
@@ -121,3 +121,18 @@ export const GOOGLE_ADS_PARTNER_BADGE = {
   src: "https://adwrks.co.il/wp-content/uploads/gogle-artner-badge-1.png",
   alt: "Google Partner",
 };
+
+export const GOOGLE_ADS_IMAGES = {
+  intro: {
+    src: "https://adwrks.co.il/wp-content/uploads/1-3.png",
+    alt: "פרסום ממומן בגוגל לעסקים",
+    width: 800,
+    height: 600,
+  },
+  audience: {
+    src: "https://adwrks.co.il/wp-content/uploads/google-ads-ppc.png",
+    alt: "ניהול קמפיינים ב-Google Ads",
+    width: 800,
+    height: 600,
+  },
+} as const;

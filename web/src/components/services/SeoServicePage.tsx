@@ -10,6 +10,7 @@ import {
   SEO_FINAL_CTA,
   SEO_GUIDE_PATHS,
   SEO_HERO,
+  SEO_IMAGES,
   SEO_MID_CTA,
   SEO_PARTNER_BADGE,
   SEO_PATH,
@@ -19,11 +20,13 @@ import {
 } from "@/lib/pages/services/seo-content";
 import { getServicePopupConfig } from "@/lib/popups/service-pages";
 import { ServiceCtaRow, ServiceContactButton, ServicePhoneLink } from "./shared/ServiceCtas";
+import { ServiceEditorialImage } from "./shared/ServiceEditorialImage";
 import { ServiceFaq } from "./shared/ServiceFaq";
 import { ServiceHero } from "./shared/ServiceHero";
 import { ServiceProcessTimeline } from "./shared/ServiceProcessTimeline";
 import { ServiceRelatedGuides } from "./shared/ServiceRelatedGuides";
 import { ServiceRelatedServices } from "./shared/ServiceRelatedServices";
+import { SeoAeoAccent, SeoHeroVisual } from "./shared/ServiceVisualCompositions";
 
 export function SeoServicePage() {
   const popupConfig = getServicePopupConfig(SEO_PATH, SEO_HERO.title);
@@ -43,6 +46,7 @@ export function SeoServicePage() {
         title={SEO_HERO.title}
         lead={SEO_HERO.lead}
         proofImage={SEO_PARTNER_BADGE}
+        visual={<SeoHeroVisual />}
         actions={
           <ServiceCtaRow
             primaryLabel="ייעוץ SEO"
@@ -52,53 +56,71 @@ export function SeoServicePage() {
         }
       />
 
-      <Section tone="white" label={SEO_TODAY.label} title={SEO_TODAY.title} align="start">
-        <div className="sp-editorial-grid">
+      <Section tone="white" label={SEO_TODAY.label} title={SEO_TODAY.title} align="start" className="sp-section-fade-in">
+        <div className="sp-editorial-grid sp-editorial-grid--media">
           <div className="sp-editorial-copy">
             <p className="sp-body-lead">{SEO_TODAY.intro}</p>
+            <ul className="sp-check-list sp-check-list--inline">
+              {SEO_TODAY.points.map((point) => (
+                <li key={point}>{point}</li>
+              ))}
+            </ul>
           </div>
-          <ul className="sp-check-list sp-check-list--panel">
-            {SEO_TODAY.points.map((point) => (
-              <li key={point}>{point}</li>
-            ))}
-          </ul>
+          <ServiceEditorialImage
+            src={SEO_IMAGES.intro.src}
+            alt={SEO_IMAGES.intro.alt}
+            width={SEO_IMAGES.intro.width}
+            height={SEO_IMAGES.intro.height}
+          />
         </div>
       </Section>
 
       <Section tone="sky" label={SEO_AUDIENCE.label} title={SEO_AUDIENCE.title} align="start">
-        <ul className="sp-check-list">
+        <ul className="sp-audience-list">
           {SEO_AUDIENCE.items.map((item) => (
             <li key={item}>{item}</li>
           ))}
         </ul>
       </Section>
 
-      <Section tone="white" label={SEO_PROCESS.label} title={SEO_PROCESS.title} align="start" className="sp-section-process">
-        <ServiceProcessTimeline steps={SEO_PROCESS.steps} />
+      <Section tone="white" label={SEO_PROCESS.label} title={SEO_PROCESS.title} align="start" className="sp-section-process sp-section-signature">
+        <div className="sp-process-split">
+          <ServiceProcessTimeline steps={SEO_PROCESS.steps} variant="seo" />
+          <ServiceEditorialImage
+            src={SEO_IMAGES.process.src}
+            alt={SEO_IMAGES.process.alt}
+            width={SEO_IMAGES.process.width}
+            height={SEO_IMAGES.process.height}
+            className="sp-process-media"
+          />
+        </div>
       </Section>
 
-      <Section tone="muted" label={SEO_AI.label} title={SEO_AI.title} align="start">
-        <p className="sp-body-lead sp-body-lead--narrow">{SEO_AI.intro}</p>
-        <ul className="sp-check-list sp-check-list--compact">
-          {SEO_AI.points.map((point) => (
-            <li key={point}>{point}</li>
-          ))}
-        </ul>
-        {aiGuides.length > 0 && (
-          <div className="sp-inline-guides">
-            {aiGuides.map((post) => (
-              <Link key={post.path} href={post.path} className="sp-inline-guide-link">
-                {post.title.replace(/&#8211;|&amp;#8211;/g, "–")} ←
-              </Link>
+      <Section tone="muted" label={SEO_AI.label} title={SEO_AI.title} align="start" className="sp-section-aeo">
+        <SeoAeoAccent />
+        <div className="sp-aeo-content">
+          <p className="sp-body-lead sp-body-lead--narrow">{SEO_AI.intro}</p>
+          <ul className="sp-check-list sp-check-list--compact">
+            {SEO_AI.points.map((point) => (
+              <li key={point}>{point}</li>
             ))}
-          </div>
-        )}
+          </ul>
+          {aiGuides.length > 0 && (
+            <div className="sp-inline-guides">
+              {aiGuides.map((post) => (
+                <Link key={post.path} href={post.path} className="sp-inline-guide-link">
+                  {post.title.replace(/&#8211;|&amp;#8211;/g, "–")} ←
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
       </Section>
 
       <Section tone="sky" label={SEO_BENEFITS.label} title={SEO_BENEFITS.title} align="start">
-        <div className="sp-benefits-grid">
+        <div className="sp-benefits-editorial">
           {SEO_BENEFITS.items.map((item) => (
-            <article key={item.title} className="sp-benefit-item">
+            <article key={item.title} className="sp-benefit-editorial">
               <h3 className="sp-benefit-title">{item.title}</h3>
               <p className="sp-benefit-text">{item.text}</p>
             </article>

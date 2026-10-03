@@ -9,6 +9,7 @@ import {
   GOOGLE_ADS_FINAL_CTA,
   GOOGLE_ADS_GUIDE_PATHS,
   GOOGLE_ADS_HERO,
+  GOOGLE_ADS_IMAGES,
   GOOGLE_ADS_INTRO,
   GOOGLE_ADS_LANDING,
   GOOGLE_ADS_LIFECYCLE,
@@ -18,12 +19,15 @@ import {
   GOOGLE_ADS_RELATED_SERVICES,
 } from "@/lib/pages/services/google-ads-content";
 import { getServicePopupConfig } from "@/lib/popups/service-pages";
+import { ServiceCampaignIcon } from "./shared/ServiceCampaignIcon";
 import { ServiceCtaRow, ServiceContactButton, ServicePhoneLink } from "./shared/ServiceCtas";
+import { ServiceEditorialImage } from "./shared/ServiceEditorialImage";
 import { ServiceFaq } from "./shared/ServiceFaq";
 import { ServiceHero } from "./shared/ServiceHero";
-import { ServiceProcessTimeline } from "./shared/ServiceProcessTimeline";
+import { ServiceLifecycleRail } from "./shared/ServiceLifecycleRail";
 import { ServiceRelatedGuides } from "./shared/ServiceRelatedGuides";
 import { ServiceRelatedServices } from "./shared/ServiceRelatedServices";
+import { GoogleAdsHeroVisual } from "./shared/ServiceVisualCompositions";
 
 export function GoogleAdsServicePage() {
   const popupConfig = getServicePopupConfig(GOOGLE_ADS_PATH, GOOGLE_ADS_HERO.title);
@@ -39,6 +43,7 @@ export function GoogleAdsServicePage() {
         title={GOOGLE_ADS_HERO.title}
         lead={GOOGLE_ADS_HERO.lead}
         proofImage={GOOGLE_ADS_PARTNER_BADGE}
+        visual={<GoogleAdsHeroVisual />}
         actions={
           <ServiceCtaRow
             primaryLabel="ייעוץ Google Ads"
@@ -48,15 +53,26 @@ export function GoogleAdsServicePage() {
         }
       />
 
-      <Section tone="white" label={GOOGLE_ADS_INTRO.label} title={GOOGLE_ADS_INTRO.title} align="start">
-        <p className="sp-body-lead">{GOOGLE_ADS_INTRO.intro}</p>
-        <p className="sp-body-highlight">{GOOGLE_ADS_INTRO.highlight}</p>
+      <Section tone="white" label={GOOGLE_ADS_INTRO.label} title={GOOGLE_ADS_INTRO.title} align="start" className="sp-section-fade-in">
+        <div className="sp-editorial-grid sp-editorial-grid--media">
+          <div className="sp-editorial-copy">
+            <p className="sp-body-lead">{GOOGLE_ADS_INTRO.intro}</p>
+            <p className="sp-body-highlight">{GOOGLE_ADS_INTRO.highlight}</p>
+          </div>
+          <ServiceEditorialImage
+            src={GOOGLE_ADS_IMAGES.intro.src}
+            alt={GOOGLE_ADS_IMAGES.intro.alt}
+            width={GOOGLE_ADS_IMAGES.intro.width}
+            height={GOOGLE_ADS_IMAGES.intro.height}
+          />
+        </div>
       </Section>
 
       <Section tone="muted" label={GOOGLE_ADS_CAMPAIGNS.label} title={GOOGLE_ADS_CAMPAIGNS.title} align="start">
-        <div className="sp-campaign-grid">
+        <div className="sp-campaign-grid sp-campaign-grid--enriched">
           {GOOGLE_ADS_CAMPAIGNS.items.map((item) => (
-            <article key={item.title} className="sp-campaign-item">
+            <article key={item.title} className="sp-campaign-item sp-campaign-item--enriched">
+              <ServiceCampaignIcon kind={item.icon} />
               <h3 className="sp-campaign-title">{item.title}</h3>
               <p className="sp-campaign-text">{item.text}</p>
             </article>
@@ -65,12 +81,28 @@ export function GoogleAdsServicePage() {
       </Section>
 
       <Section tone="sky" label={GOOGLE_ADS_AUDIENCE.label} title={GOOGLE_ADS_AUDIENCE.title} align="start">
-        <p className="sp-body-lead">{GOOGLE_ADS_AUDIENCE.intro}</p>
-        <p className="sp-body-text">{GOOGLE_ADS_AUDIENCE.detail}</p>
+        <div className="sp-editorial-grid sp-editorial-grid--media sp-editorial-grid--reverse">
+          <div className="sp-editorial-copy">
+            <p className="sp-body-lead">{GOOGLE_ADS_AUDIENCE.intro}</p>
+            <p className="sp-body-text">{GOOGLE_ADS_AUDIENCE.detail}</p>
+          </div>
+          <ServiceEditorialImage
+            src={GOOGLE_ADS_IMAGES.audience.src}
+            alt={GOOGLE_ADS_IMAGES.audience.alt}
+            width={GOOGLE_ADS_IMAGES.audience.width}
+            height={GOOGLE_ADS_IMAGES.audience.height}
+          />
+        </div>
       </Section>
 
-      <Section tone="white" label={GOOGLE_ADS_LIFECYCLE.label} title={GOOGLE_ADS_LIFECYCLE.title} align="start" className="sp-section-process">
-        <ServiceProcessTimeline steps={GOOGLE_ADS_LIFECYCLE.steps} />
+      <Section
+        tone="white"
+        label={GOOGLE_ADS_LIFECYCLE.label}
+        title={GOOGLE_ADS_LIFECYCLE.title}
+        align="start"
+        className="sp-section-lifecycle sp-section-signature"
+      >
+        <ServiceLifecycleRail steps={GOOGLE_ADS_LIFECYCLE.steps} />
       </Section>
 
       <Section tone="sky" label={GOOGLE_ADS_LANDING.label} title={GOOGLE_ADS_LANDING.title} align="start">
@@ -78,9 +110,9 @@ export function GoogleAdsServicePage() {
       </Section>
 
       <Section tone="white" label={GOOGLE_ADS_BENEFITS.label} title={GOOGLE_ADS_BENEFITS.title} align="start">
-        <div className="sp-benefits-grid sp-benefits-grid--two">
+        <div className="sp-benefits-editorial sp-benefits-editorial--two">
           {GOOGLE_ADS_BENEFITS.items.map((item) => (
-            <article key={item.title} className="sp-benefit-item">
+            <article key={item.title} className="sp-benefit-editorial">
               <h3 className="sp-benefit-title">{item.title}</h3>
               <p className="sp-benefit-text">{item.text}</p>
             </article>

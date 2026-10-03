@@ -7,16 +7,19 @@ import {
   HOSTING_GUIDE_PATHS,
   HOSTING_HERO,
   HOSTING_MAINTENANCE,
+  HOSTING_MODERN_INFRA,
   HOSTING_PATH,
   HOSTING_PLANS,
   HOSTING_RELATED_SERVICES,
   HOSTING_WEBSITE_LINK,
+  HOSTING_WORDPRESS_SECTION,
 } from "@/lib/pages/services/hosting-content";
 import { getServicePopupConfig } from "@/lib/popups/service-pages";
 import { ServiceCtaRow, ServiceContactButton, ServicePhoneLink } from "./shared/ServiceCtas";
 import { ServiceHero } from "./shared/ServiceHero";
 import { ServiceRelatedGuides } from "./shared/ServiceRelatedGuides";
 import { ServiceRelatedServices } from "./shared/ServiceRelatedServices";
+import { HostingHeroVisual, ModernStackVisual } from "./shared/ServiceVisualCompositions";
 
 export function HostingPlansServicePage() {
   const popupConfig = getServicePopupConfig(HOSTING_PATH, HOSTING_HERO.title);
@@ -31,6 +34,7 @@ export function HostingPlansServicePage() {
         badge={HOSTING_HERO.badge}
         title={HOSTING_HERO.title}
         lead={HOSTING_HERO.lead}
+        visual={<HostingHeroVisual />}
         actions={
           <ServiceCtaRow
             primaryLabel="ייעוץ לבחירת חבילת אחסון"
@@ -40,7 +44,8 @@ export function HostingPlansServicePage() {
         }
       />
 
-      <Section tone="white" title="חבילות אחסון" align="start" className="sp-section-plans">
+      <Section tone="white" title={HOSTING_WORDPRESS_SECTION.title} align="start" className="sp-section-plans sp-section-fade-in">
+        <p className="sp-body-lead sp-body-lead--narrow">{HOSTING_WORDPRESS_SECTION.intro}</p>
         <div className="sp-plans-grid">
           {HOSTING_PLANS.map((plan) => (
             <article key={plan.id} className="sp-plan-card">
@@ -63,6 +68,33 @@ export function HostingPlansServicePage() {
         </div>
       </Section>
 
+      <Section
+        tone="muted"
+        label={HOSTING_MODERN_INFRA.label}
+        title={HOSTING_MODERN_INFRA.title}
+        align="start"
+        className="sp-section-modern-infra sp-section-signature"
+      >
+        <div className="sp-modern-infra">
+          <div className="sp-modern-infra-copy">
+            <p className="sp-body-lead">{HOSTING_MODERN_INFRA.intro}</p>
+            <ul className="sp-modern-infra-stack">
+              {HOSTING_MODERN_INFRA.points.map((point) => (
+                <li key={point.name}>
+                  <strong>{point.name}</strong> – {point.text}
+                </li>
+              ))}
+            </ul>
+            <p className="sp-modern-infra-pricing">{HOSTING_MODERN_INFRA.pricingNote}</p>
+            <ServiceCtaRow
+              primaryLabel={HOSTING_MODERN_INFRA.ctaLabel}
+              secondary={<ServicePhoneLink tone="light" />}
+            />
+          </div>
+          <ModernStackVisual />
+        </div>
+      </Section>
+
       <Section tone="sky" label={HOSTING_MAINTENANCE.label} title={HOSTING_MAINTENANCE.title} align="start">
         <p className="sp-body-lead">{HOSTING_MAINTENANCE.intro}</p>
         <ul className="sp-check-list">
@@ -72,7 +104,7 @@ export function HostingPlansServicePage() {
         </ul>
       </Section>
 
-      <Section tone="muted" label={HOSTING_WEBSITE_LINK.label} title={HOSTING_WEBSITE_LINK.title} align="start">
+      <Section tone="white" label={HOSTING_WEBSITE_LINK.label} title={HOSTING_WEBSITE_LINK.title} align="start">
         <p className="sp-body-lead sp-body-lead--narrow">{HOSTING_WEBSITE_LINK.body}</p>
         <Link href={HOSTING_WEBSITE_LINK.href} className="sp-text-link">
           לעמוד בניית אתרים ←
@@ -80,7 +112,7 @@ export function HostingPlansServicePage() {
       </Section>
 
       {guides.length > 0 && (
-        <Section tone="white" label="מדריכים" title="מדריכים לאחסון ותחזוקה" align="start">
+        <Section tone="muted" label="מדריכים" title="מדריכים לאחסון ותחזוקה" align="start">
           <ServiceRelatedGuides posts={guides} />
         </Section>
       )}
