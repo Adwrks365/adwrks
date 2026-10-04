@@ -12,9 +12,16 @@ type ContactFormProps = {
   formId: ContactFormId;
   pageTitle: string;
   pagePath: string;
+  submitLabel?: string;
 };
 
-export function ContactForm({ variant = "default", formId, pageTitle, pagePath }: ContactFormProps) {
+export function ContactForm({
+  variant = "default",
+  formId,
+  pageTitle,
+  pagePath,
+  submitLabel = "שליחה",
+}: ContactFormProps) {
   const compact = variant === "compact";
   const [status, setStatus] = useState<FormStatus>("idle");
   const [feedback, setFeedback] = useState("");
@@ -125,7 +132,7 @@ export function ContactForm({ variant = "default", formId, pageTitle, pagePath }
         disabled={status === "submitting"}
         className={`contact-form-submit inline-flex items-center justify-center rounded-md bg-sky-600 px-4 text-sm font-semibold text-white hover:bg-sky-700 disabled:opacity-60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600 ${compact ? "w-full py-2.5" : "w-full py-2.5 sm:w-auto"}`}
       >
-        {status === "submitting" ? "שולח..." : "שליחה"}
+        {status === "submitting" ? "שולח..." : submitLabel}
       </button>
     </form>
   );

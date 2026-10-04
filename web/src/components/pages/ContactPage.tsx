@@ -1,18 +1,25 @@
 import dynamic from "next/dynamic";
+import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@/components/ui/Button";
-import { Card } from "@/components/ui/Card";
+import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
-import { PageHero } from "@/components/ui/PageHero";
+import { ContactIcon } from "@/components/ui/ContactIcon";
 import type { ExtractedPage } from "@/lib/content/elementor-extract";
 import { getHeroFromBlocks } from "@/lib/content/elementor-extract";
+import {
+  CONTACT_CLOSING,
+  CONTACT_FORM,
+  CONTACT_HERO,
+  CONTACT_PROCESS,
+  CONTACT_SERVICES,
+  CONTACT_TRUST,
+} from "@/lib/pages/contact-content";
 import { FOLLOW_SOCIAL, SITE } from "@/lib/site";
-import { ContactIcon } from "@/components/ui/ContactIcon";
-import { RichText } from "./RichText";
+import { ContactHeroVisual } from "./ContactHeroVisual";
 
 const ContactForm = dynamic(
   () => import("@/components/ContactForm").then((m) => m.ContactForm),
-  { loading: () => <p className="text-sm text-slate-500">טוען טופס...</p> },
+  { loading: () => <p className="cp-form-loading">טוען טופס...</p> },
 );
 
 type ContactPageProps = {
@@ -29,151 +36,174 @@ const HOURS_HE: Record<string, string> = {
 
 export function ContactPage({ data }: ContactPageProps) {
   const hero = getHeroFromBlocks(data.blocks);
-  const detailBlocks = data.blocks.filter(
-    (b) => b.type === "text" && b.text.length > 40 && !b.text.startsWith("יש לך שאלה"),
-  );
   const privacyNote = data.blocks.find(
     (b) => b.type === "text" && b.text.includes("פרטים נשמרים"),
   );
 
   return (
     <article className="structured-page contact-page">
-      <PageHero
-        variant="centered"
-        eyebrow="יצירת קשר"
-        title={hero.title}
-        subtitle="ספרו לנו על העסק, המטרות והאתגרים — ונחזור אליכם עם כיוון מקצועי מתאים."
-        compact
-      />
-
-      <Section tone="muted">
-        <div className="contact-grid">
-          <div className="contact-methods">
-            <h2 className="contact-section-title">דרכי יצירת קשר</h2>
-            <div className="contact-cards">
-              <Card className="contact-card card-hover">
-                <ContactIcon type="phone" />
-                <span className="contact-card-label">טלפון</span>
-                <a href={SITE.phoneTel} className="contact-card-value">
-                  {SITE.phoneDisplay}
-                </a>
-                <Button href={SITE.phoneTel} size="sm" className="mt-3">
-                  התקשרו עכשיו
-                </Button>
-              </Card>
-
-              <Card className="contact-card card-hover">
-                <ContactIcon type="whatsapp" />
-                <span className="contact-card-label">WhatsApp</span>
-                <a href={SITE.whatsapp} className="contact-card-value" target="_blank" rel="noopener noreferrer">
-                  שלחו הודעה
-                </a>
-                <Button href={SITE.whatsapp} size="sm" variant="outline" className="mt-3" external>
-                  פתיחת WhatsApp
-                </Button>
-              </Card>
-
-              <Card className="contact-card card-hover">
-                <ContactIcon type="email" />
-                <span className="contact-card-label">אימייל</span>
-                <a href={`mailto:${SITE.email}`} className="contact-card-value">
-                  {SITE.email}
-                </a>
-              </Card>
-
-              <Card className="contact-card card-hover">
-                <ContactIcon type="location" />
-                <span className="contact-card-label">כתובת</span>
-                <p className="contact-card-value">
-                  {SITE.address.street}, {SITE.address.locality}
-                  <br />
-                  {SITE.address.region}, {SITE.address.country}
-                </p>
-              </Card>
+      <header className="cp-hero">
+        <div className="cp-hero-bg" aria-hidden="true" />
+        <Container>
+          <div className="cp-hero-shell">
+            <div className="cp-hero-intro">
+              <p className="cp-hero-eyebrow">{CONTACT_HERO.eyebrow}</p>
+              <h1 className="cp-hero-title">{hero.title}</h1>
+              <p className="cp-hero-lead">{CONTACT_HERO.lead}</p>
             </div>
 
-            <div className="contact-hours mt-8">
-              <h3 className="contact-hours-title">שעות פעילות</h3>
-              <ul className="contact-hours-list">
-                {SITE.openingHours.map(({ day, hours }) => (
-                  <li key={day}>
-                    <span>{HOURS_HE[day] ?? day}</span>
-                    <span>{hours.replace("-", " – ")}</span>
-                  </li>
+            <div className="cp-form-card">
+              <h2 className="cp-form-title">{CONTACT_FORM.title}</h2>
+              <p className="cp-form-intro">{CONTACT_FORM.intro}</p>
+              <ContactForm
+                formId="contact-page"
+                pageTitle={hero.title || "צור קשר"}
+                pagePath="/contact-us/"
+                submitLabel={CONTACT_FORM.submitLabel}
+              />
+              {privacyNote?.type === "text" && (
+                <p className="cp-form-privacy">{privacyNote.text.replace("🔒 ", "")}</p>
+              )}
+            </div>
+
+            <div className="cp-hero-details">
+              <ul className="cp-hero-points">
+                {CONTACT_HERO.points.map((point) => (
+                  <li key={point}>{point}</li>
                 ))}
               </ul>
-            </div>
 
-            <div className="contact-social mt-8">
-              <h3 className="contact-hours-title">עקבו אחרינו</h3>
-              <div className="contact-social-links">
-                {FOLLOW_SOCIAL.map((s) => (
-                  <a
-                    key={s.label}
-                    href={s.href}
-                    className="contact-social-link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={s.label}
-                  >
-                    {s.label}
-                  </a>
-                ))}
+              <div className="cp-direct-row">
+                <a href={SITE.phoneTel} className="cp-direct-item cp-direct-item--primary">
+                  <ContactIcon type="phone" />
+                  <span className="cp-direct-label">טלפון</span>
+                  <span className="cp-direct-value" dir="ltr">
+                    {SITE.phoneDisplay}
+                  </span>
+                </a>
+                <a
+                  href={SITE.whatsapp}
+                  className="cp-direct-item"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <ContactIcon type="whatsapp" />
+                  <span className="cp-direct-label">WhatsApp</span>
+                  <span className="cp-direct-value">שלחו הודעה</span>
+                </a>
+                <a href={`mailto:${SITE.email}`} className="cp-direct-item cp-direct-item--tertiary">
+                  <ContactIcon type="email" />
+                  <span className="cp-direct-label">אימייל</span>
+                  <span className="cp-direct-value" dir="ltr">
+                    {SITE.email}
+                  </span>
+                </a>
+              </div>
+
+              <ContactHeroVisual />
+
+              <div className="cp-trust-inline">
+                <span className="cp-trust-since">{CONTACT_TRUST.since}</span>
+                <Image
+                  src={CONTACT_TRUST.googleBadge}
+                  alt="Google Partner"
+                  width={56}
+                  height={54}
+                  className="cp-trust-badge"
+                  loading="lazy"
+                />
+                <Image
+                  src={CONTACT_TRUST.partnersImage}
+                  alt="Google ו-Meta Partners"
+                  width={88}
+                  height={66}
+                  className="cp-trust-badge cp-trust-badge--wide"
+                  loading="lazy"
+                />
               </div>
             </div>
           </div>
+        </Container>
+      </header>
 
-          <div className="contact-form-panel">
-            <h2 className="contact-section-title">טופס יצירת קשר</h2>
-            <p className="mb-4 text-slate-600">
-              יש לך שאלה / זקוק לייעוץ? אנו מצפים לשמוע ממך!
+      <Section tone="white" align="start" className="cp-section-process">
+        <h2 className="cp-section-title">{CONTACT_PROCESS.title}</h2>
+        <ol className="cp-process-steps">
+          {CONTACT_PROCESS.steps.map((step, index) => (
+            <li key={step.title} className="cp-process-step">
+              <span className="cp-process-num">{index + 1}</span>
+              <div className="cp-process-copy">
+                <h3 className="cp-process-step-title">{step.title}</h3>
+                <p className="cp-process-step-text">{step.text}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </Section>
+
+      <Section tone="muted" align="start" className="cp-section-services">
+        <h2 className="cp-section-title">{CONTACT_SERVICES.title}</h2>
+        <p className="cp-section-intro">{CONTACT_SERVICES.intro}</p>
+        <div className="cp-service-chips">
+          {CONTACT_SERVICES.items.map((service) => (
+            <Link key={service.href} href={service.href} className="cp-service-chip">
+              {service.label}
+            </Link>
+          ))}
+        </div>
+      </Section>
+
+      <Section tone="gradient" align="start" className="cp-section-business">
+        <div className="cp-business-grid">
+          <div className="cp-business-block">
+            <h2 className="cp-section-title">פרטי העסק</h2>
+            <p className="cp-business-line">
+              <ContactIcon type="location" />
+              <span>
+                {SITE.address.street}, {SITE.address.locality}
+                <br />
+                {SITE.address.region}, {SITE.address.country}
+              </span>
             </p>
-            <ContactForm
-              formId="contact-page"
-              pageTitle={hero.title || "צור קשר"}
-              pagePath="/contact-us/"
-            />
-            {privacyNote?.type === "text" && (
-              <p className="mt-4 text-sm text-slate-500">{privacyNote.text}</p>
-            )}
+            <p className="cp-business-line">
+              <ContactIcon type="email" />
+              <a href={`mailto:${SITE.email}`} dir="ltr">
+                {SITE.email}
+              </a>
+            </p>
+          </div>
+          <div className="cp-business-block">
+            <h3 className="cp-business-subtitle">שעות פעילות</h3>
+            <ul className="cp-hours-list">
+              {SITE.openingHours.map(({ day, hours }) => (
+                <li key={day}>
+                  <span>{HOURS_HE[day] ?? day}</span>
+                  <span dir="ltr">{hours.replace("-", " – ")}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="cp-hours-note">שישי–שבת: סגור</p>
           </div>
         </div>
       </Section>
 
-      {detailBlocks.length > 0 && (
-        <Section tone="white" title="מה תקבלו בשיחת הייעוץ הראשונה?">
-          {detailBlocks.map((block) =>
-            block.type === "text" ? (
-              <RichText key={block.text.slice(0, 40)} html={block.html} />
-            ) : null,
-          )}
-          <div className="mt-8 text-center">
-            <Button href={SITE.phoneTel} size="lg">
-              דברו עם מומחה עכשיו
-            </Button>
+      <Section tone="white" align="center" className="cp-section-closing">
+        <div className="cp-closing">
+          <h2 className="cp-closing-title">{CONTACT_CLOSING.title}</h2>
+          <p className="cp-closing-text">{CONTACT_CLOSING.body}</p>
+          <div className="cp-social-links">
+            {FOLLOW_SOCIAL.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                className="cp-social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {social.label}
+              </a>
+            ))}
           </div>
-        </Section>
-      )}
-
-      <Section tone="gradient" narrow>
-        <div className="contact-cta-banner text-center">
-          <h2 className="text-2xl font-bold text-slate-900">מוכנים להתחיל?</h2>
-          <p className="mt-3 text-slate-600">
-            השיחה ללא התחייבות וללא עלות – המטרה היא להבין האם יש חיבור ומה הדרך הנכונה לקדם אתכם בדיגיטל.
-          </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-3">
-            <Button href={SITE.phoneTel} size="lg">
-              {SITE.phoneDisplay}
-            </Button>
-            <Button href={SITE.whatsapp} variant="outline" size="lg" external>
-              WhatsApp
-            </Button>
-          </div>
-          <p className="mt-4 text-sm">
-            <Link href="/about-us/" className="text-sky-700 hover:underline">
-              קראו עוד עלינו
-            </Link>
-          </p>
         </div>
       </Section>
     </article>
