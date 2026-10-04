@@ -4,6 +4,7 @@ import { Heebo } from "next/font/google";
 import { ContextualPopupProvider } from "@/components/popups/ContextualPopupProvider";
 import { GlobalFloatingUI } from "@/components/GlobalFloatingUI";
 import { GoogleTags } from "@/components/GoogleTags";
+import { InsytixMetaTags, InsytixTracker } from "@/components/InsytixTracking";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { buildPageMetadata, stagingRobots } from "@/lib/content/metadata";
@@ -34,6 +35,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang={SITE.language} dir={SITE.dir} className={`${heebo.variable} h-full`}>
+      <head>{shouldAllowIndexing() ? <InsytixMetaTags /> : null}</head>
       <body className="flex min-h-full flex-col bg-white font-sans text-slate-900 antialiased">
         <ContextualPopupProvider>
           <SiteHeader />
@@ -41,7 +43,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <SiteFooter />
           <GlobalFloatingUI />
         </ContextualPopupProvider>
-        {shouldAllowIndexing() ? <GoogleTags /> : null}
+        {shouldAllowIndexing() ? (
+          <>
+            <GoogleTags />
+            <InsytixTracker />
+          </>
+        ) : null}
       </body>
     </html>
   );
