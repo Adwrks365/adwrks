@@ -14,7 +14,7 @@ export function HomeEnvelope360() {
         </header>
         <div className="home-envelope-body reveal">
           <p>{HOMEPAGE_VISION.envelope}</p>
-          <ContextualPopupTrigger className="btn btn-primary">
+          <ContextualPopupTrigger className="home-cta home-cta-primary">
             תיאום שיחת אבחון אסטרטגית
           </ContextualPopupTrigger>
         </div>

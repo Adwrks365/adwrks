@@ -12,7 +12,7 @@ export function HomeVision() {
             {HOMEPAGE_VISION.title}
           </h2>
           <p className="home-vision-body">{HOMEPAGE_VISION.body}</p>
-          <Link href="#recommendations" className="btn btn-outline">
+          <Link href="#recommendations" className="home-cta home-cta-secondary">
             לקוחות ממליצים
           </Link>
         </div>
