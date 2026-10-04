@@ -9952,12 +9952,27 @@ body.contextual-popup-open {
   margin-top: 1.25rem;
 }
 
-/* Shared commercial final CTA — dark closing section on commercial pages */
+/* Shared commercial final CTA — light outer band + dark conversion card */
 .commercial-final-cta-section {
-  padding-block: clamp(2.5rem, 5vw, 3.5rem);
+  padding-block: clamp(2rem, 4vw, 3rem);
+  background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
 }
 
-.commercial-final-cta {
+.commercial-final-cta-card {
+  max-width: 72rem;
+  margin-inline: auto;
+  padding: clamp(2rem, 4vw, 2.75rem) clamp(1.25rem, 4vw, 2.5rem);
+  border-radius: var(--radius-xl);
+  background: linear-gradient(165deg, #1e293b 0%, #0f172a 55%, #0c1222 100%);
+  border: 1px solid rgb(255 255 255 / 0.08);
+  box-shadow:
+    0 20px 44px rgb(15 23 42 / 0.14),
+    inset 0 1px 0 rgb(255 255 255 / 0.06);
+  color: #f8fafc;
+  text-align: center;
+}
+
+.commercial-final-cta-inner {
   max-width: 46rem;
   margin-inline: auto;
 }
