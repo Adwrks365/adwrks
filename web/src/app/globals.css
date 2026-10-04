@@ -10236,11 +10236,18 @@ body.contextual-popup-open {
 }
 
 .contact-page .cp-hero-lead {
-  margin: 0 0 1rem;
+  margin: 0 0 1.25rem;
   max-width: 36rem;
   font-size: 1rem;
   line-height: 1.65;
   color: #475569;
+}
+
+.contact-page .cp-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
 }
 
 .contact-page .cp-hero-points {
@@ -10383,15 +10390,205 @@ body.contextual-popup-open {
   text-align: center;
 }
 
-.contact-page .cp-trust-inline {
+.contact-page .cp-conversion {
+  padding-block: clamp(2rem, 4vw, 3rem);
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+}
+
+.contact-page .cp-conversion-title {
+  margin: 0 0 1.25rem;
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
+  font-weight: 800;
+  color: #0f172a;
+  text-align: center;
+}
+
+.contact-page .cp-conversion-grid {
+  display: grid;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.contact-page .cp-planner {
+  padding: clamp(1.15rem, 3vw, 1.5rem);
+  border: 1px solid rgb(2 132 199 / 0.14);
+  border-radius: var(--radius-xl);
+  background: linear-gradient(145deg, rgb(255 255 255 / 0.98), rgb(240 249 255 / 0.92));
+  box-shadow: 0 12px 28px rgb(2 132 199 / 0.06);
+}
+
+.contact-page .cp-planner-kicker {
+  margin: 0 0 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--brand-primary);
+}
+
+.contact-page .cp-planner-title {
+  margin: 0 0 1rem;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.contact-page .cp-planner-step + .cp-planner-step {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgb(2 132 199 / 0.1);
+}
+
+.contact-page .cp-planner-step-label {
+  margin: 0 0 0.65rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #334155;
+}
+
+.contact-page .cp-planner-optional {
+  font-weight: 500;
+  color: #64748b;
+}
+
+.contact-page .cp-planner-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.contact-page .cp-planner-chip {
+  padding: 0.55rem 0.8rem;
+  border: 1px solid rgb(2 132 199 / 0.16);
+  border-radius: 999px;
+  background: #ffffff;
+  color: #334155;
+  font-size: 0.84rem;
+  font-weight: 600;
+  line-height: 1.35;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-page .cp-planner-chip {
+    transition: none;
+  }
+}
+
+.contact-page .cp-planner-chip:hover {
+  border-color: rgb(2 132 199 / 0.35);
+  background: rgb(240 249 255 / 0.8);
+}
+
+.contact-page .cp-planner-chip:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 2px;
+}
+
+.contact-page .cp-planner-chip.is-selected {
+  border-color: var(--brand-primary);
+  background: rgb(2 132 199 / 0.1);
+  color: var(--brand-primary-dark);
+}
+
+.contact-page .cp-direct-inline {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgb(2 132 199 / 0.1);
+}
+
+.contact-page .cp-direct-prompt {
+  margin: 0 0 0.5rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.contact-page .cp-direct-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.85rem;
+}
+
+.contact-page .cp-direct-link {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--brand-primary-dark);
+  text-decoration: none;
+}
+
+.contact-page .cp-direct-link:hover {
+  text-decoration: underline;
+}
+
+.contact-page .cp-direct-link:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.contact-page .cp-direct-link--tertiary {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: #475569;
+}
+
+.contact-page .cp-testimonials {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.contact-page .cp-testimonial-card {
+  margin: 0;
+  padding: 1rem 1.1rem;
+  border: 1px solid rgb(2 132 199 / 0.1);
+  border-radius: var(--radius-lg);
+  background: #ffffff;
+}
+
+.contact-page .cp-testimonial-quote {
+  margin: 0 0 0.85rem;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: #334155;
+  white-space: pre-line;
+}
+
+.contact-page .cp-testimonial-author {
+  display: flex;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+.contact-page .cp-testimonial-avatar {
+  border-radius: 999px;
+  object-fit: cover;
+}
+
+.contact-page .cp-testimonial-name {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.contact-page .cp-testimonial-role {
+  display: block;
+  font-size: 0.78rem;
+  color: #64748b;
+}
+
+.contact-page .cp-trust-strip {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.75rem;
+  justify-content: center;
+  gap: 0.85rem 1.25rem;
 }
 
 .contact-page .cp-trust-since {
-  font-size: 0.82rem;
+  font-size: 0.88rem;
   font-weight: 700;
   color: var(--brand-primary-dark);
 }
@@ -10424,13 +10621,6 @@ body.contextual-popup-open {
   margin-bottom: 1rem;
   border-radius: 999px;
   background: var(--brand-gradient);
-}
-
-.contact-page .cp-form-title {
-  margin: 0 0 0.45rem;
-  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
-  font-weight: 800;
-  color: #0f172a;
 }
 
 .contact-page .cp-form-intro {
@@ -10679,37 +10869,37 @@ body.contextual-popup-open {
   color: var(--brand-primary-dark);
 }
 
+.contact-page .cp-process-steps--compact {
+  grid-template-columns: 1fr;
+}
+
 @media (min-width: 768px) {
-  .contact-page .cp-process-steps {
+  .contact-page .cp-process-steps--compact {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .contact-page .cp-business-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .contact-page .cp-testimonials {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
 @media (min-width: 1024px) {
   .contact-page .cp-hero-shell {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.85fr);
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .contact-page .cp-conversion-grid {
     grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-    grid-template-rows: auto 1fr;
-    gap: 1.25rem 2rem;
-    align-items: start;
+    gap: 1.5rem;
   }
 
-  .contact-page .cp-hero-intro {
-    grid-column: 1;
-    grid-row: 1;
+  .contact-page .cp-conversion-title {
+    text-align: start;
   }
 
-  .contact-page .cp-hero-details {
-    grid-column: 1;
-    grid-row: 2;
-  }
-
-  .contact-page .cp-form-card {
-    grid-column: 2;
-    grid-row: 1 / span 2;
-    align-self: start;
+  .contact-page .cp-process-steps--compact {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }

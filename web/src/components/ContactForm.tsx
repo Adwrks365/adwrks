@@ -13,6 +13,7 @@ type ContactFormProps = {
   pageTitle: string;
   pagePath: string;
   submitLabel?: string;
+  appendToMessage?: string;
 };
 
 export function ContactForm({
@@ -21,6 +22,7 @@ export function ContactForm({
   pageTitle,
   pagePath,
   submitLabel = "שליחה",
+  appendToMessage,
 }: ContactFormProps) {
   const compact = variant === "compact";
   const [status, setStatus] = useState<FormStatus>("idle");
@@ -32,10 +34,17 @@ export function ContactForm({
 
     const form = event.currentTarget;
     const data = Object.fromEntries(new FormData(form).entries());
+    const userMessage = typeof data.message === "string" ? data.message.trim() : "";
+    const message = appendToMessage
+      ? userMessage
+        ? `${appendToMessage}\n\n${userMessage}`
+        : appendToMessage
+      : userMessage;
 
     try {
       const result = await submitContactForm({
         ...data,
+        message,
         formId,
         pageTitle,
         pagePath,
