@@ -56,8 +56,7 @@ export function ContentPage({ content }: ContentPageProps) {
   }
 
   if (content.path === "/about-us/") {
-    const extracted = getExtractedPage(content.path);
-    if (extracted) return <AboutPage data={extracted} />;
+    return <AboutPage />;
   }
   if (content.path === "/contact-us/") {
     const extracted = getExtractedPage(content.path);

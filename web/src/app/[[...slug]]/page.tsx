@@ -123,7 +123,9 @@ export default async function CatchAllPage({ params }: PageProps) {
 
   const seo = getSeoByPath(pathKey);
   const htmlJsonLd =
-    pathKey === "/מחירון-שיווק-דיגיטלי/" ? [] : extractJsonLdFromHtml(content.content);
+    pathKey === "/מחירון-שיווק-דיגיטלי/" || pathKey === "/about-us/"
+      ? []
+      : extractJsonLdFromHtml(content.content);
   const jsonLd = [...(seo?.jsonLd ?? []), ...htmlJsonLd];
 
   return (
