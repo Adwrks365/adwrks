@@ -7,6 +7,7 @@ export const CONTACT_HERO = {
 export const CONTACT_CONVERSION = {
   title: "בואו נדבר על העסק שלכם",
   formIntro: "יש לך שאלה / זקוק לייעוץ? אנו מצפים לשמוע ממך!",
+  formContextHeading: "קיבלנו את הכיוון",
   submitLabel: "שליחת פנייה",
   directPrompt: "מעדיפים לדבר ישירות?",
 } as const;
@@ -17,6 +18,13 @@ export const CONTACT_PLANNER = {
   step1Label: "מה המטרה העיקרית שלכם?",
   step2Label: "מה כבר קיים היום?",
   step2Optional: "אופציונלי",
+  summaryHeading: "מעולה, הבנו את הכיוון",
+  summaryGoalLabel: "המטרה",
+  summaryExistingLabel: "קיים היום",
+  continueLabel: "המשיכו להשארת פרטים",
+  clearLabel: "נקה בחירה",
+  messageGoalLabel: "מטרת הפנייה",
+  messageExistingLabel: "קיים היום",
   goals: [
     "לקבל יותר לידים",
     "להגדיל מכירות",
@@ -34,7 +42,6 @@ export const CONTACT_PLANNER = {
     "עדיין לא התחלנו",
     "אחר",
   ],
-  summaryPrefix: "הקשר מהתכנון:",
 } as const;
 
 export const CONTACT_PROCESS = {
