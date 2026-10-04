@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import { PartnerBadges } from "@/components/trust/PartnerBadges";
 import type { ReactNode } from "react";
 import { CommercialFinalCta } from "@/components/commercial/CommercialFinalCta";
 import { ContextualPopupRegistrar } from "@/components/popups/ContextualPopupRegistrar";
@@ -174,14 +174,7 @@ export function PricingPage() {
 
       <Section tone="sky" align="start" className="pp-section-trust">
         <div className="pp-trust-strip">
-          <Image
-            src={PRICING_TRUST.partnerImage}
-            alt="Google Partner"
-            width={120}
-            height={115}
-            className="pp-trust-strip-badge"
-            loading="lazy"
-          />
+          <PartnerBadges variant="standard" />
           <div className="pp-trust-strip-copy">
             <p className="pp-trust-strip-label">{PRICING_TRUST.badge}</p>
             <p className="pp-trust-strip-since">{PRICING_TRUST.since}</p>

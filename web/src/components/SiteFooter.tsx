@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { PartnerBadges } from "@/components/trust/PartnerBadges";
 import { Container } from "@/components/ui/Container";
 import {
   FOLLOW_SOCIAL,
@@ -251,22 +252,7 @@ export function SiteFooter() {
                 </li>
               ))}
             </ul>
-            <a
-              href={SITE.googlePartnerUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="site-footer-partner"
-              aria-label="Google Partner"
-            >
-              <Image
-                src={SITE.googlePartnerBadge}
-                alt=""
-                width={286}
-                height={286}
-                loading="lazy"
-                className="site-footer-partner-img"
-              />
-            </a>
+            <PartnerBadges variant="compact" linked className="site-footer-partners" />
           </div>
         </div>
       </Container>

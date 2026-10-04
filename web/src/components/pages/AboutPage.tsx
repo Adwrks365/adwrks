@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { CommercialFinalCta } from "@/components/commercial/CommercialFinalCta";
+import { PartnerBadges } from "@/components/trust/PartnerBadges";
 import { ServiceFaq } from "@/components/services/shared/ServiceFaq";
 import { ServicePhoneLink } from "@/components/services/shared/ServiceCtas";
 import { Button } from "@/components/ui/Button";
@@ -107,24 +107,7 @@ export function AboutPage() {
 
       <Section tone="sky" align="start" className="ab-section-trust">
         <div className="ab-trust-strip">
-          <div className="ab-trust-badges">
-            <Image
-              src={ABOUT_TRUST.googleBadge}
-              alt="Google Partner"
-              width={120}
-              height={115}
-              className="ab-trust-google"
-              loading="lazy"
-            />
-            <Image
-              src={ABOUT_TRUST.partnersImage}
-              alt="Google ו-Meta Partners"
-              width={200}
-              height={150}
-              className="ab-trust-partners"
-              loading="lazy"
-            />
-          </div>
+          <PartnerBadges variant="standard" className="ab-trust-badges" />
           <div className="ab-trust-copy">
             <p className="ab-trust-label">{ABOUT_TRUST.label}</p>
             <h2 className="ab-trust-title">{ABOUT_TRUST.title}</h2>

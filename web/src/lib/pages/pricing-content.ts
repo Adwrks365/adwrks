@@ -226,11 +226,10 @@ export const PRICING_CHANNELS = {
 } as const;
 
 export const PRICING_TRUST = {
-  badge: "Google Partner",
+  badge: "Google Partner · Meta Business Partner",
   since: "סוכנות שיווק דיגיטלי מאז 2018",
   supporting:
     "ליווי אישי, שקיפות מלאה ומחירי התחלה ברורים — כדי שתדעו מה מצפה לכם לפני שמתחילים.",
-  partnerImage: "/wp-content/uploads/Partner-CMYK-.webp",
 } as const;
 
 /** Matches seo.json FAQPage — visible FAQ must stay in parity */

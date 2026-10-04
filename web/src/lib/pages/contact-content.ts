@@ -84,6 +84,4 @@ export const CONTACT_TESTIMONIALS = {
 
 export const CONTACT_TRUST = {
   since: "מאז 2018",
-  googleBadge: "/wp-content/uploads/Partner-CMYK-.webp",
-  partnersImage: "/wp-content/uploads/google-meta-partners-e1769685292174.webp",
 } as const;

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ServicePhoneLink } from "@/components/services/shared/ServiceCtas";
+import { PartnerBadges } from "@/components/trust/PartnerBadges";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
@@ -96,22 +97,7 @@ export function ContactPage({ data }: ContactPageProps) {
       <Section tone="gradient" align="center" className="cp-section-trust">
         <div className="cp-trust-strip">
           <span className="cp-trust-since">{CONTACT_TRUST.since}</span>
-          <Image
-            src={CONTACT_TRUST.googleBadge}
-            alt="Google Partner"
-            width={56}
-            height={54}
-            className="cp-trust-badge"
-            loading="lazy"
-          />
-          <Image
-            src={CONTACT_TRUST.partnersImage}
-            alt="Google ו-Meta Partners"
-            width={88}
-            height={66}
-            className="cp-trust-badge cp-trust-badge--wide"
-            loading="lazy"
-          />
+          <PartnerBadges variant="compact" />
         </div>
       </Section>
     </article>

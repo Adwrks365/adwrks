@@ -43,6 +43,8 @@ export const SITE = {
   googlePartnerUrl: "https://www.google.com/partners/agency?id=5451982519",
   /** Original square Google Partner card from the migrated media library. */
   googlePartnerBadge: asset("Partner-CMYK-.webp"),
+  /** Clean Meta Business Partner badge (Phase 5I.4B). */
+  metaPartnerBadge: asset("Meta-Badge.webp"),
   mapsUrl: "https://maps.app.goo.gl/8cHPmfAMpifZpQZi6",
   wazeUrl:
     "https://ul.waze.com/ul?place=ChIJaQLTBusxHBUR12iBSZWrpT4&ll=32.91810250%2C35.31301640&navigate=yes",

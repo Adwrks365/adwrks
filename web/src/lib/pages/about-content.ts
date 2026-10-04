@@ -86,11 +86,9 @@ export const ABOUT_METHODOLOGY = {
 
 export const ABOUT_TRUST = {
   label: "שותפים מוסמכים",
-  title: "Google Partner ו-Meta Partner",
+  title: "Google Partner ו-Meta Business Partner",
   intro:
     "אנו עובדים עם פלטפורמות כמו Google ו-Meta, ומתעדכנים באופן שוטף בשינויים בעולם החיפוש, ה-AI והפרסום הדיגיטלי.",
-  googleBadge: "/wp-content/uploads/Partner-CMYK-.webp",
-  partnersImage: "/wp-content/uploads/google-meta-partners-e1769685292174.webp",
   supporting:
     "ליווי אישי, שקיפות מלאה ומחירי התחלה ברורים — כדי שתדעו מה מצפה לכם לפני שמתחילים.",
 } as const;
