@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CommercialFinalCta } from "@/components/commercial/CommercialFinalCta";
 import { ContextualPopupRegistrar } from "@/components/popups/ContextualPopupRegistrar";
 import { Section } from "@/components/ui/Section";
 import { getAllPosts } from "@/lib/content/loader";
@@ -87,16 +88,12 @@ export function ServiceHubPage() {
         </Section>
       )}
 
-      <Section tone="gradient" label={HUB_FINAL_CTA.eyebrow} title={HUB_FINAL_CTA.title} className="sp-final-cta-section">
-        <div className="sp-final-cta">
-          <p className="sp-final-cta-body">{HUB_FINAL_CTA.body}</p>
-          <ServiceCtaRow
-            primaryLabel="בואו נדבר על השיווק של העסק"
-            secondary={<ServicePhoneLink tone="light" />}
-            tertiary={<ServiceContactButton />}
-          />
-        </div>
-      </Section>
+      <CommercialFinalCta
+        eyebrow={HUB_FINAL_CTA.eyebrow}
+        title={HUB_FINAL_CTA.title}
+        body={HUB_FINAL_CTA.body}
+        primaryLabel={HUB_FINAL_CTA.eyebrow}
+      />
 
       {popupConfig && <ContextualPopupRegistrar config={popupConfig} />}
     </article>

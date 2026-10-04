@@ -1,3 +1,4 @@
+import { CommercialFinalCta } from "@/components/commercial/CommercialFinalCta";
 import { ContextualPopupRegistrar } from "@/components/popups/ContextualPopupRegistrar";
 import { Section } from "@/components/ui/Section";
 import { getAllPosts } from "@/lib/content/loader";
@@ -124,16 +125,12 @@ export function SocialMediaServicePage() {
         <ServiceRelatedServices services={SOCIAL_RELATED_SERVICES} />
       </Section>
 
-      <Section tone="gradient" label={SOCIAL_FINAL_CTA.eyebrow} title={SOCIAL_FINAL_CTA.title} className="sp-final-cta-section">
-        <div className="sp-final-cta">
-          <p className="sp-final-cta-body">{SOCIAL_FINAL_CTA.body}</p>
-          <ServiceCtaRow
-            primaryLabel="ייעוץ לניהול ושיווק ברשתות"
-            secondary={<ServicePhoneLink tone="light" />}
-            tertiary={<ServiceContactButton />}
-          />
-        </div>
-      </Section>
+      <CommercialFinalCta
+        eyebrow={SOCIAL_FINAL_CTA.eyebrow}
+        title={SOCIAL_FINAL_CTA.title}
+        body={SOCIAL_FINAL_CTA.body}
+        primaryLabel={SOCIAL_FINAL_CTA.eyebrow}
+      />
 
       {popupConfig && <ContextualPopupRegistrar config={popupConfig} />}
     </article>

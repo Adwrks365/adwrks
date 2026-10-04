@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CommercialFinalCta } from "@/components/commercial/CommercialFinalCta";
 import { ContextualPopupRegistrar } from "@/components/popups/ContextualPopupRegistrar";
 import { Section } from "@/components/ui/Section";
 import { getAllPosts } from "@/lib/content/loader";
@@ -121,16 +122,12 @@ export function HostingPlansServicePage() {
         <ServiceRelatedServices services={HOSTING_RELATED_SERVICES} />
       </Section>
 
-      <Section tone="gradient" label={HOSTING_FINAL_CTA.eyebrow} title={HOSTING_FINAL_CTA.title} className="sp-final-cta-section">
-        <div className="sp-final-cta">
-          <p className="sp-final-cta-body">{HOSTING_FINAL_CTA.body}</p>
-          <ServiceCtaRow
-            primaryLabel="ייעוץ לבחירת חבילת אחסון"
-            secondary={<ServicePhoneLink tone="light" />}
-            tertiary={<ServiceContactButton />}
-          />
-        </div>
-      </Section>
+      <CommercialFinalCta
+        eyebrow={HOSTING_FINAL_CTA.eyebrow}
+        title={HOSTING_FINAL_CTA.title}
+        body={HOSTING_FINAL_CTA.body}
+        primaryLabel={HOSTING_FINAL_CTA.eyebrow}
+      />
 
       {popupConfig && <ContextualPopupRegistrar config={popupConfig} />}
     </article>

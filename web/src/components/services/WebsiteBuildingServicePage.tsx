@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CommercialFinalCta } from "@/components/commercial/CommercialFinalCta";
 import { ContextualPopupRegistrar } from "@/components/popups/ContextualPopupRegistrar";
 import { PortfolioShowcaseProgressive } from "@/components/portfolio/PortfolioShowcaseProgressive";
 import { Section } from "@/components/ui/Section";
@@ -17,7 +18,7 @@ import {
 } from "@/lib/pages/services/website-building-content";
 import { getServicePopupConfig } from "@/lib/popups/service-pages";
 import { WebsiteBuildingHero } from "./WebsiteBuildingHero";
-import { WebsiteBuildingFinalCtas, WebsiteBuildingMidCta } from "./WebsiteBuildingHeroCtas";
+import { WebsiteBuildingMidCta } from "./WebsiteBuildingHeroCtas";
 
 export function WebsiteBuildingServicePage() {
   const popupConfig = getServicePopupConfig(WEBSITE_BUILDING_PATH, "בניית אתרים לעסקים");
@@ -210,20 +211,13 @@ export function WebsiteBuildingServicePage() {
         </ul>
       </Section>
 
-      <Section
-        tone="gradient"
-        className="wb-final-cta-section"
-        label={WEBSITE_BUILDING_FINAL_CTA.eyebrow}
+      <CommercialFinalCta
+        eyebrow={WEBSITE_BUILDING_FINAL_CTA.eyebrow}
         title={WEBSITE_BUILDING_FINAL_CTA.title}
-      >
-        <div className="wb-final-cta">
-          <p className="wb-final-cta-body">{WEBSITE_BUILDING_FINAL_CTA.body}</p>
-          <p className="wb-final-cta-note">
-            <em>{WEBSITE_BUILDING_FINAL_CTA.note}</em>
-          </p>
-          <WebsiteBuildingFinalCtas />
-        </div>
-      </Section>
+        body={WEBSITE_BUILDING_FINAL_CTA.body}
+        note={WEBSITE_BUILDING_FINAL_CTA.note}
+        primaryLabel="ייעוץ לבניית אתר"
+      />
 
       {popupConfig && <ContextualPopupRegistrar config={popupConfig} />}
     </article>

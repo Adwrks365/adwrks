@@ -9460,6 +9460,92 @@ body.contextual-popup-open {
   background: linear-gradient(180deg, #f8fbff 0%, #ffffff 70%);
 }
 
+.ab-hero--dark {
+  background: linear-gradient(165deg, #1e293b 0%, #0f172a 55%, #0c1222 100%);
+  color: #f8fafc;
+}
+
+.ab-hero--dark .ab-hero-bg {
+  background:
+    radial-gradient(circle at 18% 20%, rgb(2 132 199 / 0.18), transparent 45%),
+    radial-gradient(circle at 82% 8%, rgb(56 189 248 / 0.08), transparent 40%),
+    radial-gradient(circle at 50% 100%, rgb(15 23 42 / 0.5), transparent 50%);
+}
+
+.ab-hero--dark .ab-hero-eyebrow {
+  color: #7dd3fc;
+}
+
+.ab-hero--dark .ab-hero-title {
+  color: #ffffff;
+}
+
+.ab-hero--dark .ab-hero-lead,
+.ab-hero--dark .ab-hero-intro {
+  color: #cbd5e1;
+}
+
+.ab-hero--dark .btn-outline {
+  border-color: rgb(255 255 255 / 0.45);
+  color: #f8fafc;
+  background: transparent;
+}
+
+.ab-hero--dark .btn-outline:hover {
+  border-color: #7dd3fc;
+  color: #ffffff;
+  background: rgb(255 255 255 / 0.06);
+}
+
+.ab-hero--dark .btn-outline:focus-visible {
+  outline: 2px solid #7dd3fc;
+  outline-offset: 2px;
+}
+
+.ab-hero--dark .ab-hero-visual-panel {
+  background: rgb(255 255 255 / 0.06);
+  border-color: rgb(255 255 255 / 0.12);
+  box-shadow: 0 16px 40px rgb(0 0 0 / 0.25);
+  backdrop-filter: blur(8px);
+}
+
+.ab-hero--dark .ab-hero-visual-label {
+  color: #7dd3fc;
+}
+
+.ab-hero--dark .ab-ecosystem-core {
+  background: rgb(2 132 199 / 0.22);
+  border: 1px solid rgb(125 211 252 / 0.28);
+}
+
+.ab-hero--dark .ab-ecosystem-core-sub {
+  color: #94a3b8;
+}
+
+.ab-hero--dark .ab-ecosystem-node {
+  background: rgb(255 255 255 / 0.05);
+  border-color: rgb(255 255 255 / 0.12);
+  color: #e2e8f0;
+}
+
+.ab-hero--dark .ab-hero-visual-foot {
+  color: #94a3b8;
+}
+
+.ab-hero--dark .sp-phone-link--on-dark {
+  background: rgb(255 255 255 / 0.06);
+}
+
+.ab-hero--dark .sp-phone-link--on-dark:visited {
+  color: #f8fafc;
+}
+
+.ab-hero--dark .sp-phone-link--on-dark:hover {
+  border-color: #7dd3fc;
+  background: rgb(255 255 255 / 0.1);
+  color: #ffffff;
+}
+
 .ab-hero-bg {
   position: absolute;
   inset: 0;
@@ -9866,41 +9952,157 @@ body.contextual-popup-open {
   margin-top: 1.25rem;
 }
 
-.ab-section-final-cta .ab-final-cta-title {
+/* Shared commercial final CTA — dark closing section on commercial pages */
+.commercial-final-cta-section {
+  padding-block: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.commercial-final-cta {
+  max-width: 46rem;
+  margin-inline: auto;
+}
+
+.commercial-final-cta-eyebrow {
+  margin: 0 0 0.65rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #7dd3fc;
+}
+
+.commercial-final-cta-title {
   margin: 0 0 0.75rem;
-  font-size: clamp(1.35rem, 3vw, 1.75rem);
+  font-size: clamp(1.35rem, 3vw, 1.85rem);
   font-weight: 800;
+  line-height: 1.25;
   color: #ffffff;
 }
 
-.ab-final-cta-text {
+.commercial-final-cta-body {
   margin: 0 auto 1.25rem;
-  max-width: 34rem;
+  max-width: 38rem;
+  font-size: 1rem;
   line-height: 1.65;
-  color: #e2e8f0;
+  color: #cbd5e1;
 }
 
-.ab-final-cta-actions {
+.commercial-final-cta-note {
+  margin: 0 auto 1rem;
+  max-width: 38rem;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: #94a3b8;
+}
+
+.commercial-final-cta-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
   justify-content: center;
+  align-items: center;
 }
 
-.ab-final-cta-email {
+.commercial-final-cta-primary {
+  min-width: min(100%, 12rem);
+}
+
+.commercial-final-cta-phone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0.75rem 1.15rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgb(255 255 255 / 0.45);
+  background: rgb(255 255 255 / 0.06);
+  color: #f8fafc;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.commercial-final-cta-phone:visited {
+  color: #f8fafc;
+}
+
+.commercial-final-cta-phone:hover {
+  border-color: #7dd3fc;
+  background: rgb(255 255 255 / 0.1);
+  color: #ffffff;
+}
+
+.commercial-final-cta-phone:focus-visible {
+  outline: 2px solid #7dd3fc;
+  outline-offset: 2px;
+}
+
+.commercial-final-cta-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.65rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgb(125 211 252 / 0.35);
+  background: transparent;
+  color: #7dd3fc;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.commercial-final-cta-whatsapp:visited {
+  color: #7dd3fc;
+}
+
+.commercial-final-cta-whatsapp:hover {
+  border-color: #7dd3fc;
+  background: rgb(125 211 252 / 0.08);
+  color: #bae6fd;
+}
+
+.commercial-final-cta-whatsapp:focus-visible {
+  outline: 2px solid #7dd3fc;
+  outline-offset: 2px;
+}
+
+.commercial-final-cta-email {
   margin: 1rem 0 0;
   font-size: 0.9rem;
-  color: #cbd5e1;
+  color: #94a3b8;
 }
 
-.ab-final-cta-email a {
+.commercial-final-cta-email a {
   color: #7dd3fc;
   font-weight: 600;
   text-decoration: none;
 }
 
-.ab-final-cta-email a:hover {
+.commercial-final-cta-email a:visited {
+  color: #7dd3fc;
+}
+
+.commercial-final-cta-email a:hover {
+  color: #bae6fd;
   text-decoration: underline;
+}
+
+.commercial-final-cta-email a:focus-visible {
+  outline: 2px solid #7dd3fc;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.commercial-final-cta-footer {
+  margin: 1rem auto 0;
+  max-width: 36rem;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: #94a3b8;
 }
 
 .ab-section-editorial .section-subtitle,
@@ -9979,12 +10181,14 @@ body.contextual-popup-open {
     justify-content: center;
   }
 
-  .ab-final-cta-actions {
+  .commercial-final-cta-actions {
     flex-direction: column;
     width: 100%;
   }
 
-  .ab-final-cta-actions .btn {
+  .commercial-final-cta-actions .commercial-final-cta-primary,
+  .commercial-final-cta-actions .commercial-final-cta-phone,
+  .commercial-final-cta-actions .commercial-final-cta-whatsapp {
     width: 100%;
   }
 }

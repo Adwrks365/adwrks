@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { CommercialFinalCta } from "@/components/commercial/CommercialFinalCta";
 import { ContextualPopupRegistrar } from "@/components/popups/ContextualPopupRegistrar";
 import { ServiceFaq } from "@/components/services/shared/ServiceFaq";
 import { ServiceRelatedServices } from "@/components/services/shared/ServiceRelatedServices";
@@ -26,7 +27,6 @@ import {
   PRICING_WHY_INVEST,
 } from "@/lib/pages/pricing-content";
 import { getServicePopupConfig } from "@/lib/popups/service-pages";
-import { SITE } from "@/lib/site";
 import { PricingCalculatorSection } from "./PricingCalculatorSection";
 import { PricingCard } from "./PricingCard";
 import { PricingHeroVisual } from "./PricingHeroVisual";
@@ -198,19 +198,14 @@ export function PricingPage() {
         <ServiceRelatedServices services={PRICING_RELATED_SERVICES} />
       </Section>
 
-      <Section tone="dark" align="center" className="pp-section-final-cta">
-        <h2 className="pp-final-cta-title">{PRICING_FINAL_CTA.title}</h2>
-        <p className="pp-final-cta-text">{PRICING_FINAL_CTA.text}</p>
-        <div className="pp-final-cta-actions">
-          <Button href="/contact-us/" variant="primary" size="lg">
-            {PRICING_FINAL_CTA.contactLabel}
-          </Button>
-          <Button href={SITE.whatsapp} variant="outline" size="lg" className="pp-whatsapp-btn">
-            {PRICING_FINAL_CTA.whatsappLabel}
-          </Button>
-        </div>
-        <p className="pp-footer-disclaimer">* {PRICING_INTRO.disclaimer}</p>
-      </Section>
+      <CommercialFinalCta
+        title={PRICING_FINAL_CTA.title}
+        body={PRICING_FINAL_CTA.text}
+        primaryLabel={PRICING_FINAL_CTA.contactLabel}
+        showWhatsApp
+        whatsappLabel={PRICING_FINAL_CTA.whatsappLabel}
+        footer={<p className="commercial-final-cta-footer">* {PRICING_INTRO.disclaimer}</p>}
+      />
 
       {popupConfig && <ContextualPopupRegistrar config={popupConfig} />}
     </article>

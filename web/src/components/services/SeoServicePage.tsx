@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CommercialFinalCta } from "@/components/commercial/CommercialFinalCta";
 import { ContextualPopupRegistrar } from "@/components/popups/ContextualPopupRegistrar";
 import { Section } from "@/components/ui/Section";
 import { getAllPosts } from "@/lib/content/loader";
@@ -147,16 +148,12 @@ export function SeoServicePage() {
         <ServiceRelatedServices services={SEO_RELATED_SERVICES} />
       </Section>
 
-      <Section tone="gradient" label={SEO_FINAL_CTA.eyebrow} title={SEO_FINAL_CTA.title} className="sp-final-cta-section">
-        <div className="sp-final-cta">
-          <p className="sp-final-cta-body">{SEO_FINAL_CTA.body}</p>
-          <ServiceCtaRow
-            primaryLabel="ייעוץ SEO"
-            secondary={<ServicePhoneLink tone="light" />}
-            tertiary={<ServiceContactButton />}
-          />
-        </div>
-      </Section>
+      <CommercialFinalCta
+        eyebrow={SEO_FINAL_CTA.eyebrow}
+        title={SEO_FINAL_CTA.title}
+        body={SEO_FINAL_CTA.body}
+        primaryLabel={SEO_FINAL_CTA.eyebrow}
+      />
 
       {popupConfig && <ContextualPopupRegistrar config={popupConfig} />}
     </article>

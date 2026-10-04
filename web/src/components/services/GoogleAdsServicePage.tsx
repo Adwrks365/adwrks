@@ -1,3 +1,4 @@
+import { CommercialFinalCta } from "@/components/commercial/CommercialFinalCta";
 import { ContextualPopupRegistrar } from "@/components/popups/ContextualPopupRegistrar";
 import { Section } from "@/components/ui/Section";
 import { getAllPosts } from "@/lib/content/loader";
@@ -145,16 +146,12 @@ export function GoogleAdsServicePage() {
         <ServiceRelatedServices services={GOOGLE_ADS_RELATED_SERVICES} />
       </Section>
 
-      <Section tone="gradient" label={GOOGLE_ADS_FINAL_CTA.eyebrow} title={GOOGLE_ADS_FINAL_CTA.title} className="sp-final-cta-section">
-        <div className="sp-final-cta">
-          <p className="sp-final-cta-body">{GOOGLE_ADS_FINAL_CTA.body}</p>
-          <ServiceCtaRow
-            primaryLabel="ייעוץ Google Ads"
-            secondary={<ServicePhoneLink tone="light" />}
-            tertiary={<ServiceContactButton />}
-          />
-        </div>
-      </Section>
+      <CommercialFinalCta
+        eyebrow={GOOGLE_ADS_FINAL_CTA.eyebrow}
+        title={GOOGLE_ADS_FINAL_CTA.title}
+        body={GOOGLE_ADS_FINAL_CTA.body}
+        primaryLabel={GOOGLE_ADS_FINAL_CTA.eyebrow}
+      />
 
       {popupConfig && <ContextualPopupRegistrar config={popupConfig} />}
     </article>

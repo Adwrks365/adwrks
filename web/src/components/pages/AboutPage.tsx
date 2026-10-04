@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { CommercialFinalCta } from "@/components/commercial/CommercialFinalCta";
 import { ServiceFaq } from "@/components/services/shared/ServiceFaq";
 import { ServicePhoneLink } from "@/components/services/shared/ServiceCtas";
 import { Button } from "@/components/ui/Button";
@@ -17,13 +18,12 @@ import {
   ABOUT_TRUST,
   ABOUT_WHY,
 } from "@/lib/pages/about-content";
-import { SITE } from "@/lib/site";
 import { AboutHeroVisual } from "./AboutHeroVisual";
 
 export function AboutPage() {
   return (
     <article className="ab-page structured-page">
-      <header className="ab-hero">
+      <header className="ab-hero ab-hero--dark">
         <div className="ab-hero-bg" aria-hidden="true" />
         <Container>
           <div className="ab-hero-shell">
@@ -39,7 +39,7 @@ export function AboutPage() {
                 <Button href="#story" variant="outline" size="lg">
                   {ABOUT_HERO.secondaryCta}
                 </Button>
-                <ServicePhoneLink tone="light" />
+                <ServicePhoneLink tone="dark" />
               </div>
             </div>
             <AboutHeroVisual />
@@ -201,22 +201,12 @@ export function AboutPage() {
         <ServiceFaq items={ABOUT_FAQ} className="ab-faq-list" />
       </Section>
 
-      <Section tone="dark" align="center" className="ab-section-final-cta">
-        <h2 className="ab-final-cta-title">{ABOUT_FINAL_CTA.title}</h2>
-        <p className="ab-final-cta-text">{ABOUT_FINAL_CTA.text}</p>
-        <div className="ab-final-cta-actions">
-          <Button href="/contact-us/" variant="primary" size="lg">
-            {ABOUT_FINAL_CTA.contactLabel}
-          </Button>
-          <Button href={SITE.phoneTel} variant="outline" size="lg">
-            {SITE.phoneDisplay}
-          </Button>
-        </div>
-        <p className="ab-final-cta-email">
-          או כתבו לנו ב-
-          <Link href={`mailto:${SITE.email}`}>{SITE.email}</Link>
-        </p>
-      </Section>
+      <CommercialFinalCta
+        title={ABOUT_FINAL_CTA.title}
+        body={ABOUT_FINAL_CTA.text}
+        primaryLabel={ABOUT_FINAL_CTA.contactLabel}
+        showEmail
+      />
     </article>
   );
 }
