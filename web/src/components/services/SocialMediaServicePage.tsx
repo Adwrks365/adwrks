@@ -1,4 +1,5 @@
 import { CommercialFinalCta } from "@/components/commercial/CommercialFinalCta";
+import { CommercialMidCta } from "@/components/commercial/CommercialMidCta";
 import { ContextualPopupRegistrar } from "@/components/popups/ContextualPopupRegistrar";
 import { Section } from "@/components/ui/Section";
 import { getAllPosts } from "@/lib/content/loader";
@@ -102,14 +103,12 @@ export function SocialMediaServicePage() {
         </div>
       </Section>
 
-      <Section tone="dark" label={SOCIAL_MID_CTA.eyebrow} title={SOCIAL_MID_CTA.title} align="start" className="sp-mid-cta-section">
-        <p className="sp-mid-cta-text">{SOCIAL_MID_CTA.body}</p>
+      <CommercialMidCta eyebrow={SOCIAL_MID_CTA.eyebrow} title={SOCIAL_MID_CTA.title} body={SOCIAL_MID_CTA.body}>
         <ServiceCtaRow
           primaryLabel="ייעוץ לניהול ושיווק ברשתות"
-          tone="dark"
-          secondary={<ServicePhoneLink tone="dark" />}
+          secondary={<ServicePhoneLink tone="light" />}
         />
-      </Section>
+      </CommercialMidCta>
 
       {guides.length > 0 && (
         <Section tone="white" label="מדריכים" title="מדריכים לשיווק ברשתות" align="start">

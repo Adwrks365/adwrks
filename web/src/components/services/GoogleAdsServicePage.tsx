@@ -1,4 +1,5 @@
 import { CommercialFinalCta } from "@/components/commercial/CommercialFinalCta";
+import { CommercialMidCta } from "@/components/commercial/CommercialMidCta";
 import { ContextualPopupRegistrar } from "@/components/popups/ContextualPopupRegistrar";
 import { Section } from "@/components/ui/Section";
 import { getAllPosts } from "@/lib/content/loader";
@@ -127,10 +128,13 @@ export function GoogleAdsServicePage() {
         </div>
       </Section>
 
-      <Section tone="dark" label={GOOGLE_ADS_MID_CTA.eyebrow} title={GOOGLE_ADS_MID_CTA.title} align="start" className="sp-mid-cta-section">
-        <p className="sp-mid-cta-text">{GOOGLE_ADS_MID_CTA.body}</p>
-        <ServiceCtaRow primaryLabel="ייעוץ Google Ads" tone="dark" secondary={<ServicePhoneLink tone="dark" />} />
-      </Section>
+      <CommercialMidCta
+        eyebrow={GOOGLE_ADS_MID_CTA.eyebrow}
+        title={GOOGLE_ADS_MID_CTA.title}
+        body={GOOGLE_ADS_MID_CTA.body}
+      >
+        <ServiceCtaRow primaryLabel="ייעוץ Google Ads" secondary={<ServicePhoneLink tone="light" />} />
+      </CommercialMidCta>
 
       {guides.length > 0 && (
         <Section tone="white" label="מדריכים" title="מדריכים לפרסום בגוגל" align="start">

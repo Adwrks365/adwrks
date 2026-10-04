@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CommercialFinalCta } from "@/components/commercial/CommercialFinalCta";
+import { CommercialMidCta } from "@/components/commercial/CommercialMidCta";
 import { ContextualPopupRegistrar } from "@/components/popups/ContextualPopupRegistrar";
 import { Section } from "@/components/ui/Section";
 import { getAllPosts } from "@/lib/content/loader";
@@ -129,10 +130,9 @@ export function SeoServicePage() {
         </div>
       </Section>
 
-      <Section tone="dark" label={SEO_MID_CTA.eyebrow} title={SEO_MID_CTA.title} align="start" className="sp-mid-cta-section">
-        <p className="sp-mid-cta-text">{SEO_MID_CTA.body}</p>
-        <ServiceCtaRow primaryLabel="ייעוץ SEO" tone="dark" secondary={<ServicePhoneLink tone="dark" />} />
-      </Section>
+      <CommercialMidCta eyebrow={SEO_MID_CTA.eyebrow} title={SEO_MID_CTA.title} body={SEO_MID_CTA.body}>
+        <ServiceCtaRow primaryLabel="ייעוץ SEO" secondary={<ServicePhoneLink tone="light" />} />
+      </CommercialMidCta>
 
       {guides.length > 0 && (
         <Section tone="white" label="מדריכים" title="מדריכים לקידום אתרים" align="start">

@@ -18,11 +18,11 @@ export function WebsiteBuildingHeroCtas() {
 
 export function WebsiteBuildingMidCta() {
   return (
-    <div className="wb-cta-row wb-cta-row--dark">
+    <div className="wb-cta-row wb-cta-row--light">
       <ContextualPopupTrigger className="btn btn-primary btn-lg wb-cta-primary">
         ייעוץ לבניית אתר
       </ContextualPopupTrigger>
-      <a href="tel:0795599449" className="wb-phone-link wb-phone-link--on-dark">
+      <a href="tel:0795599449" className="wb-phone-link wb-phone-link--on-light">
         079-559-9449
       </a>
     </div>

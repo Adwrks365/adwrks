@@ -23,7 +23,7 @@ import { AboutHeroVisual } from "./AboutHeroVisual";
 export function AboutPage() {
   return (
     <article className="ab-page structured-page">
-      <header className="ab-hero ab-hero--dark">
+      <header className="ab-hero">
         <div className="ab-hero-bg" aria-hidden="true" />
         <Container>
           <div className="ab-hero-shell">
@@ -39,7 +39,7 @@ export function AboutPage() {
                 <Button href="#story" variant="outline" size="lg">
                   {ABOUT_HERO.secondaryCta}
                 </Button>
-                <ServicePhoneLink tone="dark" />
+                <ServicePhoneLink tone="light" />
               </div>
             </div>
             <AboutHeroVisual />

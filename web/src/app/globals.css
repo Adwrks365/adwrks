@@ -9456,102 +9456,16 @@ body.contextual-popup-open {
 .ab-hero {
   position: relative;
   overflow: hidden;
-  padding-block: 2.5rem 2rem;
-  background: linear-gradient(180deg, #f8fbff 0%, #ffffff 70%);
-}
-
-.ab-hero--dark {
-  background: linear-gradient(165deg, #1e293b 0%, #0f172a 55%, #0c1222 100%);
-  color: #f8fafc;
-}
-
-.ab-hero--dark .ab-hero-bg {
-  background:
-    radial-gradient(circle at 18% 20%, rgb(2 132 199 / 0.18), transparent 45%),
-    radial-gradient(circle at 82% 8%, rgb(56 189 248 / 0.08), transparent 40%),
-    radial-gradient(circle at 50% 100%, rgb(15 23 42 / 0.5), transparent 50%);
-}
-
-.ab-hero--dark .ab-hero-eyebrow {
-  color: #7dd3fc;
-}
-
-.ab-hero--dark .ab-hero-title {
-  color: #ffffff;
-}
-
-.ab-hero--dark .ab-hero-lead,
-.ab-hero--dark .ab-hero-intro {
-  color: #cbd5e1;
-}
-
-.ab-hero--dark .btn-outline {
-  border-color: rgb(255 255 255 / 0.45);
-  color: #f8fafc;
-  background: transparent;
-}
-
-.ab-hero--dark .btn-outline:hover {
-  border-color: #7dd3fc;
-  color: #ffffff;
-  background: rgb(255 255 255 / 0.06);
-}
-
-.ab-hero--dark .btn-outline:focus-visible {
-  outline: 2px solid #7dd3fc;
-  outline-offset: 2px;
-}
-
-.ab-hero--dark .ab-hero-visual-panel {
-  background: rgb(255 255 255 / 0.06);
-  border-color: rgb(255 255 255 / 0.12);
-  box-shadow: 0 16px 40px rgb(0 0 0 / 0.25);
-  backdrop-filter: blur(8px);
-}
-
-.ab-hero--dark .ab-hero-visual-label {
-  color: #7dd3fc;
-}
-
-.ab-hero--dark .ab-ecosystem-core {
-  background: rgb(2 132 199 / 0.22);
-  border: 1px solid rgb(125 211 252 / 0.28);
-}
-
-.ab-hero--dark .ab-ecosystem-core-sub {
-  color: #94a3b8;
-}
-
-.ab-hero--dark .ab-ecosystem-node {
-  background: rgb(255 255 255 / 0.05);
-  border-color: rgb(255 255 255 / 0.12);
-  color: #e2e8f0;
-}
-
-.ab-hero--dark .ab-hero-visual-foot {
-  color: #94a3b8;
-}
-
-.ab-hero--dark .sp-phone-link--on-dark {
-  background: rgb(255 255 255 / 0.06);
-}
-
-.ab-hero--dark .sp-phone-link--on-dark:visited {
-  color: #f8fafc;
-}
-
-.ab-hero--dark .sp-phone-link--on-dark:hover {
-  border-color: #7dd3fc;
-  background: rgb(255 255 255 / 0.1);
-  color: #ffffff;
+  padding-block: clamp(1.75rem, 4vw, 3rem);
+  background: var(--brand-gradient-soft);
 }
 
 .ab-hero-bg {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 20% 15%, rgb(2 132 199 / 0.1), transparent 40%),
-    radial-gradient(circle at 80% 5%, rgb(15 23 42 / 0.04), transparent 35%);
+    radial-gradient(circle at 12% 18%, rgb(37 124 255 / 0.1), transparent 42%),
+    radial-gradient(circle at 88% 82%, rgb(2 132 199 / 0.06), transparent 38%);
   pointer-events: none;
 }
 
@@ -9563,10 +9477,15 @@ body.contextual-popup-open {
 }
 
 .ab-hero-eyebrow {
-  margin-bottom: 0.65rem;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--ab-accent);
+  display: inline-block;
+  margin-bottom: 0.85rem;
+  padding: 0.38rem 0.9rem;
+  border: 1px solid rgb(37 124 255 / 0.12);
+  border-radius: 999px;
+  background: rgb(37 124 255 / 0.07);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--brand-primary-dark);
 }
 
 .ab-hero-title {
@@ -9601,11 +9520,13 @@ body.contextual-popup-open {
 }
 
 .ab-hero-visual-panel {
-  border: 1px solid var(--ab-border);
-  border-radius: 1.15rem;
-  background: linear-gradient(145deg, #ffffff, #f0f9ff);
+  border: 1px solid rgb(2 132 199 / 0.14);
+  border-radius: var(--radius-xl);
+  background: linear-gradient(145deg, rgb(255 255 255 / 0.96), rgb(240 249 255 / 0.88));
   padding: 1.25rem;
-  box-shadow: 0 16px 36px rgb(15 23 42 / 0.05);
+  box-shadow:
+    0 16px 40px rgb(2 132 199 / 0.08),
+    inset 0 1px 0 rgb(255 255 255 / 0.85);
 }
 
 .ab-hero-visual-label {
@@ -9625,7 +9546,8 @@ body.contextual-popup-open {
 .ab-ecosystem-core {
   padding: 0.85rem 1rem;
   border-radius: 0.75rem;
-  background: #0f172a;
+  border: 1px solid rgb(2 132 199 / 0.2);
+  background: linear-gradient(145deg, #1e293b, #0f172a);
   color: #f8fafc;
   text-align: center;
 }
@@ -9950,6 +9872,51 @@ body.contextual-popup-open {
 
 .ab-fit-quote {
   margin-top: 1.25rem;
+}
+
+/* Commercial mid-page CTA — light accent conversion reminder */
+.commercial-mid-cta-section {
+  padding-block: clamp(2rem, 4vw, 3rem);
+  background: linear-gradient(180deg, #f0f9ff 0%, #f8fbff 100%);
+}
+
+.commercial-mid-cta-panel {
+  max-width: 52rem;
+  padding: clamp(1.35rem, 3vw, 1.85rem) clamp(1.25rem, 3vw, 2rem);
+  border-radius: var(--radius-xl);
+  background: linear-gradient(145deg, rgb(255 255 255 / 0.98) 0%, rgb(240 249 255 / 0.92) 100%);
+  border: 1px solid rgb(2 132 199 / 0.18);
+  box-shadow: 0 12px 32px rgb(2 132 199 / 0.08);
+}
+
+.commercial-mid-cta-eyebrow {
+  margin: 0 0 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--brand-primary);
+}
+
+.commercial-mid-cta-title {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.25rem, 2.8vw, 1.6rem);
+  font-weight: 800;
+  line-height: 1.25;
+  color: #0f172a;
+}
+
+.commercial-mid-cta-text {
+  margin: 0 0 1.25rem;
+  max-width: 38rem;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #475569;
+}
+
+.commercial-mid-cta-panel .sp-cta-row,
+.commercial-mid-cta-panel .wb-cta-row {
+  margin-top: 0;
 }
 
 /* Shared commercial final CTA — light outer band + dark conversion card */

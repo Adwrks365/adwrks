@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CommercialFinalCta } from "@/components/commercial/CommercialFinalCta";
+import { CommercialMidCta } from "@/components/commercial/CommercialMidCta";
 import { ContextualPopupRegistrar } from "@/components/popups/ContextualPopupRegistrar";
 import { PortfolioShowcaseProgressive } from "@/components/portfolio/PortfolioShowcaseProgressive";
 import { Section } from "@/components/ui/Section";
@@ -151,20 +152,13 @@ export function WebsiteBuildingServicePage() {
         </div>
       </Section>
 
-      <Section
-        tone="dark"
-        className="wb-mid-cta-section"
-        label="לפני שממשיכים"
+      <CommercialMidCta
+        eyebrow="לפני שממשיכים"
         title="רוצים לבדוק אם האתר הנוכחי שלכם משרת את העסק?"
-        align="start"
+        body="נשמח לשמוע על המטרות, להבין את המצב הקיים ולהציע כיוון ברור — ללא התחייבות."
       >
-        <div className="wb-mid-cta-panel">
-          <p className="wb-mid-cta-text">
-            נשמח לשמוע על המטרות, להבין את המצב הקיים ולהציע כיוון ברור — ללא התחייבות.
-          </p>
-          <WebsiteBuildingMidCta />
-        </div>
-      </Section>
+        <WebsiteBuildingMidCta />
+      </CommercialMidCta>
 
       {guides.length > 0 && (
         <Section tone="white" className="wb-section-guides" label="מדריכים" title="מדריכים לבניית אתר" align="start">
