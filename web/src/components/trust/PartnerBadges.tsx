@@ -6,73 +6,51 @@ import { SITE } from "@/lib/site";
 type PartnerBadgesProps = {
   variant?: "standard" | "compact";
   className?: string;
-  /** When true, badges link to official partner pages (Footer). */
-  linked?: boolean;
   /** Google-only mode for platform-specific contexts. */
   googleOnly?: boolean;
 };
 
-const META_PARTNER_URL = "https://www.facebook.com/business/partner-directory/search";
-
 export function PartnerBadges({
   variant = "standard",
   className = "",
-  linked = false,
   googleOnly = false,
 }: PartnerBadgesProps) {
-  const badges = [
-    {
-      key: "google",
-      ...GOOGLE_PARTNER_BADGE,
-      href: SITE.googlePartnerUrl,
-    },
-    ...(googleOnly
-      ? []
-      : [
-          {
-            key: "meta",
-            ...META_PARTNER_BADGE,
-            href: META_PARTNER_URL,
-          },
-        ]),
-  ];
-
   return (
     <div
       className={`partner-badges partner-badges--${variant} ${className}`.trim()}
       role="list"
       aria-label="שותפויות מוסמכות"
     >
-      {badges.map((badge) => {
-        const img = (
+      <div className="partner-badge-item partner-badge-item--google" role="listitem">
+        <Link
+          href={SITE.googlePartnerUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="partner-badge-link partner-badge-link--google"
+          aria-label="Google Partner"
+        >
           <Image
-            src={badge.src}
-            alt={badge.alt}
-            width={badge.width}
-            height={badge.height}
+            src={GOOGLE_PARTNER_BADGE.src}
+            alt="Google Partner"
+            width={GOOGLE_PARTNER_BADGE.width}
+            height={GOOGLE_PARTNER_BADGE.height}
             loading="lazy"
-            className={`partner-badge-img partner-badge-img--${badge.key}`}
+            className="partner-badge-img partner-badge-img--google"
           />
-        );
-
-        return (
-          <div key={badge.key} className="partner-badge-item" role="listitem">
-            {linked ? (
-              <Link
-                href={badge.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="partner-badge-link"
-                aria-label={badge.alt}
-              >
-                {img}
-              </Link>
-            ) : (
-              img
-            )}
-          </div>
-        );
-      })}
+        </Link>
+      </div>
+      {!googleOnly && (
+        <div className="partner-badge-item partner-badge-item--meta" role="listitem">
+          <Image
+            src={META_PARTNER_BADGE.src}
+            alt="Meta Business Partner"
+            width={META_PARTNER_BADGE.width}
+            height={META_PARTNER_BADGE.height}
+            loading="lazy"
+            className="partner-badge-img partner-badge-img--meta"
+          />
+        </div>
+      )}
     </div>
   );
 }

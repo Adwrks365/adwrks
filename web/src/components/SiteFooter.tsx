@@ -252,7 +252,7 @@ export function SiteFooter() {
                 </li>
               ))}
             </ul>
-            <PartnerBadges variant="compact" linked className="site-footer-partners" />
+            <PartnerBadges variant="compact" className="site-footer-partners" />
           </div>
         </div>
       </Container>

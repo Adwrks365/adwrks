@@ -165,12 +165,22 @@ body {
   width: 100%;
   height: 100%;
   text-decoration: none;
+  transition: filter 0.2s ease;
 }
 
-.partner-badge-link:focus-visible {
+.partner-badge-link--google:hover .partner-badge-img,
+.partner-badge-link--google:focus-visible .partner-badge-img {
+  filter: brightness(1.03);
+}
+
+.partner-badge-link--google:focus-visible {
   outline: 2px solid var(--brand-primary);
   outline-offset: 2px;
   border-radius: calc(var(--radius-md) - 1px);
+}
+
+.partner-badge-item--meta {
+  cursor: default;
 }
 
 .partner-badge-img {
@@ -203,11 +213,6 @@ body {
 .site-footer-partners .partner-badge-item {
   border-color: rgb(148 163 184 / 0.35);
   background: rgb(255 255 255 / 0.96);
-}
-
-.site-footer-partners .partner-badge-link:hover .partner-badge-img,
-.site-footer-partners .partner-badge-link:focus-visible .partner-badge-img {
-  filter: brightness(1.03);
 }
 
 /* ─── Buttons ─── */
