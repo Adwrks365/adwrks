@@ -6,7 +6,7 @@ export function HomeAiSearch() {
   return (
     <section className="home-ai-search" aria-labelledby="home-ai-search-heading">
       <Container narrow>
-        <div className="home-ai-search-inner reveal">
+        <div className="home-ai-search-inner">
           <h2 id="home-ai-search-heading" className="home-ai-search-title">
             {HOMEPAGE_AI_SEARCH.title}
           </h2>

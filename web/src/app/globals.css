@@ -533,10 +533,16 @@ body {
 }
 
 .home-hero-highlight {
-  background: var(--brand-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--brand-primary-dark);
+}
+
+@media (min-width: 1024px) {
+  .home-hero-highlight {
+    background: var(--brand-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
 }
 
 .home-hero-lead {

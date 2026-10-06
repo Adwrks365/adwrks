@@ -136,7 +136,7 @@ export function StatCounters({ items }: StatCountersProps) {
   }, [items]);
 
   return (
-    <div ref={gridRef} className="stat-grid reveal">
+    <div ref={gridRef} className="stat-grid">
       {items.map((item, index) => (
         <CounterItem
           key={item.label}

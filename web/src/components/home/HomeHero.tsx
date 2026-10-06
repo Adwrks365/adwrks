@@ -78,7 +78,7 @@ export function HomeHero() {
               alt={HOMEPAGE_IMAGES.heroPhotoAlt}
               width={560}
               height={560}
-              loading="lazy"
+              priority
               sizes="(min-width: 1024px) 420px, 0px"
               className="home-hero-v2-image"
             />
