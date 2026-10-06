@@ -10,6 +10,7 @@ import { SeoServicePage } from "@/components/services/SeoServicePage";
 import { ServiceHubPage } from "@/components/services/ServiceHubPage";
 import { SocialMediaServicePage } from "@/components/services/SocialMediaServicePage";
 import { WebsiteBuildingServicePage } from "@/components/services/WebsiteBuildingServicePage";
+import { CheckFitPage } from "@/components/pages/CheckFitPage";
 import { PricingPage } from "@/components/pages/PricingPage";
 import { ArticleTemplate } from "@/components/article/ArticleTemplate";
 import { Container } from "@/components/ui/Container";
@@ -53,6 +54,10 @@ export function ContentPage({ content }: ContentPageProps) {
   const verifiedService = getVerifiedServicePage(content.path);
   if (verifiedService) {
     return <VerifiedServicePage content={verifiedService} />;
+  }
+
+  if (content.path === "/check-fit/") {
+    return <CheckFitPage />;
   }
 
   if (content.path === "/about-us/") {
