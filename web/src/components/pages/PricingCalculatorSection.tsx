@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { PricingCalculatorIframe } from "@/components/PricingCalculatorIframe";
+import { PricingCalculator } from "@/components/calculators/PricingCalculator";
 import { PRICING_CALCULATOR } from "@/lib/pages/pricing-content";
 
 export function PricingCalculatorSection() {
@@ -19,7 +19,7 @@ export function PricingCalculatorSection() {
           </button>
         </div>
       ) : (
-        <PricingCalculatorIframe src={PRICING_CALCULATOR.iframeSrc} title={PRICING_CALCULATOR.iframeTitle} />
+        <PricingCalculator />
       )}
       <p className="pp-calculator-footnote">{PRICING_CALCULATOR.footerNote}</p>
     </div>

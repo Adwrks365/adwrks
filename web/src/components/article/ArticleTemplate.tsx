@@ -1,5 +1,6 @@
 import { ContextualPopupRegistrar } from "@/components/popups/ContextualPopupRegistrar";
-import { HtmlContent } from "@/components/HtmlContent";
+import { ArticleHtmlWithEmbeds } from "@/components/article/ArticleHtmlWithEmbeds";
+import { processContentHtml, stripJsonLdFromHtml } from "@/lib/content/html";
 import { PageHero } from "@/components/ui/PageHero";
 import { Container } from "@/components/ui/Container";
 import { ArticleBodyInteractions } from "@/components/article/ArticleBodyInteractions";
@@ -14,7 +15,6 @@ import {
   getRelatedArticles,
   prepareArticleBodyHtml,
 } from "@/lib/content/article";
-import { processContentHtml } from "@/lib/content/html";
 import { resolveArticlePopupConfig } from "@/lib/popups/article-pages";
 import type { ContentItem } from "@/lib/content/types";
 
@@ -24,7 +24,7 @@ type ArticleTemplateProps = {
 
 export function ArticleTemplate({ content }: ArticleTemplateProps) {
   const { html: bodyHtml, headings } = prepareArticleBodyHtml(content.content);
-  const processedHtml = processContentHtml(bodyHtml);
+  const processedHtml = processContentHtml(stripJsonLdFromHtml(bodyHtml));
   const category = getCategoryLabel(content);
   const related = getRelatedArticles(content, 4);
   const adjacent = getAdjacentArticles(content);
@@ -50,7 +50,7 @@ export function ArticleTemplate({ content }: ArticleTemplateProps) {
 
             <div className="article-template-prose">
               <ArticleBodyInteractions>
-                <HtmlContent html={processedHtml} className="article-body-html" />
+                <ArticleHtmlWithEmbeds html={processedHtml} className="article-body-html" />
               </ArticleBodyInteractions>
             </div>
           </div>

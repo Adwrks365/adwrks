@@ -1,3 +1,4 @@
+import { PRICING_CALCULATOR_EMBED_SLOT } from "@/lib/calculators/pricing-calculator-data";
 import { decodeHtmlEntities } from "./paths";
 import { getAllPosts, getCategories, getPostsForCategory } from "./loader";
 import { repairArticleCtaLinks, wrapRepairedArticleCtaBlocks } from "./article-ctas";
@@ -129,12 +130,26 @@ export function downgradeEmbeddedH1(html: string): string {
     .replace(/<\/h1>/gi, "</h2>");
 }
 
+/** Replace broken Sticklight calculator iframes with a native React embed slot. */
+export function replaceBrokenCalculatorEmbeds(html: string): string {
+  return html
+    .replace(
+      /<div style="background:\s*linear-gradient\(135deg,\s*#0a0f1a[\s\S]*?id="roi-calculator-iframe"[\s\S]*?<\/div>/i,
+      PRICING_CALCULATOR_EMBED_SLOT,
+    )
+    .replace(
+      /<div[^>]*>[\s\S]*?sticklight\.app[\s\S]*?<\/div>/gi,
+      (match) => (match.includes("iframe") ? PRICING_CALCULATOR_EMBED_SLOT : match),
+    );
+}
+
 export function prepareArticleBodyHtml(rawHtml: string): {
   html: string;
   headings: ArticleHeading[];
 } {
   let html = stripEmbeddedArticleSidebar(rawHtml);
   html = stripLegacyArticleContactBlocks(html);
+  html = replaceBrokenCalculatorEmbeds(html);
   html = stripEmptyImageWidgets(html);
   html = stripEmptyElementorSections(html);
   html = stripLeadingRedundantElementorSections(html);
