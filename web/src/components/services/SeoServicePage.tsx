@@ -36,7 +36,7 @@ export function SeoServicePage({ locale = "he" }: LocaleProps) {
         title={c.SEO_HERO.title}
         lead={c.SEO_HERO.lead}
         proofImage={c.SEO_PARTNER_BADGE}
-        visual={<SeoHeroVisual />}
+        visual={<SeoHeroVisual locale={locale} />}
         actions={
           <ServiceCtaRow
             primaryLabel={primaryCta}
@@ -129,7 +129,7 @@ export function SeoServicePage({ locale = "he" }: LocaleProps) {
           title={locale === "en" ? "SEO guides" : "מדריכים לקידום אתרים"}
           align="start"
         >
-          <ServiceRelatedGuides posts={guides} />
+          <ServiceRelatedGuides posts={guides} locale={locale} />
         </Section>
       )}
 
@@ -143,7 +143,7 @@ export function SeoServicePage({ locale = "he" }: LocaleProps) {
       </Section>
 
       <Section tone="white" title={locale === "en" ? "Related services" : "שירותים משלימים"} align="start">
-        <ServiceRelatedServices services={c.SEO_RELATED_SERVICES} />
+        <ServiceRelatedServices services={c.SEO_RELATED_SERVICES} locale={locale} />
       </Section>
 
       <CommercialFinalCta

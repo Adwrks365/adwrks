@@ -114,7 +114,7 @@ export function SocialMediaServicePage({ locale = "he" }: LocaleProps) {
           title={locale === "en" ? "Social media marketing guides" : "מדריכים לשיווק ברשתות"}
           align="start"
         >
-          <ServiceRelatedGuides posts={guides} />
+          <ServiceRelatedGuides posts={guides} locale={locale} />
         </Section>
       )}
 
@@ -128,7 +128,7 @@ export function SocialMediaServicePage({ locale = "he" }: LocaleProps) {
       </Section>
 
       <Section tone="white" title={locale === "en" ? "Related services" : "שירותים משלימים"} align="start">
-        <ServiceRelatedServices services={c.SOCIAL_RELATED_SERVICES} />
+        <ServiceRelatedServices services={c.SOCIAL_RELATED_SERVICES} locale={locale} />
       </Section>
 
       <CommercialFinalCta

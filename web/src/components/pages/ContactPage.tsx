@@ -6,12 +6,8 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import type { ExtractedPage } from "@/lib/content/elementor-extract";
 import { getHeroFromBlocks } from "@/lib/content/elementor-extract";
-import {
-  CONTACT_HERO,
-  CONTACT_PROCESS,
-  CONTACT_TESTIMONIALS,
-  CONTACT_TRUST,
-} from "@/lib/pages/contact-content";
+import type { LocaleProps } from "@/lib/locale-props";
+import { getContactPageContent } from "@/lib/pages/get-contact-content";
 import { ContactConversionSection } from "./ContactConversionSection";
 import { ContactHeroVisual } from "./ContactHeroVisual";
 
@@ -19,11 +15,18 @@ type ContactPageProps = {
   data: ExtractedPage;
 };
 
-export function ContactPage({ data, locale: _locale = "he" }: ContactPageProps & import("@/lib/locale-props").LocaleProps) {
+export function ContactPage({ data, locale = "he" }: ContactPageProps & LocaleProps) {
+  const c = getContactPageContent(locale);
   const hero = getHeroFromBlocks(data.blocks);
-  const privacyNote = data.blocks.find(
+  const privacyBlock = data.blocks.find(
     (b) => b.type === "text" && b.text.includes("פרטים נשמרים"),
   );
+  const privacyNote =
+    locale === "en"
+      ? "Your details are kept confidential and are not shared with third parties."
+      : privacyBlock?.type === "text"
+        ? privacyBlock.text.replace("🔒 ", "")
+        : undefined;
 
   return (
     <article className="structured-page contact-page">
@@ -32,12 +35,12 @@ export function ContactPage({ data, locale: _locale = "he" }: ContactPageProps &
         <Container>
           <div className="cp-hero-shell">
             <div className="cp-hero-copy">
-              <p className="cp-hero-eyebrow">{CONTACT_HERO.eyebrow}</p>
+              <p className="cp-hero-eyebrow">{c.CONTACT_HERO.eyebrow}</p>
               <h1 className="cp-hero-title">{hero.title}</h1>
-              <p className="cp-hero-lead">{CONTACT_HERO.lead}</p>
+              <p className="cp-hero-lead">{c.CONTACT_HERO.lead}</p>
               <div className="cp-hero-actions">
                 <Button href="#contact-form" size="lg">
-                  {CONTACT_HERO.primaryCta}
+                  {c.CONTACT_HERO.primaryCta}
                 </Button>
                 <ServicePhoneLink tone="light" />
               </div>
@@ -48,16 +51,15 @@ export function ContactPage({ data, locale: _locale = "he" }: ContactPageProps &
       </header>
 
       <ContactConversionSection
-        pageTitle={hero.title || "צור קשר"}
-        privacyNote={
-          privacyNote?.type === "text" ? privacyNote.text.replace("🔒 ", "") : undefined
-        }
+        locale={locale}
+        pageTitle={hero.title || (locale === "en" ? "Contact Us" : "צור קשר")}
+        privacyNote={privacyNote}
       />
 
       <Section tone="white" align="start" className="cp-section-process">
-        <h2 className="cp-section-title">{CONTACT_PROCESS.title}</h2>
+        <h2 className="cp-section-title">{c.CONTACT_PROCESS.title}</h2>
         <ol className="cp-process-steps cp-process-steps--compact">
-          {CONTACT_PROCESS.steps.map((step, index) => (
+          {c.CONTACT_PROCESS.steps.map((step, index) => (
             <li key={step.title} className="cp-process-step">
               <span className="cp-process-num">{index + 1}</span>
               <div className="cp-process-copy">
@@ -70,9 +72,9 @@ export function ContactPage({ data, locale: _locale = "he" }: ContactPageProps &
       </Section>
 
       <Section tone="muted" align="start" className="cp-section-testimonials">
-        <h2 className="cp-section-title">{CONTACT_TESTIMONIALS.title}</h2>
+        <h2 className="cp-section-title">{c.CONTACT_TESTIMONIALS.title}</h2>
         <div className="cp-testimonials">
-          {CONTACT_TESTIMONIALS.items.map((item) => (
+          {c.CONTACT_TESTIMONIALS.items.map((item) => (
             <figure key={item.name} className="cp-testimonial-card">
               <blockquote className="cp-testimonial-quote">{item.content}</blockquote>
               <figcaption className="cp-testimonial-author">
@@ -96,7 +98,7 @@ export function ContactPage({ data, locale: _locale = "he" }: ContactPageProps &
 
       <Section tone="gradient" align="center" className="cp-section-trust">
         <div className="cp-trust-strip">
-          <span className="cp-trust-since">{CONTACT_TRUST.since}</span>
+          <span className="cp-trust-since">{c.CONTACT_TRUST.since}</span>
           <PartnerBadges variant="compact" />
         </div>
       </Section>

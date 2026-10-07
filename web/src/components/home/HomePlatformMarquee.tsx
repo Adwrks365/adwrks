@@ -12,19 +12,20 @@ function platformLogoClass(alt: string) {
 }
 
 export function HomePlatformMarquee({ locale = "he" }: LocaleProps) {
-  const { HOMEPAGE_PLATFORM_LOGOS } = getHomepageData(locale);
+  const { HOMEPAGE_PLATFORM_LOGOS, HOMEPAGE_PLATFORM } = getHomepageData(locale);
   return (
     <section className="home-platform-marquee" aria-labelledby="home-platform-heading">
       <Container>
         <header className="home-section-header reveal">
           <h2 id="home-platform-heading" className="home-section-title">
-            עובדים עם הכלים והפלטפורמות המובילים בדיגיטל
+            {HOMEPAGE_PLATFORM.title}
           </h2>
-          <p className="home-section-lead">
-            ערוצי שיווק, מערכות ניהול תוכן וכלי AI — במעטפת אחת מותאמת לעסק
-          </p>
+          <p className="home-section-lead">{HOMEPAGE_PLATFORM.subtitle}</p>
         </header>
-        <div className="platform-marquee reveal" aria-label="כלים ופלטפורמות">
+        <div
+          className="platform-marquee reveal"
+          aria-label={locale === "en" ? "Tools and platforms" : "כלים ופלטפורמות"}
+        >
           <div className="platform-marquee-track">
             {[0, 1].map((copy) => (
               <ul

@@ -129,7 +129,7 @@ export function GoogleAdsServicePage({ locale = "he" }: LocaleProps) {
           title={locale === "en" ? "Google Ads guides" : "מדריכים לפרסום בגוגל"}
           align="start"
         >
-          <ServiceRelatedGuides posts={guides} />
+          <ServiceRelatedGuides posts={guides} locale={locale} />
         </Section>
       )}
 
@@ -143,7 +143,7 @@ export function GoogleAdsServicePage({ locale = "he" }: LocaleProps) {
       </Section>
 
       <Section tone="white" title={locale === "en" ? "Related services" : "שירותים משלימים"} align="start">
-        <ServiceRelatedServices services={c.GOOGLE_ADS_RELATED_SERVICES} />
+        <ServiceRelatedServices services={c.GOOGLE_ADS_RELATED_SERVICES} locale={locale} />
       </Section>
 
       <CommercialFinalCta

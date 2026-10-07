@@ -90,7 +90,7 @@ export function ServiceHubPage({ locale = "he" }: LocaleProps) {
           title={locale === "en" ? "Digital marketing guides" : "מדריכים לשיווק דיגיטלי"}
           align="start"
         >
-          <ServiceRelatedGuides posts={guides} />
+          <ServiceRelatedGuides posts={guides} locale={locale} />
         </Section>
       )}
 

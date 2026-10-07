@@ -9,13 +9,13 @@ export function HomeStrategicPartner({ locale = "he" }: LocaleProps) {
     <section className="home-strategic-partner" aria-labelledby="home-partner-heading">
       <Container narrow>
         <div className="home-strategic-partner-inner reveal">
-          <p className="home-section-label">השותפים שלכם לשלב הבא של העסק</p>
+          <p className="home-section-label">{HOMEPAGE_PARTNERS.label}</p>
           <h2 id="home-partner-heading" className="home-strategic-partner-title">
-            Adwrks 365 המנוע מאחורי הסמכות הדיגיטלית שלכם
+            {HOMEPAGE_PARTNERS.title}
           </h2>
           <p className="home-strategic-partner-body">{HOMEPAGE_PARTNERS.body}</p>
           <ContextualPopupTrigger className="btn btn-secondary btn-lg">
-            תיאום שיחת אפיון אסטרטגית
+            {HOMEPAGE_PARTNERS.cta}
           </ContextualPopupTrigger>
         </div>
       </Container>

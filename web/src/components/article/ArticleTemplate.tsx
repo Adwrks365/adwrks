@@ -48,8 +48,8 @@ export function ArticleTemplate({ content, locale = "he" }: ArticleTemplateProps
       <Container className="article-template-body">
         <div className="article-layout">
           <div className="article-main">
-            <ArticleTopMeta date={content.date} author={ARTICLE_AUTHOR} />
-            <ArticleToc headings={headings} className="article-toc-inline" />
+            <ArticleTopMeta date={content.date} author={ARTICLE_AUTHOR} locale={locale} />
+            <ArticleToc headings={headings} className="article-toc-inline" locale={locale} />
 
             <div className="article-template-prose">
               <ArticleBodyInteractions>
@@ -58,11 +58,12 @@ export function ArticleTemplate({ content, locale = "he" }: ArticleTemplateProps
             </div>
           </div>
 
-          <aside className="article-aside" aria-label="מידע נלווה למאמר">
+          <aside className="article-aside" aria-label={locale === "en" ? "Article sidebar" : "מידע נלווה למאמר"}>
             <ArticleSidebarCards
               related={related}
               pageTitle={content.title}
               pagePath={content.path}
+              locale={locale}
             />
           </aside>
         </div>
@@ -72,6 +73,7 @@ export function ArticleTemplate({ content, locale = "he" }: ArticleTemplateProps
           author={ARTICLE_AUTHOR}
           postPath={content.path}
           adjacent={adjacent}
+          locale={locale}
         />
       </Container>
 

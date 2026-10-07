@@ -1,14 +1,18 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import type { Locale } from "@/i18n/routing";
 import type { ArticleHeading } from "@/lib/content/article";
+import { getArticleUi } from "@/lib/i18n/article-ui";
 
 type ArticleTocProps = {
   headings: ArticleHeading[];
   className?: string;
+  locale?: Locale;
 };
 
-export function ArticleToc({ headings, className = "" }: ArticleTocProps) {
+export function ArticleToc({ headings, className = "", locale = "he" }: ArticleTocProps) {
+  const ui = getArticleUi(locale);
   const [open, setOpen] = useState(false);
   const [activeId, setActiveId] = useState<string | null>(null);
 
@@ -51,8 +55,8 @@ export function ArticleToc({ headings, className = "" }: ArticleTocProps) {
       open={open}
       onToggle={(event) => setOpen((event.currentTarget as HTMLDetailsElement).open)}
     >
-      <summary className="article-toc-summary">תוכן עניינים</summary>
-      <nav aria-label="תוכן עניינים" className="article-toc-panel">
+      <summary className="article-toc-summary">{ui.tocSummary}</summary>
+      <nav aria-label={ui.tocNav} className="article-toc-panel">
         <ul className="article-toc-list">
           {headings.map((h) => (
             <li

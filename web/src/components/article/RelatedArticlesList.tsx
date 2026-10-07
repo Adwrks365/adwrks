@@ -1,6 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Locale } from "@/i18n/routing";
+import { numberFormatLocale } from "@/i18n/locale";
 import { formatExcerpt } from "@/lib/content/excerpt";
+import { getArticleUi } from "@/lib/i18n/article-ui";
 import type { ContentItem } from "@/lib/content/types";
 
 type RelatedArticlesListProps = {
@@ -8,12 +11,13 @@ type RelatedArticlesListProps = {
   compact?: boolean;
   showExcerpt?: boolean;
   ctaLabel?: string;
+  locale?: Locale;
 };
 
-function formatDate(date?: string): string {
+function formatDate(date: string | undefined, locale: Locale): string {
   if (!date) return "";
   try {
-    return new Intl.DateTimeFormat("he-IL", {
+    return new Intl.DateTimeFormat(numberFormatLocale(locale), {
       day: "numeric",
       month: "short",
       year: "numeric",
@@ -27,8 +31,11 @@ export function RelatedArticlesList({
   posts,
   compact = false,
   showExcerpt = true,
-  ctaLabel = "למאמר המלא",
+  ctaLabel,
+  locale = "he",
 }: RelatedArticlesListProps) {
+  const ui = getArticleUi(locale);
+  const label = ctaLabel ?? ui.readFull;
   if (posts.length === 0) return null;
 
   return (
@@ -50,7 +57,7 @@ export function RelatedArticlesList({
           <div className="article-related-body">
             {post.date && (
               <time dateTime={post.date} className="article-related-date">
-                {formatDate(post.date)}
+                {formatDate(post.date, locale)}
               </time>
             )}
             <Link href={post.path} className="article-related-title">
@@ -60,7 +67,7 @@ export function RelatedArticlesList({
               <p className="article-related-excerpt">{formatExcerpt(post.excerpt, compact ? 100 : 140)}</p>
             )}
             <Link href={post.path} className="article-related-cta">
-              {ctaLabel}
+              {label}
             </Link>
           </div>
         </li>

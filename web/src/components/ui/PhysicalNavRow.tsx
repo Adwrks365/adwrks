@@ -5,6 +5,7 @@ type PhysicalNavRowProps = {
   arrow: "left" | "right";
   /** Physical side of the arrow in the row (LTR coordinates). */
   arrowPosition?: "start" | "end";
+  textDir?: "ltr" | "rtl";
   className?: string;
 };
 
@@ -15,6 +16,7 @@ export function PhysicalNavRow({
   label,
   arrow,
   arrowPosition = "end",
+  textDir = "rtl",
   className = "",
 }: PhysicalNavRowProps) {
   const icon = arrow === "left" ? "arrow-left" : "arrow-right";
@@ -26,7 +28,7 @@ export function PhysicalNavRow({
       {arrowPosition === "start" && (
         <LineIcon name={icon} className="nav-phys-arrow" />
       )}
-      <span className="nav-phys-label" dir="rtl">
+      <span className="nav-phys-label" dir={textDir}>
         {label}
       </span>
       {arrowPosition === "end" && (

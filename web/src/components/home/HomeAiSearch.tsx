@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
+import { linkWithArrow } from "@/i18n/ui-arrows";
 import { getHomepageData } from "@/lib/homepage";
 import type { LocaleProps } from "@/lib/locale-props";
 
@@ -14,7 +15,7 @@ export function HomeAiSearch({ locale = "he" }: LocaleProps) {
           </h2>
           <p className="home-ai-search-body">{HOMEPAGE_AI_SEARCH.body}</p>
           <Link href={HOMEPAGE_AI_SEARCH.ctaHref} className="home-ai-search-link">
-            {HOMEPAGE_AI_SEARCH.ctaLabel} ←
+            {linkWithArrow(locale, HOMEPAGE_AI_SEARCH.ctaLabel)}
           </Link>
         </div>
       </Container>

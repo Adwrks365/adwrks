@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { CONTACT_PLANNER } from "@/lib/pages/contact-content";
+import type { LocaleProps } from "@/lib/locale-props";
+import { getContactPageContent } from "@/lib/pages/get-contact-content";
 
 export type PlannerContext = {
   goal: string | null;
@@ -14,7 +15,13 @@ type ContactPlannerProps = {
   onContinue: () => void;
 };
 
-export function ContactPlanner({ onSummaryChange, onContextChange, onContinue }: ContactPlannerProps) {
+export function ContactPlanner({
+  onSummaryChange,
+  onContextChange,
+  onContinue,
+  locale = "he",
+}: ContactPlannerProps & LocaleProps) {
+  const c = getContactPageContent(locale);
   const [goal, setGoal] = useState<string | null>(null);
   const [existing, setExisting] = useState<string[]>([]);
 
@@ -22,12 +29,12 @@ export function ContactPlanner({ onSummaryChange, onContextChange, onContinue }:
     onContextChange({ goal, existing });
 
     const lines: string[] = [];
-    if (goal) lines.push(`${CONTACT_PLANNER.messageGoalLabel}: ${goal}`);
+    if (goal) lines.push(`${c.CONTACT_PLANNER.messageGoalLabel}: ${goal}`);
     if (existing.length > 0) {
-      lines.push(`${CONTACT_PLANNER.messageExistingLabel}: ${existing.join(", ")}`);
+      lines.push(`${c.CONTACT_PLANNER.messageExistingLabel}: ${existing.join(", ")}`);
     }
     onSummaryChange(lines.length > 0 ? lines.join("\n") : "");
-  }, [goal, existing, onSummaryChange, onContextChange]);
+  }, [goal, existing, onSummaryChange, onContextChange, c.CONTACT_PLANNER]);
 
   function toggleExisting(option: string) {
     setExisting((current) =>
@@ -45,13 +52,13 @@ export function ContactPlanner({ onSummaryChange, onContextChange, onContinue }:
 
   return (
     <div className="cp-planner">
-      <p className="cp-planner-kicker">{CONTACT_PLANNER.kicker}</p>
-      <h3 className="cp-planner-title">{CONTACT_PLANNER.title}</h3>
+      <p className="cp-planner-kicker">{c.CONTACT_PLANNER.kicker}</p>
+      <h3 className="cp-planner-title">{c.CONTACT_PLANNER.title}</h3>
 
       <div className="cp-planner-step">
-        <p className="cp-planner-step-label">{CONTACT_PLANNER.step1Label}</p>
-        <div className="cp-planner-options" role="group" aria-label={CONTACT_PLANNER.step1Label}>
-          {CONTACT_PLANNER.goals.map((option) => {
+        <p className="cp-planner-step-label">{c.CONTACT_PLANNER.step1Label}</p>
+        <div className="cp-planner-options" role="group" aria-label={c.CONTACT_PLANNER.step1Label}>
+          {c.CONTACT_PLANNER.goals.map((option) => {
             const selected = goal === option;
             return (
               <button
@@ -75,11 +82,11 @@ export function ContactPlanner({ onSummaryChange, onContextChange, onContinue }:
 
       <div className="cp-planner-step">
         <p className="cp-planner-step-label">
-          {CONTACT_PLANNER.step2Label}
-          <span className="cp-planner-optional"> ({CONTACT_PLANNER.step2Optional})</span>
+          {c.CONTACT_PLANNER.step2Label}
+          <span className="cp-planner-optional"> ({c.CONTACT_PLANNER.step2Optional})</span>
         </p>
-        <div className="cp-planner-options" role="group" aria-label={CONTACT_PLANNER.step2Label}>
-          {CONTACT_PLANNER.existing.map((option) => {
+        <div className="cp-planner-options" role="group" aria-label={c.CONTACT_PLANNER.step2Label}>
+          {c.CONTACT_PLANNER.existing.map((option) => {
             const selected = existing.includes(option);
             return (
               <button
@@ -103,25 +110,25 @@ export function ContactPlanner({ onSummaryChange, onContextChange, onContinue }:
 
       {goal && (
         <div className="cp-planner-summary" role="status" aria-live="polite">
-          <p className="cp-planner-summary-heading">{CONTACT_PLANNER.summaryHeading}</p>
+          <p className="cp-planner-summary-heading">{c.CONTACT_PLANNER.summaryHeading}</p>
           <p className="cp-planner-summary-line">
-            <span className="cp-planner-summary-label">{CONTACT_PLANNER.summaryGoalLabel}:</span> {goal}
+            <span className="cp-planner-summary-label">{c.CONTACT_PLANNER.summaryGoalLabel}:</span> {goal}
           </p>
           {existing.length > 0 && (
             <p className="cp-planner-summary-line">
-              <span className="cp-planner-summary-label">{CONTACT_PLANNER.summaryExistingLabel}:</span>{" "}
+              <span className="cp-planner-summary-label">{c.CONTACT_PLANNER.summaryExistingLabel}:</span>{" "}
               {existingSummary}
             </p>
           )}
           <button type="button" className="cp-planner-continue" onClick={onContinue}>
-            {CONTACT_PLANNER.continueLabel}
+            {c.CONTACT_PLANNER.continueLabel}
           </button>
         </div>
       )}
 
       {hasSelections && (
         <button type="button" className="cp-planner-clear" onClick={clearSelections}>
-          {CONTACT_PLANNER.clearLabel}
+          {c.CONTACT_PLANNER.clearLabel}
         </button>
       )}
     </div>

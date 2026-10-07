@@ -112,12 +112,12 @@ export function HostingPlansServicePage({ locale = "he" }: LocaleProps) {
           title={locale === "en" ? "Hosting & maintenance guides" : "מדריכים לאחסון ותחזוקה"}
           align="start"
         >
-          <ServiceRelatedGuides posts={guides} />
+          <ServiceRelatedGuides posts={guides} locale={locale} />
         </Section>
       )}
 
       <Section tone="white" title={locale === "en" ? "Related services" : "שירותים משלימים"} align="start">
-        <ServiceRelatedServices services={c.HOSTING_RELATED_SERVICES} />
+        <ServiceRelatedServices services={c.HOSTING_RELATED_SERVICES} locale={locale} />
       </Section>
 
       <CommercialFinalCta

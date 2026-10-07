@@ -199,12 +199,43 @@ export const HOMEPAGE_VISION = {
   kicker: "AIO · SEO · PPC",
   title: "Our technology vision for 2026",
   body: "As a boutique digital strategy agency, Adwrks 365 leads in AI Optimization (AIO). We combine advanced AI tools with SEO and PPC to give clients a real competitive edge — semantic search readiness and E-E-A-T authority for 2026 search and AI engines.",
+  recommendationsCta: "Client testimonials",
   envelope:
     "Real growth requires more than generic promotion — it requires understanding your market. We combine advanced ad tech with expertise reaching diverse audiences, including Russian- and English-speaking markets in Israel. Personal guidance plus results-driven optimization helps your brand stand out and grow profitably.",
 } as const;
 
+export const HOMEPAGE_ENVELOPE = {
+  label: "End-to-end strategic envelope",
+  title: "Personalized 360° marketing envelope",
+  cta: "Book a strategy call",
+} as const;
+
+export const HOMEPAGE_SERVICES = {
+  label: "Services",
+  title: "Digital marketing solutions for business",
+  lead: "SEO, paid ads, social, and websites — every channel working together for results.",
+  featuredLabel: "Core service",
+  detailsLabel: "Details",
+} as const;
+
+export const HOMEPAGE_PLATFORM = {
+  title: "We work with leading digital platforms",
+  subtitle: "Marketing channels, CMS tools, and AI — in one tailored envelope for your business.",
+} as const;
+
+export const HOMEPAGE_SOCIAL_PROOF = {
+  label: "Reviews & results",
+  title: "What clients say",
+  googleReviews: "Read all Google reviews →",
+  resultIntro: "We measure success in real business growth — not vanity likes.",
+  carouselLabel: "Client testimonials",
+} as const;
+
 export const HOMEPAGE_PARTNERS = {
+  label: "Your partners for the next stage of growth",
+  title: "Adwrks 365 — the engine behind your digital authority",
   body: "We are strategic growth partners — not just another agency. Since 2018 we've combined proven experience with cutting-edge AI to build dominant digital presence that converts visitors into customers.",
+  cta: "Book a strategy session",
 } as const;
 
 export const HOMEPAGE_ABOUT = {
@@ -213,6 +244,8 @@ export const HOMEPAGE_ABOUT = {
   subtitle: "Building your digital authority in the AI era",
   lead: "Building your digital authority in the AI era",
   body: "Since 2018, Adwrks 365 has helped businesses achieve measurable digital success through smart strategy, advanced technology, and creative that converts. We focus on ROI, personal service, and long-term growth.",
+  servicesTitle: "Services we offer",
+  trustPartners: "Working with Google & Meta",
 } as const;
 
 export const HOMEPAGE_MID_CTA = {
@@ -224,7 +257,7 @@ export const HOMEPAGE_MID_CTA = {
 export const HOMEPAGE_KNOWLEDGE_HUB = {
   label: "Knowledge hub",
   title: "Practical guides",
-  allArticlesLabel: "All articles ←",
+  allArticlesLabel: "All articles →",
   blogHref: "/en/blog/",
 } as const;
 

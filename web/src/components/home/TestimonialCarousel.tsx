@@ -13,31 +13,36 @@ export type TestimonialItem = {
 
 type TestimonialCarouselProps = {
   items: readonly TestimonialItem[];
+  ariaLabel?: string;
 };
 
-export function TestimonialCarousel({ items }: TestimonialCarouselProps) {
+export function TestimonialCarousel({
+  items,
+  ariaLabel = "המלצות לקוחות",
+}: TestimonialCarouselProps) {
   return (
-    <Carousel ariaLabel="המלצות לקוחות" itemCount={items.length} className="carousel-testimonials">
+    <Carousel ariaLabel={ariaLabel} itemCount={items.length} className="carousel-testimonials">
       {items.map((item) => (
         <Card key={item.name} hover className="testimonial-card testimonial-card-premium">
           <div className="testimonial-stars" aria-hidden="true">
             ★★★★★
           </div>
           <p className="testimonial-quote">{item.content}</p>
-          <div className="testimonial-author">
-            <Image
-              src={item.image}
-              alt=""
-              width={48}
-              height={48}
-              sizes="48px"
-              className="testimonial-avatar"
-            />
+          <footer className="testimonial-footer">
+            {item.image && (
+              <Image
+                src={item.image}
+                alt=""
+                width={48}
+                height={48}
+                className="testimonial-avatar"
+              />
+            )}
             <div>
-              <p className="font-semibold text-slate-900">{item.name}</p>
-              <p className="text-xs text-slate-500">{item.title}</p>
+              <cite className="testimonial-name">{item.name}</cite>
+              {item.title && <span className="testimonial-role">{item.title}</span>}
             </div>
-          </div>
+          </footer>
         </Card>
       ))}
     </Carousel>

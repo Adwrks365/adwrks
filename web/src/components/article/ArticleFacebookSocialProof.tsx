@@ -1,15 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
-import { HOMEPAGE_TESTIMONIALS } from "@/lib/homepage/data";
+import type { Locale } from "@/i18n/routing";
+import { getHomepageData } from "@/lib/homepage";
+import { getArticleUi } from "@/lib/i18n/article-ui";
 import { SITE } from "@/lib/site";
 
-export function ArticleFacebookSocialProof() {
+export function ArticleFacebookSocialProof({ locale = "he" }: { locale?: Locale }) {
+  const ui = getArticleUi(locale);
+  const { HOMEPAGE_TESTIMONIALS } = getHomepageData(locale);
   const items = HOMEPAGE_TESTIMONIALS.slice(0, 2);
   if (items.length === 0) return null;
 
   return (
     <div className="article-sidebar-card article-fb-proof">
-      <h2 className="article-sidebar-title">המלצות מ-Facebook</h2>
+      <h2 className="article-sidebar-title">{ui.facebookReviews}</h2>
       <ul className="article-fb-proof-list">
         {items.map((item) => (
           <li key={item.name} className="article-fb-proof-item">
@@ -40,7 +44,7 @@ export function ArticleFacebookSocialProof() {
         target="_blank"
         rel="noopener noreferrer"
       >
-        צפו בכל ההמלצות ב-Facebook
+        {ui.viewAllFacebook}
       </Link>
     </div>
   );

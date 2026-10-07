@@ -15,7 +15,7 @@ export function HomeVision({ locale = "he" }: LocaleProps) {
           </h2>
           <p className="home-vision-body">{HOMEPAGE_VISION.body}</p>
           <Link href="#recommendations" className="home-cta home-cta-secondary">
-            לקוחות ממליצים
+            {HOMEPAGE_VISION.recommendationsCta}
           </Link>
         </div>
       </Container>

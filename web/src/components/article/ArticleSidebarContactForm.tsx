@@ -2,16 +2,24 @@
 
 import { FormEvent, useState } from "react";
 import { PrivacyConsent } from "@/components/forms/PrivacyConsent";
+import type { Locale } from "@/i18n/routing";
 import { submitContactForm } from "@/lib/forms/submit-contact-form";
+import { getArticleUi } from "@/lib/i18n/article-ui";
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
 type ArticleSidebarContactFormProps = {
   pageTitle: string;
   pagePath: string;
+  locale?: Locale;
 };
 
-export function ArticleSidebarContactForm({ pageTitle, pagePath }: ArticleSidebarContactFormProps) {
+export function ArticleSidebarContactForm({
+  pageTitle,
+  pagePath,
+  locale = "he",
+}: ArticleSidebarContactFormProps) {
+  const ui = getArticleUi(locale);
   const [status, setStatus] = useState<FormStatus>("idle");
   const [feedback, setFeedback] = useState("");
 
@@ -35,33 +43,33 @@ export function ArticleSidebarContactForm({ pageTitle, pagePath }: ArticleSideba
         return;
       }
       setStatus("success");
-      setFeedback(result.message || "ההודעה נשלחה בהצלחה.");
+      setFeedback(result.message || ui.formSuccess);
       form.reset();
     } catch {
       setStatus("error");
-      setFeedback("לא ניתן לשלוח את הטופס כרגע. נסו שוב מאוחר יותר.");
+      setFeedback(ui.formError);
     }
   }
 
   return (
     <div className="article-sidebar-card article-sidebar-contact">
-      <h2 className="article-sidebar-title">רוצים שנעזור לכם לקדם את העסק?</h2>
-      <p className="article-sidebar-contact-note">השאירו פרטים ונחזור אליכם בהקדם.</p>
+      <h2 className="article-sidebar-title">{ui.sidebarContactTitle}</h2>
+      <p className="article-sidebar-contact-note">{ui.sidebarContactNote}</p>
       <form className="article-sidebar-contact-form" onSubmit={onSubmit} noValidate>
         <label className="article-sidebar-contact-field">
-          <span>שם *</span>
+          <span>{ui.name}</span>
           <input name="name" type="text" required autoComplete="name" />
         </label>
         <label className="article-sidebar-contact-field">
-          <span>טלפון *</span>
+          <span>{ui.phone}</span>
           <input name="phone" type="tel" required autoComplete="tel" />
         </label>
         <label className="article-sidebar-contact-field">
-          <span>אימייל</span>
+          <span>{ui.email}</span>
           <input name="email" type="email" autoComplete="email" />
         </label>
-        <PrivacyConsent id="article-sidebar-privacy" />
-        <input name="message" type="hidden" value="פנייה מטופס צד מאמר" />
+        <PrivacyConsent id="article-sidebar-privacy" locale={locale} />
+        <input name="message" type="hidden" value={ui.sidebarMessage} />
         <div className="hidden" aria-hidden="true">
           <label htmlFor="article-sidebar-website">Website</label>
           <input id="article-sidebar-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
@@ -77,7 +85,7 @@ export function ArticleSidebarContactForm({ pageTitle, pagePath }: ArticleSideba
           </p>
         )}
         <button type="submit" disabled={status === "submitting"} className="article-sidebar-contact-submit">
-          {status === "submitting" ? "שולח..." : "שליחה"}
+          {status === "submitting" ? ui.submitting : ui.submit}
         </button>
       </form>
     </div>

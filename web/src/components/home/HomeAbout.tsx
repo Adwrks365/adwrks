@@ -48,11 +48,11 @@ export function HomeAbout({ locale = "he" }: LocaleProps) {
                 Google Partner
               </a>
               <span aria-hidden="true">·</span>
-              <span>עובדים עם Google ו-Meta</span>
+              <span>{HOMEPAGE_ABOUT.trustPartners}</span>
             </p>
           </div>
           <div className="home-about-v2-services">
-            <h3 className="home-about-services-title">שירותים שאנחנו מציעים</h3>
+            <h3 className="home-about-services-title">{HOMEPAGE_ABOUT.servicesTitle}</h3>
             <ServiceCheckList items={HOMEPAGE_SERVICE_LIST} />
           </div>
         </div>

@@ -32,7 +32,7 @@ export function HomeKnowledgeHub({ locale = "he" }: LocaleProps) {
         <ul className="home-knowledge-grid reveal">
           {guides.map((post) => (
             <li key={post.path}>
-              <ArticleCard post={post} />
+              <ArticleCard post={post} locale={locale} />
             </li>
           ))}
         </ul>

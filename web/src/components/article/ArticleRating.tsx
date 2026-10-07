@@ -1,10 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import type { Locale } from "@/i18n/routing";
+import { numberFormatLocale } from "@/i18n/locale";
 import { trackArticleRatingSubmit } from "@/lib/analytics/article-rating-events";
+import { getArticleUi } from "@/lib/i18n/article-ui";
 
 type ArticleRatingProps = {
   postPath: string;
+  locale?: Locale;
 };
 
 type RatingState = {
@@ -42,11 +46,17 @@ function formatAverage(value: number | null): string {
   return Number.isInteger(value) ? String(value) : value.toFixed(1);
 }
 
-function formatRatingSummary(averageRating: number | null, totalVoteCount: number): string {
-  if (totalVoteCount <= 0) {
-    return "עדיין אין דירוגים למאמר זה";
-  }
-  return `דירוג ${formatAverage(averageRating)} מתוך 5 · ${totalVoteCount.toLocaleString("he-IL")} דירוגים`;
+function formatRatingSummary(
+  averageRating: number | null,
+  totalVoteCount: number,
+  locale: Locale,
+): string {
+  const ui = getArticleUi(locale);
+  if (totalVoteCount <= 0) return ui.rateEmpty;
+  return ui.rateSummary(
+    formatAverage(averageRating),
+    totalVoteCount.toLocaleString(numberFormatLocale(locale)),
+  );
 }
 
 function StarIcon({ filled }: { filled: boolean }) {
@@ -68,7 +78,8 @@ function StarIcon({ filled }: { filled: boolean }) {
   );
 }
 
-export function ArticleRating({ postPath }: ArticleRatingProps) {
+export function ArticleRating({ postPath, locale = "he" }: ArticleRatingProps) {
+  const ui = getArticleUi(locale);
   const [rating, setRating] = useState<RatingState | null>(null);
   const [hoverValue, setHoverValue] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
@@ -97,7 +108,7 @@ export function ArticleRating({ postPath }: ArticleRatingProps) {
         if (cancelled) return;
 
         if (!response.ok || !data.ok) {
-          setError(data.message || "לא ניתן לטעון את הדירוג.");
+          setError(data.message || ui.rateLoadError);
           return;
         }
 
@@ -117,7 +128,7 @@ export function ArticleRating({ postPath }: ArticleRatingProps) {
         });
       } catch {
         if (!cancelled) {
-          setError("לא ניתן לטעון את הדירוג.");
+          setError(ui.rateLoadError);
         }
       } finally {
         if (!cancelled) {
@@ -156,7 +167,7 @@ export function ArticleRating({ postPath }: ArticleRatingProps) {
       };
 
       if (!response.ok || !data.ok) {
-        setError(data.message || "לא ניתן לשמור את הדירוג.");
+        setError(data.message || ui.rateSaveError);
         return;
       }
 
@@ -173,7 +184,7 @@ export function ArticleRating({ postPath }: ArticleRatingProps) {
         trackArticleRatingSubmit({ article_path: postPath, rating: value });
       }
     } catch {
-      setError("לא ניתן לשמור את הדירוג.");
+      setError(ui.rateSaveError);
     } finally {
       setSubmitting(false);
     }
@@ -181,18 +192,18 @@ export function ArticleRating({ postPath }: ArticleRatingProps) {
 
   const activeValue = hoverValue ?? rating?.userRating ?? 0;
   const summaryText = rating
-    ? formatRatingSummary(rating.averageRating, rating.totalVoteCount)
-    : "טוען דירוג…";
+    ? formatRatingSummary(rating.averageRating, rating.totalVoteCount, locale)
+    : ui.rateLoading;
 
   return (
     <div className="article-rating article-rating--compact">
-      <h2 className="article-rating-title">דרגו את המאמר</h2>
+      <h2 className="article-rating-title">{ui.rateTitle}</h2>
 
       <div
         className="article-rating-stars"
         dir="ltr"
         role="group"
-        aria-label="דרגו את המאמר"
+        aria-label={ui.rateAria}
         onMouseLeave={() => setHoverValue(null)}
       >
         {STAR_VALUES.map((value) => {
@@ -202,7 +213,7 @@ export function ArticleRating({ postPath }: ArticleRatingProps) {
               key={value}
               type="button"
               className={`article-rating-star ${filled ? "is-active" : ""} ${rating?.userRating === value ? "is-selected" : ""}`.trim()}
-              aria-label={`דירוג ${value} מתוך 5`}
+              aria-label={ui.rateStar(value)}
               aria-pressed={rating?.userRating === value}
               disabled={loading || submitting || Boolean(rating?.hasVoted)}
               onMouseEnter={() => {
@@ -223,7 +234,7 @@ export function ArticleRating({ postPath }: ArticleRatingProps) {
       <p className="article-rating-summary" aria-live="polite">
         {thankYou ? (
           <>
-            <span className="article-rating-thanks">תודה על הדירוג!</span>
+            <span className="article-rating-thanks">{ui.rateThanks}</span>
             <span className="article-rating-summary-sep"> · </span>
           </>
         ) : null}
@@ -231,7 +242,7 @@ export function ArticleRating({ postPath }: ArticleRatingProps) {
       </p>
 
       {rating?.hasVoted && !thankYou ? (
-        <p className="article-rating-note">כבר דירגתם מאמר זה.</p>
+        <p className="article-rating-note">{ui.rateAlready}</p>
       ) : null}
 
       {error ? <p className="article-rating-error">{error}</p> : null}

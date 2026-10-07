@@ -3,13 +3,14 @@
 import dynamic from "next/dynamic";
 import { useCallback, useRef, useState } from "react";
 import { Container } from "@/components/ui/Container";
-import { CONTACT_CONVERSION } from "@/lib/pages/contact-content";
+import type { LocaleProps } from "@/lib/locale-props";
+import { getContactPageContent } from "@/lib/pages/get-contact-content";
 import { SITE } from "@/lib/site";
 import { ContactPlanner, type PlannerContext } from "./ContactPlanner";
 
 const ContactForm = dynamic(
   () => import("@/components/ContactForm").then((m) => m.ContactForm),
-  { loading: () => <p className="cp-form-loading">טוען טופס...</p> },
+  { loading: () => <p className="cp-form-loading">…</p> },
 );
 
 const FORM_FIELD_IDS = ["contact-name", "contact-phone", "contact-email", "contact-message"] as const;
@@ -19,7 +20,12 @@ type ContactConversionSectionProps = {
   privacyNote?: string;
 };
 
-export function ContactConversionSection({ pageTitle, privacyNote }: ContactConversionSectionProps) {
+export function ContactConversionSection({
+  pageTitle,
+  privacyNote,
+  locale = "he",
+}: ContactConversionSectionProps & LocaleProps) {
+  const c = getContactPageContent(locale);
   const [plannerSummary, setPlannerSummary] = useState("");
   const [plannerContext, setPlannerContext] = useState<PlannerContext>({ goal: null, existing: [] });
   const formCardRef = useRef<HTMLDivElement>(null);
@@ -47,12 +53,15 @@ export function ContactConversionSection({ pageTitle, privacyNote }: ContactConv
     ? [plannerContext.goal, ...plannerContext.existing].join(" · ")
     : null;
 
+  const contactPath = locale === "en" ? "/en/contact-us/" : "/contact-us/";
+
   return (
     <section id="contact-form" className="cp-conversion">
       <Container>
-        <h2 className="cp-conversion-title">{CONTACT_CONVERSION.title}</h2>
+        <h2 className="cp-conversion-title">{c.CONTACT_CONVERSION.title}</h2>
         <div className="cp-conversion-grid">
           <ContactPlanner
+            locale={locale}
             onSummaryChange={setPlannerSummary}
             onContextChange={setPlannerContext}
             onContinue={scrollToForm}
@@ -60,21 +69,21 @@ export function ContactConversionSection({ pageTitle, privacyNote }: ContactConv
           <div className="cp-form-card" ref={formCardRef}>
             {formContextLine && (
               <div className="cp-form-context" role="status" aria-live="polite">
-                <p className="cp-form-context-heading">{CONTACT_CONVERSION.formContextHeading}</p>
+                <p className="cp-form-context-heading">{c.CONTACT_CONVERSION.formContextHeading}</p>
                 <p className="cp-form-context-line">{formContextLine}</p>
               </div>
             )}
-            <p className="cp-form-intro">{CONTACT_CONVERSION.formIntro}</p>
+            <p className="cp-form-intro">{c.CONTACT_CONVERSION.formIntro}</p>
             <ContactForm
               formId="contact-page"
               pageTitle={pageTitle}
-              pagePath="/contact-us/"
-              submitLabel={CONTACT_CONVERSION.submitLabel}
+              pagePath={contactPath}
+              submitLabel={c.CONTACT_CONVERSION.submitLabel}
               appendToMessage={plannerSummary || undefined}
             />
             {privacyNote && <p className="cp-form-privacy">{privacyNote}</p>}
             <div className="cp-direct-inline">
-              <p className="cp-direct-prompt">{CONTACT_CONVERSION.directPrompt}</p>
+              <p className="cp-direct-prompt">{c.CONTACT_CONVERSION.directPrompt}</p>
               <div className="cp-direct-links">
                 <a href={SITE.phoneTel} className="cp-direct-link cp-direct-link--primary" dir="ltr">
                   {SITE.phoneDisplay}

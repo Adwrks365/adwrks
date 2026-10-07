@@ -1,14 +1,23 @@
 import Image from "next/image";
 import { ServiceCampaignIcon } from "./ServiceCampaignIcon";
 
+import type { Locale } from "@/i18n/routing";
+
 /** Abstract SERP/search composition — no fake rankings or metrics */
-export function SeoHeroVisual() {
+export function SeoHeroVisual({ locale = "he" }: { locale?: Locale }) {
+  const searchPlaceholder =
+    locale === "en" ? "Organic search • User intent" : "חיפוש אורגני • כוונת משתמש";
+  const tags =
+    locale === "en"
+      ? (["Content", "Technical", "AEO"] as const)
+      : (["תוכן", "טכני", "AEO"] as const);
+
   return (
     <div className="sp-compose sp-compose--seo" aria-hidden="true">
       <div className="sp-compose-seo-panel">
         <div className="sp-compose-search-bar">
           <span className="sp-compose-search-icon" />
-          <span className="sp-compose-search-placeholder">חיפוש אורגני • כוונת משתמש</span>
+          <span className="sp-compose-search-placeholder">{searchPlaceholder}</span>
         </div>
         <ul className="sp-compose-serp-list">
           <li className="sp-compose-serp-item sp-compose-serp-item--primary">
@@ -26,9 +35,9 @@ export function SeoHeroVisual() {
           </li>
         </ul>
         <div className="sp-compose-seo-tags">
-          <span>תוכן</span>
-          <span>טכני</span>
-          <span>AEO</span>
+          {tags.map((tag) => (
+            <span key={tag}>{tag}</span>
+          ))}
         </div>
       </div>
     </div>
