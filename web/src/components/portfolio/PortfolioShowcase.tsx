@@ -9,6 +9,16 @@ import { getPortfolioProjectsForVariant } from "@/lib/portfolio/projects";
 import type { PortfolioShowcaseVariant } from "@/lib/portfolio/types";
 import { PortfolioBrowserCard } from "./PortfolioBrowserCard";
 
+function portfolioRichNote(count: number, locale: Locale): string {
+  return locale === "en"
+    ? `${count} projects — scroll to view all work`
+    : `${count} פרויקטים — גללו לצפייה בכל העבודות`;
+}
+
+function portfolioCarouselLabel(locale: Locale): string {
+  return locale === "en" ? "Website portfolio examples" : "דוגמאות לאתרים";
+}
+
 type PortfolioShowcaseProps = {
   variant: PortfolioShowcaseVariant;
   className?: string;
@@ -42,7 +52,7 @@ export function PortfolioShowcase({ variant, className = "", locale = "he" }: Po
   return (
     <div className={`portfolio-showcase portfolio-showcase--${variant} ${className}`.trim()}>
       <Carousel
-        ariaLabel="דוגמאות לאתרים"
+        ariaLabel={portfolioCarouselLabel(locale)}
         itemCount={projects.length}
         className={carouselClass}
       >
@@ -56,7 +66,7 @@ export function PortfolioShowcase({ variant, className = "", locale = "he" }: Po
       </Carousel>
       {variant === "rich" ? (
         <p className="portfolio-showcase-rich-note" aria-live="polite">
-          {projects.length} פרויקטים — גללו לצפייה בכל העבודות
+          {portfolioRichNote(projects.length, locale)}
         </p>
       ) : null}
     </div>

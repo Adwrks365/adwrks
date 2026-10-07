@@ -25,13 +25,17 @@ export async function getOrCreateVoterId(): Promise<string> {
   }
 
   const voterId = randomUUID();
-  cookieStore.set(VOTER_COOKIE_NAME, voterId, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
-    maxAge: VOTER_COOKIE_MAX_AGE,
-    path: "/",
-  });
+  try {
+    cookieStore.set(VOTER_COOKIE_NAME, voterId, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+      maxAge: VOTER_COOKIE_MAX_AGE,
+      path: "/",
+    });
+  } catch {
+    /* Cookie may be unavailable in some edge contexts; dedupe still works per session. */
+  }
 
   return voterId;
 }

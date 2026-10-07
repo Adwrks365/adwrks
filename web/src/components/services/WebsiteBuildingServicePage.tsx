@@ -90,7 +90,7 @@ export function WebsiteBuildingServicePage({ locale = "he" }: LocaleProps) {
         }
         align="start"
       >
-        <PortfolioShowcaseProgressive />
+        <PortfolioShowcaseProgressive locale={locale} />
       </Section>
 
       <Section

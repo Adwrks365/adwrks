@@ -1,5 +1,6 @@
 import { normalizePath } from "@/lib/content/paths";
 import { getRatingsConfig } from "@/lib/ratings/config";
+import { resolveArticleRatingPath } from "@/lib/ratings/path";
 import { supabaseFetch } from "@/lib/ratings/supabase";
 
 export type ArticleRatingAggregate = {
@@ -34,13 +35,14 @@ function parseAverage(value: number | string | null): number | null {
   return Number.isFinite(num) ? num : null;
 }
 
-/** PostgREST eq filter value — percent-encode only; do not wrap in quotes. */
+/** PostgREST eq filter value — quote-wrap paths/text so UTF-8 slugs match reliably. */
 function encodePostgrestEquals(value: string): string {
-  return encodeURIComponent(value);
+  const escaped = value.replace(/\\/g, "\\\\").replace(/"/g, '\\"');
+  return encodeURIComponent(`"${escaped}"`);
 }
 
 export function normalizeArticlePath(input: string): string {
-  return normalizePath(input);
+  return resolveArticleRatingPath(input);
 }
 
 export async function fetchArticleRatingAggregate(

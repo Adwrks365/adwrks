@@ -31,6 +31,8 @@ const HE = {
   nextArticle: "המאמר הבא",
   rateTitle: "דרגו את המאמר",
   rateAria: "דרגו את המאמר",
+  rateLow: "1 · נמוך",
+  rateHigh: "5 · גבוה",
   rateStar: (n: number) => `דירוג ${n} מתוך 5`,
   rateThanks: "תודה על הדירוג!",
   rateAlready: "כבר דירגתם מאמר זה.",
@@ -76,6 +78,8 @@ const EN = {
   nextArticle: "Next article",
   rateTitle: "Rate this article",
   rateAria: "Rate this article",
+  rateLow: "1 · Low",
+  rateHigh: "5 · High",
   rateStar: (n: number) => `Rating ${n} out of 5`,
   rateThanks: "Thanks for your rating!",
   rateAlready: "You already rated this article.",
@@ -121,6 +125,8 @@ export type ArticleUi = {
   nextArticle: string;
   rateTitle: string;
   rateAria: string;
+  rateLow: string;
+  rateHigh: string;
   rateStar: (n: number) => string;
   rateThanks: string;
   rateAlready: string;

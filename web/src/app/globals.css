@@ -3980,11 +3980,27 @@ body {
   margin: 0.35rem 0 0;
 }
 
+.article-rating-scale-wrap {
+  margin: 0 auto 0.35rem;
+  max-width: 16rem;
+}
+
 .article-rating-stars {
   display: flex;
   flex-wrap: wrap;
   gap: 0.15rem;
   justify-content: center;
+  margin: 0 auto 0.2rem;
+}
+
+.article-rating-scale {
+  color: #64748b;
+  display: flex;
+  font-size: 0.75rem;
+  justify-content: space-between;
+  line-height: 1.2;
+  margin: 0 auto;
+  max-width: 100%;
 }
 
 .article-rating-star {

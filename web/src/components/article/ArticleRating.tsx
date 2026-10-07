@@ -94,7 +94,7 @@ export function ArticleRating({ postPath, locale = "he" }: ArticleRatingProps) {
       try {
         const response = await fetch(
           `/api/articles/rate?path=${encodeURIComponent(postPath)}`,
-          { cache: "no-store" },
+          { cache: "no-store", credentials: "same-origin" },
         );
         const data = (await response.json()) as {
           ok?: boolean;
@@ -154,6 +154,7 @@ export function ArticleRating({ postPath, locale = "he" }: ArticleRatingProps) {
       const response = await fetch("/api/articles/rate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        credentials: "same-origin",
         body: JSON.stringify({ articlePath: postPath, rating: value }),
       });
 
@@ -193,42 +194,51 @@ export function ArticleRating({ postPath, locale = "he" }: ArticleRatingProps) {
   const activeValue = hoverValue ?? rating?.userRating ?? 0;
   const summaryText = rating
     ? formatRatingSummary(rating.averageRating, rating.totalVoteCount, locale)
-    : ui.rateLoading;
+    : loading
+      ? ui.rateLoading
+      : error
+        ? ""
+        : ui.rateEmpty;
 
   return (
     <div className="article-rating article-rating--compact">
       <h2 className="article-rating-title">{ui.rateTitle}</h2>
 
-      <div
-        className="article-rating-stars"
-        dir="ltr"
-        role="group"
-        aria-label={ui.rateAria}
-        onMouseLeave={() => setHoverValue(null)}
-      >
-        {STAR_VALUES.map((value) => {
-          const filled = value <= activeValue;
-          return (
-            <button
-              key={value}
-              type="button"
-              className={`article-rating-star ${filled ? "is-active" : ""} ${rating?.userRating === value ? "is-selected" : ""}`.trim()}
-              aria-label={ui.rateStar(value)}
-              aria-pressed={rating?.userRating === value}
-              disabled={loading || submitting || Boolean(rating?.hasVoted)}
-              onMouseEnter={() => {
-                if (!rating?.hasVoted && !submitting) setHoverValue(value);
-              }}
-              onFocus={() => {
-                if (!rating?.hasVoted && !submitting) setHoverValue(value);
-              }}
-              onBlur={() => setHoverValue(null)}
-              onClick={() => void handleSubmit(value)}
-            >
-              <StarIcon filled={filled} />
-            </button>
-          );
-        })}
+      <div className="article-rating-scale-wrap" dir="ltr">
+        <div
+          className="article-rating-stars"
+          role="group"
+          aria-label={ui.rateAria}
+          onMouseLeave={() => setHoverValue(null)}
+        >
+          {STAR_VALUES.map((value) => {
+            const filled = value <= activeValue;
+            return (
+              <button
+                key={value}
+                type="button"
+                className={`article-rating-star ${filled ? "is-active" : ""} ${rating?.userRating === value ? "is-selected" : ""}`.trim()}
+                aria-label={ui.rateStar(value)}
+                aria-pressed={rating?.userRating === value}
+                disabled={loading || submitting || Boolean(rating?.hasVoted)}
+                onMouseEnter={() => {
+                  if (!rating?.hasVoted && !submitting) setHoverValue(value);
+                }}
+                onFocus={() => {
+                  if (!rating?.hasVoted && !submitting) setHoverValue(value);
+                }}
+                onBlur={() => setHoverValue(null)}
+                onClick={() => void handleSubmit(value)}
+              >
+                <StarIcon filled={filled} />
+              </button>
+            );
+          })}
+        </div>
+        <div className="article-rating-scale" aria-hidden="true">
+          <span className="article-rating-scale-end">{ui.rateLow}</span>
+          <span className="article-rating-scale-end">{ui.rateHigh}</span>
+        </div>
       </div>
 
       <p className="article-rating-summary" aria-live="polite">
