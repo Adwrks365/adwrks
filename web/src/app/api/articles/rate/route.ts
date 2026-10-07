@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
 import { isRatingsConfigured } from "@/lib/ratings/config";
 import {
-  fetchArticleRatingAggregate,
   fetchVisitorArticleRating,
   normalizeArticlePath,
+  resolveArticleRatingContext,
   submitArticleRating,
 } from "@/lib/ratings/service";
 import { createVoterHash, getOrCreateVoterId } from "@/lib/ratings/voter";
@@ -28,8 +28,8 @@ export async function GET(request: Request) {
       return NextResponse.json({ ok: false, message: "נתיב מאמר לא תקין." }, { status: 400 });
     }
 
-    const aggregate = await fetchArticleRatingAggregate(articlePath);
-    if (!aggregate) {
+    const context = await resolveArticleRatingContext(articlePath);
+    if (!context) {
       return NextResponse.json({ ok: false, message: "מאמר לא נמצא." }, { status: 404 });
     }
 
@@ -43,8 +43,8 @@ export async function GET(request: Request) {
 
     return NextResponse.json({
       ok: true,
-      averageRating: aggregate.averageRating,
-      totalVoteCount: aggregate.totalVoteCount,
+      averageRating: context.aggregate.averageRating,
+      totalVoteCount: context.aggregate.totalVoteCount,
       hasVoted: userRating !== null,
       userRating,
     });
@@ -81,8 +81,8 @@ export async function POST(request: Request) {
       return NextResponse.json({ ok: false, message: "דירוג לא תקין." }, { status: 400 });
     }
 
-    const aggregate = await fetchArticleRatingAggregate(articlePath);
-    if (!aggregate) {
+    const context = await resolveArticleRatingContext(articlePath);
+    if (!context) {
       return NextResponse.json({ ok: false, message: "מאמר לא נמצא." }, { status: 404 });
     }
 
