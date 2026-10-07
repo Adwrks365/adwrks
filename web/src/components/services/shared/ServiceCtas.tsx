@@ -2,6 +2,7 @@
 
 import { ContextualPopupTrigger } from "@/components/popups/ContextualPopupTrigger";
 import { Button } from "@/components/ui/Button";
+import { useLocale } from "next-intl";
 import type { ReactNode } from "react";
 
 type ServicePrimaryCtaProps = {
@@ -42,9 +43,13 @@ export function ServicePhoneLink({ tone = "light" }: { tone?: "dark" | "light" }
 }
 
 export function ServiceContactButton() {
+  const locale = useLocale();
+  const href = locale === "en" ? "/en/contact-us/" : "/contact-us/";
+  const label = locale === "en" ? "Contact us" : "צרו קשר";
+
   return (
-    <Button href="/contact-us/" variant="outline" size="lg" className="sp-cta-tertiary">
-      צרו קשר
+    <Button href={href} variant="outline" size="lg" className="sp-cta-tertiary">
+      {label}
     </Button>
   );
 }
