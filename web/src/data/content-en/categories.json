@@ -1,0 +1,83 @@
+[
+  {
+    "id": 226,
+    "slug": "websites",
+    "link": "https://adwrks.co.il/en/digital-marketing/websites/",
+    "title": "Website Building",
+    "description": "מחפשים מדריכים על בניית אתרים? בבלוג שלנו תמצאו את כל התשובות: מוורדפרס ועד קוד פתוח, אפיון נכון, עיצוב רספונסיבי וטיפים שיחסכו לכם זמן וכסף. קראו עכשיו!",
+    "count": 23,
+    "parent": 1
+  },
+  {
+    "id": 227,
+    "slug": "google",
+    "link": "https://adwrks.co.il/en/digital-marketing/google/",
+    "title": "Google Marketing",
+    "description": "",
+    "count": 31,
+    "parent": 1
+  },
+  {
+    "id": 232,
+    "slug": "digital-agency",
+    "link": "https://adwrks.co.il/en/digital-agency/",
+    "title": "Digital Agency",
+    "description": "",
+    "count": 42,
+    "parent": 0
+  },
+  {
+    "id": 228,
+    "slug": "facebook",
+    "link": "https://adwrks.co.il/en/digital-marketing/facebook/",
+    "title": "Facebook Marketing",
+    "description": "",
+    "count": 22,
+    "parent": 1
+  },
+  {
+    "id": 230,
+    "slug": "internet-advertisement",
+    "link": "https://adwrks.co.il/en/digital-marketing/internet-advertisement/",
+    "title": "Internet Advertising",
+    "description": "",
+    "count": 34,
+    "parent": 1
+  },
+  {
+    "id": 412,
+    "slug": "seo",
+    "link": "https://adwrks.co.il/en/digital-marketing/seo/",
+    "title": "Organic SEO",
+    "description": "מחפשים מדריכים על קידום אורגני (SEO)? בבלוג שלנו תמצאו את כל התשובות: מקידום טכני, דרך כתיבת תוכן ועד אופטימיזציה למנועי חיפוש. היכנסו לקרוא את המאמרים המובילים.",
+    "count": 5,
+    "parent": 1
+  },
+  {
+    "id": 229,
+    "slug": "ads",
+    "link": "https://adwrks.co.il/en/digital-marketing/ads/",
+    "title": "Paid Advertising",
+    "description": "",
+    "count": 33,
+    "parent": 1
+  },
+  {
+    "id": 231,
+    "slug": "online-marketing",
+    "link": "https://adwrks.co.il/en/digital-marketing/online-marketing/",
+    "title": "Online Marketing",
+    "description": "",
+    "count": 36,
+    "parent": 1
+  },
+  {
+    "id": 1,
+    "slug": "digital-marketing",
+    "link": "https://adwrks.co.il/en/digital-marketing/",
+    "title": "Digital Marketing",
+    "description": "",
+    "count": 53,
+    "parent": 0
+  }
+]

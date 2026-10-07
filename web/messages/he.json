@@ -1,0 +1,45 @@
+{
+  "Common": {
+    "home": "דף הבית",
+    "blog": "בלוג",
+    "previous": "הקודם",
+    "next": "הבא",
+    "search": "חיפוש",
+    "loading": "טוען...",
+    "readMore": "קרא עוד"
+  },
+  "LanguageSwitcher": {
+    "label": "שפה",
+    "switchToEnglish": "English",
+    "switchToHebrew": "עברית",
+    "ariaLabel": "החלפת שפה"
+  },
+  "NotFound": {
+    "code": "404",
+    "title": "העמוד לא נמצא",
+    "description": "העמוד שחיפשתם אינו קיים.",
+    "backHome": "חזרה לדף הבית"
+  },
+  "Forms": {
+    "required": "שדה חובה",
+    "invalidEmail": "כתובת א-mail לא תקינה",
+    "invalidPhone": "מספר טלפון לא תקין",
+    "consentRequired": "יש לאשר את מדיניות הפרטיות",
+    "submit": "שליחה",
+    "submitting": "שולח...",
+    "success": "הפנייה נשלחה בהצלחה",
+    "error": "אירעה שגיאה. נסו שוב.",
+    "loadingForm": "טוען טופס..."
+  },
+  "CookieConsent": {
+    "message": "אנו משתמשים בעוגיות לשיפור החוויה ולמדידת תנועה.",
+    "accept": "מאשר/ת",
+    "decline": "דחייה",
+    "learnMore": "מדיניות פרטיות"
+  },
+  "Pagination": {
+    "ariaLabel": "עימוד עמודים",
+    "previous": "הקודם",
+    "next": "הבא"
+  }
+}

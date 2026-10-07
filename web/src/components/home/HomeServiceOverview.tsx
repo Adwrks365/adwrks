@@ -1,11 +1,10 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
-import {
-  HOMEPAGE_PRIMARY_SERVICES,
-  HOMEPAGE_SECONDARY_SERVICES,
-} from "@/lib/homepage/data";
+import { getHomepageData } from "@/lib/homepage";
+import type { LocaleProps } from "@/lib/locale-props";
 
-export function HomeServiceOverview() {
+export function HomeServiceOverview({ locale = "he" }: LocaleProps) {
+  const { HOMEPAGE_PRIMARY_SERVICES, HOMEPAGE_SECONDARY_SERVICES } = getHomepageData(locale);
   const featured = HOMEPAGE_PRIMARY_SERVICES.find((s) => s.featured);
   const others = HOMEPAGE_PRIMARY_SERVICES.filter((s) => !s.featured);
 
@@ -13,9 +12,9 @@ export function HomeServiceOverview() {
     <section id="we-offer" className="home-services-v2" aria-labelledby="home-services-heading">
       <Container>
         <header className="home-section-header reveal">
-          <p className="home-section-label">שירותים</p>
+          <p className="home-section-label">{locale === "en" ? "Services" : "שירותים"}</p>
           <h2 id="home-services-heading" className="home-section-title">
-            פתרונות שיווק דיגיטלי לעסקים
+            {locale === "en" ? "Digital marketing solutions for business" : "פתרונות שיווק דיגיטלי לעסקים"}
           </h2>
           <p className="home-section-lead">
             SEO, פרסום ממומן, סושיאל ובניית אתרים — כל ערוץ עובד יחד לתוצאות.

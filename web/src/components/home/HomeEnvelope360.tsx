@@ -1,8 +1,10 @@
 import { ContextualPopupTrigger } from "@/components/popups/ContextualPopupTrigger";
 import { Container } from "@/components/ui/Container";
-import { HOMEPAGE_VISION } from "@/lib/homepage/data";
+import { getHomepageData } from "@/lib/homepage";
+import type { LocaleProps } from "@/lib/locale-props";
 
-export function HomeEnvelope360() {
+export function HomeEnvelope360({ locale = "he" }: LocaleProps) {
+  const { HOMEPAGE_VISION } = getHomepageData(locale);
   return (
     <section className="home-envelope-360" aria-labelledby="home-envelope-heading">
       <Container narrow>

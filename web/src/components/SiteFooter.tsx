@@ -3,15 +3,8 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { PartnerBadges } from "@/components/trust/PartnerBadges";
 import { Container } from "@/components/ui/Container";
-import {
-  FOLLOW_SOCIAL,
-  FOOTER_BRAND,
-  FOOTER_LEGAL_LINKS,
-  FOOTER_LOCATION_LINKS,
-  FOOTER_NAV_LINKS,
-  FOOTER_SERVICE_LINKS,
-  SITE,
-} from "@/lib/site";
+import type { Locale } from "@/i18n/routing";
+import { FOLLOW_SOCIAL, getSiteConfig } from "@/lib/site";
 
 function FooterIcon({ children }: { children: ReactNode }) {
   return (
@@ -137,8 +130,36 @@ function LocationIcon({ label }: { label: string }) {
   );
 }
 
-export function SiteFooter() {
+type SiteFooterProps = {
+  locale?: Locale;
+};
+
+export function SiteFooter({ locale = "he" }: SiteFooterProps) {
   const year = new Date().getFullYear();
+  const site = getSiteConfig(locale);
+  const homeHref = locale === "en" ? "/en/" : "/";
+  const labels =
+    locale === "en"
+      ? {
+          nav: "Navigation",
+          services: "Services",
+          contact: "Contact",
+          follow: "Follow us",
+          legal: "Legal links",
+          hours: "Sun–Thu: 09:00–17:00 · Fri–Sat: Closed",
+          copyright: "All rights reserved to",
+          locations: "Location navigation",
+        }
+      : {
+          nav: "ניווט",
+          services: "שירותים",
+          contact: "יצירת קשר",
+          follow: "עקבו אחרינו",
+          legal: "קישורים משפטיים",
+          hours: "א'-ה': 09:00–17:00 · שישי–שבת: סגור",
+          copyright: "כל הזכויות שמורות ל־",
+          locations: "ניווט למיקום",
+        };
 
   return (
     <footer className="site-footer site-footer-premium">
@@ -147,9 +168,9 @@ export function SiteFooter() {
         <div className="site-footer-grid">
           <div className="site-footer-brand site-footer-span">
             <div className="site-footer-brand-top">
-              <Link href="/" className="site-footer-logo-link" aria-label={SITE.name}>
+              <Link href={homeHref} className="site-footer-logo-link" aria-label={site.name}>
                 <Image
-                  src={SITE.logoFull}
+                  src={site.logoFull}
                   alt=""
                   width={156}
                   height={52}
@@ -158,20 +179,20 @@ export function SiteFooter() {
                 />
               </Link>
               <h2 className="site-footer-brand-title">
-                <Link href="/">{FOOTER_BRAND.heading}</Link>
+                <Link href={homeHref}>{site.footerBrand.heading}</Link>
               </h2>
             </div>
             <div className="site-footer-desc">
-              {FOOTER_BRAND.paragraphs.map((paragraph) => (
+              {site.footerBrand.paragraphs.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
             </div>
           </div>
 
           <div className="site-footer-col site-footer-nav-col">
-            <h2 className="site-footer-heading">ניווט</h2>
+            <h2 className="site-footer-heading">{labels.nav}</h2>
             <ul className="site-footer-links">
-              {FOOTER_NAV_LINKS.map((item) => (
+              {site.footerNavLinks.map((item) => (
                 <li key={item.href}>
                   <Link href={item.href}>{item.label}</Link>
                 </li>
@@ -180,9 +201,9 @@ export function SiteFooter() {
           </div>
 
           <div className="site-footer-col site-footer-services-col">
-            <h2 className="site-footer-heading">שירותים</h2>
+            <h2 className="site-footer-heading">{labels.services}</h2>
             <ul className="site-footer-links">
-              {FOOTER_SERVICE_LINKS.map((item) => (
+              {site.footerServiceLinks.map((item) => (
                 <li key={item.href}>
                   <Link href={item.href}>{item.label}</Link>
                 </li>
@@ -191,22 +212,22 @@ export function SiteFooter() {
           </div>
 
           <div className="site-footer-col site-footer-contact-col">
-            <h2 className="site-footer-heading">יצירת קשר</h2>
+            <h2 className="site-footer-heading">{labels.contact}</h2>
             <ul className="site-footer-contact">
               <li>
-                <a href={SITE.phoneTel}>
+                <a href={site.phoneTel}>
                   <PhoneIcon />
-                  <span>{SITE.phoneDisplay}</span>
+                  <span>{site.phoneDisplay}</span>
                 </a>
               </li>
               <li>
-                <a href={`mailto:${SITE.email}`}>
+                <a href={`mailto:${site.email}`}>
                   <MailIcon />
-                  <span>{SITE.email}</span>
+                  <span>{site.email}</span>
                 </a>
               </li>
               <li>
-                <a href={SITE.whatsapp} target="_blank" rel="noopener noreferrer">
+                <a href={site.whatsapp} target="_blank" rel="noopener noreferrer">
                   <WhatsAppIcon />
                   <span>WhatsApp</span>
                 </a>
@@ -215,7 +236,7 @@ export function SiteFooter() {
                 <span className="site-footer-contact-static">
                   <PinIcon />
                   <span>
-                    {SITE.address.street}, {SITE.address.locality}
+                    {site.address.street}, {site.address.locality}
                   </span>
                 </span>
               </li>
@@ -223,15 +244,13 @@ export function SiteFooter() {
                 <span className="site-footer-contact-static">
                   <ClockIcon />
                   <span>
-                    א&apos;-ה&apos;: <bdi>09:00–17:00</bdi>
-                    {" · "}
-                    שישי–שבת: סגור
+                    {labels.hours}
                   </span>
                 </span>
               </li>
             </ul>
-            <nav className="site-footer-locations" aria-label="ניווט למיקום">
-              {FOOTER_LOCATION_LINKS.map((item) => (
+            <nav className="site-footer-locations" aria-label={labels.locations}>
+              {site.footerLocationLinks.map((item) => (
                 <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer">
                   <LocationIcon label={item.label} />
                   <span>{item.label}</span>
@@ -241,7 +260,7 @@ export function SiteFooter() {
           </div>
 
           <div className="site-footer-col site-footer-social-col">
-            <h2 className="site-footer-heading">עקבו אחרינו</h2>
+            <h2 className="site-footer-heading">{labels.follow}</h2>
             <ul className="site-footer-social">
               {FOLLOW_SOCIAL.map((item) => (
                 <li key={item.href}>
@@ -259,8 +278,8 @@ export function SiteFooter() {
 
       <div className="site-footer-legal">
         <Container className="site-footer-legal-inner">
-          <nav aria-label="קישורים משפטיים">
-            {FOOTER_LEGAL_LINKS.map((link) => (
+          <nav aria-label={labels.legal}>
+            {site.footerLegalLinks.map((link) => (
               <Link key={link.href} href={link.href}>
                 {link.label}
               </Link>
@@ -270,7 +289,7 @@ export function SiteFooter() {
             <span className="site-footer-copyright-ltr" dir="ltr">
               © {year}
             </span>{" "}
-            כל הזכויות שמורות ל־<bdi>{SITE.name}</bdi>
+            {labels.copyright} <bdi>{site.name}</bdi>
           </p>
         </Container>
       </div>

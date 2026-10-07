@@ -8,6 +8,7 @@ import {
   stripLeadingRedundantElementorSections,
   stripLegacyArticleContactBlocks,
 } from "./legacy-blocks";
+import type { Locale } from "@/i18n/routing";
 import type { ContentItem } from "./types";
 
 export type ArticleHeading = {
@@ -173,20 +174,20 @@ export function countEmbeddedH1(html: string): number {
   return (cleaned.match(/<h1[\s>]/gi) || []).length;
 }
 
-export function getCategoryLabel(content: ContentItem): string | undefined {
+export function getCategoryLabel(content: ContentItem, locale: Locale = "he"): string | undefined {
   const id = content.categoryIds?.[0];
   if (!id) return undefined;
-  return getCategories().get(id)?.title;
+  return getCategories(locale).get(id)?.title;
 }
 
-export function getRelatedArticles(content: ContentItem, limit = 4): ContentItem[] {
+export function getRelatedArticles(content: ContentItem, limit = 4, locale: Locale = "he"): ContentItem[] {
   const categoryId = content.categoryIds?.[0];
   let posts: ContentItem[];
 
   if (categoryId) {
-    posts = getPostsForCategory(categoryId).filter((p) => p.path !== content.path);
+    posts = getPostsForCategory(categoryId, locale).filter((p) => p.path !== content.path);
     if (posts.length < limit) {
-      const recent = getAllPosts().filter((p) => p.path !== content.path);
+      const recent = getAllPosts(locale).filter((p) => p.path !== content.path);
       const seen = new Set(posts.map((p) => p.path));
       for (const post of recent) {
         if (posts.length >= limit) break;
@@ -197,7 +198,7 @@ export function getRelatedArticles(content: ContentItem, limit = 4): ContentItem
       }
     }
   } else {
-    posts = getAllPosts().filter((p) => p.path !== content.path);
+    posts = getAllPosts(locale).filter((p) => p.path !== content.path);
   }
 
   return posts.slice(0, limit);
@@ -209,8 +210,8 @@ export type AdjacentArticles = {
 };
 
 /** Previous = older article; next = newer article (matches blog date order). */
-export function getAdjacentArticles(content: ContentItem): AdjacentArticles {
-  const posts = getAllPosts();
+export function getAdjacentArticles(content: ContentItem, locale: Locale = "he"): AdjacentArticles {
+  const posts = getAllPosts(locale);
   const index = posts.findIndex((post) => post.path === content.path);
   if (index === -1) {
     return { previous: null, next: null };

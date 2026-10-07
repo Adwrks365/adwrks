@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
-import { HOMEPAGE_ABOUT, HOMEPAGE_SERVICE_LIST } from "@/lib/homepage/data";
-import { SITE } from "@/lib/site";
+import { getHomepageData } from "@/lib/homepage";
+import type { LocaleProps } from "@/lib/locale-props";
+import { getSiteConfig } from "@/lib/site";
 
 function ServiceCheckList({
   items,
@@ -28,7 +29,9 @@ function ServiceCheckList({
   );
 }
 
-export function HomeAbout() {
+export function HomeAbout({ locale = "he" }: LocaleProps) {
+  const { HOMEPAGE_ABOUT, HOMEPAGE_SERVICE_LIST } = getHomepageData(locale);
+  const site = getSiteConfig(locale);
   return (
     <section id="about" className="home-about-v2" aria-labelledby="home-about-heading">
       <Container>
@@ -41,7 +44,7 @@ export function HomeAbout() {
             <p className="home-about-lead">{HOMEPAGE_ABOUT.subtitle}</p>
             <p className="home-about-body">{HOMEPAGE_ABOUT.body}</p>
             <p className="home-trust-line">
-              <a href={SITE.googlePartnerUrl} target="_blank" rel="noopener noreferrer">
+              <a href={site.googlePartnerUrl} target="_blank" rel="noopener noreferrer">
                 Google Partner
               </a>
               <span aria-hidden="true">·</span>

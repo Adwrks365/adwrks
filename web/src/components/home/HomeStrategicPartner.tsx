@@ -1,8 +1,10 @@
 import { ContextualPopupTrigger } from "@/components/popups/ContextualPopupTrigger";
 import { Container } from "@/components/ui/Container";
-import { HOMEPAGE_PARTNERS } from "@/lib/homepage/data";
+import { getHomepageData } from "@/lib/homepage";
+import type { LocaleProps } from "@/lib/locale-props";
 
-export function HomeStrategicPartner() {
+export function HomeStrategicPartner({ locale = "he" }: LocaleProps) {
+  const { HOMEPAGE_PARTNERS } = getHomepageData(locale);
   return (
     <section className="home-strategic-partner" aria-labelledby="home-partner-heading">
       <Container narrow>

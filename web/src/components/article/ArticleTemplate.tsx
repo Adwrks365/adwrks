@@ -1,5 +1,6 @@
 import { ContextualPopupRegistrar } from "@/components/popups/ContextualPopupRegistrar";
 import { ArticleHtmlWithEmbeds } from "@/components/article/ArticleHtmlWithEmbeds";
+import { rewriteInternalLinks } from "@/i18n/rewrite-links";
 import { processContentHtml, stripJsonLdFromHtml } from "@/lib/content/html";
 import { PageHero } from "@/components/ui/PageHero";
 import { Container } from "@/components/ui/Container";
@@ -20,14 +21,16 @@ import type { ContentItem } from "@/lib/content/types";
 
 type ArticleTemplateProps = {
   content: ContentItem;
+  locale?: import("@/i18n/routing").Locale;
 };
 
-export function ArticleTemplate({ content }: ArticleTemplateProps) {
+export function ArticleTemplate({ content, locale = "he" }: ArticleTemplateProps) {
   const { html: bodyHtml, headings } = prepareArticleBodyHtml(content.content);
-  const processedHtml = processContentHtml(stripJsonLdFromHtml(bodyHtml));
-  const category = getCategoryLabel(content);
-  const related = getRelatedArticles(content, 4);
-  const adjacent = getAdjacentArticles(content);
+  const localizedHtml = rewriteInternalLinks(bodyHtml, locale);
+  const processedHtml = processContentHtml(stripJsonLdFromHtml(localizedHtml));
+  const category = getCategoryLabel(content, locale);
+  const related = getRelatedArticles(content, 4, locale);
+  const adjacent = getAdjacentArticles(content, locale);
   const showHeroImage = Boolean(content.featuredImageUrl);
   const popupConfig = resolveArticlePopupConfig(content);
 

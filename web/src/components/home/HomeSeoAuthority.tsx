@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 
 /** Preserved SEO authority block — copy and internal links unchanged. */
-export function HomeSeoAuthority() {
+export function HomeSeoAuthority({ locale: _locale = "he" }: import("@/lib/locale-props").LocaleProps) {
   return (
     <section className="home-seo-authority" aria-labelledby="home-seo-heading">
       <Container narrow>

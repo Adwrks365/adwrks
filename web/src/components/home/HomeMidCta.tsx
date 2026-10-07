@@ -17,7 +17,7 @@ function WhatsAppIcon() {
   );
 }
 
-export function HomeMidCta() {
+export function HomeMidCta({ locale: _locale = "he" }: import("@/lib/locale-props").LocaleProps) {
   return (
     <section className="home-mid-cta" aria-labelledby="home-mid-cta-heading">
       <Container>

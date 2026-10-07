@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
+import { alternatePaths } from "@/i18n/routes";
+import { localeFromPath, ogLocaleTag } from "@/i18n/locale";
+import type { Locale } from "@/i18n/routing";
 import { shouldAllowIndexing } from "@/lib/indexing";
-import { SITE } from "@/lib/site";
+import { getSiteConfig } from "@/lib/site";
 import { getSeoByPath } from "./loader";
-import { absoluteUrl } from "./paths";
+import { absoluteUrl, normalizePath } from "./paths";
 
 function parseRobots(robots?: string | null): Metadata["robots"] {
   if (!robots) return { index: true, follow: true };
@@ -29,14 +32,13 @@ function mergeRobots(
   return staging;
 }
 
-/** Keep canonicals on the production host. Never emit localhost, www, or preview hosts. */
 function productionCanonical(raw: string | null | undefined, pathKey: string): string {
   const fallback = absoluteUrl(pathKey);
   if (!raw) return fallback;
   try {
-    const url = new URL(raw, SITE.domain);
+    const url = new URL(raw, getSiteConfig(localeFromPath(pathKey)).domain);
     const host = url.hostname.toLowerCase();
-    if (host === "adwrks.co.il") return url.href;
+    if (host === "adwrks.co.il") return normalizePath(url.pathname) === normalizePath(pathKey) ? url.href : fallback;
     return fallback;
   } catch {
     return fallback;
@@ -48,35 +50,58 @@ function present(value?: string | null): string | undefined {
   return text ? text : undefined;
 }
 
-export function buildPageMetadata(pathKey: string, fallbackTitle?: string): Metadata {
-  const seo = getSeoByPath(pathKey);
+function hreflangAlternates(pathKey: string): Metadata["alternates"] {
+  const pairs = alternatePaths(pathKey);
+  const canonical = absoluteUrl(pathKey);
+  if (!pairs) {
+    return { canonical };
+  }
+  return {
+    canonical,
+    languages: {
+      "he-IL": absoluteUrl(pairs.he),
+      en: absoluteUrl(pairs.en),
+      "x-default": absoluteUrl(pairs.he),
+    },
+  };
+}
+
+export function buildPageMetadata(
+  pathKey: string,
+  fallbackTitle?: string,
+  locale: Locale = localeFromPath(pathKey),
+): Metadata {
+  const site = getSiteConfig(locale);
+  const seo = getSeoByPath(pathKey, locale);
   const canonical = productionCanonical(seo?.canonical, pathKey);
-  const title = seo?.title || fallbackTitle || SITE.name;
+  const title = seo?.title || fallbackTitle || site.name;
   const description = seo ? present(seo.metaDescription) : undefined;
   const ogDescription = seo ? present(seo.ogDescription) || description : undefined;
-  const ogImage = seo ? present(seo.ogImage) : undefined;
-  // Rank Math emits og:type=article on every indexable URL except the homepage.
-  const ogType = pathKey === "/" ? "website" : "article";
+  const ogImage = seo ? present(seo.ogImage) : site.ogDefaultImage;
+  const isHome = pathKey === "/" || pathKey === "/en/";
+  const ogType = isHome ? "website" : "article";
+  const ogLocale = ogLocaleTag(locale);
 
   return {
     title,
     description: description ?? null,
-    alternates: { canonical },
+    alternates: hreflangAlternates(pathKey),
     robots: mergeRobots(parseRobots(seo?.robots), stagingRobots()),
     openGraph: {
       title: seo?.ogTitle || title,
       url: canonical,
-      siteName: SITE.name,
-      locale: SITE.locale,
+      siteName: site.name,
+      locale: ogLocale,
+      alternateLocale: locale === "he" ? ["en_US"] : ["he_IL"],
       description: ogDescription ?? "",
       type: ogType,
-      images: ogImage ? [{ url: ogImage, alt: title }] : [],
+      images: ogImage ? [{ url: ogImage.startsWith("http") ? ogImage : `${site.domain}${ogImage}`, alt: title }] : [],
     },
     twitter: {
       card: "summary_large_image",
       title: seo?.ogTitle || title,
       description: ogDescription ?? null,
-      images: ogImage ? [ogImage] : [],
+      images: ogImage ? [ogImage.startsWith("http") ? ogImage : `${site.domain}${ogImage}`] : [],
     },
   };
 }

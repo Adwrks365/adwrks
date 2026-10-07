@@ -1,10 +1,13 @@
 import Link from "next/link";
 import { TestimonialCarousel } from "@/components/home/TestimonialCarousel";
 import { Container } from "@/components/ui/Container";
-import { HOMEPAGE_RESULT_QUOTES, HOMEPAGE_TESTIMONIALS } from "@/lib/homepage/data";
-import { SITE } from "@/lib/site";
+import { getHomepageData } from "@/lib/homepage";
+import type { LocaleProps } from "@/lib/locale-props";
+import { getSiteConfig } from "@/lib/site";
 
-export function HomeSocialProof() {
+export function HomeSocialProof({ locale = "he" }: LocaleProps) {
+  const { HOMEPAGE_RESULT_QUOTES, HOMEPAGE_TESTIMONIALS } = getHomepageData(locale);
+  const site = getSiteConfig(locale);
   return (
     <section id="recommendations" className="home-social-proof" aria-labelledby="home-proof-heading">
       <Container>
@@ -15,7 +18,7 @@ export function HomeSocialProof() {
           </h2>
           <p className="home-section-lead">
             <Link
-              href={SITE.googleReviewsUrl}
+              href={site.googleReviewsUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="home-proof-reviews-link"

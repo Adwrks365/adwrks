@@ -3,16 +3,17 @@
 import Script from "next/script";
 import { usePathname, useSearchParams } from "next/navigation";
 import { Suspense, useEffect } from "react";
+import type { Locale } from "@/i18n/routing";
 import { GA4_MEASUREMENT_ID, GOOGLE_ADS_ID } from "@/lib/analytics";
 
 declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;
-    dataLayer?: unknown[];
+    dataLayer?: Record<string, unknown>[];
   }
 }
 
-function PageViewTracker() {
+function PageViewTracker({ locale }: { locale: Locale }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -20,13 +21,26 @@ function PageViewTracker() {
     if (!window.gtag) return;
     const query = searchParams.toString();
     const pagePath = query ? `${pathname}?${query}` : pathname;
-    window.gtag("config", GA4_MEASUREMENT_ID, { page_path: pagePath });
-  }, [pathname, searchParams]);
+    window.gtag("config", GA4_MEASUREMENT_ID, {
+      page_path: pagePath,
+      page_locale: locale,
+    });
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "page_view",
+      page_locale: locale,
+      page_path: pagePath,
+    });
+  }, [pathname, searchParams, locale]);
 
   return null;
 }
 
-export function GoogleTags() {
+type GoogleTagsProps = {
+  locale?: Locale;
+};
+
+export function GoogleTags({ locale = "he" }: GoogleTagsProps) {
   return (
     <>
       <Script
@@ -43,8 +57,19 @@ export function GoogleTags() {
         `}
       </Script>
       <Suspense fallback={null}>
-        <PageViewTracker />
+        <PageViewTracker locale={locale} />
       </Suspense>
     </>
   );
+}
+
+export function pushLeadSubmitEvent(locale: Locale, formId: string) {
+  if (typeof window === "undefined") return;
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: "lead_submit",
+    page_locale: locale,
+    form_id: formId,
+  });
+  window.gtag?.("event", "lead_submit", { page_locale: locale, form_id: formId });
 }

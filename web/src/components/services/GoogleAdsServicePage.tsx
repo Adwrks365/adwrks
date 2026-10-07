@@ -32,7 +32,7 @@ import { ServiceRelatedGuides } from "./shared/ServiceRelatedGuides";
 import { ServiceRelatedServices } from "./shared/ServiceRelatedServices";
 import { GoogleAdsHeroVisual } from "./shared/ServiceVisualCompositions";
 
-export function GoogleAdsServicePage() {
+export function GoogleAdsServicePage({ locale: _locale = "he" }: import("@/lib/locale-props").LocaleProps) {
   const popupConfig = getServicePopupConfig(GOOGLE_ADS_PATH, GOOGLE_ADS_HERO.title);
   const guides = GOOGLE_ADS_GUIDE_PATHS.flatMap((path) => {
     const post = getAllPosts().find((p) => p.path === path);

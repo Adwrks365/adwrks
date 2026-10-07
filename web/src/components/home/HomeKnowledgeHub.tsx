@@ -2,10 +2,12 @@ import Link from "next/link";
 import { ArticleCard } from "@/components/ui/ArticleCard";
 import { Container } from "@/components/ui/Container";
 import { getAllPosts } from "@/lib/content/loader";
-import { HOMEPAGE_CURATED_GUIDE_PATHS } from "@/lib/homepage/data";
+import { getHomepageData } from "@/lib/homepage";
+import type { LocaleProps } from "@/lib/locale-props";
 
-export function HomeKnowledgeHub() {
-  const allPosts = getAllPosts();
+export function HomeKnowledgeHub({ locale = "he" }: LocaleProps) {
+  const { HOMEPAGE_CURATED_GUIDE_PATHS } = getHomepageData(locale);
+  const allPosts = getAllPosts(locale);
   const guides = HOMEPAGE_CURATED_GUIDE_PATHS.map((path) =>
     allPosts.find((post) => post.path === path),
   ).filter((post): post is NonNullable<(typeof allPosts)[number]> => post != null);

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
-import { HOMEPAGE_PLATFORM_LOGOS } from "@/lib/homepage/data";
+import { getHomepageData } from "@/lib/homepage";
+import type { LocaleProps } from "@/lib/locale-props";
 
 function platformLogoClass(alt: string) {
   if (alt === "Facebook" || alt === "Instagram" || alt === "YouTube" || alt === "Gemini") {
@@ -10,7 +11,8 @@ function platformLogoClass(alt: string) {
   return "platform-marquee-logo is-word";
 }
 
-export function HomePlatformMarquee() {
+export function HomePlatformMarquee({ locale = "he" }: LocaleProps) {
+  const { HOMEPAGE_PLATFORM_LOGOS } = getHomepageData(locale);
   return (
     <section className="home-platform-marquee" aria-labelledby="home-platform-heading">
       <Container>

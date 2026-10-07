@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import type { Locale } from "@/i18n/routing";
 import type { CategoryItem, ContentItem, SeoRecord } from "./types";
 import { getFeaturedImageAlt, getFeaturedImageUrl } from "@/lib/media";
 import {
@@ -9,14 +10,7 @@ import {
   pathFromLink,
   slugSegmentsFromPath,
 } from "./paths";
-import { CONTENT_DATA_DIR } from "./data-dir";
-
-const DATA_DIR = CONTENT_DATA_DIR;
-
-function readJson<T>(filename: string): T {
-  const filePath = path.join(DATA_DIR, filename);
-  return JSON.parse(fs.readFileSync(filePath, "utf8")) as T;
-}
+import { contentDataDirForLocale, CONTENT_DATA_DIR, CONTENT_EN_DATA_DIR } from "./data-dir";
 
 type WpPage = {
   id: number;
@@ -42,16 +36,33 @@ type WpCategory = {
   parent: number;
 };
 
-let _routes: Map<string, ContentItem> | null = null;
-let _categories: Map<number, CategoryItem> | null = null;
-let _seoByPath: Map<string, SeoRecord> | null = null;
-let _sitemapUrls: string[] | null = null;
+type LocaleCache = {
+  routes: Map<string, ContentItem>;
+  categories: Map<number, CategoryItem>;
+  seoByPath: Map<string, SeoRecord>;
+  sitemapUrls: string[];
+};
 
-export function getCategories(): Map<number, CategoryItem> {
-  if (_categories) return _categories;
-  const raw = readJson<WpCategory[]>("categories.json");
-  _categories = new Map(
-    raw.map((c) => [
+const cache = new Map<Locale, LocaleCache>();
+
+function readJson<T>(locale: Locale, filename: string): T {
+  const dir = contentDataDirForLocale(locale);
+  const filePath = path.join(dir, filename);
+  return JSON.parse(fs.readFileSync(filePath, "utf8")) as T;
+}
+
+function getCache(locale: Locale): LocaleCache {
+  const existing = cache.get(locale);
+  if (existing) return existing;
+
+  const dataDir = contentDataDirForLocale(locale);
+  if (!fs.existsSync(dataDir)) {
+    throw new Error(`Missing content directory for locale "${locale}": ${dataDir}`);
+  }
+
+  const categoriesRaw = readJson<WpCategory[]>(locale, "categories.json");
+  const categories = new Map(
+    categoriesRaw.map((c) => [
       c.id,
       {
         id: c.id,
@@ -64,13 +75,10 @@ export function getCategories(): Map<number, CategoryItem> {
       },
     ]),
   );
-  return _categories;
-}
 
-function buildRoutes(): Map<string, ContentItem> {
   const routes = new Map<string, ContentItem>();
-  const pages = readJson<WpPage[]>("pages.json");
-  const posts = readJson<WpPage[]>("posts.json");
+  const pages = readJson<WpPage[]>(locale, "pages.json");
+  const posts = readJson<WpPage[]>(locale, "posts.json");
 
   function withFeaturedMedia(item: ContentItem, mediaId?: number): ContentItem {
     return {
@@ -125,7 +133,7 @@ function buildRoutes(): Map<string, ContentItem> {
     );
   }
 
-  for (const cat of getCategories().values()) {
+  for (const cat of categories.values()) {
     routes.set(cat.path, {
       type: "category",
       id: cat.id,
@@ -137,60 +145,67 @@ function buildRoutes(): Map<string, ContentItem> {
     });
   }
 
-  return routes;
+  const seoRaw = readJson<SeoRecord[]>(locale, "seo.json");
+  const seoByPath = new Map<string, SeoRecord>();
+  for (const record of seoRaw) {
+    seoByPath.set(normalizePath(record.url), record);
+  }
+
+  const urls = readJson<{ sitemapUrls: string[] }>(locale, "urls.json");
+  const sitemapUrls = urls.sitemapUrls.map((u) => normalizePath(u));
+
+  const localeCache: LocaleCache = { routes, categories, seoByPath, sitemapUrls };
+  cache.set(locale, localeCache);
+  return localeCache;
 }
 
-export function getRoutes(): Map<string, ContentItem> {
-  if (!_routes) _routes = buildRoutes();
-  return _routes;
+export function getCategories(locale: Locale = "he"): Map<number, CategoryItem> {
+  return getCache(locale).categories;
 }
 
-export function getContentByPath(pathKey: string): ContentItem | null {
-  return getRoutes().get(normalizePath(pathKey)) ?? null;
+export function getRoutes(locale: Locale = "he"): Map<string, ContentItem> {
+  return getCache(locale).routes;
 }
 
-export function getPostsForCategory(categoryId: number): ContentItem[] {
-  return [...getRoutes().values()].filter(
+export function getContentByPath(pathKey: string, locale: Locale = "he"): ContentItem | null {
+  return getRoutes(locale).get(normalizePath(pathKey)) ?? null;
+}
+
+export function getPostsForCategory(categoryId: number, locale: Locale = "he"): ContentItem[] {
+  return [...getRoutes(locale).values()].filter(
     (r) => r.type === "post" && r.categoryIds?.includes(categoryId),
   );
 }
 
-export function getAllPosts(): ContentItem[] {
-  return [...getRoutes().values()]
+export function getAllPosts(locale: Locale = "he"): ContentItem[] {
+  return [...getRoutes(locale).values()]
     .filter((r) => r.type === "post")
     .sort((a, b) => (b.date || "").localeCompare(a.date || ""));
 }
 
-export function getSeoByPath(pathKey: string): SeoRecord | undefined {
-  if (!_seoByPath) {
-    const seo = readJson<SeoRecord[]>("seo.json");
-    _seoByPath = new Map();
-    for (const record of seo) {
-      _seoByPath.set(normalizePath(record.url), record);
-    }
-  }
-  return _seoByPath.get(normalizePath(pathKey));
+export function getSeoByPath(pathKey: string, locale: Locale = "he"): SeoRecord | undefined {
+  return getCache(locale).seoByPath.get(normalizePath(pathKey));
 }
 
-export function getSitemapUrls(): string[] {
-  if (!_sitemapUrls) {
-    const urls = readJson<{ sitemapUrls: string[] }>("urls.json");
-    _sitemapUrls = urls.sitemapUrls.map((u) => normalizePath(u));
-  }
-  return _sitemapUrls;
+export function getSitemapUrls(locale: Locale = "he"): string[] {
+  return getCache(locale).sitemapUrls;
 }
 
-export function resolveRoute(pathKey: string): {
+export function resolveRoute(
+  pathKey: string,
+  locale: Locale = "he",
+): {
   content: ContentItem | null;
   pagination: { basePath: string; page: number } | null;
   categoryArchive: { category: CategoryItem; posts: ContentItem[]; page: number } | null;
   blogArchive: { page: number } | null;
 } {
   const normalized = normalizePath(pathKey);
+  const blogPath = locale === "en" ? "/en/blog/" : "/blog/";
 
-  if (normalized === "/blog/") {
+  if (normalized === blogPath) {
     return {
-      content: getContentByPath("/blog/"),
+      content: getContentByPath(blogPath, locale),
       pagination: null,
       categoryArchive: null,
       blogArchive: { page: 1 },
@@ -198,24 +213,24 @@ export function resolveRoute(pathKey: string): {
   }
 
   const pagination = parsePaginationPath(normalized);
-  if (pagination?.basePath === "/blog/") {
+  if (pagination?.basePath === blogPath) {
     return {
-      content: getContentByPath("/blog/"),
+      content: getContentByPath(blogPath, locale),
       pagination,
       categoryArchive: null,
       blogArchive: { page: pagination.page },
     };
   }
 
-  const direct = getContentByPath(normalized);
+  const direct = getContentByPath(normalized, locale);
   if (direct) {
     return { content: direct, pagination: null, categoryArchive: null, blogArchive: null };
   }
 
   if (pagination) {
-    const cat = [...getCategories().values()].find((c) => c.path === pagination.basePath);
+    const cat = [...getCategories(locale).values()].find((c) => c.path === pagination.basePath);
     if (cat) {
-      const posts = getPostsForCategory(cat.id);
+      const posts = getPostsForCategory(cat.id, locale);
       return {
         content: null,
         pagination,
@@ -230,30 +245,51 @@ export function resolveRoute(pathKey: string): {
 
 export const POSTS_PER_PAGE = 9;
 
-/** All static route params for optional catch-all [[...slug]]. */
-export function getAllStaticParams(): { slug?: string[] }[] {
+export function getAllStaticParams(locale: Locale): { slug?: string[] }[] {
   const params: { slug?: string[] }[] = [{}];
+  const homePath = locale === "en" ? "/en/" : "/";
 
-  for (const routePath of getRoutes().keys()) {
-    if (routePath === "/") continue;
-    params.push({ slug: slugSegmentsFromPath(routePath) });
-  }
-
-  for (const cat of getCategories().values()) {
-    const posts = getPostsForCategory(cat.id);
-    const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE);
-    for (let page = 2; page <= totalPages; page++) {
-      params.push({
-        slug: [...slugSegmentsFromPath(cat.path), "page", String(page)],
-      });
+  for (const routePath of getRoutes(locale).keys()) {
+    if (routePath === homePath) continue;
+    const segments = slugSegmentsFromPath(routePath);
+    if (locale === "en") {
+      if (segments[0] === "en") {
+        params.push({ slug: segments.slice(1) });
+      }
+    } else if (!routePath.startsWith("/en/")) {
+      params.push({ slug: segments });
     }
   }
 
-  const allPosts = getAllPosts();
+  for (const cat of getCategories(locale).values()) {
+    const posts = getPostsForCategory(cat.id, locale);
+    const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE);
+    for (let page = 2; page <= totalPages; page++) {
+      const baseSegments = slugSegmentsFromPath(cat.path);
+      const slug =
+        locale === "en" && baseSegments[0] === "en"
+          ? [...baseSegments.slice(1), "page", String(page)]
+          : [...baseSegments, "page", String(page)];
+      params.push({ slug });
+    }
+  }
+
+  const allPosts = getAllPosts(locale);
   const blogPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
+  const blogBase = locale === "en" ? ["blog"] : ["blog"];
   for (let page = 2; page <= blogPages; page++) {
-    params.push({ slug: ["blog", "page", String(page)] });
+    params.push({ slug: [...blogBase, "page", String(page)] });
   }
 
   return params;
 }
+
+export function getAllLocaleStaticParams(): { locale: Locale; slug?: string[] }[] {
+  const locales: Locale[] = ["he", "en"];
+  return locales.flatMap((locale) =>
+    getAllStaticParams(locale).map((p) => ({ locale, ...p })),
+  );
+}
+
+/** Legacy export for scripts referencing Hebrew data dir */
+export { CONTENT_DATA_DIR, CONTENT_EN_DATA_DIR };

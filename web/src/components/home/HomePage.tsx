@@ -16,78 +16,98 @@ import { PortfolioShowcase } from "@/components/portfolio/PortfolioShowcase";
 import { ContextualPopupRegistrar } from "@/components/popups/ContextualPopupRegistrar";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
-import { HOMEPAGE_FAQ, HOMEPAGE_FAQ_AUTHORITY } from "@/lib/homepage/data";
+import { getHomepageData } from "@/lib/homepage";
 import { getHomepagePopupConfig } from "@/lib/popups/homepage";
-import { SITE } from "@/lib/site";
+import type { LocaleProps } from "@/lib/locale-props";
+import { getSiteConfig } from "@/lib/site";
 
-export function HomePage() {
+export function HomePage({ locale = "he" }: LocaleProps) {
+  const site = getSiteConfig(locale);
+  const hp = getHomepageData(locale);
+  const homePath = locale === "en" ? "/en/" : "/";
+
   return (
     <div className="homepage homepage-v2">
       <ContextualPopupRegistrar config={getHomepagePopupConfig()} />
 
-      <HomeHero />
-      <HomeAiSearch />
-      <HomeStats />
-      <HomePlatformMarquee />
-      <HomeVision />
-      <HomeAbout />
-      <HomeEnvelope360 />
-      <HomeServiceOverview />
-      <HomeMidCta />
-      <HomeStrategicPartner />
-      <HomeSocialProof />
+      <HomeHero locale={locale} />
+      <HomeAiSearch locale={locale} />
+      <HomeStats locale={locale} />
+      <HomePlatformMarquee locale={locale} />
+      <HomeVision locale={locale} />
+      <HomeAbout locale={locale} />
+      <HomeEnvelope360 locale={locale} />
+      <HomeServiceOverview locale={locale} />
+      <HomeMidCta locale={locale} />
+      <HomeStrategicPartner locale={locale} />
+      <HomeSocialProof locale={locale} />
 
       <Section
         id="portfolio"
         tone="muted"
-        label="אתרים שבנינו ומקדמים"
-        title="דוגמאות מהשטח — לא רק הבטחות"
-        subtitle="פרויקטים אמיתיים שאנחנו בונים ומקדמים — מקומי, מקצועי ומערכות."
+        label={locale === "en" ? "Sites we build & promote" : "אתרים שבנינו ומקדמים"}
+        title={locale === "en" ? "Real projects — not just promises" : "דוגמאות מהשטח — לא רק הבטחות"}
+        subtitle={
+          locale === "en"
+            ? "Real client projects we build and market."
+            : "פרויקטים אמיתיים שאנחנו בונים ומקדמים — מקומי, מקצועי ומערכות."
+        }
       >
         <div className="reveal">
           <PortfolioShowcase variant="compact" />
         </div>
       </Section>
 
-      <Section id="faq" tone="muted" label="כל מה שרצית לדעת" title="שאלות ותשובות נפוצות" narrow>
+      <Section
+        id="faq"
+        tone="muted"
+        label={locale === "en" ? "FAQ" : "כל מה שרצית לדעת"}
+        title={locale === "en" ? "Frequently asked questions" : "שאלות ותשובות נפוצות"}
+        narrow
+      >
         <div className="faq-list reveal">
-          {HOMEPAGE_FAQ.map((item) => (
+          {hp.HOMEPAGE_FAQ.map((item) => (
             <details key={item.question} className="faq-item">
               <summary>{item.question}</summary>
               <div className="faq-answer">{item.answer}</div>
             </details>
           ))}
         </div>
-        <p className="mt-6 text-center text-sm text-slate-500">{HOMEPAGE_FAQ_AUTHORITY}</p>
+        <p className="mt-6 text-center text-sm text-slate-500">{hp.HOMEPAGE_FAQ_AUTHORITY}</p>
       </Section>
 
-      <HomeSeoAuthority />
-      <HomeKnowledgeHub />
+      <HomeSeoAuthority locale={locale} />
+      <HomeKnowledgeHub locale={locale} />
 
       <section className="section section-tone-accent home-final-contact" aria-labelledby="home-contact-heading">
         <Container narrow>
           <header className="home-section-header reveal">
-            <p className="home-section-label">יצירת קשר</p>
+            <p className="home-section-label">{locale === "en" ? "Contact" : "יצירת קשר"}</p>
             <h2 id="home-contact-heading" className="home-section-title">
-              מוכנים להתחיל?
+              {locale === "en" ? "Ready to get started?" : "מוכנים להתחיל?"}
             </h2>
-            <p className="home-section-lead">השאירו פרטים ומומחה יחזור אליכם בהקדם.</p>
+            <p className="home-section-lead">
+              {locale === "en"
+                ? "Leave your details and an expert will get back to you soon."
+                : "השאירו פרטים ומומחה יחזור אליכם בהקדם."}
+            </p>
           </header>
           <div className="home-final-contact-grid reveal">
             <ul className="home-contact-facts">
               <li>
-                <a href={SITE.phoneTel}>{SITE.phoneDisplay}</a>
+                <a href={site.phoneTel}>{site.phoneDisplay}</a>
               </li>
               <li>
-                <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+                <a href={`mailto:${site.email}`}>{site.email}</a>
               </li>
             </ul>
             <div className="home-contact-card">
               <ContactForm
                 variant="compact"
                 formId="homepage-contact"
-                pageTitle="סוכנות שיווק דיגיטלי"
-                pagePath="/"
+                pageTitle={site.tagline}
+                pagePath={homePath}
+                locale={locale}
               />
             </div>
           </div>

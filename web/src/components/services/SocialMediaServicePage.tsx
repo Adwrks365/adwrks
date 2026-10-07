@@ -24,7 +24,7 @@ import { ServiceRelatedGuides } from "./shared/ServiceRelatedGuides";
 import { ServiceRelatedServices } from "./shared/ServiceRelatedServices";
 import { SocialHeroVisual, SocialWorkflowVisual } from "./shared/ServiceVisualCompositions";
 
-export function SocialMediaServicePage() {
+export function SocialMediaServicePage({ locale: _locale = "he" }: import("@/lib/locale-props").LocaleProps) {
   const popupConfig = getServicePopupConfig(SOCIAL_PATH, SOCIAL_HERO.title);
   const guides = SOCIAL_GUIDE_PATHS.flatMap((path) => {
     const post = getAllPosts().find((p) => p.path === path);

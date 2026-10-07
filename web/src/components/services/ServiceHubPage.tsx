@@ -18,7 +18,7 @@ import { ServiceHero } from "./shared/ServiceHero";
 import { ServiceRelatedGuides } from "./shared/ServiceRelatedGuides";
 import { HubEcosystemVisual } from "./shared/ServiceVisualCompositions";
 
-export function ServiceHubPage() {
+export function ServiceHubPage({ locale: _locale = "he" }: import("@/lib/locale-props").LocaleProps) {
   const popupConfig = getServicePopupConfig(HUB_PATH, HUB_HERO.title);
   const guides = HUB_GUIDE_PATHS.flatMap((path) => {
     const post = getAllPosts().find((p) => p.path === path);

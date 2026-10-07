@@ -1,26 +1,33 @@
 import Link from "next/link";
 import { PhysicalNavRow } from "@/components/ui/PhysicalNavRow";
+import type { Locale } from "@/i18n/routing";
 
 type PaginationProps = {
   currentPage: number;
   totalPages: number;
   getHref: (page: number) => string;
   ariaLabel?: string;
+  locale?: Locale;
 };
 
 export function Pagination({
   currentPage,
   totalPages,
   getHref,
-  ariaLabel = "עימוד",
+  ariaLabel,
+  locale = "he",
 }: PaginationProps) {
   if (totalPages <= 1) return null;
 
+  const prevLabel = locale === "en" ? "Previous" : "הקודם";
+  const nextLabel = locale === "en" ? "Next" : "הבא";
+  const label = ariaLabel ?? (locale === "en" ? "Pagination" : "עימוד");
+
   return (
-    <nav className="pagination-nav" aria-label={ariaLabel}>
+    <nav className="pagination-nav" aria-label={label}>
       {currentPage > 1 && (
         <Link href={getHref(currentPage - 1)} className="pagination-btn pagination-btn-nav">
-          <PhysicalNavRow label="הקודם" arrow="right" />
+          <PhysicalNavRow label={prevLabel} arrow={locale === "en" ? "left" : "right"} />
         </Link>
       )}
       <div className="pagination-pages">
@@ -37,7 +44,11 @@ export function Pagination({
       </div>
       {currentPage < totalPages && (
         <Link href={getHref(currentPage + 1)} className="pagination-btn pagination-btn-nav">
-          <PhysicalNavRow label="הבא" arrow="left" arrowPosition="start" />
+          <PhysicalNavRow
+            label={nextLabel}
+            arrow={locale === "en" ? "right" : "left"}
+            arrowPosition="start"
+          />
         </Link>
       )}
     </nav>

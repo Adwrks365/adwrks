@@ -19,7 +19,7 @@ type ContactPageProps = {
   data: ExtractedPage;
 };
 
-export function ContactPage({ data }: ContactPageProps) {
+export function ContactPage({ data, locale: _locale = "he" }: ContactPageProps & import("@/lib/locale-props").LocaleProps) {
   const hero = getHeroFromBlocks(data.blocks);
   const privacyNote = data.blocks.find(
     (b) => b.type === "text" && b.text.includes("פרטים נשמרים"),

@@ -22,10 +22,15 @@ export function InsytixMetaTags() {
  * tf.js (afterInteractive, second). Same strategy preserves document order while
  * keeping both non-render-blocking (no beforeInteractive / no LCP dependency).
  */
-export function InsytixTracker() {
+type InsytixTrackerProps = {
+  locale?: import("@/i18n/routing").Locale;
+};
+
+export function InsytixTracker({ locale = "he" }: InsytixTrackerProps) {
   const configJson = JSON.stringify({
     trackingId: INSYTIX_TRACKING_ID,
     endpoint: INSYTIX_TRACK_ENDPOINT,
+    locale,
   });
 
   return (

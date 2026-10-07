@@ -20,7 +20,7 @@ import {
 } from "@/lib/pages/about-content";
 import { AboutHeroVisual } from "./AboutHeroVisual";
 
-export function AboutPage() {
+export function AboutPage({ locale: _locale = "he" }: import("@/lib/locale-props").LocaleProps) {
   return (
     <article className="ab-page structured-page">
       <header className="ab-hero">

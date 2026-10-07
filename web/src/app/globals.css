@@ -11913,3 +11913,53 @@ body.contextual-popup-open {
 .check-fit-website a:hover {
   text-decoration: underline;
 }
+
+.site-lang-switcher {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-slate-700, #334155);
+  padding: 0.375rem 0.625rem;
+  border-radius: 0.375rem;
+  border: 1px solid rgb(226 232 240);
+}
+
+.site-lang-switcher:hover {
+  background: rgb(241 245 249);
+  color: rgb(2 132 199);
+}
+
+.cookie-consent {
+  position: fixed;
+  inset-inline: 1rem;
+  bottom: 1rem;
+  z-index: 60;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  max-width: 42rem;
+  margin-inline: auto;
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  background: rgb(15 23 42 / 0.96);
+  color: white;
+  box-shadow: 0 10px 40px rgb(15 23 42 / 0.25);
+}
+
+.cookie-consent-message {
+  margin: 0;
+  flex: 1 1 16rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.cookie-consent-link {
+  color: rgb(125 211 252);
+  text-decoration: underline;
+}
+
+.cookie-consent-actions {
+  display: flex;
+  gap: 0.5rem;
+}

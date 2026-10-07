@@ -8,10 +8,14 @@
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
-    "validate-migration": "node ../scripts/validate-migration.js --base http://localhost:3000"
+    "validate-migration": "node ../scripts/validate-migration.js --base http://localhost:3000",
+    "generate-i18n": "node scripts/generate-i18n-data.mjs",
+    "translate-posts": "node scripts/translate-posts.mjs",
+    "qa-i18n-seo": "node scripts/qa-i18n-seo.mjs"
   },
   "dependencies": {
     "next": "16.3.7",
+    "next-intl": "^4.14.9",
     "react": "19.2.8",
     "react-dom": "19.2.8"
   },

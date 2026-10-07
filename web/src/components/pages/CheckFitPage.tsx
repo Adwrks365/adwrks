@@ -19,7 +19,7 @@ import { SITE } from "@/lib/site";
 type Screen = "hero" | "quiz" | "success";
 
 /** Multi-step fit assessment quiz — ported from legacy WordPress /check-fit/ page. */
-export function CheckFitPage() {
+export function CheckFitPage({ locale: _locale = "he" }: import("@/lib/locale-props").LocaleProps) {
   const [screen, setScreen] = useState<Screen>("hero");
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);

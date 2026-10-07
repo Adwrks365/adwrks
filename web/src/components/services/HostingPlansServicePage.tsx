@@ -22,7 +22,7 @@ import { ServiceRelatedGuides } from "./shared/ServiceRelatedGuides";
 import { ServiceRelatedServices } from "./shared/ServiceRelatedServices";
 import { HostingHeroVisual, ModernStackVisual } from "./shared/ServiceVisualCompositions";
 
-export function HostingPlansServicePage() {
+export function HostingPlansServicePage({ locale: _locale = "he" }: import("@/lib/locale-props").LocaleProps) {
   const popupConfig = getServicePopupConfig(HOSTING_PATH, HOSTING_HERO.title);
   const guides = HOSTING_GUIDE_PATHS.flatMap((path) => {
     const post = getAllPosts().find((p) => p.path === path);

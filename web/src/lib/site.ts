@@ -1,3 +1,5 @@
+import type { Locale } from "@/i18n/routing";
+
 /** Local migrated asset path under /public/wp-content/uploads. */
 export function asset(path: string): string {
   return `/wp-content/uploads/${path.replace(/^\/+/, "")}`;
@@ -127,3 +129,120 @@ export const FOOTER_LOCATION_LINKS = [
   { label: "Waze", href: SITE.wazeUrl },
   { label: "ניווט", href: SITE.navigateUrl },
 ] as const;
+
+export const PRIMARY_NAV_EN: NavItem[] = [
+  { label: "Home", href: "/en/" },
+  {
+    label: "Services",
+    href: "/en/digital-marketing-services/",
+    children: [
+      { label: "Google Ads", href: "/en/google-ads/" },
+      { label: "SEO", href: "/en/seo/" },
+      { label: "Social Media", href: "/en/social-media-management/" },
+      { label: "Website Building", href: "/en/website-building/" },
+      { label: "Hosting", href: "/en/hosting-plans/" },
+      { label: "Pricing", href: "/en/digital-marketing-pricing/" },
+    ],
+  },
+  { label: "About", href: "/en/about-us/" },
+  {
+    label: "Insights",
+    href: "/en/blog/",
+    children: [
+      { label: "Digital Marketing", href: "/en/digital-marketing/" },
+      { label: "Paid Advertising", href: "/en/digital-marketing/ads/" },
+      { label: "Website Building", href: "/en/digital-marketing/websites/" },
+      { label: "Organic SEO", href: "/en/digital-marketing/seo/" },
+    ],
+  },
+  { label: "Contact", href: "/en/contact-us/" },
+];
+
+export const FOOTER_LEGAL_LINKS_EN = [
+  { label: "Accessibility", href: "/en/accessibility-statement/" },
+  { label: "Privacy Policy", href: "/en/privacy-policy/" },
+  { label: "Terms of Use", href: "/en/terms-of-use/" },
+] as const;
+
+export const FOOTER_BRAND_EN = {
+  heading: "Adwrks 365 – 360° Digital Marketing Agency",
+  paragraphs: [
+    "Since 2018, we help businesses across Israel grow with measurable digital marketing.",
+    "Our services include website building, organic SEO, paid campaigns (PPC), and social media management.",
+    "Expect personal service, fair pricing, and expertise in marketing to Russian-speaking audiences as an added growth channel.",
+  ],
+} as const;
+
+export type SiteConfig = {
+  name: string;
+  legalName: string;
+  tagline: string;
+  description: string;
+  domain: string;
+  locale: string;
+  language: string;
+  dir: "rtl" | "ltr";
+  email: string;
+  phone: string;
+  phoneDisplay: string;
+  phoneTel: string;
+  address: (typeof SITE)["address"];
+  openingHours: (typeof SITE)["openingHours"];
+  social: (typeof SITE)["social"];
+  whatsapp: string;
+  googleReviewsUrl: string;
+  facebookPageUrl: string;
+  googlePartnerUrl: string;
+  googlePartnerBadge: string;
+  metaPartnerBadge: string;
+  mapsUrl: string;
+  wazeUrl: string;
+  navigateUrl: string;
+  logo: string;
+  logoFull: string;
+  favicon32: string;
+  favicon192: string;
+  appleIcon: string;
+  ogDefaultImage: string;
+  foundedNote: string;
+  primaryNav: NavItem[];
+  footerLegalLinks: readonly { label: string; href: string }[];
+  footerBrand: { heading: string; paragraphs: readonly string[] };
+  footerNavLinks: { label: string; href: string }[];
+  footerServiceLinks: NavItem[];
+  footerLocationLinks: readonly { label: string; href: string }[];
+};
+
+export function getSiteConfig(locale: Locale = "he"): SiteConfig {
+  if (locale === "en") {
+    return {
+      ...SITE,
+      tagline: "Digital Marketing Agency",
+      description: "Digital marketing agency — websites, SEO, paid ads, and social media",
+      language: "en",
+      dir: "ltr",
+      locale: "en-US",
+      foundedNote: "Since 2018",
+      primaryNav: PRIMARY_NAV_EN,
+      footerLegalLinks: FOOTER_LEGAL_LINKS_EN,
+      footerBrand: FOOTER_BRAND_EN,
+      footerNavLinks: PRIMARY_NAV_EN.map(({ label, href }) => ({ label, href })),
+      footerServiceLinks: PRIMARY_NAV_EN.find((n) => n.children)?.children ?? [],
+      footerLocationLinks: [
+        { label: "Google Maps", href: SITE.mapsUrl },
+        { label: "Waze", href: SITE.wazeUrl },
+        { label: "Navigate", href: SITE.navigateUrl },
+      ],
+    };
+  }
+
+  return {
+    ...SITE,
+    primaryNav: PRIMARY_NAV,
+    footerLegalLinks: FOOTER_LEGAL_LINKS,
+    footerBrand: FOOTER_BRAND,
+    footerNavLinks: FOOTER_NAV_LINKS,
+    footerServiceLinks: FOOTER_SERVICE_LINKS,
+    footerLocationLinks: FOOTER_LOCATION_LINKS,
+  };
+}

@@ -21,7 +21,7 @@ import { getServicePopupConfig } from "@/lib/popups/service-pages";
 import { WebsiteBuildingHero } from "./WebsiteBuildingHero";
 import { WebsiteBuildingMidCta } from "./WebsiteBuildingHeroCtas";
 
-export function WebsiteBuildingServicePage() {
+export function WebsiteBuildingServicePage({ locale: _locale = "he" }: import("@/lib/locale-props").LocaleProps) {
   const popupConfig = getServicePopupConfig(WEBSITE_BUILDING_PATH, "בניית אתרים לעסקים");
   const allPosts = getAllPosts();
   const guides = WEBSITE_BUILDING_GUIDE_PATHS.flatMap((path) => {

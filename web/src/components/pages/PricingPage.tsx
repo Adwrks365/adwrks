@@ -40,7 +40,7 @@ function EditorialPoint({ title, children }: { title: string; children: ReactNod
   );
 }
 
-export function PricingPage() {
+export function PricingPage({ locale: _locale = "he" }: import("@/lib/locale-props").LocaleProps) {
   const popupConfig = getServicePopupConfig(PRICING_PATH, PRICING_HERO.seoPageTitle);
 
   return (

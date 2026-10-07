@@ -2,8 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { ContextualPopupTrigger } from "@/components/popups/ContextualPopupTrigger";
 import { Container } from "@/components/ui/Container";
-import { HOMEPAGE_CAPABILITY_CHIPS, HOMEPAGE_IMAGES } from "@/lib/homepage/data";
-import { SITE } from "@/lib/site";
+import { getHomepageData } from "@/lib/homepage";
+import type { LocaleProps } from "@/lib/locale-props";
+import { getSiteConfig } from "@/lib/site";
 
 function HeroPattern() {
   return (
@@ -37,24 +38,39 @@ function HeroPattern() {
   );
 }
 
-export function HomeHero() {
+export function HomeHero({ locale = "he" }: LocaleProps) {
+  const site = getSiteConfig(locale);
+  const hp = getHomepageData(locale);
+
   return (
     <section className="home-hero-v2 home-hero-v2--text-led" aria-labelledby="home-hero-heading">
       <HeroPattern />
       <Container>
         <div className="home-hero-v2-shell">
           <div className="home-hero-v2-inner">
-            <p className="home-hero-badge">סוכנות שיווק דיגיטלי • {SITE.foundedNote}</p>
+            <p className="home-hero-badge">
+              {site.tagline} • {site.foundedNote}
+            </p>
             <h1 id="home-hero-heading" className="home-hero-title text-slate-900">
-              <span className="home-hero-highlight">סוכנות שיווק דיגיטלי</span>
+              <span className="home-hero-highlight">{site.tagline}</span>
             </h1>
             <p className="home-hero-lead">
-              מעטפת 360° של שיווק דיגיטלי —{" "}
-              <strong className="text-sky-700">SEO, Google Ads, סושיאל ובניית אתרים</strong> — לתוצאות
-              מדידות ו-ROI שמביאות פניות וצמיחה.
+              {locale === "en" ? (
+                <>
+                  360° digital marketing —{" "}
+                  <strong className="text-sky-700">SEO, Google Ads, social & websites</strong> — for
+                  measurable ROI, leads, and growth.
+                </>
+              ) : (
+                <>
+                  מעטפת 360° של שיווק דיגיטלי —{" "}
+                  <strong className="text-sky-700">SEO, Google Ads, סושיאל ובניית אתרים</strong> — לתוצאות
+                  מדידות ו-ROI שמביאות פניות וצמיחה.
+                </>
+              )}
             </p>
-            <ul className="home-hero-capabilities" aria-label="יכולות מרכזיות">
-              {HOMEPAGE_CAPABILITY_CHIPS.map((chip) => (
+            <ul className="home-hero-capabilities" aria-label={locale === "en" ? "Core capabilities" : "יכולות מרכזיות"}>
+              {hp.HOMEPAGE_CAPABILITY_CHIPS.map((chip) => (
                 <li key={chip.href}>
                   <Link href={chip.href} className="home-hero-capability-chip">
                     {chip.label}
@@ -64,18 +80,18 @@ export function HomeHero() {
             </ul>
             <div className="home-hero-actions justify-center lg:justify-start">
               <ContextualPopupTrigger className="btn btn-primary btn-lg">
-                ייעוץ ללא התחייבות
+                {locale === "en" ? "Free consultation" : "ייעוץ ללא התחייבות"}
               </ContextualPopupTrigger>
               <Link href="#portfolio" className="btn btn-outline btn-lg">
-                צפו בעבודות שלנו
+                {locale === "en" ? "View our work" : "צפו בעבודות שלנו"}
               </Link>
             </div>
           </div>
           <div className="home-hero-v2-visual">
             <div className="home-hero-visual-glow" aria-hidden="true" />
             <Image
-              src={HOMEPAGE_IMAGES.heroPhoto}
-              alt={HOMEPAGE_IMAGES.heroPhotoAlt}
+              src={hp.HOMEPAGE_IMAGES.heroPhoto}
+              alt={hp.HOMEPAGE_IMAGES.heroPhotoAlt}
               width={560}
               height={560}
               priority

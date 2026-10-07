@@ -2,6 +2,8 @@
 
 import { FormEvent, useState } from "react";
 import { PrivacyConsent } from "@/components/forms/PrivacyConsent";
+import { pushLeadSubmitEvent } from "@/components/GoogleTags";
+import type { Locale } from "@/i18n/routing";
 import type { ContactFormId } from "@/lib/email/contact-form-ids";
 import { submitContactForm } from "@/lib/forms/submit-contact-form";
 
@@ -14,6 +16,7 @@ type ContactFormProps = {
   pagePath: string;
   submitLabel?: string;
   appendToMessage?: string;
+  locale?: Locale;
 };
 
 export function ContactForm({
@@ -21,9 +24,11 @@ export function ContactForm({
   formId,
   pageTitle,
   pagePath,
-  submitLabel = "שליחה",
+  submitLabel,
   appendToMessage,
+  locale = "he",
 }: ContactFormProps) {
+  const resolvedSubmitLabel = submitLabel ?? (locale === "en" ? "Submit" : "שליחה");
   const compact = variant === "compact";
   const [status, setStatus] = useState<FormStatus>("idle");
   const [feedback, setFeedback] = useState("");
@@ -55,11 +60,19 @@ export function ContactForm({
         return;
       }
       setStatus("success");
-      setFeedback(result.message || "ההודעה נשלחה בהצלחה.");
+      setFeedback(
+        result.message ||
+          (locale === "en" ? "Your message was sent successfully." : "ההודעה נשלחה בהצלחה."),
+      );
+      pushLeadSubmitEvent(locale, formId);
       form.reset();
     } catch {
       setStatus("error");
-      setFeedback("לא ניתן לשלוח את הטופס כרגע. נסו שוב מאוחר יותר.");
+      setFeedback(
+        locale === "en"
+          ? "Unable to submit the form right now. Please try again later."
+          : "לא ניתן לשלוח את הטופס כרגע. נסו שוב מאוחר יותר.",
+      );
     }
   }
 
@@ -141,7 +154,11 @@ export function ContactForm({
         disabled={status === "submitting"}
         className={`contact-form-submit inline-flex items-center justify-center rounded-md bg-sky-600 px-4 text-sm font-semibold text-white hover:bg-sky-700 disabled:opacity-60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600 ${compact ? "w-full py-2.5" : "w-full py-2.5 sm:w-auto"}`}
       >
-        {status === "submitting" ? "שולח..." : submitLabel}
+        {status === "submitting"
+          ? locale === "en"
+            ? "Sending..."
+            : "שולח..."
+          : resolvedSubmitLabel}
       </button>
     </form>
   );

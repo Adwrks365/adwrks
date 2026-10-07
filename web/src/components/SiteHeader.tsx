@@ -6,7 +6,9 @@ import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
-import { PRIMARY_NAV, SITE, type NavItem } from "@/lib/site";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import type { Locale } from "@/i18n/routing";
+import { getSiteConfig, type NavItem } from "@/lib/site";
 
 function NavChevron({ open }: { open: boolean }) {
   return (
@@ -37,6 +39,8 @@ function DesktopDropdown({
   onClose,
   pathname,
   closeAll,
+  blogPath,
+  allArticlesLabel,
 }: {
   item: NavItem;
   open: boolean;
@@ -44,6 +48,8 @@ function DesktopDropdown({
   onClose: () => void;
   pathname: string;
   closeAll: () => void;
+  blogPath: string;
+  allArticlesLabel: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const active = isActive(pathname, item.href);
@@ -76,7 +82,7 @@ function DesktopDropdown({
           role="menuitem"
           onClick={closeAll}
         >
-          {item.href === "/blog/" ? "כל המאמרים" : item.label}
+          {item.href === blogPath ? allArticlesLabel : item.label}
         </Link>
         {item.children?.map((child) => (
           <Link
@@ -94,7 +100,14 @@ function DesktopDropdown({
   );
 }
 
-function SiteHeaderNav({ pathname }: { pathname: string }) {
+function SiteHeaderNav({ pathname, locale }: { pathname: string; locale: Locale }) {
+  const site = getSiteConfig(locale);
+  const nav = site.primaryNav;
+  const homeHref = locale === "en" ? "/en/" : "/";
+  const contactHref = locale === "en" ? "/en/contact-us/" : "/contact-us/";
+  const ctaLabel = locale === "en" ? "Get a consultation" : "התייעצו איתנו";
+  const blogPath = locale === "en" ? "/en/blog/" : "/blog/";
+  const allArticlesLabel = locale === "en" ? "All articles" : "כל המאמרים";
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
@@ -123,10 +136,10 @@ function SiteHeaderNav({ pathname }: { pathname: string }) {
   return (
     <header className={`site-header ${scrolled ? "site-header--scrolled" : ""}`.trim()}>
       <Container className="site-header-inner">
-        <Link href="/" className="shrink-0" aria-label={`${SITE.name} – דף הבית`} onClick={closeAll}>
+        <Link href={homeHref} className="shrink-0" aria-label={`${site.name} – ${locale === "en" ? "Home" : "דף הבית"}`} onClick={closeAll}>
           <Image
-            src={SITE.logo}
-            alt={SITE.name}
+            src={site.logo}
+            alt={site.name}
             width={140}
             height={47}
             priority
@@ -134,8 +147,8 @@ function SiteHeaderNav({ pathname }: { pathname: string }) {
           />
         </Link>
 
-        <nav className="hidden items-center gap-0.5 lg:flex" aria-label="תפריט ראשי">
-          {PRIMARY_NAV.map((item) =>
+        <nav className="hidden items-center gap-0.5 lg:flex" aria-label={locale === "en" ? "Main menu" : "תפריט ראשי"}>
+          {nav.map((item) =>
             item.children ? (
               <DesktopDropdown
                 key={item.href}
@@ -145,6 +158,8 @@ function SiteHeaderNav({ pathname }: { pathname: string }) {
                 onClose={() => setOpenDropdown(null)}
                 pathname={pathname}
                 closeAll={closeAll}
+                blogPath={blogPath}
+                allArticlesLabel={allArticlesLabel}
               />
             ) : (
               <Link
@@ -159,9 +174,10 @@ function SiteHeaderNav({ pathname }: { pathname: string }) {
           )}
         </nav>
 
-        <div className="hidden lg:block">
-          <Button href="/contact-us/" size="sm">
-            התייעצו איתנו
+        <div className="hidden items-center gap-3 lg:flex">
+          <LanguageSwitcher locale={locale} />
+          <Button href={contactHref} size="sm">
+            {ctaLabel}
           </Button>
         </div>
 
@@ -187,10 +203,13 @@ function SiteHeaderNav({ pathname }: { pathname: string }) {
         <nav
           id="mobile-nav"
           className="border-t border-slate-200 bg-white px-4 py-4 lg:hidden"
-          aria-label="תפריט נייד"
+          aria-label={locale === "en" ? "Mobile menu" : "תפריט נייד"}
         >
           <ul className="space-y-1">
-            {PRIMARY_NAV.map((item) => (
+            <li className="px-3 py-2">
+              <LanguageSwitcher locale={locale} />
+            </li>
+            {nav.map((item) => (
               <li key={item.href}>
                 {item.children ? (
                   <>
@@ -213,7 +232,7 @@ function SiteHeaderNav({ pathname }: { pathname: string }) {
                             className="block rounded-lg px-3 py-2 text-sm font-medium text-sky-700 hover:bg-sky-50"
                             onClick={closeAll}
                           >
-                            {item.href === "/blog/" ? "כל המאמרים" : item.label}
+                            {item.href === blogPath ? allArticlesLabel : item.label}
                           </Link>
                         </li>
                         {item.children.map((child) => (
@@ -250,7 +269,11 @@ function SiteHeaderNav({ pathname }: { pathname: string }) {
   );
 }
 
-export function SiteHeader() {
+type SiteHeaderProps = {
+  locale?: Locale;
+};
+
+export function SiteHeader({ locale = "he" }: SiteHeaderProps) {
   const pathname = usePathname();
-  return <SiteHeaderNav key={pathname} pathname={pathname} />;
+  return <SiteHeaderNav key={pathname} pathname={pathname} locale={locale} />;
 }

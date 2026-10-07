@@ -1,0 +1,45 @@
+{
+  "Common": {
+    "home": "Home",
+    "blog": "Blog",
+    "previous": "Previous",
+    "next": "Next",
+    "search": "Search",
+    "loading": "Loading...",
+    "readMore": "Read more"
+  },
+  "LanguageSwitcher": {
+    "label": "Language",
+    "switchToEnglish": "English",
+    "switchToHebrew": "עברית",
+    "ariaLabel": "Switch language"
+  },
+  "NotFound": {
+    "code": "404",
+    "title": "Page not found",
+    "description": "The page you are looking for does not exist.",
+    "backHome": "Back to homepage"
+  },
+  "Forms": {
+    "required": "Required field",
+    "invalidEmail": "Invalid email address",
+    "invalidPhone": "Invalid phone number",
+    "consentRequired": "Please accept the privacy policy",
+    "submit": "Submit",
+    "submitting": "Sending...",
+    "success": "Your message was sent successfully",
+    "error": "Something went wrong. Please try again.",
+    "loadingForm": "Loading form..."
+  },
+  "CookieConsent": {
+    "message": "We use cookies to improve your experience and measure traffic.",
+    "accept": "Accept",
+    "decline": "Decline",
+    "learnMore": "Privacy policy"
+  },
+  "Pagination": {
+    "ariaLabel": "Pagination",
+    "previous": "Previous",
+    "next": "Next"
+  }
+}

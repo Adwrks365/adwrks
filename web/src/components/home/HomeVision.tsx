@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
-import { HOMEPAGE_VISION } from "@/lib/homepage/data";
+import { getHomepageData } from "@/lib/homepage";
+import type { LocaleProps } from "@/lib/locale-props";
 
-export function HomeVision() {
+export function HomeVision({ locale = "he" }: LocaleProps) {
+  const { HOMEPAGE_VISION } = getHomepageData(locale);
   return (
     <section className="home-vision-v2" aria-labelledby="home-vision-heading">
       <Container narrow>

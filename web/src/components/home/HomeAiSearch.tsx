@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
-import { HOMEPAGE_AI_SEARCH } from "@/lib/homepage/data";
+import { getHomepageData } from "@/lib/homepage";
+import type { LocaleProps } from "@/lib/locale-props";
 
-export function HomeAiSearch() {
+export function HomeAiSearch({ locale = "he" }: LocaleProps) {
+  const { HOMEPAGE_AI_SEARCH } = getHomepageData(locale);
   return (
     <section className="home-ai-search" aria-labelledby="home-ai-search-heading">
       <Container narrow>
