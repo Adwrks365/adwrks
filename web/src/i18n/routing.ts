@@ -9,4 +9,6 @@ export const routing = defineRouting({
   locales: [...locales],
   defaultLocale,
   localePrefix: "as-needed",
+  // Hebrew stays at / for all visitors; only the language switcher selects /en/.
+  localeDetection: false,
 });
