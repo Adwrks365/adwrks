@@ -9,6 +9,7 @@ import { ServiceCtaRow, ServicePhoneLink } from "@/components/services/shared/Se
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
+import { linkWithArrow } from "@/i18n/ui-arrows";
 import type { LocaleProps } from "@/lib/locale-props";
 import { getPricingPageContent } from "@/lib/pages/get-pricing-content";
 import { getServicePopupConfig } from "@/lib/popups/service-pages";
@@ -27,7 +28,7 @@ function EditorialPoint({ title, children }: { title: string; children: ReactNod
 
 export function PricingPage({ locale = "he" }: LocaleProps) {
   const c = getPricingPageContent(locale);
-  const popupConfig = getServicePopupConfig(c.PRICING_PATH, c.PRICING_HERO.seoPageTitle);
+  const popupConfig = getServicePopupConfig(c.PRICING_PATH, c.PRICING_HERO.seoPageTitle, locale);
 
   return (
     <article className="pp-page structured-page">
@@ -71,14 +72,14 @@ export function PricingPage({ locale = "he" }: LocaleProps) {
       >
         <div className="pp-cards-grid pp-cards-grid--marketing">
           {c.PRICING_MARKETING_CARDS.map((card) => (
-            <PricingCard key={card.id} card={card} />
+            <PricingCard key={card.id} card={card} locale={locale} />
           ))}
         </div>
 
         <h2 className="pp-subsection-title">{c.PRICING_PACKAGES_INTRO.websiteSectionTitle}</h2>
         <div className="pp-cards-grid pp-cards-grid--website">
           {c.PRICING_WEBSITE_CARDS.map((card) => (
-            <PricingCard key={card.id} card={card} />
+            <PricingCard key={card.id} card={card} locale={locale} />
           ))}
         </div>
       </Section>
@@ -100,7 +101,9 @@ export function PricingPage({ locale = "he" }: LocaleProps) {
         <div className="pp-highlight-box">
           <p>
             {c.PRICING_TRANSPARENCY.text}{" "}
-            <Link href={c.PRICING_TRANSPARENCY.checkFitHref}>{c.PRICING_TRANSPARENCY.checkFitLabel} ←</Link>
+            <Link href={c.PRICING_TRANSPARENCY.checkFitHref}>
+              {linkWithArrow(locale, c.PRICING_TRANSPARENCY.checkFitLabel)}
+            </Link>
           </p>
         </div>
       </Section>
@@ -121,7 +124,9 @@ export function PricingPage({ locale = "he" }: LocaleProps) {
         </div>
         <p className="pp-body-text pp-editorial-body">
           {c.PRICING_WHY_INVEST.roiNote}{" "}
-          <Link href={c.PRICING_WHY_INVEST.roiCalculatorHref}>{c.PRICING_WHY_INVEST.roiCalculatorLabel} ←</Link>
+          <Link href={c.PRICING_WHY_INVEST.roiCalculatorHref}>
+            {linkWithArrow(locale, c.PRICING_WHY_INVEST.roiCalculatorLabel)}
+          </Link>
         </p>
       </Section>
 
@@ -183,7 +188,7 @@ export function PricingPage({ locale = "he" }: LocaleProps) {
       </Section>
 
       <Section tone="muted" title={locale === "en" ? "Related services" : "שירותים קשורים"} align="start">
-        <ServiceRelatedServices services={c.PRICING_RELATED_SERVICES} />
+        <ServiceRelatedServices services={c.PRICING_RELATED_SERVICES} locale={locale} />
       </Section>
 
       <CommercialFinalCta

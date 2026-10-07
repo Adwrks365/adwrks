@@ -14,7 +14,7 @@ import { HostingHeroVisual, ModernStackVisual } from "./shared/ServiceVisualComp
 
 export function HostingPlansServicePage({ locale = "he" }: LocaleProps) {
   const c = getHostingPageContent(locale);
-  const popupConfig = getServicePopupConfig(c.HOSTING_PATH, c.HOSTING_HERO.title);
+  const popupConfig = getServicePopupConfig(c.HOSTING_PATH, c.HOSTING_HERO.title, locale);
   const guides = c.HOSTING_GUIDE_PATHS.flatMap((path) => {
     const post = getAllPosts(locale).find((p) => p.path === path);
     return post ? [post] : [];
@@ -101,7 +101,7 @@ export function HostingPlansServicePage({ locale = "he" }: LocaleProps) {
       <Section tone="white" label={c.HOSTING_WEBSITE_LINK.label} title={c.HOSTING_WEBSITE_LINK.title} align="start">
         <p className="sp-body-lead sp-body-lead--narrow">{c.HOSTING_WEBSITE_LINK.body}</p>
         <Link href={c.HOSTING_WEBSITE_LINK.href} className="sp-text-link">
-          {locale === "en" ? "Website building page ←" : "לעמוד בניית אתרים ←"}
+          {locale === "en" ? "Website building page →" : "לעמוד בניית אתרים ←"}
         </Link>
       </Section>
 

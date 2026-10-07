@@ -15,9 +15,11 @@ export function HtmlContent({ html, className = "", locale = "he" }: HtmlContent
   const processed = processContentHtml(localized);
   if (!processed) return null;
 
+  const dirClass = locale === "en" ? " content-html--en" : "";
+
   return (
     <div
-      className={`content-html ${className}`.trim()}
+      className={`content-html${dirClass} ${className}`.trim()}
       dangerouslySetInnerHTML={{ __html: processed }}
     />
   );

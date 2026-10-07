@@ -1,3 +1,5 @@
+import type { Locale } from "@/i18n/routing";
+import { heComposerPath } from "@/lib/i18n/composer-path";
 import { decodeHtmlEntities } from "@/lib/content/paths";
 import { getPopupMessaging } from "@/lib/popups/messaging";
 import type { PopupConfig, PopupContextKey } from "@/lib/popups/types";
@@ -28,17 +30,23 @@ export function isServicePopupPath(path: string): boolean {
   return path in SERVICE_PAGE_CONTEXT;
 }
 
-export function getServicePopupConfig(path: string, pageTitle: string): PopupConfig | null {
-  const context = SERVICE_PAGE_CONTEXT[path];
+export function getServicePopupConfig(
+  path: string,
+  pageTitle: string,
+  locale: Locale = "he",
+): PopupConfig | null {
+  const composerPath = heComposerPath(path, locale);
+  const context = SERVICE_PAGE_CONTEXT[composerPath];
   if (!context) return null;
 
-  const messaging = getPopupMessaging(context);
+  const messaging = getPopupMessaging(context, locale);
   return {
     ...messaging,
     popupId: `service-${context}-${path.replace(/\//g, "-").replace(/^-|-$/g, "") || "home"}`,
     audience: "service",
     pageTitle: decodeHtmlEntities(pageTitle),
     pagePath: path,
+    locale,
   };
 }
 

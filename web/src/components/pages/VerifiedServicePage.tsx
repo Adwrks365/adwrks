@@ -135,7 +135,8 @@ export function VerifiedServicePage({ content }: VerifiedServicePageProps) {
   if (content.hero.image) usedImages.add(content.hero.image.src);
 
   const sections = content.sections.filter(sectionHasContent);
-  const popupConfig = getServicePopupConfig(content.path, content.title);
+  const locale = content.path.startsWith("/en/") ? "en" : "he";
+  const popupConfig = getServicePopupConfig(content.path, content.title, locale);
 
   return (
     <article className="structured-page service-page verified-service-page">

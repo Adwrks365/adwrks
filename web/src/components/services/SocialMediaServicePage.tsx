@@ -15,7 +15,7 @@ import { SocialHeroVisual, SocialWorkflowVisual } from "./shared/ServiceVisualCo
 
 export function SocialMediaServicePage({ locale = "he" }: LocaleProps) {
   const c = getSocialMediaPageContent(locale);
-  const popupConfig = getServicePopupConfig(c.SOCIAL_PATH, c.SOCIAL_HERO.title);
+  const popupConfig = getServicePopupConfig(c.SOCIAL_PATH, c.SOCIAL_HERO.title, locale);
   const guides = c.SOCIAL_GUIDE_PATHS.flatMap((path) => {
     const post = getAllPosts(locale).find((p) => p.path === path);
     return post ? [post] : [];

@@ -4,6 +4,7 @@ import { CommercialMidCta } from "@/components/commercial/CommercialMidCta";
 import { ContextualPopupRegistrar } from "@/components/popups/ContextualPopupRegistrar";
 import { PortfolioShowcaseProgressive } from "@/components/portfolio/PortfolioShowcaseProgressive";
 import { Section } from "@/components/ui/Section";
+import { forwardArrow } from "@/i18n/ui-arrows";
 import { getAllPosts } from "@/lib/content/loader";
 import { getWebsiteBuildingPageContent } from "@/lib/pages/services/get-locale-content";
 import type { LocaleProps } from "@/lib/locale-props";
@@ -13,7 +14,7 @@ import { WebsiteBuildingMidCta } from "./WebsiteBuildingHeroCtas";
 
 export function WebsiteBuildingServicePage({ locale = "he" }: LocaleProps) {
   const c = getWebsiteBuildingPageContent(locale);
-  const popupConfig = getServicePopupConfig(c.WEBSITE_BUILDING_PATH, c.WEBSITE_BUILDING_HERO.title);
+  const popupConfig = getServicePopupConfig(c.WEBSITE_BUILDING_PATH, c.WEBSITE_BUILDING_HERO.title, locale);
   const guides = c.WEBSITE_BUILDING_GUIDE_PATHS.flatMap((path) => {
     const post = getAllPosts(locale).find((p) => p.path === path);
     return post ? [post] : [];
@@ -180,7 +181,7 @@ export function WebsiteBuildingServicePage({ locale = "he" }: LocaleProps) {
                   <span className="wb-guide-kicker">{locale === "en" ? "Guide" : "מדריך"}</span>
                   <span className="wb-guide-title">{post.title.replace(/&#8211;|&amp;#8211;/g, "–")}</span>
                   <span className="wb-guide-arrow" aria-hidden="true">
-                    ←
+                    {forwardArrow(locale)}
                   </span>
                 </Link>
               </li>
@@ -218,7 +219,7 @@ export function WebsiteBuildingServicePage({ locale = "he" }: LocaleProps) {
                 <span className="wb-related-service-title">{service.title}</span>
                 <span className="wb-related-service-text">{service.text}</span>
                 <span className="wb-related-service-arrow" aria-hidden="true">
-                  ←
+                  {forwardArrow(locale)}
                 </span>
               </Link>
             </li>

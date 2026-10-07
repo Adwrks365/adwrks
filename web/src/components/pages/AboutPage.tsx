@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import type { LocaleProps } from "@/lib/locale-props";
+import { forwardArrow } from "@/i18n/ui-arrows";
 import { getAboutPageContent } from "@/lib/pages/get-about-content";
 import { AboutHeroVisual } from "./AboutHeroVisual";
 
@@ -35,7 +36,7 @@ export function AboutPage({ locale = "he" }: LocaleProps) {
                 <ServicePhoneLink tone="light" />
               </div>
             </div>
-            <AboutHeroVisual />
+            <AboutHeroVisual locale={locale} />
           </div>
         </Container>
       </header>
@@ -68,7 +69,7 @@ export function AboutPage({ locale = "he" }: LocaleProps) {
                 <span className="ab-capability-title">{service.title}</span>
                 <span className="ab-capability-text">{service.text}</span>
                 <span className="ab-capability-arrow" aria-hidden="true">
-                  ←
+                  {forwardArrow(locale)}
                 </span>
               </Link>
             </li>

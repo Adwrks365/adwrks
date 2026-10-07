@@ -1,5 +1,7 @@
+import type { Locale } from "@/i18n/routing";
 import type { PopupContextKey, PopupMessaging } from "@/lib/popups/types";
 import { POPUP_CONTEXT_LABELS } from "@/lib/popups/context-labels";
+import { POPUP_MESSAGING_EN } from "@/lib/popups/messaging.en";
 
 const MESSAGING: Record<PopupContextKey, Omit<PopupMessaging, "popupContext" | "contextLabel">> = {
   "google-ads": {
@@ -58,7 +60,18 @@ const MESSAGING: Record<PopupContextKey, Omit<PopupMessaging, "popupContext" | "
   },
 };
 
-export function getPopupMessaging(context: PopupContextKey): PopupMessaging {
+export function getPopupMessaging(context: PopupContextKey, locale: Locale = "he"): PopupMessaging {
+  if (locale === "en") {
+    const copy = POPUP_MESSAGING_EN[context];
+    return {
+      popupContext: context,
+      contextLabel: copy.contextLabel,
+      headline: copy.headline,
+      description: copy.description,
+      ctaLabel: copy.ctaLabel,
+    };
+  }
+
   const copy = MESSAGING[context];
   return {
     popupContext: context,

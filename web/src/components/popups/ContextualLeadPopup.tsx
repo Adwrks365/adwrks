@@ -18,6 +18,8 @@ export function ContextualLeadPopup({
   onClose,
   onDismiss,
 }: ContextualLeadPopupProps) {
+  const locale = config.locale ?? "he";
+  const isEn = locale === "en";
   const titleId = useId();
   const descId = useId();
   const dialogRef = useRef<HTMLDivElement>(null);
@@ -70,7 +72,7 @@ export function ContextualLeadPopup({
       <button
         type="button"
         className="contextual-popup-backdrop"
-        aria-label="סגירת חלון"
+        aria-label={isEn ? "Close dialog" : "סגירת חלון"}
         onClick={handleClose}
       />
       <div
@@ -87,7 +89,7 @@ export function ContextualLeadPopup({
             ref={closeRef}
             type="button"
             className="contextual-popup-close"
-            aria-label="סגירה"
+            aria-label={isEn ? "Close" : "סגירה"}
             onClick={handleClose}
           >
             ×

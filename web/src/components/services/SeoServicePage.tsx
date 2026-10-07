@@ -3,6 +3,7 @@ import { CommercialFinalCta } from "@/components/commercial/CommercialFinalCta";
 import { CommercialMidCta } from "@/components/commercial/CommercialMidCta";
 import { ContextualPopupRegistrar } from "@/components/popups/ContextualPopupRegistrar";
 import { Section } from "@/components/ui/Section";
+import { linkWithArrow } from "@/i18n/ui-arrows";
 import { getAllPosts } from "@/lib/content/loader";
 import { getSeoPageContent } from "@/lib/pages/services/get-locale-content";
 import type { LocaleProps } from "@/lib/locale-props";
@@ -18,7 +19,7 @@ import { SeoAeoAccent, SeoHeroVisual } from "./shared/ServiceVisualCompositions"
 
 export function SeoServicePage({ locale = "he" }: LocaleProps) {
   const c = getSeoPageContent(locale);
-  const popupConfig = getServicePopupConfig(c.SEO_PATH, c.SEO_HERO.title);
+  const popupConfig = getServicePopupConfig(c.SEO_PATH, c.SEO_HERO.title, locale);
   const guides = c.SEO_GUIDE_PATHS.flatMap((path) => {
     const post = getAllPosts(locale).find((p) => p.path === path);
     return post ? [post] : [];
@@ -99,7 +100,7 @@ export function SeoServicePage({ locale = "he" }: LocaleProps) {
             <div className="sp-inline-guides">
               {aiGuides.map((post) => (
                 <Link key={post.path} href={post.path} className="sp-inline-guide-link">
-                  {post.title.replace(/&#8211;|&amp;#8211;/g, "–")} ←
+                  {linkWithArrow(locale, post.title.replace(/&#8211;|&amp;#8211;/g, "–"))}
                 </Link>
               ))}
             </div>

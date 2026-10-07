@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { Carousel } from "@/components/ui/Carousel";
 import { Button } from "@/components/ui/Button";
+import type { Locale } from "@/i18n/routing";
+import { linkWithArrow } from "@/i18n/ui-arrows";
 import { getPortfolioProjectsForVariant } from "@/lib/portfolio/projects";
 import type { PortfolioShowcaseVariant } from "@/lib/portfolio/types";
 import { PortfolioBrowserCard } from "./PortfolioBrowserCard";
@@ -10,9 +12,13 @@ import { PortfolioBrowserCard } from "./PortfolioBrowserCard";
 type PortfolioShowcaseProps = {
   variant: PortfolioShowcaseVariant;
   className?: string;
+  locale?: Locale;
 };
 
-export function PortfolioShowcase({ variant, className = "" }: PortfolioShowcaseProps) {
+export function PortfolioShowcase({ variant, className = "", locale = "he" }: PortfolioShowcaseProps) {
+  const portfolioHref = locale === "en" ? "/en/website-building/#portfolio" : "/website-building/#portfolio";
+  const portfolioCta =
+    locale === "en" ? "View all website examples" : "לכל דוגמאות האתרים שלנו";
   const projects = getPortfolioProjectsForVariant(variant);
 
   if (variant === "inline") {
@@ -24,7 +30,7 @@ export function PortfolioShowcase({ variant, className = "" }: PortfolioShowcase
           ))}
         </div>
         <p className="portfolio-showcase-inline-cta">
-          <Link href="/website-building/#portfolio">לכל דוגמאות האתרים שלנו ←</Link>
+          <Link href={portfolioHref}>{linkWithArrow(locale, portfolioCta)}</Link>
         </p>
       </div>
     );

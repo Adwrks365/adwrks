@@ -80,6 +80,7 @@ export function ContactConversionSection({
               pagePath={contactPath}
               submitLabel={c.CONTACT_CONVERSION.submitLabel}
               appendToMessage={plannerSummary || undefined}
+              locale={locale}
             />
             {privacyNote && <p className="cp-form-privacy">{privacyNote}</p>}
             <div className="cp-direct-inline">

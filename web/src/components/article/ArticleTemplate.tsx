@@ -10,8 +10,8 @@ import { ArticleToc } from "@/components/article/ArticleToc";
 import { ArticleSidebarCards } from "@/components/article/ArticleSidebarCards";
 import { ArticleEndSection } from "@/components/article/ArticleEndSection";
 import {
-  ARTICLE_AUTHOR,
   getAdjacentArticles,
+  getArticleAuthor,
   getCategoryLabel,
   getRelatedArticles,
   prepareArticleBodyHtml,
@@ -25,6 +25,7 @@ type ArticleTemplateProps = {
 };
 
 export function ArticleTemplate({ content, locale = "he" }: ArticleTemplateProps) {
+  const author = getArticleAuthor(locale);
   const { html: bodyHtml, headings } = prepareArticleBodyHtml(content.content);
   const localizedHtml = rewriteInternalLinks(bodyHtml, locale);
   const processedHtml = processContentHtml(stripJsonLdFromHtml(localizedHtml));
@@ -32,7 +33,7 @@ export function ArticleTemplate({ content, locale = "he" }: ArticleTemplateProps
   const related = getRelatedArticles(content, 4, locale);
   const adjacent = getAdjacentArticles(content, locale);
   const showHeroImage = Boolean(content.featuredImageUrl);
-  const popupConfig = resolveArticlePopupConfig(content);
+  const popupConfig = resolveArticlePopupConfig(content, locale);
 
   return (
     <article className="content-page-shell article-page">
@@ -48,12 +49,15 @@ export function ArticleTemplate({ content, locale = "he" }: ArticleTemplateProps
       <Container className="article-template-body">
         <div className="article-layout">
           <div className="article-main">
-            <ArticleTopMeta date={content.date} author={ARTICLE_AUTHOR} locale={locale} />
+            <ArticleTopMeta date={content.date} author={author} locale={locale} />
             <ArticleToc headings={headings} className="article-toc-inline" locale={locale} />
 
             <div className="article-template-prose">
               <ArticleBodyInteractions>
-                <ArticleHtmlWithEmbeds html={processedHtml} className="article-body-html" />
+                <ArticleHtmlWithEmbeds
+                  html={processedHtml}
+                  className={`article-body-html${locale === "en" ? " article-body-html--en" : ""}`}
+                />
               </ArticleBodyInteractions>
             </div>
           </div>
@@ -70,7 +74,7 @@ export function ArticleTemplate({ content, locale = "he" }: ArticleTemplateProps
 
         <ArticleEndSection
           related={related}
-          author={ARTICLE_AUTHOR}
+          author={author}
           postPath={content.path}
           adjacent={adjacent}
           locale={locale}

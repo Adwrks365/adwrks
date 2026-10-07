@@ -18,7 +18,7 @@ import { GoogleAdsHeroVisual } from "./shared/ServiceVisualCompositions";
 
 export function GoogleAdsServicePage({ locale = "he" }: LocaleProps) {
   const c = getGoogleAdsPageContent(locale);
-  const popupConfig = getServicePopupConfig(c.GOOGLE_ADS_PATH, c.GOOGLE_ADS_HERO.title);
+  const popupConfig = getServicePopupConfig(c.GOOGLE_ADS_PATH, c.GOOGLE_ADS_HERO.title, locale);
   const guides = c.GOOGLE_ADS_GUIDE_PATHS.flatMap((path) => {
     const post = getAllPosts(locale).find((p) => p.path === path);
     return post ? [post] : [];

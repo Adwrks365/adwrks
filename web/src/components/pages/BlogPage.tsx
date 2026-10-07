@@ -50,7 +50,7 @@ export function BlogPage({ posts, page, introHtml, locale = "he" }: BlogPageProp
 
         <div className="article-grid">
           {pagePosts.map((post) => (
-            <ArticleCard key={post.id} post={post} />
+            <ArticleCard key={post.id} post={post} locale={locale} />
           ))}
         </div>
 

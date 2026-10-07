@@ -1,5 +1,8 @@
 "use client";
 
+import { usePathname } from "next/navigation";
+import { localeFromPath } from "@/i18n/locale";
+
 function ChatIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -20,26 +23,34 @@ type MinimizedLeadCtaProps = {
 };
 
 export function MinimizedLeadCta({ onClick, onDismiss }: MinimizedLeadCtaProps) {
+  const pathname = usePathname();
+  const locale = localeFromPath(pathname);
+  const isEn = locale === "en";
+
   return (
     <div className="popup-minimized-cta-wrap">
       <button
         type="button"
         className="popup-minimized-cta"
         onClick={onClick}
-        aria-label="בואו נדבר — פתיחת טופס ייעוץ"
+        aria-label={
+          isEn ? "Let's talk — open consultation form" : "בואו נדבר — פתיחת טופס ייעוץ"
+        }
       >
         <span className="popup-minimized-cta-icon" aria-hidden="true">
           <ChatIcon />
         </span>
         <span className="popup-minimized-cta-text">
-          <span className="popup-minimized-cta-title">בואו נדבר</span>
-          <span className="popup-minimized-cta-sub">ייעוץ ראשוני ללא התחייבות</span>
+          <span className="popup-minimized-cta-title">{isEn ? "Let's talk" : "בואו נדבר"}</span>
+          <span className="popup-minimized-cta-sub">
+            {isEn ? "Free initial consultation" : "ייעוץ ראשוני ללא התחייבות"}
+          </span>
         </span>
       </button>
       <button
         type="button"
         className="popup-minimized-cta-close"
-        aria-label="סגירת כפתור יצירת קשר"
+        aria-label={isEn ? "Dismiss contact button" : "סגירת כפתור יצירת קשר"}
         onClick={(event) => {
           event.preventDefault();
           event.stopPropagation();

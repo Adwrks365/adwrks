@@ -41,7 +41,7 @@ export function CategoryArchive({ category, posts, page, locale = "he" }: Catego
         </p>
         <div className="article-grid">
           {pagePosts.map((post) => (
-            <ArticleCard key={post.id} post={post} />
+            <ArticleCard key={post.id} post={post} locale={locale} />
           ))}
         </div>
         <Pagination

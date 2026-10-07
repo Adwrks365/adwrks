@@ -5,7 +5,14 @@ const CONSULT_SERVICES = [
   { label: "Websites", short: "Web" },
 ] as const;
 
-export function ContactHeroVisual() {
+import type { Locale } from "@/i18n/routing";
+
+type ContactHeroVisualProps = {
+  locale?: Locale;
+};
+
+export function ContactHeroVisual({ locale = "he" }: ContactHeroVisualProps) {
+  const tagline = locale === "en" ? "Digital marketing consultation" : "ייעוץ שיווק דיגיטלי";
   return (
     <div className="cp-hero-visual" aria-hidden="true">
       <div className="cp-consult-card">
@@ -29,7 +36,7 @@ export function ContactHeroVisual() {
           </svg>
         </div>
         <p className="cp-consult-brand">Adwrks 365</p>
-        <p className="cp-consult-tagline">ייעוץ שיווק דיגיטלי</p>
+        <p className="cp-consult-tagline">{tagline}</p>
         <ul className="cp-consult-services">
           {CONSULT_SERVICES.map((service) => (
             <li key={service.label} className="cp-consult-service">

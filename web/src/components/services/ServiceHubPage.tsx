@@ -2,6 +2,7 @@ import Link from "next/link";
 import { CommercialFinalCta } from "@/components/commercial/CommercialFinalCta";
 import { ContextualPopupRegistrar } from "@/components/popups/ContextualPopupRegistrar";
 import { Section } from "@/components/ui/Section";
+import { linkWithArrow } from "@/i18n/ui-arrows";
 import { getAllPosts } from "@/lib/content/loader";
 import { getServiceHubContent } from "@/lib/pages/services/get-locale-content";
 import type { LocaleProps } from "@/lib/locale-props";
@@ -13,7 +14,7 @@ import { HubEcosystemVisual } from "./shared/ServiceVisualCompositions";
 
 export function ServiceHubPage({ locale = "he" }: LocaleProps) {
   const c = getServiceHubContent(locale);
-  const popupConfig = getServicePopupConfig(c.HUB_PATH, c.HUB_HERO.title);
+  const popupConfig = getServicePopupConfig(c.HUB_PATH, c.HUB_HERO.title, locale);
   const guides = c.HUB_GUIDE_PATHS.flatMap((path) => {
     const post = getAllPosts(locale).find((p) => p.path === path);
     return post ? [post] : [];
@@ -49,7 +50,7 @@ export function ServiceHubPage({ locale = "he" }: LocaleProps) {
                 <span className="sp-hub-intent">{service.intent}</span>
                 <h3 className="sp-hub-title">{service.title}</h3>
                 <p className="sp-hub-text">{service.text}</p>
-                <span className="sp-hub-cta">{service.cta} ←</span>
+                <span className="sp-hub-cta">{linkWithArrow(locale, service.cta)}</span>
               </Link>
             </li>
           ))}
@@ -72,14 +73,14 @@ export function ServiceHubPage({ locale = "he" }: LocaleProps) {
               ))}
             </ul>
           </div>
-          <HubEcosystemVisual />
+          <HubEcosystemVisual locale={locale} />
         </div>
       </Section>
 
       <Section tone="muted" label={c.HUB_PRICING.label} title={c.HUB_PRICING.title} align="start">
         <p className="sp-body-lead sp-body-lead--narrow">{c.HUB_PRICING.body}</p>
         <Link href={c.HUB_PRICING.href} className="sp-text-link">
-          {c.HUB_PRICING.cta} ←
+          {linkWithArrow(locale, c.HUB_PRICING.cta)}
         </Link>
       </Section>
 

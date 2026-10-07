@@ -1055,8 +1055,10 @@ body {
 }
 
 .home-services-v2-primary {
+  align-items: stretch;
   display: grid;
   gap: 0.75rem;
+  grid-auto-rows: 1fr;
 }
 
 @media (min-width: 640px) {
@@ -2077,9 +2079,14 @@ body {
 }
 
 .article-grid {
+  align-items: stretch;
   display: grid;
   gap: 1.5rem;
   grid-template-columns: 1fr;
+}
+
+.article-grid > .article-card {
+  height: 100%;
 }
 
 @media (min-width: 768px) {
@@ -2120,6 +2127,12 @@ body {
   color: #334155;
   direction: rtl;
   line-height: 1.75;
+}
+
+.content-html.content-html--en,
+.content-html.article-body-html--en {
+  direction: ltr;
+  text-align: start;
 }
 
 .content-html img {
@@ -3265,6 +3278,11 @@ body {
   font-size: 1.0625rem;
   line-height: 1.8;
   max-width: 46rem;
+}
+
+.article-body-html--en {
+  direction: ltr;
+  text-align: start;
 }
 
 /* Collapse legacy Elementor shells that reserve height without content. */
@@ -7572,8 +7590,10 @@ body.contextual-popup-open {
 }
 
 .sp-hub-grid {
+  align-items: stretch;
   display: grid;
   gap: 0.85rem;
+  grid-auto-rows: 1fr;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -9302,6 +9322,7 @@ body.contextual-popup-open {
 }
 
 .pp-cards-grid {
+  align-items: stretch;
   display: grid;
   gap: 1.25rem;
   margin-top: 1.5rem;
@@ -9318,6 +9339,7 @@ body.contextual-popup-open {
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
+  height: 100%;
   padding: 1.35rem;
   border-radius: 1rem;
   border: 1px solid var(--pp-border);
@@ -9388,6 +9410,7 @@ body.contextual-popup-open {
 }
 
 .pp-card-desc {
+  flex: 1;
   margin: 0;
   font-size: 0.95rem;
   line-height: 1.65;
@@ -9907,15 +9930,20 @@ body.contextual-popup-open {
 }
 
 .ab-capabilities-grid {
+  align-items: stretch;
   display: grid;
   gap: 0.85rem;
+  grid-auto-rows: 1fr;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .ab-capability-link {
+  display: flex;
+  flex-direction: column;
   gap: 0.35rem;
+  height: 100%;
   padding: 1rem 1.1rem;
   border-radius: 0.85rem;
   border: 1px solid var(--ab-border);
@@ -9936,6 +9964,7 @@ body.contextual-popup-open {
 }
 
 .ab-capability-text {
+  flex: 1;
   font-size: 0.92rem;
   line-height: 1.55;
   color: var(--ab-text-muted);
@@ -9946,7 +9975,7 @@ body.contextual-popup-open {
   font-size: 0.85rem;
   font-weight: 700;
   color: var(--ab-accent);
-  margin-top: 0.15rem;
+  margin-top: auto;
 }
 
 .ab-methodology-steps {
@@ -11962,4 +11991,42 @@ body.contextual-popup-open {
 .cookie-consent-actions {
   display: flex;
   gap: 0.5rem;
+}
+
+.cookie-consent .btn-outline {
+  border-color: rgb(255 255 255 / 0.72);
+  color: #fff;
+}
+
+.cookie-consent .btn-outline:hover {
+  background: rgb(255 255 255 / 0.1);
+  border-color: #fff;
+  color: #fff;
+}
+
+.legal-page h1 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+  line-height: 1.25;
+  margin: 0 0 1.25rem;
+}
+
+.legal-page h2,
+.legal-page h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 1.75rem 0 0.65rem;
+}
+
+.legal-page p,
+.legal-page li {
+  line-height: 1.75;
+  margin: 0 0 0.85rem;
+}
+
+.legal-page ul,
+.legal-page ol {
+  margin: 0 0 1rem;
+  padding-inline-start: 1.25rem;
 }

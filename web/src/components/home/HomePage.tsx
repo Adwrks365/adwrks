@@ -28,7 +28,7 @@ export function HomePage({ locale = "he" }: LocaleProps) {
 
   return (
     <div className="homepage homepage-v2">
-      <ContextualPopupRegistrar config={getHomepagePopupConfig()} />
+      <ContextualPopupRegistrar config={getHomepagePopupConfig(locale)} />
 
       <HomeHero locale={locale} />
       <HomeAiSearch locale={locale} />
@@ -54,7 +54,7 @@ export function HomePage({ locale = "he" }: LocaleProps) {
         }
       >
         <div className="reveal">
-          <PortfolioShowcase variant="compact" />
+          <PortfolioShowcase variant="compact" locale={locale} />
         </div>
       </Section>
 

@@ -1,12 +1,15 @@
 import Link from "next/link";
+import type { Locale } from "@/i18n/routing";
+import { linkWithArrow } from "@/i18n/ui-arrows";
 import type { PricingCard as PricingCardData } from "@/lib/pages/pricing-content";
 import { PricingPrice } from "./PricingPrice";
 
 type PricingCardProps = {
   card: PricingCardData;
+  locale?: Locale;
 };
 
-export function PricingCard({ card }: PricingCardProps) {
+export function PricingCard({ card, locale = "he" }: PricingCardProps) {
   return (
     <article className={`pp-card pp-card--${card.model}`}>
       <div className="pp-card-head">
@@ -15,7 +18,12 @@ export function PricingCard({ card }: PricingCardProps) {
         </span>
         <h3 className="pp-card-title">{card.title}</h3>
       </div>
-      <PricingPrice amount={card.priceAmount} prefix={card.pricePrefix} period={card.billingPeriod} />
+      <PricingPrice
+        amount={card.priceAmount}
+        prefix={card.pricePrefix}
+        period={card.billingPeriod}
+        locale={locale}
+      />
       {card.priceNote && <p className="pp-card-price-note">{card.priceNote}</p>}
       <p className="pp-card-desc">{card.description}</p>
       <ul className="pp-card-features">
@@ -25,7 +33,7 @@ export function PricingCard({ card }: PricingCardProps) {
       </ul>
       {card.serviceHref && card.serviceCta && (
         <Link href={card.serviceHref} className="pp-card-link">
-          {card.serviceCta} ←
+          {linkWithArrow(locale, card.serviceCta)}
         </Link>
       )}
     </article>

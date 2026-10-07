@@ -92,15 +92,21 @@ export function ContentPage({ content, locale }: ContentPageProps) {
 
   const legacyServicePopup =
     isServicePopupPath(composerPath) && !getVerifiedServicePage(composerPath)
-      ? getServicePopupConfig(composerPath, content.title)
+      ? getServicePopupConfig(composerPath, content.title, locale)
       : null;
 
   const contactPath = locale === "en" ? "/en/contact-us/" : "/contact-us/";
 
+  const isLegal = ["/privacy-policy/", "/terms-of-use/", "/accessibility-statement/"].includes(
+    composerPath,
+  );
+
   return (
     <article className="content-page-shell">
       <Container className="content-page-wide py-6 md:py-10">
-        <div className="content-page-wide content-html-elementor">
+        <div
+          className={`content-page-wide content-html-elementor${isLegal ? " legal-page-shell" : ""}`}
+        >
           <HtmlContent html={html} className="content-html--page" locale={locale} />
         </div>
 

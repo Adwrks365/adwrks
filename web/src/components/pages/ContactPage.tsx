@@ -45,7 +45,7 @@ export function ContactPage({ data, locale = "he" }: ContactPageProps & LocalePr
                 <ServicePhoneLink tone="light" />
               </div>
             </div>
-            <ContactHeroVisual />
+            <ContactHeroVisual locale={locale} />
           </div>
         </Container>
       </header>

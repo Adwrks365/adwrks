@@ -24,4 +24,5 @@ export type PopupConfig = PopupMessaging & {
   audience: PopupAudience;
   pageTitle: string;
   pagePath: string;
+  locale?: import("@/i18n/routing").Locale;
 };

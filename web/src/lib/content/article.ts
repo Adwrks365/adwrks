@@ -32,6 +32,17 @@ export const ARTICLE_AUTHOR: ArticleAuthor = {
   avatarUrl: "/wp-content/uploads/cropped-logo-black-trans-140x47.webp",
 };
 
+const ARTICLE_AUTHOR_EN: ArticleAuthor = {
+  name: "Adwrks 365",
+  role: "Digital marketing specialists",
+  bio: "Since 2018, Adwrks 365 has helped businesses build digital presence, run SEO, and manage paid campaigns. The team covers organic search, paid advertising, social media, website building, and digital strategy — working with platforms like Google and Meta.",
+  avatarUrl: "/wp-content/uploads/cropped-logo-black-trans-140x47.webp",
+};
+
+export function getArticleAuthor(locale: Locale = "he"): ArticleAuthor {
+  return locale === "en" ? ARTICLE_AUTHOR_EN : ARTICLE_AUTHOR;
+}
+
 function slugifyHeading(text: string): string {
   const base = text
     .replace(/<[^>]+>/g, "")

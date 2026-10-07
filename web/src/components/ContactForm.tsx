@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { useTranslations } from "next-intl";
 import { PrivacyConsent } from "@/components/forms/PrivacyConsent";
 import { pushLeadSubmitEvent } from "@/components/GoogleTags";
 import type { Locale } from "@/i18n/routing";
@@ -28,7 +29,8 @@ export function ContactForm({
   appendToMessage,
   locale = "he",
 }: ContactFormProps) {
-  const resolvedSubmitLabel = submitLabel ?? (locale === "en" ? "Submit" : "שליחה");
+  const t = useTranslations("Forms");
+  const resolvedSubmitLabel = submitLabel ?? t("submit");
   const compact = variant === "compact";
   const [status, setStatus] = useState<FormStatus>("idle");
   const [feedback, setFeedback] = useState("");
@@ -60,19 +62,12 @@ export function ContactForm({
         return;
       }
       setStatus("success");
-      setFeedback(
-        result.message ||
-          (locale === "en" ? "Your message was sent successfully." : "ההודעה נשלחה בהצלחה."),
-      );
+      setFeedback(result.message || t("success"));
       pushLeadSubmitEvent(locale, formId);
       form.reset();
     } catch {
       setStatus("error");
-      setFeedback(
-        locale === "en"
-          ? "Unable to submit the form right now. Please try again later."
-          : "לא ניתן לשלוח את הטופס כרגע. נסו שוב מאוחר יותר.",
-      );
+      setFeedback(t("error"));
     }
   }
 
@@ -85,7 +80,7 @@ export function ContactForm({
       <div className={`grid gap-4 sm:grid-cols-2 ${compact ? "contact-form-row" : ""}`}>
         <div>
           <label htmlFor="contact-name" className="mb-1 block text-sm font-medium text-slate-700">
-            שם מלא *
+            {t("fullName")}
           </label>
           <input
             id="contact-name"
@@ -98,7 +93,7 @@ export function ContactForm({
         </div>
         <div>
           <label htmlFor="contact-phone" className="mb-1 block text-sm font-medium text-slate-700">
-            טלפון *
+            {t("phone")}
           </label>
           <input
             id="contact-phone"
@@ -112,7 +107,7 @@ export function ContactForm({
       </div>
       <div>
         <label htmlFor="contact-email" className="mb-1 block text-sm font-medium text-slate-700">
-          אימייל *
+          {t("email")}
         </label>
         <input
           id="contact-email"
@@ -125,7 +120,7 @@ export function ContactForm({
       </div>
       <div>
         <label htmlFor="contact-message" className="mb-1 block text-sm font-medium text-slate-700">
-          הודעה
+          {t("message")}
         </label>
         <textarea
           id="contact-message"
@@ -134,7 +129,7 @@ export function ContactForm({
           className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-200"
         />
       </div>
-      <PrivacyConsent id="contact-privacy" />
+      <PrivacyConsent id="contact-privacy" locale={locale} />
       <div className="hidden" aria-hidden="true">
         <label htmlFor="contact-website">Website</label>
         <input id="contact-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
@@ -154,11 +149,7 @@ export function ContactForm({
         disabled={status === "submitting"}
         className={`contact-form-submit inline-flex items-center justify-center rounded-md bg-sky-600 px-4 text-sm font-semibold text-white hover:bg-sky-700 disabled:opacity-60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600 ${compact ? "w-full py-2.5" : "w-full py-2.5 sm:w-auto"}`}
       >
-        {status === "submitting"
-          ? locale === "en"
-            ? "Sending..."
-            : "שולח..."
-          : resolvedSubmitLabel}
+        {status === "submitting" ? t("submitting") : resolvedSubmitLabel}
       </button>
     </form>
   );

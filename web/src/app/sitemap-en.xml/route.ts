@@ -1,4 +1,4 @@
-import { generateEnSitemap } from "@/app/sitemap";
+import { generateEnSitemap } from "@/lib/sitemap/build";
 
 export async function GET() {
   const entries = generateEnSitemap();

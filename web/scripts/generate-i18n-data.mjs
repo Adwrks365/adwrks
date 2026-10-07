@@ -62,6 +62,12 @@ function decodeEntities(text) {
     .replace(/&gt;/g, ">");
 }
 
+const LEGAL_EN_TITLES = {
+  "/privacy-policy/": "Privacy Policy – adwrks.co.il",
+  "/terms-of-use/": "Terms of Use – adwrks.co.il",
+  "/accessibility-statement/": "Accessibility Statement",
+};
+
 /** Manual EN slugs for pages with Hebrew paths */
 const PAGE_EN_OVERRIDES = {
   "/": "/en/",
@@ -275,16 +281,15 @@ const enPages = pages.map((page) => {
   if (hePath === "/מחירון-שיווק-דיגיטלי/") title = "Digital Marketing Pricing";
   if (hePath === "/") title = "Home";
 
-  const bodyText = isLegal ? stripHtml(page.content) : stripHtml(page.content).slice(0, 500);
-  const content = isLegal
-    ? `<article class="legal-page"><h1>${title}</h1><p>${bodyText}</p></article>`
-    : page.content;
+  if (isLegal && LEGAL_EN_TITLES[hePath]) {
+    title = LEGAL_EN_TITLES[hePath];
+  }
 
   return {
     ...page,
     link: `https://adwrks.co.il${enPath}`,
     title,
-    content: isLegal ? content : page.content,
+    content: page.content,
   };
 });
 

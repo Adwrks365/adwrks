@@ -82,13 +82,16 @@ function inferContextFromText(title: string, path: string): PopupContextKey | nu
   return null;
 }
 
-export function resolveArticlePopupConfig(content: ContentItem): PopupConfig {
+export function resolveArticlePopupConfig(
+  content: ContentItem,
+  locale: import("@/i18n/routing").Locale = "he",
+): PopupConfig {
   const categoryId = content.categoryIds?.[0];
   const fromCategory = categoryId ? CATEGORY_CONTEXT[categoryId] : null;
   const fromText = inferContextFromText(content.title, content.path);
   const context = fromText ?? fromCategory ?? "general";
 
-  const messaging = getPopupMessaging(context);
+  const messaging = getPopupMessaging(context, locale);
   const slugPart = content.path.replace(/\//g, "-").replace(/^-|-$/g, "") || "article";
 
   return {
@@ -97,5 +100,6 @@ export function resolveArticlePopupConfig(content: ContentItem): PopupConfig {
     audience: "article",
     pageTitle: decodeHtmlEntities(content.title),
     pagePath: content.path,
+    locale,
   };
 }

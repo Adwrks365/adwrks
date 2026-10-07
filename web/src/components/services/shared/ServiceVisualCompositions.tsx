@@ -121,7 +121,7 @@ export function SocialHeroVisual({ src, alt }: SocialHeroImageProps) {
   );
 }
 
-const HUB_NODES = [
+const HUB_NODES_HE = [
   { label: "Google Ads", className: "sp-hub-node--gads" },
   { label: "SEO", className: "sp-hub-node--seo" },
   { label: "סושיאל", className: "sp-hub-node--social" },
@@ -129,8 +129,18 @@ const HUB_NODES = [
   { label: "אחסון", className: "sp-hub-node--hosting" },
 ] as const;
 
+const HUB_NODES_EN = [
+  { label: "Google Ads", className: "sp-hub-node--gads" },
+  { label: "SEO", className: "sp-hub-node--seo" },
+  { label: "Social", className: "sp-hub-node--social" },
+  { label: "Websites", className: "sp-hub-node--web" },
+  { label: "Hosting", className: "sp-hub-node--hosting" },
+] as const;
+
 /** Hub signature: connected service ecosystem */
-export function HubEcosystemVisual() {
+export function HubEcosystemVisual({ locale = "he" }: { locale?: Locale }) {
+  const nodes = locale === "en" ? HUB_NODES_EN : HUB_NODES_HE;
+  const sub = locale === "en" ? "360° digital marketing" : "שיווק דיגיטלי 360°";
   return (
     <div className="sp-hub-ecosystem" aria-hidden="true">
       <svg className="sp-hub-ecosystem-lines" viewBox="0 0 200 200" preserveAspectRatio="none">
@@ -142,10 +152,10 @@ export function HubEcosystemVisual() {
       </svg>
       <div className="sp-hub-ecosystem-core">
         <span className="sp-hub-ecosystem-brand">Adwrks</span>
-        <span className="sp-hub-ecosystem-sub">שיווק דיגיטלי 360°</span>
+        <span className="sp-hub-ecosystem-sub">{sub}</span>
       </div>
       <ul className="sp-hub-ecosystem-nodes">
-        {HUB_NODES.map((node) => (
+        {nodes.map((node) => (
           <li key={node.label} className={`sp-hub-ecosystem-node ${node.className}`}>
             {node.label}
           </li>

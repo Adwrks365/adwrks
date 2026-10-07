@@ -14,6 +14,8 @@ type ContextualLeadPopupFormProps = {
 };
 
 export function ContextualLeadPopupForm({ config, onSubmitted }: ContextualLeadPopupFormProps) {
+  const locale = config.locale ?? "he";
+  const isEn = locale === "en";
   const [status, setStatus] = useState<FormStatus>("idle");
   const [feedback, setFeedback] = useState("");
 
@@ -31,7 +33,9 @@ export function ContextualLeadPopupForm({ config, onSubmitted }: ContextualLeadP
         popupContext: config.popupContext,
         pageTitle: config.pageTitle,
         pagePath: config.pagePath,
-        message: `פנייה מפופאפ – ${config.contextLabel}`,
+        message: isEn
+          ? `Popup inquiry – ${config.contextLabel}`
+          : `פנייה מפופאפ – ${config.contextLabel}`,
       });
 
       if (!result.ok) {
@@ -47,30 +51,34 @@ export function ContextualLeadPopupForm({ config, onSubmitted }: ContextualLeadP
       });
 
       setStatus("success");
-      setFeedback(result.message || "ההודעה נשלחה בהצלחה.");
+      setFeedback(result.message || (isEn ? "Your message was sent successfully." : "ההודעה נשלחה בהצלחה."));
       form.reset();
       onSubmitted();
     } catch {
       setStatus("error");
-      setFeedback("לא ניתן לשלוח את הטופס כרגע. נסו שוב מאוחר יותר.");
+      setFeedback(
+        isEn
+          ? "Unable to submit the form right now. Please try again later."
+          : "לא ניתן לשלוח את הטופס כרגע. נסו שוב מאוחר יותר.",
+      );
     }
   }
 
   return (
     <form className="contextual-popup-form" onSubmit={onSubmit} noValidate>
       <label className="contextual-popup-field">
-        <span>שם מלא *</span>
+        <span>{isEn ? "Full name *" : "שם מלא *"}</span>
         <input name="name" type="text" required autoComplete="name" />
       </label>
       <label className="contextual-popup-field">
-        <span>טלפון *</span>
+        <span>{isEn ? "Phone *" : "טלפון *"}</span>
         <input name="phone" type="tel" required autoComplete="tel" />
       </label>
       <label className="contextual-popup-field">
-        <span>אימייל</span>
+        <span>{isEn ? "Email" : "אימייל"}</span>
         <input name="email" type="email" autoComplete="email" />
       </label>
-      <PrivacyConsent id={`contextual-popup-privacy-${config.popupId}`} />
+      <PrivacyConsent id={`contextual-popup-privacy-${config.popupId}`} locale={locale} />
       <div className="hidden" aria-hidden="true">
         <label htmlFor={`contextual-popup-website-${config.popupId}`}>Website</label>
         <input
@@ -92,7 +100,7 @@ export function ContextualLeadPopupForm({ config, onSubmitted }: ContextualLeadP
         </p>
       )}
       <button type="submit" disabled={status === "submitting"} className="contextual-popup-submit">
-        {status === "submitting" ? "שולח..." : config.ctaLabel}
+        {status === "submitting" ? (isEn ? "Sending..." : "שולח...") : config.ctaLabel}
       </button>
     </form>
   );

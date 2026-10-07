@@ -1,8 +1,8 @@
 import type { MetadataRoute } from "next";
+import type { Locale } from "@/i18n/routing";
 import { getSitemapUrls } from "@/lib/content/loader";
 import { sitemapLanguageAlternates } from "@/lib/content/schema";
 import { SITE } from "@/lib/site";
-import type { Locale } from "@/i18n/routing";
 
 function buildSitemapEntries(locale: Locale): MetadataRoute.Sitemap {
   return getSitemapUrls(locale).map((path) => ({
@@ -14,20 +14,6 @@ function buildSitemapEntries(locale: Locale): MetadataRoute.Sitemap {
       languages: sitemapLanguageAlternates(path),
     },
   }));
-}
-
-/** Sitemap index pointing to locale-specific sitemaps */
-export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: `${SITE.domain}/sitemap-he.xml`,
-      lastModified: new Date(),
-    },
-    {
-      url: `${SITE.domain}/sitemap-en.xml`,
-      lastModified: new Date(),
-    },
-  ];
 }
 
 export function generateHeSitemap(): MetadataRoute.Sitemap {

@@ -1,4 +1,4 @@
-import { generateHeSitemap } from "@/app/sitemap";
+import { generateHeSitemap } from "@/lib/sitemap/build";
 
 export async function GET() {
   const entries = generateHeSitemap();
