@@ -1,11 +1,13 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
+import type { LocaleProps } from "@/lib/locale-props";
+import { getWebsiteBuildingPageContent } from "@/lib/pages/services/get-locale-content";
 import { PORTFOLIO_PROJECTS } from "@/lib/portfolio/projects";
-import { WEBSITE_BUILDING_HERO, WEBSITE_BUILDING_HERO_PROJECT_ID } from "@/lib/pages/services/website-building-content";
 import { WebsiteBuildingHeroCtas } from "./WebsiteBuildingHeroCtas";
 
-export function WebsiteBuildingHero() {
-  const preview = PORTFOLIO_PROJECTS.find((p) => p.id === WEBSITE_BUILDING_HERO_PROJECT_ID);
+export function WebsiteBuildingHero({ locale = "he" }: LocaleProps) {
+  const c = getWebsiteBuildingPageContent(locale);
+  const preview = PORTFOLIO_PROJECTS.find((p) => p.id === c.WEBSITE_BUILDING_HERO_PROJECT_ID);
 
   return (
     <header className="wb-hero">
@@ -13,15 +15,18 @@ export function WebsiteBuildingHero() {
       <Container>
         <div className="wb-hero-shell">
           <div className="wb-hero-copy">
-            <p className="wb-hero-badge">{WEBSITE_BUILDING_HERO.badge}</p>
-            <h1 className="wb-hero-title">{WEBSITE_BUILDING_HERO.title}</h1>
-            <p className="wb-hero-lead">{WEBSITE_BUILDING_HERO.lead}</p>
-            <ul className="wb-hero-cues" aria-label="מה כולל השירות">
-              {WEBSITE_BUILDING_HERO.cues.map((cue) => (
+            <p className="wb-hero-badge">{c.WEBSITE_BUILDING_HERO.badge}</p>
+            <h1 className="wb-hero-title">{c.WEBSITE_BUILDING_HERO.title}</h1>
+            <p className="wb-hero-lead">{c.WEBSITE_BUILDING_HERO.lead}</p>
+            <ul
+              className="wb-hero-cues"
+              aria-label={locale === "en" ? "What's included in the service" : "מה כולל השירות"}
+            >
+              {c.WEBSITE_BUILDING_HERO.cues.map((cue) => (
                 <li key={cue}>{cue}</li>
               ))}
             </ul>
-            <WebsiteBuildingHeroCtas />
+            <WebsiteBuildingHeroCtas locale={locale} />
           </div>
           {preview && (
             <div className="wb-hero-visual" aria-hidden="true">

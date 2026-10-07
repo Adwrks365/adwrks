@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { ContextualPopupTrigger } from "@/components/popups/ContextualPopupTrigger";
 import { Container } from "@/components/ui/Container";
+import { getHomepageData } from "@/lib/homepage";
+import type { LocaleProps } from "@/lib/locale-props";
 import { SITE } from "@/lib/site";
 
 function WhatsAppIcon() {
@@ -17,22 +19,22 @@ function WhatsAppIcon() {
   );
 }
 
-export function HomeMidCta({ locale: _locale = "he" }: import("@/lib/locale-props").LocaleProps) {
+export function HomeMidCta({ locale = "he" }: LocaleProps) {
+  const { HOMEPAGE_MID_CTA } = getHomepageData(locale);
+
   return (
     <section className="home-mid-cta" aria-labelledby="home-mid-cta-heading">
       <Container>
         <div className="home-mid-cta-inner reveal">
           <div className="home-mid-cta-copy">
             <h2 id="home-mid-cta-heading" className="home-mid-cta-title">
-              מוכנים לדבר על השיווק הדיגיטלי שלכם?
+              {HOMEPAGE_MID_CTA.title}
             </h2>
-            <p className="home-mid-cta-lead">
-              ייעוץ ראשוני ללא התחייבות — נבין את היעדים ונציע כיוון מותאם.
-            </p>
+            <p className="home-mid-cta-lead">{HOMEPAGE_MID_CTA.lead}</p>
           </div>
           <div className="home-mid-cta-actions">
             <ContextualPopupTrigger className="home-cta home-cta-primary home-cta-lg">
-              ייעוץ ללא התחייבות
+              {HOMEPAGE_MID_CTA.primaryLabel}
             </ContextualPopupTrigger>
             <Link href={`tel:${SITE.phoneTel}`} className="home-cta home-cta-phone home-cta-lg" dir="ltr">
               {SITE.phoneDisplay}

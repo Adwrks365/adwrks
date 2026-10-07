@@ -3,46 +3,47 @@ import { CommercialFinalCta } from "@/components/commercial/CommercialFinalCta";
 import { ContextualPopupRegistrar } from "@/components/popups/ContextualPopupRegistrar";
 import { Section } from "@/components/ui/Section";
 import { getAllPosts } from "@/lib/content/loader";
-import {
-  HUB_FINAL_CTA,
-  HUB_GUIDE_PATHS,
-  HUB_HERO,
-  HUB_INTEGRATION,
-  HUB_PATH,
-  HUB_PRICING,
-  HUB_SERVICES,
-} from "@/lib/pages/services/hub-content";
+import { getServiceHubContent } from "@/lib/pages/services/get-locale-content";
+import type { LocaleProps } from "@/lib/locale-props";
 import { getServicePopupConfig } from "@/lib/popups/service-pages";
 import { ServiceCtaRow, ServiceContactButton, ServicePhoneLink } from "./shared/ServiceCtas";
 import { ServiceHero } from "./shared/ServiceHero";
 import { ServiceRelatedGuides } from "./shared/ServiceRelatedGuides";
 import { HubEcosystemVisual } from "./shared/ServiceVisualCompositions";
 
-export function ServiceHubPage({ locale: _locale = "he" }: import("@/lib/locale-props").LocaleProps) {
-  const popupConfig = getServicePopupConfig(HUB_PATH, HUB_HERO.title);
-  const guides = HUB_GUIDE_PATHS.flatMap((path) => {
-    const post = getAllPosts().find((p) => p.path === path);
+export function ServiceHubPage({ locale = "he" }: LocaleProps) {
+  const c = getServiceHubContent(locale);
+  const popupConfig = getServicePopupConfig(c.HUB_PATH, c.HUB_HERO.title);
+  const guides = c.HUB_GUIDE_PATHS.flatMap((path) => {
+    const post = getAllPosts(locale).find((p) => p.path === path);
     return post ? [post] : [];
   });
+  const primaryCta =
+    locale === "en" ? "Let's talk about your business marketing" : "בואו נדבר על השיווק של העסק";
 
   return (
     <article className="sp-page structured-page service-page sp-page--hub">
       <ServiceHero
-        badge={HUB_HERO.badge}
-        title={HUB_HERO.title}
-        lead={HUB_HERO.lead}
+        badge={c.HUB_HERO.badge}
+        title={c.HUB_HERO.title}
+        lead={c.HUB_HERO.lead}
         actions={
           <ServiceCtaRow
-            primaryLabel="בואו נדבר על השיווק של העסק"
+            primaryLabel={primaryCta}
             secondary={<ServicePhoneLink tone="light" />}
             tertiary={<ServiceContactButton />}
           />
         }
       />
 
-      <Section tone="white" label="שירותי הסוכנות" title="בחרו את השירות שמתאים לכם" align="start">
+      <Section
+        tone="white"
+        label={locale === "en" ? "Agency services" : "שירותי הסוכנות"}
+        title={locale === "en" ? "Choose the service that fits you" : "בחרו את השירות שמתאים לכם"}
+        align="start"
+      >
         <ul className="sp-hub-grid">
-          {HUB_SERVICES.map((service) => (
+          {c.HUB_SERVICES.map((service) => (
             <li key={service.href}>
               <Link href={service.href} className={`sp-hub-card sp-hub-card--${service.accent}`}>
                 <span className="sp-hub-intent">{service.intent}</span>
@@ -57,16 +58,16 @@ export function ServiceHubPage({ locale: _locale = "he" }: import("@/lib/locale-
 
       <Section
         tone="sky"
-        label={HUB_INTEGRATION.label}
-        title={HUB_INTEGRATION.title}
+        label={c.HUB_INTEGRATION.label}
+        title={c.HUB_INTEGRATION.title}
         align="start"
         className="sp-section-ecosystem sp-section-signature"
       >
         <div className="sp-hub-integration">
           <div className="sp-hub-integration-copy">
-            <p className="sp-body-lead">{HUB_INTEGRATION.body}</p>
+            <p className="sp-body-lead">{c.HUB_INTEGRATION.body}</p>
             <ul className="sp-check-list sp-check-list--compact">
-              {HUB_INTEGRATION.points.map((point) => (
+              {c.HUB_INTEGRATION.points.map((point) => (
                 <li key={point}>{point}</li>
               ))}
             </ul>
@@ -75,24 +76,29 @@ export function ServiceHubPage({ locale: _locale = "he" }: import("@/lib/locale-
         </div>
       </Section>
 
-      <Section tone="muted" label={HUB_PRICING.label} title={HUB_PRICING.title} align="start">
-        <p className="sp-body-lead sp-body-lead--narrow">{HUB_PRICING.body}</p>
-        <Link href={HUB_PRICING.href} className="sp-text-link">
-          {HUB_PRICING.cta} ←
+      <Section tone="muted" label={c.HUB_PRICING.label} title={c.HUB_PRICING.title} align="start">
+        <p className="sp-body-lead sp-body-lead--narrow">{c.HUB_PRICING.body}</p>
+        <Link href={c.HUB_PRICING.href} className="sp-text-link">
+          {c.HUB_PRICING.cta} ←
         </Link>
       </Section>
 
       {guides.length > 0 && (
-        <Section tone="white" label="ידע ומדריכים" title="מדריכים לשיווק דיגיטלי" align="start">
+        <Section
+          tone="white"
+          label={locale === "en" ? "Knowledge & guides" : "ידע ומדריכים"}
+          title={locale === "en" ? "Digital marketing guides" : "מדריכים לשיווק דיגיטלי"}
+          align="start"
+        >
           <ServiceRelatedGuides posts={guides} />
         </Section>
       )}
 
       <CommercialFinalCta
-        eyebrow={HUB_FINAL_CTA.eyebrow}
-        title={HUB_FINAL_CTA.title}
-        body={HUB_FINAL_CTA.body}
-        primaryLabel={HUB_FINAL_CTA.eyebrow}
+        eyebrow={c.HUB_FINAL_CTA.eyebrow}
+        title={c.HUB_FINAL_CTA.title}
+        body={c.HUB_FINAL_CTA.body}
+        primaryLabel={c.HUB_FINAL_CTA.eyebrow}
       />
 
       {popupConfig && <ContextualPopupRegistrar config={popupConfig} />}

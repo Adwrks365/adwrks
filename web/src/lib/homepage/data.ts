@@ -296,6 +296,19 @@ export const HOMEPAGE_ABOUT = {
 } as const;
 
 /** Post thumbnail URLs from production homepage (seo audit). */
+export const HOMEPAGE_MID_CTA = {
+  title: "מוכנים לדבר על השיווק הדיגיטלי שלכם?",
+  lead: "ייעוץ ראשוני ללא התחייבות — נבין את היעדים ונציע כיוון מותאם.",
+  primaryLabel: "ייעוץ ללא התחייבות",
+} as const;
+
+export const HOMEPAGE_KNOWLEDGE_HUB = {
+  label: "מרכז ידע",
+  title: "מדריכים שימושיים",
+  allArticlesLabel: "כל המאמרים ←",
+  blogHref: "/blog/",
+} as const;
+
 export const RECENT_POST_IMAGES: Record<string, string> = {
   "/שיפור-מהירות-אתר-2026-pagespeed/": u("website-pagespeed-300x200.webp"),
   "/מחשבון-roi-מעודכן-2026/": u("Image-Jun-12-2026-10_50_18-AM-300x169.webp"),

@@ -215,6 +215,19 @@ export const HOMEPAGE_ABOUT = {
   body: "Since 2018, Adwrks 365 has helped businesses achieve measurable digital success through smart strategy, advanced technology, and creative that converts. We focus on ROI, personal service, and long-term growth.",
 } as const;
 
+export const HOMEPAGE_MID_CTA = {
+  title: "Ready to talk about your digital marketing?",
+  lead: "Initial consultation with no commitment — we'll understand your goals and suggest a tailored direction.",
+  primaryLabel: "Free consultation",
+} as const;
+
+export const HOMEPAGE_KNOWLEDGE_HUB = {
+  label: "Knowledge hub",
+  title: "Practical guides",
+  allArticlesLabel: "All articles ←",
+  blogHref: "/en/blog/",
+} as const;
+
 export const RECENT_POST_IMAGES: Record<string, string> = {
   "/en/website-speed-optimization-2026-pagespeed/": u("website-pagespeed-300x200.webp"),
   "/en/roi-calculator-2026/": u("Image-Jun-12-2026-10_50_18-AM-300x169.webp"),

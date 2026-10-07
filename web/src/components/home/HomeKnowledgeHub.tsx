@@ -6,7 +6,7 @@ import { getHomepageData } from "@/lib/homepage";
 import type { LocaleProps } from "@/lib/locale-props";
 
 export function HomeKnowledgeHub({ locale = "he" }: LocaleProps) {
-  const { HOMEPAGE_CURATED_GUIDE_PATHS } = getHomepageData(locale);
+  const { HOMEPAGE_CURATED_GUIDE_PATHS, HOMEPAGE_KNOWLEDGE_HUB } = getHomepageData(locale);
   const allPosts = getAllPosts(locale);
   const guides = HOMEPAGE_CURATED_GUIDE_PATHS.map((path) =>
     allPosts.find((post) => post.path === path),
@@ -18,13 +18,13 @@ export function HomeKnowledgeHub({ locale = "he" }: LocaleProps) {
     <section className="home-knowledge-hub" aria-labelledby="home-knowledge-heading">
       <Container>
         <header className="home-section-header reveal">
-          <p className="home-section-label">מרכז ידע</p>
+          <p className="home-section-label">{HOMEPAGE_KNOWLEDGE_HUB.label}</p>
           <h2 id="home-knowledge-heading" className="home-section-title">
-            מדריכים שימושיים
+            {HOMEPAGE_KNOWLEDGE_HUB.title}
           </h2>
           <p className="home-section-lead">
-            <Link href="/blog/" className="home-knowledge-all-link">
-              כל המאמרים ←
+            <Link href={HOMEPAGE_KNOWLEDGE_HUB.blogHref} className="home-knowledge-all-link">
+              {HOMEPAGE_KNOWLEDGE_HUB.allArticlesLabel}
             </Link>
           </p>
         </header>
