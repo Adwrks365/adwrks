@@ -3285,6 +3285,35 @@ body {
   text-align: start;
 }
 
+.article-body-html--en .elementor-widget-text-editor,
+.article-body-html--en .elementor-text-editor,
+.article-body-html--en .elementor-widget-text-editor p,
+.article-body-html--en .elementor-widget-text-editor h2,
+.article-body-html--en .elementor-widget-text-editor h3,
+.article-body-html--en .elementor-widget-text-editor h4,
+.article-body-html--en .elementor-widget-text-editor li,
+.article-body-html--en .elementor-widget-text-editor ul,
+.article-body-html--en .elementor-widget-text-editor ol {
+  direction: ltr;
+  text-align: start;
+}
+
+.article-body-html--en .elementor-widget-text-editor [style*="text-align: center"],
+.article-body-html--en .elementor-align-center {
+  text-align: center !important;
+}
+
+.article-body-html--en .elementor-align-right,
+.content-html--en .elementor-align-right {
+  text-align: start !important;
+}
+
+.content-html.content-html--en ul,
+.content-html.content-html--en ol {
+  padding-inline-start: 1.25rem;
+  padding-right: 0;
+}
+
 /* Collapse legacy Elementor shells that reserve height without content. */
 .article-body-html .elementor-widget-wrap:not(:has(.elementor-element)) {
   display: none;
@@ -11461,6 +11490,20 @@ body.contextual-popup-open {
   text-align: right;
   cursor: pointer;
   transition: all 300ms ease;
+}
+
+.pricing-calculator-root[dir="ltr"] .pcalc-card {
+  text-align: left;
+}
+
+.pricing-calculator-root[dir="ltr"] .pcalc-popular {
+  right: auto;
+  left: 0.75rem;
+}
+
+.pricing-calculator-root[dir="ltr"] .pcalc-checkbox {
+  left: auto;
+  right: 0.75rem;
 }
 
 @media (min-width: 640px) {

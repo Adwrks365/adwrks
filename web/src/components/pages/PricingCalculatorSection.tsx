@@ -23,7 +23,7 @@ export function PricingCalculatorSection({ locale = "he" }: LocaleProps) {
           </button>
         </div>
       ) : (
-        <PricingCalculator />
+        <PricingCalculator locale={locale} />
       )}
       <p className="pp-calculator-footnote">{c.PRICING_CALCULATOR.footerNote}</p>
     </div>

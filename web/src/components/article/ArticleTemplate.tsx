@@ -1,7 +1,7 @@
 import { ContextualPopupRegistrar } from "@/components/popups/ContextualPopupRegistrar";
 import { ArticleHtmlWithEmbeds } from "@/components/article/ArticleHtmlWithEmbeds";
 import { rewriteInternalLinks } from "@/i18n/rewrite-links";
-import { processContentHtml, stripJsonLdFromHtml } from "@/lib/content/html";
+import { normalizeEnContentDirection, processContentHtml, stripJsonLdFromHtml } from "@/lib/content/html";
 import { PageHero } from "@/components/ui/PageHero";
 import { Container } from "@/components/ui/Container";
 import { ArticleBodyInteractions } from "@/components/article/ArticleBodyInteractions";
@@ -27,7 +27,10 @@ type ArticleTemplateProps = {
 export function ArticleTemplate({ content, locale = "he" }: ArticleTemplateProps) {
   const author = getArticleAuthor(locale);
   const { html: bodyHtml, headings } = prepareArticleBodyHtml(content.content);
-  const localizedHtml = rewriteInternalLinks(bodyHtml, locale);
+  let localizedHtml = rewriteInternalLinks(bodyHtml, locale);
+  if (locale === "en") {
+    localizedHtml = normalizeEnContentDirection(localizedHtml);
+  }
   const processedHtml = processContentHtml(stripJsonLdFromHtml(localizedHtml));
   const category = getCategoryLabel(content, locale);
   const related = getRelatedArticles(content, 4, locale);
@@ -57,6 +60,7 @@ export function ArticleTemplate({ content, locale = "he" }: ArticleTemplateProps
                 <ArticleHtmlWithEmbeds
                   html={processedHtml}
                   className={`article-body-html${locale === "en" ? " article-body-html--en" : ""}`}
+                  locale={locale}
                 />
               </ArticleBodyInteractions>
             </div>

@@ -121,3 +121,11 @@ export function extractJsonLdFromHtml(html: string): unknown[] {
 export function stripJsonLdFromHtml(html: string): string {
   return html.replace(/<script[^>]+type=["']application\/ld\+json["'][^>]*>[\s\S]*?<\/script>/gi, "");
 }
+
+/** Strip legacy RTL inline styles from translated English HTML bodies. */
+export function normalizeEnContentDirection(html: string): string {
+  return html
+    .replace(/text-align\s*:\s*right/gi, "text-align: start")
+    .replace(/direction\s*:\s*rtl/gi, "direction: ltr")
+    .replace(/float\s*:\s*right/gi, "float: left");
+}

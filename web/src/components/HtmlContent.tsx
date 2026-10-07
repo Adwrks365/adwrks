@@ -1,6 +1,6 @@
 import { rewriteInternalLinks } from "@/i18n/rewrite-links";
 import type { Locale } from "@/i18n/routing";
-import { processContentHtml, stripJsonLdFromHtml } from "@/lib/content/html";
+import { normalizeEnContentDirection, processContentHtml, stripJsonLdFromHtml } from "@/lib/content/html";
 
 type HtmlContentProps = {
   html: string;
@@ -11,7 +11,10 @@ type HtmlContentProps = {
 /** Renders migrated WordPress HTML content (trusted audit source). */
 export function HtmlContent({ html, className = "", locale = "he" }: HtmlContentProps) {
   const stripped = stripJsonLdFromHtml(html);
-  const localized = rewriteInternalLinks(stripped, locale);
+  let localized = rewriteInternalLinks(stripped, locale);
+  if (locale === "en") {
+    localized = normalizeEnContentDirection(localized);
+  }
   const processed = processContentHtml(localized);
   if (!processed) return null;
 
