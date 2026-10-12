@@ -342,6 +342,16 @@ const enSeo = seoRecords.map((record) => {
   const pair = routePairs.find((p) => p.he === hePath);
   const enPath = pair?.en || enPathForHePath(hePath);
   const localeRecord = { ...record, url: enPath };
+  if (localeRecord.canonical) {
+    try {
+      const canPath = normalizePath(new URL(localeRecord.canonical).pathname);
+      if (canPath === hePath) {
+        localeRecord.canonical = `https://adwrks.co.il${enPath}`;
+      }
+    } catch {
+      /* keep imported canonical */
+    }
+  }
   if (localeRecord.title) {
     localeRecord.title = localeRecord.title.replace(/Adwrks 365/g, "Adwrks 365");
   }

@@ -11,6 +11,11 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/en",
+        destination: "https://adwrks.co.il/en/",
+        permanent: true,
+      },
+      {
         source: "/plans",
         destination: "/hosting-plans/",
         permanent: true,
