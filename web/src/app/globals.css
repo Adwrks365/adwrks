@@ -11419,6 +11419,98 @@ body.contextual-popup-open {
   line-height: 1.5;
 }
 
+.rcalc-presets {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .rcalc-presets {
+    grid-template-columns: 1.2fr 1fr;
+    align-items: end;
+  }
+}
+
+.rcalc-preset-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.rcalc-segmented {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.rcalc-segment {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: 1px solid #475569;
+  border-radius: 0.5rem;
+  background: #0f172a;
+  color: #cbd5e1;
+  padding: 0.45rem 0.55rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+
+.rcalc-segment:hover {
+  border-color: #64748b;
+}
+
+.rcalc-segment.is-active {
+  border-color: #00d4ff;
+  background: rgb(0 212 255 / 12%);
+  color: #f8fafc;
+}
+
+.rcalc-select {
+  width: 100%;
+  border: 1px solid #475569;
+  border-radius: 0.5rem;
+  background: #0f172a;
+  color: #f8fafc;
+  padding: 0.55rem 0.65rem;
+  font-size: 0.875rem;
+}
+
+.rcalc-preset-note {
+  margin: 0 0 1rem;
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.rcalc-benchmark {
+  margin: 0 0 0.75rem;
+  padding: 0.5rem 0.65rem;
+  border-radius: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.rcalc-benchmark--below {
+  background: rgb(251 191 36 / 12%);
+  color: #fcd34d;
+  border: 1px solid rgb(251 191 36 / 35%);
+}
+
+.rcalc-benchmark--within {
+  background: rgb(34 197 94 / 12%);
+  color: #86efac;
+  border: 1px solid rgb(34 197 94 / 35%);
+}
+
+.rcalc-benchmark--above {
+  background: rgb(0 212 255 / 12%);
+  color: #67e8f9;
+  border: 1px solid rgb(0 212 255 / 35%);
+}
+
 .rcalc-grid {
   display: grid;
   gap: 0.75rem;
@@ -11532,6 +11624,12 @@ body.contextual-popup-open {
 }
 
 /* ─── Pricing calculator (articles + pricing page) ─── */
+.article-body-html .pricing-calculator-root {
+  margin-top: 2.25rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid #e2e8f0;
+}
+
 .pricing-calculator-root {
   margin: 1.5rem 0 2rem;
   color: #f8fafc;
