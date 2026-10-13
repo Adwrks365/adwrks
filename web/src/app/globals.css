@@ -11391,6 +11391,146 @@ body.contextual-popup-open {
   }
 }
 
+/* ─── ROI calculator (ROI article) ─── */
+.roi-calculator-root {
+  margin: 1rem 0 2rem;
+  color: #f8fafc;
+  font-family: var(--font-heebo, "Heebo"), "Assistant", Arial, sans-serif;
+}
+
+.rcalc-shell {
+  background: linear-gradient(180deg, #111827 0%, #0a0f1a 100%);
+  border: 1px solid #334155;
+  border-radius: 1rem;
+  padding: 1rem 1.25rem;
+}
+
+.rcalc-title {
+  margin: 0 0 0.35rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.rcalc-intro {
+  margin: 0 0 1rem;
+  font-size: 0.875rem;
+  color: #94a3b8;
+  line-height: 1.5;
+}
+
+.rcalc-grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .rcalc-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.rcalc-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.rcalc-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.rcalc-hint {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.rcalc-input {
+  width: 100%;
+  border: 1px solid #475569;
+  border-radius: 0.5rem;
+  background: #0f172a;
+  color: #f8fafc;
+  padding: 0.55rem 0.65rem;
+  font-size: 1rem;
+}
+
+.rcalc-input:focus {
+  outline: 2px solid #00d4ff;
+  outline-offset: 1px;
+  border-color: #00d4ff;
+}
+
+.rcalc-results {
+  margin-top: 1.25rem;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgb(0 212 255 / 30%);
+  background: linear-gradient(90deg, rgb(0 212 255 / 8%) 0%, rgb(139 92 246 / 8%) 100%);
+}
+
+.rcalc-results-title {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.rcalc-metrics {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .rcalc-metrics {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.rcalc-metric {
+  margin: 0;
+}
+
+.rcalc-metric dt {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.rcalc-metric dd {
+  margin: 0.15rem 0 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.rcalc-metric--highlight dd {
+  color: #00d4ff;
+  font-size: 1.25rem;
+}
+
+.rcalc-results-empty,
+.rcalc-formula {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: #94a3b8;
+}
+
+.rcalc-formula {
+  margin-top: 0.75rem;
+}
+
+.rcalc-disclaimer {
+  margin: 1rem 0 0;
+  font-size: 0.75rem;
+  color: #64748b;
+  line-height: 1.45;
+}
+
 /* ─── Pricing calculator (articles + pricing page) ─── */
 .pricing-calculator-root {
   margin: 1.5rem 0 2rem;
@@ -11400,7 +11540,13 @@ body.contextual-popup-open {
 
 .article-body-html .pricing-calculator-root h2,
 .article-body-html .pricing-calculator-root h3,
-.article-body-html .pricing-calculator-root p {
+.article-body-html .pricing-calculator-root p,
+.article-body-html .roi-calculator-root h2,
+.article-body-html .roi-calculator-root h3,
+.article-body-html .roi-calculator-root h4,
+.article-body-html .roi-calculator-root p,
+.article-body-html .roi-calculator-root dt,
+.article-body-html .roi-calculator-root dd {
   margin: 0;
   padding: 0;
   border: 0;
@@ -11408,6 +11554,18 @@ body.contextual-popup-open {
   font-family: inherit;
   letter-spacing: normal;
   text-transform: none;
+  color: inherit;
+  border-bottom: none;
+  scroll-margin-top: 0;
+}
+
+.article-body-html .pricing-calculator-root h2,
+.article-body-html .pricing-calculator-root h3 {
+  color: #f8fafc;
+}
+
+.article-body-html .pricing-calculator-root p {
+  color: #94a3b8;
 }
 
 .pcalc-shell {

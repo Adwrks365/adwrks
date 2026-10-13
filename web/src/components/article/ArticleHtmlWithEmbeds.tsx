@@ -2,8 +2,9 @@
 
 import { useMemo } from "react";
 import { PricingCalculator } from "@/components/calculators/PricingCalculator";
+import { RoiCalculator } from "@/components/calculators/RoiCalculator";
 import type { Locale } from "@/i18n/routing";
-import { PRICING_CALCULATOR_EMBED_SLOT } from "@/lib/calculators/pricing-calculator-data";
+import { splitArticleEmbedSegments } from "@/lib/calculators/article-embed-slots";
 
 type ArticleHtmlWithEmbedsProps = {
   html: string;
@@ -20,28 +21,27 @@ export function ArticleHtmlWithEmbeds({
   const enClass = locale === "en" ? " content-html--en" : "";
   const rootClass = `content-html${enClass} ${className}`.trim();
 
-  const parts = useMemo(() => {
-    if (!html.includes("data-adwrks-pricing-calculator")) {
-      return null;
-    }
+  const segments = useMemo(() => splitArticleEmbedSegments(html), [html]);
 
-    const [before, ...rest] = html.split(PRICING_CALCULATOR_EMBED_SLOT);
-    return {
-      before,
-      after: rest.join(PRICING_CALCULATOR_EMBED_SLOT),
-    };
-  }, [html]);
-
-  if (!parts) {
+  if (!segments) {
     if (!html) return null;
     return <div className={rootClass} dangerouslySetInnerHTML={{ __html: html }} />;
   }
 
   return (
     <div className={rootClass}>
-      {parts.before ? <div dangerouslySetInnerHTML={{ __html: parts.before }} /> : null}
-      <PricingCalculator locale={locale} />
-      {parts.after ? <div dangerouslySetInnerHTML={{ __html: parts.after }} /> : null}
+      {segments.map((segment, index) => {
+        if (segment.kind === "html") {
+          if (!segment.content.trim()) return null;
+          return (
+            <div key={`html-${index}`} dangerouslySetInnerHTML={{ __html: segment.content }} />
+          );
+        }
+        if (segment.kind === "roi") {
+          return <RoiCalculator key={`roi-${index}`} locale={locale} />;
+        }
+        return <PricingCalculator key={`pricing-${index}`} locale={locale} />;
+      })}
     </div>
   );
 }
