@@ -1,4 +1,5 @@
 import index from "@/generated/routable-path-index.json";
+import { isLocationRoutablePath } from "@/lib/pages/locations/paths";
 
 const ROUTABLE_PATHS = new Set(index.paths as string[]);
 
@@ -21,10 +22,25 @@ export function normalizeRequestPathname(pathname: string): string {
   }
 }
 
-export function isRoutablePathname(pathname: string): boolean {
+/**
+ * next-intl rewrites default-locale URLs to an internal `/he/...` prefix.
+ * The routable index stores public paths (`/blog/`, not `/he/blog/`).
+ */
+export function toPublicPathname(pathname: string): string {
   const normalized = normalizeRequestPathname(pathname);
+  if (normalized === "/he/") return "/";
+  if (normalized.startsWith("/he/")) {
+    const rest = normalized.slice("/he".length);
+    return normalizeRequestPathname(rest.startsWith("/") ? rest : `/${rest}`);
+  }
+  return normalized;
+}
+
+export function isRoutablePathname(pathname: string): boolean {
+  const normalized = toPublicPathname(pathname);
   if (REDIRECT_ALLOWLIST.has(normalized)) return true;
   if (normalized === "/en/") return true;
+  if (isLocationRoutablePath(normalized)) return true;
   return ROUTABLE_PATHS.has(normalized);
 }
 

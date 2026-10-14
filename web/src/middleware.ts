@@ -3,7 +3,7 @@ import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import { routing } from "@/i18n/routing";
 import { isPreviewOrNonProductionDeployment, isProductionHostname } from "@/lib/indexing";
-import { isRoutablePathname, normalizeRequestPathname } from "@/lib/routing/routable-path-index";
+import { isRoutablePathname } from "@/lib/routing/routable-path-index";
 
 const intlMiddleware = createMiddleware(routing);
 
@@ -24,8 +24,7 @@ export function middleware(request: NextRequest) {
     return fastNotFound();
   }
 
-  const normalized = normalizeRequestPathname(pathname);
-  const routable = isRoutablePathname(normalized);
+  const routable = isRoutablePathname(pathname);
 
   if (!routable) {
     return fastNotFound();
