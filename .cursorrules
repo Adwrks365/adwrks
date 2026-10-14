@@ -1,0 +1,25 @@
+# ADWRKS WordPress → Next.js migration (repo root)
+
+## Routable path index (middleware fast 404)
+
+When you add, remove, or change routable URLs, regenerate the build-time index:
+
+- Hebrew: `web/src/data/content/pages.json`, `posts.json`, `categories.json`, `urls.json`
+- English: `web/src/data/content-en/pages.json`, `posts.json`, `categories.json`, `urls.json`
+- Redirect sources in `web/next.config.ts` (must stay in sync with `REDIRECT_ALLOWLIST` in `web/src/lib/routing/routable-path-index.ts`)
+
+Run (automatic on `npm run build` in `web/`):
+
+```bash
+cd web && node scripts/generate-routable-path-index.mjs
+```
+
+Commit the updated `web/src/generated/routable-path-index.json` when path data changes.
+
+## Agency positioning
+
+Follow `.cursor/rules/adwrks-agency-positioning-lock.mdc` — do not leak Website Building positioning globally.
+
+## App conventions
+
+Next.js app lives in `web/`. Read `web/AGENTS.md` before changing routing or Next APIs.

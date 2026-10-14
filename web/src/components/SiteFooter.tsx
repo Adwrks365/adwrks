@@ -1,10 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { ReactNode } from "react";
+import type { ComponentProps, ReactNode } from "react";
 import { PartnerBadges } from "@/components/trust/PartnerBadges";
 import { Container } from "@/components/ui/Container";
 import type { Locale } from "@/i18n/routing";
 import { FOLLOW_SOCIAL, getSiteConfig } from "@/lib/site";
+
+function FooterLink(props: ComponentProps<typeof Link>) {
+  return <Link prefetch={false} {...props} />;
+}
 
 function FooterIcon({ children }: { children: ReactNode }) {
   return (
@@ -168,7 +172,7 @@ export function SiteFooter({ locale = "he" }: SiteFooterProps) {
         <div className="site-footer-grid">
           <div className="site-footer-brand site-footer-span">
             <div className="site-footer-brand-top">
-              <Link href={homeHref} className="site-footer-logo-link" aria-label={site.name}>
+              <FooterLink href={homeHref} className="site-footer-logo-link" aria-label={site.name}>
                 <Image
                   src={site.logoFull}
                   alt=""
@@ -177,9 +181,9 @@ export function SiteFooter({ locale = "he" }: SiteFooterProps) {
                   loading="lazy"
                   className="site-footer-logo brightness-0 invert"
                 />
-              </Link>
+              </FooterLink>
               <h2 className="site-footer-brand-title">
-                <Link href={homeHref}>{site.footerBrand.heading}</Link>
+                <FooterLink href={homeHref}>{site.footerBrand.heading}</FooterLink>
               </h2>
             </div>
             <div className="site-footer-desc">
@@ -194,7 +198,7 @@ export function SiteFooter({ locale = "he" }: SiteFooterProps) {
             <ul className="site-footer-links">
               {site.footerNavLinks.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href}>{item.label}</Link>
+                  <FooterLink href={item.href}>{item.label}</FooterLink>
                 </li>
               ))}
             </ul>
@@ -205,7 +209,7 @@ export function SiteFooter({ locale = "he" }: SiteFooterProps) {
             <ul className="site-footer-links">
               {site.footerServiceLinks.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href}>{item.label}</Link>
+                  <FooterLink href={item.href}>{item.label}</FooterLink>
                 </li>
               ))}
             </ul>
@@ -280,9 +284,9 @@ export function SiteFooter({ locale = "he" }: SiteFooterProps) {
         <Container className="site-footer-legal-inner">
           <nav aria-label={labels.legal}>
             {site.footerLegalLinks.map((link) => (
-              <Link key={link.href} href={link.href}>
+              <FooterLink key={link.href} href={link.href}>
                 {link.label}
-              </Link>
+              </FooterLink>
             ))}
           </nav>
           <p className="site-footer-copyright">

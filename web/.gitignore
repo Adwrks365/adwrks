@@ -40,3 +40,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# generated at prebuild (also committed for edge import); local regen only
+# src/generated/routable-path-index.json is tracked — do not ignore
+
+# local QA screenshots and scratch
+/migration-audit/
+tmp-*.png
+*.local.json

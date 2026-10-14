@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import type { ComponentProps } from "react";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
@@ -9,6 +10,11 @@ import { Container } from "@/components/ui/Container";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import type { Locale } from "@/i18n/routing";
 import { getSiteConfig, type NavItem } from "@/lib/site";
+
+/** Avoid aggressive RSC prefetch from global nav (Header). */
+function NavLink(props: ComponentProps<typeof Link>) {
+  return <Link prefetch={false} {...props} />;
+}
 
 function NavChevron({ open }: { open: boolean }) {
   return (
@@ -65,7 +71,7 @@ function DesktopDropdown({
         if (!ref.current?.contains(e.relatedTarget as Node)) onClose();
       }}
     >
-      <Link
+      <NavLink
         href={item.href}
         className={`site-nav-link site-nav-link-dropdown ${active ? "is-active" : ""}`}
         aria-haspopup="true"
@@ -74,18 +80,18 @@ function DesktopDropdown({
       >
         {item.label}
         <NavChevron open={open} />
-      </Link>
+      </NavLink>
       <div className={`site-nav-dropdown ${open ? "is-open" : ""}`} role="menu">
-        <Link
+        <NavLink
           href={item.href}
           className="site-nav-dropdown-parent"
           role="menuitem"
           onClick={closeAll}
         >
           {item.href === blogPath ? allArticlesLabel : item.label}
-        </Link>
+        </NavLink>
         {item.children?.map((child) => (
-          <Link
+          <NavLink
             key={child.href}
             href={child.href}
             className={`site-nav-dropdown-item ${isActive(pathname, child.href) ? "is-active" : ""}`}
@@ -93,7 +99,7 @@ function DesktopDropdown({
             onClick={closeAll}
           >
             {child.label}
-          </Link>
+          </NavLink>
         ))}
       </div>
     </div>
@@ -136,7 +142,7 @@ function SiteHeaderNav({ pathname, locale }: { pathname: string; locale: Locale 
   return (
     <header className={`site-header ${scrolled ? "site-header--scrolled" : ""}`.trim()}>
       <Container className="site-header-inner">
-        <Link href={homeHref} className="shrink-0" aria-label={`${site.name} – ${locale === "en" ? "Home" : "דף הבית"}`} onClick={closeAll}>
+        <NavLink href={homeHref} className="shrink-0" aria-label={`${site.name} – ${locale === "en" ? "Home" : "דף הבית"}`} onClick={closeAll}>
           <Image
             src={site.logo}
             alt={site.name}
@@ -145,7 +151,7 @@ function SiteHeaderNav({ pathname, locale }: { pathname: string; locale: Locale 
             priority
             className="h-auto w-[130px] sm:w-[140px]"
           />
-        </Link>
+        </NavLink>
 
         <nav className="hidden items-center gap-0.5 lg:flex" aria-label={locale === "en" ? "Main menu" : "תפריט ראשי"}>
           {nav.map((item) =>
@@ -162,14 +168,14 @@ function SiteHeaderNav({ pathname, locale }: { pathname: string; locale: Locale 
                 allArticlesLabel={allArticlesLabel}
               />
             ) : (
-              <Link
+              <NavLink
                 key={item.href}
                 href={item.href}
                 className={`site-nav-link ${isActive(pathname, item.href) ? "is-active" : ""}`}
                 onClick={closeAll}
               >
                 {item.label}
-              </Link>
+              </NavLink>
             ),
           )}
         </nav>
@@ -227,30 +233,30 @@ function SiteHeaderNav({ pathname, locale }: { pathname: string; locale: Locale 
                     {mobileExpanded === item.href && (
                       <ul className="me-3 mt-1 space-y-1 border-r-2 border-sky-100 pe-3">
                         <li>
-                          <Link
+                          <NavLink
                             href={item.href}
                             className="block rounded-lg px-3 py-2 text-sm font-medium text-sky-700 hover:bg-sky-50"
                             onClick={closeAll}
                           >
                             {item.href === blogPath ? allArticlesLabel : item.label}
-                          </Link>
+                          </NavLink>
                         </li>
                         {item.children.map((child) => (
                           <li key={child.href}>
-                            <Link
+                            <NavLink
                               href={child.href}
                               className="block rounded-lg px-3 py-2 text-sm text-slate-600 hover:bg-sky-50"
                               onClick={closeAll}
                             >
                               {child.label}
-                            </Link>
+                            </NavLink>
                           </li>
                         ))}
                       </ul>
                     )}
                   </>
                 ) : (
-                  <Link
+                  <NavLink
                     href={item.href}
                     className={`block rounded-lg px-3 py-2.5 text-sm font-medium hover:bg-slate-50 ${
                       isActive(pathname, item.href) ? "bg-sky-50 text-sky-800" : "text-slate-800"
@@ -258,7 +264,7 @@ function SiteHeaderNav({ pathname, locale }: { pathname: string; locale: Locale 
                     onClick={closeAll}
                   >
                     {item.label}
-                  </Link>
+                  </NavLink>
                 )}
               </li>
             ))}

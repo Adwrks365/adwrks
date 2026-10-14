@@ -26,6 +26,12 @@ type PageProps = {
   params: Promise<{ locale: string; slug?: string[] }>;
 };
 
+/** Known paths only — see generate-routable-path-index.mjs */
+export const dynamicParams = false;
+
+/** ISR: revalidate content shell hourly without full SSR on every request */
+export const revalidate = 3600;
+
 export function generateStaticParams() {
   return getAllLocaleStaticParams();
 }
