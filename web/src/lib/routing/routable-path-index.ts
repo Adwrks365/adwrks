@@ -8,6 +8,8 @@ const REDIRECT_ALLOWLIST = new Set([
   "/plans/",
   "/contact/",
   "/en/",
+  "/רימרקטינג-מה-זה-ואיך-ולמה/",
+  "/en/how-to-choose-digital-marketing-company/",
 ]);
 
 export function normalizeRequestPathname(pathname: string): string {

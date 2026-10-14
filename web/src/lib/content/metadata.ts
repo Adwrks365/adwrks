@@ -50,6 +50,26 @@ function present(value?: string | null): string | undefined {
   return text ? text : undefined;
 }
 
+/** Target ~45–60 chars for titles; avoid cutting mid-word when possible. */
+export function clampSeoTitle(title: string, max = 60): string {
+  const t = title.trim();
+  if (t.length <= max) return t;
+  const slice = t.slice(0, max - 1);
+  const lastSpace = slice.lastIndexOf(" ");
+  if (lastSpace > 32) return `${slice.slice(0, lastSpace).trim()}…`;
+  return `${slice.trim()}…`;
+}
+
+/** Target ~120–155 chars for meta descriptions. */
+export function clampSeoDescription(description: string, max = 155): string {
+  const t = description.trim();
+  if (t.length <= max) return t;
+  const slice = t.slice(0, max - 1);
+  const lastSpace = slice.lastIndexOf(" ");
+  if (lastSpace > 100) return `${slice.slice(0, lastSpace).trim()}…`;
+  return `${slice.trim()}…`;
+}
+
 function hreflangAlternates(pathKey: string): Metadata["alternates"] {
   const pairs = resolveAlternatePaths(pathKey);
   const canonical = absoluteUrl(pathKey);
@@ -70,13 +90,18 @@ export function buildPageMetadata(
   pathKey: string,
   fallbackTitle?: string,
   locale: Locale = localeFromPath(pathKey),
+  fallbackDescription?: string,
 ): Metadata {
   const site = getSiteConfig(locale);
   const seo = getSeoByPath(pathKey, locale);
   const canonical = productionCanonical(seo?.canonical, pathKey);
-  const title = seo?.title || fallbackTitle || site.name;
-  const description = seo ? present(seo.metaDescription) : undefined;
-  const ogDescription = seo ? present(seo.ogDescription) || description : undefined;
+  const rawTitle = seo?.title || fallbackTitle || site.name;
+  const title = clampSeoTitle(rawTitle);
+  const description = present(seo?.metaDescription) ?? present(fallbackDescription);
+  const descriptionClamped = description ? clampSeoDescription(description) : undefined;
+  const ogDescription = seo
+    ? present(seo.ogDescription) || descriptionClamped
+    : descriptionClamped;
   const ogImage = seo ? present(seo.ogImage) : site.ogDefaultImage;
   const isHome = pathKey === "/" || pathKey === "/en/";
   const ogType = isHome ? "website" : "article";
@@ -84,7 +109,7 @@ export function buildPageMetadata(
 
   return {
     title,
-    description: description ?? null,
+    description: descriptionClamped ?? null,
     alternates: hreflangAlternates(pathKey),
     robots: mergeRobots(parseRobots(seo?.robots), stagingRobots()),
     openGraph: {
@@ -93,7 +118,7 @@ export function buildPageMetadata(
       siteName: site.name,
       locale: ogLocale,
       alternateLocale: locale === "he" ? ["en_US"] : ["he_IL"],
-      description: ogDescription ?? "",
+      description: ogDescription ? clampSeoDescription(ogDescription) : "",
       type: ogType,
       images: ogImage ? [{ url: ogImage.startsWith("http") ? ogImage : `${site.domain}${ogImage}`, alt: title }] : [],
     },

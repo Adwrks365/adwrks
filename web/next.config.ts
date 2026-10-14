@@ -20,6 +20,28 @@ const nextConfig: NextConfig = {
         destination: "/contact-us/",
         permanent: true,
       },
+      {
+        source: "/%D7%A8%D7%99%D7%9E%D7%A8%D7%A7%D7%98%D7%99%D7%A0%D7%92-%D7%9E%D7%94-%D7%96%D7%94-%D7%95%D7%90%D7%99%D7%9A-%D7%95%D7%9C%D7%9E%D7%94",
+        destination:
+          "/%D7%A8%D7%99%D7%9E%D7%A8%D7%A7%D7%98%D7%99%D7%A0%D7%92-%D7%9E%D7%94-%D7%96%D7%94-%D7%90%D7%99%D7%9A-%D7%95%D7%9C%D7%9E%D7%94/",
+        permanent: true,
+      },
+      {
+        source: "/%D7%A8%D7%99%D7%9E%D7%A8%D7%A7%D7%98%D7%99%D7%A0%D7%92-%D7%9E%D7%94-%D7%96%D7%94-%D7%95%D7%90%D7%99%D7%9A-%D7%95%D7%9C%D7%9E%D7%94/",
+        destination:
+          "/%D7%A8%D7%99%D7%9E%D7%A8%D7%A7%D7%98%D7%99%D7%A0%D7%92-%D7%9E%D7%94-%D7%96%D7%94-%D7%90%D7%99%D7%9A-%D7%95%D7%9C%D7%9E%D7%94/",
+        permanent: true,
+      },
+      {
+        source: "/en/how-to-choose-digital-marketing-company",
+        destination: "/en/choosing-digital-marketing-agency/",
+        permanent: true,
+      },
+      {
+        source: "/en/how-to-choose-digital-marketing-company/",
+        destination: "/en/choosing-digital-marketing-agency/",
+        permanent: true,
+      },
     ];
   },
   images: {

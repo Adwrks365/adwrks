@@ -57,6 +57,11 @@ function collectLocalePaths(localeDir, locale) {
     paths.add(normalizePath(raw));
   }
 
+  const pages = readJson(`${localeDir}/pages.json`);
+  for (const page of pages) {
+    paths.add(pathFromLink(page.link));
+  }
+
   const categories = readJson(`${localeDir}/categories.json`);
   const posts = readJson(`${localeDir}/posts.json`);
 
@@ -80,7 +85,15 @@ function collectLocalePaths(localeDir, locale) {
 }
 
 /** Legacy redirect sources (next.config) — must pass middleware before redirect. */
-const REDIRECT_SOURCES = ["/plans/", "/plans", "/contact/", "/contact", "/en"];
+const REDIRECT_SOURCES = [
+  "/plans/",
+  "/plans",
+  "/contact/",
+  "/contact",
+  "/en",
+  "/רימרקטינג-מה-זה-ואיך-ולמה/",
+  "/en/how-to-choose-digital-marketing-company/",
+];
 
 function collectLocationPathsFromSource() {
   const pathsFile = path.join(WEB_ROOT, "src/lib/pages/locations/paths.ts");

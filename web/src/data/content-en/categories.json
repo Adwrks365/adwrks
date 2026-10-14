@@ -4,7 +4,7 @@
     "slug": "websites",
     "link": "https://adwrks.co.il/en/digital-marketing/websites/",
     "title": "Website Building",
-    "description": "מחפשים מדריכים על בניית אתרים? בבלוג שלנו תמצאו את כל התשובות: מוורדפרס ועד קוד פתוח, אפיון נכון, עיצוב רספונסיבי וטיפים שיחסכו לכם זמן וכסף. קראו עכשיו!",
+    "description": "Guides on building websites: WordPress vs custom code, UX, responsive design, and tips that save time and budget. Read the Adwrks 365 blog.",
     "count": 23,
     "parent": 1
   },
@@ -13,7 +13,7 @@
     "slug": "google",
     "link": "https://adwrks.co.il/en/digital-marketing/google/",
     "title": "Google Marketing",
-    "description": "",
+    "description": "Google Ads, Shopping, budgets, and ROAS optimization — practical guides for Israeli businesses on the Adwrks 365 blog.",
     "count": 31,
     "parent": 1
   },
@@ -22,7 +22,7 @@
     "slug": "digital-agency",
     "link": "https://adwrks.co.il/en/digital-agency/",
     "title": "Digital Agency",
-    "description": "",
+    "description": "How to choose a digital agency, what services matter, and how to get measurable marketing results — expert articles from Adwrks 365.",
     "count": 42,
     "parent": 0
   },
@@ -31,7 +31,7 @@
     "slug": "facebook",
     "link": "https://adwrks.co.il/en/digital-marketing/facebook/",
     "title": "Facebook Marketing",
-    "description": "",
+    "description": "Facebook & Instagram ads, remarketing, audiences, and creative best practices for lead generation — on the Adwrks 365 blog.",
     "count": 22,
     "parent": 1
   },
@@ -40,7 +40,7 @@
     "slug": "internet-advertisement",
     "link": "https://adwrks.co.il/en/digital-marketing/internet-advertisement/",
     "title": "Internet Advertising",
-    "description": "",
+    "description": "Paid and organic channels, remarketing, and ad strategies that drive qualified leads — internet advertising guides by Adwrks 365.",
     "count": 34,
     "parent": 1
   },
@@ -49,7 +49,7 @@
     "slug": "seo",
     "link": "https://adwrks.co.il/en/digital-marketing/seo/",
     "title": "Organic SEO",
-    "description": "מחפשים מדריכים על קידום אורגני (SEO)? בבלוג שלנו תמצאו את כל התשובות: מקידום טכני, דרך כתיבת תוכן ועד אופטימיזציה למנועי חיפוש. היכנסו לקרוא את המאמרים המובילים.",
+    "description": "Technical SEO, content, and search optimization for Google — step-by-step guides for growth on the Adwrks 365 blog.",
     "count": 5,
     "parent": 1
   },
@@ -58,7 +58,7 @@
     "slug": "ads",
     "link": "https://adwrks.co.il/en/digital-marketing/ads/",
     "title": "Paid Advertising",
-    "description": "",
+    "description": "PPC campaigns, budgets, bidding, and ROI tracking — paid advertising playbooks from Adwrks 365 for Israeli businesses.",
     "count": 33,
     "parent": 1
   },
@@ -67,7 +67,7 @@
     "slug": "online-marketing",
     "link": "https://adwrks.co.il/en/digital-marketing/online-marketing/",
     "title": "Online Marketing",
-    "description": "",
+    "description": "Online marketing strategy, channel mix, and tactics that increase reach and sales — articles by the Adwrks 365 team.",
     "count": 36,
     "parent": 1
   },
@@ -76,7 +76,7 @@
     "slug": "digital-marketing",
     "link": "https://adwrks.co.il/en/digital-marketing/",
     "title": "Digital Marketing",
-    "description": "",
+    "description": "Digital marketing guides: SEO, paid ads, social, measurement, and ROI — curated knowledge from Adwrks 365 since 2018.",
     "count": 53,
     "parent": 0
   }

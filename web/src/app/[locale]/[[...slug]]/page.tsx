@@ -77,10 +77,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         : resolved.blogArchive.page > 1
           ? ` – עמוד ${resolved.blogArchive.page}`
           : "";
+    const blogDesc =
+      validLocale === "en"
+        ? "Expert articles on digital marketing, SEO, Google Ads, and growth — written by the Adwrks 365 team."
+        : "מאמרים מקצועיים על שיווק דיגיטלי, SEO, Google Ads וצמיחה — מעטפת Adwrks 365.";
     return buildPageMetadata(
       pagePath,
       `${validLocale === "en" ? "Blog" : "בלוג"}${suffix}`,
       validLocale,
+      blogDesc,
     );
   }
 
@@ -89,11 +94,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const pagePath = page === 1 ? category.path : `${category.path}page/${page}/`;
     const suffix =
       page > 1 ? (validLocale === "en" ? ` – Page ${page}` : ` – עמוד ${page}`) : "";
-    return buildPageMetadata(pagePath, `${category.title}${suffix}`, validLocale);
+    return buildPageMetadata(
+      pagePath,
+      `${category.title}${suffix}`,
+      validLocale,
+      category.description,
+    );
   }
 
   if (resolved.content) {
-    return buildPageMetadata(pathKey, resolved.content.title, validLocale);
+    const metaDesc =
+      resolved.content.excerpt?.trim() ||
+      (resolved.content.type === "category" ? resolved.content.content : undefined);
+    return buildPageMetadata(pathKey, resolved.content.title, validLocale, metaDesc);
   }
 
   return buildPageMetadata(pathKey, undefined, validLocale);
