@@ -7913,21 +7913,46 @@ body.contextual-popup-open {
   padding: 0;
 }
 
-.site-footer-areas-details {
+.site-footer-areas-group {
   border-bottom: 1px solid rgb(255 255 255 / 0.08);
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.2rem;
 }
 
-.site-footer-areas-summary {
+.site-footer-areas-group.is-open {
+  background: rgb(255 255 255 / 0.06);
+  border-radius: var(--radius-sm);
+}
+
+.site-footer-areas-trigger {
+  align-items: center;
+  background: transparent;
+  border: none;
+  color: #e2e8f0;
   cursor: pointer;
+  display: flex;
+  font: inherit;
   font-size: 0.875rem;
   font-weight: 600;
-  list-style: none;
-  padding: 0.45rem 0;
+  justify-content: space-between;
+  padding: 0.45rem 0.35rem;
+  text-align: start;
+  width: 100%;
 }
 
-.site-footer-areas-summary::-webkit-details-marker {
-  display: none;
+.site-footer-areas-group.is-open .site-footer-areas-trigger {
+  color: #fff;
+}
+
+.site-footer-areas-chevron {
+  flex-shrink: 0;
+  height: 1rem;
+  opacity: 0.85;
+  transition: transform 0.2s ease;
+  width: 1rem;
+}
+
+.site-footer-areas-chevron.is-open {
+  transform: rotate(180deg);
 }
 
 .site-footer-areas-cities {

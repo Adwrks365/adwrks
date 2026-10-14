@@ -119,8 +119,6 @@ function DesktopAreasDropdown({
                   type="button"
                   className="site-nav-areas-region-trigger"
                   aria-expanded={regionOpen}
-                  onMouseEnter={() => setExpandedRegion(group.id)}
-                  onFocus={() => setExpandedRegion(group.id)}
                   onClick={() => setExpandedRegion(regionOpen ? null : group.id)}
                 >
                   <span>{group.label}</span>
