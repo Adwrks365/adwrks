@@ -120,7 +120,7 @@ function LocationIcon({ label }: { label: string }) {
       </FooterIcon>
     );
   }
-  if (label === "ניווט") {
+  if (label === "ניווט" || label === "Navigate") {
     return (
       <FooterIcon>
         <path d="m5 19 14-7-7 14-1.2-6.2L5 19Z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
@@ -146,7 +146,7 @@ export function SiteFooter({ locale = "he" }: SiteFooterProps) {
   const labels =
     locale === "en"
       ? {
-          nav: "Navigation",
+          nav: "Quick links",
           services: "Services",
           contact: "Contact",
           follow: "Follow us",
@@ -156,7 +156,7 @@ export function SiteFooter({ locale = "he" }: SiteFooterProps) {
           locations: "Location navigation",
         }
       : {
-          nav: "ניווט",
+          nav: "ניווט מהיר",
           services: "שירותים",
           contact: "יצירת קשר",
           follow: "עקבו אחרינו",
