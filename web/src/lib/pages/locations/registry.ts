@@ -13,21 +13,38 @@ import {
 import type { HubCopy, LocationCopy } from "./types";
 
 const NEARBY: Record<string, readonly string[]> = {
-  karmiel: ["north", "haifa", "krayot"],
-  north: ["karmiel", "haifa", "krayot"],
-  krayot: ["haifa", "karmiel", "north"],
-  center: ["tel-aviv", "netanya", "jerusalem"],
-  haifa: ["krayot", "karmiel", "north"],
-  "tel-aviv": ["center", "netanya", "jerusalem"],
-  jerusalem: ["center", "tel-aviv", "beer-sheva"],
-  "beer-sheva": ["jerusalem", "center"],
-  netanya: ["center", "tel-aviv", "haifa"],
+  karmiel: ["north", "haifa", "afula"],
+  north: ["karmiel", "haifa", "hadera"],
+  krayot: ["haifa", "karmiel", "akko"],
+  center: ["tel-aviv", "ramat-gan", "petah-tikva"],
+  sharon: ["herzliya", "netanya", "kfar-saba"],
+  south: ["beer-sheva", "ashdod", "ashkelon"],
+  haifa: ["krayot", "karmiel", "akko"],
+  "tel-aviv": ["center", "ramat-gan", "holon"],
+  "ramat-gan": ["tel-aviv", "center", "petah-tikva"],
+  "petah-tikva": ["ramat-gan", "rishon-lezion", "center"],
+  "rishon-lezion": ["holon", "bat-yam", "petah-tikva"],
+  holon: ["bat-yam", "tel-aviv", "rishon-lezion"],
+  "bat-yam": ["holon", "tel-aviv", "rishon-lezion"],
+  akko: ["haifa", "krayot", "hadera"],
+  hadera: ["netanya", "afula", "haifa"],
+  afula: ["karmiel", "north", "hadera"],
+  herzliya: ["raanana", "kfar-saba", "tel-aviv"],
+  "kfar-saba": ["raanana", "herzliya", "netanya"],
+  raanana: ["kfar-saba", "herzliya", "sharon"],
+  netanya: ["hadera", "sharon", "herzliya"],
+  jerusalem: ["center", "beer-sheva", "ashdod"],
+  "beer-sheva": ["ashkelon", "ashdod", "jerusalem"],
+  ashdod: ["ashkelon", "beer-sheva", "south"],
+  ashkelon: ["ashdod", "beer-sheva", "south"],
 };
 
 const AREA_TYPE: Record<string, "City" | "AdministrativeArea"> = {
   north: "AdministrativeArea",
   krayot: "AdministrativeArea",
   center: "AdministrativeArea",
+  sharon: "AdministrativeArea",
+  south: "AdministrativeArea",
 };
 
 export type LocationView = {

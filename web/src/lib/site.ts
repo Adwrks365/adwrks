@@ -1,4 +1,5 @@
 import type { Locale } from "@/i18n/routing";
+import { serviceAreasNavItem } from "@/lib/pages/locations/nav";
 
 /** Local migrated asset path under /public/wp-content/uploads. */
 export function asset(path: string): string {
@@ -61,10 +62,18 @@ export const SITE = {
   foundedNote: "מאז 2018",
 } as const;
 
+export type NavAreaGroup = {
+  label: string;
+  regionHref?: string;
+  items: { label: string; href: string }[];
+};
+
 export type NavItem = {
   label: string;
   href: string;
   children?: NavItem[];
+  /** Multi-column service-area menu (regions → cities). */
+  areaGroups?: NavAreaGroup[];
 };
 
 /** Primary navigation mirrored from live production header (verified Phase 3.2B). */
@@ -213,6 +222,14 @@ export type SiteConfig = {
   footerLocationLinks: readonly { label: string; href: string }[];
 };
 
+function primaryNavWithServiceAreas(nav: NavItem[], locale: Locale): NavItem[] {
+  const contactHref = locale === "en" ? "/en/contact-us/" : "/contact-us/";
+  const idx = nav.findIndex((item) => item.href === contactHref);
+  const areas = serviceAreasNavItem(locale);
+  if (idx === -1) return [...nav, areas];
+  return [...nav.slice(0, idx), areas, ...nav.slice(idx)];
+}
+
 export function getSiteConfig(locale: Locale = "he"): SiteConfig {
   if (locale === "en") {
     return {
@@ -223,7 +240,7 @@ export function getSiteConfig(locale: Locale = "he"): SiteConfig {
       dir: "ltr",
       locale: "en-US",
       foundedNote: "Since 2018",
-      primaryNav: PRIMARY_NAV_EN,
+      primaryNav: primaryNavWithServiceAreas(PRIMARY_NAV_EN, "en"),
       footerLegalLinks: FOOTER_LEGAL_LINKS_EN,
       footerBrand: FOOTER_BRAND_EN,
       footerNavLinks: PRIMARY_NAV_EN.map(({ label, href }) => ({ label, href })),
@@ -238,7 +255,7 @@ export function getSiteConfig(locale: Locale = "he"): SiteConfig {
 
   return {
     ...SITE,
-    primaryNav: PRIMARY_NAV,
+    primaryNav: primaryNavWithServiceAreas(PRIMARY_NAV, "he"),
     footerLegalLinks: FOOTER_LEGAL_LINKS,
     footerBrand: FOOTER_BRAND,
     footerNavLinks: FOOTER_NAV_LINKS,

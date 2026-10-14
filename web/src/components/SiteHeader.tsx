@@ -38,6 +38,95 @@ function isActive(pathname: string, href: string): boolean {
   return pathname === href || pathname.startsWith(href);
 }
 
+function DesktopAreasDropdown({
+  item,
+  open,
+  onOpen,
+  onClose,
+  pathname,
+  closeAll,
+  allAreasLabel,
+}: {
+  item: NavItem;
+  open: boolean;
+  onOpen: () => void;
+  onClose: () => void;
+  pathname: string;
+  closeAll: () => void;
+  allAreasLabel: string;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const active =
+    isActive(pathname, item.href) ||
+    item.areaGroups?.some(
+      (g) =>
+        (g.regionHref && isActive(pathname, g.regionHref)) ||
+        g.items.some((city) => isActive(pathname, city.href)),
+    );
+
+  return (
+    <div
+      ref={ref}
+      className="site-nav-group relative"
+      onMouseEnter={onOpen}
+      onMouseLeave={onClose}
+      onFocus={onOpen}
+      onBlur={(e) => {
+        if (!ref.current?.contains(e.relatedTarget as Node)) onClose();
+      }}
+    >
+      <NavLink
+        href={item.href}
+        className={`site-nav-link site-nav-link-dropdown ${active ? "is-active" : ""}`}
+        aria-haspopup="true"
+        aria-expanded={open}
+        onClick={closeAll}
+      >
+        {item.label}
+        <NavChevron open={open} />
+      </NavLink>
+      <div className={`site-nav-dropdown site-nav-dropdown--areas ${open ? "is-open" : ""}`} role="menu">
+        <NavLink href={item.href} className="site-nav-dropdown-parent" role="menuitem" onClick={closeAll}>
+          {allAreasLabel}
+        </NavLink>
+        <div className="site-nav-areas-grid" role="presentation">
+          {item.areaGroups?.map((group) => (
+            <div key={group.label} className="site-nav-areas-col">
+              <p className="site-nav-areas-col-title">{group.label}</p>
+              <ul className="site-nav-areas-col-list">
+                {group.regionHref && (
+                  <li>
+                    <NavLink
+                      href={group.regionHref}
+                      className={`site-nav-dropdown-item ${isActive(pathname, group.regionHref) ? "is-active" : ""}`}
+                      role="menuitem"
+                      onClick={closeAll}
+                    >
+                      {group.label}
+                    </NavLink>
+                  </li>
+                )}
+                {group.items.map((city) => (
+                  <li key={city.href}>
+                    <NavLink
+                      href={city.href}
+                      className={`site-nav-dropdown-item ${isActive(pathname, city.href) ? "is-active" : ""}`}
+                      role="menuitem"
+                      onClick={closeAll}
+                    >
+                      {city.label}
+                    </NavLink>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function DesktopDropdown({
   item,
   open,
@@ -114,6 +203,7 @@ function SiteHeaderNav({ pathname, locale }: { pathname: string; locale: Locale 
   const ctaLabel = locale === "en" ? "Get a consultation" : "התייעצו איתנו";
   const blogPath = locale === "en" ? "/en/blog/" : "/blog/";
   const allArticlesLabel = locale === "en" ? "All articles" : "כל המאמרים";
+  const allAreasLabel = locale === "en" ? "All service areas" : "לכל אזורי השירות";
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
@@ -155,7 +245,18 @@ function SiteHeaderNav({ pathname, locale }: { pathname: string; locale: Locale 
 
         <nav className="hidden items-center gap-0.5 lg:flex" aria-label={locale === "en" ? "Main menu" : "תפריט ראשי"}>
           {nav.map((item) =>
-            item.children ? (
+            item.areaGroups ? (
+              <DesktopAreasDropdown
+                key={item.href}
+                item={item}
+                open={openDropdown === item.href}
+                onOpen={() => setOpenDropdown(item.href)}
+                onClose={() => setOpenDropdown(null)}
+                pathname={pathname}
+                closeAll={closeAll}
+                allAreasLabel={allAreasLabel}
+              />
+            ) : item.children ? (
               <DesktopDropdown
                 key={item.href}
                 item={item}
@@ -217,7 +318,7 @@ function SiteHeaderNav({ pathname, locale }: { pathname: string; locale: Locale 
             </li>
             {nav.map((item) => (
               <li key={item.href}>
-                {item.children ? (
+                {item.areaGroups || item.children ? (
                   <>
                     <button
                       type="button"
@@ -238,10 +339,30 @@ function SiteHeaderNav({ pathname, locale }: { pathname: string; locale: Locale 
                             className="block rounded-lg px-3 py-2 text-sm font-medium text-sky-700 hover:bg-sky-50"
                             onClick={closeAll}
                           >
-                            {item.href === blogPath ? allArticlesLabel : item.label}
+                            {item.areaGroups ? allAreasLabel : item.href === blogPath ? allArticlesLabel : item.label}
                           </NavLink>
                         </li>
-                        {item.children.map((child) => (
+                        {item.areaGroups?.map((group) => (
+                          <li key={group.label} className="pt-1">
+                            <span className="block px-3 py-1 text-xs font-semibold uppercase tracking-wide text-slate-500">
+                              {group.label}
+                            </span>
+                            <ul className="space-y-0.5">
+                              {group.items.map((city) => (
+                                <li key={city.href}>
+                                  <NavLink
+                                    href={city.href}
+                                    className="block rounded-lg px-3 py-2 text-sm text-slate-600 hover:bg-sky-50"
+                                    onClick={closeAll}
+                                  >
+                                    {city.label}
+                                  </NavLink>
+                                </li>
+                              ))}
+                            </ul>
+                          </li>
+                        ))}
+                        {item.children?.map((child) => (
                           <li key={child.href}>
                             <NavLink
                               href={child.href}

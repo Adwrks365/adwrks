@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ComponentProps, ReactNode } from "react";
+import { ServiceAreasFooterNav } from "@/components/locations/ServiceAreasFooterNav";
 import { PartnerBadges } from "@/components/trust/PartnerBadges";
 import { Container } from "@/components/ui/Container";
 import type { Locale } from "@/i18n/routing";
@@ -201,12 +202,11 @@ export function SiteFooter({ locale = "he" }: SiteFooterProps) {
                   <FooterLink href={item.href}>{item.label}</FooterLink>
                 </li>
               ))}
-              <li>
-                <FooterLink href={locale === "en" ? "/en/service-areas/" : "/אזורי-פעילות/"}>
-                  {locale === "en" ? "Service areas" : "אזורי פעילות"}
-                </FooterLink>
-              </li>
             </ul>
+          </div>
+
+          <div className="site-footer-col site-footer-areas-col">
+            <ServiceAreasFooterNav locale={locale} />
           </div>
 
           <div className="site-footer-col site-footer-services-col">

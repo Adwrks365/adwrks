@@ -3,31 +3,43 @@ export type LocationFaq = {
   a: string;
 };
 
+export type LocationStep = {
+  title: string;
+  text: string;
+};
+
+export type ServiceBlock = {
+  title: string;
+  text: string;
+};
+
 export type LocationCopy = {
   name: string;
-  /** One line used on the hub and on nearby-area cards. */
   cardText: string;
   badge: string;
   h1: string;
   lead: string;
   seoTitle: string;
   seoDescription: string;
-  marketLabel: string;
-  marketTitle: string;
-  marketIntro: string;
-  marketPoints: string[];
+  workLabel: string;
+  workTitle: string;
+  workIntro: string;
+  workSteps: LocationStep[];
+  challengesLabel: string;
+  challengesTitle: string;
+  challengesIntro: string;
+  challengesPoints: string[];
   audienceLabel: string;
   audienceTitle: string;
   audienceItems: string[];
-  studioLabel: string;
-  studioTitle: string;
-  studioIntro: string;
-  studioPoints: string[];
   servicesLabel: string;
   servicesTitle: string;
   servicesIntro: string;
+  serviceBlocks: ServiceBlock[];
   faqTitle: string;
   faq: LocationFaq[];
+  contactTitle: string;
+  contactIntro: string;
   nearbyTitle: string;
   nearbyIntro: string;
   midCtaEyebrow: string;
@@ -49,16 +61,16 @@ export type HubCopy = {
   lead: string;
   seoTitle: string;
   seoDescription: string;
-  modelLabel: string;
-  modelTitle: string;
-  modelIntro: string;
-  modelPoints: string[];
+  workLabel: string;
+  workTitle: string;
+  workIntro: string;
+  workSteps: LocationStep[];
   regionsTitle: string;
   regionsIntro: string;
-  citiesTitle: string;
-  citiesIntro: string;
   faqTitle: string;
   faq: LocationFaq[];
+  contactTitle: string;
+  contactIntro: string;
   finalCtaEyebrow: string;
   finalCtaTitle: string;
   finalCtaBody: string;

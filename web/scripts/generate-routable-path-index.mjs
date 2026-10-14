@@ -82,8 +82,22 @@ function collectLocalePaths(localeDir, locale) {
 /** Legacy redirect sources (next.config) — must pass middleware before redirect. */
 const REDIRECT_SOURCES = ["/plans/", "/plans", "/contact/", "/contact", "/en"];
 
+function collectLocationPathsFromSource() {
+  const pathsFile = path.join(WEB_ROOT, "src/lib/pages/locations/paths.ts");
+  const src = fs.readFileSync(pathsFile, "utf8");
+  const block = src.slice(src.indexOf("export const LOCATION_ROUTES"), src.indexOf("];", src.indexOf("LOCATION_ROUTES")) + 2);
+  const he = [];
+  const en = [];
+  for (const m of block.matchAll(/he: "([^"]+)"/g)) he.push(normalizePath(m[1]));
+  for (const m of block.matchAll(/en: "([^"]+)"/g)) en.push(normalizePath(m[1]));
+  return { he, en };
+}
+
 const hePaths = collectLocalePaths("src/data/content", "he");
 const enPaths = collectLocalePaths("src/data/content-en", "en");
+const locationPaths = collectLocationPathsFromSource();
+for (const p of locationPaths.he) hePaths.add(p);
+for (const p of locationPaths.en) enPaths.add(p);
 
 const all = new Set([...hePaths, ...enPaths, ...REDIRECT_SOURCES.map(normalizePath)]);
 

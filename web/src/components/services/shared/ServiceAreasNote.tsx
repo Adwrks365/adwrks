@@ -13,9 +13,9 @@ export function ServiceAreasNote({ locale = "he" }: ServiceAreasNoteProps) {
   return (
     <p className="sp-areas-note">
       {locale === "en"
-        ? "The Karmiel studio also works with businesses in the north, the Krayot, and central Israel. "
-        : "הסטודיו בכרמיאל מלווה עסקים גם בצפון, בקריות ובמרכז. "}
-      <Link href={href}>{locale === "en" ? "Service areas" : "אזורי הפעילות"}</Link>
+        ? "We work with businesses nationwide — north, center, Sharon, Jerusalem, and the south. "
+        : "אנחנו מלווים עסקים בפריסה ארצית — צפון, מרכז, שרון, ירושלים ודרום. "}
+      <Link href={href}>{locale === "en" ? "All service areas" : "לכל אזורי השירות"}</Link>
     </p>
   );
 }
