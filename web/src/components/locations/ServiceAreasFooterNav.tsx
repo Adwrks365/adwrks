@@ -54,7 +54,7 @@ export function ServiceAreasFooterNav({ locale }: ServiceAreasFooterNavProps) {
                 aria-expanded={isOpen}
                 onClick={() => toggleRegion(group.id)}
               >
-                <span>{group.label}</span>
+                <span className="site-footer-areas-label">{group.label}</span>
                 <AreaChevron open={isOpen} />
               </button>
               {isOpen && (
