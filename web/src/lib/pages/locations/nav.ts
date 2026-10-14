@@ -83,11 +83,6 @@ export function serviceAreaGroups(locale: Locale): ServiceAreaGroup[] {
       ],
     },
     {
-      id: "jerusalem",
-      label: L("ירושלים", "Jerusalem"),
-      cities: [cityLink("jerusalem", locale)],
-    },
-    {
       id: "south",
       label: L("דרום", "South"),
       regionHref: regionHref("south", locale),
@@ -97,21 +92,31 @@ export function serviceAreaGroups(locale: Locale): ServiceAreaGroup[] {
         cityLink("ashkelon", locale),
       ],
     },
+    {
+      id: "jerusalem",
+      label: L("ירושלים והסביבה", "Jerusalem and area"),
+      cities: [cityLink("jerusalem", locale)],
+    },
   ];
 }
 
 export function serviceAreasNavGroups(locale: Locale): NavAreaGroup[] {
   return serviceAreaGroups(locale).map((group) => ({
+    id: group.id,
     label: group.label,
     regionHref: group.regionHref,
     items: group.cities.map((city) => ({ label: city.label, href: city.href })),
   }));
 }
 
+export function serviceAreaNavLabel(locale: Locale): string {
+  return locale === "en" ? "Marketing in your area" : "שירותי שיווק באזורך";
+}
+
 export function serviceAreasNavItem(locale: Locale): NavItem {
   const hub = serviceAreaHubHref(locale);
   return {
-    label: locale === "en" ? "Service areas" : "אזורי שירות",
+    label: serviceAreaNavLabel(locale),
     href: hub,
     areaGroups: serviceAreasNavGroups(locale),
   };

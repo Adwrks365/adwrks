@@ -63,6 +63,7 @@ export const SITE = {
 } as const;
 
 export type NavAreaGroup = {
+  id: string;
   label: string;
   regionHref?: string;
   items: { label: string; href: string }[];

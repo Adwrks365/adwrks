@@ -10,16 +10,11 @@ import { ServiceProcessTimeline } from "@/components/services/shared/ServiceProc
 import { ServiceRelatedServices } from "@/components/services/shared/ServiceRelatedServices";
 import { Section } from "@/components/ui/Section";
 import type { Locale } from "@/i18n/routing";
+import { locationEditorialImage } from "@/lib/pages/locations/location-editorial-images";
 import { locationPopupConfig } from "@/lib/pages/locations/popup";
 import type { LocationView } from "@/lib/pages/locations/registry";
 import { LocationPageContactForm } from "./LocationPageContactForm";
 import { LocationServiceBlocks } from "./LocationServiceBlocks";
-
-const EDITORIAL = {
-  src: "https://adwrks.co.il/wp-content/uploads/seo-1.jpg",
-  width: 800,
-  height: 600,
-} as const;
 
 type LocationLandingPageProps = {
   view: LocationView;
@@ -28,6 +23,7 @@ type LocationLandingPageProps = {
 
 export function LocationLandingPage({ view, locale }: LocationLandingPageProps) {
   const c = view.copy;
+  const editorial = locationEditorialImage(view.id);
   const popupConfig = locationPopupConfig(view, locale);
   const primaryCta = locale === "en" ? "Marketing consultation" : "ייעוץ שיווק";
   const hubLabel = locale === "en" ? "All service areas" : "לכל אזורי השירות";
@@ -63,10 +59,10 @@ export function LocationLandingPage({ view, locale }: LocationLandingPageProps) 
             </ul>
           </div>
           <ServiceEditorialImage
-            src={EDITORIAL.src}
+            src={editorial.src}
             alt={c.imageAlt}
-            width={EDITORIAL.width}
-            height={EDITORIAL.height}
+            width={editorial.width}
+            height={editorial.height}
           />
         </div>
       </Section>

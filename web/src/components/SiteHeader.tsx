@@ -56,6 +56,7 @@ function DesktopAreasDropdown({
   allAreasLabel: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
+  const [expandedRegion, setExpandedRegion] = useState<string | null>(null);
   const active =
     isActive(pathname, item.href) ||
     item.areaGroups?.some(
@@ -64,15 +65,24 @@ function DesktopAreasDropdown({
         g.items.some((city) => isActive(pathname, city.href)),
     );
 
+  useEffect(() => {
+    if (!open) setExpandedRegion(null);
+  }, [open]);
+
+  const handleClose = () => {
+    setExpandedRegion(null);
+    onClose();
+  };
+
   return (
     <div
       ref={ref}
       className="site-nav-group relative"
       onMouseEnter={onOpen}
-      onMouseLeave={onClose}
+      onMouseLeave={handleClose}
       onFocus={onOpen}
       onBlur={(e) => {
-        if (!ref.current?.contains(e.relatedTarget as Node)) onClose();
+        if (!ref.current?.contains(e.relatedTarget as Node)) handleClose();
       }}
     >
       <NavLink
@@ -85,43 +95,69 @@ function DesktopAreasDropdown({
         {item.label}
         <NavChevron open={open} />
       </NavLink>
-      <div className={`site-nav-dropdown site-nav-dropdown--areas ${open ? "is-open" : ""}`} role="menu">
-        <NavLink href={item.href} className="site-nav-dropdown-parent" role="menuitem" onClick={closeAll}>
+      <div
+        className={`site-nav-dropdown site-nav-dropdown--areas site-nav-dropdown--areas-panel ${open ? "is-open" : ""}`}
+        role="menu"
+      >
+        <NavLink
+          href={item.href}
+          className="site-nav-dropdown-parent site-nav-dropdown-parent--hub"
+          role="menuitem"
+          onClick={closeAll}
+        >
           {allAreasLabel}
         </NavLink>
-        <div className="site-nav-areas-grid" role="presentation">
-          {item.areaGroups?.map((group) => (
-            <div key={group.label} className="site-nav-areas-col">
-              <p className="site-nav-areas-col-title">{group.label}</p>
-              <ul className="site-nav-areas-col-list">
-                {group.regionHref && (
-                  <li>
-                    <NavLink
-                      href={group.regionHref}
-                      className={`site-nav-dropdown-item ${isActive(pathname, group.regionHref) ? "is-active" : ""}`}
-                      role="menuitem"
-                      onClick={closeAll}
-                    >
-                      {group.label}
-                    </NavLink>
-                  </li>
+        <ul className="site-nav-areas-regions" role="presentation">
+          {item.areaGroups?.map((group) => {
+            const regionOpen = expandedRegion === group.id;
+            return (
+              <li
+                key={group.id}
+                className={`site-nav-areas-region ${regionOpen ? "is-open" : ""}`.trim()}
+              >
+                <button
+                  type="button"
+                  className="site-nav-areas-region-trigger"
+                  aria-expanded={regionOpen}
+                  onMouseEnter={() => setExpandedRegion(group.id)}
+                  onFocus={() => setExpandedRegion(group.id)}
+                  onClick={() => setExpandedRegion(regionOpen ? null : group.id)}
+                >
+                  <span>{group.label}</span>
+                  <NavChevron open={regionOpen} />
+                </button>
+                {regionOpen && (
+                  <ul className="site-nav-areas-cities" role="menu">
+                    {group.regionHref && (
+                      <li role="none">
+                        <NavLink
+                          href={group.regionHref}
+                          className={`site-nav-dropdown-item ${isActive(pathname, group.regionHref) ? "is-active" : ""}`}
+                          role="menuitem"
+                          onClick={closeAll}
+                        >
+                          {group.label}
+                        </NavLink>
+                      </li>
+                    )}
+                    {group.items.map((city) => (
+                      <li key={city.href} role="none">
+                        <NavLink
+                          href={city.href}
+                          className={`site-nav-dropdown-item ${isActive(pathname, city.href) ? "is-active" : ""}`}
+                          role="menuitem"
+                          onClick={closeAll}
+                        >
+                          {city.label}
+                        </NavLink>
+                      </li>
+                    ))}
+                  </ul>
                 )}
-                {group.items.map((city) => (
-                  <li key={city.href}>
-                    <NavLink
-                      href={city.href}
-                      className={`site-nav-dropdown-item ${isActive(pathname, city.href) ? "is-active" : ""}`}
-                      role="menuitem"
-                      onClick={closeAll}
-                    >
-                      {city.label}
-                    </NavLink>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </div>
   );
@@ -206,6 +242,7 @@ function SiteHeaderNav({ pathname, locale }: { pathname: string; locale: Locale 
   const allAreasLabel = locale === "en" ? "All service areas" : "לכל אזורי השירות";
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
+  const [mobileAreaRegion, setMobileAreaRegion] = useState<string | null>(null);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
 
@@ -213,6 +250,7 @@ function SiteHeaderNav({ pathname, locale }: { pathname: string; locale: Locale 
     setOpenDropdown(null);
     setMobileOpen(false);
     setMobileExpanded(null);
+    setMobileAreaRegion(null);
   }, []);
 
   useEffect(() => {
@@ -343,23 +381,46 @@ function SiteHeaderNav({ pathname, locale }: { pathname: string; locale: Locale 
                           </NavLink>
                         </li>
                         {item.areaGroups?.map((group) => (
-                          <li key={group.label} className="pt-1">
-                            <span className="block px-3 py-1 text-xs font-semibold uppercase tracking-wide text-slate-500">
+                          <li key={group.id} className="pt-0.5">
+                            <button
+                              type="button"
+                              className={`flex w-full items-center justify-between rounded-lg px-3 py-2 text-sm font-semibold hover:bg-slate-50 ${
+                                mobileAreaRegion === group.id ? "bg-sky-50 text-sky-900" : "text-slate-700"
+                              }`}
+                              aria-expanded={mobileAreaRegion === group.id}
+                              onClick={() =>
+                                setMobileAreaRegion(mobileAreaRegion === group.id ? null : group.id)
+                              }
+                            >
                               {group.label}
-                            </span>
-                            <ul className="space-y-0.5">
-                              {group.items.map((city) => (
-                                <li key={city.href}>
-                                  <NavLink
-                                    href={city.href}
-                                    className="block rounded-lg px-3 py-2 text-sm text-slate-600 hover:bg-sky-50"
-                                    onClick={closeAll}
-                                  >
-                                    {city.label}
-                                  </NavLink>
-                                </li>
-                              ))}
-                            </ul>
+                              <NavChevron open={mobileAreaRegion === group.id} />
+                            </button>
+                            {mobileAreaRegion === group.id && (
+                              <ul className="me-2 mt-0.5 space-y-0.5 border-r border-sky-100 pe-2">
+                                {group.regionHref && (
+                                  <li>
+                                    <NavLink
+                                      href={group.regionHref}
+                                      className="block rounded-lg px-3 py-2 text-sm font-medium text-sky-700 hover:bg-sky-50"
+                                      onClick={closeAll}
+                                    >
+                                      {group.label}
+                                    </NavLink>
+                                  </li>
+                                )}
+                                {group.items.map((city) => (
+                                  <li key={city.href}>
+                                    <NavLink
+                                      href={city.href}
+                                      className="block rounded-lg px-3 py-2 text-sm text-slate-600 hover:bg-sky-50"
+                                      onClick={closeAll}
+                                    >
+                                      {city.label}
+                                    </NavLink>
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
                           </li>
                         ))}
                         {item.children?.map((child) => (

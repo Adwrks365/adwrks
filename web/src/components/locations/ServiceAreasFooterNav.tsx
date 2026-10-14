@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import type { Locale } from "@/i18n/routing";
-import { serviceAreaGroups, serviceAreaHubHref } from "@/lib/pages/locations/nav";
+import { serviceAreaGroups, serviceAreaHubHref, serviceAreaNavLabel } from "@/lib/pages/locations/nav";
 
 type ServiceAreasFooterNavProps = {
   locale: Locale;
@@ -12,7 +12,7 @@ export function ServiceAreasFooterNav({ locale }: ServiceAreasFooterNavProps) {
   const groups = serviceAreaGroups(locale);
   const hub = serviceAreaHubHref(locale);
   const allLabel = locale === "en" ? "All service areas" : "לכל אזורי השירות";
-  const heading = locale === "en" ? "Service areas" : "אזורי שירות";
+  const heading = serviceAreaNavLabel(locale);
 
   return (
     <nav className="site-footer-areas" aria-label={heading}>

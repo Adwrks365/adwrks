@@ -7,7 +7,7 @@ export const SHARED_WORK_EN: Pick<
   workLabel: "How we work",
   workTitle: "Remote digital marketing — clear process, measurable results",
   workIntro:
-    "We work online with businesses across Israel: discovery, strategy, campaigns, SEO, content, and landing pages — with transparent reporting and personal guidance. Every step is measured: cost per lead, lead quality, sales, and ROI.",
+    "We work fully online with businesses across Israel — no need for a physical visit: discovery, strategy, campaigns, SEO, content, and landing pages. High availability on WhatsApp, phone, and video; transparent reports and real-time measurement of cost per lead, lead quality, sales, and ROI.",
   workSteps: [
     {
       title: "Discovery and business goals",
