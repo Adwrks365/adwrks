@@ -1,4 +1,5 @@
 import index from "@/generated/routable-path-index.json";
+import { isLocationRoutablePath } from "@/lib/pages/locations/paths";
 
 const ROUTABLE_PATHS = new Set(index.paths as string[]);
 
@@ -39,6 +40,7 @@ export function isRoutablePathname(pathname: string): boolean {
   const normalized = toPublicPathname(pathname);
   if (REDIRECT_ALLOWLIST.has(normalized)) return true;
   if (normalized === "/en/") return true;
+  if (isLocationRoutablePath(normalized)) return true;
   return ROUTABLE_PATHS.has(normalized);
 }
 

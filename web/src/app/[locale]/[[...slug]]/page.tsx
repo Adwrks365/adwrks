@@ -6,6 +6,8 @@ import { ContentPage } from "@/components/ContentPage";
 import { BlogPage } from "@/components/pages/BlogPage";
 import { HomePage } from "@/components/home/HomePage";
 import { JsonLd } from "@/components/JsonLd";
+import { LocationLandingPage } from "@/components/locations/LocationLandingPage";
+import { LocationsHubPage } from "@/components/locations/LocationsHubPage";
 import { pathKeyFromLocaleSegments } from "@/i18n/locale";
 import { routing, type Locale } from "@/i18n/routing";
 import { extractJsonLdFromHtml } from "@/lib/content/html";
@@ -21,6 +23,9 @@ import {
 import { buildPageMetadata } from "@/lib/content/metadata";
 import { mergePageJsonLd } from "@/lib/content/schema";
 import { isHomePath } from "@/lib/i18n/composer-path";
+import { buildAreaMetadata } from "@/lib/pages/locations/metadata";
+import { getHubView, getLocationView, locationStaticParams } from "@/lib/pages/locations/registry";
+import { buildHubJsonLd, buildLocationJsonLd } from "@/lib/pages/locations/schema";
 
 type PageProps = {
   params: Promise<{ locale: string; slug?: string[] }>;
@@ -30,13 +35,32 @@ type PageProps = {
 export const revalidate = 3600;
 
 export function generateStaticParams() {
-  return getAllLocaleStaticParams();
+  const base = getAllLocaleStaticParams();
+  const seen = new Set(base.map((entry) => `${entry.locale}:${(entry.slug ?? []).join("/")}`));
+  const extra = locationStaticParams().filter(
+    (entry) => !seen.has(`${entry.locale}:${entry.slug.join("/")}`),
+  );
+  return [...base, ...extra];
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale, slug } = await params;
   const validLocale = locale as Locale;
   const pathKey = pathKeyFromLocaleSegments(validLocale, slug);
+  const locationView = getLocationView(pathKey, validLocale);
+  if (locationView) {
+    return buildAreaMetadata(
+      locationView.path,
+      locationView.copy.seoTitle,
+      locationView.copy.seoDescription,
+      validLocale,
+    );
+  }
+  const hubView = getHubView(pathKey, validLocale);
+  if (hubView) {
+    return buildAreaMetadata(hubView.path, hubView.copy.seoTitle, hubView.copy.seoDescription, validLocale);
+  }
+
   const resolved = resolveRoute(pathKey, validLocale);
   const blogPath = validLocale === "en" ? "/en/blog/" : "/blog/";
 
@@ -83,6 +107,25 @@ export default async function CatchAllPage({ params }: PageProps) {
   setRequestLocale(validLocale);
 
   const pathKey = pathKeyFromLocaleSegments(validLocale, slug);
+  const locationView = getLocationView(pathKey, validLocale);
+  if (locationView) {
+    return (
+      <>
+        <JsonLd data={buildLocationJsonLd(locationView, validLocale)} />
+        <LocationLandingPage view={locationView} locale={validLocale} />
+      </>
+    );
+  }
+  const hubView = getHubView(pathKey, validLocale);
+  if (hubView) {
+    return (
+      <>
+        <JsonLd data={buildHubJsonLd(hubView, validLocale)} />
+        <LocationsHubPage view={hubView} locale={validLocale} />
+      </>
+    );
+  }
+
   const resolved = resolveRoute(pathKey, validLocale);
   const blogPath = validLocale === "en" ? "/en/blog/" : "/blog/";
 

@@ -1,4 +1,4 @@
-import { alternatePaths } from "@/i18n/routes";
+import { resolveAlternatePaths } from "@/lib/i18n/alternates";
 import { inLanguageTag } from "@/i18n/locale";
 import type { Locale } from "@/i18n/routing";
 import { absoluteUrl, normalizePath } from "./paths";
@@ -181,7 +181,7 @@ export function mergePageJsonLd(options: {
 
 /** Resolve hreflang pair for sitemap alternates */
 export function sitemapLanguageAlternates(path: string): Record<string, string> | undefined {
-  const pairs = alternatePaths(path);
+  const pairs = resolveAlternatePaths(path);
   if (!pairs) return undefined;
   return {
     "he-IL": absoluteUrl(pairs.he),

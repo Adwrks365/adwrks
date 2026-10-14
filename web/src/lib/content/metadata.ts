@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { alternatePaths } from "@/i18n/routes";
+import { resolveAlternatePaths } from "@/lib/i18n/alternates";
 import { localeFromPath, ogLocaleTag } from "@/i18n/locale";
 import type { Locale } from "@/i18n/routing";
 import { shouldAllowIndexing } from "@/lib/indexing";
@@ -51,7 +51,7 @@ function present(value?: string | null): string | undefined {
 }
 
 function hreflangAlternates(pathKey: string): Metadata["alternates"] {
-  const pairs = alternatePaths(pathKey);
+  const pairs = resolveAlternatePaths(pathKey);
   const canonical = absoluteUrl(pathKey);
   if (!pairs) {
     return { canonical };

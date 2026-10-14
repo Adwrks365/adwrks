@@ -7,6 +7,7 @@ import { getAllPosts } from "@/lib/content/loader";
 import { getServiceHubContent } from "@/lib/pages/services/get-locale-content";
 import type { LocaleProps } from "@/lib/locale-props";
 import { getServicePopupConfig } from "@/lib/popups/service-pages";
+import { ServiceAreasNote } from "./shared/ServiceAreasNote";
 import { ServiceCtaRow, ServiceContactButton, ServicePhoneLink } from "./shared/ServiceCtas";
 import { ServiceHero } from "./shared/ServiceHero";
 import { ServiceRelatedGuides } from "./shared/ServiceRelatedGuides";
@@ -94,6 +95,10 @@ export function ServiceHubPage({ locale = "he" }: LocaleProps) {
           <ServiceRelatedGuides posts={guides} locale={locale} />
         </Section>
       )}
+
+      <Section tone="white" align="start">
+        <ServiceAreasNote locale={locale} />
+      </Section>
 
       <CommercialFinalCta
         eyebrow={c.HUB_FINAL_CTA.eyebrow}

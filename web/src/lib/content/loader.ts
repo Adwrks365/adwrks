@@ -11,6 +11,7 @@ import {
   slugSegmentsFromPath,
 } from "./paths";
 import { contentDataDirForLocale, CONTENT_DATA_DIR, CONTENT_EN_DATA_DIR } from "./data-dir";
+import { HIDDEN_FROM_LISTINGS } from "@/lib/pages/locations/paths";
 
 type WpPage = {
   id: number;
@@ -171,15 +172,19 @@ export function getContentByPath(pathKey: string, locale: Locale = "he"): Conten
   return getRoutes(locale).get(normalizePath(pathKey)) ?? null;
 }
 
+function isListedPost(item: ContentItem): boolean {
+  return item.type === "post" && !HIDDEN_FROM_LISTINGS.has(item.path);
+}
+
 export function getPostsForCategory(categoryId: number, locale: Locale = "he"): ContentItem[] {
   return [...getRoutes(locale).values()].filter(
-    (r) => r.type === "post" && r.categoryIds?.includes(categoryId),
+    (r) => isListedPost(r) && r.categoryIds?.includes(categoryId),
   );
 }
 
 export function getAllPosts(locale: Locale = "he"): ContentItem[] {
   return [...getRoutes(locale).values()]
-    .filter((r) => r.type === "post")
+    .filter((r) => isListedPost(r))
     .sort((a, b) => (b.date || "").localeCompare(a.date || ""));
 }
 

@@ -9,6 +9,7 @@ import { getAllPosts } from "@/lib/content/loader";
 import { getWebsiteBuildingPageContent } from "@/lib/pages/services/get-locale-content";
 import type { LocaleProps } from "@/lib/locale-props";
 import { getServicePopupConfig } from "@/lib/popups/service-pages";
+import { ServiceAreasNote } from "./shared/ServiceAreasNote";
 import { WebsiteBuildingHero } from "./WebsiteBuildingHero";
 import { WebsiteBuildingMidCta } from "./WebsiteBuildingHeroCtas";
 
@@ -225,6 +226,7 @@ export function WebsiteBuildingServicePage({ locale = "he" }: LocaleProps) {
             </li>
           ))}
         </ul>
+        <ServiceAreasNote locale={locale} />
       </Section>
 
       <CommercialFinalCta

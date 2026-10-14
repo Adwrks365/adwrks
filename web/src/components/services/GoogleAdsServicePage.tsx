@@ -6,6 +6,7 @@ import { getAllPosts } from "@/lib/content/loader";
 import { getGoogleAdsPageContent } from "@/lib/pages/services/get-locale-content";
 import type { LocaleProps } from "@/lib/locale-props";
 import { getServicePopupConfig } from "@/lib/popups/service-pages";
+import { ServiceAreasNote } from "./shared/ServiceAreasNote";
 import { ServiceCampaignIcon } from "./shared/ServiceCampaignIcon";
 import { ServiceCtaRow, ServiceContactButton, ServicePhoneLink } from "./shared/ServiceCtas";
 import { ServiceEditorialImage } from "./shared/ServiceEditorialImage";
@@ -144,6 +145,7 @@ export function GoogleAdsServicePage({ locale = "he" }: LocaleProps) {
 
       <Section tone="white" title={locale === "en" ? "Related services" : "שירותים משלימים"} align="start">
         <ServiceRelatedServices services={c.GOOGLE_ADS_RELATED_SERVICES} locale={locale} />
+        <ServiceAreasNote locale={locale} />
       </Section>
 
       <CommercialFinalCta

@@ -1,4 +1,4 @@
-import { alternatePaths } from "@/i18n/routes";
+import { resolveAlternatePaths } from "@/lib/i18n/alternates";
 import type { Locale } from "@/i18n/routing";
 import { normalizePath } from "@/lib/content/paths";
 
@@ -6,7 +6,7 @@ import { normalizePath } from "@/lib/content/paths";
 export function heComposerPath(pathKey: string, locale: Locale): string {
   const normalized = normalizePath(pathKey);
   if (locale === "he") return normalized;
-  const pair = alternatePaths(normalized);
+  const pair = resolveAlternatePaths(normalized);
   return pair?.he ?? normalized;
 }
 

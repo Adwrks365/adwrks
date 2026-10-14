@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { alternatePaths } from "@/i18n/routes";
+import { resolveAlternatePaths } from "@/lib/i18n/alternates";
 import { localeFromPath } from "@/i18n/locale";
 import type { Locale } from "@/i18n/routing";
 
@@ -15,7 +15,7 @@ export function LanguageSwitcher({ locale }: LanguageSwitcherProps) {
   const pathname = usePathname();
   const t = useTranslations("LanguageSwitcher");
   const currentPath = pathname.endsWith("/") ? pathname : `${pathname}/`;
-  const pairs = alternatePaths(currentPath);
+  const pairs = resolveAlternatePaths(currentPath);
   const targetLocale: Locale = locale === "he" ? "en" : "he";
   const href =
     targetLocale === "en"

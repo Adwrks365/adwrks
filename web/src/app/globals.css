@@ -7734,6 +7734,19 @@ body.contextual-popup-open {
   margin-top: 0.25rem;
 }
 
+.sp-areas-note {
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin: 1.15rem 0 0;
+}
+
+.sp-areas-note a {
+  color: var(--brand-primary);
+  font-weight: 600;
+  text-underline-offset: 0.18em;
+}
+
 .sp-related-services {
   display: grid;
   gap: 0.75rem;

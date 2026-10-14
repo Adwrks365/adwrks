@@ -201,6 +201,11 @@ export function SiteFooter({ locale = "he" }: SiteFooterProps) {
                   <FooterLink href={item.href}>{item.label}</FooterLink>
                 </li>
               ))}
+              <li>
+                <FooterLink href={locale === "en" ? "/en/service-areas/" : "/אזורי-פעילות/"}>
+                  {locale === "en" ? "Service areas" : "אזורי פעילות"}
+                </FooterLink>
+              </li>
             </ul>
           </div>
 
