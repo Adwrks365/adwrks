@@ -5459,58 +5459,90 @@ body {
     max-width: 34rem;
   }
 
-  /* Nav, areas, services: full-width stack with shared RTL start edge */
+  /* Mobile: centered columns, headings, links, and service-area accordion */
+  .site-footer-grid > .site-footer-col {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
   .site-footer-grid > .site-footer-nav-col .site-footer-heading,
   .site-footer-grid > .site-footer-services-col .site-footer-heading,
-  .site-footer-grid > .site-footer-areas-col .site-footer-heading {
-    text-align: start;
+  .site-footer-grid > .site-footer-areas-col .site-footer-heading,
+  .site-footer-grid > .site-footer-contact-col .site-footer-heading,
+  .site-footer-grid > .site-footer-social-col .site-footer-heading {
+    text-align: center;
     width: 100%;
   }
 
   .site-footer-grid > .site-footer-nav-col .site-footer-links,
   .site-footer-grid > .site-footer-services-col .site-footer-links {
-    align-items: stretch;
-    text-align: start;
+    align-items: center;
+    text-align: center;
     width: 100%;
   }
 
   .site-footer-grid > .site-footer-nav-col .site-footer-links li,
   .site-footer-grid > .site-footer-services-col .site-footer-links li {
     display: block;
-    text-align: start;
-  }
-
-  .site-footer-areas {
-    width: 100%;
-  }
-
-  .site-footer-areas-trigger {
-    min-height: 2.75rem;
-    padding-block: 0.625rem;
-  }
-
-  .site-footer-areas-cities {
-    max-width: 100%;
-    overflow-wrap: anywhere;
-    padding-inline-start: 1.25rem;
-  }
-
-  .site-footer-areas-link {
-    align-items: center;
-    display: inline-flex;
-    min-height: 2.75rem;
-    padding-block: 0.35rem;
+    text-align: center;
   }
 
   .site-footer-grid > .site-footer-nav-col .site-footer-links a,
   .site-footer-grid > .site-footer-services-col .site-footer-links a {
     align-items: center;
-    display: flex;
+    display: inline-flex;
+    justify-content: center;
     min-height: 2.75rem;
   }
 
-  .site-footer-grid > .site-footer-contact-col .site-footer-heading,
-  .site-footer-grid > .site-footer-social-col .site-footer-heading {
+  .site-footer-areas {
+    align-items: center;
+    margin-inline: auto;
+    width: 100%;
+  }
+
+  .site-footer-areas-list {
+    width: 100%;
+  }
+
+  .site-footer-areas-trigger {
+    gap: 0.5rem;
+    justify-content: center;
+    margin-inline: auto;
+    min-height: 2.75rem;
+    padding-block: 0.625rem;
+    text-align: center;
+  }
+
+  .site-footer-areas-label {
+    flex: 0 1 auto;
+    text-align: center;
+  }
+
+  .site-footer-areas-cities {
+    align-items: center;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    padding-inline: 0;
+    text-align: center;
+  }
+
+  .site-footer-areas-cities li {
+    text-align: center;
+  }
+
+  .site-footer-areas-link {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    min-height: 2.75rem;
+    padding-block: 0.35rem;
+  }
+
+  .site-footer-areas-hub {
     text-align: center;
     width: 100%;
   }
@@ -5518,6 +5550,15 @@ body {
   .site-footer-contact,
   .site-footer-social {
     align-items: center;
+  }
+
+  .site-footer-contact li {
+    text-align: center;
+  }
+
+  .site-footer-contact a,
+  .site-footer-contact-static {
+    justify-content: center;
   }
 
   .site-footer-contact a {
@@ -5539,7 +5580,8 @@ body {
 
   .site-footer-locations {
     flex-wrap: nowrap;
-    justify-content: flex-start;
+    justify-content: center;
+    margin-inline: auto;
     max-width: 100%;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
