@@ -3,6 +3,7 @@
  * Generates i18n route map + English content JSON from Hebrew WordPress export.
  * Run: node web/scripts/generate-i18n-data.mjs
  */
+import { spawnSync } from "node:child_process";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -367,6 +368,11 @@ const enSeo = seoRecords.map((record) => {
 });
 
 writeJson("seo.json", enSeo);
+
+spawnSync(process.execPath, [path.join(__dirname, "sync-en-seo-metadata.mjs")], {
+  stdio: "inherit",
+  cwd: ROOT,
+});
 
 // English sitemap URLs
 const enUrls = routePairs.map((p) => `https://adwrks.co.il${p.en}`);
