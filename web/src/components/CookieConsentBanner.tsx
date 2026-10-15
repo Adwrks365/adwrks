@@ -28,7 +28,15 @@ export function CookieConsentBanner() {
   }
 
   return (
-    <div className="cookie-consent" role="dialog" aria-live="polite">
+    <div
+      className="cookie-consent"
+      role="dialog"
+      aria-labelledby="cookie-consent-title"
+      aria-live="polite"
+    >
+      <h2 id="cookie-consent-title" className="sr-only">
+        {t("dialogTitle")}
+      </h2>
       <p className="cookie-consent-message">
         {t("message")}{" "}
         <Link href={privacyHref} className="cookie-consent-link">

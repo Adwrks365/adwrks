@@ -46,10 +46,12 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
     metadataBase: new URL(site.domain),
     icons: {
       icon: [
+        { url: "/favicon.ico", sizes: "32x32", type: "image/x-icon" },
         { url: site.favicon32, sizes: "32x32", type: "image/webp" },
         { url: site.favicon192, sizes: "192x192", type: "image/webp" },
       ],
       apple: [{ url: site.appleIcon, sizes: "180x180", type: "image/webp" }],
+      shortcut: [{ url: "/favicon.ico", type: "image/x-icon" }],
     },
     robots: stagingRobots() ?? base.robots,
   };

@@ -36,6 +36,7 @@
     "loadingForm": "Loading form..."
   },
   "CookieConsent": {
+    "dialogTitle": "Cookie and privacy notice",
     "message": "We use cookies to improve your experience and measure traffic.",
     "accept": "Accept",
     "decline": "Decline",
