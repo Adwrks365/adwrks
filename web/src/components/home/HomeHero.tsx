@@ -10,10 +10,27 @@ export function HomeHero({ locale = "he" }: LocaleProps) {
   const site = getSiteConfig(locale);
   const hp = getHomepageData(locale);
 
+  const heroSrc = hp.HOMEPAGE_IMAGES.heroPhoto;
+
   return (
-    <section className="home-hero-v2 home-hero-v2--text-led" aria-labelledby="home-hero-heading">
+    <section
+      className="home-hero-v2 home-hero-v2--text-led home-hero-v2-lcp"
+      aria-labelledby="home-hero-heading"
+    >
       <Container>
         <div className="home-hero-v2-shell">
+          <div className="home-hero-v2-visual home-hero-v2-visual--mobile">
+            <img
+              src={heroSrc}
+              alt={hp.HOMEPAGE_IMAGES.heroPhotoAlt}
+              width={280}
+              height={280}
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+              className="home-hero-v2-image home-hero-v2-image--mobile"
+            />
+          </div>
           <div className="home-hero-v2-inner">
             <p className="home-hero-badge">
               {site.tagline} • {site.foundedNote}
@@ -54,17 +71,17 @@ export function HomeHero({ locale = "he" }: LocaleProps) {
               </Link>
             </div>
           </div>
-          <div className="home-hero-v2-visual">
+          <div className="home-hero-v2-visual home-hero-v2-visual--desktop">
             <div className="home-hero-visual-glow" aria-hidden="true" />
             <Image
-              src={hp.HOMEPAGE_IMAGES.heroPhoto}
+              src={heroSrc}
               alt={hp.HOMEPAGE_IMAGES.heroPhotoAlt}
               width={560}
               height={560}
               priority
               fetchPriority="high"
-              sizes="(min-width: 1024px) 420px, min(72vw, 280px)"
-              className="home-hero-v2-image"
+              sizes="(min-width: 1024px) 420px, 0px"
+              className="home-hero-v2-image home-hero-v2-image--desktop"
             />
           </div>
         </div>
