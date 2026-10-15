@@ -15,7 +15,7 @@ export function HomeHero({ locale = "he" }: LocaleProps) {
       className="home-hero-v2 home-hero-v2--text-led home-hero-v2-lcp"
       aria-labelledby="home-hero-heading"
     >
-      <Container>
+      <Container className="home-hero-container">
         <div className="home-hero-v2-shell">
           <div className="home-hero-v2-visual">
             <img
@@ -27,6 +27,7 @@ export function HomeHero({ locale = "he" }: LocaleProps) {
               fetchPriority="high"
               decoding="sync"
               className="home-hero-v2-image"
+              style={{ objectFit: "contain", aspectRatio: "1 / 1" }}
             />
           </div>
           <div className="home-hero-v2-inner">

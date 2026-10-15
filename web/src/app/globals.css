@@ -646,15 +646,33 @@ body {
   z-index: 0;
 }
 
+/* Lantern/Lighthouse: avoid clipping LCP candidates inside the hero stack */
+section.home-hero-v2.home-hero-v2-lcp {
+  overflow: visible;
+}
+
+.home-hero-v2-lcp .home-hero-container,
+.home-hero-v2-lcp .home-hero-v2-shell,
+.home-hero-v2-lcp .home-hero-v2-visual {
+  overflow: visible;
+}
+
 .home-hero-v2-lcp .home-hero-v2-shell,
 .home-hero-v2-lcp .home-hero-v2-visual,
 .home-hero-v2-lcp .home-hero-v2-inner,
 .home-hero-v2-lcp #home-hero-heading,
+.home-hero-v2-lcp .home-hero-title,
+.home-hero-v2-lcp .home-hero-highlight,
 .home-hero-v2-lcp .home-hero-v2-image {
   animation: none !important;
   opacity: 1 !important;
   transform: none !important;
   transition: none !important;
+}
+
+.home-hero-v2-lcp .home-hero-v2-image {
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
 }
 
 .home-hero-v2-shell {
