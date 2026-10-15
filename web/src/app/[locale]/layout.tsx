@@ -19,8 +19,10 @@ import "../globals.css";
 
 const heebo = Heebo({
   subsets: ["hebrew", "latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
+  preload: true,
+  adjustFontFallback: true,
   variable: "--font-heebo",
 });
 

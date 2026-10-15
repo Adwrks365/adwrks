@@ -62,7 +62,8 @@ export function HomeHero({ locale = "he" }: LocaleProps) {
               width={560}
               height={560}
               priority
-              sizes="(min-width: 1024px) 420px, 0px"
+              fetchPriority="high"
+              sizes="(min-width: 1024px) 420px, min(72vw, 280px)"
               className="home-hero-v2-image"
             />
           </div>
