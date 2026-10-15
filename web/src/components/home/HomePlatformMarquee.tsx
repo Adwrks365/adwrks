@@ -40,7 +40,7 @@ export function HomePlatformMarquee({ locale = "he" }: LocaleProps) {
                       alt={copy === 0 ? logo.alt : ""}
                       width={140}
                       height={56}
-                      loading="lazy"
+                      loading={copy === 0 ? undefined : "lazy"}
                       sizes="140px"
                       className={platformLogoClass(logo.alt)}
                     />

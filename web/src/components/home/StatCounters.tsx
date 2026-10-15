@@ -74,6 +74,12 @@ export function StatCounters({ items }: StatCountersProps) {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reducedMotion) return;
 
+    const rect = grid.getBoundingClientRect();
+    const visibleOnMount = rect.top < window.innerHeight && rect.bottom > 0;
+    if (visibleOnMount) {
+      return;
+    }
+
     const runAnimation = () => {
       if (hasAnimatedRef.current) return;
       hasAnimatedRef.current = true;

@@ -18,19 +18,35 @@ function PageViewTracker({ locale }: { locale: Locale }) {
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    if (!window.gtag) return;
+    let cancelled = false;
     const query = searchParams.toString();
     const pagePath = query ? `${pathname}?${query}` : pathname;
-    window.gtag("config", GA4_MEASUREMENT_ID, {
-      page_path: pagePath,
-      page_locale: locale,
-    });
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      event: "page_view",
-      page_locale: locale,
-      page_path: pagePath,
-    });
+
+    const sendPageView = () => {
+      if (cancelled || !window.gtag) return false;
+      window.gtag("config", GA4_MEASUREMENT_ID, {
+        page_path: pagePath,
+        page_locale: locale,
+      });
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "page_view",
+        page_locale: locale,
+        page_path: pagePath,
+      });
+      return true;
+    };
+
+    if (sendPageView()) return;
+
+    const intervalId = window.setInterval(() => {
+      if (sendPageView()) window.clearInterval(intervalId);
+    }, 250);
+
+    return () => {
+      cancelled = true;
+      window.clearInterval(intervalId);
+    };
   }, [pathname, searchParams, locale]);
 
   return null;
@@ -45,9 +61,9 @@ export function GoogleTags({ locale = "he" }: GoogleTagsProps) {
     <>
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}`}
-        strategy="afterInteractive"
+        strategy="lazyOnload"
       />
-      <Script id="google-tags-init" strategy="afterInteractive">
+      <Script id="google-tags-init" strategy="lazyOnload">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}

@@ -1624,24 +1624,27 @@ body {
   height: 3.05rem;
   max-height: 3.05rem;
   object-fit: contain;
-  width: auto;
+  width: 9.5rem;
 }
 
 .platform-marquee-logo.is-icon {
   height: 3.35rem;
   max-height: 3.35rem;
+  width: 3.35rem;
 }
 
 .platform-marquee-logo.is-word {
   height: 3.05rem;
   max-height: 3.05rem;
   max-width: 9.5rem;
+  width: 9.5rem;
 }
 
 .platform-marquee-logo.is-wide {
   height: 3.35rem;
   max-height: 3.35rem;
   max-width: 11rem;
+  width: 11rem;
 }
 
 @keyframes platform-marquee {

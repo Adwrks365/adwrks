@@ -18,9 +18,9 @@ export function InsytixMetaTags() {
 /**
  * Global Insytix tracker — render once in root layout `<body>`.
  *
- * Load order: inline `__INSYTIX_CONFIG__` (afterInteractive, first) then external
- * tf.js (afterInteractive, second). Same strategy preserves document order while
- * keeping both non-render-blocking (no beforeInteractive / no LCP dependency).
+ * Load order: inline `__INSYTIX_CONFIG__` (lazyOnload, first) then external
+ * tf.js (lazyOnload, second). Same strategy preserves document order while
+ * deferring third-party work until after load (no beforeInteractive / no LCP dependency).
  */
 type InsytixTrackerProps = {
   locale?: import("@/i18n/routing").Locale;
@@ -37,7 +37,7 @@ export function InsytixTracker({ locale = "he" }: InsytixTrackerProps) {
     <>
       <Script
         id="insytix-config"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
         data-no-optimize="1"
         data-cfasync="false"
       >
@@ -46,8 +46,7 @@ export function InsytixTracker({ locale = "he" }: InsytixTrackerProps) {
       <Script
         id="insytix-tf-js"
         src={INSYTIX_SCRIPT_URL}
-        strategy="afterInteractive"
-        defer
+        strategy="lazyOnload"
         data-no-optimize="1"
         data-cfasync="false"
         data-tracking-id={INSYTIX_TRACKING_ID}
