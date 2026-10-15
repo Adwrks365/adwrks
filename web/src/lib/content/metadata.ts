@@ -95,6 +95,23 @@ function hreflangAlternates(pathKey: string): Metadata["alternates"] {
   };
 }
 
+/** Homepage LCP hero — preload in `<head>` via metadata icons.other */
+export function withHomeHeroLcpPreload(metadata: Metadata, heroLcpSrc: string): Metadata {
+  return {
+    ...metadata,
+    icons: {
+      other: [
+        {
+          rel: "preload",
+          url: heroLcpSrc,
+          type: "image/webp",
+          fetchPriority: "high",
+        },
+      ],
+    },
+  };
+}
+
 export function buildPageMetadata(
   pathKey: string,
   fallbackTitle?: string,

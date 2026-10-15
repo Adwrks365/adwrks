@@ -10,6 +10,7 @@ export const HOMEPAGE_IMAGES = {
   heroBg: u("digital-marketing-2-e1769683414846.webp"),
   heroBgAlt: "Digital marketing specialist working on a laptop — Adwrks 365 agency",
   heroPhoto: u("adwrks-marketing-solutions.webp"),
+  heroPhotoLcp: u("adwrks-marketing-solutions-hero-560.webp"),
   heroPhotoAlt: "Smartphone showing satisfied clients — Adwrks 365 digital marketing",
   authorityPhoto: u("5-3.png"),
   envelopePhoto: u("7-1.png"),

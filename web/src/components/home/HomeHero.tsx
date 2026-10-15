@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ContextualPopupTrigger } from "@/components/popups/ContextualPopupTrigger";
 import { Container } from "@/components/ui/Container";
@@ -9,8 +8,7 @@ import { getSiteConfig } from "@/lib/site";
 export function HomeHero({ locale = "he" }: LocaleProps) {
   const site = getSiteConfig(locale);
   const hp = getHomepageData(locale);
-
-  const heroSrc = hp.HOMEPAGE_IMAGES.heroPhoto;
+  const heroLcpSrc = hp.HOMEPAGE_IMAGES.heroPhotoLcp;
 
   return (
     <section
@@ -19,16 +17,16 @@ export function HomeHero({ locale = "he" }: LocaleProps) {
     >
       <Container>
         <div className="home-hero-v2-shell">
-          <div className="home-hero-v2-visual home-hero-v2-visual--mobile">
+          <div className="home-hero-v2-visual">
             <img
-              src={heroSrc}
+              src={heroLcpSrc}
               alt={hp.HOMEPAGE_IMAGES.heroPhotoAlt}
-              width={280}
-              height={280}
+              width={560}
+              height={560}
               loading="eager"
               fetchPriority="high"
-              decoding="async"
-              className="home-hero-v2-image home-hero-v2-image--mobile"
+              decoding="sync"
+              className="home-hero-v2-image"
             />
           </div>
           <div className="home-hero-v2-inner">
@@ -70,19 +68,6 @@ export function HomeHero({ locale = "he" }: LocaleProps) {
                 {locale === "en" ? "View our work" : "צפו בעבודות שלנו"}
               </Link>
             </div>
-          </div>
-          <div className="home-hero-v2-visual home-hero-v2-visual--desktop">
-            <div className="home-hero-visual-glow" aria-hidden="true" />
-            <Image
-              src={heroSrc}
-              alt={hp.HOMEPAGE_IMAGES.heroPhotoAlt}
-              width={560}
-              height={560}
-              priority
-              fetchPriority="high"
-              sizes="(min-width: 1024px) 420px, 0px"
-              className="home-hero-v2-image home-hero-v2-image--desktop"
-            />
           </div>
         </div>
       </Container>

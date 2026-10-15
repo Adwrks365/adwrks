@@ -10,6 +10,8 @@ export const HOMEPAGE_IMAGES = {
   heroBg: u("digital-marketing-2-e1769683414846.webp"),
   heroBgAlt: "מומחית שיווק דיגיטלי עובדת על מחשב נייד - סוכנות אדוורקס 365",
   heroPhoto: u("adwrks-marketing-solutions.webp"),
+  /** LCP — 560×560 WebP (~16KB), sized for mobile + desktop hero column */
+  heroPhotoLcp: u("adwrks-marketing-solutions-hero-560.webp"),
   heroPhotoAlt:
     "סמארטפון המציג לקוחות מרוצים מהשיווק הדיגיטלי של סוכנות Adwrks 365",
   authorityPhoto: u("5-3.png"),

@@ -20,7 +20,8 @@ import {
   POSTS_PER_PAGE,
   resolveRoute,
 } from "@/lib/content/loader";
-import { buildPageMetadata } from "@/lib/content/metadata";
+import { buildPageMetadata, withHomeHeroLcpPreload } from "@/lib/content/metadata";
+import { getHomepageData } from "@/lib/homepage";
 import { mergePageJsonLd } from "@/lib/content/schema";
 import { isHomePath } from "@/lib/i18n/composer-path";
 import { buildAreaMetadata } from "@/lib/pages/locations/metadata";
@@ -47,6 +48,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { locale, slug } = await params;
   const validLocale = locale as Locale;
   const pathKey = pathKeyFromLocaleSegments(validLocale, slug);
+
+  if (isHomePath(pathKey)) {
+    const homePath = validLocale === "en" ? "/en/" : "/";
+    const hp = getHomepageData(validLocale);
+    return withHomeHeroLcpPreload(
+      buildPageMetadata(homePath, undefined, validLocale),
+      hp.HOMEPAGE_IMAGES.heroPhotoLcp,
+    );
+  }
+
   const locationView = getLocationView(pathKey, validLocale);
   if (locationView) {
     return buildAreaMetadata(
