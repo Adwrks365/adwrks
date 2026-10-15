@@ -1,8 +1,7 @@
 "use client";
 
-import Script from "next/script";
 import { usePathname, useSearchParams } from "next/navigation";
-import { Suspense, useEffect } from "react";
+import { Suspense, useEffect, useRef } from "react";
 import type { Locale } from "@/i18n/routing";
 import { GA4_MEASUREMENT_ID, GOOGLE_ADS_ID } from "@/lib/analytics";
 
@@ -11,6 +10,81 @@ declare global {
     gtag?: (...args: unknown[]) => void;
     dataLayer?: Record<string, unknown>[];
   }
+}
+
+const ANALYTICS_DEFER_MS = 2500;
+const GOOGLE_TAGS_READY = "google-tags-ready";
+
+function scheduleDeferredAnalytics(load: () => void) {
+  let started = false;
+  const run = () => {
+    if (started) return;
+    started = true;
+    cleanup();
+    load();
+  };
+
+  const interactionOptions = { capture: true, once: true, passive: true } as const;
+  const onInteraction = () => run();
+
+  window.addEventListener("pointerdown", onInteraction, interactionOptions);
+  window.addEventListener("keydown", onInteraction, interactionOptions);
+  window.addEventListener("touchstart", onInteraction, interactionOptions);
+  window.addEventListener("scroll", onInteraction, interactionOptions);
+
+  const timeoutId = window.setTimeout(run, ANALYTICS_DEFER_MS);
+
+  let idleId: number | undefined;
+  if ("requestIdleCallback" in window) {
+    idleId = window.requestIdleCallback(() => run(), { timeout: ANALYTICS_DEFER_MS + 1500 });
+  }
+
+  function cleanup() {
+    window.clearTimeout(timeoutId);
+    if (idleId !== undefined && "cancelIdleCallback" in window) {
+      window.cancelIdleCallback(idleId);
+    }
+    window.removeEventListener("pointerdown", onInteraction, interactionOptions);
+    window.removeEventListener("keydown", onInteraction, interactionOptions);
+    window.removeEventListener("touchstart", onInteraction, interactionOptions);
+    window.removeEventListener("scroll", onInteraction, interactionOptions);
+  }
+
+  return cleanup;
+}
+
+function injectGoogleTags() {
+  if (document.querySelector('script[data-google-tags="gtag-js"]')) return;
+
+  window.dataLayer = window.dataLayer || [];
+  const gtag = (...args: unknown[]) => {
+    (window.dataLayer as unknown[]).push(args);
+  };
+  window.gtag = gtag;
+  gtag("js", new Date());
+
+  const script = document.createElement("script");
+  script.async = true;
+  script.src = `https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}`;
+  script.dataset.googleTags = "gtag-js";
+  script.onload = () => {
+    gtag("config", GA4_MEASUREMENT_ID);
+    gtag("config", GOOGLE_ADS_ID);
+    window.dispatchEvent(new Event(GOOGLE_TAGS_READY));
+  };
+  document.body.appendChild(script);
+}
+
+function GoogleTagsLoader() {
+  const startedRef = useRef(false);
+
+  useEffect(() => {
+    if (startedRef.current) return;
+    startedRef.current = true;
+    return scheduleDeferredAnalytics(injectGoogleTags);
+  }, []);
+
+  return null;
 }
 
 function PageViewTracker({ locale }: { locale: Locale }) {
@@ -37,15 +111,27 @@ function PageViewTracker({ locale }: { locale: Locale }) {
       return true;
     };
 
+    const onReady = () => {
+      if (sendPageView()) return;
+      const intervalId = window.setInterval(() => {
+        if (sendPageView()) window.clearInterval(intervalId);
+      }, 250);
+    };
+
     if (sendPageView()) return;
 
+    window.addEventListener(GOOGLE_TAGS_READY, onReady, { once: true });
     const intervalId = window.setInterval(() => {
-      if (sendPageView()) window.clearInterval(intervalId);
-    }, 250);
+      if (sendPageView()) {
+        window.clearInterval(intervalId);
+        window.removeEventListener(GOOGLE_TAGS_READY, onReady);
+      }
+    }, 500);
 
     return () => {
       cancelled = true;
       window.clearInterval(intervalId);
+      window.removeEventListener(GOOGLE_TAGS_READY, onReady);
     };
   }, [pathname, searchParams, locale]);
 
@@ -59,19 +145,7 @@ type GoogleTagsProps = {
 export function GoogleTags({ locale = "he" }: GoogleTagsProps) {
   return (
     <>
-      <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}`}
-        strategy="lazyOnload"
-      />
-      <Script id="google-tags-init" strategy="lazyOnload">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', '${GA4_MEASUREMENT_ID}');
-          gtag('config', '${GOOGLE_ADS_ID}');
-        `}
-      </Script>
+      <GoogleTagsLoader />
       <Suspense fallback={null}>
         <PageViewTracker locale={locale} />
       </Suspense>
