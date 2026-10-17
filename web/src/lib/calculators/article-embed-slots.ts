@@ -1,12 +1,15 @@
+import { PAGESPEED_INSIGHTS_EMBED_SLOT } from "@/lib/pagespeed/pagespeed-insights-data";
 import { PRICING_CALCULATOR_EMBED_SLOT } from "./pricing-calculator-data";
 import { ROI_CALCULATOR_EMBED_SLOT } from "./roi-calculator-data";
 
 export type ArticleEmbedSegment =
   | { kind: "html"; content: string }
   | { kind: "roi" }
-  | { kind: "pricing" };
+  | { kind: "pricing" }
+  | { kind: "pagespeed" };
 
-const MARKERS: { token: string; kind: "roi" | "pricing" }[] = [
+const MARKERS: { token: string; kind: "roi" | "pricing" | "pagespeed" }[] = [
+  { token: PAGESPEED_INSIGHTS_EMBED_SLOT, kind: "pagespeed" },
   { token: ROI_CALCULATOR_EMBED_SLOT, kind: "roi" },
   { token: PRICING_CALCULATOR_EMBED_SLOT, kind: "pricing" },
 ];
@@ -15,12 +18,13 @@ const MARKERS: { token: string; kind: "roi" | "pricing" }[] = [
 export function splitArticleEmbedSegments(html: string): ArticleEmbedSegment[] | null {
   if (
     !html.includes("data-adwrks-roi-calculator") &&
-    !html.includes("data-adwrks-pricing-calculator")
+    !html.includes("data-adwrks-pricing-calculator") &&
+    !html.includes("data-adwrks-pagespeed-insights")
   ) {
     return null;
   }
 
-  type Hit = { index: number; length: number; kind: "roi" | "pricing" };
+  type Hit = { index: number; length: number; kind: "roi" | "pricing" | "pagespeed" };
   const hits: Hit[] = [];
 
   for (const { token, kind } of MARKERS) {

@@ -1,5 +1,6 @@
 import { PRICING_CALCULATOR_EMBED_SLOT } from "@/lib/calculators/pricing-calculator-data";
 import { ROI_CALCULATOR_EMBED_SLOT } from "@/lib/calculators/roi-calculator-data";
+import { PAGESPEED_INSIGHTS_EMBED_SLOT } from "@/lib/pagespeed/pagespeed-insights-data";
 import { decodeHtmlEntities } from "./paths";
 import { getAllPosts, getCategories, getPostsForCategory } from "./loader";
 import { repairArticleCtaLinks, wrapRepairedArticleCtaBlocks } from "./article-ctas";
@@ -143,6 +144,32 @@ export function downgradeEmbeddedH1(html: string): string {
     .replace(/<\/h1>/gi, "</h2>");
 }
 
+/** Remove legacy Elementor PageSpeed widget (client-side API key) and inject React embed at top. */
+export function injectPageSpeedInsightsEmbed(html: string): string {
+  if (!html.includes('id="audit-form"') && !html.includes("runPagespeed")) {
+    return html;
+  }
+
+  let result = html.replace(
+    /<div class="elementor-element elementor-element-ee126d3[\s\S]*?<\/script>\s*<\/div>/i,
+    "",
+  );
+
+  result = result.replace(
+    /<div class="elementor-element[^>]*>[\s\S]*?id="audit-form"[\s\S]*?<\/script>\s*<\/div>/i,
+    "",
+  );
+
+  if (!result.includes("data-adwrks-pagespeed-insights")) {
+    result = result.replace(
+      /(<div data-elementor-type="wp-post"[^>]*>)/i,
+      `$1${PAGESPEED_INSIGHTS_EMBED_SLOT}`,
+    );
+  }
+
+  return result;
+}
+
 /** Replace broken Sticklight calculator iframes with native React embed slots. */
 export function replaceBrokenCalculatorEmbeds(html: string): string {
   return html
@@ -166,6 +193,7 @@ export function prepareArticleBodyHtml(rawHtml: string): {
   headings: ArticleHeading[];
 } {
   let html = stripEmbeddedArticleSidebar(rawHtml);
+  html = injectPageSpeedInsightsEmbed(html);
   html = stripLegacyArticleContactBlocks(html);
   html = replaceBrokenCalculatorEmbeds(html);
   html = stripEmptyImageWidgets(html);

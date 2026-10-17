@@ -3,6 +3,7 @@
 import { useMemo } from "react";
 import { PricingCalculator } from "@/components/calculators/PricingCalculator";
 import { RoiCalculator } from "@/components/calculators/RoiCalculator";
+import { PageSpeedInsightsTool } from "@/components/tools/PageSpeedInsightsTool";
 import type { Locale } from "@/i18n/routing";
 import { splitArticleEmbedSegments } from "@/lib/calculators/article-embed-slots";
 
@@ -39,6 +40,9 @@ export function ArticleHtmlWithEmbeds({
         }
         if (segment.kind === "roi") {
           return <RoiCalculator key={`roi-${index}`} locale={locale} />;
+        }
+        if (segment.kind === "pagespeed") {
+          return <PageSpeedInsightsTool key={`pagespeed-${index}`} locale={locale} />;
         }
         return <PricingCalculator key={`pricing-${index}`} locale={locale} />;
       })}
