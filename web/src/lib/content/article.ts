@@ -177,6 +177,20 @@ export function injectPageSpeedInsightsEmbed(html: string): string {
   return result;
 }
 
+/** Replace orphan lead copy (form removed) with a contextual popup CTA on the speed-test article. */
+function replaceSpeedArticleOrphanLeadPrompt(html: string): string {
+  if (!html.includes("elementor-21496") || !html.includes("elementor-element-00cc55a")) {
+    return html;
+  }
+
+  const ctaBlock = `<div class="article-inline-cta-block article-inline-cta-block--speed-lead"><div class="elementor-element elementor-widget elementor-widget-button elementor-align-center"><a class="elementor-button elementor-button-link elementor-size-md" href="#" data-open-contextual-popup="true" role="button"><span class="elementor-button-content-wrapper"><span class="elementor-button-text">השאירו פרטים לייעוץ חינם</span></span></a></div></div>`;
+
+  return html.replace(
+    /<div class="elementor-element elementor-element-00cc55a[\s\S]*?<\/div>\s*<div class="elementor-element elementor-element-b13fc5e[\s\S]*?<\/div>\s*<\/div>/i,
+    ctaBlock,
+  );
+}
+
 /** Replace broken Sticklight calculator iframes with native React embed slots. */
 export function replaceBrokenCalculatorEmbeds(html: string): string {
   return html
@@ -202,6 +216,7 @@ export function prepareArticleBodyHtml(rawHtml: string): {
   let html = stripEmbeddedArticleSidebar(rawHtml);
   html = injectPageSpeedInsightsEmbed(html);
   html = stripElementorFormWidgets(html);
+  html = replaceSpeedArticleOrphanLeadPrompt(html);
   html = stripLegacyArticleContactBlocks(html);
   html = replaceBrokenCalculatorEmbeds(html);
   html = stripEmptyImageWidgets(html);

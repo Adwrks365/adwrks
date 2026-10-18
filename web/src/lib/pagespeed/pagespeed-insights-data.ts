@@ -29,6 +29,7 @@ export type PageSpeedInsightsLabels = {
   performanceHint: string;
   resultsHeading: string;
   psiNote: string;
+  switchStrategyHint: string;
 };
 
 export const PAGESPEED_INSIGHTS_LABELS_HE: PageSpeedInsightsLabels = {
@@ -58,4 +59,5 @@ export const PAGESPEED_INSIGHTS_LABELS_HE: PageSpeedInsightsLabels = {
   resultsHeading: "תוצאות {strategy}",
   psiNote:
     "הציונים מגיעים מאותו API של PageSpeed Insights. לפעמים יש הבדל קטן מול pagespeed.web.dev בגלל זמן הרצה ומטמון.",
+  switchStrategyHint: "לבדיקת {strategy} נדרשת הרצה נוספת (נותרו {count} בדיקות להיום).",
 };

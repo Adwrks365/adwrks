@@ -32,6 +32,9 @@ export function PageSpeedInsightsTool({ locale = "he" }: PageSpeedInsightsToolPr
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [scores, setScores] = useState<Scores | null>(null);
+  const [scoresByStrategy, setScoresByStrategy] = useState<
+    Partial<Record<PageSpeedStrategy, Scores>>
+  >({});
   const [remaining, setRemaining] = useState<number | null>(null);
   const [limit, setLimit] = useState(3);
   const [showResults, setShowResults] = useState(false);
@@ -67,18 +70,17 @@ export function PageSpeedInsightsTool({ locale = "he" }: PageSpeedInsightsToolPr
       ? ""
       : labels.remaining.replace("{count}", String(remaining)).replace("{limit}", String(limit));
 
-  async function onSubmit(e: React.FormEvent) {
-    e.preventDefault();
+  const canRun = (remaining ?? limit) > 0 && !loading;
+
+  async function runTest(targetUrl: string, nextStrategy: PageSpeedStrategy) {
     setError(null);
     setLoading(true);
-    setShowResults(false);
-    setResultStrategy(null);
 
     try {
       const res = await fetch("/api/pagespeed/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url, strategy }),
+        body: JSON.stringify({ url: targetUrl, strategy: nextStrategy }),
       });
       const data = (await res.json()) as {
         ok: boolean;
@@ -103,34 +105,75 @@ export function PageSpeedInsightsTool({ locale = "he" }: PageSpeedInsightsToolPr
         } else {
           setError(labels.errorGeneric);
         }
-        return;
+        return false;
       }
 
       if (data.scores) {
+        const resolvedStrategy = data.strategy ?? nextStrategy;
+        setScoresByStrategy((prev) => ({ ...prev, [resolvedStrategy]: data.scores! }));
         setScores(data.scores);
-        setResultStrategy(data.strategy ?? strategy);
+        setResultStrategy(resolvedStrategy);
+        setStrategy(resolvedStrategy);
         setShowResults(true);
+        return true;
       }
+      return false;
     } catch {
       setError(labels.errorGeneric);
+      return false;
     } finally {
       setLoading(false);
     }
   }
 
+  async function onSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setShowResults(false);
+    setResultStrategy(null);
+    await runTest(url, strategy);
+  }
+
+  async function onStrategySelect(next: PageSpeedStrategy) {
+    setStrategy(next);
+    setError(null);
+
+    const cached = scoresByStrategy[next];
+    if (cached) {
+      setScores(cached);
+      setResultStrategy(next);
+      setShowResults(true);
+      return;
+    }
+
+    if (!url.trim()) return;
+
+    if ((remaining ?? 0) <= 0) {
+      const strategyLabel = next === "mobile" ? labels.strategyMobile : labels.strategyDesktop;
+      setError(
+        labels.switchStrategyHint
+          .replace("{strategy}", strategyLabel)
+          .replace("{count}", "0"),
+      );
+      return;
+    }
+
+    await runTest(url, next);
+  }
+
   function onRetry() {
     setUrl("");
     setScores(null);
+    setScoresByStrategy({});
     setShowResults(false);
     setResultStrategy(null);
     setError(null);
   }
 
-  const canRun = (remaining ?? limit) > 0 && !loading;
-
   const performanceScore = scores?.performance ?? null;
   const perfHint =
     performanceScore != null ? performanceRecommendation(performanceScore, locale) : "";
+
+  const showForm = canRun || loading || showResults;
 
   return (
     <div className="pagespeed-insights-root" dir={dir}>
@@ -140,7 +183,7 @@ export function PageSpeedInsightsTool({ locale = "he" }: PageSpeedInsightsToolPr
         <p className="psi-meta">{labels.poweredBy}</p>
         {remainingText ? <p className="psi-quota">{remainingText}</p> : null}
 
-        {canRun || loading ? (
+        {showForm ? (
           <form className="psi-form" onSubmit={onSubmit} aria-busy={loading}>
             <label className="psi-field">
               <span className="psi-label">{labels.urlLabel}</span>
@@ -152,7 +195,8 @@ export function PageSpeedInsightsTool({ locale = "he" }: PageSpeedInsightsToolPr
                 placeholder={labels.urlPlaceholder}
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
-                disabled={loading || remaining === 0}
+                disabled={loading || (remaining === 0 && !showResults)}
+                readOnly={remaining === 0 && showResults}
                 dir="ltr"
                 autoComplete="url"
                 inputMode="url"
@@ -166,7 +210,7 @@ export function PageSpeedInsightsTool({ locale = "he" }: PageSpeedInsightsToolPr
                   type="button"
                   className={`psi-segment${strategy === "mobile" ? " is-active" : ""}`}
                   aria-pressed={strategy === "mobile"}
-                  onClick={() => setStrategy("mobile")}
+                  onClick={() => void onStrategySelect("mobile")}
                   disabled={loading}
                 >
                   {labels.strategyMobile}
@@ -175,7 +219,7 @@ export function PageSpeedInsightsTool({ locale = "he" }: PageSpeedInsightsToolPr
                   type="button"
                   className={`psi-segment${strategy === "desktop" ? " is-active" : ""}`}
                   aria-pressed={strategy === "desktop"}
-                  onClick={() => setStrategy("desktop")}
+                  onClick={() => void onStrategySelect("desktop")}
                   disabled={loading}
                 >
                   {labels.strategyDesktop}
@@ -183,9 +227,11 @@ export function PageSpeedInsightsTool({ locale = "he" }: PageSpeedInsightsToolPr
               </div>
             </div>
 
-            <button className="psi-submit" type="submit" disabled={!canRun}>
-              {labels.submit}
-            </button>
+            {canRun ? (
+              <button className="psi-submit" type="submit" disabled={!canRun}>
+                {labels.submit}
+              </button>
+            ) : null}
           </form>
         ) : null}
 
