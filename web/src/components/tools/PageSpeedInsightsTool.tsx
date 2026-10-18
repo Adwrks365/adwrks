@@ -35,6 +35,7 @@ export function PageSpeedInsightsTool({ locale = "he" }: PageSpeedInsightsToolPr
   const [remaining, setRemaining] = useState<number | null>(null);
   const [limit, setLimit] = useState(3);
   const [showResults, setShowResults] = useState(false);
+  const [resultStrategy, setResultStrategy] = useState<PageSpeedStrategy | null>(null);
 
   const refreshQuota = useCallback(async () => {
     try {
@@ -71,6 +72,7 @@ export function PageSpeedInsightsTool({ locale = "he" }: PageSpeedInsightsToolPr
     setError(null);
     setLoading(true);
     setShowResults(false);
+    setResultStrategy(null);
 
     try {
       const res = await fetch("/api/pagespeed", {
@@ -82,6 +84,7 @@ export function PageSpeedInsightsTool({ locale = "he" }: PageSpeedInsightsToolPr
         ok: boolean;
         message?: string;
         scores?: Scores;
+        strategy?: PageSpeedStrategy;
         remaining?: number;
         limit?: number;
       };
@@ -105,6 +108,7 @@ export function PageSpeedInsightsTool({ locale = "he" }: PageSpeedInsightsToolPr
 
       if (data.scores) {
         setScores(data.scores);
+        setResultStrategy(data.strategy ?? strategy);
         setShowResults(true);
       }
     } catch {
@@ -118,6 +122,7 @@ export function PageSpeedInsightsTool({ locale = "he" }: PageSpeedInsightsToolPr
     setUrl("");
     setScores(null);
     setShowResults(false);
+    setResultStrategy(null);
     setError(null);
   }
 
@@ -194,6 +199,14 @@ export function PageSpeedInsightsTool({ locale = "he" }: PageSpeedInsightsToolPr
 
         {showResults && scores ? (
           <div className="psi-results">
+            {resultStrategy ? (
+              <p className="psi-results-heading">
+                {labels.resultsHeading.replace(
+                  "{strategy}",
+                  resultStrategy === "mobile" ? labels.strategyMobile : labels.strategyDesktop,
+                )}
+              </p>
+            ) : null}
             <div className="psi-score-grid">
               {CATEGORY_ORDER.map((key) => {
                 const value = scores[key];
@@ -222,6 +235,7 @@ export function PageSpeedInsightsTool({ locale = "he" }: PageSpeedInsightsToolPr
                 <strong>{labels.performanceHint}:</strong> {perfHint}
               </p>
             ) : null}
+            <p className="psi-note">{labels.psiNote}</p>
             {(remaining ?? 0) > 0 ? (
               <button type="button" className="psi-retry" onClick={onRetry}>
                 {labels.retry}

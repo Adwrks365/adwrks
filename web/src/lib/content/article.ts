@@ -9,6 +9,7 @@ import {
   stripEmptyElementorSections,
   stripEmptyImageWidgets,
   stripLeadingRedundantElementorSections,
+  stripElementorFormWidgets,
   stripLegacyArticleContactBlocks,
 } from "./legacy-blocks";
 import type { Locale } from "@/i18n/routing";
@@ -195,6 +196,7 @@ export function prepareArticleBodyHtml(rawHtml: string): {
 } {
   let html = stripEmbeddedArticleSidebar(rawHtml);
   html = injectPageSpeedInsightsEmbed(html);
+  html = stripElementorFormWidgets(html);
   html = stripLegacyArticleContactBlocks(html);
   html = replaceBrokenCalculatorEmbeds(html);
   html = stripEmptyImageWidgets(html);

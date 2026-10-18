@@ -24,4 +24,7 @@ export const PAGESPEED_INSIGHTS_LABELS_EN: PageSpeedInsightsLabels = {
     seo: "SEO",
   },
   performanceHint: "Recommendation",
+  resultsHeading: "{strategy} results",
+  psiNote:
+    "Scores come from the same PageSpeed Insights API. Small differences vs pagespeed.web.dev can happen due to run timing and cache.",
 };

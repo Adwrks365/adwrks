@@ -3,7 +3,6 @@
 const LEGACY_CONTACT_SECTION_MARKERS = [
   "דרכים ליצירת קשר",
   "אנחנו כאן לכל שאלה, בדרך הנוחה ביותר עבורך",
-  "elementor-widget-form",
 ] as const;
 
 function hasValidImageSrc(sectionHtml: string): boolean {
@@ -99,6 +98,14 @@ function removeTopLevelElementorSections(
   const sectionPattern =
     /<section\s[^>]*class="[^"]*elementor-top-section[^"]*"[^>]*>[\s\S]*?<\/section>/gi;
   return html.replace(sectionPattern, (section) => (shouldRemove(section) ? "" : section));
+}
+
+/** Remove inline Elementor lead forms without dropping the surrounding article section. */
+export function stripElementorFormWidgets(html: string): string {
+  return html.replace(
+    /<div class="elementor-element[^>]*\belementor-widget-form\b[^>]*>[\s\S]*?<\/form>\s*(?:<\/div>\s*){1,3}/gi,
+    "",
+  );
 }
 
 /** Remove legacy contact/form/footer Elementor sections (not keyword SEO blocks). */

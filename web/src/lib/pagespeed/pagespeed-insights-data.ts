@@ -27,6 +27,8 @@ export type PageSpeedInsightsLabels = {
   errorUnavailable: string;
   categories: Record<PageSpeedCategoryKey, string>;
   performanceHint: string;
+  resultsHeading: string;
+  psiNote: string;
 };
 
 export const PAGESPEED_INSIGHTS_LABELS_HE: PageSpeedInsightsLabels = {
@@ -53,4 +55,7 @@ export const PAGESPEED_INSIGHTS_LABELS_HE: PageSpeedInsightsLabels = {
     seo: "SEO",
   },
   performanceHint: "המלצה",
+  resultsHeading: "תוצאות {strategy}",
+  psiNote:
+    "הציונים מגיעים מאותו API של PageSpeed Insights. לפעמים יש הבדל קטן מול pagespeed.web.dev בגלל זמן הרצה ומטמון.",
 };

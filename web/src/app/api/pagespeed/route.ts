@@ -82,10 +82,9 @@ export async function POST(request: Request) {
   endpoint.searchParams.set("url", targetUrl);
   endpoint.searchParams.set("strategy", strategy);
   endpoint.searchParams.set("key", apiKey);
-  endpoint.searchParams.set("category", "performance");
-  endpoint.searchParams.set("category", "accessibility");
-  endpoint.searchParams.set("category", "best-practices");
-  endpoint.searchParams.set("category", "seo");
+  for (const category of ["performance", "accessibility", "best-practices", "seo"] as const) {
+    endpoint.searchParams.append("category", category);
+  }
 
   let upstream: Response;
   try {
