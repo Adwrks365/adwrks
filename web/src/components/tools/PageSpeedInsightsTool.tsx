@@ -39,7 +39,7 @@ export function PageSpeedInsightsTool({ locale = "he" }: PageSpeedInsightsToolPr
 
   const refreshQuota = useCallback(async () => {
     try {
-      const res = await fetch("/api/pagespeed", { method: "GET" });
+      const res = await fetch("/api/pagespeed/", { method: "GET" });
       if (!res.ok) {
         if (res.status === 503) setError(labels.errorUnavailable);
         return;
@@ -75,7 +75,7 @@ export function PageSpeedInsightsTool({ locale = "he" }: PageSpeedInsightsToolPr
     setResultStrategy(null);
 
     try {
-      const res = await fetch("/api/pagespeed", {
+      const res = await fetch("/api/pagespeed/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ url, strategy }),

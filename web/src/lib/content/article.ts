@@ -169,6 +169,11 @@ export function injectPageSpeedInsightsEmbed(html: string): string {
     );
   }
 
+  result = result.replace(
+    /<h2 class="elementor-heading-title elementor-size-default">כלי בדיקת מהירות אתרים<\/h2>\s*/i,
+    "",
+  );
+
   return result;
 }
 

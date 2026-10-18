@@ -6,6 +6,9 @@ import {
 import type { PageSpeedStrategy } from "@/lib/pagespeed/pagespeed-insights-data";
 import { normalizePageSpeedTargetUrl } from "@/lib/pagespeed/validate-url";
 
+/** PageSpeed runs can take 30–60s on heavy sites (Vercel Pro limit). */
+export const maxDuration = 60;
+
 type LighthouseCategory = {
   score?: number | null;
 };
@@ -91,7 +94,8 @@ export async function POST(request: Request) {
     upstream = await fetch(endpoint.toString(), {
       method: "GET",
       headers: { Accept: "application/json" },
-      next: { revalidate: 0 },
+      cache: "no-store",
+      signal: AbortSignal.timeout(55_000),
     });
   } catch (error) {
     console.error("[pagespeed] upstream fetch failed", {

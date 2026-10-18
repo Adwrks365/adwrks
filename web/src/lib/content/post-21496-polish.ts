@@ -1,6 +1,14 @@
 const TOP_SECTION_OPEN = '<section class="elementor-section elementor-top-section';
 
-const SECTION_ORDER = ["1003df00", "2a4602c2", "30c33ca0", "44a33fef"] as const;
+/** Article-first flow: educational body, then social proof, then CTAs (matches legacy WP intent). */
+const SECTION_ORDER = [
+  "ac76140",
+  "39409666",
+  "1003df00",
+  "2a4602c2",
+  "30c33ca0",
+  "44a33fef",
+] as const;
 
 function findTopSectionBounds(html: string, sectionId: string): { start: number; end: number } | null {
   const idMarker = `data-id="${sectionId}"`;
@@ -15,7 +23,7 @@ function findTopSectionBounds(html: string, sectionId: string): { start: number;
   return { start, end };
 }
 
-/** Reorder marketing blocks on the speed-test article into a clearer narrative flow. */
+/** Place speed-test article sections after the React tool in reading order. */
 export function polishPageSpeedArticleHtml(html: string): string {
   if (!html.includes("elementor-21496")) return html;
 
@@ -40,7 +48,7 @@ export function polishPageSpeedArticleHtml(html: string): string {
     result = result.slice(0, item.start) + result.slice(item.end);
   }
 
-  const embedMarker = 'data-adwrks-pagespeed-insights';
+  const embedMarker = "data-adwrks-pagespeed-insights";
   const embedIndex = result.indexOf(embedMarker);
   if (embedIndex === -1) return result;
 
