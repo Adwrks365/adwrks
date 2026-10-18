@@ -58,6 +58,12 @@ const MESSAGING: Record<PopupContextKey, Omit<PopupMessaging, "popupContext" | "
       "ספרו לנו מה אתם רוצים לקדם ונבדוק יחד איזה ערוץ שיווק יכול להתאים לעסק שלכם.",
     ctaLabel: "בואו נדבר",
   },
+  "website-speed": {
+    headline: "הציון נמוך? נשמח לעזור לשפר את מהירות האתר",
+    description:
+      "השאירו פרטים ונחזור עם אבחון PageSpeed, כיוון לייעול — וייעוץ חינם ללא התחייבות.",
+    ctaLabel: "ייעוץ לשיפור מהירות",
+  },
 };
 
 export function getPopupMessaging(context: PopupContextKey, locale: Locale = "he"): PopupMessaging {

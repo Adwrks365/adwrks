@@ -1,5 +1,6 @@
 import { PRICING_CALCULATOR_EMBED_SLOT } from "@/lib/calculators/pricing-calculator-data";
 import { ROI_CALCULATOR_EMBED_SLOT } from "@/lib/calculators/roi-calculator-data";
+import { polishPageSpeedArticleHtml } from "@/lib/content/post-21496-polish";
 import { PAGESPEED_INSIGHTS_EMBED_SLOT } from "@/lib/pagespeed/pagespeed-insights-data";
 import { decodeHtmlEntities } from "./paths";
 import { getAllPosts, getCategories, getPostsForCategory } from "./loader";
@@ -146,7 +147,7 @@ export function downgradeEmbeddedH1(html: string): string {
 
 /** Remove legacy Elementor PageSpeed widget (client-side API key) and inject React embed at top. */
 export function injectPageSpeedInsightsEmbed(html: string): string {
-  if (!html.includes('id="audit-form"') && !html.includes("runPagespeed")) {
+  if (!html.includes("elementor-21496")) {
     return html;
   }
 
@@ -207,6 +208,7 @@ export function prepareArticleBodyHtml(rawHtml: string): {
     "",
   );
   html = downgradeEmbeddedH1(html);
+  html = polishPageSpeedArticleHtml(html);
 
   const headings = extractArticleHeadings(html);
   html = injectHeadingAnchors(html, headings);

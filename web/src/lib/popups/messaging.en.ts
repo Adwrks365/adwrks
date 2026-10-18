@@ -66,4 +66,11 @@ export const POPUP_MESSAGING_EN: Record<
     description: "Tell us what you want to promote and we'll explore which channel fits your business best.",
     ctaLabel: "Let's talk",
   },
+  "website-speed": {
+    contextLabel: "Website speed",
+    headline: "Low score? We can help improve your site speed",
+    description:
+      "Leave your details and we'll follow up with a PageSpeed review, optimization direction, and a free no-obligation consultation.",
+    ctaLabel: "Request speed optimization consult",
+  },
 };

@@ -9,6 +9,7 @@ export type PopupContextKey =
   | "google-maps"
   | "digital-marketing"
   | "pricing"
+  | "website-speed"
   | "general";
 
 export type PopupMessaging = {

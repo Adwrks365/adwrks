@@ -1,7 +1,13 @@
 import { decodeHtmlEntities } from "@/lib/content/paths";
 import { getPopupMessaging } from "@/lib/popups/messaging";
 import type { PopupConfig, PopupContextKey } from "@/lib/popups/types";
+import { normalizePath } from "@/lib/content/paths";
 import type { ContentItem } from "@/lib/content/types";
+
+const WEBSITE_SPEED_TEST_PATHS = new Set([
+  "/בדיקת-מהירות-אתר/",
+  "/en/website-speed-test/",
+]);
 
 /** Category ID → popup context (from categories.json). */
 const CATEGORY_CONTEXT: Record<number, PopupContextKey> = {
@@ -86,6 +92,20 @@ export function resolveArticlePopupConfig(
   content: ContentItem,
   locale: import("@/i18n/routing").Locale = "he",
 ): PopupConfig {
+  const pagePath = normalizePath(content.path ?? "");
+  if (WEBSITE_SPEED_TEST_PATHS.has(pagePath)) {
+    const messaging = getPopupMessaging("website-speed", locale);
+    const slugPart = pagePath.replace(/\//g, "-").replace(/^-|-$/g, "") || "speed-test";
+    return {
+      ...messaging,
+      popupId: `article-website-speed-${slugPart}`,
+      audience: "article",
+      pageTitle: decodeHtmlEntities(content.title),
+      pagePath,
+      locale,
+    };
+  }
+
   const categoryId = content.categoryIds?.[0];
   const fromCategory = categoryId ? CATEGORY_CONTEXT[categoryId] : null;
   const fromText = inferContextFromText(content.title, content.path);

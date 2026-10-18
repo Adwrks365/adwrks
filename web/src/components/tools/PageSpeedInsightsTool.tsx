@@ -136,7 +136,7 @@ export function PageSpeedInsightsTool({ locale = "he" }: PageSpeedInsightsToolPr
         {remainingText ? <p className="psi-quota">{remainingText}</p> : null}
 
         {canRun || loading ? (
-          <form className="psi-form" onSubmit={onSubmit}>
+          <form className="psi-form" onSubmit={onSubmit} aria-busy={loading}>
             <label className="psi-field">
               <span className="psi-label">{labels.urlLabel}</span>
               <input
@@ -148,6 +148,9 @@ export function PageSpeedInsightsTool({ locale = "he" }: PageSpeedInsightsToolPr
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
                 disabled={loading || remaining === 0}
+                dir="ltr"
+                autoComplete="url"
+                inputMode="url"
               />
             </label>
 
@@ -181,7 +184,12 @@ export function PageSpeedInsightsTool({ locale = "he" }: PageSpeedInsightsToolPr
           </form>
         ) : null}
 
-        {loading ? <p className="psi-waiting">{labels.running}</p> : null}
+        {loading ? (
+          <div className="psi-loading" role="status" aria-live="polite">
+            <span className="psi-spinner" aria-hidden="true" />
+            <p className="psi-waiting">{labels.running}</p>
+          </div>
+        ) : null}
         {error ? <p className="psi-error">{error}</p> : null}
 
         {showResults && scores ? (

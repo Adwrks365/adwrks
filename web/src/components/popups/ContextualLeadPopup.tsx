@@ -20,6 +20,7 @@ export function ContextualLeadPopup({
 }: ContextualLeadPopupProps) {
   const locale = config.locale ?? "he";
   const isEn = locale === "en";
+  const isWebsiteSpeed = config.popupContext === "website-speed";
   const titleId = useId();
   const descId = useId();
   const dialogRef = useRef<HTMLDivElement>(null);
@@ -77,14 +78,16 @@ export function ContextualLeadPopup({
       />
       <div
         ref={dialogRef}
-        className="contextual-popup-dialog"
+        className={`contextual-popup-dialog${isWebsiteSpeed ? " contextual-popup-dialog--website-speed" : ""}`}
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
         aria-describedby={descId}
       >
         <div className="contextual-popup-header">
-          <p className="contextual-popup-brand">Adwrks 365</p>
+          <p className="contextual-popup-brand">
+            {isWebsiteSpeed ? (isEn ? "PageSpeed · Adwrks 365" : "PageSpeed · Adwrks 365") : "Adwrks 365"}
+          </p>
           <button
             ref={closeRef}
             type="button"

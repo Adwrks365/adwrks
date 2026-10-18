@@ -10,6 +10,7 @@ export const POPUP_CONTEXT_LABELS: Record<PopupContextKey, string> = {
   "google-maps": "גוגל מפות",
   "digital-marketing": "שיווק דיגיטלי",
   pricing: "מחירון שיווק",
+  "website-speed": "שיפור מהירות אתר",
   general: "ייעוץ שיווק",
 };
 
