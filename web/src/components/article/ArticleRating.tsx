@@ -46,6 +46,34 @@ function formatAverage(value: number | null): string {
   return Number.isInteger(value) ? String(value) : value.toFixed(1);
 }
 
+function optimisticAggregate(
+  prev: RatingState | null,
+  value: number,
+): Pick<RatingState, "averageRating" | "totalVoteCount"> {
+  const oldCount = prev?.totalVoteCount ?? 0;
+  const oldAvg = prev?.averageRating;
+  if (oldCount <= 0) {
+    return { averageRating: value, totalVoteCount: 1 };
+  }
+  const newCount = oldCount + 1;
+  const newAvg = ((oldAvg ?? 0) * oldCount + value) / newCount;
+  return {
+    averageRating: Math.round(newAvg * 10) / 10,
+    totalVoteCount: newCount,
+  };
+}
+
+function initialRatingFromStorage(postPath: string): RatingState | null {
+  const localVote = readLocalVote(postPath);
+  if (localVote === null) return null;
+  return {
+    averageRating: null,
+    totalVoteCount: 0,
+    hasVoted: true,
+    userRating: localVote,
+  };
+}
+
 function formatRatingSummary(
   averageRating: number | null,
   totalVoteCount: number,
@@ -80,7 +108,9 @@ function StarIcon({ filled }: { filled: boolean }) {
 
 export function ArticleRating({ postPath, locale = "he" }: ArticleRatingProps) {
   const ui = getArticleUi(locale);
-  const [rating, setRating] = useState<RatingState | null>(null);
+  const [rating, setRating] = useState<RatingState | null>(() =>
+    initialRatingFromStorage(postPath),
+  );
   const [hoverValue, setHoverValue] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
@@ -144,51 +174,76 @@ export function ArticleRating({ postPath, locale = "he" }: ArticleRatingProps) {
     };
   }, [postPath]);
 
-  const handleSubmit = async (value: number) => {
+  const handleSubmit = (value: number) => {
     if (submitting || rating?.hasVoted) return;
 
+    const previous = rating;
+    const optimistic = optimisticAggregate(rating, value);
+
+    writeLocalVote(postPath, value);
+    setHoverValue(null);
+    setThankYou(true);
     setSubmitting(true);
     setError(null);
+    setRating({
+      ...optimistic,
+      hasVoted: true,
+      userRating: value,
+    });
 
-    try {
-      const response = await fetch("/api/articles/rate", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        credentials: "same-origin",
-        body: JSON.stringify({ articlePath: postPath, rating: value }),
-      });
+    void (async () => {
+      try {
+        const response = await fetch("/api/articles/rate", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          credentials: "same-origin",
+          body: JSON.stringify({ articlePath: postPath, rating: value }),
+        });
 
-      const data = (await response.json()) as {
-        ok?: boolean;
-        accepted?: boolean;
-        averageRating?: number | null;
-        totalVoteCount?: number;
-        userRating?: number | null;
-        message?: string;
-      };
+        const data = (await response.json()) as {
+          ok?: boolean;
+          accepted?: boolean;
+          averageRating?: number | null;
+          totalVoteCount?: number;
+          userRating?: number | null;
+          message?: string;
+        };
 
-      if (!response.ok || !data.ok) {
-        setError(data.message || ui.rateSaveError);
-        return;
+        if (!response.ok || !data.ok) {
+          setThankYou(false);
+          setRating(previous);
+          try {
+            localStorage.removeItem(USER_PREFIX + postPath);
+          } catch {
+            /* ignore */
+          }
+          setError(data.message || ui.rateSaveError);
+          return;
+        }
+
+        setRating({
+          averageRating: data.averageRating ?? null,
+          totalVoteCount: data.totalVoteCount ?? 0,
+          hasVoted: true,
+          userRating: data.userRating ?? value,
+        });
+
+        if (data.accepted) {
+          trackArticleRatingSubmit({ article_path: postPath, rating: value });
+        }
+      } catch {
+        setThankYou(false);
+        setRating(previous);
+        try {
+          localStorage.removeItem(USER_PREFIX + postPath);
+        } catch {
+          /* ignore */
+        }
+        setError(ui.rateSaveError);
+      } finally {
+        setSubmitting(false);
       }
-
-      writeLocalVote(postPath, value);
-      setRating({
-        averageRating: data.averageRating ?? null,
-        totalVoteCount: data.totalVoteCount ?? 0,
-        hasVoted: true,
-        userRating: data.userRating ?? value,
-      });
-
-      if (data.accepted) {
-        setThankYou(true);
-        trackArticleRatingSubmit({ article_path: postPath, rating: value });
-      }
-    } catch {
-      setError(ui.rateSaveError);
-    } finally {
-      setSubmitting(false);
-    }
+    })();
   };
 
   const activeValue = hoverValue ?? rating?.userRating ?? 0;
@@ -213,14 +268,15 @@ export function ArticleRating({ postPath, locale = "he" }: ArticleRatingProps) {
         >
           {STAR_VALUES.map((value) => {
             const filled = value <= activeValue;
+            const userRating = rating?.userRating ?? 0;
             return (
               <button
                 key={value}
                 type="button"
-                className={`article-rating-star ${filled ? "is-active" : ""} ${rating?.userRating === value ? "is-selected" : ""}`.trim()}
+                className={`article-rating-star ${filled ? "is-active" : ""} ${userRating === value ? "is-selected" : ""}`.trim()}
                 aria-label={ui.rateStar(value)}
-                aria-pressed={rating?.userRating === value}
-                disabled={loading || submitting || Boolean(rating?.hasVoted)}
+                aria-pressed={userRating >= value && userRating > 0}
+                disabled={loading || Boolean(rating?.hasVoted)}
                 onMouseEnter={() => {
                   if (!rating?.hasVoted && !submitting) setHoverValue(value);
                 }}

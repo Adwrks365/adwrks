@@ -59,11 +59,15 @@ function fieldRow(label: string, value: string, linkPrefix?: "tel" | "mailto"): 
     </tr>`;
 }
 
-function metaRow(label: string, value: string): string {
+function metaRowLink(label: string, href: string, linkText: string): string {
+  const safeHref = escapeAttr(href);
+  const safeText = escapeHtml(linkText);
   return `
     <tr>
       <td style="padding:8px 0 8px 16px;width:120px;vertical-align:top;color:#64748b;font-size:13px;font-weight:600;">${escapeHtml(label)}</td>
-      <td style="padding:8px 16px 8px 0;vertical-align:top;color:#334155;font-size:14px;line-height:1.5;">${escapeHtml(value)}</td>
+      <td style="padding:8px 16px 8px 0;vertical-align:top;font-size:14px;line-height:1.5;">
+        <a href="${safeHref}" style="color:#0369a1;text-decoration:none;font-weight:600;">${safeText}</a>
+      </td>
     </tr>`;
 }
 
@@ -89,14 +93,9 @@ export function buildLeadEmail(input: LeadEmailInput): { subject: string; text: 
     ...clientRows.map(([label, value]) => `${label}: ${value}`),
     "",
     "מקור הליד",
-    `טופס: ${formLabel}`,
     `עמוד: ${input.attribution.pageTitle}`,
-    `נתיב: ${input.attribution.pagePath}`,
-    `כתובת העמוד: ${input.attribution.canonicalUrl}`,
+    `קישור: ${input.attribution.canonicalUrl}`,
   ];
-  if (input.attribution.submittedUrl && input.attribution.submittedUrl !== input.attribution.canonicalUrl) {
-    textLines.push(`כתובת שליחה: ${input.attribution.submittedUrl}`);
-  }
   textLines.push(
     "",
     "פרטי שליחה",
@@ -138,16 +137,11 @@ export function buildLeadEmail(input: LeadEmailInput): { subject: string; text: 
             <td style="padding:8px 8px 4px;">
               <p style="margin:16px 16px 8px;font-size:15px;font-weight:700;color:#0f172a;">מקור הליד</p>
               <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="border:1px solid #bae6fd;border-radius:10px;background-color:#f0f9ff;">
-                ${metaRow("טופס", formLabel)}
-                ${metaRow("עמוד", input.attribution.pageTitle)}
-                ${metaRow("נתיב", input.attribution.pagePath)}
-                ${metaRow("כתובת העמוד", input.attribution.canonicalUrl)}
-                ${
-                  input.attribution.submittedUrl &&
-                  input.attribution.submittedUrl !== input.attribution.canonicalUrl
-                    ? metaRow("כתובת שליחה", input.attribution.submittedUrl)
-                    : ""
-                }
+                ${metaRowLink(
+                  "עמוד",
+                  input.attribution.canonicalUrl,
+                  input.attribution.pageTitle || input.attribution.canonicalUrl,
+                )}
               </table>
             </td>
           </tr>
