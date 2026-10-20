@@ -4,6 +4,7 @@ import { FormEvent, useState } from "react";
 import { useTranslations } from "next-intl";
 import { PrivacyConsent } from "@/components/forms/PrivacyConsent";
 import { pushLeadSubmitEvent } from "@/components/GoogleTags";
+import { measureOpenAiLeadCreated } from "@/lib/openai-pixel";
 import type { Locale } from "@/i18n/routing";
 import type { ContactFormId } from "@/lib/email/contact-form-ids";
 import { submitContactForm } from "@/lib/forms/submit-contact-form";
@@ -63,7 +64,12 @@ export function ContactForm({
       }
       setStatus("success");
       setFeedback(result.message || t("success"));
-      pushLeadSubmitEvent(locale, formId);
+      try {
+        pushLeadSubmitEvent(locale, formId);
+      } catch {
+        // A Google tag failure must not drop the OpenAI lead event.
+      }
+      measureOpenAiLeadCreated();
       form.reset();
     } catch {
       setStatus("error");

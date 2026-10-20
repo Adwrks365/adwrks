@@ -3,6 +3,7 @@
 import { FormEvent, useState } from "react";
 import { PrivacyConsent } from "@/components/forms/PrivacyConsent";
 import { trackPopupEvent } from "@/lib/analytics/popup-events";
+import { measureOpenAiLeadCreated } from "@/lib/openai-pixel";
 import type { PopupConfig } from "@/lib/popups/types";
 import { submitContactForm } from "@/lib/forms/submit-contact-form";
 
@@ -44,11 +45,16 @@ export function ContextualLeadPopupForm({ config, onSubmitted }: ContextualLeadP
         return;
       }
 
-      trackPopupEvent("popup_submit", {
-        popup_id: config.popupId,
-        popup_context: config.popupContext,
-        page_path: config.pagePath,
-      });
+      try {
+        trackPopupEvent("popup_submit", {
+          popup_id: config.popupId,
+          popup_context: config.popupContext,
+          page_path: config.pagePath,
+        });
+      } catch {
+        // A Google tag failure must not drop the OpenAI lead event.
+      }
+      measureOpenAiLeadCreated();
 
       setStatus("success");
       setFeedback(result.message || (isEn ? "Your message was sent successfully." : "ההודעה נשלחה בהצלחה."));

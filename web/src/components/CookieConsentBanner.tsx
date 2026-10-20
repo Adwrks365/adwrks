@@ -5,8 +5,7 @@ import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import { localeFromPath } from "@/i18n/locale";
-
-const STORAGE_KEY = "adwrks_cookie_consent";
+import { COOKIE_CONSENT_EVENT, COOKIE_CONSENT_STORAGE_KEY } from "@/lib/cookie-consent";
 
 export function CookieConsentBanner() {
   const t = useTranslations("CookieConsent");
@@ -17,13 +16,14 @@ export function CookieConsentBanner() {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    if (!localStorage.getItem(STORAGE_KEY)) setVisible(true);
+    if (!localStorage.getItem(COOKIE_CONSENT_STORAGE_KEY)) setVisible(true);
   }, []);
 
   if (!visible) return null;
 
   function accept(value: "accepted" | "declined") {
-    localStorage.setItem(STORAGE_KEY, value);
+    localStorage.setItem(COOKIE_CONSENT_STORAGE_KEY, value);
+    window.dispatchEvent(new CustomEvent(COOKIE_CONSENT_EVENT, { detail: value }));
     setVisible(false);
   }
 

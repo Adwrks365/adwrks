@@ -9,6 +9,7 @@ import { ContextualPopupProvider } from "@/components/popups/ContextualPopupProv
 import { GlobalFloatingUI } from "@/components/GlobalFloatingUI";
 import { GoogleTags } from "@/components/GoogleTags";
 import { InsytixMetaTags, InsytixTracker } from "@/components/InsytixTracking";
+import { OpenAiMeasurementPixel } from "@/components/OpenAiMeasurementPixel";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { routing, type Locale } from "@/i18n/routing";
@@ -82,6 +83,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
           <>
             <GoogleTags locale={locale as Locale} />
             <InsytixTracker locale={locale as Locale} />
+            <OpenAiMeasurementPixel />
           </>
         ) : null}
       </body>

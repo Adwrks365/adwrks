@@ -4,6 +4,7 @@ import { FormEvent, useState } from "react";
 import { PrivacyConsent } from "@/components/forms/PrivacyConsent";
 import type { Locale } from "@/i18n/routing";
 import { submitContactForm } from "@/lib/forms/submit-contact-form";
+import { measureOpenAiLeadCreated } from "@/lib/openai-pixel";
 import { getArticleUi } from "@/lib/i18n/article-ui";
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
@@ -44,6 +45,7 @@ export function ArticleSidebarContactForm({
       }
       setStatus("success");
       setFeedback(result.message || ui.formSuccess);
+      measureOpenAiLeadCreated();
       form.reset();
     } catch {
       setStatus("error");
