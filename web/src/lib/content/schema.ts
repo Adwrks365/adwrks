@@ -63,6 +63,12 @@ function nodeTypes(node: Record<string, unknown>): string[] {
   return type ? [String(type)] : [];
 }
 
+const STRIPPED_ARTICLE_SCHEMA_TYPES = new Set(["CreativeWorkSeason", "AggregateRating"]);
+
+function shouldStripSchemaNode(node: Record<string, unknown>): boolean {
+  return nodeTypes(node).some((t) => STRIPPED_ARTICLE_SCHEMA_TYPES.has(t));
+}
+
 /** Rank Math graphs often reference #breadcrumb without a valid BreadcrumbList node. */
 function sanitizeSeoGraphBlock(block: unknown): unknown {
   if (!block || typeof block !== "object") return block;
@@ -72,7 +78,9 @@ function sanitizeSeoGraphBlock(block: unknown): unknown {
   const graph = (record["@graph"] as unknown[]).flatMap((node) => {
     if (!node || typeof node !== "object") return [node];
     if (isBreadcrumbListNode(node)) return [];
-    const next = { ...(node as Record<string, unknown>) };
+    const raw = node as Record<string, unknown>;
+    if (shouldStripSchemaNode(raw)) return [];
+    const next = { ...raw };
     if (nodeTypes(next).some((t) => PAGE_TYPES_WITH_BREADCRUMB_REF.has(t))) {
       delete next.breadcrumb;
     }
