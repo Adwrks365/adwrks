@@ -3,12 +3,13 @@ import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import { routing } from "@/i18n/routing";
 import { isPreviewOrNonProductionDeployment, isProductionHostname } from "@/lib/indexing";
+import { resolveLegacyRedirect } from "@/lib/routing/legacy-redirects";
 import { isRoutablePathname } from "@/lib/routing/routable-path-index";
 
 const intlMiddleware = createMiddleware(routing);
 
 const JUNK_PATH =
-  /\/wp-(admin|login|content|includes)|\/xmlrpc\.php|\/\.env|\/\.git|\.php$|\/feed\/?$/i;
+  /\/wp-(admin|login|content|includes|json)|\/xmlrpc\.php|\/\.env|\/\.git|\.php$/i;
 
 function fastNotFound(): NextResponse {
   return new NextResponse("Not Found", {
@@ -24,14 +25,22 @@ export function middleware(request: NextRequest) {
     return fastNotFound();
   }
 
-  const routable = isRoutablePathname(pathname);
-
-  if (!routable) {
-    return fastNotFound();
+  if (isRoutablePathname(pathname)) {
+    const response = intlMiddleware(request);
+    return applyProductionRobots(request, response);
   }
 
-  const response = intlMiddleware(request);
+  const legacyTarget = resolveLegacyRedirect(pathname);
+  if (legacyTarget) {
+    const url = request.nextUrl.clone();
+    url.pathname = legacyTarget;
+    return NextResponse.redirect(url, 308);
+  }
 
+  return fastNotFound();
+}
+
+function applyProductionRobots(request: NextRequest, response: NextResponse): NextResponse {
   const host = request.headers.get("host");
   if (!isPreviewOrNonProductionDeployment() && isProductionHostname(host)) {
     return response;
