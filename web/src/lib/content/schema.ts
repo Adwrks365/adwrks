@@ -90,6 +90,16 @@ function sanitizeSeoGraphBlock(block: unknown): unknown {
   return { ...record, "@graph": graph };
 }
 
+/** Drop standalone Rank Math rating blocks and strip them from @graph (SEO + body HTML). */
+function filterJsonLdBlocks(blocks: unknown[]): unknown[] {
+  return blocks
+    .map((block) => sanitizeSeoGraphBlock(block))
+    .filter((block) => {
+      if (!block || typeof block !== "object") return true;
+      return !shouldStripSchemaNode(block as Record<string, unknown>);
+    });
+}
+
 export function buildBreadcrumbSchema(options: {
   locale: Locale;
   path: string;
@@ -165,14 +175,12 @@ export function mergePageJsonLd(options: {
   htmlNodes?: unknown[];
   isBlogPost?: boolean;
 }): unknown[] {
-  const localizedSeo = localizeJsonLd(options.seoNodes ?? [], options.locale).map(
-    sanitizeSeoGraphBlock,
-  );
+  const localizedSeo = localizeJsonLd(options.seoNodes ?? [], options.locale);
   const localizedHtml = localizeJsonLd(options.htmlNodes ?? [], options.locale);
   const homePath = options.locale === "en" ? "/en/" : "/";
   const needsBreadcrumb = normalizePath(options.path) !== homePath;
 
-  const merged = [...localizedSeo, ...localizedHtml];
+  const merged = filterJsonLdBlocks([...localizedSeo, ...localizedHtml]);
   if (!needsBreadcrumb || graphHasValidBreadcrumb(merged)) {
     return merged;
   }
