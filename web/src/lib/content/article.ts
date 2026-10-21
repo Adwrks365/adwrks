@@ -1,5 +1,6 @@
 import { PRICING_CALCULATOR_EMBED_SLOT } from "@/lib/calculators/pricing-calculator-data";
 import { ROI_CALCULATOR_EMBED_SLOT } from "@/lib/calculators/roi-calculator-data";
+import { polishWordPressCostArticleHtml } from "@/lib/content/post-19792-polish";
 import { polishPageSpeedArticleHtml } from "@/lib/content/post-21496-polish";
 import { PAGESPEED_INSIGHTS_EMBED_SLOT } from "@/lib/pagespeed/pagespeed-insights-data";
 import { decodeHtmlEntities } from "./paths";
@@ -231,6 +232,7 @@ export function prepareArticleBodyHtml(rawHtml: string): {
   );
   html = downgradeEmbeddedH1(html);
   html = polishPageSpeedArticleHtml(html);
+  html = polishWordPressCostArticleHtml(html);
 
   const headings = extractArticleHeadings(html);
   html = injectHeadingAnchors(html, headings);
