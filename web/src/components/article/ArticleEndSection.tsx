@@ -5,10 +5,12 @@ import { ArticleRating } from "@/components/article/ArticleRating";
 import { RelatedArticleCards } from "@/components/article/RelatedArticleCards";
 import type { Locale } from "@/i18n/routing";
 import type { AdjacentArticles, ArticleAuthor } from "@/lib/content/article";
+import { resolveArticleEndCta } from "@/lib/content/article-end-cta";
 import { getArticleUi } from "@/lib/i18n/article-ui";
 import type { ContentItem } from "@/lib/content/types";
 
 type ArticleEndSectionProps = {
+  content: ContentItem;
   related: ContentItem[];
   author: ArticleAuthor;
   postPath: string;
@@ -17,6 +19,7 @@ type ArticleEndSectionProps = {
 };
 
 export function ArticleEndSection({
+  content,
   related,
   author,
   postPath,
@@ -24,6 +27,7 @@ export function ArticleEndSection({
   locale = "he",
 }: ArticleEndSectionProps) {
   const ui = getArticleUi(locale);
+  const endCta = resolveArticleEndCta(content, locale);
 
   return (
     <div className="article-end-wrapper">
@@ -40,9 +44,9 @@ export function ArticleEndSection({
         </section>
 
         <div className="article-cta-band article-end-module">
-          <p className="article-cta-text">{ui.ctaText}</p>
+          <p className="article-cta-text">{endCta.text}</p>
           <Link href={ui.contactHref} className="article-cta-button">
-            {ui.ctaButton}
+            {endCta.button}
           </Link>
         </div>
       </div>

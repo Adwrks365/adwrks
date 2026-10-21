@@ -7,6 +7,7 @@ import { getArticleUi } from "@/lib/i18n/article-ui";
 
 type ArticleTopMetaProps = {
   date?: string;
+  modified?: string;
   author?: ArticleAuthor | null;
   locale?: Locale;
 };
@@ -24,9 +25,16 @@ function formatDate(date: string | undefined, locale: Locale): string {
   }
 }
 
-export function ArticleTopMeta({ date, author, locale = "he" }: ArticleTopMetaProps) {
+function isDifferentCalendarDay(a?: string, b?: string): boolean {
+  if (!a || !b) return false;
+  return a.slice(0, 10) !== b.slice(0, 10);
+}
+
+export function ArticleTopMeta({ date, modified, author, locale = "he" }: ArticleTopMetaProps) {
   const ui = getArticleUi(locale);
-  const formattedDate = formatDate(date, locale);
+  const showUpdated = isDifferentCalendarDay(date, modified);
+  const displayIso = showUpdated && modified ? modified : date ?? modified;
+  const formattedDate = formatDate(displayIso, locale);
   const authorName = author?.name?.trim();
   const backIcon = locale === "en" ? "arrow-left" : "arrow-right";
 
@@ -39,10 +47,12 @@ export function ArticleTopMeta({ date, author, locale = "he" }: ArticleTopMetaPr
 
       {(formattedDate || authorName) && (
         <div className="article-top-details">
-          {formattedDate && (
+          {formattedDate && displayIso && (
             <span className="article-top-detail">
               <LineIcon name="calendar" />
-              <time dateTime={date}>{formattedDate}</time>
+              <time dateTime={displayIso}>
+                {showUpdated ? `${ui.dateUpdated} ${formattedDate}` : formattedDate}
+              </time>
             </span>
           )}
           {authorName && (

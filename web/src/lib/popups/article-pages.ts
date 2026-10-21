@@ -88,6 +88,18 @@ function inferContextFromText(title: string, path: string): PopupContextKey | nu
   return null;
 }
 
+export function resolveArticlePopupContextKey(content: ContentItem): PopupContextKey {
+  const pagePath = normalizePath(content.path ?? "");
+  if (WEBSITE_SPEED_TEST_PATHS.has(pagePath)) {
+    return "website-speed";
+  }
+
+  const categoryId = content.categoryIds?.[0];
+  const fromCategory = categoryId ? CATEGORY_CONTEXT[categoryId] : null;
+  const fromText = inferContextFromText(content.title, content.path);
+  return fromText ?? fromCategory ?? "general";
+}
+
 export function resolveArticlePopupConfig(
   content: ContentItem,
   locale: import("@/i18n/routing").Locale = "he",
@@ -106,10 +118,7 @@ export function resolveArticlePopupConfig(
     };
   }
 
-  const categoryId = content.categoryIds?.[0];
-  const fromCategory = categoryId ? CATEGORY_CONTEXT[categoryId] : null;
-  const fromText = inferContextFromText(content.title, content.path);
-  const context = fromText ?? fromCategory ?? "general";
+  const context = resolveArticlePopupContextKey(content);
 
   const messaging = getPopupMessaging(context, locale);
   const slugPart = content.path.replace(/\//g, "-").replace(/^-|-$/g, "") || "article";

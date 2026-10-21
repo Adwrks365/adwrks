@@ -52,7 +52,12 @@ export function ArticleTemplate({ content, locale = "he" }: ArticleTemplateProps
       <Container className="article-template-body">
         <div className="article-layout">
           <div className="article-main">
-            <ArticleTopMeta date={content.date} author={author} locale={locale} />
+            <ArticleTopMeta
+              date={content.date}
+              modified={content.modified}
+              author={author}
+              locale={locale}
+            />
             <ArticleToc headings={headings} className="article-toc-inline" locale={locale} />
 
             <div className="article-template-prose">
@@ -77,6 +82,7 @@ export function ArticleTemplate({ content, locale = "he" }: ArticleTemplateProps
         </div>
 
         <ArticleEndSection
+          content={content}
           related={related}
           author={author}
           postPath={content.path}
