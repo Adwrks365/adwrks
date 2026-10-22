@@ -1,9 +1,10 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import { PrivacyConsent } from "@/components/forms/PrivacyConsent";
 import { trackPopupEvent } from "@/lib/analytics/popup-events";
 import { measureOpenAiLeadCreated } from "@/lib/openai-pixel";
+import { FORM_SUCCESS_BEFORE_CLOSE_MS } from "@/lib/forms/form-success-delay";
 import type { PopupConfig } from "@/lib/popups/types";
 import { submitContactForm } from "@/lib/forms/submit-contact-form";
 
@@ -19,6 +20,15 @@ export function ContextualLeadPopupForm({ config, onSubmitted }: ContextualLeadP
   const isEn = locale === "en";
   const [status, setStatus] = useState<FormStatus>("idle");
   const [feedback, setFeedback] = useState("");
+  const closeTimerRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (closeTimerRef.current) {
+        clearTimeout(closeTimerRef.current);
+      }
+    };
+  }, []);
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -59,7 +69,9 @@ export function ContextualLeadPopupForm({ config, onSubmitted }: ContextualLeadP
       setStatus("success");
       setFeedback(result.message || (isEn ? "Your message was sent successfully." : "ההודעה נשלחה בהצלחה."));
       form.reset();
-      onSubmitted();
+      closeTimerRef.current = window.setTimeout(() => {
+        onSubmitted();
+      }, FORM_SUCCESS_BEFORE_CLOSE_MS);
     } catch {
       setStatus("error");
       setFeedback(
@@ -68,6 +80,14 @@ export function ContextualLeadPopupForm({ config, onSubmitted }: ContextualLeadP
           : "לא ניתן לשלוח את הטופס כרגע. נסו שוב מאוחר יותר.",
       );
     }
+  }
+
+  if (status === "success") {
+    return (
+      <div className="contextual-popup-form contextual-popup-form--success" role="status" aria-live="polite">
+        <p className="contextual-popup-feedback is-success contextual-popup-feedback--standalone">{feedback}</p>
+      </div>
+    );
   }
 
   return (
@@ -97,11 +117,6 @@ export function ContextualLeadPopupForm({ config, onSubmitted }: ContextualLeadP
       </div>
       {status === "error" && (
         <p className="contextual-popup-feedback is-error" role="alert">
-          {feedback}
-        </p>
-      )}
-      {status === "success" && (
-        <p className="contextual-popup-feedback is-success" role="status">
           {feedback}
         </p>
       )}

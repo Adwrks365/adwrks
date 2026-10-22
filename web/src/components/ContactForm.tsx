@@ -77,6 +77,18 @@ export function ContactForm({
     }
   }
 
+  if (status === "success") {
+    return (
+      <div
+        className={`contact-form contact-form--success ${compact ? "contact-form-compact" : "mx-auto max-w-xl"}`}
+        role="status"
+        aria-live="polite"
+      >
+        <p className="rounded-md bg-green-50 px-4 py-3 text-sm font-medium text-green-800">{feedback}</p>
+      </div>
+    );
+  }
+
   return (
     <form
       className={`contact-form ${compact ? "contact-form-compact" : "mx-auto max-w-xl space-y-4"}`}
@@ -142,11 +154,6 @@ export function ContactForm({
       </div>
       {status === "error" && (
         <p className="rounded-md bg-red-50 px-3 py-2 text-sm text-red-700" role="alert">
-          {feedback}
-        </p>
-      )}
-      {status === "success" && (
-        <p className="rounded-md bg-green-50 px-3 py-2 text-sm text-green-700" role="status">
           {feedback}
         </p>
       )}

@@ -6768,6 +6768,25 @@ body.contextual-popup-open {
   color: #047857;
 }
 
+.contextual-popup-form--success {
+  padding-block: 0.35rem 0.15rem;
+}
+
+.contextual-popup-feedback--standalone {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.5;
+  padding: 1rem 0.85rem;
+  text-align: center;
+}
+
+.article-sidebar-contact--success .article-sidebar-contact-feedback.is-success {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  margin: 0;
+  padding: 0.65rem 0.75rem;
+}
+
 @media (min-width: 768px) {
   .contextual-popup-dialog {
     max-width: 28rem;

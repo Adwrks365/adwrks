@@ -53,6 +53,17 @@ export function ArticleSidebarContactForm({
     }
   }
 
+  if (status === "success") {
+    return (
+      <div className="article-sidebar-card article-sidebar-contact article-sidebar-contact--success">
+        <h2 className="article-sidebar-title">{ui.sidebarContactTitle}</h2>
+        <p className="article-sidebar-contact-feedback is-success" role="status" aria-live="polite">
+          {feedback}
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div className="article-sidebar-card article-sidebar-contact">
       <h2 className="article-sidebar-title">{ui.sidebarContactTitle}</h2>
@@ -78,11 +89,6 @@ export function ArticleSidebarContactForm({
         </div>
         {status === "error" && (
           <p className="article-sidebar-contact-feedback is-error" role="alert">
-            {feedback}
-          </p>
-        )}
-        {status === "success" && (
-          <p className="article-sidebar-contact-feedback is-success" role="status">
             {feedback}
           </p>
         )}
