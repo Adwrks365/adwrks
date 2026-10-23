@@ -12402,6 +12402,14 @@ body.contextual-popup-open {
   font-size: 1rem;
 }
 
+.psi-url-hint {
+  color: #94a3b8;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.35;
+  margin: 0;
+}
+
 .psi-strategy {
   display: grid;
   gap: 0.35rem;

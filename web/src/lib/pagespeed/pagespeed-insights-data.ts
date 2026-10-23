@@ -13,6 +13,7 @@ export type PageSpeedInsightsLabels = {
   intro: string;
   urlLabel: string;
   urlPlaceholder: string;
+  urlHint: string;
   strategy: string;
   strategyMobile: string;
   strategyDesktop: string;
@@ -36,7 +37,8 @@ export const PAGESPEED_INSIGHTS_LABELS_HE: PageSpeedInsightsLabels = {
   title: "כלי בדיקת מהירות אתר (PageSpeed Insights)",
   intro: "הזינו כתובת אתר לקבלת ציוני Lighthouse מ-Google — ביצועים, נגישות, שיטות מומלצות ו-SEO.",
   urlLabel: "כתובת האתר",
-  urlPlaceholder: "https://example.com",
+  urlPlaceholder: "example.com",
+  urlHint: "אפשר עם www או בלי, ועם https או בלי. למשל: example.com",
   strategy: "סוג בדיקה",
   strategyMobile: "נייד",
   strategyDesktop: "מחשב",

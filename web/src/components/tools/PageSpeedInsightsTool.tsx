@@ -11,6 +11,7 @@ import type {
   PageSpeedCategoryKey,
   PageSpeedStrategy,
 } from "@/lib/pagespeed/pagespeed-insights-data";
+import { normalizePageSpeedTargetUrl } from "@/lib/pagespeed/validate-url";
 
 type Scores = Record<PageSpeedCategoryKey, number | null>;
 
@@ -73,6 +74,13 @@ export function PageSpeedInsightsTool({ locale = "he" }: PageSpeedInsightsToolPr
   const canRun = (remaining ?? limit) > 0 && !loading;
 
   async function runTest(targetUrl: string, nextStrategy: PageSpeedStrategy) {
+    const normalized = normalizePageSpeedTargetUrl(targetUrl);
+    if (!normalized) {
+      setError(labels.errorInvalidUrl);
+      setShowResults(false);
+      return false;
+    }
+
     setError(null);
     setLoading(true);
 
@@ -80,7 +88,7 @@ export function PageSpeedInsightsTool({ locale = "he" }: PageSpeedInsightsToolPr
       const res = await fetch("/api/pagespeed/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url: targetUrl, strategy: nextStrategy }),
+        body: JSON.stringify({ url: normalized, strategy: nextStrategy }),
       });
       const data = (await res.json()) as {
         ok: boolean;
@@ -185,11 +193,14 @@ export function PageSpeedInsightsTool({ locale = "he" }: PageSpeedInsightsToolPr
 
         {showForm ? (
           <form className="psi-form" onSubmit={onSubmit} aria-busy={loading}>
-            <label className="psi-field">
-              <span className="psi-label">{labels.urlLabel}</span>
+            <div className="psi-field">
+              <label className="psi-label" htmlFor="psi-url">
+                {labels.urlLabel}
+              </label>
               <input
+                id="psi-url"
                 className="psi-input"
-                type="url"
+                type="text"
                 name="url"
                 required
                 placeholder={labels.urlPlaceholder}
@@ -200,8 +211,13 @@ export function PageSpeedInsightsTool({ locale = "he" }: PageSpeedInsightsToolPr
                 dir="ltr"
                 autoComplete="url"
                 inputMode="url"
+                aria-describedby="psi-url-hint"
+                spellCheck={false}
               />
-            </label>
+              <p id="psi-url-hint" className="psi-url-hint">
+                {labels.urlHint}
+              </p>
+            </div>
 
             <div className="psi-strategy">
               <span className="psi-label">{labels.strategy}</span>
