@@ -22,6 +22,7 @@ import {
 } from "@/lib/content/loader";
 import { buildPageMetadata, withHomeHeroLcpPreload } from "@/lib/content/metadata";
 import { getHomepageData } from "@/lib/homepage";
+import { resolvePageSeoLabels } from "@/lib/content/page-seo-labels";
 import { mergePageJsonLd } from "@/lib/content/schema";
 import { isHomePath } from "@/lib/i18n/composer-path";
 import { buildAreaMetadata } from "@/lib/pages/locations/metadata";
@@ -161,10 +162,16 @@ export default async function CatchAllPage({ params }: PageProps) {
 
     const pagePath = page === 1 ? blogPath : `${blogPath}page/${page}/`;
     const seo = getSeoByPath(pagePath, validLocale);
+    const seoLabels = resolvePageSeoLabels(
+      pagePath,
+      validLocale,
+      validLocale === "en" ? "Blog" : "בלוג",
+    );
     const jsonLd = mergePageJsonLd({
       locale: validLocale,
       path: pagePath,
-      title: validLocale === "en" ? "Blog" : "בלוג",
+      title: seoLabels.schemaTitle,
+      seoLabels,
       seoNodes: seo?.jsonLd ?? [],
     });
 
@@ -183,10 +190,12 @@ export default async function CatchAllPage({ params }: PageProps) {
 
     const archivePath = page === 1 ? category.path : `${category.path}page/${page}/`;
     const seo = getSeoByPath(archivePath, validLocale);
+    const seoLabels = resolvePageSeoLabels(archivePath, validLocale, category.title, category.description);
     const jsonLd = mergePageJsonLd({
       locale: validLocale,
       path: archivePath,
-      title: category.title,
+      title: seoLabels.schemaTitle,
+      seoLabels,
       seoNodes: seo?.jsonLd ?? [],
     });
 
@@ -201,10 +210,16 @@ export default async function CatchAllPage({ params }: PageProps) {
   if (isHomePath(pathKey)) {
     const homePath = validLocale === "en" ? "/en/" : "/";
     const seo = getSeoByPath(homePath, validLocale);
+    const seoLabels = resolvePageSeoLabels(
+      homePath,
+      validLocale,
+      validLocale === "en" ? "Home" : "דף הבית",
+    );
     const jsonLd = mergePageJsonLd({
       locale: validLocale,
       path: homePath,
-      title: validLocale === "en" ? "Home" : "דף הבית",
+      title: seoLabels.schemaTitle,
+      seoLabels,
       seoNodes: seo?.jsonLd ?? [],
     });
     return (
@@ -223,10 +238,12 @@ export default async function CatchAllPage({ params }: PageProps) {
     if (!category) notFound();
     const posts = getPostsForCategory(category.id, validLocale);
     const seo = getSeoByPath(pathKey, validLocale);
+    const seoLabels = resolvePageSeoLabels(pathKey, validLocale, category.title, category.description);
     const jsonLd = mergePageJsonLd({
       locale: validLocale,
       path: pathKey,
-      title: category.title,
+      title: seoLabels.schemaTitle,
+      seoLabels,
       seoNodes: seo?.jsonLd ?? [],
     });
 
@@ -246,10 +263,13 @@ export default async function CatchAllPage({ params }: PageProps) {
     pathKey === "/en/about-us/"
       ? []
       : extractJsonLdFromHtml(content.content);
+  const metaDesc = content.excerpt?.trim();
+  const seoLabels = resolvePageSeoLabels(pathKey, validLocale, content.title, metaDesc);
   const jsonLd = mergePageJsonLd({
     locale: validLocale,
     path: pathKey,
-    title: content.title,
+    title: seoLabels.schemaTitle,
+    seoLabels,
     seoNodes: seo?.jsonLd ?? [],
     htmlNodes: htmlJsonLd,
     isBlogPost: content.type === "post",

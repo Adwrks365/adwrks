@@ -4,7 +4,8 @@ import { localeFromPath, ogLocaleTag } from "@/i18n/locale";
 import type { Locale } from "@/i18n/routing";
 import { shouldAllowIndexing } from "@/lib/indexing";
 import { getSiteConfig } from "@/lib/site";
-import { getEnSeoOverride } from "@/lib/i18n/en-seo-overrides";
+import { resolvePageSeoLabels } from "@/lib/content/page-seo-labels";
+import { clampSeoDescription } from "@/lib/content/seo-clamp";
 import { getSeoByPath } from "./loader";
 import { absoluteUrl, normalizePath } from "./paths";
 
@@ -51,34 +52,7 @@ function present(value?: string | null): string | undefined {
   return text ? text : undefined;
 }
 
-function hasHebrew(text: string): boolean {
-  return /[\u0590-\u05FF]/.test(text);
-}
-
-function englishCategoryTitle(categoryTitle: string): string {
-  const long = `${categoryTitle} Guides & Articles | Adwrks 365`;
-  return long.length <= 60 ? long : clampSeoTitle(`${categoryTitle} | Adwrks 365`);
-}
-
-/** Target ~45–60 chars for titles; avoid cutting mid-word when possible. */
-export function clampSeoTitle(title: string, max = 60): string {
-  const t = title.trim();
-  if (t.length <= max) return t;
-  const slice = t.slice(0, max - 1);
-  const lastSpace = slice.lastIndexOf(" ");
-  if (lastSpace > 32) return `${slice.slice(0, lastSpace).trim()}…`;
-  return `${slice.trim()}…`;
-}
-
-/** Target ~120–155 chars for meta descriptions. */
-export function clampSeoDescription(description: string, max = 155): string {
-  const t = description.trim();
-  if (t.length <= max) return t;
-  const slice = t.slice(0, max - 1);
-  const lastSpace = slice.lastIndexOf(" ");
-  if (lastSpace > 100) return `${slice.slice(0, lastSpace).trim()}…`;
-  return `${slice.trim()}…`;
-}
+export { clampSeoDescription, clampSeoTitle } from "@/lib/content/seo-clamp";
 
 function hreflangAlternates(pathKey: string): Metadata["alternates"] {
   const pairs = resolveAlternatePaths(pathKey);
@@ -121,40 +95,13 @@ export function buildPageMetadata(
 ): Metadata {
   const site = getSiteConfig(locale);
   const seo = getSeoByPath(pathKey, locale);
-  const enOverride = locale === "en" ? getEnSeoOverride(pathKey) : undefined;
   const canonical = productionCanonical(seo?.canonical, pathKey);
-
-  let rawTitle = enOverride?.title || seo?.title || fallbackTitle || site.name;
-  if (
-    locale === "en" &&
-    fallbackTitle &&
-    !hasHebrew(fallbackTitle) &&
-    seo?.title &&
-    hasHebrew(seo.title)
-  ) {
-    rawTitle = fallbackTitle;
-  }
-  if (locale === "en" && fallbackTitle && !hasHebrew(fallbackTitle) && rawTitle.length < 30) {
-    const seoTitleLooksHebrew = !seo?.title || hasHebrew(seo.title);
-    if (seoTitleLooksHebrew || rawTitle === fallbackTitle) {
-      rawTitle = englishCategoryTitle(fallbackTitle.replace(/\s*⋆.*$/, "").trim());
-    }
-  }
-
-  const title = clampSeoTitle(rawTitle);
-
-  let description =
-    present(enOverride?.description) ?? present(seo?.metaDescription) ?? present(fallbackDescription);
-  if (
-    locale === "en" &&
-    description &&
-    hasHebrew(description) &&
-    present(fallbackDescription) &&
-    !hasHebrew(fallbackDescription!)
-  ) {
-    description = present(fallbackDescription);
-  }
-  const descriptionClamped = description ? clampSeoDescription(description) : undefined;
+  const { title, description: descriptionClamped } = resolvePageSeoLabels(
+    pathKey,
+    locale,
+    fallbackTitle,
+    fallbackDescription,
+  );
   const ogDescription = seo
     ? present(seo.ogDescription) || descriptionClamped
     : descriptionClamped;

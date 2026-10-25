@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/generate-routable-path-index.mjs",
+    "prebuild": "node scripts/generate-routable-path-index.mjs && node scripts/audit-en-multilingual-seo.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
@@ -12,7 +12,9 @@
     "validate-migration": "node ../scripts/validate-migration.js --base http://localhost:3000",
     "generate-i18n": "node scripts/generate-i18n-data.mjs",
     "translate-posts": "node scripts/translate-posts.mjs",
-    "qa-i18n-seo": "node scripts/qa-i18n-seo.mjs"
+    "qa-i18n-seo": "node scripts/qa-i18n-seo.mjs",
+    "qa-en-multilingual-seo": "node scripts/audit-en-multilingual-seo.mjs",
+    "sync-en-seo": "node scripts/sync-en-seo-metadata.mjs"
   },
   "dependencies": {
     "next": "16.3.7",

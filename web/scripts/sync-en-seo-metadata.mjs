@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 /**
  * Rewrite English seo.json titles/descriptions from EN content (posts, pages, categories).
- * Run: node web/scripts/sync-en-seo-metadata.mjs
+ * Run: npm run sync-en-seo (also runs at end of npm run generate-i18n)
+ * Composer pages: add title/description in src/data/content-en/en-seo-overrides.json
  */
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { hasHebrew, localizeEnJsonLd } from "./lib/en-schema-localize.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const WEB = path.join(__dirname, "..");
@@ -65,10 +67,6 @@ function decodeEntities(text) {
     .replace(/&#039;/g, "'")
     .replace(/&quot;/g, '"')
     .replace(/&amp;/g, "&");
-}
-
-function hasHebrew(text) {
-  return /[\u0590-\u05FF]/.test(text || "");
 }
 
 function clampTitle(title, max = TITLE_MAX) {
@@ -245,6 +243,35 @@ function main() {
       rec.ogDescription = metaDescription;
       updated++;
     }
+
+    const canonical = `https://adwrks.co.il${p}`;
+    if (rec.canonical !== canonical) {
+      rec.canonical = canonical;
+      updated++;
+    }
+
+    if (Array.isArray(rec.jsonLd) && rec.title) {
+      const nextLd = localizeEnJsonLd(rec.jsonLd, {
+        pageTitle: rec.title,
+        pageDescription: rec.metaDescription || rec.title,
+      });
+      if (JSON.stringify(nextLd) !== JSON.stringify(rec.jsonLd)) {
+        rec.jsonLd = nextLd;
+        updated++;
+      }
+    }
+  }
+
+  const badMeta = [];
+  for (const rec of seo) {
+    if (!rec.url?.startsWith("/en/")) continue;
+    for (const field of ["title", "metaDescription", "ogTitle", "ogDescription"]) {
+      if (hasHebrew(rec[field])) badMeta.push(`${rec.url} (${field})`);
+    }
+  }
+  if (badMeta.length) {
+    console.error("EN seo.json still has Hebrew in title/meta:", badMeta.slice(0, 20));
+    process.exit(1);
   }
 
   writeJson("seo.json", seo);
