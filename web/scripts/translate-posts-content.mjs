@@ -264,6 +264,13 @@ async function main() {
   saveCache(cache);
   fs.writeFileSync(EN_POSTS, JSON.stringify(enPosts, null, 2), "utf8");
 
+  const { spawnSync } = await import("node:child_process");
+  const sanitize = spawnSync(process.execPath, [path.join(__dirname, "sanitize-en-posts-html.mjs")], {
+    stdio: "inherit",
+    cwd: ROOT,
+  });
+  if (sanitize.status !== 0) process.exit(sanitize.status ?? 1);
+
   console.log("\nDone.");
   console.log(`  translated: ${stats.translated}`);
   console.log(`  skipped:    ${stats.skipped}`);

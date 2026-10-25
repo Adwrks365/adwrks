@@ -94,6 +94,27 @@ function auditRoutePairs() {
   return { errors, pairs };
 }
 
+function stripVisibleText(html) {
+  return (html || "")
+    .replace(/<script[\s\S]*?<\/script>/gi, "")
+    .replace(/<style[\s\S]*?<\/style>/gi, "")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function auditEnPosts() {
+  const posts = readJson("src/data/content-en/posts.json");
+  const errors = [];
+  for (const post of posts) {
+    const visible = stripVisibleText(post.content);
+    if (hasHebrew(visible)) {
+      errors.push(`Hebrew visible body on EN post ${post.link || post.slug}`);
+    }
+  }
+  return errors;
+}
+
 function auditSitemapUrls(seo, urlsJson) {
   const sitemapPaths = new Set(urlsJson.sitemapUrls.map((u) => normalizePath(u)));
   const errors = [];
@@ -170,6 +191,7 @@ const urlsJson = readJson("src/data/content-en/urls.json");
 
 let errors = [];
 errors.push(...auditStaticSeo(seo));
+errors.push(...auditEnPosts());
 const routeAudit = auditRoutePairs();
 errors.push(...routeAudit.errors);
 errors.push(...auditSitemapUrls(seo, urlsJson));

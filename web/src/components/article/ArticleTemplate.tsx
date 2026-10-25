@@ -1,6 +1,7 @@
 import { ContextualPopupRegistrar } from "@/components/popups/ContextualPopupRegistrar";
 import { ArticleHtmlWithEmbeds } from "@/components/article/ArticleHtmlWithEmbeds";
 import { rewriteInternalLinks } from "@/i18n/rewrite-links";
+import { sanitizeEnArticleHtml } from "@/lib/content/en-article-html";
 import { normalizeEnContentDirection, processContentHtml, stripJsonLdFromHtml } from "@/lib/content/html";
 import { PageHero } from "@/components/ui/PageHero";
 import { Container } from "@/components/ui/Container";
@@ -27,7 +28,7 @@ type ArticleTemplateProps = {
 export function ArticleTemplate({ content, locale = "he" }: ArticleTemplateProps) {
   const author = getArticleAuthor(locale);
   const { html: bodyHtml, headings } = prepareArticleBodyHtml(content.content);
-  let localizedHtml = rewriteInternalLinks(bodyHtml, locale);
+  let localizedHtml = locale === "en" ? sanitizeEnArticleHtml(bodyHtml) : rewriteInternalLinks(bodyHtml, locale);
   if (locale === "en") {
     localizedHtml = normalizeEnContentDirection(localizedHtml);
   }
