@@ -331,7 +331,7 @@ function SiteHeaderNav({ pathname, locale }: { pathname: string; locale: Locale 
           aria-controls="mobile-nav"
           onClick={() => setMobileOpen(!mobileOpen)}
         >
-          <span className="sr-only">פתח תפריט</span>
+          <span className="sr-only">{locale === "en" ? "Open menu" : "פתח תפריט"}</span>
           <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             {mobileOpen ? (
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />

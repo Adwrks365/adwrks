@@ -27,7 +27,7 @@ type ArticleTemplateProps = {
 
 export function ArticleTemplate({ content, locale = "he" }: ArticleTemplateProps) {
   const author = getArticleAuthor(locale);
-  const { html: bodyHtml, headings } = prepareArticleBodyHtml(content.content);
+  const { html: bodyHtml, headings } = prepareArticleBodyHtml(content.content, locale);
   let localizedHtml = locale === "en" ? sanitizeEnArticleHtml(bodyHtml) : rewriteInternalLinks(bodyHtml, locale);
   if (locale === "en") {
     localizedHtml = normalizeEnContentDirection(localizedHtml);

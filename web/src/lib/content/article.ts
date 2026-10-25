@@ -179,12 +179,16 @@ export function injectPageSpeedInsightsEmbed(html: string): string {
 }
 
 /** Replace orphan lead copy (form removed) with a contextual popup CTA on the speed-test article. */
-function replaceSpeedArticleOrphanLeadPrompt(html: string): string {
+function replaceSpeedArticleOrphanLeadPrompt(html: string, locale: Locale): string {
   if (!html.includes("elementor-21496") || !html.includes("elementor-element-00cc55a")) {
     return html;
   }
 
-  const ctaBlock = `<div class="article-inline-cta-block article-inline-cta-block--speed-lead"><div class="elementor-element elementor-widget elementor-widget-button elementor-align-center"><a class="elementor-button elementor-button-link elementor-size-md" href="#" data-open-contextual-popup="true" role="button"><span class="elementor-button-content-wrapper"><span class="elementor-button-text">השאירו פרטים לייעוץ חינם</span></span></a></div></div>`;
+  const ctaLabel =
+    locale === "en"
+      ? "Leave your details for a free consultation"
+      : "השאירו פרטים לייעוץ חינם";
+  const ctaBlock = `<div class="article-inline-cta-block article-inline-cta-block--speed-lead"><div class="elementor-element elementor-widget elementor-widget-button elementor-align-center"><a class="elementor-button elementor-button-link elementor-size-md" href="#" data-open-contextual-popup="true" role="button"><span class="elementor-button-content-wrapper"><span class="elementor-button-text">${ctaLabel}</span></span></a></div></div>`;
 
   return html.replace(
     /<div class="elementor-element elementor-element-00cc55a[\s\S]*?<\/div>\s*<div class="elementor-element elementor-element-b13fc5e[\s\S]*?<\/div>\s*<\/div>/i,
@@ -210,14 +214,14 @@ export function replaceBrokenCalculatorEmbeds(html: string): string {
     );
 }
 
-export function prepareArticleBodyHtml(rawHtml: string): {
+export function prepareArticleBodyHtml(rawHtml: string, locale: Locale = "he"): {
   html: string;
   headings: ArticleHeading[];
 } {
   let html = stripEmbeddedArticleSidebar(rawHtml);
   html = injectPageSpeedInsightsEmbed(html);
   html = stripElementorFormWidgets(html);
-  html = replaceSpeedArticleOrphanLeadPrompt(html);
+  html = replaceSpeedArticleOrphanLeadPrompt(html, locale);
   html = stripLegacyArticleContactBlocks(html);
   html = replaceBrokenCalculatorEmbeds(html);
   html = stripEmptyImageWidgets(html);
