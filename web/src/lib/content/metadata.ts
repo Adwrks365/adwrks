@@ -4,6 +4,7 @@ import { localeFromPath, ogLocaleTag } from "@/i18n/locale";
 import type { Locale } from "@/i18n/routing";
 import { shouldAllowIndexing } from "@/lib/indexing";
 import { getSiteConfig } from "@/lib/site";
+import { getEnSeoOverride } from "@/lib/i18n/en-seo-overrides";
 import { getSeoByPath } from "./loader";
 import { absoluteUrl, normalizePath } from "./paths";
 
@@ -120,9 +121,10 @@ export function buildPageMetadata(
 ): Metadata {
   const site = getSiteConfig(locale);
   const seo = getSeoByPath(pathKey, locale);
+  const enOverride = locale === "en" ? getEnSeoOverride(pathKey) : undefined;
   const canonical = productionCanonical(seo?.canonical, pathKey);
 
-  let rawTitle = seo?.title || fallbackTitle || site.name;
+  let rawTitle = enOverride?.title || seo?.title || fallbackTitle || site.name;
   if (
     locale === "en" &&
     fallbackTitle &&
@@ -141,7 +143,8 @@ export function buildPageMetadata(
 
   const title = clampSeoTitle(rawTitle);
 
-  let description = present(seo?.metaDescription) ?? present(fallbackDescription);
+  let description =
+    present(enOverride?.description) ?? present(seo?.metaDescription) ?? present(fallbackDescription);
   if (
     locale === "en" &&
     description &&

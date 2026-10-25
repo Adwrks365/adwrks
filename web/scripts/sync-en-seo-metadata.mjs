@@ -10,6 +10,9 @@ import { fileURLToPath } from "node:url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const WEB = path.join(__dirname, "..");
 const EN_DIR = path.join(WEB, "src", "data", "content-en");
+const EN_SEO_OVERRIDES = JSON.parse(
+  fs.readFileSync(path.join(EN_DIR, "en-seo-overrides.json"), "utf8"),
+);
 
 const BRAND = "Adwrks 365";
 const TITLE_MAX = 60;
@@ -128,6 +131,14 @@ function uniqueValue(base, used, uniquify) {
 }
 
 function resolveMappedTitle(p, titleByPath, descByPath) {
+  const override = EN_SEO_OVERRIDES[p];
+  if (override?.title && override?.description) {
+    return {
+      title: clampTitle(override.title),
+      description: clampDescription(override.description),
+    };
+  }
+
   const direct = titleByPath.get(p);
   if (direct) {
     return { title: direct, description: descByPath.get(p) };
@@ -145,26 +156,6 @@ function resolveMappedTitle(p, titleByPath, descByPath) {
         : buildDescription({ fallbackTitle: title });
       return { title, description };
     }
-  }
-
-  if (p === "/en/blog/") {
-    return {
-      title: clampTitle(`Blog | ${BRAND}`),
-      description: buildDescription({
-        fallbackTitle: "Blog",
-        categoryDesc:
-          "Expert articles on digital marketing, SEO, Google Ads, and growth — written by the Adwrks 365 team.",
-      }),
-    };
-  }
-
-  if (p === "/en/") {
-    return {
-      title: clampTitle(`Digital Marketing Agency | ${BRAND}`),
-      description: clampDescription(
-        `${BRAND} — digital marketing since 2018: Google Ads, SEO, social, websites & hosting. Personal guidance, transparent reporting, real results.`,
-      ),
-    };
   }
 
   return null;
