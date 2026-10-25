@@ -33,11 +33,29 @@ function nodeTypes(node) {
   return type ? [String(type)] : [];
 }
 
+function isFaqNode(node) {
+  return node && typeof node === "object" && node["@type"] === "FAQPage";
+}
+
+export function stripFaqFromJsonLd(nodes) {
+  if (!Array.isArray(nodes)) return [];
+  return nodes
+    .map((block) => {
+      if (!block || typeof block !== "object") return block;
+      if (block["@type"] === "FAQPage") return null;
+      if (!Array.isArray(block["@graph"])) return block;
+      const graph = block["@graph"].filter((node) => !isFaqNode(node));
+      return { ...block, "@graph": graph };
+    })
+    .filter(Boolean);
+}
+
 function replacementFor(types, key, ctx) {
   const pageLike = types.some((t) => PAGE_LIKE.has(t));
   const orgLike = types.some((t) => ORG_LIKE.has(t));
   const isListItem = types.includes("ListItem");
 
+  if (key === "text") return ctx.pageDescription;
   if (key === "description" && orgLike) return ORG_DESCRIPTION_EN;
   if (pageLike || isListItem) {
     if (key === "description" || key === "abstract") return ctx.pageDescription || ctx.schemaTitle;

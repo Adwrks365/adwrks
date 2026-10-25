@@ -7,7 +7,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { hasHebrew, localizeEnJsonLd } from "./lib/en-schema-localize.mjs";
+import { hasHebrew, localizeEnJsonLd, stripFaqFromJsonLd } from "./lib/en-schema-localize.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const WEB = path.join(__dirname, "..");
@@ -251,7 +251,8 @@ function main() {
     }
 
     if (Array.isArray(rec.jsonLd) && rec.title) {
-      const nextLd = localizeEnJsonLd(rec.jsonLd, {
+      const stripped = stripFaqFromJsonLd(rec.jsonLd);
+      const nextLd = localizeEnJsonLd(stripped, {
         pageTitle: rec.title,
         pageDescription: rec.metaDescription || rec.title,
       });

@@ -25,6 +25,7 @@ import { getHomepageData } from "@/lib/homepage";
 import { resolvePageSeoLabels } from "@/lib/content/page-seo-labels";
 import { mergePageJsonLd } from "@/lib/content/schema";
 import { isHomePath } from "@/lib/i18n/composer-path";
+import { skipHtmlJsonLdExtraction } from "@/lib/i18n/composer-html-jsonld";
 import { buildAreaMetadata } from "@/lib/pages/locations/metadata";
 import { getHubView, getLocationView, locationStaticParams } from "@/lib/pages/locations/registry";
 import { buildHubJsonLd, buildLocationJsonLd } from "@/lib/pages/locations/schema";
@@ -256,13 +257,9 @@ export default async function CatchAllPage({ params }: PageProps) {
   }
 
   const seo = getSeoByPath(pathKey, validLocale);
-  const htmlJsonLd =
-    pathKey === "/מחירון-שיווק-דיגיטלי/" ||
-    pathKey === "/en/digital-marketing-pricing/" ||
-    pathKey === "/about-us/" ||
-    pathKey === "/en/about-us/"
-      ? []
-      : extractJsonLdFromHtml(content.content);
+  const htmlJsonLd = skipHtmlJsonLdExtraction(pathKey, validLocale)
+    ? []
+    : extractJsonLdFromHtml(content.content);
   const metaDesc = content.excerpt?.trim();
   const seoLabels = resolvePageSeoLabels(pathKey, validLocale, content.title, metaDesc);
   const jsonLd = mergePageJsonLd({

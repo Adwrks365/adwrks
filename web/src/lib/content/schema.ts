@@ -75,6 +75,7 @@ function schemaReplacement(
   const orgLike = types.some((t) => ORG_LIKE_SCHEMA.has(t));
   const isListItem = types.includes("ListItem");
 
+  if (key === "text") return labels.description ?? labels.schemaTitle;
   if (key === "description" && orgLike) return ORG_DESCRIPTION_EN;
   if (pageLike || isListItem) {
     if (key === "description" || key === "abstract") {
