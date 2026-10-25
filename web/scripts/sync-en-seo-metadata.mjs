@@ -7,7 +7,13 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { hasHebrew, localizeEnJsonLd, stripFaqFromJsonLd } from "./lib/en-schema-localize.mjs";
+import {
+  buildSchemaContext,
+  hasHebrew,
+  localizeEnJsonLd,
+  SCHEMA_SKIP_STRING_KEYS,
+  stripFaqFromJsonLd,
+} from "./lib/en-schema-localize.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const WEB = path.join(__dirname, "..");
@@ -164,6 +170,17 @@ function main() {
   const pages = readJson("pages.json");
   const categories = readJson("categories.json");
   const seo = readJson("seo.json");
+  const categoryTitleById = new Map(categories.map((c) => [c.id, c.title]));
+  const postByPath = new Map(posts.map((p) => [pathFromLink(p.link), p]));
+
+  function articleSectionForPath(p) {
+    const post = postByPath.get(p);
+    if (!post?.categories?.length) return undefined;
+    return post.categories
+      .map((id) => categoryTitleById.get(id))
+      .filter(Boolean)
+      .join(", ");
+  }
 
   const titleByPath = new Map();
   const descByPath = new Map();
@@ -252,13 +269,35 @@ function main() {
 
     if (Array.isArray(rec.jsonLd) && rec.title) {
       const stripped = stripFaqFromJsonLd(rec.jsonLd);
-      const nextLd = localizeEnJsonLd(stripped, {
-        pageTitle: rec.title,
-        pageDescription: rec.metaDescription || rec.title,
-      });
+      const nextLd = localizeEnJsonLd(
+        stripped,
+        buildSchemaContext({
+          pageTitle: rec.title,
+          pageDescription: rec.metaDescription || rec.title,
+          articleSection: articleSectionForPath(p),
+        }),
+      );
       if (JSON.stringify(nextLd) !== JSON.stringify(rec.jsonLd)) {
         rec.jsonLd = nextLd;
         updated++;
+      }
+    }
+  }
+
+  function collectJsonLdHebrew(node, hits, keyName) {
+    if (Array.isArray(node)) {
+      for (const item of node) collectJsonLdHebrew(item, hits, keyName);
+      return;
+    }
+    if (!node || typeof node !== "object") return;
+    for (const [key, value] of Object.entries(node)) {
+      if (typeof value === "string" && hasHebrew(value)) {
+        if (SCHEMA_SKIP_STRING_KEYS.has(key)) continue;
+        if (key === "name" && value.trim() === "Adwrks 365") continue;
+        if (value.startsWith("http")) continue;
+        hits.push(key);
+      } else if (value && typeof value === "object") {
+        collectJsonLdHebrew(value, hits, key);
       }
     }
   }
@@ -269,9 +308,12 @@ function main() {
     for (const field of ["title", "metaDescription", "ogTitle", "ogDescription"]) {
       if (hasHebrew(rec[field])) badMeta.push(`${rec.url} (${field})`);
     }
+    const ldHits = [];
+    collectJsonLdHebrew(rec.jsonLd, ldHits);
+    if (ldHits.length) badMeta.push(`${rec.url} (jsonLd Hebrew)`);
   }
   if (badMeta.length) {
-    console.error("EN seo.json still has Hebrew in title/meta:", badMeta.slice(0, 20));
+    console.error("EN seo.json still has Hebrew in title/meta/schema:", badMeta.slice(0, 20));
     process.exit(1);
   }
 

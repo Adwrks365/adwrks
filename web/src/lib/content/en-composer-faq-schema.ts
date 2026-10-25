@@ -20,29 +20,6 @@ const COMPOSER_FAQ: Record<string, readonly FaqItem[]> = {
   [WEBSITE_BUILDING_PATH]: WEBSITE_BUILDING_FAQ,
 };
 
-function isFaqNode(node: Record<string, unknown>): boolean {
-  return node["@type"] === "FAQPage";
-}
-
-function graphWithoutFaq(block: unknown): unknown {
-  if (!block || typeof block !== "object") return block;
-  const record = block as Record<string, unknown>;
-  if (record["@type"] === "FAQPage") return null;
-  if (!Array.isArray(record["@graph"])) return block;
-  const graph = (record["@graph"] as unknown[]).filter((node) => {
-    if (!node || typeof node !== "object") return true;
-    return !isFaqNode(node as Record<string, unknown>);
-  });
-  return { ...record, "@graph": graph };
-}
-
-/** Remove migrated Hebrew FAQ blocks on EN composer pages (replaced with English FAQ). */
-export function stripFaqFromJsonLd(nodes: unknown[]): unknown[] {
-  return nodes
-    .map((block) => graphWithoutFaq(block))
-    .filter((block): block is unknown => block != null);
-}
-
 function faqPageSchema(items: readonly FaqItem[]): Record<string, unknown> {
   return {
     "@context": "https://schema.org",

@@ -1,34 +1,13 @@
 import { resolveAlternatePaths } from "@/lib/i18n/alternates";
 import { inLanguageTag } from "@/i18n/locale";
 import type { Locale } from "@/i18n/routing";
-import type { PageSeoLabels } from "@/lib/content/page-seo-labels";
-import { hasHebrew } from "@/lib/content/seo-clamp";
+import type { EnSchemaContext } from "@/lib/content/en-schema-localize";
 import {
-  getEnComposerFaqSchema,
+  localizeEnSchemaCopy,
   stripFaqFromJsonLd,
-} from "@/lib/content/en-composer-faq-schema";
+} from "@/lib/content/en-schema-localize";
+import { getEnComposerFaqSchema } from "@/lib/content/en-composer-faq-schema";
 import { absoluteUrl, normalizePath } from "./paths";
-
-const ORG_DESCRIPTION_EN =
-  "Digital marketing agency since 2018 — Google Ads, SEO, social media, websites, and hosting for businesses in Israel.";
-
-const LOCALIZABLE_SCHEMA_KEYS = new Set([
-  "name",
-  "description",
-  "headline",
-  "abstract",
-  "caption",
-  "text",
-]);
-const PAGE_LIKE_SCHEMA = new Set([
-  "WebPage",
-  "Service",
-  "Article",
-  "BlogPosting",
-  "CollectionPage",
-  "NewsArticle",
-]);
-const ORG_LIKE_SCHEMA = new Set(["Organization", "ProfessionalService", "LocalBusiness"]);
 
 const SCHEMA_TYPES_WITH_LANGUAGE = new Set([
   "Article",
@@ -64,73 +43,6 @@ function injectInLanguage(node: unknown, locale: Locale): unknown {
 
 export function localizeJsonLd(nodes: unknown[], locale: Locale): unknown[] {
   return nodes.map((node) => injectInLanguage(node, locale));
-}
-
-function schemaReplacement(
-  types: string[],
-  key: string,
-  labels: PageSeoLabels,
-): string {
-  const pageLike = types.some((t) => PAGE_LIKE_SCHEMA.has(t));
-  const orgLike = types.some((t) => ORG_LIKE_SCHEMA.has(t));
-  const isListItem = types.includes("ListItem");
-
-  if (key === "text") return labels.description ?? labels.schemaTitle;
-  if (key === "description" && orgLike) return ORG_DESCRIPTION_EN;
-  if (pageLike || isListItem) {
-    if (key === "description" || key === "abstract") {
-      return labels.description ?? labels.schemaTitle;
-    }
-    if (key === "name" || key === "headline" || key === "caption") {
-      return labels.schemaTitle;
-    }
-  }
-  return labels.schemaTitle;
-}
-
-function localizeEnSchemaNode(
-  node: unknown,
-  labels: PageSeoLabels,
-  parentTypes: string[] = [],
-): unknown {
-  if (Array.isArray(node)) {
-    return node.map((item) => localizeEnSchemaNode(item, labels, parentTypes));
-  }
-  if (!node || typeof node !== "object") return node;
-
-  const record = { ...(node as Record<string, unknown>) };
-  const type = record["@type"];
-  const types = Array.isArray(type) ? type.map(String) : type ? [String(type)] : [];
-  const activeTypes = types.length ? types : parentTypes;
-
-  if (record.inLanguage === "he-IL") {
-    record.inLanguage = "en-US";
-  }
-
-  for (const [key, value] of Object.entries(record)) {
-    if (key === "@graph" || key === "itemListElement" || key === "mainEntity") {
-      record[key] = localizeEnSchemaNode(value, labels, activeTypes);
-      continue;
-    }
-    if (key.startsWith("@") && key !== "@type") continue;
-    if (
-      typeof value === "string" &&
-      LOCALIZABLE_SCHEMA_KEYS.has(key) &&
-      hasHebrew(value)
-    ) {
-      record[key] = schemaReplacement(activeTypes, key, labels);
-      continue;
-    }
-    if (value && typeof value === "object") {
-      record[key] = localizeEnSchemaNode(value, labels, activeTypes);
-    }
-  }
-
-  return record;
-}
-
-export function localizeEnSchemaCopy(nodes: unknown[], labels: PageSeoLabels): unknown[] {
-  return nodes.map((node) => localizeEnSchemaNode(node, labels));
 }
 
 function isBreadcrumbListNode(node: unknown): boolean {
@@ -265,12 +177,12 @@ export function mergePageJsonLd(options: {
   locale: Locale;
   path: string;
   title: string;
-  seoLabels?: PageSeoLabels;
+  seoLabels?: EnSchemaContext;
   seoNodes?: unknown[];
   htmlNodes?: unknown[];
   isBlogPost?: boolean;
 }): unknown[] {
-  const labels: PageSeoLabels = options.seoLabels ?? {
+  const labels: EnSchemaContext = options.seoLabels ?? {
     title: options.title,
     schemaTitle: options.title,
     description: undefined,

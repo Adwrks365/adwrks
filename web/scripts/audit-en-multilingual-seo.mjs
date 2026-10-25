@@ -8,19 +8,10 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { hasHebrew } from "./lib/en-schema-localize.mjs";
+import { hasHebrew, SCHEMA_SKIP_STRING_KEYS } from "./lib/en-schema-localize.mjs";
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
-const EN_DIR = path.join(root, "src", "data", "content-en");
 const live = process.argv.includes("--live");
-
-const LOCALIZABLE = new Set(["name", "description", "headline", "abstract", "caption", "text"]);
-const SKIP_ADDRESS = new Set([
-  "streetAddress",
-  "addressLocality",
-  "addressRegion",
-  "addressCountry",
-]);
 
 function readJson(rel) {
   return JSON.parse(fs.readFileSync(path.join(root, rel), "utf8"));
@@ -41,6 +32,13 @@ function normalizePath(input) {
   return p;
 }
 
+function shouldSkipSchemaString(key, value) {
+  if (SCHEMA_SKIP_STRING_KEYS.has(key)) return true;
+  if (key === "name" && value.trim() === "Adwrks 365") return true;
+  if (value.startsWith("http://") || value.startsWith("https://")) return true;
+  return false;
+}
+
 function collectSchemaHebrew(node, hits, pathLabel = "") {
   if (Array.isArray(node)) {
     for (let i = 0; i < node.length; i++) {
@@ -50,9 +48,8 @@ function collectSchemaHebrew(node, hits, pathLabel = "") {
   }
   if (!node || typeof node !== "object") return;
   for (const [key, value] of Object.entries(node)) {
-    if (SKIP_ADDRESS.has(key)) continue;
     const next = pathLabel ? `${pathLabel}.${key}` : key;
-    if (typeof value === "string" && LOCALIZABLE.has(key) && hasHebrew(value)) {
+    if (typeof value === "string" && hasHebrew(value) && !shouldSkipSchemaString(key, value)) {
       hits.push({ path: next, sample: value.slice(0, 60) });
     } else if (value && typeof value === "object") {
       collectSchemaHebrew(value, hits, next);
@@ -98,14 +95,8 @@ function auditRoutePairs() {
 }
 
 function auditSitemapUrls(seo, urlsJson) {
-  const seoPaths = new Set(seo.filter((r) => r.url?.startsWith("/en/")).map((r) => normalizePath(r.url)));
   const sitemapPaths = new Set(urlsJson.sitemapUrls.map((u) => normalizePath(u)));
   const errors = [];
-  for (const p of seoPaths) {
-    if (!sitemapPaths.has(p) && !p.includes("page/")) {
-      /* pagination may differ */
-    }
-  }
   if (sitemapPaths.size < 50) errors.push(`EN sitemap suspiciously small (${sitemapPaths.size} URLs)`);
   return errors;
 }
@@ -145,9 +136,8 @@ async function auditLive(seo) {
     "/en/google-ads/",
     "/en/digital-marketing-services/",
     "/en/about-us/",
+    "/en/website-speed-test/",
   ];
-  const posts = seo.filter((r) => r.url?.startsWith("/en/") && r.url.includes("/en/") && !r.url.includes("/en/blog"));
-  if (posts[10]) samples.push(normalizePath(posts[10].url));
 
   const errors = [];
   for (const p of samples) {

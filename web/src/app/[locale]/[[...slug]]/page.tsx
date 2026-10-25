@@ -22,6 +22,7 @@ import {
 } from "@/lib/content/loader";
 import { buildPageMetadata, withHomeHeroLcpPreload } from "@/lib/content/metadata";
 import { getHomepageData } from "@/lib/homepage";
+import { buildEnSchemaContext } from "@/lib/content/en-schema-localize";
 import { resolvePageSeoLabels } from "@/lib/content/page-seo-labels";
 import { mergePageJsonLd } from "@/lib/content/schema";
 import { isHomePath } from "@/lib/i18n/composer-path";
@@ -33,6 +34,17 @@ import { buildHubJsonLd, buildLocationJsonLd } from "@/lib/pages/locations/schem
 type PageProps = {
   params: Promise<{ locale: string; slug?: string[] }>;
 };
+
+function enSchemaContext(
+  pathKey: string,
+  locale: Locale,
+  fallbackTitle?: string,
+  fallbackDescription?: string,
+  categoryTitles?: string[],
+) {
+  const labels = resolvePageSeoLabels(pathKey, locale, fallbackTitle, fallbackDescription);
+  return locale === "en" ? buildEnSchemaContext(labels, categoryTitles) : labels;
+}
 
 /** ISR: revalidate content shell hourly without full SSR on every request */
 export const revalidate = 3600;
@@ -163,7 +175,7 @@ export default async function CatchAllPage({ params }: PageProps) {
 
     const pagePath = page === 1 ? blogPath : `${blogPath}page/${page}/`;
     const seo = getSeoByPath(pagePath, validLocale);
-    const seoLabels = resolvePageSeoLabels(
+    const seoLabels = enSchemaContext(
       pagePath,
       validLocale,
       validLocale === "en" ? "Blog" : "בלוג",
@@ -191,7 +203,13 @@ export default async function CatchAllPage({ params }: PageProps) {
 
     const archivePath = page === 1 ? category.path : `${category.path}page/${page}/`;
     const seo = getSeoByPath(archivePath, validLocale);
-    const seoLabels = resolvePageSeoLabels(archivePath, validLocale, category.title, category.description);
+    const seoLabels = enSchemaContext(
+      archivePath,
+      validLocale,
+      category.title,
+      category.description,
+      [category.title],
+    );
     const jsonLd = mergePageJsonLd({
       locale: validLocale,
       path: archivePath,
@@ -211,7 +229,7 @@ export default async function CatchAllPage({ params }: PageProps) {
   if (isHomePath(pathKey)) {
     const homePath = validLocale === "en" ? "/en/" : "/";
     const seo = getSeoByPath(homePath, validLocale);
-    const seoLabels = resolvePageSeoLabels(
+    const seoLabels = enSchemaContext(
       homePath,
       validLocale,
       validLocale === "en" ? "Home" : "דף הבית",
@@ -239,7 +257,13 @@ export default async function CatchAllPage({ params }: PageProps) {
     if (!category) notFound();
     const posts = getPostsForCategory(category.id, validLocale);
     const seo = getSeoByPath(pathKey, validLocale);
-    const seoLabels = resolvePageSeoLabels(pathKey, validLocale, category.title, category.description);
+    const seoLabels = enSchemaContext(
+      pathKey,
+      validLocale,
+      category.title,
+      category.description,
+      [category.title],
+    );
     const jsonLd = mergePageJsonLd({
       locale: validLocale,
       path: pathKey,
@@ -261,7 +285,17 @@ export default async function CatchAllPage({ params }: PageProps) {
     ? []
     : extractJsonLdFromHtml(content.content);
   const metaDesc = content.excerpt?.trim();
-  const seoLabels = resolvePageSeoLabels(pathKey, validLocale, content.title, metaDesc);
+  const categoryTitles =
+    content.categoryIds
+      ?.map((id) => getCategories(validLocale).get(id)?.title)
+      .filter((t): t is string => Boolean(t)) ?? [];
+  const seoLabels = enSchemaContext(
+    pathKey,
+    validLocale,
+    content.title,
+    metaDesc,
+    categoryTitles,
+  );
   const jsonLd = mergePageJsonLd({
     locale: validLocale,
     path: pathKey,
