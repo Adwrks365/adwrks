@@ -267,6 +267,22 @@ function main() {
       updated++;
     }
 
+    const tagSlug = p.match(/^\/en\/tag\/([^/]+)\/$/)?.[1];
+    if (tagSlug) {
+      let decoded = tagSlug;
+      try {
+        decoded = decodeURIComponent(tagSlug);
+      } catch {
+        /* keep */
+      }
+      const nonLatinSlug = /[^\u0000-\u007F]/.test(decoded);
+      const robots = nonLatinSlug ? "noindex, follow" : "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large";
+      if (rec.robots !== robots) {
+        rec.robots = robots;
+        updated++;
+      }
+    }
+
     if (Array.isArray(rec.jsonLd) && rec.title) {
       const stripped = stripFaqFromJsonLd(rec.jsonLd);
       const nextLd = localizeEnJsonLd(

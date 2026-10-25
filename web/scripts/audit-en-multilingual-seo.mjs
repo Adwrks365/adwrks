@@ -115,6 +115,68 @@ function auditEnPosts() {
   return errors;
 }
 
+function decodePathSegments(path) {
+  return path
+    .split("/")
+    .map((segment) => {
+      if (!segment) return segment;
+      try {
+        return decodeURIComponent(segment);
+      } catch {
+        return segment;
+      }
+    })
+    .join("/");
+}
+
+function normalizePathDeep(input) {
+  if (!input || input === "/") return "/";
+  let p = input;
+  if (p.startsWith("http")) {
+    try {
+      p = new URL(p).pathname;
+    } catch {
+      return "/";
+    }
+  }
+  if (!p.startsWith("/")) p = `/${p}`;
+  p = decodePathSegments(p);
+  if (!p.endsWith("/")) p = `${p}/`;
+  return p;
+}
+
+function auditEnPostInternalHrefs() {
+  const posts = readJson("src/data/content-en/posts.json");
+  const routesSource = fs.readFileSync(path.join(root, "src/i18n/routes.ts"), "utf8");
+  const heToEn = new Map();
+  for (const m of routesSource.matchAll(/"he":\s*"([^"]+)"[\s\S]*?"en":\s*"([^"]+)"/g)) {
+    heToEn.set(normalizePathDeep(m[1]), normalizePathDeep(m[2]));
+  }
+  const aliases = readJson("src/data/content-en/en-internal-link-aliases.json");
+  for (const [he, en] of Object.entries(aliases)) {
+    heToEn.set(normalizePathDeep(he), normalizePathDeep(en));
+  }
+
+  const hrefRe = /href=(["'])([^"'#?]+)\1/gi;
+  const errors = [];
+  for (const post of posts) {
+    let m;
+    while ((m = hrefRe.exec(post.content || ""))) {
+      const href = m[2];
+      if (!href.startsWith("http") && !href.startsWith("/")) continue;
+      if (href.includes("/wp-content/") || href.startsWith("mailto:") || href.startsWith("tel:")) continue;
+      const norm = normalizePathDeep(href);
+      if (norm.startsWith("/en/")) continue;
+      if (/[\u0590-\u05FF]/.test(norm) || /%d7/i.test(href)) {
+        if (!heToEn.has(norm)) {
+          errors.push(`Unmapped Hebrew internal link on ${post.link || post.slug}: ${norm}`);
+        }
+      }
+    }
+  }
+  return errors;
+}
+
 function auditSitemapUrls(seo, urlsJson) {
   const sitemapPaths = new Set(urlsJson.sitemapUrls.map((u) => normalizePath(u)));
   const errors = [];
@@ -192,6 +254,7 @@ const urlsJson = readJson("src/data/content-en/urls.json");
 let errors = [];
 errors.push(...auditStaticSeo(seo));
 errors.push(...auditEnPosts());
+errors.push(...auditEnPostInternalHrefs());
 const routeAudit = auditRoutePairs();
 errors.push(...routeAudit.errors);
 errors.push(...auditSitemapUrls(seo, urlsJson));

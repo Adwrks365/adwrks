@@ -1,4 +1,5 @@
 import { normalizePath } from "@/lib/content/paths";
+import { resolveEnInternalLinkAlias } from "@/i18n/en-internal-link-aliases";
 import { ROUTE_PAIRS } from "./routes";
 import type { Locale } from "./routing";
 
@@ -9,6 +10,8 @@ function targetPath(href: string, locale: Locale): string | null {
   const normalized = normalizePath(href);
   if (locale === "en") {
     if (normalized.startsWith("/en/") || normalized === "/en/") return normalized;
+    const aliased = resolveEnInternalLinkAlias(normalized);
+    if (aliased) return aliased;
     return heToEn.get(normalized) ?? null;
   }
   if (normalized.startsWith("/en/")) {

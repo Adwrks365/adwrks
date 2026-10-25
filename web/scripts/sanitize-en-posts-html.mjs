@@ -7,10 +7,12 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { hasHebrew } from "./lib/en-schema-localize.mjs";
+import { normalizePath } from "./lib/paths.mjs";
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const EN_POSTS = path.join(root, "src/data/content-en/posts.json");
 const ROUTES_FILE = path.join(root, "src/i18n/routes.ts");
+const ALIASES_FILE = path.join(root, "src/data/content-en/en-internal-link-aliases.json");
 
 const PLACEHOLDER_EN = {
   שם: "Name",
@@ -23,21 +25,6 @@ const PLACEHOLDER_EN = {
   "שליחת טופס": "Submit",
 };
 
-function normalizePath(input) {
-  if (!input || input === "/") return "/";
-  let p = input;
-  if (p.startsWith("http")) {
-    try {
-      p = new URL(p).pathname;
-    } catch {
-      return "/";
-    }
-  }
-  if (!p.startsWith("/")) p = `/${p}`;
-  if (!p.endsWith("/")) p = `${p}/`;
-  return p;
-}
-
 function loadHeToEn() {
   const src = fs.readFileSync(ROUTES_FILE, "utf8");
   const map = new Map();
@@ -49,13 +36,28 @@ function loadHeToEn() {
   return map;
 }
 
-function rewriteHref(href, heToEn) {
+function loadAliases() {
+  const raw = JSON.parse(fs.readFileSync(ALIASES_FILE, "utf8"));
+  const map = new Map();
+  for (const [he, en] of Object.entries(raw)) {
+    map.set(normalizePath(he), normalizePath(en));
+  }
+  return map;
+}
+
+function resolveEnPath(pathname, heToEn, aliases) {
+  if (pathname.startsWith("/en/")) return pathname;
+  const aliased = aliases.get(pathname);
+  if (aliased) return aliased;
+  return heToEn.get(pathname) ?? null;
+}
+
+function rewriteHref(href, heToEn, aliases) {
   const trimmed = href.trim();
   if (/^https?:\/\/(www\.)?adwrks\.co\.il/i.test(trimmed)) {
     try {
       const pathname = normalizePath(new URL(trimmed).pathname);
-      if (pathname.startsWith("/en/")) return trimmed;
-      const en = heToEn.get(pathname);
+      const en = resolveEnPath(pathname, heToEn, aliases);
       if (en) return `https://adwrks.co.il${en}`;
     } catch {
       return href;
@@ -63,8 +65,7 @@ function rewriteHref(href, heToEn) {
   }
   if (trimmed.startsWith("/")) {
     const normalized = normalizePath(trimmed);
-    if (normalized.startsWith("/en/")) return trimmed;
-    const en = heToEn.get(normalized);
+    const en = resolveEnPath(normalized, heToEn, aliases);
     if (en) return en;
   }
   return href;
@@ -77,13 +78,13 @@ function translateAttr(value) {
   return "";
 }
 
-function sanitizeHtml(html, heToEn) {
+function sanitizeHtml(html, heToEn, aliases) {
   let out = html.replace(/href=(["'])([^"'#?]+)\1/gi, (match, quote, href) => {
     if (href.startsWith("//") || href.startsWith("/wp-content/")) return match;
     if (href.startsWith("mailto:") || href.startsWith("tel:") || href.startsWith("javascript:")) {
       return match;
     }
-    const next = rewriteHref(href, heToEn);
+    const next = rewriteHref(href, heToEn, aliases);
     return next === href ? match : `href=${quote}${next}${quote}`;
   });
 
@@ -112,15 +113,16 @@ function stripVisibleHebrew(html) {
 }
 
 const heToEn = loadHeToEn();
+const aliases = loadAliases();
 const posts = JSON.parse(fs.readFileSync(EN_POSTS, "utf8"));
 let updated = 0;
 let stillHebrew = [];
 
 for (const post of posts) {
   const before = post.content;
-  post.content = sanitizeHtml(before, heToEn);
+  post.content = sanitizeHtml(before, heToEn, aliases);
   if (post.excerpt) {
-    post.excerpt = sanitizeHtml(post.excerpt, heToEn).replace(/<[^>]+>/g, " ").trim().slice(0, 320);
+    post.excerpt = sanitizeHtml(post.excerpt, heToEn, aliases).replace(/<[^>]+>/g, " ").trim().slice(0, 320);
   }
   if (post.content !== before) updated++;
   if (stripVisibleHebrew(post.content)) stillHebrew.push(post.slug);
