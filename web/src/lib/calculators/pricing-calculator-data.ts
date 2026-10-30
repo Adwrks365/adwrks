@@ -52,7 +52,7 @@ export const MONTHLY_SERVICES: readonly PricingService[] = [
     id: "seo",
     name: "קידום אורגני + AI",
     description: "SEO ותוכן ממוקד",
-    price: 2500,
+    price: 2000,
     priceType: "monthly",
     priceLabel: "₪2,500 / חודש",
     icon: "trending-up",

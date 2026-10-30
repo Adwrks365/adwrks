@@ -28,10 +28,9 @@ export type HomepageCounter = {
   ariaValue: string;
 };
 
-/** Verified production stat values — number + suffix kept LTR (8+, 500K+, etc.). */
+/** Verified production stat values — number + suffix kept LTR (8+, 185+, etc.). */
 export const HOMEPAGE_COUNTERS: readonly HomepageCounter[] = [
   { target: 8, suffix: "+", label: "שנות מוניטין", ariaValue: "8+" },
-  { target: 500, suffix: "K+", label: "ניהול תקציבים", ariaValue: "500K+" },
   { target: 185, suffix: "+", label: "לקוחות פעילים", ariaValue: "185+" },
   { target: 6, suffix: "+", label: "ליווי מומחים", ariaValue: "6+" },
 ] as const;
@@ -209,7 +208,7 @@ export const HOMEPAGE_RESULT_QUOTES = [
   },
   {
     name: "טל שינה",
-    highlight: "תוצאה בולטת",
+    highlight: "מתוך ביקורת לקוח",
     content:
       "מאז שאני מפרסם אצלם העבודה עלתה לי ב־350%, כמובן בשילוב מחירים הוגנים ויחס אישי צמוד בכל שעה. לא הכרתי את Adwrks 365 לפני כן ומעולם לא ראיתי אותם – אבל אני מאוד ממליץ עליהם.",
   },

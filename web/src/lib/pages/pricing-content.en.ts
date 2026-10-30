@@ -77,7 +77,7 @@ export const PRICING_MARKETING_CARDS = [
     title: "Organic SEO + AI",
     description:
       "Organic search ranking, AI-focused content, authority building, and link building. A long-term investment.",
-    priceAmount: 2500,
+    priceAmount: 2000,
     pricePrefix: "From ",
     billingPeriod: "month",
     model: "monthly-management" as const,
@@ -177,7 +177,7 @@ export const PRICING_WHY_INVEST = {
     { title: "Competitive advantage", text: "Build a strong brand and professional online presence that sets you apart" },
   ],
   roiNote:
-    "According to Google data, businesses that invest in digital marketing see an average ROI of 200%–400% on their investment. The key to success is choosing the right strategy and working with experts who know how to maximize results.",
+    "Success in digital marketing depends on strategy, ongoing measurement, and a realistic budget — results vary by industry, competition, and goals. Our calculator helps you estimate budget and targets; it is not a guarantee of ROI.",
   roiCalculatorHref: "/en/roi-calculator-2026/",
   roiCalculatorLabel: "Calculate your expected ROI with our ROI calculator",
 } as const;

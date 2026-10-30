@@ -21,9 +21,6 @@ function isKCounter(item: HomepageCounter): boolean {
 
 function formatNum(item: HomepageCounter, value: number): number {
   const n = Math.round(value);
-  if (item.target === 500) {
-    return Math.min(500, Math.max(0, n));
-  }
   if (item.target === 185) {
     return Math.min(185, Math.max(0, n));
   }
