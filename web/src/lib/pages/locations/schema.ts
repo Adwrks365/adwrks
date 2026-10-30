@@ -13,7 +13,6 @@ function breadcrumb(locale: Locale, items: { name: string; path: string }[]) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "@id": `${pageUrl}#breadcrumb`,
-    inLanguage: inLanguageTag(locale),
     itemListElement: items.map((item, index) => ({
       "@type": "ListItem",
       position: index + 1,
@@ -86,7 +85,6 @@ export function buildLocationJsonLd(view: LocationView, locale: Locale): unknown
         "@type": view.areaServedType,
         name: view.copy.areaServedName,
       },
-      inLanguage: inLanguageTag(locale),
     },
     faqSchema(locale, view.path, view.copy.faq),
     breadcrumb(locale, [

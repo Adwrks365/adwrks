@@ -14,11 +14,33 @@ import { absoluteUrl, normalizePath } from "./paths";
 const SCHEMA_TYPES_WITH_LANGUAGE = new Set([
   "Article",
   "WebPage",
+  "BlogPosting",
+]);
+
+const TYPES_WITHOUT_LANGUAGE = new Set([
   "Organization",
   "LocalBusiness",
-  "BlogPosting",
+  "ProfessionalService",
   "Service",
+  "BreadcrumbList",
 ]);
+
+/** schema.org defines `inLanguage` on CreativeWork; untyped `@graph` wrappers and these types must not carry it. */
+function stripMisplacedInLanguage(node: unknown): unknown {
+  if (Array.isArray(node)) return node.map(stripMisplacedInLanguage);
+  if (!isRecord(node)) return node;
+  const record: Record<string, unknown> = {};
+  for (const [key, value] of Object.entries(node)) {
+    record[key] = stripMisplacedInLanguage(value);
+  }
+  const types = nodeTypes(record);
+  const misplaced =
+    types.length === 0
+      ? Array.isArray(record["@graph"])
+      : types.every((t) => TYPES_WITHOUT_LANGUAGE.has(t));
+  if (misplaced) delete record.inLanguage;
+  return record;
+}
 
 function injectInLanguage(node: unknown, locale: Locale): unknown {
   if (Array.isArray(node)) {
@@ -156,7 +178,6 @@ export function buildBreadcrumbSchema(options: {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "@id": `${pageUrl}#breadcrumb`,
-    inLanguage: inLanguageTag(locale),
     itemListElement: items,
   };
 }
@@ -399,6 +420,8 @@ export function mergePageJsonLd(options: {
 
   merged = consolidateOrganization(merged, options.locale);
   merged = attributeAuthorsToOrganization(merged);
+
+  merged = stripMisplacedInLanguage(merged) as unknown[];
 
   if (!needsBreadcrumb || graphHasValidBreadcrumb(merged)) {
     return merged;

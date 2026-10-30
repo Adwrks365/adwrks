@@ -13,6 +13,14 @@ const ROOT = path.join(__dirname, "..");
 const HE_DIR = path.join(ROOT, "src", "data", "content");
 const EN_DIR = path.join(ROOT, "src", "data", "content-en");
 const I18N_DIR = path.join(ROOT, "src", "i18n");
+/** Keep in sync with TYPES_WITHOUT_LANGUAGE in web/src/lib/content/schema.ts */
+const TYPES_WITHOUT_LANGUAGE = new Set([
+  "Organization",
+  "LocalBusiness",
+  "ProfessionalService",
+  "Service",
+  "BreadcrumbList",
+]);
 
 function normalizePath(input) {
   if (!input || input === "/") return "/";
@@ -358,7 +366,9 @@ const enSeo = seoRecords.map((record) => {
   }
   if (Array.isArray(localeRecord.jsonLd)) {
     localeRecord.jsonLd = localeRecord.jsonLd.map((node) => {
-      if (node && typeof node === "object") {
+      if (node && typeof node === "object" && node["@type"]) {
+        const types = [].concat(node["@type"]);
+        if (types.every((t) => TYPES_WITHOUT_LANGUAGE.has(t))) return node;
         return { ...node, inLanguage: "en-US" };
       }
       return node;
