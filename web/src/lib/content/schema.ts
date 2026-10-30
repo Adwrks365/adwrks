@@ -7,6 +7,8 @@ import {
   stripFaqFromJsonLd,
 } from "@/lib/content/en-schema-localize";
 import { getEnComposerFaqSchema } from "@/lib/content/en-composer-faq-schema";
+import { ORGANIZATION_ID, ORGANIZATION_SAME_AS, organizationEntityFields } from "@/lib/schema";
+import { SITE } from "@/lib/site";
 import { absoluteUrl, normalizePath } from "./paths";
 
 const SCHEMA_TYPES_WITH_LANGUAGE = new Set([
@@ -159,6 +161,188 @@ export function buildBreadcrumbSchema(options: {
   };
 }
 
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return !!value && typeof value === "object" && !Array.isArray(value);
+}
+
+function asArray(value: unknown): unknown[] {
+  if (Array.isArray(value)) return value;
+  return value == null ? [] : [value];
+}
+
+const ORGANIZATION_TYPES = new Set(["Organization", "ProfessionalService", "LocalBusiness"]);
+
+function isAgencyNode(node: Record<string, unknown>): boolean {
+  return nodeTypes(node).some((t) => ORGANIZATION_TYPES.has(t)) && node.name === SITE.name;
+}
+
+function mergeSameAs(...lists: unknown[]): string[] {
+  const byKey = new Map<string, string>();
+  for (const list of lists) {
+    for (const url of asArray(list)) {
+      if (typeof url !== "string") continue;
+      const key = url.replace(/\/+$/, "").toLowerCase();
+      if (!byKey.has(key)) byKey.set(key, url);
+    }
+  }
+  return [...byKey.values()];
+}
+
+/** schema.org expects an ISO 3166-1 alpha-2 code; migrated graphs store the country name. */
+const COUNTRY_CODES: Readonly<Record<string, string>> = { ישראל: "IL", Israel: "IL" };
+
+function withCountryCode(address: unknown): unknown {
+  if (!isRecord(address) || typeof address.addressCountry !== "string") return address;
+  const code = COUNTRY_CODES[address.addressCountry.trim()];
+  return code ? { ...address, addressCountry: code } : address;
+}
+
+function enrichOrganizationNode(
+  node: Record<string, unknown>,
+  extras: Record<string, unknown>[],
+  locale: Locale,
+): Record<string, unknown> {
+  const next = { ...node };
+  if (next.address != null) next.address = withCountryCode(next.address);
+  for (const extra of extras) {
+    if (next.logo == null && extra.logo != null) next.logo = extra.logo;
+    if (Array.isArray(extra.knowsAbout)) {
+      next.knowsAbout = [...new Set([...asArray(next.knowsAbout), ...extra.knowsAbout])];
+    }
+    if (
+      typeof extra.description === "string" &&
+      extra.description !== next.description &&
+      next.disambiguatingDescription == null
+    ) {
+      next.disambiguatingDescription = extra.description;
+    }
+  }
+  next.sameAs = mergeSameAs(
+    ORGANIZATION_SAME_AS,
+    next.sameAs,
+    ...extras.map((extra) => extra.sameAs),
+  );
+  return { ...next, ...organizationEntityFields(locale) };
+}
+
+/**
+ * Migrated pages carry extra anonymous agency blocks next to the Rank Math graph.
+ * Fold them into the single `#organization` entity so each page describes one agency.
+ */
+function consolidateOrganization(blocks: unknown[], locale: Locale): unknown[] {
+  const standalone: Record<string, unknown>[] = [];
+  const rest = blocks.filter((block) => {
+    if (!isRecord(block) || Array.isArray(block["@graph"]) || !isAgencyNode(block)) return true;
+    if (block["@id"] != null && block["@id"] !== ORGANIZATION_ID) return true;
+    standalone.push(block);
+    return false;
+  });
+
+  let hasGraphOrganization = false;
+  const merged = rest.map((block) => {
+    if (!isRecord(block) || !Array.isArray(block["@graph"])) return block;
+    return {
+      ...block,
+      "@graph": block["@graph"].map((node) => {
+        if (!isRecord(node) || node["@id"] !== ORGANIZATION_ID) return node;
+        hasGraphOrganization = true;
+        return enrichOrganizationNode(node, standalone, locale);
+      }),
+    };
+  });
+
+  if (hasGraphOrganization || standalone.length === 0) return merged;
+  const [primary, ...others] = standalone;
+  return [...merged, enrichOrganizationNode({ ...primary, "@id": ORGANIZATION_ID }, others, locale)];
+}
+
+const AUTHOR_ARCHIVE_PREFIX = `${SITE.domain}/author/`;
+
+function isAuthorArchiveRef(value: unknown): boolean {
+  if (!isRecord(value)) return false;
+  return [value["@id"], value.url].some(
+    (ref) => typeof ref === "string" && ref.startsWith(AUTHOR_ARCHIVE_PREFIX),
+  );
+}
+
+function isAuthorArchivePerson(value: unknown): boolean {
+  return isRecord(value) && nodeTypes(value).includes("Person") && isAuthorArchiveRef(value);
+}
+
+/**
+ * Articles are written by the agency team, and the WordPress author archive was not migrated.
+ * Credit the `#organization` entity instead of a person whose URL is a 404.
+ */
+function attributeAuthorsToOrganization(blocks: unknown[]): unknown[] {
+  const visit = (node: unknown): unknown => {
+    if (Array.isArray(node)) return node.filter((item) => !isAuthorArchivePerson(item)).map(visit);
+    if (!isRecord(node)) return node;
+    const out: Record<string, unknown> = {};
+    for (const [key, value] of Object.entries(node)) {
+      out[key] =
+        key === "author" && asArray(value).some(isAuthorArchiveRef)
+          ? { "@id": ORGANIZATION_ID }
+          : visit(value);
+    }
+    return out;
+  };
+  return blocks.filter((block) => !isAuthorArchivePerson(block)).map(visit);
+}
+
+const PAGE_SCOPED_FRAGMENT = /^(webpage|breadcrumb|richSnippet|primaryimage|schema-\d+)$/;
+
+const PAGE_URL_TYPES = new Set([
+  "WebPage",
+  "AboutPage",
+  "ContactPage",
+  "CollectionPage",
+  "Article",
+  "BlogPosting",
+  "NewsArticle",
+]);
+
+function sitePathKey(url: string): string | null {
+  if (!url.startsWith(SITE.domain)) return null;
+  try {
+    return normalizePath(new URL(url).pathname);
+  } catch {
+    return null;
+  }
+}
+
+/** Migrated English graphs reuse the Hebrew page `@id`/`url`; point page-level nodes at the English URL. */
+function retargetEnglishPageUrls(blocks: unknown[], path: string): unknown[] {
+  const pair = resolveAlternatePaths(path);
+  if (!pair || pair.he === pair.en) return blocks;
+  const heKey = normalizePath(pair.he);
+  const enUrl = absoluteUrl(pair.en);
+
+  const rewrite = (value: string, key: string, types: string[]): string => {
+    if (key !== "@id" && key !== "url") return value;
+    const hashIndex = value.indexOf("#");
+    const base = hashIndex === -1 ? value : value.slice(0, hashIndex);
+    if (sitePathKey(base) !== heKey) return value;
+    if (hashIndex !== -1) {
+      const fragment = value.slice(hashIndex + 1);
+      return PAGE_SCOPED_FRAGMENT.test(fragment) ? `${enUrl}#${fragment}` : value;
+    }
+    return key === "url" && types.some((t) => PAGE_URL_TYPES.has(t)) ? enUrl : value;
+  };
+
+  const visit = (node: unknown): unknown => {
+    if (Array.isArray(node)) return node.map(visit);
+    if (!isRecord(node)) return node;
+    const types = nodeTypes(node);
+    const out: Record<string, unknown> = {};
+    for (const [key, value] of Object.entries(node)) {
+      out[key] = typeof value === "string" ? rewrite(value, key, types) : visit(value);
+    }
+    return out;
+  };
+
+  return blocks.map(visit);
+}
+
 function graphHasValidBreadcrumb(nodes: unknown[]): boolean {
   for (const block of nodes) {
     if (!block || typeof block !== "object") continue;
@@ -208,9 +392,13 @@ export function mergePageJsonLd(options: {
   let merged = filterJsonLdBlocks([...localizedSeo, ...localizedHtml]);
 
   if (options.locale === "en") {
+    merged = retargetEnglishPageUrls(merged, options.path);
     const composerFaq = getEnComposerFaqSchema(options.path);
     if (composerFaq) merged = [...merged, composerFaq];
   }
+
+  merged = consolidateOrganization(merged, options.locale);
+  merged = attributeAuthorsToOrganization(merged);
 
   if (!needsBreadcrumb || graphHasValidBreadcrumb(merged)) {
     return merged;

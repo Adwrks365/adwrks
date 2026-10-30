@@ -1,9 +1,44 @@
 # Adwrks 365
 
-Adwrks 365 is a digital marketing agency based in Israel (Karmiel), active since 2018.
+> Adwrks 365 (Hebrew: סוכנות שיווק דיגיטלי) is a digital marketing agency based in Karmiel, Israel, active since 2018. It works remotely with businesses across Israel in Hebrew, Russian, and English.
 
-We provide an integrated 360° marketing stack: SEO and AI search optimization, Google Ads (PPC), social media (Meta), website building, hosting, and strategy for measurable leads and ROI.
+Adwrks 365 was founded by Michael Viner and Sergey Leonov. The agency provides an integrated marketing stack: Google Ads (PPC), SEO and AI search optimization, social media and Meta advertising, Google Business Profile and Maps, website and landing page building, hosting and maintenance, and digital strategy focused on measurable leads and ROI.
 
-- Website: https://adwrks.co.il/
-- English: https://adwrks.co.il/en/
-- Contact: info@adwrks.co.il | 079-5599449
+185+ active clients across our digital services (current active clients, not a cumulative total). Articles on the site are written by the ADWRKS 365 team.
+
+- Website (Hebrew): https://adwrks.co.il/
+- Website (English): https://adwrks.co.il/en/
+- Address: Matehet 34, Karmiel, Israel (מתכת 34, כרמיאל)
+- Phone: 079-5599449
+- Email: info@adwrks.co.il
+- Hours: Sunday–Thursday, 09:00–17:00
+
+## About
+
+- [About Adwrks 365](https://adwrks.co.il/en/about-us/): story, founders, how the agency works
+- [אודות (Hebrew)](https://adwrks.co.il/about-us/)
+- [Contact](https://adwrks.co.il/en/contact-us/)
+
+## Services
+
+- [Digital marketing services overview](https://adwrks.co.il/en/digital-marketing-services/)
+- [Google Ads management](https://adwrks.co.il/en/google-ads/)
+- [SEO](https://adwrks.co.il/en/seo/)
+- [Social media management](https://adwrks.co.il/en/social-media-management/)
+- [Website building](https://adwrks.co.il/en/website-building/)
+- [Hosting and maintenance](https://adwrks.co.il/en/hosting-plans/)
+- [Digital marketing pricing](https://adwrks.co.il/en/digital-marketing-pricing/)
+
+## Service areas
+
+- [Digital marketing in Karmiel](https://adwrks.co.il/en/digital-marketing-agency-carmiel/)
+- [Service areas across Israel](https://adwrks.co.il/en/service-areas/)
+
+## Guides
+
+- [Blog](https://adwrks.co.il/en/blog/)
+- [How to choose a digital marketing agency](https://adwrks.co.il/en/choosing-digital-marketing-agency/)
+- [Paid vs organic search](https://adwrks.co.il/en/paid-vs-organic-seo/)
+- [What is AEO](https://adwrks.co.il/en/what-is-aeo/)
+- [SEO in 2026 and AI answers](https://adwrks.co.il/en/seo-2026-ai-answers/)
+- [Google Ads cost](https://adwrks.co.il/en/google-ads-cost/)

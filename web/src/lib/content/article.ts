@@ -31,14 +31,14 @@ export type ArticleAuthor = {
 
 /** Verified author presentation — no invented biography. */
 export const ARTICLE_AUTHOR: ArticleAuthor = {
-  name: "Adwrks 365",
+  name: "צוות ADWRKS 365",
   role: "מומחי שיווק דיגיטלי",
   bio: "Adwrks 365 מלווה עסקים וחברות מאז 2018 בבניית נוכחות דיגיטלית, קידום אתרים וניהול קמפיינים. הצוות עוסק בקידום אתרים, פרסום ממומן, ניהול רשתות חברתיות, בניית אתרים ואסטרטגיה דיגיטלית, ועובד עם פלטפורמות כמו Google ו-Meta.",
   avatarUrl: "/wp-content/uploads/cropped-logo-black-trans-140x47.webp",
 };
 
 const ARTICLE_AUTHOR_EN: ArticleAuthor = {
-  name: "Adwrks 365",
+  name: "ADWRKS 365 Team",
   role: "Digital marketing specialists",
   bio: "Since 2018, Adwrks 365 has helped businesses build digital presence, run SEO, and manage paid campaigns. The team covers organic search, paid advertising, social media, website building, and digital strategy — working with platforms like Google and Meta.",
   avatarUrl: "/wp-content/uploads/cropped-logo-black-trans-140x47.webp",

@@ -147,10 +147,16 @@
           "E-E-A-T",
           "Semantic Search"
         ],
-        "founder": {
-          "@type": "Person",
-          "name": "Digital Marketing Agency"
-        },
+        "founder": [
+          {
+            "@type": "Person",
+            "name": "Michael Viner"
+          },
+          {
+            "@type": "Person",
+            "name": "Sergey Leonov"
+          }
+        ],
         "inLanguage": "en-US"
       }
     ]
@@ -288,22 +294,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "Managed Website Hosting — The Perfect Solution",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "Managed Website Hosting — The Perfect Solution",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "Managed Website Hosting — The Perfect Solution",
             "keywords": "Digital Agency, Digital Marketing, managed, website, hosting, perfect, solution",
@@ -311,8 +301,7 @@
             "dateModified": "2024-08-23T06:33:30+03:00",
             "articleSection": "Digital Agency, Digital Marketing",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "Managed Website Hosting — The Perfect Solution"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -483,22 +472,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "WordPress Hosting & Maintenance: Why Professional Service…",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "WordPress Hosting & Maintenance: Why Professional Service…",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "WordPress Hosting & Maintenance: Why Professional Service…",
             "keywords": "Digital Agency, Digital Marketing, wordpress, hosting, maintenance, professional, service",
@@ -506,8 +479,7 @@
             "dateModified": "2025-02-16T09:24:39+02:00",
             "articleSection": "Digital Agency, Digital Marketing",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "WordPress Hosting & Maintenance: Why Professional Service…"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -678,22 +650,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "Website Hosting & Maintenance: The Complete Guide",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "Website Hosting & Maintenance: The Complete Guide",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "Website Hosting & Maintenance: The Complete Guide",
             "keywords": "Digital Agency, Digital Marketing, website, hosting, maintenance, complete, guide",
@@ -701,8 +657,7 @@
             "dateModified": "2025-02-16T09:23:51+02:00",
             "articleSection": "Digital Agency, Digital Marketing",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "Website Hosting & Maintenance: The Complete Guide"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -873,22 +828,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "Website Hosting & Maintenance: Why It Matters",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "Website Hosting & Maintenance: Why It Matters",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "Website Hosting & Maintenance: Why It Matters",
             "keywords": "Digital Agency, Digital Marketing, website, hosting, maintenance, matters",
@@ -896,8 +835,7 @@
             "dateModified": "2025-02-16T09:26:35+02:00",
             "articleSection": "Digital Agency, Digital Marketing",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "Website Hosting & Maintenance: Why It Matters"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -1068,22 +1006,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "Digital Marketing Strategies for 2025 and Beyond",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "Digital Marketing Strategies for 2025 and Beyond",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "headline": "Digital Marketing Strategies for 2025 and Beyond",
             "description": "The world of digital marketing is constantly changing. What worked once - is no longer always appropriate today. In this guide we will present tools and…",
             "datePublished": "2025-08-22T10:31:17+03:00",
@@ -1092,8 +1014,7 @@
               "@id": "https://adwrks.co.il/wp-content/uploads/digital-marketing_2025.webp"
             },
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "Digital Marketing Strategies for 2025 and Beyond"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "@type": "BlogPosting",
             "name": "Digital Marketing Strategies for 2025 and Beyond",
@@ -1262,22 +1183,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "Website Speed Test | Check Your Site for Free",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "Website Speed Test | Check Your Site for Free",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "Website Speed Test | Check Your Site for Free",
             "keywords": "Website Building, Internet Advertising, Digital Marketing, website, speed, test, check, your, site, free",
@@ -1285,8 +1190,7 @@
             "dateModified": "2026-09-09T13:26:40+03:00",
             "articleSection": "Website Building, Internet Advertising, Digital Marketing",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "Website Speed Test | Check Your Site for Free"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -1457,22 +1361,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "Google Reviews: What Changed and What Businesses Need to…",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "Google Reviews: What Changed and What Businesses Need to…",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "Google Reviews: What Changed and What Businesses Need to…",
             "keywords": "Google Marketing, Digital Agency, Internet Advertising, Online Marketing, Digital Marketing, google, reviews, what, changed, businesses, need",
@@ -1480,8 +1368,7 @@
             "dateModified": "2026-02-22T15:24:07+02:00",
             "articleSection": "Google Marketing, Digital Agency, Internet Advertising, Online Marketing, Digital Marketing",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "Google Reviews: What Changed and What Businesses Need to…"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -1640,22 +1527,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "Trending Google Searches in Israel (Live)",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "Trending Google Searches in Israel (Live)",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "Trending Google Searches in Israel (Live)",
             "keywords": "Google Marketing, Digital Marketing, trending, google, searches, israel, live",
@@ -1663,8 +1534,7 @@
             "dateModified": "2026-09-09T13:20:44+03:00",
             "articleSection": "Google Marketing, Digital Marketing",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "Trending Google Searches in Israel (Live)"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -1831,22 +1701,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "The Importance of a Digital Advertising Agency",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "The Importance of a Digital Advertising Agency",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "The Importance of a Digital Advertising Agency",
             "keywords": "Website Building, Google Marketing, Digital Agency, Facebook Marketing, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing, importance, digital, advertising, agency",
@@ -1854,8 +1708,7 @@
             "dateModified": "2024-08-23T08:42:54+03:00",
             "articleSection": "Website Building, Google Marketing, Digital Agency, Facebook Marketing, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "The Importance of a Digital Advertising Agency"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -2026,22 +1879,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "Why Advertising Investment Matters Even in Tough Times",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "Why Advertising Investment Matters Even in Tough Times",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "Why Advertising Investment Matters Even in Tough Times",
             "keywords": "Digital Agency, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing, advertising, investment, matters, even, tough, times",
@@ -2049,8 +1886,7 @@
             "dateModified": "2024-08-23T08:36:40+03:00",
             "articleSection": "Digital Agency, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "Why Advertising Investment Matters Even in Tough Times"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -2221,22 +2057,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "Digital Marketing Company: Boost Your Business",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "Digital Marketing Company: Boost Your Business",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "Digital Marketing Company: Boost Your Business",
             "keywords": "Website Building, Google Marketing, Digital Agency, Facebook Marketing, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing, digital, marketing, company, boost, your, business",
@@ -2244,8 +2064,7 @@
             "dateModified": "2025-04-07T10:12:01+03:00",
             "articleSection": "Website Building, Google Marketing, Digital Agency, Facebook Marketing, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "Digital Marketing Company: Boost Your Business"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -2416,22 +2235,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "Internet Consultant: Your Key to Digital Success",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "Internet Consultant: Your Key to Digital Success",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "Internet Consultant: Your Key to Digital Success",
             "keywords": "Website Building, Google Marketing, Digital Agency, Facebook Marketing, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing, internet, consultant, your, digital, success",
@@ -2439,8 +2242,7 @@
             "dateModified": "2024-08-24T09:40:55+03:00",
             "articleSection": "Website Building, Google Marketing, Digital Agency, Facebook Marketing, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "Internet Consultant: Your Key to Digital Success"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -2611,22 +2413,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "A Digital Consultant Is Your Partner for Success",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "A Digital Consultant Is Your Partner for Success",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "A Digital Consultant Is Your Partner for Success",
             "keywords": "Website Building, Google Marketing, Digital Agency, Facebook Marketing, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing, digital, consultant, your, partner, success",
@@ -2634,8 +2420,7 @@
             "dateModified": "2024-08-24T09:35:56+03:00",
             "articleSection": "Website Building, Google Marketing, Digital Agency, Facebook Marketing, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "A Digital Consultant Is Your Partner for Success"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -2805,22 +2590,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "What Is an Internet Marketing Consultant?",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "What Is an Internet Marketing Consultant?",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "What Is an Internet Marketing Consultant?",
             "keywords": "Website Building, Google Marketing, Digital Agency, Facebook Marketing, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing, what, internet, marketing, consultant",
@@ -2828,8 +2597,7 @@
             "dateModified": "2024-08-25T10:08:25+03:00",
             "articleSection": "Website Building, Google Marketing, Digital Agency, Facebook Marketing, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "What Is an Internet Marketing Consultant?"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -2988,22 +2756,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "The Power of Reviews and Recommendations",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "The Power of Reviews and Recommendations",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "The Power of Reviews and Recommendations",
             "keywords": "Digital Agency, Internet Advertising, Online Marketing, Digital Marketing, power, reviews, recommendations",
@@ -3011,8 +2763,7 @@
             "dateModified": "2023-12-27T08:15:29+02:00",
             "articleSection": "Digital Agency, Internet Advertising, Online Marketing, Digital Marketing",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "The Power of Reviews and Recommendations"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -3180,22 +2931,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "How to Choose a Digital Marketing Agency That Delivers…",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "How to Choose a Digital Marketing Agency That Delivers…",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "headline": "How to Choose a Digital Marketing Agency That Delivers…",
             "description": "In the modern business world, a strong digital presence is not only recommended, but necessary. Businesses of all sizes, from professionals and small…",
             "datePublished": "2025-07-01T13:35:27+03:00",
@@ -3204,8 +2939,7 @@
               "@id": "https://adwrks.co.il/wp-content/uploads/15.webp"
             },
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "How to Choose a Digital Marketing Agency That Delivers…"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "@type": "BlogPosting",
             "name": "How to Choose a Digital Marketing Agency That Delivers…",
@@ -3374,22 +3108,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "How Much Does a WordPress Website Cost? 2026 Pricing Guide",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "How Much Does a WordPress Website Cost? 2026 Pricing Guide",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "How Much Does a WordPress Website Cost? 2026 Pricing Guide",
             "keywords": "Digital Agency, Digital Marketing, much, does, wordpress, website, cost, 2026, pricing, guide",
@@ -3397,8 +3115,7 @@
             "dateModified": "2026-08-30T11:34:22+03:00",
             "articleSection": "Digital Agency, Digital Marketing",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "How Much Does a WordPress Website Cost? 2026 Pricing Guide"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -3569,22 +3286,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "How Much Does a Website Cost? Pricing Guide + Calculator",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "How Much Does a Website Cost? Pricing Guide + Calculator",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "How Much Does a Website Cost? Pricing Guide + Calculator",
             "keywords": "Digital Agency, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing, much, does, website, cost, pricing, guide, calculator",
@@ -3592,8 +3293,7 @@
             "dateModified": "2025-09-17T14:07:57+03:00",
             "articleSection": "Digital Agency, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "How Much Does a Website Cost? Pricing Guide + Calculator"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -3764,22 +3464,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "How Much Does Google Ads Cost? Average Daily Budget",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "How Much Does Google Ads Cost? Average Daily Budget",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "headline": "How Much Does Google Ads Cost? Average Daily Budget",
             "description": "Advertising on Google 2025: a new guide for businesses that want to succeed online! Hello, business owner! If you have come here, you probably understand…",
             "datePublished": "2025-05-25T10:51:03+03:00",
@@ -3788,8 +3472,7 @@
               "@id": "https://adwrks.co.il/wp-content/uploads/google-budget.webp"
             },
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "How Much Does Google Ads Cost? Average Daily Budget"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "@type": "BlogPosting",
             "name": "How Much Does Google Ads Cost? Average Daily Budget",
@@ -3958,22 +3641,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "How Much Do Hosting and Website Maintenance Cost?",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "How Much Do Hosting and Website Maintenance Cost?",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "How Much Do Hosting and Website Maintenance Cost?",
             "keywords": "Digital Agency, Digital Marketing, much, hosting, website, maintenance, cost",
@@ -3981,8 +3648,7 @@
             "dateModified": "2025-02-16T09:27:32+02:00",
             "articleSection": "Digital Agency, Digital Marketing",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "How Much Do Hosting and Website Maintenance Cost?"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -4152,22 +3818,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "Guide: Promoting Your Business on Google",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "Guide: Promoting Your Business on Google",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "Guide: Promoting Your Business on Google",
             "keywords": "Website Building, Google Marketing, Digital Agency, Facebook Marketing, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing, guide, promoting, your, business, google",
@@ -4175,8 +3825,7 @@
             "dateModified": "2024-08-23T08:40:09+03:00",
             "articleSection": "Website Building, Google Marketing, Digital Agency, Facebook Marketing, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "Guide: Promoting Your Business on Google"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -4347,22 +3996,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "What Is Internet Marketing / Digital Marketing?",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "What Is Internet Marketing / Digital Marketing?",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "What Is Internet Marketing / Digital Marketing?",
             "keywords": "Website Building, Google Marketing, Digital Agency, Facebook Marketing, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing, what, internet, marketing, digital",
@@ -4370,8 +4003,7 @@
             "dateModified": "2024-08-27T14:04:06+03:00",
             "articleSection": "Website Building, Google Marketing, Digital Agency, Facebook Marketing, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "What Is Internet Marketing / Digital Marketing?"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -4542,22 +4174,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "What Is AEO? Will It Replace SEO?",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "What Is AEO? Will It Replace SEO?",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "What Is AEO? Will It Replace SEO?",
             "keywords": "Google Marketing, Digital Agency, Internet Advertising, Online Marketing, Digital Marketing, what, will, replace",
@@ -4565,8 +4181,7 @@
             "dateModified": "2026-07-09T11:55:34+03:00",
             "articleSection": "Google Marketing, Digital Agency, Internet Advertising, Online Marketing, Digital Marketing",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "What Is AEO? Will It Replace SEO?"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -4737,22 +4352,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "What Is a Digital Agency?",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "What Is a Digital Agency?",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "What Is a Digital Agency?",
             "keywords": "Website Building, Google Marketing, Digital Agency, Facebook Marketing, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing, what, digital, agency",
@@ -4760,8 +4359,7 @@
             "dateModified": "2024-08-23T08:41:27+03:00",
             "articleSection": "Website Building, Google Marketing, Digital Agency, Facebook Marketing, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "What Is a Digital Agency?"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -4931,22 +4529,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "SEM vs PPC: What's the Difference?",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "SEM vs PPC: What's the Difference?",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "SEM vs PPC: What's the Difference?",
             "keywords": "Google Marketing, Digital Agency, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing, what, difference",
@@ -4954,8 +4536,7 @@
             "dateModified": "2024-08-23T09:44:13+03:00",
             "articleSection": "Google Marketing, Digital Agency, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "SEM vs PPC: What's the Difference?"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -5166,22 +4747,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "How Much Does SEO Cost? Pricing Guide + Calculator",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "How Much Does SEO Cost? Pricing Guide + Calculator",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "How Much Does SEO Cost? Pricing Guide + Calculator",
             "keywords": "Organic SEO, Digital Marketing, much, does, cost, pricing, guide, calculator",
@@ -5189,8 +4754,7 @@
             "dateModified": "2026-07-09T11:43:24+03:00",
             "articleSection": "Organic SEO, Digital Marketing",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "How Much Does SEO Cost? Pricing Guide + Calculator"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -5361,22 +4925,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "ROI Calculator 2026: How to Calculate Paid Campaign Returns",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "ROI Calculator 2026: How to Calculate Paid Campaign Returns",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "ROI Calculator 2026: How to Calculate Paid Campaign Returns",
             "keywords": "Paid Advertising, Digital Marketing, calculator, 2026, calculate, paid, campaign, returns",
@@ -5384,8 +4932,7 @@
             "dateModified": "2026-07-09T11:43:18+03:00",
             "articleSection": "Paid Advertising, Digital Marketing",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "ROI Calculator 2026: How to Calculate Paid Campaign Returns"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -5544,22 +5091,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "Digital Advertising Office — Internet Business Marketing",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "Digital Advertising Office — Internet Business Marketing",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "Digital Advertising Office — Internet Business Marketing",
             "keywords": "Digital Agency, Website Building, Google Marketing, Facebook Marketing, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing, digital, advertising, office, internet, business, marketing",
@@ -5567,8 +5098,7 @@
             "dateModified": "2025-02-16T09:29:57+02:00",
             "articleSection": "Digital Agency, Website Building, Google Marketing, Facebook Marketing, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "Digital Advertising Office — Internet Business Marketing"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -5736,22 +5266,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "Managing a Business in the Digital Age",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "Managing a Business in the Digital Age",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "Managing a Business in the Digital Age",
             "keywords": "Digital Agency, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing, managing, business, digital",
@@ -5759,8 +5273,7 @@
             "dateModified": "2024-08-24T09:39:09+03:00",
             "articleSection": "Digital Agency, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "Managing a Business in the Digital Age"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -5931,22 +5444,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "Digital Marketing Agency: All Digital Solutions in One Place",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "Digital Marketing Agency: All Digital Solutions in One Place",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "Digital Marketing Agency: All Digital Solutions in One Place",
             "keywords": "Website Building, Google Marketing, Digital Agency, Facebook Marketing, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing, digital, marketing, agency, solutions, place",
@@ -5954,8 +5451,7 @@
             "dateModified": "2024-08-25T10:04:35+03:00",
             "articleSection": "Website Building, Google Marketing, Digital Agency, Facebook Marketing, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "Digital Marketing Agency: All Digital Solutions in One Place"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -6126,22 +5622,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "Leading Digital Marketing Agency in Carmiel",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "Leading Digital Marketing Agency in Carmiel",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "Leading Digital Marketing Agency in Carmiel",
             "keywords": "Website Building, Google Marketing, Digital Agency, Facebook Marketing, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing, leading, digital, marketing, agency, carmiel",
@@ -6149,8 +5629,7 @@
             "dateModified": "2025-04-07T10:11:29+03:00",
             "articleSection": "Website Building, Google Marketing, Digital Agency, Facebook Marketing, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "Leading Digital Marketing Agency in Carmiel"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -6321,22 +5800,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "Maximize Your Online Presence with a Digital Marketing…",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "Maximize Your Online Presence with a Digital Marketing…",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "Maximize Your Online Presence with a Digital Marketing…",
             "keywords": "Website Building, Google Marketing, Digital Agency, Facebook Marketing, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing, maximize, your, online, presence, with, digital, marketing",
@@ -6344,8 +5807,7 @@
             "dateModified": "2024-08-23T08:51:01+03:00",
             "articleSection": "Website Building, Google Marketing, Digital Agency, Facebook Marketing, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "Maximize Your Online Presence with a Digital Marketing…"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -6516,22 +5978,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "A Digital Marketing Agency That Moves Your Business Forward",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "A Digital Marketing Agency That Moves Your Business Forward",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "A Digital Marketing Agency That Moves Your Business Forward",
             "keywords": "Website Building, Google Marketing, Digital Agency, Facebook Marketing, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing, digital, marketing, agency, that, moves, your, business, forward",
@@ -6539,8 +5985,7 @@
             "dateModified": "2024-08-25T10:06:08+03:00",
             "articleSection": "Website Building, Google Marketing, Digital Agency, Facebook Marketing, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "A Digital Marketing Agency That Moves Your Business Forward"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -6711,22 +6156,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "The Future of SEO: Organic Search in 2025 and Beyond",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "The Future of SEO: Organic Search in 2025 and Beyond",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "headline": "The Future of SEO: Organic Search in 2025 and Beyond",
             "description": "The digital world is in constant motion, and SEO is one of the areas most affected by these changes. For years, organic promotion was based on keywords,…",
             "datePublished": "2025-09-17T12:38:16+03:00",
@@ -6735,8 +6164,7 @@
               "@id": "https://adwrks.co.il/wp-content/uploads/seo-future.webp"
             },
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "The Future of SEO: Organic Search in 2025 and Beyond"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "@type": "BlogPosting",
             "name": "The Future of SEO: Organic Search in 2025 and Beyond",
@@ -6905,22 +6333,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "Website Platform Guide: How to Choose Among 6 Options",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "Website Platform Guide: How to Choose Among 6 Options",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "Website Platform Guide: How to Choose Among 6 Options",
             "keywords": "Website Building, Digital Agency, Digital Marketing, website, platform, guide, choose, among, options",
@@ -6928,8 +6340,7 @@
             "dateModified": "2025-09-17T14:07:27+03:00",
             "articleSection": "Website Building, Digital Agency, Digital Marketing",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "Website Platform Guide: How to Choose Among 6 Options"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -7100,22 +6511,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "Google Ads: 10 Simple Steps to Get Started",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "Google Ads: 10 Simple Steps to Get Started",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "Google Ads: 10 Simple Steps to Get Started",
             "keywords": "Google Marketing, Digital Agency, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing, google, simple, steps, started",
@@ -7123,8 +6518,7 @@
             "dateModified": "2025-09-17T14:09:20+03:00",
             "articleSection": "Google Marketing, Digital Agency, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "Google Ads: 10 Simple Steps to Get Started"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -7295,22 +6689,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "Google Maps Advertising — Google Business Profile Promotion",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "Google Maps Advertising — Google Business Profile Promotion",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "headline": "Google Maps Advertising — Google Business Profile Promotion",
             "description": "Expert guide: Google Maps Advertising — Google Business Profile Promotion. Practical digital marketing, SEO, and paid ads insights from Adwrks 365 for…",
             "datePublished": "2024-04-15T09:30:23+03:00",
@@ -7319,8 +6697,7 @@
               "@id": "https://adwrks.co.il/wp-content/uploads/google-search-maps.webp"
             },
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "Google Maps Advertising — Google Business Profile Promotion"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "@type": "BlogPosting",
             "name": "Google Maps Advertising — Google Business Profile Promotion",
@@ -7509,22 +6886,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "Google Ads: 7 Strategies to Grow Your Business",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "Google Ads: 7 Strategies to Grow Your Business",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "Google Ads: 7 Strategies to Grow Your Business",
             "keywords": "Google Marketing, Digital Agency, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing, google, strategies, grow, your, business",
@@ -7532,8 +6893,7 @@
             "dateModified": "2025-09-17T14:09:59+03:00",
             "articleSection": "Google Marketing, Digital Agency, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "Google Ads: 7 Strategies to Grow Your Business"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -7704,22 +7064,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "Russian-Language Digital Advertising",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "Russian-Language Digital Advertising",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "Russian-Language Digital Advertising",
             "keywords": "Website Building, Google Marketing, Digital Agency, Facebook Marketing, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing, russian, language, digital, advertising",
@@ -7727,8 +7071,7 @@
             "dateModified": "2026-02-09T15:00:13+02:00",
             "articleSection": "Website Building, Google Marketing, Digital Agency, Facebook Marketing, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "Russian-Language Digital Advertising"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -7899,22 +7242,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "Business Advertising: Maximum Exposure in the Digital World",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "Business Advertising: Maximum Exposure in the Digital World",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "Business Advertising: Maximum Exposure in the Digital World",
             "keywords": "Website Building, Google Marketing, Digital Agency, Facebook Marketing, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing, business, advertising, maximum, exposure, digital, world",
@@ -7922,8 +7249,7 @@
             "dateModified": "2024-08-23T08:47:23+03:00",
             "articleSection": "Website Building, Google Marketing, Digital Agency, Facebook Marketing, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "Business Advertising: Maximum Exposure in the Digital World"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -8094,22 +7420,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "Facebook Ads: Reach the Right Customers on the Right Budget",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "Facebook Ads: Reach the Right Customers on the Right Budget",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "Facebook Ads: Reach the Right Customers on the Right Budget",
             "keywords": "Digital Agency, Facebook Marketing, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing, facebook, reach, right, customers, budget",
@@ -8117,8 +7427,7 @@
             "dateModified": "2026-07-09T11:55:32+03:00",
             "articleSection": "Digital Agency, Facebook Marketing, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "Facebook Ads: Reach the Right Customers on the Right Budget"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -8289,22 +7598,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "Free Business Advertising: 7 Simple Self-Promotion Methods",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "Free Business Advertising: 7 Simple Self-Promotion Methods",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "Free Business Advertising: 7 Simple Self-Promotion Methods",
             "keywords": "Website Building, Google Marketing, Digital Agency, Facebook Marketing, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing, free, business, advertising, simple, self, promotion, methods",
@@ -8312,8 +7605,7 @@
             "dateModified": "2024-08-27T06:02:34+03:00",
             "articleSection": "Website Building, Google Marketing, Digital Agency, Facebook Marketing, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "Free Business Advertising: 7 Simple Self-Promotion Methods"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -8484,22 +7776,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "Business Growth Through Internet Marketing",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "Business Growth Through Internet Marketing",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "Business Growth Through Internet Marketing",
             "keywords": "Website Building, Google Marketing, Digital Agency, Facebook Marketing, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing, business, growth, through, internet, marketing",
@@ -8507,8 +7783,7 @@
             "dateModified": "2024-08-23T08:52:59+03:00",
             "articleSection": "Website Building, Google Marketing, Digital Agency, Facebook Marketing, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "Business Growth Through Internet Marketing"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -8679,22 +7954,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "Google SEO: Why Invest in Organic Search?",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "Google SEO: Why Invest in Organic Search?",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "Google SEO: Why Invest in Organic Search?",
             "keywords": "Digital Agency, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing, google, invest, organic, search",
@@ -8702,8 +7961,7 @@
             "dateModified": "2024-08-23T09:18:52+03:00",
             "articleSection": "Digital Agency, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "Google SEO: Why Invest in Organic Search?"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -8874,22 +8132,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "SEO Guide for Beginners: 6 Essential Steps",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "SEO Guide for Beginners: 6 Essential Steps",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "SEO Guide for Beginners: 6 Essential Steps",
             "keywords": "Digital Agency, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing, guide, beginners, essential, steps",
@@ -8897,8 +8139,7 @@
             "dateModified": "2025-09-17T14:08:30+03:00",
             "articleSection": "Digital Agency, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "SEO Guide for Beginners: 6 Essential Steps"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -9069,22 +8310,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "Paid Search vs Organic SEO — A Comparison",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "Paid Search vs Organic SEO — A Comparison",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "headline": "Paid Search vs Organic SEO — A Comparison",
             "description": "For most business owners, the world of digital marketing feels like a collection of complicated concepts: SEO, PPC, \"organic is dead\" or \"sponsored is…",
             "datePublished": "2026-01-22T13:47:40+02:00",
@@ -9093,8 +8318,7 @@
               "@id": "https://adwrks.co.il/wp-content/uploads/ppc-vs-seo.webp"
             },
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "Paid Search vs Organic SEO — A Comparison"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "@type": "BlogPosting",
             "name": "Paid Search vs Organic SEO — A Comparison",
@@ -9262,22 +8486,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "Remarketing — What It Is, How It Works, and Why It Matters",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "Remarketing — What It Is, How It Works, and Why It Matters",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "Remarketing — What It Is, How It Works, and Why It Matters",
             "keywords": "Digital Agency, Facebook Marketing, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing, remarketing, what, works, matters",
@@ -9285,8 +8493,7 @@
             "dateModified": "2026-07-09T11:59:18+03:00",
             "articleSection": "Digital Agency, Facebook Marketing, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "Remarketing — What It Is, How It Works, and Why It Matters"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -9457,22 +8664,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "Facebook & Instagram Marketing for Businesses in 2025",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "Facebook & Instagram Marketing for Businesses in 2025",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "headline": "Facebook & Instagram Marketing for Businesses in 2025",
             "description": "Marketing on social networks - the complete guide for businesses that want to remain relevant in the digital age of 2025, the presence on social networks…",
             "datePublished": "2025-04-23T10:26:32+03:00",
@@ -9481,8 +8672,7 @@
               "@id": "https://adwrks.co.il/wp-content/uploads/social-ads-e1745398727890.webp"
             },
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "Facebook & Instagram Marketing for Businesses in 2025"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "@type": "BlogPosting",
             "name": "Facebook & Instagram Marketing for Businesses in 2025",
@@ -9652,22 +8842,6 @@
             "headline": "Digital Marketing for Business: The Complete 2026 Guide"
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "Digital Marketing for Business: The Complete 2026 Guide",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "Digital Marketing for Business: The Complete 2026 Guide",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "Digital Marketing for Business: The Complete 2026 Guide",
             "keywords": "Digital Marketing, Digital Agency, digital, marketing, business, complete, 2026, guide",
@@ -9675,8 +8849,7 @@
             "dateModified": "2025-04-07T10:10:34+03:00",
             "articleSection": "Digital Marketing, Digital Agency",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "Digital Marketing for Business: The Complete 2026 Guide"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -9846,22 +9019,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "Professional Marketing for Russian-Speaking Audiences",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "Professional Marketing for Russian-Speaking Audiences",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "@type": "BlogPosting",
             "headline": "Professional Marketing for Russian-Speaking Audiences",
             "keywords": "Website Building, Google Marketing, Digital Agency, Facebook Marketing, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing, professional, marketing, russian, speaking, audiences",
@@ -9869,8 +9026,7 @@
             "dateModified": "2024-08-23T09:32:34+03:00",
             "articleSection": "Website Building, Google Marketing, Digital Agency, Facebook Marketing, Internet Advertising, Paid Advertising, Online Marketing, Digital Marketing",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "Professional Marketing for Russian-Speaking Audiences"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "publisher": {
               "@id": "https://adwrks.co.il/#organization"
@@ -10041,22 +9197,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "Website Speed & PageSpeed Score Improvements in 2026",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "Website Speed & PageSpeed Score Improvements in 2026",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "headline": "Website Speed & PageSpeed Score Improvements in 2026",
             "description": "In the digital world of 2026, speed is no longer a \"bonus\" - it is a condition of survival. If in the past we were talking about seconds, today we are…",
             "datePublished": "2026-02-02T15:28:36+02:00",
@@ -10065,8 +9205,7 @@
               "@id": "https://adwrks.co.il/wp-content/uploads/website-speed-2026-pagespeed-optimization-1.webp"
             },
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "Website Speed & PageSpeed Score Improvements in 2026"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "@type": "BlogPosting",
             "name": "Website Speed & PageSpeed Score Improvements in 2026",
@@ -14509,22 +13648,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "Google Business Profile — Free Google Promotion",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "Google Business Profile — Free Google Promotion",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "headline": "Google Business Profile — Free Google Promotion",
             "description": "Expert guide: Google Business Profile — Free Google Promotion. Practical digital marketing, SEO, and paid ads insights from Adwrks 365 for Israeli…",
             "datePublished": "2024-04-14T07:53:05+03:00",
@@ -14533,8 +13656,7 @@
               "@id": "https://adwrks.co.il/wp-content/uploads/google-search-maps.webp"
             },
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "Google Business Profile — Free Google Promotion"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "@type": "BlogPosting",
             "name": "Google Business Profile — Free Google Promotion",
@@ -14723,22 +13845,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "Google Shopping Guide 2025: Essential Tool for E-commerce…",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "Google Shopping Guide 2025: Essential Tool for E-commerce…",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "headline": "Google Shopping Guide 2025: Essential Tool for E-commerce…",
             "description": "Google Shopping - the essential tool for growing your sales site Find out how to advertise your products on Google Shopping and use the tool to promote…",
             "datePublished": "2025-04-07T00:00:08+03:00",
@@ -14747,8 +13853,7 @@
               "@id": "https://adwrks.co.il/wp-content/uploads/google-shopping.webp"
             },
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "Google Shopping Guide 2025: Essential Tool for E-commerce…"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "@type": "BlogPosting",
             "name": "Google Shopping Guide 2025: Essential Tool for E-commerce…",
@@ -15031,22 +14136,6 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "SEO 2026: How to Appear in Google AI Overviews",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "SEO 2026: How to Appear in Google AI Overviews",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "headline": "SEO 2026: How to Appear in Google AI Overviews",
             "description": "The end of the age of \"links\" and the beginning of the age of \"answers\" Do you remember the days when all you had to do was write a short article, push a…",
             "datePublished": "2026-02-12T11:07:24+02:00",
@@ -15055,8 +14144,7 @@
               "@id": "https://adwrks.co.il/wp-content/uploads/seo-future-1.webp"
             },
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "SEO 2026: How to Appear in Google AI Overviews"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "@type": "BlogPosting",
             "name": "SEO 2026: How to Appear in Google AI Overviews",
@@ -26048,28 +25136,11 @@
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://adwrks.co.il/author/adwrks/",
-            "name": "Terms of Use – adwrks.co.il",
-            "url": "https://adwrks.co.il/author/adwrks/",
-            "image": {
-              "@type": "ImageObject",
-              "@id": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "url": "https://secure.gravatar.com/avatar/161949f576f069ff1f147b7297bbe5501c3046407240ab286908f5b534c9b4a9?s=96&amp;d=mm&amp;r=g",
-              "caption": "Terms of Use – adwrks.co.il",
-              "inLanguage": "en-US"
-            },
-            "worksFor": {
-              "@id": "https://adwrks.co.il/#organization"
-            }
-          },
-          {
             "headline": "Terms of Use – adwrks.co.il",
             "description": "Expert guide: Terms of Use – adwrks.co.il | Adwrks 365. Practical digital marketing, SEO, and paid ads insights from Adwrks 365 for Israeli businesses.",
             "@type": "Article",
             "author": {
-              "@id": "https://adwrks.co.il/author/adwrks/",
-              "name": "Terms of Use – adwrks.co.il"
+              "@id": "https://adwrks.co.il/#organization"
             },
             "datePublished": "2025-09-27T15:07:34+03:00",
             "dateModified": "2026-02-11T09:03:14+02:00",

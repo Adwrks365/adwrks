@@ -50,6 +50,7 @@ export function buildLocationJsonLd(view: LocationView, locale: Locale): unknown
     view.id === "karmiel"
       ? {
           "@type": "ProfessionalService",
+          "@id": ORG_ID,
           name: SITE.name,
           url: SITE.domain,
           address: {
@@ -57,7 +58,7 @@ export function buildLocationJsonLd(view: LocationView, locale: Locale): unknown
             streetAddress: SITE.address.street,
             addressLocality: SITE.address.locality,
             addressRegion: SITE.address.region,
-            addressCountry: SITE.address.country,
+            addressCountry: SITE.address.countryCode,
           },
         }
       : { "@id": ORG_ID };

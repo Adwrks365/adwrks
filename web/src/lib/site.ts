@@ -60,6 +60,13 @@ export const SITE = {
   appleIcon: asset("cropped-adwrks-white-180x180.webp"),
   ogDefaultImage: asset("digital-marketing-agency.webp"),
   foundedNote: "מאז 2018",
+  foundingYear: "2018",
+  founders: [
+    { he: "מיכאל וינר", en: "Michael Viner" },
+    { he: "סרגיי לאונוב", en: "Sergey Leonov" },
+  ],
+  /** ISO 639-1 codes of languages the agency serves clients in. */
+  serviceLanguages: ["he", "ru", "en"],
 } as const;
 
 export type NavAreaGroup = {

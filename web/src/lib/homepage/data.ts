@@ -32,7 +32,7 @@ export type HomepageCounter = {
 export const HOMEPAGE_COUNTERS: readonly HomepageCounter[] = [
   { target: 8, suffix: "+", label: "שנות מוניטין", ariaValue: "8+" },
   { target: 500, suffix: "K+", label: "ניהול תקציבים", ariaValue: "500K+" },
-  { target: 185, suffix: "+", label: "לקוחות מרוצים", ariaValue: "185+" },
+  { target: 185, suffix: "+", label: "לקוחות פעילים", ariaValue: "185+" },
   { target: 6, suffix: "+", label: "ליווי מומחים", ariaValue: "6+" },
 ] as const;
 

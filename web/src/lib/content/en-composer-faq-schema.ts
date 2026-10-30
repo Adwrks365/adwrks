@@ -1,3 +1,4 @@
+import { HOMEPAGE_FAQ } from "@/lib/homepage/data.en";
 import { ABOUT_FAQ, ABOUT_PATH } from "@/lib/pages/about-content.en";
 import { PRICING_FAQ, PRICING_PATH } from "@/lib/pages/pricing-content.en";
 import { GOOGLE_ADS_FAQ, GOOGLE_ADS_PATH } from "@/lib/pages/services/google-ads-content.en";
@@ -12,6 +13,7 @@ import { normalizePath } from "./paths";
 type FaqItem = { q: string; a: string };
 
 const COMPOSER_FAQ: Record<string, readonly FaqItem[]> = {
+  "/en/": HOMEPAGE_FAQ.map((item) => ({ q: item.question, a: item.answer })),
   [ABOUT_PATH]: ABOUT_FAQ,
   [PRICING_PATH]: PRICING_FAQ,
   [GOOGLE_ADS_PATH]: GOOGLE_ADS_FAQ,

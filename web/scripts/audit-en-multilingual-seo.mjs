@@ -8,7 +8,12 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { hasHebrew, SCHEMA_SKIP_STRING_KEYS } from "./lib/en-schema-localize.mjs";
+import {
+  findAuthorSchemaIssues,
+  hasHebrew,
+  SCHEMA_SKIP_STRING_KEYS,
+  schemaDisplayTitle,
+} from "./lib/en-schema-localize.mjs";
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const live = process.argv.includes("--live");
@@ -75,7 +80,22 @@ function auditStaticSeo(seo) {
       if (hits.length) {
         errors.push(`Hebrew JSON-LD on ${rec.url} (${hits.length} fields, e.g. ${hits[0].path})`);
       }
+      const authorIssues = findAuthorSchemaIssues(rec.jsonLd, [
+        rec.title,
+        schemaDisplayTitle(rec.title),
+        rec.metaDescription,
+      ]);
+      if (authorIssues.length) errors.push(`Author JSON-LD on ${rec.url}: ${authorIssues[0]}`);
     }
+  }
+  return errors;
+}
+
+function auditHeAuthorSchema() {
+  const errors = [];
+  for (const rec of readJson("src/data/content/seo.json")) {
+    const issues = findAuthorSchemaIssues(rec.jsonLd ?? [], []);
+    if (issues.length) errors.push(`Author JSON-LD on ${rec.url}: ${issues[0]}`);
   }
   return errors;
 }
@@ -253,6 +273,7 @@ const urlsJson = readJson("src/data/content-en/urls.json");
 
 let errors = [];
 errors.push(...auditStaticSeo(seo));
+errors.push(...auditHeAuthorSchema());
 errors.push(...auditEnPosts());
 errors.push(...auditEnPostInternalHrefs());
 const routeAudit = auditRoutePairs();

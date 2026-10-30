@@ -11,6 +11,7 @@ const EXPLICIT_REDIRECTS: Record<string, string> = {
   "/קידום-אורגני/": "/seo/",
   "/seo-2026-איך-להופיע-בתשובות-של-ה-ai/": "/seo-2026-ai-answers/",
   "/edri-ohanona-law-office/": "/website-building/",
+  "/author/adwrks/": "/about-us/",
 };
 
 function enPathForRootSegment(path: string): string {

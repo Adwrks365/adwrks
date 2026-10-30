@@ -42,6 +42,29 @@ const PAGE_LIKE_SCHEMA = new Set([
 ]);
 const ORG_LIKE_SCHEMA = new Set(["Organization", "ProfessionalService", "LocalBusiness"]);
 
+const EN_DEFAULT_PERSON = "ADWRKS 365 Team";
+
+/** Keep in sync with EN_PERSON_NAMES in web/scripts/lib/en-schema-localize.mjs. */
+const EN_PERSON_NAMES: Readonly<Record<string, string>> = {
+  "מיכאל וינר": "Michael Viner",
+  "סרגיי לאונוב": "Sergey Leonov",
+  "סרגיי": "Sergey Leonov",
+  "צוות Adwrks": EN_DEFAULT_PERSON,
+  "צוות ADWRKS 365": EN_DEFAULT_PERSON,
+};
+
+const KNOWN_EN_PERSON_NAMES = new Set(Object.values(EN_PERSON_NAMES));
+
+/**
+ * Every Hebrew source author is the team account, so unknown names fall back to it
+ * instead of publishing a page title as a person.
+ */
+function localizePersonName(name: string): string {
+  const trimmed = name.trim();
+  if (KNOWN_EN_PERSON_NAMES.has(trimmed)) return trimmed;
+  return EN_PERSON_NAMES[trimmed] ?? EN_DEFAULT_PERSON;
+}
+
 export function buildEnKeywords(schemaTitle: string, articleSection?: string): string {
   const fromCats = (articleSection || "")
     .split(",")
@@ -147,7 +170,15 @@ function localizeEnSchemaNode(
       record[key] = localizeEnSchemaNode(value, ctx, activeTypes);
       continue;
     }
+    if (key === "author" && value && typeof value === "object") {
+      record[key] = localizeEnSchemaNode(value, ctx, ["Person"]);
+      continue;
+    }
     if (key.startsWith("@") && key !== "@type") continue;
+    if (activeTypes.includes("Person") && typeof value === "string") {
+      if (key === "name") record[key] = localizePersonName(value);
+      continue;
+    }
     if (typeof value === "string" && hasHebrew(value) && !shouldSkipString(key, value)) {
       record[key] = schemaReplacement(activeTypes, key, ctx);
       continue;

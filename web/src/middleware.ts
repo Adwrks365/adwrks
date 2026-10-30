@@ -52,6 +52,6 @@ function applyProductionRobots(request: NextRequest, response: NextResponse): Ne
 
 export const config = {
   matcher: [
-    "/((?!api|_next/static|_next/image|favicon.ico|robots\\.txt|sitemap\\.xml|sitemap-he\\.xml|sitemap-en\\.xml|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico)$).*)",
+    "/((?!api|_next/static|_next/image|favicon.ico|robots\\.txt|llms\\.txt$|sitemap\\.xml|sitemap-he\\.xml|sitemap-en\\.xml|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico)$).*)",
   ],
 };

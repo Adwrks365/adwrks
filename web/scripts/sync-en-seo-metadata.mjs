@@ -9,9 +9,11 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import {
   buildSchemaContext,
+  findAuthorSchemaIssues,
   hasHebrew,
   localizeEnJsonLd,
   SCHEMA_SKIP_STRING_KEYS,
+  schemaDisplayTitle,
   stripFaqFromJsonLd,
 } from "./lib/en-schema-localize.mjs";
 
@@ -327,9 +329,15 @@ function main() {
     const ldHits = [];
     collectJsonLdHebrew(rec.jsonLd, ldHits);
     if (ldHits.length) badMeta.push(`${rec.url} (jsonLd Hebrew)`);
+    const authorIssues = findAuthorSchemaIssues(rec.jsonLd ?? [], [
+      rec.title,
+      schemaDisplayTitle(rec.title),
+      rec.metaDescription,
+    ]);
+    if (authorIssues.length) badMeta.push(`${rec.url} (${authorIssues[0]})`);
   }
   if (badMeta.length) {
-    console.error("EN seo.json still has Hebrew in title/meta/schema:", badMeta.slice(0, 20));
+    console.error("EN seo.json still has Hebrew or invalid author data in title/meta/schema:", badMeta.slice(0, 20));
     process.exit(1);
   }
 

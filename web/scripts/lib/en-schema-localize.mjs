@@ -5,6 +5,60 @@
 export const ORG_DESCRIPTION_EN =
   "Digital marketing agency since 2018 — Google Ads, SEO, social media, websites, and hosting for businesses in Israel.";
 
+export const ORGANIZATION_ID = "https://adwrks.co.il/#organization";
+export const AUTHOR_ARCHIVE_PREFIX = "https://adwrks.co.il/author/";
+
+const EN_DEFAULT_PERSON = "ADWRKS 365 Team";
+
+/** Keep in sync with EN_PERSON_NAMES in web/src/lib/content/en-schema-localize.ts. */
+const EN_PERSON_NAMES = {
+  "מיכאל וינר": "Michael Viner",
+  "סרגיי לאונוב": "Sergey Leonov",
+  "סרגיי": "Sergey Leonov",
+  "צוות Adwrks": EN_DEFAULT_PERSON,
+  "צוות ADWRKS 365": EN_DEFAULT_PERSON,
+};
+
+const KNOWN_EN_PERSON_NAMES = new Set(Object.values(EN_PERSON_NAMES));
+
+/** Person names are never replaced with page text; unknown names become the team account. */
+function localizePersonName(name) {
+  const trimmed = String(name).trim();
+  if (KNOWN_EN_PERSON_NAMES.has(trimmed)) return trimmed;
+  return EN_PERSON_NAMES[trimmed] ?? EN_DEFAULT_PERSON;
+}
+
+export function isAuthorArchiveRef(value) {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return false;
+  return [value["@id"], value.url].some(
+    (ref) => typeof ref === "string" && ref.startsWith(AUTHOR_ARCHIVE_PREFIX),
+  );
+}
+
+export function isAuthorArchivePerson(value) {
+  return isAuthorArchiveRef(value) && nodeTypes(value).includes("Person");
+}
+
+/**
+ * Articles are written by the agency team and the WordPress author archive was not migrated:
+ * credit `#organization` and drop the archive `Person` node. Used by the sync and the one-off cleanup.
+ */
+export function attributeAuthorsToOrganization(node) {
+  if (Array.isArray(node)) {
+    return node.filter((item) => !isAuthorArchivePerson(item)).map(attributeAuthorsToOrganization);
+  }
+  if (!node || typeof node !== "object") return node;
+  const out = {};
+  for (const [key, value] of Object.entries(node)) {
+    const refs = Array.isArray(value) ? value : [value];
+    out[key] =
+      key === "author" && refs.some(isAuthorArchiveRef)
+        ? { "@id": ORGANIZATION_ID }
+        : attributeAuthorsToOrganization(value);
+  }
+  return out;
+}
+
 export const SCHEMA_SKIP_STRING_KEYS = new Set([
   "streetAddress",
   "addressLocality",
@@ -130,7 +184,15 @@ function walk(node, ctx, parentTypes = []) {
       record[key] = walk(value, ctx, activeTypes);
       continue;
     }
+    if (key === "author" && value && typeof value === "object") {
+      record[key] = walk(value, ctx, ["Person"]);
+      continue;
+    }
     if (key.startsWith("@") && key !== "@type") continue;
+    if (activeTypes.includes("Person") && typeof value === "string") {
+      if (key === "name") record[key] = localizePersonName(value);
+      continue;
+    }
     if (typeof value === "string" && hasHebrew(value) && !shouldSkipString(key, value)) {
       record[key] = replacementFor(activeTypes, key, ctx);
       continue;
@@ -145,7 +207,31 @@ function walk(node, ctx, parentTypes = []) {
 
 export function localizeEnJsonLd(nodes, ctx) {
   if (!Array.isArray(nodes)) return [];
-  return nodes.map((node) => walk(node, ctx));
+  return attributeAuthorsToOrganization(nodes).map((node) => walk(node, ctx));
+}
+
+/**
+ * Regression guard for synced EN data: a `Person.name` must never be page text,
+ * and nothing may point at the unmigrated author archive.
+ */
+export function findAuthorSchemaIssues(nodes, pageTexts) {
+  const issues = [];
+  const texts = new Set(pageTexts.filter(Boolean).map((t) => String(t).trim()));
+  const visit = (node, parentTypes) => {
+    if (Array.isArray(node)) return node.forEach((item) => visit(item, parentTypes));
+    if (!node || typeof node !== "object") return;
+    const types = nodeTypes(node);
+    const active = types.length ? types : parentTypes;
+    if (isAuthorArchiveRef(node)) issues.push(`author archive reference ${node["@id"] ?? node.url}`);
+    if (active.includes("Person") && typeof node.name === "string" && texts.has(node.name.trim())) {
+      issues.push(`page text as Person.name: ${node.name.slice(0, 60)}`);
+    }
+    for (const [key, value] of Object.entries(node)) {
+      if (value && typeof value === "object") visit(value, key === "author" ? ["Person"] : active);
+    }
+  };
+  visit(nodes, []);
+  return issues;
 }
 
 export function buildSchemaContext({ pageTitle, pageDescription, articleSection }) {

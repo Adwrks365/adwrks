@@ -29,7 +29,7 @@ export type HomepageCounter = {
 export const HOMEPAGE_COUNTERS: readonly HomepageCounter[] = [
   { target: 8, suffix: "+", label: "Years of experience", ariaValue: "8+" },
   { target: 500, suffix: "K+", label: "Budget managed", ariaValue: "500K+" },
-  { target: 185, suffix: "+", label: "Happy clients", ariaValue: "185+" },
+  { target: 185, suffix: "+", label: "Active clients", ariaValue: "185+" },
   { target: 6, suffix: "+", label: "Expert disciplines", ariaValue: "6+" },
 ] as const;
 
