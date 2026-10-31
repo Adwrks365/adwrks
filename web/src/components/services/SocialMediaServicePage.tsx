@@ -98,6 +98,8 @@ export function SocialMediaServicePage({ locale = "he" }: LocaleProps) {
         </ul>
       </Section>
 
+      <ServiceCaseStudySection category="meta-ads" locale={locale} />
+
       <Section
         tone="muted"
         label={c.SOCIAL_INCLUDES.label}
@@ -130,8 +132,6 @@ export function SocialMediaServicePage({ locale = "he" }: LocaleProps) {
           <ServiceRelatedGuides posts={guides} locale={locale} />
         </Section>
       )}
-
-      <ServiceCaseStudySection category="meta-ads" locale={locale} />
 
       <Section
         tone="sky"

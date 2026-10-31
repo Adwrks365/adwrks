@@ -1,4 +1,5 @@
 import { ContextualPopupTrigger } from "@/components/popups/ContextualPopupTrigger";
+import { HubEcosystemVisual } from "@/components/services/shared/ServiceVisualCompositions";
 import { Container } from "@/components/ui/Container";
 import { getHomepageData } from "@/lib/homepage";
 import type { LocaleProps } from "@/lib/locale-props";
@@ -14,11 +15,14 @@ export function HomeEnvelope360({ locale = "he" }: LocaleProps) {
             {HOMEPAGE_ENVELOPE.title}
           </h2>
         </header>
-        <div className="home-envelope-body reveal">
-          <p>{HOMEPAGE_VISION.envelope}</p>
-          <ContextualPopupTrigger className="home-cta home-cta-primary">
-            {HOMEPAGE_ENVELOPE.cta}
-          </ContextualPopupTrigger>
+        <div className="home-envelope-layout reveal">
+          <div className="home-envelope-body">
+            <p>{HOMEPAGE_VISION.envelope}</p>
+            <ContextualPopupTrigger className="home-cta home-cta-primary">
+              {HOMEPAGE_ENVELOPE.cta}
+            </ContextualPopupTrigger>
+          </div>
+          <HubEcosystemVisual locale={locale} />
         </div>
       </Container>
     </section>

@@ -124,7 +124,8 @@ export function SocialHeroVisual({ src, alt }: SocialHeroImageProps) {
 const HUB_NODES_HE = [
   { label: "Google Ads", className: "sp-hub-node--gads" },
   { label: "SEO", className: "sp-hub-node--seo" },
-  { label: "סושיאל", className: "sp-hub-node--social" },
+  { label: "Meta Ads", className: "sp-hub-node--social" },
+  { label: "תוכן", className: "sp-hub-node--content" },
   { label: "בניית אתרים", className: "sp-hub-node--web" },
   { label: "אחסון", className: "sp-hub-node--hosting" },
 ] as const;
@@ -132,7 +133,8 @@ const HUB_NODES_HE = [
 const HUB_NODES_EN = [
   { label: "Google Ads", className: "sp-hub-node--gads" },
   { label: "SEO", className: "sp-hub-node--seo" },
-  { label: "Social", className: "sp-hub-node--social" },
+  { label: "Meta Ads", className: "sp-hub-node--social" },
+  { label: "Content", className: "sp-hub-node--content" },
   { label: "Websites", className: "sp-hub-node--web" },
   { label: "Hosting", className: "sp-hub-node--hosting" },
 ] as const;
@@ -143,12 +145,14 @@ export function HubEcosystemVisual({ locale = "he" }: { locale?: Locale }) {
   const sub = locale === "en" ? "360° digital marketing" : "שיווק דיגיטלי 360°";
   return (
     <div className="sp-hub-ecosystem" aria-hidden="true">
-      <svg className="sp-hub-ecosystem-lines" viewBox="0 0 200 200" preserveAspectRatio="none">
-        <line x1="100" y1="100" x2="100" y2="24" />
-        <line x1="100" y1="100" x2="172" y2="68" />
-        <line x1="100" y1="100" x2="156" y2="156" />
-        <line x1="100" y1="100" x2="44" y2="156" />
-        <line x1="100" y1="100" x2="28" y2="68" />
+      <svg className="sp-hub-ecosystem-lines" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
+        <circle cx="100" cy="100" r="62" />
+        <line x1="100" y1="100" x2="100" y2="18" />
+        <line x1="100" y1="100" x2="171" y2="59" />
+        <line x1="100" y1="100" x2="171" y2="141" />
+        <line x1="100" y1="100" x2="100" y2="182" />
+        <line x1="100" y1="100" x2="29" y2="141" />
+        <line x1="100" y1="100" x2="29" y2="59" />
       </svg>
       <div className="sp-hub-ecosystem-core">
         <span className="sp-hub-ecosystem-brand">Adwrks</span>

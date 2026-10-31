@@ -94,6 +94,8 @@ export function SeoServicePage({ locale = "he" }: LocaleProps) {
         </p>
       </Section>
 
+      <ServiceCaseStudySection category="seo" locale={locale} />
+
       <Section tone="sky" label={c.SEO_AUDIENCE.label} title={c.SEO_AUDIENCE.title} align="start">
         <ul className="sp-audience-list">
           {c.SEO_AUDIENCE.items.map((item) => (
@@ -161,8 +163,6 @@ export function SeoServicePage({ locale = "he" }: LocaleProps) {
           <ServiceRelatedGuides posts={guides} locale={locale} />
         </Section>
       )}
-
-      <ServiceCaseStudySection category="seo" locale={locale} />
 
       <Section
         tone="sky"

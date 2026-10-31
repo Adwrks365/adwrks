@@ -82,6 +82,8 @@ export function GoogleAdsServicePage({ locale = "he" }: LocaleProps) {
         </div>
       </Section>
 
+      <ServiceCaseStudySection category="google-ads" locale={locale} />
+
       <Section tone="white" label={c.GOOGLE_ADS_MEASUREMENT.label} title={c.GOOGLE_ADS_MEASUREMENT.title} align="start">
         <p className="sp-body-lead sp-body-lead--narrow">{c.GOOGLE_ADS_MEASUREMENT.body}</p>
         <ul className="sp-check-list sp-check-list--compact">
@@ -149,8 +151,6 @@ export function GoogleAdsServicePage({ locale = "he" }: LocaleProps) {
           <ServiceRelatedGuides posts={guides} locale={locale} />
         </Section>
       )}
-
-      <ServiceCaseStudySection category="google-ads" locale={locale} />
 
       <Section
         tone="sky"

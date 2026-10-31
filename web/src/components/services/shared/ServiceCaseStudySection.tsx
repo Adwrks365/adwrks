@@ -1,8 +1,6 @@
-import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import type { Locale } from "@/i18n/routing";
-import { linkWithArrow } from "@/i18n/ui-arrows";
 import { getPublishedCaseStudies, type CaseStudyCategory } from "@/lib/case-studies/registry";
 import { t, type CaseStudyRecord } from "@/lib/case-studies/types";
 import { CaseStudyMetricValue } from "./case-study-metric-value";
@@ -19,16 +17,15 @@ const COPY = {
     pendingTitle: "מקרי בוחן — בקרוב",
     pendingBody:
       "אנחנו מכינים מקרי בוחן עם נתונים מאומתים ואישור לקוח. עד לפרסום — נשמח לשתף דוגמאות רלוונטיות בשיחת ייעוץ.",
-    sectionLead: "נתונים מאומתים, מקור ברור, והגבלות — בלי הבטחות עתידיות.",
-    detailsToggle: "פרטים, הקשר ומגבלות",
+    sectionLead: "דוגמאות אמיתיות עם נתונים מאומתים — בלי הבטחות לתוצאות עתידיות.",
+    detailsToggle: "לנתונים המלאים",
     challenge: "אתגר",
     approach: "מה נעשה",
     outcome: "תוצאה והקשר",
     keywords: "ביטויים נבחרים (דוח מעקב)",
     period: "טווח מדידה",
     source: "מקור הנתונים",
-    cta: "הצעת מחיר",
-    serviceLink: "לעמוד השירות",
+    cta: "רוצים תוצאות לעסק שלכם? קבלו הצעה",
     testimony: "עדות לקוח",
     adSets: "פירוט לפי סט מודעות",
     moreMetrics: "נתונים נוספים מהדוח",
@@ -40,16 +37,15 @@ const COPY = {
     pendingTitle: "Case studies — coming soon",
     pendingBody:
       "We are preparing case studies with verified data and client approval. Until publication, we can share relevant examples on a consultation call.",
-    sectionLead: "Verified figures, clear sources, and limits — no promise of future results.",
-    detailsToggle: "Details, context & limits",
+    sectionLead: "Real examples with verified figures — no promise of future results.",
+    detailsToggle: "Full data",
     challenge: "Challenge",
     approach: "What we did",
     outcome: "Outcome & context",
     keywords: "Selected queries (tracking report)",
     period: "Measurement period",
     source: "Data source",
-    cta: "Get a quote",
-    serviceLink: "Service page",
+    cta: "Want results for your business? Get a proposal",
     testimony: "Client testimony",
     adSets: "Breakdown by ad set",
     moreMetrics: "Additional report metrics",
@@ -77,7 +73,6 @@ function CaseStudyBadge({ locale }: { locale: Locale }) {
 function CaseStudyCard({ study, locale }: { study: CaseStudyRecord; locale: Locale }) {
   const copy = COPY[locale === "en" ? "en" : "he"];
   const contactHref = locale === "en" ? "/en/contact-us/" : "/contact-us/";
-  const serviceHref = t(study.serviceHref, locale);
   const cardMetrics = study.cardMetrics.length > 0 ? study.cardMetrics : study.highlightMetrics.slice(0, 3);
 
   return (
@@ -108,7 +103,10 @@ function CaseStudyCard({ study, locale }: { study: CaseStudyRecord; locale: Loca
         <p className="sp-case-study-source-note">{t(study.sourceNoteShort, locale)}</p>
 
         <details className="sp-case-study-details">
-          <summary>{copy.detailsToggle}</summary>
+          <summary>
+            <span className="sp-case-study-details-chevron" aria-hidden="true" />
+            {copy.detailsToggle}
+          </summary>
           <div className="sp-case-study-details-body">
             <p className="sp-case-study-details-meta">
               <strong>{copy.period}:</strong> {t(study.measurementPeriod, locale)}
@@ -221,11 +219,7 @@ function CaseStudyCard({ study, locale }: { study: CaseStudyRecord; locale: Loca
           <a href={study.clientSiteUrl} target="_blank" rel="noopener noreferrer" className="sp-text-link sp-case-study-secondary-link">
             {study.clientSiteUrl.replace(/^https:\/\//, "")}
           </a>
-        ) : (
-          <Link href={serviceHref} className="sp-text-link sp-case-study-secondary-link">
-            {linkWithArrow(locale, copy.serviceLink)}
-          </Link>
-        )}
+        ) : null}
       </footer>
     </article>
   );

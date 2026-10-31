@@ -274,8 +274,8 @@ export const CASE_STUDIES: readonly CaseStudyRecord[] = [
       en: "Meta Ads — leads & messaging (October 2026)",
     },
     clientLabel: {
-      he: "לקוח בתחום השירותים (שם לא מפורסם)",
-      en: "Service-sector client (name not published)",
+      he: "קמפיין Meta Ads לעסק בתחום השירותים",
+      en: "Meta Ads campaign for a service business",
     },
     industry: { he: "שירותים — פרטים מזהים לא פורסמו", en: "Services — identifying details not published" },
     services: {
@@ -300,8 +300,8 @@ export const CASE_STUDIES: readonly CaseStudyRecord[] = [
       en: "7 messaging conversations started in the engagement ad set and 6 leads in the leads ad set — per Meta Ads Manager. Not 13 customers or closed deals; no blended average cost across sets.",
     },
     cardTeaser: {
-      he: "ניהול שני סטי מודעות — מעורבות (מסנג'ר) ולידים מטופס — בתקופת מדידה קצרה.",
-      en: "Two ad sets managed — engagement (messaging) and form leads — over a short measurement window.",
+      he: "קמפיין ממוקד שהניב פניות דרך מסנג'ר וטפסי לידים, תוך מעקב אחר עלויות ותוצאות.",
+      en: "A focused campaign that produced Messenger conversations and form leads, with cost and result tracking.",
     },
     cardMetrics: [
       {

@@ -55,6 +55,8 @@ export function WebsiteBuildingServicePage({ locale = "he" }: LocaleProps) {
         </div>
       </Section>
 
+      <ServiceCaseStudySection category="website-building" locale={locale} />
+
       <Section
         tone="sky"
         className="wb-section-planning"
@@ -194,8 +196,6 @@ export function WebsiteBuildingServicePage({ locale = "he" }: LocaleProps) {
           </ul>
         </Section>
       )}
-
-      <ServiceCaseStudySection category="website-building" locale={locale} />
 
       <Section
         tone="sky"
