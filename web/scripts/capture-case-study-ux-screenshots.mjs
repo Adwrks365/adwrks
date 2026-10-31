@@ -7,7 +7,8 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const outDir = path.join(__dirname, "..", "..", "migration-audit", "case-study-ux-2026-10-31");
+const phase = process.argv[3] === "before" ? "before" : "after";
+const outDir = path.join(__dirname, "..", "..", "migration-audit", "sprint3-ui-2026-10-31", phase);
 const base = process.argv[2] ?? "https://adwrks.co.il";
 
 const shots = [

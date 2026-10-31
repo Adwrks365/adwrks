@@ -10,6 +10,8 @@
 - מטריקות בשורה (3) בדסקטופ; `dir=ltr` לערכים מספריים.
 - CTA ב-footer אחיד (`margin-top: auto`).
 
+**Deploy:** **`3f97314`** · GitHub **7457653036** · smoke UI **PASS** (390/768/1440, 11 paths) · צילומים `migration-audit/sprint3-ui-2026-10-31/{before,after}/`.
+
 ## עמודים שנבדקו (UI audit)
 
 דף הבית, Google Ads, SEO, Website Building, Social, About, מחירון, Contact, EN home/SEO/contact.
