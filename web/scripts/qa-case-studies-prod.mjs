@@ -14,9 +14,10 @@ const pages = [
       "מקומות 4–8",
       "sp-case-study-card--compact",
       "sp-case-study-list--grid",
+      "sp-case-study-badge",
     ],
     needEn: ["52 → 23.52", "33.11 → 19.50", "positions 2–8", "sp-case-study-card--compact"],
-    forbid: ["הובלות בבית שמש", "245-608"],
+    forbid: ["הובלות בבית שמש", "245-608", "sp-case-study-thumb"],
   },
   {
     path: "/google-ads/",

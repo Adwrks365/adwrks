@@ -92,11 +92,6 @@ export const CASE_STUDIES: readonly CaseStudyRecord[] = [
       en: "Rankings are from a tracking tool — not a guarantee of Google positions. The report alone does not prove traffic, lead, or revenue growth. Queries not listed are not shown as ranked.",
     },
     serviceHref: { he: "/seo/", en: "/en/seo/" },
-    portfolioImage: "/images/portfolio/menofeyhasdai.webp",
-    portfolioImageAlt: {
-      he: "צילום מסך מאתר הלקוח — עיצוב Adwrks 365",
-      en: "Client site screenshot — Adwrks 365 design",
-    },
   },
   {
     id: "cs-seo-express-hovalot",
