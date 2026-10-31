@@ -1,6 +1,7 @@
 # GEO/AEO Final Execution & Measurement — 2026-10-31
 
-**Production anchor (latest UI + cases):** `df4425f` (docs `dd76cec`) · deploy **7457711335**  
+**Production anchor (GEO final):** `fc1d07c` · GitHub deploy **7457761694**  
+**Prior anchor (UI + cases):** `df4425f` · deploy **7457711335**  
 **Method:** live fetch + `qa-geo-production-audit.mjs` + existing GSC/GA4 docs (no fabricated AI runs).
 
 ---
@@ -116,7 +117,11 @@ Updated tracker: `GEO_BASELINE_28_90_TRACKER.md` (anchor deploy).
 
 ## 8. Commits / deploy
 
-Filled after push (see execution log in `GEO_MASTER_PLAN.md`).
+| Item | Value |
+|------|--------|
+| Commit | `fc1d07c` — llms hub link, `qa-geo-production-audit.mjs`, reports |
+| GitHub Deployment ID | **7457761694** (Production) |
+| Post-deploy smoke | `qa-geo-production-audit.mjs` **PASS**; `/llms.txt` includes Hebrew service-areas hub |
 
 ---
 

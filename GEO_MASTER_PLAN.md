@@ -961,3 +961,4 @@ Pricing source of truth in code: `web/src/lib/pages/pricing-content.ts` (+ EN). 
 | 2026-10-31 | GEO/AEO final — production audit script | **`qa-geo-production-audit.mjs`** — 8 URLs, robots/llms/hreflang (hrefLang fix); Round 1 **NOT_RUN** |
 | 2026-10-31 | GEO/AEO final — llms.txt | Hebrew link to `/אזורי-פעילות/` |
 | 2026-10-31 | GEO/AEO final — measurement report | `GEO_AEO_FINAL_EXECUTION_REPORT_2026-10-31.md` + `OWNER_ACTIONS_GEO_FINAL.md`; baseline anchor **df4425f** |
+| 2026-10-31 | GEO/AEO final — deploy | **`fc1d07c`** pushed; GitHub deployment **7457761694**; prod audit PASS |
