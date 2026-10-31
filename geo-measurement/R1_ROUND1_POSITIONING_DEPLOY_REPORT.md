@@ -32,11 +32,9 @@ See **`R1_ROUND1_10_OWNER_EVIDENCE.md`** and **`runs-log.csv`** (10 rows, `OWNER
 
 ## Deploy
 
-_Fill after push:_
-
-- **Commit:** _(pending)_  
-- **Deploy ID:** _(pending)_  
-- **Production smoke:** re-run `qa-geo-production-audit.mjs`; spot-check `/about-us/`, `/seo/`, `/google-ads/`, `/llms.txt`
+- **Commit:** `14128da` (main)  
+- **Deploy ID:** _(Vercel auto — confirm in dashboard; llms.txt 850 line live ~2026-10-31)_  
+- **Production smoke:** `qa-geo-production-audit.mjs` OK; `llms.txt` 2869 bytes (850 ILS); About/SEO copy verified on prod
 
 ## Not changed (per owner lock)
 
