@@ -96,6 +96,24 @@ export function SeoServicePage({ locale = "he" }: LocaleProps) {
 
       <ServiceCaseStudySection category="seo" locale={locale} />
 
+      <Section
+        tone="muted"
+        label={c.SEO_DISCOVERABILITY.label}
+        title={c.SEO_DISCOVERABILITY.title}
+        align="start"
+        className="sp-section-discoverability"
+      >
+        <p className="sp-body-lead sp-body-lead--narrow">{c.SEO_DISCOVERABILITY.intro}</p>
+        <ul className="sp-check-list sp-check-list--compact">
+          {c.SEO_DISCOVERABILITY.points.map((point) => (
+            <li key={point}>{point}</li>
+          ))}
+        </ul>
+        <Link href={c.SEO_DISCOVERABILITY.pricingHref} className="sp-text-link">
+          {linkWithArrow(locale, c.SEO_DISCOVERABILITY.pricingLabel)}
+        </Link>
+      </Section>
+
       <Section tone="sky" label={c.SEO_AUDIENCE.label} title={c.SEO_AUDIENCE.title} align="start">
         <ul className="sp-audience-list">
           {c.SEO_AUDIENCE.items.map((item) => (

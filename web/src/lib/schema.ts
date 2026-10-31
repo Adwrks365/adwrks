@@ -9,6 +9,7 @@ export const ORGANIZATION_SAME_AS: readonly string[] = [
   SITE.social.instagram,
   SITE.social.youtube,
   SITE.mapsUrl,
+  SITE.googlePartnerUrl,
 ];
 
 /** Verified organization facts applied to the shared `#organization` entity on every locale. */

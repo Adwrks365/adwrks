@@ -13,7 +13,7 @@
 | Organic impressions/clicks | GSC Web | 92d: ~117K impr. / 161 clk (export 2026-10-30) | TBD | TBD |
 | Generative AI impressions | GSC GenAI P92 | 803 impr. (Jul–Oct 2026) | TBD | TBD |
 | Service URLs | GSC page | `/seo/` ~6.9K impr. 0 clk; `/google-ads/` ~2.7K | TBD | TBD |
-| AI recommendations | Round 1 manual | **0 runs** (EXECUTION_PENDING) | Owner | Owner |
+| AI recommendations | Round 1 manual | **Cohort A:** 8/10 mention (owner); **Cohort B:** 0/4 (Unpersonalized subset) — **separate** | Owner | Owner |
 | Site traffic | GA4 G-T4TE22LLC1 | 571 users Aug–Oct 2026 (verified report) | TBD | TBD |
 | Business leads | CRM / S2-10 sheet | Not automated on site | Owner | Owner |
 

@@ -25,7 +25,8 @@ Pricing facts (public pages, verify on quote): Google Ads management from 850 IL
 
 - [Digital marketing services overview](https://adwrks.co.il/en/digital-marketing-services/)
 - [Google Ads management](https://adwrks.co.il/en/google-ads/)
-- [SEO](https://adwrks.co.il/en/seo/)
+- [SEO](https://adwrks.co.il/en/seo/) — includes published SEO case studies (rank-tracking reports; limitations stated on page)
+- [Google Business Profile / Maps (Hebrew)](https://adwrks.co.il/%D7%A4%D7%A8%D7%A1%D7%95%D7%9D-%D7%91%D7%92%D7%95%D7%92%D7%9C-%D7%9E%D7%A4%D7%95%D7%AA/)
 - [Social media management](https://adwrks.co.il/en/social-media-management/)
 - [Website building](https://adwrks.co.il/en/website-building/)
 - [Hosting and maintenance](https://adwrks.co.il/en/hosting-plans/)
@@ -45,3 +46,4 @@ Pricing facts (public pages, verify on quote): Google Ads management from 850 IL
 - [What is AEO](https://adwrks.co.il/en/what-is-aeo/)
 - [SEO in 2026 and AI answers](https://adwrks.co.il/en/seo-2026-ai-answers/)
 - [Google Ads cost](https://adwrks.co.il/en/google-ads-cost/)
+- [Google Shopping guide (Hebrew)](https://adwrks.co.il/google-shopping-guide/)

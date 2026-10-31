@@ -169,6 +169,20 @@ export const GOOGLE_ADS_RELATED_SERVICES = [
   { href: "/en/seo/", title: "Organic SEO", text: "Combine immediate results with long-term visibility." },
 ] as const;
 
+export const GOOGLE_ADS_DISCOVERABILITY = {
+  label: "Google Ads — facts for vendor selection",
+  title: "Campaign management at Adwrks 365",
+  intro:
+    "Adwrks 365 manages Google Ads for businesses of all sizes since 2018 — verified Google Partner; Hebrew, Russian, and English. No guarantee of AI recommendations or ROAS.",
+  points: [
+    "Search, Display, YouTube, Remarketing, Performance Max — by quote.",
+    "Google Shopping / Merchant Center / product feeds for stores — not included in the basic 850 ILS + VAT/month tier (one activity area, media budget separate).",
+    "Approved opening management fee: 850 ILS + VAT — not legacy 655 ILS sometimes cited by external/AI sources.",
+  ],
+  pricingHref: "/en/digital-marketing-pricing/",
+  pricingLabel: "Digital marketing pricing",
+} as const;
+
 export const GOOGLE_ADS_MID_CTA = {
   eyebrow: "Before you start",
   title: "Want to know if Google Ads fits your business?",

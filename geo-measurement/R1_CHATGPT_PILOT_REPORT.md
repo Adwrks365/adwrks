@@ -1,13 +1,15 @@
 # R1 ChatGPT Search — pilot report
 
-**Status:** `PARTIAL_OWNER_ROUND1` — **10/30** custom owner queries logged with pasted answer text (2026-10-31). Full 30-query panel still pending. See `R1_ROUND1_10_OWNER_EVIDENCE.md`.
+**Status:** `PARTIAL_OWNER_ROUND1` — קohort **A** (10) + קohort **B** Unpersonalized (4). פאנל 30 נפרד — pending. **`R1_MEASUREMENT_COHORTS.md`** · **`R1_ROUND1_10_OWNER_EVIDENCE.md`**
 
 ## 1. Tests completed
 
 | Item | Value |
 |---|---|
 | Live ChatGPT runs by agent | **0** |
-| Owner Round 1 (10 custom queries, text evidence) | **10** — 7× #1, 8× mentioned, 2× absent (SEO, GBP) |
+| Cohort A — personalization possible (n=10) | **8** mentioned, **7**× #1, **2** absent (#3 SEO, #9 GBP) — **לא** נראות ציבורית |
+| Cohort B — Temporary Chat Unpersonalized (n=4: Q1,2,3,10) | **0/4** mentioned — OWNER_REPORTED, no screenshots |
+| A vs B on same 4 questions | A **3/4**, B **0/4** — **לא** טענה סיבתית; בדיקות חוזרות נדרשות |
 | Owner manual package | **Ready** — `R1_CHATGPT_PILOT_RUNBOOK.md`, `R1_chatgpt_pilot_sheet.csv` |
 | Evidence folder | `geo-measurement/evidence/R1/` (create screenshots here) |
 

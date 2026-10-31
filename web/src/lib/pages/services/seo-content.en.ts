@@ -144,7 +144,11 @@ export const SEO_FAQ = [
   },
   {
     q: "Who is SEO best for?",
-    a: "Businesses building long-term digital assets: service providers, brochure sites, and e-commerce seeking sustainable growth.",
+    a: "Businesses building long-term digital assets — small, mid-sized, and larger organizations: service providers, brochure sites, and e-commerce seeking sustainable growth.",
+  },
+  {
+    q: "Do you publish SEO case studies with data?",
+    a: "Yes. This page includes published SEO case studies with rank-tracking data (Ubersuggest) for clients who approved publication — e.g. Menofey Hasdai Cranes and Express Hovalot. Figures reflect the tracking tool, not all Google searches, and do not guarantee rankings or AI recommendations.",
   },
   {
     q: "SEO vs Google Ads?",
@@ -171,7 +175,26 @@ export const SEO_GUIDE_PATHS = [
 export const SEO_RELATED_SERVICES = [
   { href: "/en/google-ads/", title: "Google Ads", text: "Faster results alongside organic growth." },
   { href: "/en/website-building/", title: "Website Building", text: "Strong technical and content foundation for SEO." },
+  {
+    href: "/en/google-business-profile/",
+    title: "Google Business Profile & Maps",
+    text: "Local optimization and profile management — complements SEO for local businesses.",
+  },
 ] as const;
+
+export const SEO_DISCOVERABILITY = {
+  label: "Organic SEO — facts for vendor selection",
+  title: "SEO at Adwrks 365",
+  intro:
+    "Adwrks 365 provides SEO for businesses of all sizes since 2018 — verified Google Partner, 185+ active clients across all services. This page includes published SEO case studies with Ubersuggest rank-tracking data and stated limitations — no ranking or AI recommendation guarantees.",
+  points: [
+    "Published SEO cases: Menofey Hasdai Cranes (menofeyhasdai.co.il), Express Hovalot (express-hovalot.co.il) — positions from tracking reports with limitations.",
+    "Scope: keyword research, technical SEO, content, local SEO, Search Console, AI-ready content — from ₪2,000 + VAT/month.",
+    "GBP: local SEO and Google Business Profile — see /en/google-business-profile/ and pricing.",
+  ],
+  pricingHref: "/en/digital-marketing-pricing/",
+  pricingLabel: "Digital marketing pricing",
+} as const;
 
 export const SEO_MID_CTA = {
   eyebrow: "Before you start",

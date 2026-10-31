@@ -1,4 +1,6 @@
+import Link from "next/link";
 import { CommercialFinalCta } from "@/components/commercial/CommercialFinalCta";
+import { linkWithArrow } from "@/i18n/ui-arrows";
 import { CommercialMidCta } from "@/components/commercial/CommercialMidCta";
 import { ContextualPopupRegistrar } from "@/components/popups/ContextualPopupRegistrar";
 import { Section } from "@/components/ui/Section";
@@ -83,6 +85,24 @@ export function GoogleAdsServicePage({ locale = "he" }: LocaleProps) {
       </Section>
 
       <ServiceCaseStudySection category="google-ads" locale={locale} />
+
+      <Section
+        tone="muted"
+        label={c.GOOGLE_ADS_DISCOVERABILITY.label}
+        title={c.GOOGLE_ADS_DISCOVERABILITY.title}
+        align="start"
+        className="sp-section-discoverability"
+      >
+        <p className="sp-body-lead sp-body-lead--narrow">{c.GOOGLE_ADS_DISCOVERABILITY.intro}</p>
+        <ul className="sp-check-list sp-check-list--compact">
+          {c.GOOGLE_ADS_DISCOVERABILITY.points.map((point) => (
+            <li key={point}>{point}</li>
+          ))}
+        </ul>
+        <Link href={c.GOOGLE_ADS_DISCOVERABILITY.pricingHref} className="sp-text-link">
+          {linkWithArrow(locale, c.GOOGLE_ADS_DISCOVERABILITY.pricingLabel)}
+        </Link>
+      </Section>
 
       <Section tone="white" label={c.GOOGLE_ADS_MEASUREMENT.label} title={c.GOOGLE_ADS_MEASUREMENT.title} align="start">
         <p className="sp-body-lead sp-body-lead--narrow">{c.GOOGLE_ADS_MEASUREMENT.body}</p>

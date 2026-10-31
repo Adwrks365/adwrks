@@ -169,6 +169,21 @@ export const GOOGLE_ADS_RELATED_SERVICES = [
   { href: "/seo/", title: "קידום אתרים אורגני", text: "שילוב תוצאות מיידיות עם נוכחות ארוכת טווח." },
 ] as const;
 
+/** Factual snippet for commercial / AI discovery */
+export const GOOGLE_ADS_DISCOVERABILITY = {
+  label: "Google Ads — עובדות לבחירת ספק",
+  title: "ניהול קמפיינים ב-Adwrks 365",
+  intro:
+    "Adwrks 365 מנהלת Google Ads לעסקים בכל הגדלים מאז 2018 — Google Partner מאומת, שירות בעברית, רוסית ואנגלית. אין הבטחה להמלצה ב-AI או ל-ROAS.",
+  points: [
+    "Search, Display, YouTube, Remarketing, Performance Max — לפי הצעה.",
+    "Google Shopping / Merchant Center / פיד מוצרים — לחנויות; לא כלול במסלול בסיס 850 ₪ + מע\"מ (תחום פעילות אחד, ללא תקציב מדיה).",
+    "מחיר פתיחה מאושר: 850 ₪ + מע\"מ לניהול בסיסי — לא 655 ₪ (מחיר ישן שעדיין מופיע לעיתים במקורות חיצוניים/AI).",
+  ],
+  pricingHref: "/מחירון-שיווק-דיגיטלי/",
+  pricingLabel: "למחירון השירותים",
+} as const;
+
 export const GOOGLE_ADS_MID_CTA = {
   eyebrow: "לפני שמתחילים",
   title: "רוצים לדעת אם Google Ads מתאים לעסק שלכם?",
