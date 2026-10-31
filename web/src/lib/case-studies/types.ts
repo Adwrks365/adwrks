@@ -44,6 +44,12 @@ export type CaseStudyRecord = {
   challenge: LocalizedString;
   approach: LocalizedString;
   outcome: LocalizedString;
+  /** One-line project context on service page cards */
+  cardTeaser: LocalizedString;
+  /** Up to 3 metrics on the card face (same verified values as reports) */
+  cardMetrics: readonly CaseStudyMetric[];
+  /** Short source line on cards; full text stays in dataSource / measurementPeriod */
+  sourceNoteShort: LocalizedString;
   highlightMetrics: readonly CaseStudyMetric[];
   keywordRanks?: readonly CaseStudyKeywordRank[];
   limitations: LocalizedString;

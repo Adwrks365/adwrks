@@ -15,47 +15,45 @@ type ServiceCaseStudySectionProps = {
 const COPY = {
   he: {
     label: "מקרי בוחן",
-    title: "דוגמאות מהשטח — נתונים מאומתים",
+    title: "הוכחות מהשטח",
     pendingTitle: "מקרי בוחן — בקרוב",
     pendingBody:
       "אנחנו מכינים מקרי בוחן עם נתונים מאומתים ואישור לקוח. עד לפרסום — נשמח לשתף דוגמאות רלוונטיות בשיחת ייעוץ.",
+    sectionLead: "נתונים מאומתים, מקור ברור, והגבלות — בלי הבטחות עתידיות.",
+    detailsToggle: "פרטים, הקשר ומגבלות",
     challenge: "אתגר",
-    approach: "מה נעשה (בהתאם למידע מאומת)",
+    approach: "מה נעשה",
     outcome: "תוצאה והקשר",
     keywords: "ביטויים נבחרים (דוח מעקב)",
-    limitations: "מגבלות המדידה",
     period: "טווח מדידה",
     source: "מקור הנתונים",
     cta: "הצעת מחיר",
     serviceLink: "לעמוד השירות",
     testimony: "עדות לקוח",
-    adsData: "נתוני מערכת פרסום",
+    adsData: "נתוני Google Ads",
     adSets: "פירוט לפי סט מודעות",
-    sectionLead:
-      "דוגמאות עם תקופת מדידה, מקור נתונים והגבלות — בלי להבטיח תוצאות עתידיות. מקרי SEO מציגים דירוגים מכלי מעקב, לא כל החיפושים בגוגל.",
-    limitationsToggle: "מגבלות והסתייגויות",
+    moreMetrics: "נתונים נוספים מהדוח",
   },
   en: {
     label: "Case studies",
-    title: "Field examples — verified data",
+    title: "Proof from the field",
     pendingTitle: "Case studies — coming soon",
     pendingBody:
       "We are preparing case studies with verified data and client approval. Until publication, we can share relevant examples on a consultation call.",
+    sectionLead: "Verified figures, clear sources, and limits — no promise of future results.",
+    detailsToggle: "Details, context & limits",
     challenge: "Challenge",
-    approach: "What we did (verified scope)",
+    approach: "What we did",
     outcome: "Outcome & context",
     keywords: "Selected queries (tracking report)",
-    limitations: "Measurement limits",
     period: "Measurement period",
     source: "Data source",
     cta: "Get a quote",
     serviceLink: "Service page",
     testimony: "Client testimony",
-    adsData: "Ad platform metrics",
+    adsData: "Google Ads metrics",
     adSets: "Breakdown by ad set",
-    sectionLead:
-      "Examples include measurement period, data source, and limits — no promise of future outcomes. SEO cases show tracker rankings, not all Google searches.",
-    limitationsToggle: "Limits & disclaimers",
+    moreMetrics: "Additional report metrics",
   },
 } as const;
 
@@ -63,42 +61,33 @@ function CaseStudyCard({ study, locale }: { study: CaseStudyRecord; locale: Loca
   const copy = COPY[locale === "en" ? "en" : "he"];
   const contactHref = locale === "en" ? "/en/contact-us/" : "/contact-us/";
   const serviceHref = t(study.serviceHref, locale);
+  const cardMetrics = study.cardMetrics.length > 0 ? study.cardMetrics : study.highlightMetrics.slice(0, 3);
 
   return (
-    <article className="sp-case-study-card">
-      <header className="sp-case-study-header">
-        <p className="sp-case-study-kicker">{t(study.clientLabel, locale)}</p>
-        <h3 className="sp-case-study-title">{t(study.title, locale)}</h3>
-        <p className="sp-case-study-meta">
-          <span>{t(study.industry, locale)}</span>
-          {study.clientSiteUrl ? (
-            <>
-              {" · "}
-              <a href={study.clientSiteUrl} target="_blank" rel="noopener noreferrer" className="sp-text-link">
-                {study.clientSiteUrl.replace(/^https:\/\//, "")}
-              </a>
-            </>
-          ) : null}
-        </p>
-        <p className="sp-case-study-services">{t(study.services, locale)}</p>
-      </header>
+    <article className="sp-case-study-card sp-case-study-card--compact">
+      <div className="sp-case-study-card-head">
+        {study.portfolioImage ? (
+          <figure className="sp-case-study-thumb">
+            <Image
+              src={study.portfolioImage}
+              alt={study.portfolioImageAlt ? t(study.portfolioImageAlt, locale) : ""}
+              width={120}
+              height={68}
+              className="sp-case-study-thumb-img"
+              loading="lazy"
+            />
+          </figure>
+        ) : null}
+        <div className="sp-case-study-card-intro">
+          <h3 className="sp-case-study-title">{t(study.clientLabel, locale)}</h3>
+          <p className="sp-case-study-services">{t(study.services, locale)}</p>
+          <p className="sp-case-study-teaser">{t(study.cardTeaser, locale)}</p>
+        </div>
+      </div>
 
-      {study.portfolioImage ? (
-        <figure className="sp-case-study-media">
-          <Image
-            src={study.portfolioImage}
-            alt={study.portfolioImageAlt ? t(study.portfolioImageAlt, locale) : ""}
-            width={960}
-            height={540}
-            className="sp-case-study-img"
-            loading="lazy"
-          />
-        </figure>
-      ) : null}
-
-      {study.highlightMetrics.length > 0 ? (
-        <dl className="sp-case-study-metrics">
-          {study.highlightMetrics.map((m) => (
+      {cardMetrics.length > 0 ? (
+        <dl className="sp-case-study-metrics sp-case-study-metrics--card">
+          {cardMetrics.map((m) => (
             <div key={t(m.label, locale)} className="sp-case-study-metric">
               <dt>{t(m.label, locale)}</dt>
               <dd>{t(m.value, locale)}</dd>
@@ -107,97 +96,121 @@ function CaseStudyCard({ study, locale }: { study: CaseStudyRecord; locale: Loca
         </dl>
       ) : null}
 
-      <div className="sp-case-study-source-strip" aria-label={copy.source}>
-        <span>{t(study.measurementPeriod, locale)}</span>
-        <span className="sp-case-study-source-sep" aria-hidden="true">
-          ·
-        </span>
-        <span>{t(study.dataSource, locale)}</span>
-      </div>
+      <p className="sp-case-study-source-note">{t(study.sourceNoteShort, locale)}</p>
 
-      <div className="sp-case-study-body">
-        <p>
-          <strong>{copy.challenge}:</strong> {t(study.challenge, locale)}
-        </p>
-        <p>
-          <strong>{copy.approach}:</strong> {t(study.approach, locale)}
-        </p>
-        <p>
-          <strong>{copy.outcome}:</strong> {t(study.outcome, locale)}
-        </p>
+      <details className="sp-case-study-details">
+        <summary>{copy.detailsToggle}</summary>
+        <div className="sp-case-study-details-body">
+          <p className="sp-case-study-details-meta">
+            <strong>{copy.period}:</strong> {t(study.measurementPeriod, locale)}
+            <br />
+            <strong>{copy.source}:</strong> {t(study.dataSource, locale)}
+          </p>
+          <p>
+            <strong>{copy.challenge}:</strong> {t(study.challenge, locale)}
+          </p>
+          <p>
+            <strong>{copy.approach}:</strong> {t(study.approach, locale)}
+          </p>
+          <p>
+            <strong>{copy.outcome}:</strong> {t(study.outcome, locale)}
+          </p>
 
-        {study.keywordRanks?.length ? (
-          <div className="sp-case-study-keywords">
-            <p className="sp-case-study-keywords-title">{copy.keywords}</p>
-            <ul className="sp-case-study-kw-list">
-              {study.keywordRanks.map((kw) => (
-                <li key={kw.phrase}>
-                  «{kw.phrase}» — {locale === "en" ? "position" : "מקום"} {kw.rank}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ) : null}
+          {(() => {
+            const cardLabels = new Set(cardMetrics.map((m) => t(m.label, locale)));
+            const extra = study.highlightMetrics.filter((m) => !cardLabels.has(t(m.label, locale)));
+            if (extra.length === 0) return null;
+            return (
+              <div className="sp-case-study-more-metrics">
+                <p className="sp-case-study-keywords-title">{copy.moreMetrics}</p>
+                <dl className="sp-case-study-metrics sp-case-study-metrics--compact">
+                  {extra.map((m) => (
+                    <div key={`full-${t(m.label, locale)}`} className="sp-case-study-metric">
+                      <dt>{t(m.label, locale)}</dt>
+                      <dd>{t(m.value, locale)}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            );
+          })()}
 
-        {study.testimony ? (
-          <blockquote className="sp-case-study-testimony">
-            <p className="sp-case-study-testimony-label">{copy.testimony}</p>
-            <p className="sp-case-study-quote">{t(study.testimony.quote, locale)}</p>
-            <footer>{t(study.testimony.attribution, locale)}</footer>
-          </blockquote>
-        ) : null}
-
-        {study.adsSnapshot ? (
-          <div className="sp-case-study-ads">
-            <p className="sp-case-study-ads-title">{t(study.adsSnapshot.title, locale)}</p>
-            <p className="sp-case-study-ads-period">
-              {t(study.adsSnapshot.period, locale)} · {t(study.adsSnapshot.sourceLabel, locale)}
-            </p>
-            <dl className="sp-case-study-metrics sp-case-study-metrics--compact">
-              {study.adsSnapshot.metrics.map((m) => (
-                <div key={t(m.label, locale)} className="sp-case-study-metric">
-                  <dt>{t(m.label, locale)}</dt>
-                  <dd>{t(m.value, locale)}</dd>
-                </div>
-              ))}
-            </dl>
-            <p className="sp-case-study-disclaimer">{t(study.adsSnapshot.disclaimer, locale)}</p>
-          </div>
-        ) : null}
-
-        {study.metaAdSets?.length ? (
-          <div className="sp-case-study-adsets">
-            <p className="sp-case-study-adsets-title">{copy.adSets}</p>
-            <div className="sp-case-study-adsets-grid">
-              {study.metaAdSets.map((set) => (
-                <div key={t(set.label, locale)} className="sp-case-study-adset">
-                  <p className="sp-case-study-adset-label">{t(set.label, locale)}</p>
-                  <ul className="sp-check-list sp-check-list--compact">
-                    {set.metrics.map((m) => (
-                      <li key={t(m.label, locale)}>
-                        <strong>{t(m.label, locale)}:</strong> {t(m.value, locale)}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+          {study.keywordRanks?.length ? (
+            <div className="sp-case-study-keywords">
+              <p className="sp-case-study-keywords-title">{copy.keywords}</p>
+              <ul className="sp-case-study-kw-list">
+                {study.keywordRanks.map((kw) => (
+                  <li key={kw.phrase}>
+                    «{kw.phrase}» — {locale === "en" ? "position" : "מקום"} {kw.rank}
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
-        ) : null}
+          ) : null}
 
-        <details className="sp-case-study-limitations-details">
-          <summary>{copy.limitationsToggle}</summary>
-          <p>{t(study.limitations, locale)}</p>
-        </details>
-      </div>
+          {study.testimony ? (
+            <blockquote className="sp-case-study-testimony">
+              <p className="sp-case-study-testimony-label">{copy.testimony}</p>
+              <p className="sp-case-study-quote">{t(study.testimony.quote, locale)}</p>
+              <footer>{t(study.testimony.attribution, locale)}</footer>
+            </blockquote>
+          ) : null}
+
+          {study.adsSnapshot ? (
+            <div className="sp-case-study-ads">
+              <p className="sp-case-study-ads-title">{t(study.adsSnapshot.title, locale)}</p>
+              <p className="sp-case-study-ads-period">
+                {t(study.adsSnapshot.period, locale)} · {t(study.adsSnapshot.sourceLabel, locale)}
+              </p>
+              <dl className="sp-case-study-metrics sp-case-study-metrics--compact">
+                {study.adsSnapshot.metrics.map((m) => (
+                  <div key={t(m.label, locale)} className="sp-case-study-metric">
+                    <dt>{t(m.label, locale)}</dt>
+                    <dd>{t(m.value, locale)}</dd>
+                  </div>
+                ))}
+              </dl>
+              <p className="sp-case-study-disclaimer">{t(study.adsSnapshot.disclaimer, locale)}</p>
+            </div>
+          ) : null}
+
+          {study.metaAdSets?.length ? (
+            <div className="sp-case-study-adsets">
+              <p className="sp-case-study-adsets-title">{copy.adSets}</p>
+              <div className="sp-case-study-adsets-grid">
+                {study.metaAdSets.map((set) => (
+                  <div key={t(set.label, locale)} className="sp-case-study-adset">
+                    <p className="sp-case-study-adset-label">{t(set.label, locale)}</p>
+                    <ul className="sp-check-list sp-check-list--compact">
+                      {set.metrics.map((m) => (
+                        <li key={t(m.label, locale)}>
+                          <strong>{t(m.label, locale)}:</strong> {t(m.value, locale)}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : null}
+
+          <p className="sp-case-study-disclaimer">{t(study.limitations, locale)}</p>
+        </div>
+      </details>
 
       <div className="sp-case-study-actions">
         <Button href={contactHref} size="md">
           {copy.cta}
         </Button>
-        <Link href={serviceHref} className="sp-text-link">
-          {linkWithArrow(locale, copy.serviceLink)}
-        </Link>
+        {study.clientSiteUrl ? (
+          <a href={study.clientSiteUrl} target="_blank" rel="noopener noreferrer" className="sp-text-link">
+            {study.clientSiteUrl.replace(/^https:\/\//, "")}
+          </a>
+        ) : (
+          <Link href={serviceHref} className="sp-text-link">
+            {linkWithArrow(locale, copy.serviceLink)}
+          </Link>
+        )}
       </div>
     </article>
   );
@@ -206,6 +219,7 @@ function CaseStudyCard({ study, locale }: { study: CaseStudyRecord; locale: Loca
 export function ServiceCaseStudySection({ category, locale = "he" }: ServiceCaseStudySectionProps) {
   const published = getPublishedCaseStudies(category);
   const copy = COPY[locale === "en" ? "en" : "he"];
+  const gridMulti = published.length > 1;
 
   if (published.length === 0) {
     return (
@@ -218,7 +232,7 @@ export function ServiceCaseStudySection({ category, locale = "he" }: ServiceCase
   return (
     <Section tone="muted" label={copy.label} title={copy.title} align="start" className="sp-section-case-studies">
       <p className="sp-body-text sp-body-text--narrow sp-case-study-section-lead">{copy.sectionLead}</p>
-      <div className="sp-case-study-list">
+      <div className={`sp-case-study-list${gridMulti ? " sp-case-study-list--grid" : ""}`}>
         {published.map((study) => (
           <CaseStudyCard key={study.id} study={study} locale={locale} />
         ))}

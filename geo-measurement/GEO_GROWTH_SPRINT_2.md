@@ -328,3 +328,25 @@ PDF/צילומים: **`case-study-sources/`** (ארכיון **מקומי בלב�
 **QA:** `verify-case-study-sources.mjs` · typecheck · build · lint baseline · prod smoke `qa-case-studies-prod.mjs`.
 
 **Commit / deploy:** **`6525c37`** · GitHub deployment **7457537564** · live `data-dpl-id` **`dpl_BMbs93LJgHxBtbechiwr9d1kM8AT`** · prod smoke **PASS** (`qa-case-studies-prod.mjs`).
+
+---
+
+## 20. Case study UX — compact cards (2026-10-31)
+
+**Before:** כרטיסים ארוכים עם challenge/approach/outcome, רשימות ביטויים, תמונות full-width — בעיקר ב-`/seo/` (2 מקרים).
+
+**After:** כרטיסים קומפקטיים (`sp-case-study-card--compact`), עד 3 מטריקות, teaser קצר, מקור קצר, `<details>` לפרטים/מגבלות; SEO ב-grid דו-עמודתי בדסקטופ.
+
+**Deploy:** (SHA + ID — see `GEO_MASTER_PLAN.md` after push).
+
+### המשך צמיחה (לא בוצע במשימה זו)
+
+| עדיפות | משימה |
+|--------|--------|
+| P0 | Round 1 ChatGPT (30 שאילתות) — `R1_CHATGPT_PILOT_RUNBOOK.md` |
+| P0 | E1–E6 off-site (GBP, directories, sameAs) — `SPRINT2_EXTERNAL_ACTIONS.md` |
+| P1 | B4 תנאי התקשרות + FAQ ציבורי |
+| P1 | Entity schema (`sameAs`, Person founders EN) |
+| P2 | S2-09 SEO 301 / legacy 404 policy |
+| P2 | Meta client publication authorization (case anonymous) |
+| Track | `GEO_BASELINE_28_90_TRACKER.md` — GSC/GenAI 28d/90d |

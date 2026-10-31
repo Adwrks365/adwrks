@@ -45,6 +45,28 @@ export const CASE_STUDIES: readonly CaseStudyRecord[] = [
       he: "בדוח המעקב נרשם שיפור במיקום הממוצע של קבוצת הביטויים מ-52 ל-23.52, לצד ביטויים בדירוגים גבוהים באזורי שירות מרכזיים. לאורך התקופה נרשמו גם ביטויים בירידה (3 בדוח). בתקופה האחרונה, בסמוך למעבר האתר לפלטפורמה אחרת, נצפתה תנודתיות בחלק מהביטויים — אין לייחס את כל השינוי למעבר בלי אבחון נוסף. הנתונים משקפים את כלי המעקב — לא את כל החיפושים בגוגל.",
       en: "The tracking report shows average position for the monitored set improving from 52 to 23.52, with strong positions on selected central-service queries. Three tracked queries declined in the report summary. Recently, around a platform migration, some queries showed volatility — not all changes can be attributed to migration without further diagnosis. Figures reflect the tracking tool — not all Google searches.",
     },
+    cardTeaser: {
+      he: "קידום אורגני לעסק מנופי הרמה באזור המרכז — מעקב ביטויים ושיפור נראות מקומית.",
+      en: "Organic SEO for crane services in central Israel — keyword tracking and local visibility.",
+    },
+    cardMetrics: [
+      {
+        label: { he: "מיקום ממוצע במעקב", en: "Avg. tracked position" },
+        value: { he: "52 → 23.52", en: "52 → 23.52" },
+      },
+      {
+        label: { he: "ביטויים נבחרים", en: "Selected queries" },
+        value: { he: "מקומות 2–8", en: "positions 2–8" },
+      },
+      {
+        label: { he: "ביטויים במעקב", en: "Keywords tracked" },
+        value: { he: "86", en: "86" },
+      },
+    ],
+    sourceNoteShort: {
+      he: "מקור: דוח מעקב דירוגים (Ubersuggest) · menofeyhasdai.co.il",
+      en: "Source: rank tracking report (Ubersuggest) · menofeyhasdai.co.il",
+    },
     highlightMetrics: [
       {
         label: { he: "ביטויים במעקב", en: "Keywords tracked" },
@@ -114,6 +136,28 @@ export const CASE_STUDIES: readonly CaseStudyRecord[] = [
       he: "לאורך תקופת המעקב נרשמה מגמת שיפור במיקום הממוצע של קבוצת הביטויים (33.11 → 19.50 לפי דוח UBS), לצד 28 ביטויים בירידה ו-10 בעלייה בסיכום הדוח (31.10.2026) — תנודתיות בולטת, במיוחד לאחר מעבר האתר לפלטפורמה אחרת, בלי לייחס את כל הירידות למעבר בלי אבחון נוסף.",
       en: "Over the tracking period, average position for the monitored set improved (33.11 → 19.50 per UBS), while the Oct 31, 2026 export also shows 28 keywords down and 10 up — notable volatility, especially after a platform migration, without attributing every drop to migration alone.",
     },
+    cardTeaser: {
+      he: "קידום מקומי להובלות ואחסון בירושלים — מגמת התקדמות לאורך תקופת המעקב, עם תנודתיות בתקופה האחרונה.",
+      en: "Local SEO for moving and storage in Jerusalem — progress over the tracking period, with recent volatility.",
+    },
+    cardMetrics: [
+      {
+        label: { he: "מיקום ממוצע במעקב", en: "Avg. tracked position" },
+        value: { he: "33.11 → 19.50", en: "33.11 → 19.50" },
+      },
+      {
+        label: { he: "ביטויים נבחרים", en: "Selected queries" },
+        value: { he: "מקומות 4–8", en: "positions 4–8" },
+      },
+      {
+        label: { he: "ביטויים במעקב", en: "Keywords tracked" },
+        value: { he: "59", en: "59" },
+      },
+    ],
+    sourceNoteShort: {
+      he: "מקור: דוח מעקב דירוגים (Ubersuggest) · express-hovalot.co.il",
+      en: "Source: rank tracking report (Ubersuggest) · express-hovalot.co.il",
+    },
     highlightMetrics: [
       {
         label: { he: "ביטויים במעקב", en: "Keywords tracked" },
@@ -177,6 +221,28 @@ export const CASE_STUDIES: readonly CaseStudyRecord[] = [
       he: "שילוב בין אתר, קמפיין ממומן וליווי — עם עדות הלקוח על עלייה בכמות הפניות (ראו להלן, נפרד מנתוני המדיה).",
       en: "Combined website, paid search, and support — with separate client testimony on inquiry volume (below, distinct from media metrics).",
     },
+    cardTeaser: {
+      he: "אתר, Google Ads וליווי שוטף — שיתוף פעולה ארוך טווח עם לקוח ותיק.",
+      en: "Website, Google Ads, and ongoing support — long-term partnership with an established client.",
+    },
+    cardMetrics: [
+      {
+        label: { he: "פניות (ביקורת לקוח)", en: "Inquiries (client review)" },
+        value: { he: "עלייה של כ-350%", en: "~350% increase" },
+      },
+      {
+        label: { he: "קליקים — Google Ads", en: "Clicks — Google Ads" },
+        value: { he: "450", en: "450" },
+      },
+      {
+        label: { he: "עלות ממוצעת לקליק", en: "Avg. CPC" },
+        value: { he: "₪3.32", en: "₪3.32" },
+      },
+    ],
+    sourceNoteShort: {
+      he: "מקור: ביקורת באתר + צילום Google Ads (אוקטובר 2026) — נפרדים זה מזה",
+      en: "Source: on-site review + Google Ads screenshot (Oct 2026) — kept separate",
+    },
     highlightMetrics: [],
     limitations: {
       he: "עליית 350% — לפי דברי הלקוח בביקורת, לא לפי דוח Google Ads. נתוני הקליקים/חשיפות מתייחסים לתקופה המצולמת בלבד ואינם מייצגים בהכרח את כל תקופת ההתקשרות. אין כאן דוח המרות שמוכיח 350% במערכת הפרסום.",
@@ -237,6 +303,28 @@ export const CASE_STUDIES: readonly CaseStudyRecord[] = [
     outcome: {
       he: "7 שיחות מסנג'ר שהתחילו בסט מעורבות, ו-6 לידים בסט לידים — לפי Meta Ads Manager. זה לא 13 «לקוחות» או עסקאות, ואין חישוב ממוצע משוקלל של עלות לתוצאה בין הסטים.",
       en: "7 messaging conversations started in the engagement ad set and 6 leads in the leads ad set — per Meta Ads Manager. Not 13 customers or closed deals; no blended average cost across sets.",
+    },
+    cardTeaser: {
+      he: "ניהול שני סטי מודעות — מעורבות (מסנג'ר) ולידים מטופס — בתקופת מדידה קצרה.",
+      en: "Two ad sets managed — engagement (messaging) and form leads — over a short measurement window.",
+    },
+    cardMetrics: [
+      {
+        label: { he: "שיחות מסנג'ר", en: "Messaging conversations" },
+        value: { he: "7", en: "7" },
+      },
+      {
+        label: { he: "לידים מטופס", en: "Form leads" },
+        value: { he: "6", en: "6" },
+      },
+      {
+        label: { he: "עלות לליד (סט לידים)", en: "Cost per lead (leads set)" },
+        value: { he: "₪34.31", en: "₪34.31" },
+      },
+    ],
+    sourceNoteShort: {
+      he: "מקור: Meta Ads Manager (צילום) · לקוח אנונימי",
+      en: "Source: Meta Ads Manager (screenshot) · anonymous client",
     },
     highlightMetrics: [
       {
