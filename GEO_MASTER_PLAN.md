@@ -936,4 +936,4 @@ Pricing source of truth in code: `web/src/lib/pages/pricing-content.ts` (+ EN). 
 | 2026-10-31 | Sprint 2 plan approved (research) | `GEO_GROWTH_SPRINT_2.md` — 10 actions, case study intake, Round 1 parallel |
 | 2026-10-31 | Sprint 2 site implementation | **`a23cfe1`** — Hub FAQ, Ads/SEO scope, About, posts 14288/17923, case-study shell; GitHub deployment **7457352889** (Production) |
 | 2026-10-31 | Case studies published | **`115f5a1`** — 4 verified cases on service pages; deploy **7457440882** |
-| 2026-10-31 | Sprint 2 closure | Case-study UX + Meta neutral copy + Hub discoverability + SEO price links + 28/90 tracker (commit TBD after push) |
+| 2026-10-31 | Sprint 2 closure | **`930e049`** — case-study UX, Meta neutral copy, Hub discoverability, SEO price links, trackers; deploy **7457486322** |
