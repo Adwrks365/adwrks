@@ -1,7 +1,9 @@
 # GEO / SEO baseline tracker — 28 & 90 days
 
-**Anchor deploy (GEO final execution):** `df4425f` (2026-10-31) — case studies + UI hub + llms  
-**Prior anchor:** `115f5a1` (case studies first publish)  
+**Measurement anchor (GEO closure):** `fc1d07c` · deploy **7457761694** (2026-10-31)  
+**Latest production commit:** `14c909a` · deploy **7457871919** (UX only — same GEO baseline)  
+**28-day check target:** 2026-11-28 · **90-day:** 2026-01-29  
+**Prior anchors:** `df4425f`, `115f5a1`  
 **Do not attribute single-metric moves to one change without evidence.**
 
 ## Layers (keep separate)

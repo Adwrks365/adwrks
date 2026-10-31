@@ -1,4 +1,6 @@
-# Owner actions — GEO/AEO final (2026-10-31)
+# Owner actions — GEO/AEO (project closure)
+
+**Supersedes checklist only for ordering; full context:** `GEO_AEO_PROJECT_CLOSURE.md` §11.
 
 Complete manually; do not fabricate results in `runs-log.csv`.
 

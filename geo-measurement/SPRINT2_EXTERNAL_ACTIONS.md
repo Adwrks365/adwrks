@@ -1,6 +1,6 @@
 # Sprint 2 — External authority & Round 1 (owner / off-repo)
 
-**Status (2026-10-31 final pass):** E1–E6 remain **owner**; site sameAs unchanged; Round 1 **NOT_RUN** (0 agent sessions). See `GEO_AEO_FINAL_EXECUTION_REPORT_2026-10-31.md`.
+**Status (2026-10-31 project closure):** E1–E6 **owner**; public FB/IG/Partner URL live; Round 1 **NOT_RUN**. See `GEO_AEO_PROJECT_CLOSURE.md` §4.
 
 ## E1–E6 (from GEO_GROWTH_SPRINT_2.md)
 

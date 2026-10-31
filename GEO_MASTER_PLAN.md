@@ -19,6 +19,7 @@ Companion documents:
 - **Growth phase (2026-10-31, plan + drafts only):** `geo-measurement/GEO_GROWTH_ROADMAP_90_DAYS.md` — business growth engine; baseline docs are **not** re-opened for repeated micro-analysis.
 - **Growth Sprint 1 (2026-10-31):** `geo-measurement/GEO_GROWTH_SPRINT_1.md` v2 — **Production** commit `62b9d60` (StartingOffer, P-01, FAQ sync, posts GO #1–7/#9).
 - **GEO/AEO final execution (2026-10-31):** `geo-measurement/GEO_AEO_FINAL_EXECUTION_REPORT_2026-10-31.md` · owner checklist `OWNER_ACTIONS_GEO_FINAL.md` · prod audit `web/scripts/qa-geo-production-audit.mjs`.
+- **GEO/AEO project closure (2026-10-31):** `geo-measurement/GEO_AEO_PROJECT_CLOSURE.md` — infrastructure **READY TO CLOSE**; Round 1 + GA4 collect + GBP = owner.
 
 ---
 
@@ -35,6 +36,20 @@ Companion documents:
 | Round 1 AI (30 queries × engines) | **NOT_RUN** — 0 authorized neutral sessions |
 | GA4 collect / Realtime / CTA events | **NOT_VERIFIED** — diagnostic only; no tag changes |
 | 28 / 90 day follow-up exports | **NOT_RUN** — calendar owner actions in `GEO_BASELINE_28_90_TRACKER.md` |
+
+---
+
+## 0.3 GEO/AEO project closure (2026-10-31)
+
+| Workstream | Status |
+|---|---|
+| On-site technical SEO/GEO + service commercial baseline | **COMPLETE** / **VERIFIED IN PRODUCTION** |
+| Round 1 AI (30 × engines) | **NOT_RUN** — `runs-log.csv` empty |
+| External E1–E6 (login / outreach) | **NOT_RUN / OWNER** — public FB/IG/Partner URL **VERIFIED (exists)** |
+| Entity / JSON-LD | **VERIFIED** — no change this closure |
+| GA4 collect / Realtime / CTA events | **NOT_VERIFIED** / spec in `GA4_MAIN_PROPERTY_DIAGNOSTIC.md` §14 |
+| Closure document | **COMPLETE** — `GEO_AEO_PROJECT_CLOSURE.md` |
+| **Program phase** | **Infrastructure ready to close** → **growth = owner measurement + authority** |
 
 ---
 
@@ -962,3 +977,5 @@ Pricing source of truth in code: `web/src/lib/pages/pricing-content.ts` (+ EN). 
 | 2026-10-31 | GEO/AEO final — llms.txt | Hebrew link to `/אזורי-פעילות/` |
 | 2026-10-31 | GEO/AEO final — measurement report | `GEO_AEO_FINAL_EXECUTION_REPORT_2026-10-31.md` + `OWNER_ACTIONS_GEO_FINAL.md`; baseline anchor **df4425f** |
 | 2026-10-31 | GEO/AEO final — deploy | **`fc1d07c`** pushed; GitHub deployment **7457761694**; prod audit PASS |
+| 2026-10-31 | Premium UX (out of GEO scope) | **`14c909a`** · deploy **7457871919** |
+| 2026-10-31 | GEO/AEO project closure | **`GEO_AEO_PROJECT_CLOSURE.md`** — Round 1 **NOT_RUN**; no GEO code deploy |
