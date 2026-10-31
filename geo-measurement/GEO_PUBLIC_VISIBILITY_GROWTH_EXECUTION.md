@@ -91,11 +91,9 @@ Public profiles **exist** (FB, IG, YT, Maps) — see `GEO_AEO_PROJECT_CLOSURE.md
 
 ## 8. Deploy record
 
-_Fill after push:_
-
-- **Commit SHA:** _(pending)_  
-- **Deployment ID:** _(pending)_  
-- **Production smoke:** discoverability sections on `/seo/`, `/google-ads/`; About `sameAs` count includes Partner URL
+- **Commit SHA:** `e1db36d` (includes cohort docs + prior `14128da` positioning)  
+- **Deployment ID:** _(Vercel auto — confirm in dashboard)_  
+- **Production smoke:** `/seo/` discoverability + case FAQ; `/google-ads/` Shopping/850 block; `llms.txt` Maps + SEO case note; org `sameAs` + Partner URL after deploy
 
 ---
 
