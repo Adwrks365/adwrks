@@ -938,3 +938,4 @@ Pricing source of truth in code: `web/src/lib/pages/pricing-content.ts` (+ EN). 
 | 2026-10-31 | Case studies published | **`115f5a1`** — 4 verified cases on service pages; deploy **7457440882** |
 | 2026-10-31 | Sprint 2 closure | **`930e049`** — case-study UX, Meta neutral copy, Hub discoverability, SEO price links, trackers; deploy **7457486322** |
 | 2026-10-31 | Case study PDF cross-check deploy | **`6525c37`** — Express/Meta/Tal data fixes, verify scripts, source log; GitHub deployment **7457537564**; live `data-dpl-id` **`dpl_BMbs93LJgHxBtbechiwr9d1kM8AT`**; PDFs **not** in Git |
+| 2026-10-31 | Case study UX compact cards | **`4bd54be`** — grid SEO, card teasers, details for full data; GitHub deployment **7457594103**; smoke **PASS** |

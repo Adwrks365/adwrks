@@ -337,7 +337,7 @@ PDF/צילומים: **`case-study-sources/`** (ארכיון **מקומי בלב�
 
 **After:** כרטיסים קומפקטיים (`sp-case-study-card--compact`), עד 3 מטריקות, teaser קצר, מקור קצר, `<details>` לפרטים/מגבלות; SEO ב-grid דו-עמודתי בדסקטופ.
 
-**Deploy:** (SHA + ID — see `GEO_MASTER_PLAN.md` after push).
+**Deploy:** **`4bd54be`** · GitHub **7457594103** · prod smoke **PASS** · צילומים: `migration-audit/case-study-ux-2026-10-31/` (gitignored PNG).
 
 ### המשך צמיחה (לא בוצע במשימה זו)
 
