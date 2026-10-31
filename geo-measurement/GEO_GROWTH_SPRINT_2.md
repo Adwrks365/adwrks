@@ -327,4 +327,4 @@ PDF/צילומים: **`case-study-sources/`** (ארכיון **מקומי בלב�
 
 **QA:** `verify-case-study-sources.mjs` · typecheck · build · lint baseline · prod smoke `qa-case-studies-prod.mjs`.
 
-**Commit / deploy:** (filled after push — see `GEO_MASTER_PLAN.md` execution log).
+**Commit / deploy:** **`6525c37`** · GitHub deployment **7457537564** · live `data-dpl-id` **`dpl_BMbs93LJgHxBtbechiwr9d1kM8AT`** · prod smoke **PASS** (`qa-case-studies-prod.mjs`).
