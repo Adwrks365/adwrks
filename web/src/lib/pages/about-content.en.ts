@@ -6,7 +6,7 @@ export const ABOUT_HERO = {
   eyebrow: "Digital Marketing Agency • Since 2018",
   /** Preserve verified H1 intent from production extract */
   h1: "Adwrks 365 – Boutique Digital Marketing Agency",
-  lead: "A boutique digital marketing agency since 2018, providing ongoing support to small, medium, and large businesses — with a focus on real results and personal service.",
+  lead: "Adwrks 365 — a digital marketing agency for businesses of all sizes, from small and mid-sized companies to larger organizations, with marketing tailored to scope, budget, and goals. Boutique since 2018 — personal service, transparency, and measurable results.",
   intro:
     "We operate in a fully digital model — no in-person meetings and no middlemen. That lets us reduce unnecessary overhead and offer especially competitive pricing — without compromising professionalism, availability, or transparency.",
   primaryCta: "Let's talk about your business marketing",

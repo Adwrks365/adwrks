@@ -53,7 +53,7 @@ export const GOOGLE_ADS_CAMPAIGNS = {
     },
     {
       title: "Google Shopping",
-      text: "קמפיינים למוצרים וחנויות — פיד, Merchant Center וקידום בחיפוש. לא כלול במסלול הבסיסי; לפי הצעה.",
+      text: "ניהול קמפיינים לחנויות אינטרנטיות — Merchant Center, פיד מוצרים, Shopping ו-Performance Max. לא כלול במסלול הבסיסי (850 ₪); לפי הצעה.",
       icon: "shopping" as const,
     },
     {

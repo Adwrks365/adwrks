@@ -238,13 +238,13 @@ export const HOMEPAGE_PARTNERS = {
 } as const;
 
 export const HOMEPAGE_ABOUT = {
-  label: "Certified Facebook & Google partners",
+  label: "Google Partner · boutique agency since 2018",
   title: "Boutique agency for digital strategy & growth",
-  subtitle: "Building your digital authority in the AI era",
+  subtitle: "Digital marketing for businesses of all sizes",
   lead: "Building your digital authority in the AI era",
-  body: "Since 2018, Adwrks 365 has helped businesses achieve measurable digital success through smart strategy, advanced technology, and creative that converts. We focus on ROI, personal service, and long-term growth.",
+  body: "Since 2018, Adwrks 365 has supported small, mid-sized, and large businesses — including companies and organizations — with strategy, technology, and creative, personal service, and ROI-focused growth. Service in Hebrew, Russian, and English.",
   servicesTitle: "Services we offer",
-  trustPartners: "Working with Google & Meta",
+  trustPartners: "Google Partner · Meta Ads (Facebook & Instagram)",
 } as const;
 
 export const HOMEPAGE_MID_CTA = {

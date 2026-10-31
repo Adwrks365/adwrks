@@ -78,7 +78,7 @@ export const PRICING_MARKETING_CARDS: readonly PricingCard[] = [
     icon: "📍",
     title: "קידום בגוגל מפות",
     description:
-      "אופטימיזציה של Google Business Profile, ניהול ביקורות, תמונות ופוסטים, והגברת נראות מקומית. קריטי לעסקים מקומיים.",
+      "אופטימיזציה מקצועית של Google Business Profile — קטגוריות, שירותים, תיאור, תמונות ופוסטים, תהליך לביקורות אותנטיות, מעקב חשיפות/שיחות/ניווטים. קריטי לעסקים מקומיים.",
     priceAmount: 400,
     pricePrefix: "החל מ־",
     billingPeriod: "לחודש",
@@ -226,7 +226,7 @@ export const PRICING_CHANNELS = {
 } as const;
 
 export const PRICING_TRUST = {
-  badge: "Google Partner · Meta Business Partner",
+  badge: "Google Partner · קמפיינים ב-Meta",
   since: "סוכנות שיווק דיגיטלי מאז 2018",
   supporting:
     "ליווי אישי, שקיפות מלאה ומחירי התחלה ברורים — כדי שתדעו מה מצפה לכם לפני שמתחילים.",

@@ -43,7 +43,7 @@ export function PartnerBadges({
         <div className="partner-badge-item partner-badge-item--meta" role="listitem">
           <Image
             src={META_PARTNER_BADGE.src}
-            alt="Meta Business Partner"
+            alt="פרסום ב-Meta (Facebook ו-Instagram)"
             width={META_PARTNER_BADGE.width}
             height={META_PARTNER_BADGE.height}
             loading="lazy"

@@ -3,7 +3,7 @@ export const SEO_PATH = "/seo/" as const;
 export const SEO_HERO = {
   badge: "קידום אורגני • מאז 2018",
   title: "קידום אתרים אורגני (SEO)",
-  lead: "קידום אורגני שמכוון לידים ותנועה רלוונטית — לא רק מיקומים. מאז 2018 · Google Partner.",
+  lead: "קידום אורגני שמכוון לידים ותנועה רלוונטית — לא רק מיקומים. מאז 2018 · Google Partner · מקרי בוחן עם נתונים מאומתים בעמוד זה.",
 };
 
 export const SEO_STARTING_OFFER = {
@@ -54,7 +54,7 @@ export const SEO_SCOPE = {
     },
     {
       title: "קידום מקומי",
-      text: "התאמה לחיפוש מקומי, חיבור ל-Google Business Profile ולנוכחות Maps — בשילוב עם המדריכים הרלוונטיים.",
+      text: "התאמה לחיפוש מקומי, אופטימיזציה וניהול Google Business Profile (קטגוריות, פוסטים, ביקורות) ונראות ב-Maps — בשילוב עם המדריכים הרלוונטיים.",
     },
     {
       title: "מדידה ב-Search Console",

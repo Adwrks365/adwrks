@@ -211,7 +211,7 @@ export const PRICING_CHANNELS = {
 } as const;
 
 export const PRICING_TRUST = {
-  badge: "Google Partner · Meta Business Partner",
+  badge: "Google Partner · Meta Ads",
   since: "Digital marketing agency since 2018",
   supporting:
     "Personal support, full transparency, and clear starting prices — so you know what to expect before we begin.",
