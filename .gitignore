@@ -5,6 +5,9 @@
 /node_modules/
 
 # Secrets. web/.gitignore covers the app directory.
+
+# Case study source PDFs — local archive only (never commit or publish)
+geo-measurement/case-study-sources/*.pdf
 .env
 .env.*
 !.env.example

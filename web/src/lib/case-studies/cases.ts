@@ -111,8 +111,8 @@ export const CASE_STUDIES: readonly CaseStudyRecord[] = [
       en: "Ongoing SEO, keyword tracking, and optimization as needed — without attributing shifts to a single action without evidence.",
     },
     outcome: {
-      he: "לאורך תקופת המעקב נרשמה מגמת שיפור משמעותית במיקומי קבוצת ביטויי המפתח שנמדדה (מיקום ממוצע בדוח מ-33.11 ל-19.50), לצד תנודתיות בתקופה האחרונה לאחר מעבר האתר לפלטפורמה אחרת. חלק מהביטויים ירדו בדוח — במיוחד בשבועות האחרונים — ואין לייחס את כל הירידות למעבר בלי בדיקה נוספת.",
-      en: "Over the tracking period, the monitored keyword set showed meaningful average-position improvement (report avg. 33.11 → 19.50), alongside volatility after a recent platform migration. Some queries declined in the report — especially in recent weeks — and not all drops can be attributed to migration without further review.",
+      he: "לאורך תקופת המעקב נרשמה מגמת שיפור במיקום הממוצע של קבוצת הביטויים (33.11 → 19.50 לפי דוח UBS), לצד 28 ביטויים בירידה ו-10 בעלייה בסיכום הדוח (31.10.2026) — תנודתיות בולטת, במיוחד לאחר מעבר האתר לפלטפורמה אחרת, בלי לייחס את כל הירידות למעבר בלי אבחון נוסף.",
+      en: "Over the tracking period, average position for the monitored set improved (33.11 → 19.50 per UBS), while the Oct 31, 2026 export also shows 28 keywords down and 10 up — notable volatility, especially after a platform migration, without attributing every drop to migration alone.",
     },
     highlightMetrics: [
       {
@@ -123,12 +123,16 @@ export const CASE_STUDIES: readonly CaseStudyRecord[] = [
         label: { he: "מיקום ממוצע (דוח)", en: "Avg. position (report)" },
         value: { he: "33.11 → 19.50", en: "33.11 → 19.50" },
       },
+      {
+        label: { he: "סיכום תנועה בדוח (31.10.2026)", en: "Report movement summary (Oct 31, 2026)" },
+        value: { he: "10 בעלייה · 28 בירידה · 21 ללא שינוי", en: "10 up · 28 down · 21 unchanged" },
+      },
     ],
     keywordRanks: [
       { phrase: "הובלות קטנות בירושלים", rank: 4 },
       { phrase: "הובלת משרדים בירושלים", rank: 5 },
       { phrase: "שירותי אחסון בירושלים", rank: 6 },
-      { phrase: "הובלות בבית שמש", rank: 8 },
+      { phrase: "הובלות בזול בירושלים", rank: 8 },
     ],
     limitations: {
       he: "מגמת השיפור מתייחסת לקבוצת ביטויים במעקב, לא לכל החיפושים. אין הסקה מדוח הדירוגים בלבד על לידים או הכנסות. תאריך מדויק לנקודת השוואה לפני המעבר — לעדכון כאשר יוצגו נתוני GSC/דוח מלא.",
@@ -154,8 +158,8 @@ export const CASE_STUDIES: readonly CaseStudyRecord[] = [
       en: "Website build · Google Ads management · Ongoing support",
     },
     measurementPeriod: {
-      he: "עדות לקוח — ללא תאריך מדויק בביקורת; נתוני Ads — אוקטובר 2026 (יש לאמת טווח מדויק בממשק)",
-      en: "Client testimony — undated on site; Ads data — October 2026 (confirm exact range in account)",
+      he: "עדות לקוח — ללא תאריך מדויק בביקורת; נתוני Ads — 1–31 באוקטובר 2026 (Google Ads)",
+      en: "Client testimony — undated on site; Ads data — Oct 1–31, 2026 (Google Ads)",
     },
     dataSource: {
       he: "ביקורת לקוח מפורסמת בדף הבית · צילום Google Ads (אוקטובר 2026)",
@@ -186,7 +190,7 @@ export const CASE_STUDIES: readonly CaseStudyRecord[] = [
     },
     adsSnapshot: {
       title: { he: "תמונת מצב Google Ads — אוקטובר 2026", en: "Google Ads snapshot — October 2026" },
-      period: { he: "אוקטובר 2026 (לאמת תאריכים בחשבון)", en: "October 2026 (confirm dates in account)" },
+      period: { he: "1–31 באוקטובר 2026", en: "October 1–31, 2026" },
       sourceLabel: { he: "נתוני מערכת Google Ads (צילום מסך)", en: "Google Ads manager (screenshot)" },
       metrics: [
         { label: { he: "קליקים", en: "Clicks" }, value: { he: "450", en: "450" } },
@@ -205,8 +209,8 @@ export const CASE_STUDIES: readonly CaseStudyRecord[] = [
     categories: ["meta-ads"],
     status: "published",
     title: {
-      he: "Meta Ads — תוצאות מדווחות (אוקטובר 2026)",
-      en: "Meta Ads — reported results (October 2026)",
+      he: "Meta Ads — לידים ומסנג'ר (אוקטובר 2026)",
+      en: "Meta Ads — leads & messaging (October 2026)",
     },
     clientLabel: {
       he: "לקוח בתחום השירותים (שם לא מפורסם)",
@@ -227,35 +231,42 @@ export const CASE_STUDIES: readonly CaseStudyRecord[] = [
       en: "Achieving reported results in Meta Ads at measurable cost — within budget control.",
     },
     approach: {
-      he: "ניהול שני סטים של מודעות עם אופטימיזציה ל«תוצאות» (Results) בממשק Meta — סוג האירוע (למשל טופס/ליד) טרם אומת לפרסום.",
-      en: "Two ad sets managed with Meta “Results” optimization — the underlying conversion event (e.g. form/lead) is not yet verified for publication.",
+      he: "ניהול שני סטים: מעורבות (שיחות מסנג'ר) ולידים — לפי הגדרות Results בממשק Meta Ads (01–30.10.2026).",
+      en: "Two ad sets: engagement (messaging conversations started) and leads — per Meta Ads Manager Results definitions (Oct 1–30, 2026).",
     },
     outcome: {
-      he: "13 תוצאות מדווחות בשתי סדרות מודעות במהלך תקופת המדידה — לפי הממשק בלבד, לא כ«13 לידים מאומתים», לא כלקוחות חדשים ולא כעסקאות.",
-      en: "13 reported results across two ad sets during the period — per the interface only, not verified as 13 leads, new customers, or closed deals.",
+      he: "7 שיחות מסנג'ר שהתחילו בסט מעורבות, ו-6 לידים בסט לידים — לפי Meta Ads Manager. זה לא 13 «לקוחות» או עסקאות, ואין חישוב ממוצע משוקלל של עלות לתוצאה בין הסטים.",
+      en: "7 messaging conversations started in the engagement ad set and 6 leads in the leads ad set — per Meta Ads Manager. Not 13 customers or closed deals; no blended average cost across sets.",
     },
     highlightMetrics: [
       {
-        label: { he: "סה״כ תוצאות מדווחות (שני סטים)", en: "Total reported results (both sets)" },
-        value: { he: "13", en: "13" },
+        label: { he: "שיחות מסנג'ר (סט מעורבות)", en: "Messaging conversations (engagement set)" },
+        value: { he: "7", en: "7" },
+      },
+      {
+        label: { he: "לידים מטופס (סט לידים)", en: "Form leads (leads set)" },
+        value: { he: "6", en: "6" },
       },
     ],
     metaAdSets: [
       {
-        label: { he: "סט מודעות 1", en: "Ad set 1" },
+        label: { he: "סט מעורבות — שיחות מסנג'ר", en: "Engagement — messaging conversations" },
         metrics: [
-          { label: { he: "תוצאות מדווחות", en: "Reported results" }, value: { he: "7", en: "7" } },
-          { label: { he: "עלות לתוצאה מדווחת", en: "Cost per reported result" }, value: { he: "₪14.40", en: "₪14.40" } },
+          {
+            label: { he: "שיחות מסנג'ר שהתחילו", en: "Messaging conversations started" },
+            value: { he: "7", en: "7" },
+          },
+          { label: { he: "עלות לתוצאה", en: "Cost per result" }, value: { he: "₪14.40", en: "₪14.40" } },
           { label: { he: "הוצאה", en: "Spend" }, value: { he: "₪100.80", en: "₪100.80" } },
           { label: { he: "חשיפות", en: "Impressions" }, value: { he: "1,940", en: "1,940" } },
           { label: { he: "תפוצה", en: "Reach" }, value: { he: "1,410", en: "1,410" } },
         ],
       },
       {
-        label: { he: "סט מודעות 2", en: "Ad set 2" },
+        label: { he: "סט לידים", en: "Leads ad set" },
         metrics: [
-          { label: { he: "תוצאות מדווחות", en: "Reported results" }, value: { he: "6", en: "6" } },
-          { label: { he: "עלות לתוצאה מדווחת", en: "Cost per reported result" }, value: { he: "₪34.31", en: "₪34.31" } },
+          { label: { he: "לידים (Leads)", en: "Leads" }, value: { he: "6", en: "6" } },
+          { label: { he: "עלות לליד", en: "Cost per lead" }, value: { he: "₪34.31", en: "₪34.31" } },
           { label: { he: "הוצאה", en: "Spend" }, value: { he: "₪205.83", en: "₪205.83" } },
           { label: { he: "חשיפות", en: "Impressions" }, value: { he: "1,895", en: "1,895" } },
           { label: { he: "תפוצה", en: "Reach" }, value: { he: "1,133", en: "1,133" } },
@@ -263,8 +274,8 @@ export const CASE_STUDIES: readonly CaseStudyRecord[] = [
       },
     ],
     limitations: {
-      he: "«תוצאות מדווחות» = המדד Results בממשק Meta; לא אומת שמדובר בלידים/טפסים עד בדיקה בחשבון. אין חישוב ממוצע משוקלל של עלות לתוצאה בין הסטים. אין חשיפת פרטי חשבון, לקוח או לידים. פרסום הנתונים מותנה באישור לקוח.",
-      en: "“Reported results” means Meta’s Results column; lead/form meaning is unverified until checked in Ads Manager. No blended average cost across sets. No account, client, or lead PII. Publishing depends on client authorization.",
+      he: "הגדרות Results לפי Meta Ads Manager (צילום 01–30.10.2026). אין הצגה כ«13 לקוחות חדשים» או הכנסות. אין חשיפת שם לקוח, מזהה חשבון או PII. פרסום מותנה בהרשאת לקוח.",
+      en: "Results definitions per Meta Ads Manager (screenshot Oct 1–30, 2026). Not presented as 13 new customers or revenue. No client name, account ID, or PII. Publishing subject to client authorization.",
     },
     serviceHref: { he: "/social-media-management/", en: "/en/social-media-management/" },
   },

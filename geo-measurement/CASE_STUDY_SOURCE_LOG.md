@@ -1,40 +1,34 @@
 # Case study source log
 
-Last updated: **2026-10-31** (Sprint 2 closure pass)
+Last updated: **2026-10-31** (PDF cross-check)
 
-## Archive folder
+## Archive
 
-`geo-measurement/case-study-sources/` — **empty** (README only). Upload PDFs/screenshots there when available.
+| File | Location |
+|------|----------|
+| UBS Hasdai PDF | `case-study-sources/ubs_rank_tracking_menofeyhasdai-co-il_2026-10-31.pdf` |
+| UBS Express PDF | `case-study-sources/ubs_rank_tracking_express-hovalot-co-il_2026-10-31.pdf` |
+| Cross-check report | `case-study-sources/CROSS_CHECK_2026-10-31.md` |
+| Google Ads / Meta screenshots | Owner-provided (not in repo); metrics in cross-check doc |
 
-## Cross-check vs PDF (31.10.2026)
+## PDF validation status
 
-| Source file | In workspace | Line-by-line PDF validation | Published case ID |
-|-------------|--------------|------------------------------|-------------------|
-| `ubs_rank_tracking_menofeyhasdai-co-il_2026-10-31.pdf` | **No** | **Not performed** | `cs-seo-menofeyhasdai` |
-| `ubs_rank_tracking_express-hovalot-co-il_2026-10-31.pdf` | **No** | **Not performed** | `cs-seo-express-hovalot` |
-| Google Ads screenshot (Oct 2026) | **No** | **Not performed** | `cs-wb-tal-shina-gads` |
-| Meta Ads screenshot (01–30 Oct 2026) | **No** | **Not performed** | `cs-meta-leads-oct2026` |
+| Case | PDF cross-check | Site updated |
+|------|-----------------|--------------|
+| `cs-seo-menofeyhasdai` | ✅ summary + 4 keywords | No numeric changes needed |
+| `cs-seo-express-hovalot` | ✅ + fix movement summary; removed unverified keyword | ✅ |
+| `cs-wb-tal-shina-gads` | N/A (Ads screenshot) | ✅ exact Oct 2026 dates |
+| `cs-meta-leads-oct2026` | Screenshot | ✅ 6 leads + 7 messaging split |
 
-**Site numbers today:** from owner brief (2026-10-31) + homepage testimonial (Tal Shina, unchanged). When PDFs land, re-run cross-check and update this table.
+## Corrections applied (2026-10-31)
 
-## Verification matrix (published content)
+- **Express:** Removed «הובלות בבית שמש» (not in PDF); added 10↑ / 28↓ / 21 unchanged from PDF.
+- **Meta:** Terminology from Meta Ads Manager — not «13 leads» aggregate.
+- **Tal GAds:** Period 1–31 Oct 2026; no account number on site.
 
-| Case | Numbers status | Publication / privacy |
-|------|----------------|------------------------|
-| Menofey Hasdai SEO | Owner brief; PDF pending | Named site + portfolio image |
-| Express Hovalot SEO | Owner brief; PDF pending | Named site; platform volatility disclosed |
-| Tal Shina WB + GAds | Testimonial from `data.ts`; Ads from brief | Name public on homepage; no extra account PII |
-| Meta Oct 2026 | Screenshot brief; **Result event unverified** | Anonymous client; neutral «תוצאות מדווחות» copy |
-
-## Data we do **not** claim
+## Not claimed
 
 - Rank report → traffic, leads, revenue
-- Google Ads Oct snapshot → 350% inquiry testimony
-- Meta 13 results → 13 verified leads or customers
-- Blended Meta CPA across ad sets
-- Review / AggregateRating schema for star manipulation
-
-## Changelog
-
-- **2026-10-31:** Initial publish `115f5a1`; PDFs missing locally.
-- **2026-10-31 (closure):** Meta wording neutralized; Hasdai platform volatility note; UI source strip; no PDF cross-check.
+- Google Ads month → 350% testimony
+- 13 Meta results → 13 new customers
+- Average position chart values where not extractable from PDF text

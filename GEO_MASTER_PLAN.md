@@ -831,7 +831,7 @@ Each published case requires: client permission · measurement period · convers
 
 **Primary doc:** `geo-measurement/GEO_GROWTH_ROADMAP_90_DAYS.md`  
 **Sprint 1:** `geo-measurement/GEO_GROWTH_SPRINT_1.md` v2 — **Production** `62b9d60`.  
-**Sprint 2 (implemented 2026-10-31):** `GEO_GROWTH_SPRINT_2.md` v2 + §18 closure — service copy, hub FAQ, posts, About, **case studies** (`cases.ts`), Hub discoverability, 28/90 tracker; PDF cross-check pending in `case-study-sources/`.
+**Sprint 2 (implemented 2026-10-31):** `GEO_GROWTH_SPRINT_2.md` v2 + §18–§19 — service copy, hub FAQ, posts, About, **case studies** (`cases.ts`), Hub discoverability, 28/90 tracker; **PDF cross-check complete** (exports local-only in `case-study-sources/`, not in Git).
 
 ### 11.1 Pricing transparency lock (2026-10-31 — owner-approved rules)
 

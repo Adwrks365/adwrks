@@ -300,7 +300,9 @@
 | `cs-wb-tal-shina-gads` | כן (שם) | ביקורת דף הבית + צילום GAds |
 | `cs-meta-leads-oct2026` | כן (אנונימי) | צילום Meta Ads |
 
-PDF/צילומים: **`case-study-sources/`** + **`CASE_STUDY_SOURCE_LOG.md`** — לא נמצאו ב-workspace; הצלבת PDF **לא בוצעה**.
+PDF/צילומים: **`case-study-sources/`** (ארכיון **מקומי בלבד** — PDF **לא** ב-Git) + **`CASE_STUDY_SOURCE_LOG.md`** + **`CROSS_CHECK_2026-10-31.md`**.
+
+**הצלבת PDF (31.10.2026):** Hasdai — 86 / 31↑·3↓·52; Express — 59 / 10↑·28↓·21; הוסר «בית שמש»; Meta — 7 מסנג'ר + 6 לידים (לא 13 לידים מטופס). סקריפט: `web/scripts/verify-case-study-sources.mjs`.
 
 ---
 
@@ -314,5 +316,15 @@ PDF/צילומים: **`case-study-sources/`** + **`CASE_STUDY_SOURCE_LOG.md`** �
 | Hub `HUB_DISCOVERABILITY` — עובדות ל-AI/בחירת ספק | ✅ |
 | SEO — קישורים למחירון + `/מחיר-קידום-אתרים/` | ✅ |
 | `GEO_BASELINE_28_90_TRACKER.md` | ✅ |
-| PDF cross-check | ⏳ ממתין לקבצים בתיקייה |
+| PDF cross-check + תיקוני נתונים (Express/Meta/Tal תאריכים) | ✅ — commit case-study verification (ראה §19) |
 | Round 1 / E1–E6 / S2-09 301 / B4 | ⏳ owner / אישור |
+
+---
+
+## 19. Case study data verification deploy (2026-10-31)
+
+**Scope:** `cases.ts` aligned to UBS PDF exports + owner Ads screenshots; docs + verify script; **no PDF in Git**.
+
+**QA:** `verify-case-study-sources.mjs` · typecheck · build · lint baseline · prod smoke `qa-case-studies-prod.mjs`.
+
+**Commit / deploy:** (filled after push — see `GEO_MASTER_PLAN.md` execution log).
