@@ -68,7 +68,11 @@ export const SEO_SCOPE = {
   pricingNote:
     "Organic SEO from ₪2,000 + VAT per month — pricing varies by keyword count, region, competition, and scope.",
   hubNote:
-    "For detailed pricing and guides, see the marketing price hub and pricing articles; this service page focuses on scope and process.",
+    "For detailed pricing and guides, see the marketing price hub and the SEO pricing article; this service page focuses on scope and process.",
+  pricingGuideHref: "/en/digital-marketing-pricing/" as const,
+  pricingGuideLabel: "Digital marketing pricing hub",
+  seoPriceArticleHref: "/en/seo-pricing-guide/" as const,
+  seoPriceArticleLabel: "SEO pricing guide article",
 } as const;
 
 export const SEO_AUDIENCE = {

@@ -19,6 +19,7 @@
 - **Runs:** EXECUTION_PENDING — ChatGPT/Gemini/Perplexity only with real, authorized access.
 - **Separate metrics:** Generative impressions · ADWRKS mentions · provider recommendations · links · site traffic · leads.
 
-## Case studies (PENDING_DATA)
+## Case studies
 
-- Registry: `web/src/lib/case-studies/registry.ts` — all slots `pending_data` until owner supplies verified metrics + publication approval.
+- **Published (site):** 4 cases in `web/src/lib/case-studies/cases.ts` — see `CASE_STUDY_SOURCE_LOG.md`.
+- **Pending:** PDF line-by-line cross-check; Meta Result event verification; optional client sign-off for Meta/Tal ad account details.

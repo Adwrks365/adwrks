@@ -300,4 +300,19 @@
 | `cs-wb-tal-shina-gads` | כן (שם) | ביקורת דף הבית + צילום GAds |
 | `cs-meta-leads-oct2026` | כן (אנונימי) | צילום Meta Ads |
 
-PDF/צילומים: **`CASE_STUDY_SOURCE_LOG.md`** — לא נמצאו ב-workspace; יש להעלות לארכיון פנימי.
+PDF/צילומים: **`case-study-sources/`** + **`CASE_STUDY_SOURCE_LOG.md`** — לא נמצאו ב-workspace; הצלבת PDF **לא בוצעה**.
+
+---
+
+## 18. Sprint 2 closure (2026-10-31)
+
+| פעולה | סטטוס |
+|--------|--------|
+| מקרי בוחן — Meta ניסוח ניטרלי | ✅ |
+| SEO Hasdai/Express — תנודתיות / מעבר פלטפורמה | ✅ (ללא ייחוס ודאי) |
+| UI מקרי בוחן — מקור+תקופה, limitations ב-details | ✅ |
+| Hub `HUB_DISCOVERABILITY` — עובדות ל-AI/בחירת ספק | ✅ |
+| SEO — קישורים למחירון + `/מחיר-קידום-אתרים/` | ✅ |
+| `GEO_BASELINE_28_90_TRACKER.md` | ✅ |
+| PDF cross-check | ⏳ ממתין לקבצים בתיקייה |
+| Round 1 / E1–E6 / S2-09 301 / B4 | ⏳ owner / אישור |

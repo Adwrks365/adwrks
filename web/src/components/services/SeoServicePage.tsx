@@ -83,6 +83,15 @@ export function SeoServicePage({ locale = "he" }: LocaleProps) {
         </div>
         <p className="sp-body-text sp-body-text--narrow">{c.SEO_SCOPE.pricingNote}</p>
         <p className="sp-body-text sp-body-text--narrow">{c.SEO_SCOPE.hubNote}</p>
+        <p className="sp-body-text sp-body-text--narrow sp-scope-links">
+          <Link href={c.SEO_SCOPE.pricingGuideHref} className="sp-text-link">
+            {linkWithArrow(locale, c.SEO_SCOPE.pricingGuideLabel)}
+          </Link>
+          {" · "}
+          <Link href={c.SEO_SCOPE.seoPriceArticleHref} className="sp-text-link">
+            {linkWithArrow(locale, c.SEO_SCOPE.seoPriceArticleLabel)}
+          </Link>
+        </p>
       </Section>
 
       <Section tone="sky" label={c.SEO_AUDIENCE.label} title={c.SEO_AUDIENCE.title} align="start">

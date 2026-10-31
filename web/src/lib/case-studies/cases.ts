@@ -42,8 +42,8 @@ export const CASE_STUDIES: readonly CaseStudyRecord[] = [
       en: "Ongoing SEO with tracked keyword sets, site adjustments, and local visibility work — scoped to the site and competition. (Technical detail remains project-specific.)",
     },
     outcome: {
-      he: "בדוח המעקב נרשם שיפור במיקום הממוצע של קבוצת הביטויים מ-52 ל-23.52, לצד ביטויים בדירוגים גבוהים באזורי שירות מרכזיים. הנתונים משקפים את כלי המעקב — לא את כל החיפושים בגוגל.",
-      en: "The tracking report shows average position for the monitored set improving from 52 to 23.52, with strong positions on selected central-service queries. Figures reflect the tracking tool — not all Google searches.",
+      he: "בדוח המעקב נרשם שיפור במיקום הממוצע של קבוצת הביטויים מ-52 ל-23.52, לצד ביטויים בדירוגים גבוהים באזורי שירות מרכזיים. לאורך התקופה נרשמו גם ביטויים בירידה (3 בדוח). בתקופה האחרונה, בסמוך למעבר האתר לפלטפורמה אחרת, נצפתה תנודתיות בחלק מהביטויים — אין לייחס את כל השינוי למעבר בלי אבחון נוסף. הנתונים משקפים את כלי המעקב — לא את כל החיפושים בגוגל.",
+      en: "The tracking report shows average position for the monitored set improving from 52 to 23.52, with strong positions on selected central-service queries. Three tracked queries declined in the report summary. Recently, around a platform migration, some queries showed volatility — not all changes can be attributed to migration without further diagnosis. Figures reflect the tracking tool — not all Google searches.",
     },
     highlightMetrics: [
       {
@@ -205,8 +205,8 @@ export const CASE_STUDIES: readonly CaseStudyRecord[] = [
     categories: ["meta-ads"],
     status: "published",
     title: {
-      he: "Meta Ads — קמפיינים ללידים (אוקטובר 2026)",
-      en: "Meta Ads — lead campaigns (October 2026)",
+      he: "Meta Ads — תוצאות מדווחות (אוקטובר 2026)",
+      en: "Meta Ads — reported results (October 2026)",
     },
     clientLabel: {
       he: "לקוח בתחום השירותים (שם לא מפורסם)",
@@ -223,20 +223,20 @@ export const CASE_STUDIES: readonly CaseStudyRecord[] = [
       en: "Meta Ads Manager screenshot — two ad sets",
     },
     challenge: {
-      he: "השגת פניות (Results) בעלות מדידה — תוך בקרת תקציב.",
-      en: "Generating reported Results at measurable cost — within budget control.",
+      he: "השגת תוצאות מדווחות במערכת Meta בעלות מדידה — תוך בקרת תקציב.",
+      en: "Achieving reported results in Meta Ads at measurable cost — within budget control.",
     },
     approach: {
-      he: "ניהול שני סטים של מודעות עם מדידה לפי אירוע Result במערכת Meta (יש לאמת הגדרת האירוע — ליד/טופס).",
-      en: "Two ad sets managed with Meta “Results” optimization (confirm event definition — lead/form).",
+      he: "ניהול שני סטים של מודעות עם אופטימיזציה ל«תוצאות» (Results) בממשק Meta — סוג האירוע (למשל טופס/ליד) טרם אומת לפרסום.",
+      en: "Two ad sets managed with Meta “Results” optimization — the underlying conversion event (e.g. form/lead) is not yet verified for publication.",
     },
     outcome: {
-      he: "13 תוצאות מדווחות בשתי סדרות מודעות במהלך תקופת המדידה — לפי הממשק, לא כ«לקוחות חדשים» או עסקאות.",
-      en: "13 reported Results across two ad sets during the period — per the interface, not counted as new customers or closed deals.",
+      he: "13 תוצאות מדווחות בשתי סדרות מודעות במהלך תקופת המדידה — לפי הממשק בלבד, לא כ«13 לידים מאומתים», לא כלקוחות חדשים ולא כעסקאות.",
+      en: "13 reported results across two ad sets during the period — per the interface only, not verified as 13 leads, new customers, or closed deals.",
     },
     highlightMetrics: [
       {
-        label: { he: "סה״כ Results (שני סטים)", en: "Total Results (both sets)" },
+        label: { he: "סה״כ תוצאות מדווחות (שני סטים)", en: "Total reported results (both sets)" },
         value: { he: "13", en: "13" },
       },
     ],
@@ -244,8 +244,8 @@ export const CASE_STUDIES: readonly CaseStudyRecord[] = [
       {
         label: { he: "סט מודעות 1", en: "Ad set 1" },
         metrics: [
-          { label: { he: "Results", en: "Results" }, value: { he: "7", en: "7" } },
-          { label: { he: "עלות ל-Result", en: "Cost per result" }, value: { he: "₪14.40", en: "₪14.40" } },
+          { label: { he: "תוצאות מדווחות", en: "Reported results" }, value: { he: "7", en: "7" } },
+          { label: { he: "עלות לתוצאה מדווחת", en: "Cost per reported result" }, value: { he: "₪14.40", en: "₪14.40" } },
           { label: { he: "הוצאה", en: "Spend" }, value: { he: "₪100.80", en: "₪100.80" } },
           { label: { he: "חשיפות", en: "Impressions" }, value: { he: "1,940", en: "1,940" } },
           { label: { he: "תפוצה", en: "Reach" }, value: { he: "1,410", en: "1,410" } },
@@ -254,8 +254,8 @@ export const CASE_STUDIES: readonly CaseStudyRecord[] = [
       {
         label: { he: "סט מודעות 2", en: "Ad set 2" },
         metrics: [
-          { label: { he: "Results", en: "Results" }, value: { he: "6", en: "6" } },
-          { label: { he: "עלות ל-Result", en: "Cost per result" }, value: { he: "₪34.31", en: "₪34.31" } },
+          { label: { he: "תוצאות מדווחות", en: "Reported results" }, value: { he: "6", en: "6" } },
+          { label: { he: "עלות לתוצאה מדווחת", en: "Cost per reported result" }, value: { he: "₪34.31", en: "₪34.31" } },
           { label: { he: "הוצאה", en: "Spend" }, value: { he: "₪205.83", en: "₪205.83" } },
           { label: { he: "חשיפות", en: "Impressions" }, value: { he: "1,895", en: "1,895" } },
           { label: { he: "תפוצה", en: "Reach" }, value: { he: "1,133", en: "1,133" } },
@@ -263,8 +263,8 @@ export const CASE_STUDIES: readonly CaseStudyRecord[] = [
       },
     ],
     limitations: {
-      he: "Results = לפי הגדרה ב-Meta (יש לאמת שמדובר בלידים/טפסים). אין חישוב ממוצע משוקלל של עלות ל-Result בין הסטים. אין חשיפת פרטי חשבון או לידים.",
-      en: "Results follow Meta’s configured event (confirm leads/forms). No blended average cost per result across sets. No account or lead PII exposed.",
+      he: "«תוצאות מדווחות» = המדד Results בממשק Meta; לא אומת שמדובר בלידים/טפסים עד בדיקה בחשבון. אין חישוב ממוצע משוקלל של עלות לתוצאה בין הסטים. אין חשיפת פרטי חשבון, לקוח או לידים. פרסום הנתונים מותנה באישור לקוח.",
+      en: "“Reported results” means Meta’s Results column; lead/form meaning is unverified until checked in Ads Manager. No blended average cost across sets. No account, client, or lead PII. Publishing depends on client authorization.",
     },
     serviceHref: { he: "/social-media-management/", en: "/en/social-media-management/" },
   },

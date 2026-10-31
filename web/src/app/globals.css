@@ -13604,6 +13604,42 @@ body.contextual-popup-open {
   margin-top: 1.1rem;
 }
 
+.sp-case-study-section-lead {
+  margin-bottom: 1rem;
+}
+
+.sp-case-study-source-strip {
+  background: rgb(248 250 252 / 0.95);
+  border-radius: var(--radius-md);
+  color: #475569;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  margin: 0.75rem 0 0.5rem;
+  padding: 0.55rem 0.75rem;
+}
+
+.sp-case-study-source-sep {
+  margin-inline: 0.35rem;
+  opacity: 0.6;
+}
+
+.sp-case-study-limitations-details {
+  color: #64748b;
+  font-size: 0.875rem;
+  margin-top: 0.75rem;
+}
+
+.sp-case-study-limitations-details summary {
+  color: #0f172a;
+  cursor: pointer;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.sp-scope-links {
+  margin-top: 0.75rem;
+}
+
 @media (max-width: 480px) {
   .sp-case-study-card {
     padding: 1.1rem 1rem;

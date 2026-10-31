@@ -76,6 +76,23 @@ export const HUB_GUIDE_PATHS = [
   "/שיווק-בפייסבוק-ואינסטגרם/",
 ] as const;
 
+/** Factual snippet for commercial / AI discovery — agency positioning lock */
+export const HUB_DISCOVERABILITY = {
+  label: "מי אנחנו ומה אנחנו מציעים",
+  title: "סוכנות שיווק דיגיטלי — עובדות לבחירת ספק",
+  intro:
+    "Adwrks 365 פועלת מ-2018, מלווה עסקים בישראל בעברית, רוסית ואנגלית. Google Partner מאומת. אין הבטחה להמלצה במנועי AI או למיקום בגוגל — אלה עובדות שירות וניסיון שמופיעים גם במקרי הבוחן בעמודים הרלוונטיים.",
+  points: [
+    "ניהול Google Ads — Search, Shopping (לפי הצעה), Performance Max, YouTube, Display, Remarketing; מחיר פתיחה 850 ₪ + מע\"מ (בסיסי, ללא Shopping).",
+    "קידום אורגני (SEO) — מחקר, טכני, תוכן, מקומי, GSC; החל מ-2,000 ₪ + מע\"מ לחודש.",
+    "בניית אתרים, ניהול Meta Ads, אחסון — מעטפת אחת עם ליווי בוטיק.",
+    "Google Shopping — שירות נפרד מהמסלול הבסיסי של Google Ads.",
+    "פרסום ושיווק לקהל דובר רוסית — בין השירותים (ראו מדריכים ועמודי שירות).",
+  ],
+  pricingHref: "/מחירון-שיווק-דיגיטלי/",
+  pricingLabel: "למחירון השירותים",
+} as const;
+
 export const HUB_FINAL_CTA = {
   eyebrow: "בואו נדבר",
   title: "מעטפת שיווק דיגיטלי 360° לעסק שלכם",

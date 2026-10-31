@@ -831,7 +831,7 @@ Each published case requires: client permission · measurement period · convers
 
 **Primary doc:** `geo-measurement/GEO_GROWTH_ROADMAP_90_DAYS.md`  
 **Sprint 1:** `geo-measurement/GEO_GROWTH_SPRINT_1.md` v2 — **Production** `62b9d60`.  
-**Sprint 2 (implemented 2026-10-31):** `GEO_GROWTH_SPRINT_2.md` v2 — service copy, hub FAQ, posts, About; **case studies** (4 verified, `web/src/lib/case-studies/cases.ts`); external/Round 1 → `SPRINT2_EXTERNAL_ACTIONS.md` · sources → `CASE_STUDY_SOURCE_LOG.md`.
+**Sprint 2 (implemented 2026-10-31):** `GEO_GROWTH_SPRINT_2.md` v2 + §18 closure — service copy, hub FAQ, posts, About, **case studies** (`cases.ts`), Hub discoverability, 28/90 tracker; PDF cross-check pending in `case-study-sources/`.
 
 ### 11.1 Pricing transparency lock (2026-10-31 — owner-approved rules)
 
@@ -935,3 +935,5 @@ Pricing source of truth in code: `web/src/lib/pages/pricing-content.ts` (+ EN). 
 | 2026-10-31 | Sprint 1 Production deploy | `62b9d60` on `main`; GitHub Deployment 7457226667; https://adwrks.co.il |
 | 2026-10-31 | Sprint 2 plan approved (research) | `GEO_GROWTH_SPRINT_2.md` — 10 actions, case study intake, Round 1 parallel |
 | 2026-10-31 | Sprint 2 site implementation | **`a23cfe1`** — Hub FAQ, Ads/SEO scope, About, posts 14288/17923, case-study shell; GitHub deployment **7457352889** (Production) |
+| 2026-10-31 | Case studies published | **`115f5a1`** — 4 verified cases on service pages; deploy **7457440882** |
+| 2026-10-31 | Sprint 2 closure | Case-study UX + Meta neutral copy + Hub discoverability + SEO price links + 28/90 tracker (commit TBD after push) |

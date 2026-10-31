@@ -1,28 +1,40 @@
-# Case study source log (2026-10-31)
+# Case study source log
 
-## Files requested by owner
+Last updated: **2026-10-31** (Sprint 2 closure pass)
 
-| File | In repo workspace | Used in publish |
-|------|-------------------|---------------|
-| `ubs_rank_tracking_menofeyhasdai-co-il_2026-10-31.pdf` | **Not found** | Metrics transcribed from owner brief (2026-10-31) |
-| `ubs_rank_tracking_express-hovalot-co-il_2026-10-31.pdf` | **Not found** | Metrics transcribed from owner brief (2026-10-31) |
-| Google Ads screenshot (Oct 2026) | **Not found** | Metrics transcribed from owner brief |
-| Meta Ads screenshot (01–30 Oct 2026) | **Not found** | Metrics transcribed from owner brief |
+## Archive folder
 
-**Action:** Store PDFs/screenshots under `geo-measurement/case-study-sources/` (gitignored or committed per policy) for audit trail.
+`geo-measurement/case-study-sources/` — **empty** (README only). Upload PDFs/screenshots there when available.
 
-## Publication decisions
+## Cross-check vs PDF (31.10.2026)
 
-| Case | Client ID | Notes |
-|------|-----------|-------|
-| Menofey Hasdai SEO | Named + public site | Portfolio asset exists; owner supplied rank report summary |
-| Express Hovalot SEO | Named + public site | Owner supplied rank report summary |
-| Tal Shina | Named | Homepage testimonial unchanged; Ads metrics separate block |
-| Meta Oct 2026 | **Anonymous** | No client name in brief; Results event definition to confirm in Ads Manager |
+| Source file | In workspace | Line-by-line PDF validation | Published case ID |
+|-------------|--------------|------------------------------|-------------------|
+| `ubs_rank_tracking_menofeyhasdai-co-il_2026-10-31.pdf` | **No** | **Not performed** | `cs-seo-menofeyhasdai` |
+| `ubs_rank_tracking_express-hovalot-co-il_2026-10-31.pdf` | **No** | **Not performed** | `cs-seo-express-hovalot` |
+| Google Ads screenshot (Oct 2026) | **No** | **Not performed** | `cs-wb-tal-shina-gads` |
+| Meta Ads screenshot (01–30 Oct 2026) | **No** | **Not performed** | `cs-meta-leads-oct2026` |
 
-## Not claimed
+**Site numbers today:** from owner brief (2026-10-31) + homepage testimonial (Tal Shina, unchanged). When PDFs land, re-run cross-check and update this table.
 
-- Traffic, leads, or revenue from rank reports alone
-- 350% inquiry increase from Google Ads screenshot
-- Blended Meta cost-per-result across ad sets
-- Review / AggregateRating schema for Adwrks star ratings
+## Verification matrix (published content)
+
+| Case | Numbers status | Publication / privacy |
+|------|----------------|------------------------|
+| Menofey Hasdai SEO | Owner brief; PDF pending | Named site + portfolio image |
+| Express Hovalot SEO | Owner brief; PDF pending | Named site; platform volatility disclosed |
+| Tal Shina WB + GAds | Testimonial from `data.ts`; Ads from brief | Name public on homepage; no extra account PII |
+| Meta Oct 2026 | Screenshot brief; **Result event unverified** | Anonymous client; neutral «תוצאות מדווחות» copy |
+
+## Data we do **not** claim
+
+- Rank report → traffic, leads, revenue
+- Google Ads Oct snapshot → 350% inquiry testimony
+- Meta 13 results → 13 verified leads or customers
+- Blended Meta CPA across ad sets
+- Review / AggregateRating schema for star manipulation
+
+## Changelog
+
+- **2026-10-31:** Initial publish `115f5a1`; PDFs missing locally.
+- **2026-10-31 (closure):** Meta wording neutralized; Hasdai platform volatility note; UI source strip; no PDF cross-check.

@@ -102,6 +102,23 @@ export function ServiceHubPage({ locale = "he" }: LocaleProps) {
       </Section>
 
       <Section
+        tone="white"
+        label={c.HUB_DISCOVERABILITY.label}
+        title={c.HUB_DISCOVERABILITY.title}
+        align="start"
+      >
+        <p className="sp-body-lead sp-body-lead--narrow">{c.HUB_DISCOVERABILITY.intro}</p>
+        <ul className="sp-check-list sp-check-list--compact">
+          {c.HUB_DISCOVERABILITY.points.map((point) => (
+            <li key={point.slice(0, 48)}>{point}</li>
+          ))}
+        </ul>
+        <Link href={c.HUB_DISCOVERABILITY.pricingHref} className="sp-text-link">
+          {linkWithArrow(locale, c.HUB_DISCOVERABILITY.pricingLabel)}
+        </Link>
+      </Section>
+
+      <Section
         tone="muted"
         label={locale === "en" ? "FAQ" : "שאלות נפוצות"}
         title={locale === "en" ? "Common questions about digital marketing" : "שאלות נפוצות על שיווק דיגיטלי"}

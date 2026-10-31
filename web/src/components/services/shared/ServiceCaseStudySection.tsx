@@ -31,6 +31,9 @@ const COPY = {
     testimony: "עדות לקוח",
     adsData: "נתוני מערכת פרסום",
     adSets: "פירוט לפי סט מודעות",
+    sectionLead:
+      "דוגמאות עם תקופת מדידה, מקור נתונים והגבלות — בלי להבטיח תוצאות עתידיות. מקרי SEO מציגים דירוגים מכלי מעקב, לא כל החיפושים בגוגל.",
+    limitationsToggle: "מגבלות והסתייגויות",
   },
   en: {
     label: "Case studies",
@@ -50,6 +53,9 @@ const COPY = {
     testimony: "Client testimony",
     adsData: "Ad platform metrics",
     adSets: "Breakdown by ad set",
+    sectionLead:
+      "Examples include measurement period, data source, and limits — no promise of future outcomes. SEO cases show tracker rankings, not all Google searches.",
+    limitationsToggle: "Limits & disclaimers",
   },
 } as const;
 
@@ -101,13 +107,15 @@ function CaseStudyCard({ study, locale }: { study: CaseStudyRecord; locale: Loca
         </dl>
       ) : null}
 
+      <div className="sp-case-study-source-strip" aria-label={copy.source}>
+        <span>{t(study.measurementPeriod, locale)}</span>
+        <span className="sp-case-study-source-sep" aria-hidden="true">
+          ·
+        </span>
+        <span>{t(study.dataSource, locale)}</span>
+      </div>
+
       <div className="sp-case-study-body">
-        <p>
-          <strong>{copy.period}:</strong> {t(study.measurementPeriod, locale)}
-        </p>
-        <p>
-          <strong>{copy.source}:</strong> {t(study.dataSource, locale)}
-        </p>
         <p>
           <strong>{copy.challenge}:</strong> {t(study.challenge, locale)}
         </p>
@@ -177,9 +185,10 @@ function CaseStudyCard({ study, locale }: { study: CaseStudyRecord; locale: Loca
           </div>
         ) : null}
 
-        <p className="sp-case-study-limitations">
-          <strong>{copy.limitations}:</strong> {t(study.limitations, locale)}
-        </p>
+        <details className="sp-case-study-limitations-details">
+          <summary>{copy.limitationsToggle}</summary>
+          <p>{t(study.limitations, locale)}</p>
+        </details>
       </div>
 
       <div className="sp-case-study-actions">
@@ -208,6 +217,7 @@ export function ServiceCaseStudySection({ category, locale = "he" }: ServiceCase
 
   return (
     <Section tone="muted" label={copy.label} title={copy.title} align="start" className="sp-section-case-studies">
+      <p className="sp-body-text sp-body-text--narrow sp-case-study-section-lead">{copy.sectionLead}</p>
       <div className="sp-case-study-list">
         {published.map((study) => (
           <CaseStudyCard key={study.id} study={study} locale={locale} />

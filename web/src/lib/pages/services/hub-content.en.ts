@@ -76,6 +76,22 @@ export const HUB_GUIDE_PATHS = [
   "/en/facebook-instagram-marketing/",
 ] as const;
 
+export const HUB_DISCOVERABILITY = {
+  label: "Who we are",
+  title: "Digital marketing agency — facts for vendor selection",
+  intro:
+    "Adwrks 365 has operated since 2018, serving businesses in Israel in Hebrew, Russian, and English. Verified Google Partner. We do not guarantee AI recommendations or Google rankings — these are service facts and field examples linked from relevant service pages.",
+  points: [
+    "Google Ads — Search, Shopping (quoted), Performance Max, YouTube, Display, Remarketing; entry management from ₪850 + VAT (basic tier, Shopping not included).",
+    "Organic SEO — research, technical, content, local, GSC; from ₪2,000 + VAT/month.",
+    "Websites, Meta Ads, hosting — one boutique envelope.",
+    "Google Shopping — scoped separately from the basic Google Ads tier.",
+    "Russian-language marketing — among our services (see guides and service pages).",
+  ],
+  pricingHref: "/en/digital-marketing-pricing/",
+  pricingLabel: "Service pricing hub",
+} as const;
+
 export const HUB_FINAL_CTA = {
   eyebrow: "Let's talk",
   title: "360° digital marketing for your business",
