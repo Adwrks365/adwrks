@@ -1,6 +1,7 @@
 # GEO / SEO baseline tracker — 28 & 90 days
 
-**Anchor deploy (Sprint 2 case studies):** `115f5a1` (2026-10-31)  
+**Anchor deploy (GEO final execution):** `df4425f` (2026-10-31) — case studies + UI hub + llms  
+**Prior anchor:** `115f5a1` (case studies first publish)  
 **Do not attribute single-metric moves to one change without evidence.**
 
 ## Layers (keep separate)

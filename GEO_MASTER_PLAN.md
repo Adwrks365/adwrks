@@ -18,6 +18,23 @@ Companion documents:
 - **Integrated analysis (2026-10-30, docs only):** `SEO_WEB_90DAY_ANALYSIS.md`, `GA4_AI_REFERRAL_ANALYSIS.md`, `SEO_GEO_OPPORTUNITY_MATRIX.md`, `GA4_MAIN_PROPERTY_DIAGNOSTIC.md`.
 - **Growth phase (2026-10-31, plan + drafts only):** `geo-measurement/GEO_GROWTH_ROADMAP_90_DAYS.md` — business growth engine; baseline docs are **not** re-opened for repeated micro-analysis.
 - **Growth Sprint 1 (2026-10-31):** `geo-measurement/GEO_GROWTH_SPRINT_1.md` v2 — **Production** commit `62b9d60` (StartingOffer, P-01, FAQ sync, posts GO #1–7/#9).
+- **GEO/AEO final execution (2026-10-31):** `geo-measurement/GEO_AEO_FINAL_EXECUTION_REPORT_2026-10-31.md` · owner checklist `OWNER_ACTIONS_GEO_FINAL.md` · prod audit `web/scripts/qa-geo-production-audit.mjs`.
+
+---
+
+## 0.2 GEO/AEO final execution status (2026-10-31)
+
+| Workstream | Status |
+|---|---|
+| Production technical audit (robots, sitemap, canonical, hreflang, index, llms) | **COMPLETE** — `qa-geo-production-audit.mjs` PASS |
+| llms.txt service-areas link | **COMPLETE** (local until deploy) |
+| Commercial service copy (Sprint 2/3 gap pass) | **NOT_RUN** — no proven on-page gap |
+| Entity sameAs expansion (LinkedIn, Partner URL in schema) | **NOT_RUN** — owner URL verification (E3/E5) |
+| Comparative FAQ / extra proof blocks | **NOT_RUN** — no approved copy this pass |
+| External E1–E6 (GBP, directories, guest posts) | **NOT_RUN / OWNER** — see `SPRINT2_EXTERNAL_ACTIONS.md` |
+| Round 1 AI (30 queries × engines) | **NOT_RUN** — 0 authorized neutral sessions |
+| GA4 collect / Realtime / CTA events | **NOT_VERIFIED** — diagnostic only; no tag changes |
+| 28 / 90 day follow-up exports | **NOT_RUN** — calendar owner actions in `GEO_BASELINE_28_90_TRACKER.md` |
 
 ---
 
@@ -941,3 +958,6 @@ Pricing source of truth in code: `web/src/lib/pages/pricing-content.ts` (+ EN). 
 | 2026-10-31 | Case study UX compact cards | **`4bd54be`** — grid SEO, card teasers, details for full data; GitHub deployment **7457594103**; smoke **PASS** |
 | 2026-10-31 | Sprint 3 UI — case study balance | **`3f97314`** — no asymmetric screenshots, verified badge, centered section header, LTR metrics, equal card/CTA layout; deploy **7457653036** |
 | 2026-10-31 | Sprint 3 UI — service areas hub | **`df4425f`** — region panels, removed duplicate city cards; visual QA script; deploy **7457711335** |
+| 2026-10-31 | GEO/AEO final — production audit script | **`qa-geo-production-audit.mjs`** — 8 URLs, robots/llms/hreflang (hrefLang fix); Round 1 **NOT_RUN** |
+| 2026-10-31 | GEO/AEO final — llms.txt | Hebrew link to `/אזורי-פעילות/` |
+| 2026-10-31 | GEO/AEO final — measurement report | `GEO_AEO_FINAL_EXECUTION_REPORT_2026-10-31.md` + `OWNER_ACTIONS_GEO_FINAL.md`; baseline anchor **df4425f** |
