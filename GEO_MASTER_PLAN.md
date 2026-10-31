@@ -934,4 +934,4 @@ Pricing source of truth in code: `web/src/lib/pages/pricing-content.ts` (+ EN). 
 | 2026-10-31 | Sprint 1 local implementation | §13.1–13.2 + internal links GO #1–7/#9; FAQ sync; screenshots `migration-audit/sprint1-starting-offer/`; **uncommitted** |
 | 2026-10-31 | Sprint 1 Production deploy | `62b9d60` on `main`; GitHub Deployment 7457226667; https://adwrks.co.il |
 | 2026-10-31 | Sprint 2 plan approved (research) | `GEO_GROWTH_SPRINT_2.md` — 10 actions, case study intake, Round 1 parallel |
-| 2026-10-31 | Sprint 2 site implementation | Hub FAQ, Ads/SEO scope, About, posts 14288/17923, case-study shell — commit TBD in changelog row below after push |
+| 2026-10-31 | Sprint 2 site implementation | **`a23cfe1`** — Hub FAQ, Ads/SEO scope, About, posts 14288/17923, case-study shell; GitHub deployment **7457352889** (Production) |
