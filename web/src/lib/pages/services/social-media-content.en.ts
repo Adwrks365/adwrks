@@ -3,8 +3,31 @@ export const SOCIAL_PATH = "/en/social-media-management/" as const;
 export const SOCIAL_HERO = {
   badge: "Facebook & Instagram • Meta",
   title: "Social Media Management (Facebook & Instagram)",
-  lead: "Social media management is much more than posting content. At Adwrks 365 we specialize in Facebook and Instagram management for businesses — combining content, strategy, and paid advertising to build a strong digital presence, drive engagement, and turn followers into inquiries and customers.",
+  lead: "Facebook and Instagram management for businesses — content, strategy, and paid campaigns when needed. Since 2018.",
 };
+
+export const SOCIAL_META_ADS_SECTION = {
+  label: "Paid advertising",
+  title: "Paid Meta campaigns (Facebook & Instagram)",
+} as const;
+
+export const SOCIAL_META_ADS_OFFER = {
+  priceLine: "Meta paid campaign management from ₪1,050 + VAT per month",
+  scopeLine: "Monthly management fee per our pricing guide — not an unlimited package.",
+  notIncluded: [
+    "Meta ad spend (Facebook / Instagram) is separate from the management fee",
+    "No guarantee of CPL or lead volume",
+  ],
+  factorsLine:
+    "Price depends on campaign type, number of campaigns/audiences, creative, leads/messages, catalog, remarketing, and ongoing management scope.",
+  pricingHref: "/en/digital-marketing-pricing/",
+  pricingLabel: "View pricing guide",
+  ctaHref: "/en/contact-us/",
+  ctaLabel: "Get a tailored quote",
+} as const;
+
+export const SOCIAL_ORGANIC_NOTE =
+  "Organic management (content planning and posts) is available without paid ads; scope and pricing are quoted separately.";
 
 export const SOCIAL_HERO_IMAGE = {
   src: "https://adwrks.co.il/wp-content/uploads/8e68e316-a0b5-4c8f-92ff-77950518d1c5.webp",
@@ -68,6 +91,10 @@ export const SOCIAL_FAQ = [
   {
     q: "Who is social media management for?",
     a: "Social media management suits businesses that want to grow presence on Facebook and Instagram, project professionalism, strengthen the brand, and receive more inquiries from social channels.",
+  },
+  {
+    q: "What is the difference between organic management and paid Meta ads?",
+    a: "Organic management focuses on content and posts; paid Meta ads focus on campaigns, audiences, and media budget. Paid management starts from ₪1,050 + VAT per month (management fee only, ad spend separate).",
   },
 ] as const;
 

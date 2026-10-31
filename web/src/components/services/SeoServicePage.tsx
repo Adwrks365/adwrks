@@ -16,6 +16,7 @@ import { ServiceHero } from "./shared/ServiceHero";
 import { ServiceProcessTimeline } from "./shared/ServiceProcessTimeline";
 import { ServiceRelatedGuides } from "./shared/ServiceRelatedGuides";
 import { ServiceRelatedServices } from "./shared/ServiceRelatedServices";
+import { ServiceStartingOffer } from "./shared/ServiceStartingOffer";
 import { SeoAeoAccent, SeoHeroVisual } from "./shared/ServiceVisualCompositions";
 
 export function SeoServicePage({ locale = "he" }: LocaleProps) {
@@ -47,6 +48,8 @@ export function SeoServicePage({ locale = "he" }: LocaleProps) {
           />
         }
       />
+
+      <ServiceStartingOffer offer={c.SEO_STARTING_OFFER} />
 
       <Section tone="white" label={c.SEO_TODAY.label} title={c.SEO_TODAY.title} align="start" className="sp-section-fade-in">
         <div className="sp-editorial-grid sp-editorial-grid--media">

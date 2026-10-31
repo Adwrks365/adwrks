@@ -12,6 +12,7 @@ import { ServiceFaq } from "./shared/ServiceFaq";
 import { ServiceHero } from "./shared/ServiceHero";
 import { ServiceRelatedGuides } from "./shared/ServiceRelatedGuides";
 import { ServiceRelatedServices } from "./shared/ServiceRelatedServices";
+import { ServiceStartingOffer } from "./shared/ServiceStartingOffer";
 import { SocialHeroVisual, SocialWorkflowVisual } from "./shared/ServiceVisualCompositions";
 
 export function SocialMediaServicePage({ locale = "he" }: LocaleProps) {
@@ -39,6 +40,16 @@ export function SocialMediaServicePage({ locale = "he" }: LocaleProps) {
           />
         }
       />
+
+      <Section
+        tone="white"
+        label={c.SOCIAL_META_ADS_SECTION.label}
+        title={c.SOCIAL_META_ADS_SECTION.title}
+        align="start"
+      >
+        <ServiceStartingOffer offer={c.SOCIAL_META_ADS_OFFER} className="sp-starting-offer--embedded" />
+        <p className="sp-meta-organic-note">{c.SOCIAL_ORGANIC_NOTE}</p>
+      </Section>
 
       <Section tone="white" label={c.SOCIAL_INTRO.label} title={c.SOCIAL_INTRO.title} align="start" className="sp-section-fade-in">
         <div className="sp-intro-stack">

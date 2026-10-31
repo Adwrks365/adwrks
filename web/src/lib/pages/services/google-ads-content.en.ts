@@ -3,8 +3,24 @@ export const GOOGLE_ADS_PATH = "/en/google-ads/" as const;
 export const GOOGLE_ADS_HERO = {
   badge: "Google Partner • Since 2018",
   title: "Google Ads for Business",
-  lead: "Google Ads is the fastest way to reach customers the moment they search for your service or product. Adwrks 365 manages paid search campaigns for businesses in Israel with a focus on ROI, lead quality, and smart budget control — not clicks alone.",
+  lead: "Google Ads management for businesses in Israel — ROI, lead quality, and budget transparency. Google Partner · Since 2018.",
 };
+
+export const GOOGLE_ADS_STARTING_OFFER = {
+  priceLine: "Google Ads management from ₪850 + VAT per month",
+  scopeLine:
+    "Starting tier for a basic campaign — one business vertical, baseline ad scope — per our pricing guide and tailored quote.",
+  notIncluded: [
+    "Google ad spend is separate from the management fee",
+    "Google Shopping is not included in the starting price; priced by scope",
+    "Complex setups (multiple verticals/campaigns, PMax, YouTube, advanced remarketing, multi-language/region, complex conversion tracking) — quoted separately",
+  ],
+  factorsLine: "Final price depends on scope, complexity, and your business needs.",
+  pricingHref: "/en/digital-marketing-pricing/",
+  pricingLabel: "View pricing guide",
+  ctaHref: "/en/contact-us/",
+  ctaLabel: "Get a tailored quote",
+} as const;
 
 export const GOOGLE_ADS_INTRO = {
   label: "Certified Google Partners",
@@ -17,6 +33,8 @@ export const GOOGLE_ADS_INTRO = {
 export const GOOGLE_ADS_CAMPAIGNS = {
   label: "Campaign types",
   title: "Google Ads services we manage",
+  scopeNote:
+    "We also manage Search, Display, YouTube, Shopping, Local, and Performance Max — not all are included in the starting tier; scope and pricing are quoted separately.",
   items: [
     { title: "Search", text: "Search campaigns — high-intent keywords that drive action.", icon: "search" as const },
     { title: "Display", text: "Display network campaigns — reach and remarketing.", icon: "display" as const },
@@ -53,7 +71,10 @@ export const GOOGLE_ADS_BENEFITS = {
   items: [
     { title: "ROI-driven management", text: "Focus on business outcomes — leads, calls, and sales — not clicks alone." },
     { title: "Full transparency", text: "Clear reports, data access, and explanations for every campaign change." },
-    { title: "Experience since 2018", text: "Managing campaigns for businesses across industries in Israel." },
+    {
+      title: "Experience since 2018",
+      text: "185+ active clients across services · boutique agency · Hebrew, Russian, and English.",
+    },
     { title: "Integrated with SEO & websites", text: "Connecting paid search, landing pages, and conversion optimization." },
   ],
 };
@@ -90,6 +111,14 @@ export const GOOGLE_ADS_FAQ = [
     q: "Do I need a landing page or website to advertise on Google?",
     a: "An effective Google Ads campaign needs a clear conversion destination — a landing page or website that drives action. We can connect the campaign, site, and tracking as part of the full digital envelope.",
   },
+  {
+    q: "What is included in the starting management fee (from ₪850 + VAT)?",
+    a: "The starting price covers basic campaign management for one vertical and baseline ad scope, per our pricing guide. Google ad spend is paid separately.",
+  },
+  {
+    q: "Is Google Shopping included in the starting price?",
+    a: "No. Google Shopping and more complex campaign setups are priced according to scope and a tailored quote.",
+  },
 ] as const;
 
 export const GOOGLE_ADS_GUIDE_PATHS = [
@@ -108,7 +137,7 @@ export const GOOGLE_ADS_RELATED_SERVICES = [
 export const GOOGLE_ADS_MID_CTA = {
   eyebrow: "Before you start",
   title: "Want to know if Google Ads fits your business?",
-  body: "We'll review the potential, budget, and right direction for paid search — with no obligation.",
+  body: "We'll review potential, budget, and direction — and provide a tailored quote by campaign type and scope.",
 };
 
 export const GOOGLE_ADS_FINAL_CTA = {

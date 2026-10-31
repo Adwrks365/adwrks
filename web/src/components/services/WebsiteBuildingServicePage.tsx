@@ -10,6 +10,7 @@ import { getWebsiteBuildingPageContent } from "@/lib/pages/services/get-locale-c
 import type { LocaleProps } from "@/lib/locale-props";
 import { getServicePopupConfig } from "@/lib/popups/service-pages";
 import { ServiceAreasNote } from "./shared/ServiceAreasNote";
+import { ServiceStartingOffer } from "./shared/ServiceStartingOffer";
 import { WebsiteBuildingHero } from "./WebsiteBuildingHero";
 import { WebsiteBuildingMidCta } from "./WebsiteBuildingHeroCtas";
 
@@ -25,6 +26,8 @@ export function WebsiteBuildingServicePage({ locale = "he" }: LocaleProps) {
   return (
     <article className="wb-page structured-page service-page">
       <WebsiteBuildingHero locale={locale} />
+
+      <ServiceStartingOffer offer={c.WEBSITE_BUILDING_STARTING_OFFER} />
 
       <Section
         tone="white"

@@ -15,6 +15,7 @@ import { ServiceHero } from "./shared/ServiceHero";
 import { ServiceLifecycleRail } from "./shared/ServiceLifecycleRail";
 import { ServiceRelatedGuides } from "./shared/ServiceRelatedGuides";
 import { ServiceRelatedServices } from "./shared/ServiceRelatedServices";
+import { ServiceStartingOffer } from "./shared/ServiceStartingOffer";
 import { GoogleAdsHeroVisual } from "./shared/ServiceVisualCompositions";
 
 export function GoogleAdsServicePage({ locale = "he" }: LocaleProps) {
@@ -48,6 +49,8 @@ export function GoogleAdsServicePage({ locale = "he" }: LocaleProps) {
         }
       />
 
+      <ServiceStartingOffer offer={c.GOOGLE_ADS_STARTING_OFFER} />
+
       <Section tone="white" label={c.GOOGLE_ADS_INTRO.label} title={c.GOOGLE_ADS_INTRO.title} align="start" className="sp-section-fade-in">
         <div className="sp-editorial-grid sp-editorial-grid--media">
           <div className="sp-editorial-copy">
@@ -64,6 +67,9 @@ export function GoogleAdsServicePage({ locale = "he" }: LocaleProps) {
       </Section>
 
       <Section tone="muted" label={c.GOOGLE_ADS_CAMPAIGNS.label} title={c.GOOGLE_ADS_CAMPAIGNS.title} align="start">
+        {c.GOOGLE_ADS_CAMPAIGNS.scopeNote ? (
+          <p className="sp-body-text sp-body-text--narrow sp-campaign-scope-note">{c.GOOGLE_ADS_CAMPAIGNS.scopeNote}</p>
+        ) : null}
         <div className="sp-campaign-grid sp-campaign-grid--enriched">
           {c.GOOGLE_ADS_CAMPAIGNS.items.map((item) => (
             <article key={item.title} className="sp-campaign-item sp-campaign-item--enriched">

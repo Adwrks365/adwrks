@@ -42,7 +42,7 @@ export const MONTHLY_SERVICES_EN: readonly PricingService[] = [
     description: "SEO & focused content",
     price: 2000,
     priceType: "monthly",
-    priceLabel: "₪2,500 / month",
+    priceLabel: "₪2,000 / month",
     icon: "trending-up",
     features: ["Keyword research", "Focused content", "Link building"],
     color: "#8b5cf6",

@@ -3,8 +3,23 @@ export const SEO_PATH = "/en/seo/" as const;
 export const SEO_HERO = {
   badge: "Organic SEO • Since 2018",
   title: "Search Engine Optimization (SEO)",
-  lead: "Organic SEO is the foundation of stable visibility in Google. At Adwrks 365 we focus on relevant traffic, leads, and sales — not rankings alone. Strategy, content, technology, and AI-ready optimization.",
+  lead: "Organic SEO focused on relevant traffic and leads — not rankings alone. Since 2018 · Google Partner.",
 };
+
+export const SEO_STARTING_OFFER = {
+  priceLine: "Organic SEO from ₪2,000 + VAT per month",
+  scopeLine: "Monthly plan tailored to your business — not a one-size-fits-all package.",
+  notIncluded: [
+    "No guarantee of Google rankings or AI answer placements",
+    "Paid ad budgets are separate (can be combined if needed)",
+  ],
+  factorsLine:
+    "Price depends on keywords, competition, region, industry, site condition, and scope of content/technical/link work.",
+  pricingHref: "/en/digital-marketing-pricing/",
+  pricingLabel: "View pricing guide",
+  ctaHref: "/en/contact-us/",
+  ctaLabel: "Get a tailored quote",
+} as const;
 
 export const SEO_TODAY = {
   label: "SEO strategy that delivers long-term results",
@@ -64,7 +79,10 @@ export const SEO_BENEFITS = {
     { title: "Keywords & content", text: "Research, site hierarchy, and content that attracts the right customers." },
     { title: "Continuous optimization", text: "Ongoing improvements to structure, speed, UX, and content based on data." },
     { title: "Clear reporting", text: "Traffic, rankings, leads — transparent progress reports." },
-    { title: "Proven expertise", text: "Organic SEO for businesses since 2018 across industries." },
+    {
+      title: "Proven expertise",
+      text: "185+ active clients across services · boutique · Hebrew, Russian, English · since 2018.",
+    },
     { title: "Full digital envelope", text: "SEO combined with PPC, content, websites, and AI." },
     { title: "Results-focused", text: "Leads and sales from organic search — not vanity metrics alone." },
   ],
@@ -95,6 +113,10 @@ export const SEO_FAQ = [
     q: "Should SEO be combined with other marketing?",
     a: "Not required, but combining SEO with PPC, social, and content creates a stronger, data-rich marketing system.",
   },
+  {
+    q: "What is the starting price for SEO?",
+    a: "Organic SEO starts from ₪2,000 + VAT per month. Final pricing depends on competition, region, keywords, site condition, and workload — see our pricing guide and SEO pricing article.",
+  },
 ] as const;
 
 export const SEO_GUIDE_PATHS = [
@@ -113,7 +135,7 @@ export const SEO_RELATED_SERVICES = [
 export const SEO_MID_CTA = {
   eyebrow: "Before you start",
   title: "Want to assess your site's organic potential?",
-  body: "We'll review your site, competition, and direction — and explain clearly if and how SEO can work for you.",
+  body: "We'll review your site and competition — and propose tailored scope and pricing.",
 };
 
 export const SEO_FINAL_CTA = {

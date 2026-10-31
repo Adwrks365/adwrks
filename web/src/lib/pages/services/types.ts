@@ -19,6 +19,18 @@ export type ServiceFaq = {
   a: string;
 };
 
+/** Starting-price strip below service hero (Sprint 1 pricing transparency). */
+export type ServiceStartingOfferContent = {
+  priceLine: string;
+  scopeLine: string;
+  notIncluded: readonly string[];
+  factorsLine?: string;
+  pricingHref: string;
+  pricingLabel: string;
+  ctaHref: string;
+  ctaLabel: string;
+};
+
 export type ServiceSection = {
   eyebrow?: string;
   heading: string;

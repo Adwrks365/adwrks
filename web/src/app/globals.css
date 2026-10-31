@@ -9697,6 +9697,96 @@ body.contextual-popup-open {
     var(--brand-gradient-soft);
 }
 
+.sp-starting-offer {
+  background: var(--surface-0, #fff);
+  padding-block: clamp(1.25rem, 3vw, 2rem);
+}
+
+.sp-starting-offer-card {
+  background: linear-gradient(135deg, rgb(240 249 255 / 0.95), rgb(248 250 252 / 0.98));
+  border: 1px solid rgb(186 230 253 / 0.9);
+  border-radius: 1rem;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+}
+
+.sp-starting-offer-price {
+  color: var(--brand-navy, #0f172a);
+  font-size: clamp(1.125rem, 2.5vw, 1.35rem);
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 0 0 0.65rem;
+}
+
+.sp-starting-offer-scope,
+.sp-starting-offer-factors {
+  color: rgb(51 65 85);
+  font-size: 0.98rem;
+  line-height: 1.65;
+  margin: 0 0 0.75rem;
+}
+
+.sp-starting-offer-list {
+  color: rgb(51 65 85);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  margin: 0 0 0.85rem;
+  padding-inline-start: 1.25rem;
+}
+
+.sp-starting-offer-list li {
+  margin-bottom: 0.35rem;
+}
+
+.sp-starting-offer-actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.sp-starting-offer-link {
+  color: var(--brand-blue, #0284c7);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.sp-starting-offer-link:hover {
+  text-decoration: underline;
+}
+
+.sp-starting-offer-cta {
+  background: var(--brand-blue, #0284c7);
+  border-radius: 0.5rem;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.55rem 1.1rem;
+  text-decoration: none;
+}
+
+.sp-starting-offer-cta:hover {
+  filter: brightness(1.05);
+}
+
+.sp-starting-offer--embedded {
+  background: transparent;
+  padding-block: 0 1rem;
+}
+
+.sp-starting-offer--embedded .sp-starting-offer-card {
+  margin-top: 0;
+}
+
+.sp-meta-organic-note {
+  color: rgb(51 65 85);
+  font-size: 0.98rem;
+  line-height: 1.65;
+  margin: 0;
+  max-width: 42rem;
+}
+
 .sp-page--social .sp-hero {
   background:
     radial-gradient(circle at 78% 22%, rgb(221 42 123 / 0.07), transparent 40%),

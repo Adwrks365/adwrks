@@ -6,12 +6,28 @@ export const WEBSITE_BUILDING_HERO = {
   badge: "Website Building for Business • Since 2018",
   title: "Website Building for Business",
   lead:
-    "Since 2018, Adwrks 365 has helped businesses build websites connected to real results. We combine modern design, user experience, high performance, and marketing thinking — so your site is not just a business card, but a genuine lead engine.",
+    "Websites built for marketing — WordPress and the right stack. Since 2018 · boutique guidance.",
   cues: [
     "Structure and content planning before development",
     "Design, development, and mobile",
     "SEO foundations and measurement",
   ],
+} as const;
+
+export const WEBSITE_BUILDING_STARTING_OFFER = {
+  priceLine: "Website building from ₪1,800 + VAT",
+  scopeLine: "Basic brochure site — single scrolling page (One Page Website).",
+  notIncluded: [
+    "Starting price does not include multi-page sites, e-commerce, or custom development",
+    "Hosting, domain, copywriting, and maintenance — only if included in your quote",
+    "Brochure site (up to 5 pages) — from ₪3,000 + VAT per our pricing guide",
+  ],
+  factorsLine:
+    "Final price depends on page count, design, content, forms, integrations, languages, store features, technology, and scope.",
+  pricingHref: "/en/digital-marketing-pricing/",
+  pricingLabel: "View pricing guide",
+  ctaHref: "/en/contact-us/",
+  ctaLabel: "Get a tailored quote",
 } as const;
 
 export const WEBSITE_BUILDING_OUTCOMES = {
@@ -165,6 +181,10 @@ export const WEBSITE_BUILDING_FAQ = [
     q: "What is the next step after the new site goes live?",
     a: "After launch, the priority is driving quality traffic to the site. You can continue with organic SEO, Google Ads, or a combination — depending on goals and budget. We recommend a marketing plan aligned with the new site to maximize digital results.",
   },
+  {
+    q: "What is the starting price for website building?",
+    a: "A one-page scrolling brochure site starts from ₪1,800 + VAT. A brochure site with up to 5 pages starts from ₪3,000 + VAT depending on scope. Final pricing follows project requirements.",
+  },
 ] as const;
 
 export const WEBSITE_BUILDING_GUIDE_PATHS = [
@@ -196,7 +216,7 @@ export const WEBSITE_BUILDING_FINAL_CTA = {
   eyebrow: "Want a site that brings inquiries — not just looks good?",
   title: "A business website that brings inquiries — not just looks good",
   body:
-    "Leave your details for an initial consultation on building or upgrading a business website — with no obligation. We'll understand your needs, audience, and business goals, and propose a clear direction for a site that supports marketing, builds trust, and works for you over time.",
+    "Leave your details for an initial consultation — we'll propose scope and a tailored quote for a site that supports marketing and conversions.",
   note: "Our consultation is based on hands-on website building experience for businesses in Israel since 2018.",
 } as const;
 
