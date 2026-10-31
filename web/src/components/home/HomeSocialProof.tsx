@@ -37,7 +37,7 @@ export function HomeSocialProof({ locale = "he" }: LocaleProps) {
         <div className="home-results-grid reveal">
           {HOMEPAGE_RESULT_QUOTES.map((quote) => (
             <blockquote key={quote.name} className="home-result-card">
-              {"highlight" in quote && quote.highlight ? (
+              {"highlight" in quote && typeof quote.highlight === "string" ? (
                 <span className="home-result-badge">{quote.highlight}</span>
               ) : null}
               <p>{quote.content}</p>

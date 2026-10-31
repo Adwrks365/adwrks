@@ -16,6 +16,7 @@ import { ServiceHero } from "./shared/ServiceHero";
 import { ServiceProcessTimeline } from "./shared/ServiceProcessTimeline";
 import { ServiceRelatedGuides } from "./shared/ServiceRelatedGuides";
 import { ServiceRelatedServices } from "./shared/ServiceRelatedServices";
+import { ServiceCaseStudySection } from "./shared/ServiceCaseStudySection";
 import { ServiceStartingOffer } from "./shared/ServiceStartingOffer";
 import { SeoAeoAccent, SeoHeroVisual } from "./shared/ServiceVisualCompositions";
 
@@ -68,6 +69,20 @@ export function SeoServicePage({ locale = "he" }: LocaleProps) {
             height={c.SEO_IMAGES.intro.height}
           />
         </div>
+      </Section>
+
+      <Section tone="muted" label={c.SEO_SCOPE.label} title={c.SEO_SCOPE.title} align="start">
+        <p className="sp-body-lead sp-body-lead--narrow">{c.SEO_SCOPE.intro}</p>
+        <div className="sp-benefits-editorial sp-benefits-editorial--two">
+          {c.SEO_SCOPE.items.map((item) => (
+            <article key={item.title} className="sp-benefit-editorial">
+              <h3 className="sp-benefit-title">{item.title}</h3>
+              <p className="sp-benefit-text">{item.text}</p>
+            </article>
+          ))}
+        </div>
+        <p className="sp-body-text sp-body-text--narrow">{c.SEO_SCOPE.pricingNote}</p>
+        <p className="sp-body-text sp-body-text--narrow">{c.SEO_SCOPE.hubNote}</p>
       </Section>
 
       <Section tone="sky" label={c.SEO_AUDIENCE.label} title={c.SEO_AUDIENCE.title} align="start">
@@ -137,6 +152,8 @@ export function SeoServicePage({ locale = "he" }: LocaleProps) {
           <ServiceRelatedGuides posts={guides} locale={locale} />
         </Section>
       )}
+
+      <ServiceCaseStudySection category="seo" locale={locale} />
 
       <Section
         tone="sky"

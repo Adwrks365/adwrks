@@ -34,6 +34,43 @@ export const SEO_TODAY = {
   ],
 };
 
+export const SEO_SCOPE = {
+  label: "Service scope",
+  title: "What does organic SEO include?",
+  intro:
+    "There is no one-size package — these are the core work areas we cover based on your site, competition, and goals.",
+  items: [
+    {
+      title: "Keyword research",
+      text: "Mapping queries, search intent, and opportunities as the basis for content and structure.",
+    },
+    {
+      title: "Technical SEO",
+      text: "Indexing, sitemaps, Core Web Vitals, basic schema, and fixes that block performance.",
+    },
+    {
+      title: "Content & structure",
+      text: "Optimizing existing pages, internal hierarchy, and content aligned with intent.",
+    },
+    {
+      title: "Local SEO",
+      text: "Local search alignment, Google Business Profile, and Maps presence — alongside relevant guides.",
+    },
+    {
+      title: "Google Search Console",
+      text: "Monitoring impressions, CTR, and issues in GSC — with continuous improvement from data.",
+    },
+    {
+      title: "Search & AI readiness",
+      text: "Content and authority (E-E-A-T) for semantic search and AI systems — without ranking or AI answer guarantees.",
+    },
+  ],
+  pricingNote:
+    "Organic SEO from ₪2,000 + VAT per month — pricing varies by keyword count, region, competition, and scope.",
+  hubNote:
+    "For detailed pricing and guides, see the marketing price hub and pricing articles; this service page focuses on scope and process.",
+} as const;
+
 export const SEO_AUDIENCE = {
   label: "Organic SEO for growth-focused businesses",
   title: "Who is SEO for?",

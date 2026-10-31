@@ -36,14 +36,49 @@ export const GOOGLE_ADS_CAMPAIGNS = {
   scopeNote:
     "We also manage Search, Display, YouTube, Shopping, Local, and Performance Max — not all are included in the starting tier; scope and pricing are quoted separately.",
   items: [
-    { title: "Search", text: "Search campaigns — high-intent keywords that drive action.", icon: "search" as const },
-    { title: "Display", text: "Display network campaigns — reach and remarketing.", icon: "display" as const },
-    { title: "YouTube", text: "Video and targeted ads on YouTube.", icon: "youtube" as const },
-    { title: "Shopping", text: "Google Shopping — for products and online stores.", icon: "shopping" as const },
-    { title: "Local", text: "Local campaigns — Google Maps and Local Services.", icon: "local" as const },
-    { title: "Optimization", text: "A/B testing, ROI reporting, and continuous improvement.", icon: "optimize" as const },
+    {
+      title: "Search",
+      text: "Search network campaigns — keywords, RSAs, and bidding aligned with purchase intent.",
+      icon: "search" as const,
+    },
+    {
+      title: "Display",
+      text: "Display network — banners, custom audiences, and awareness campaigns.",
+      icon: "display" as const,
+    },
+    {
+      title: "YouTube",
+      text: "Video and In-Stream ads — reach by interests, search, and remarketing lists.",
+      icon: "youtube" as const,
+    },
+    {
+      title: "Google Shopping",
+      text: "Product campaigns — feeds, Merchant Center, and search placements. Not in the basic tier; quoted separately.",
+      icon: "shopping" as const,
+    },
+    {
+      title: "Performance Max",
+      text: "Cross-channel campaigns (Search, Display, YouTube, Discover) with conversion goals — scoped per quote.",
+      icon: "optimize" as const,
+    },
+    {
+      title: "Remarketing",
+      text: "Re-engage visitors who already know your brand — audience lists, dynamic ads, Display/YouTube.",
+      icon: "display" as const,
+    },
   ],
 };
+
+export const GOOGLE_ADS_MEASUREMENT = {
+  label: "Measurement & conversions",
+  title: "Optimization based on data",
+  body: "Strong campaigns are measured by leads, calls, and sales — not clicks alone. We define conversions, connect to your site's existing tracking (respecting consent settings), and optimize budget from real outcomes.",
+  items: [
+    "Conversion goals and lead-quality tracking",
+    "Transparent reporting with budget and creative recommendations",
+    "Ongoing improvement — including ad and landing-page tests when volume allows",
+  ],
+} as const;
 
 export const GOOGLE_ADS_AUDIENCE = {
   label: "Experience and strategy",

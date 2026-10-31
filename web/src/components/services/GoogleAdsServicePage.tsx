@@ -15,6 +15,7 @@ import { ServiceHero } from "./shared/ServiceHero";
 import { ServiceLifecycleRail } from "./shared/ServiceLifecycleRail";
 import { ServiceRelatedGuides } from "./shared/ServiceRelatedGuides";
 import { ServiceRelatedServices } from "./shared/ServiceRelatedServices";
+import { ServiceCaseStudySection } from "./shared/ServiceCaseStudySection";
 import { ServiceStartingOffer } from "./shared/ServiceStartingOffer";
 import { GoogleAdsHeroVisual } from "./shared/ServiceVisualCompositions";
 
@@ -81,6 +82,15 @@ export function GoogleAdsServicePage({ locale = "he" }: LocaleProps) {
         </div>
       </Section>
 
+      <Section tone="white" label={c.GOOGLE_ADS_MEASUREMENT.label} title={c.GOOGLE_ADS_MEASUREMENT.title} align="start">
+        <p className="sp-body-lead sp-body-lead--narrow">{c.GOOGLE_ADS_MEASUREMENT.body}</p>
+        <ul className="sp-check-list sp-check-list--compact">
+          {c.GOOGLE_ADS_MEASUREMENT.items.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+      </Section>
+
       <Section tone="sky" label={c.GOOGLE_ADS_AUDIENCE.label} title={c.GOOGLE_ADS_AUDIENCE.title} align="start">
         <div className="sp-editorial-grid sp-editorial-grid--media sp-editorial-grid--reverse">
           <div className="sp-editorial-copy">
@@ -139,6 +149,8 @@ export function GoogleAdsServicePage({ locale = "he" }: LocaleProps) {
           <ServiceRelatedGuides posts={guides} locale={locale} />
         </Section>
       )}
+
+      <ServiceCaseStudySection category="google-ads" locale={locale} />
 
       <Section
         tone="sky"

@@ -134,7 +134,6 @@ export const HOMEPAGE_RESULT_QUOTES = [
   },
   {
     name: "Tal Shina",
-    highlight: "From a client review",
     content: "Since advertising with them my workload increased by 350%, with fair pricing and personal support.",
   },
 ] as const;

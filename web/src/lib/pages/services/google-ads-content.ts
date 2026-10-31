@@ -36,14 +36,49 @@ export const GOOGLE_ADS_CAMPAIGNS = {
   scopeNote:
     "אנו מנהלים גם Search, Display, YouTube, Shopping, Local ו-Performance Max — לא כולם כלולים במסלול הפתיחה; ההיקף והמחיר לפי הצעה.",
   items: [
-    { title: "Search", text: "קמפיינים בחיפוש – מילות מפתח עם כוונת רכישה גבוהה.", icon: "search" as const },
-    { title: "Display", text: "קמפיינים ברשת התצוגה – חשיפה ורימarketing.", icon: "display" as const },
-    { title: "YouTube", text: "וידאו ומודעות ממוקדות ב-YouTube.", icon: "youtube" as const },
-    { title: "Shopping", text: "Google Shopping – למוצרים וחנויות אונליין.", icon: "shopping" as const },
-    { title: "Local", text: "קמפיינים מקומיים – Google Maps ו-Local Services.", icon: "local" as const },
-    { title: "אופטימיזציה", text: "A/B testing, דוחות ROI ושיפור מתמשך.", icon: "optimize" as const },
+    {
+      title: "Search",
+      text: "קמפיינים ברשת החיפוש — מילות מפתח, מודעות RSA והתאמת הצעות לפי כוונת רכישה.",
+      icon: "search" as const,
+    },
+    {
+      title: "Display",
+      text: "חשיפה ברשת התצוגה — באנרים, קהלים מותאמים ותמיכה בקמפיינות מודעות.",
+      icon: "display" as const,
+    },
+    {
+      title: "YouTube",
+      text: "מודעות וידאו ו-In-Stream — הגעה לקהלים לפי תחומי עניין, חיפוש ורימarketing.",
+      icon: "youtube" as const,
+    },
+    {
+      title: "Google Shopping",
+      text: "קמפיינים למוצרים וחנויות — פיד, Merchant Center וקידום בחיפוש. לא כלול במסלול הבסיסי; לפי הצעה.",
+      icon: "shopping" as const,
+    },
+    {
+      title: "Performance Max",
+      text: "קמפיינים רב-ערוציים (חיפוש, Display, YouTube, Discover) עם יעדי המרה — לפי היקף והצעה.",
+      icon: "optimize" as const,
+    },
+    {
+      title: "Remarketing",
+      text: "החזרת מבקרים שכבר הכירו את העסק — רשימות קהל, דינמיות ושילוב עם Display/YouTube.",
+      icon: "display" as const,
+    },
   ],
 };
+
+export const GOOGLE_ADS_MEASUREMENT = {
+  label: "מדידה והמרות",
+  title: "אופטימיזציה ומדידת תוצאות",
+  body: "קמפיין חזק נמדד לפי לידים, שיחות ומכירות — לא רק לפי קליקים. אנחנו מגדירים המרות, מחברים למערכות המדידה הקיימות באתר (בהתאם להגדרות ו-Consent), ומייעלים תקציב לפי נתונים.",
+  items: [
+    "הגדרת יעדי המרה ומעקב אחרי איכות הפניות",
+    "דוחות שקופים והמלצות להתאמת מודעות, קהלים ותקציב",
+    "שיפור מתמשך — כולל בדיקות מודעות ודפי נחיתה כשיש מספיק נתונים",
+  ],
+} as const;
 
 export const GOOGLE_ADS_AUDIENCE = {
   label: "ניסיון ואסטרטגיה",

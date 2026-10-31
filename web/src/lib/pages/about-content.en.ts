@@ -86,11 +86,24 @@ export const ABOUT_METHODOLOGY = {
 
 export const ABOUT_TRUST = {
   label: "Certified partners",
-  title: "Google Partner and Meta Business Partner",
+  title: "Google Partner · boutique agency since 2018",
   intro:
-    "We work with platforms like Google and Meta, and stay current with changes in search, AI, and digital advertising.",
+    "Adwrks 365 has operated since 2018, supporting 185+ active clients across digital marketing — Google Ads, SEO, social, websites, hosting, and more — under one roof.",
   supporting:
-    "Personal support, full transparency, and clear starting prices — so you know what to expect before we begin.",
+    "Service in Hebrew, Russian, and English · personal support · verified Google Partner · transparent reporting focused on business outcomes.",
+} as const;
+
+export const ABOUT_VERIFIED = {
+  label: "Verified facts",
+  title: "At a glance",
+  items: [
+    "Operating since 2018",
+    "185+ active clients (company-wide)",
+    "Hebrew, Russian, and English service",
+    "Boutique agency with personal support",
+    "Verified Google Partner",
+    "Full digital marketing services under one roof",
+  ],
 } as const;
 
 export const ABOUT_WHY = {

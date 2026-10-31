@@ -1,6 +1,7 @@
 import { HOMEPAGE_FAQ } from "@/lib/homepage/data.en";
 import { ABOUT_FAQ, ABOUT_PATH } from "@/lib/pages/about-content.en";
 import { PRICING_FAQ, PRICING_PATH } from "@/lib/pages/pricing-content.en";
+import { HUB_FAQ, HUB_PATH } from "@/lib/pages/services/hub-content.en";
 import { GOOGLE_ADS_FAQ, GOOGLE_ADS_PATH } from "@/lib/pages/services/google-ads-content.en";
 import { SEO_FAQ, SEO_PATH } from "@/lib/pages/services/seo-content.en";
 import { SOCIAL_FAQ, SOCIAL_PATH } from "@/lib/pages/services/social-media-content.en";
@@ -20,6 +21,7 @@ const COMPOSER_FAQ: Record<string, readonly FaqItem[]> = {
   [SEO_PATH]: SEO_FAQ,
   [SOCIAL_PATH]: SOCIAL_FAQ,
   [WEBSITE_BUILDING_PATH]: WEBSITE_BUILDING_FAQ,
+  [HUB_PATH]: HUB_FAQ,
 };
 
 function faqPageSchema(items: readonly FaqItem[]): Record<string, unknown> {

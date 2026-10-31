@@ -99,9 +99,17 @@ export function AboutPage({ locale = "he" }: LocaleProps) {
         </ol>
       </Section>
 
+      <Section tone="muted" title={c.ABOUT_VERIFIED.title} label={c.ABOUT_VERIFIED.label} align="start">
+        <ul className="sp-check-list sp-check-list--compact">
+          {c.ABOUT_VERIFIED.items.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+      </Section>
+
       <Section tone="sky" align="start" className="ab-section-trust">
         <div className="ab-trust-strip">
-          <PartnerBadges variant="standard" className="ab-trust-badges" />
+          <PartnerBadges variant="standard" className="ab-trust-badges" googleOnly />
           <div className="ab-trust-copy">
             <p className="ab-trust-label">{c.ABOUT_TRUST.label}</p>
             <h2 className="ab-trust-title">{c.ABOUT_TRUST.title}</h2>

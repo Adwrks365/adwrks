@@ -10,6 +10,7 @@ import { getWebsiteBuildingPageContent } from "@/lib/pages/services/get-locale-c
 import type { LocaleProps } from "@/lib/locale-props";
 import { getServicePopupConfig } from "@/lib/popups/service-pages";
 import { ServiceAreasNote } from "./shared/ServiceAreasNote";
+import { ServiceCaseStudySection } from "./shared/ServiceCaseStudySection";
 import { ServiceStartingOffer } from "./shared/ServiceStartingOffer";
 import { WebsiteBuildingHero } from "./WebsiteBuildingHero";
 import { WebsiteBuildingMidCta } from "./WebsiteBuildingHeroCtas";
@@ -193,6 +194,8 @@ export function WebsiteBuildingServicePage({ locale = "he" }: LocaleProps) {
           </ul>
         </Section>
       )}
+
+      <ServiceCaseStudySection category="website-building" locale={locale} />
 
       <Section
         tone="sky"

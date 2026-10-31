@@ -10,6 +10,7 @@ import { getServicePopupConfig } from "@/lib/popups/service-pages";
 import { ServiceAreasNote } from "./shared/ServiceAreasNote";
 import { ServiceCtaRow, ServiceContactButton, ServicePhoneLink } from "./shared/ServiceCtas";
 import { ServiceHero } from "./shared/ServiceHero";
+import { ServiceFaq } from "./shared/ServiceFaq";
 import { ServiceRelatedGuides } from "./shared/ServiceRelatedGuides";
 import { HubEcosystemVisual } from "./shared/ServiceVisualCompositions";
 
@@ -98,6 +99,15 @@ export function ServiceHubPage({ locale = "he" }: LocaleProps) {
 
       <Section tone="white" align="start">
         <ServiceAreasNote locale={locale} />
+      </Section>
+
+      <Section
+        tone="muted"
+        label={locale === "en" ? "FAQ" : "שאלות נפוצות"}
+        title={locale === "en" ? "Common questions about digital marketing" : "שאלות נפוצות על שיווק דיגיטלי"}
+        align="start"
+      >
+        <ServiceFaq items={c.HUB_FAQ} />
       </Section>
 
       <CommercialFinalCta

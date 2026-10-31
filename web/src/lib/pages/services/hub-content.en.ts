@@ -72,6 +72,7 @@ export const HUB_GUIDE_PATHS = [
   "/en/paid-vs-organic-seo/",
   "/en/seo-2026-ai-answers/",
   "/en/google-ads-cost/",
+  "/en/google-business-profile/",
   "/en/facebook-instagram-marketing/",
 ] as const;
 
@@ -80,3 +81,38 @@ export const HUB_FINAL_CTA = {
   title: "360° digital marketing for your business",
   body: "We'd love to learn about your business, understand your goals, and propose the right mix of services — SEO, Google Ads, social, websites, and more.",
 };
+
+export const HUB_FAQ = [
+  {
+    q: "Which digital marketing service fits my business?",
+    a: "It depends on your goal: Google Ads when you need fast leads with a defined budget; SEO for long-term visibility; social for brand; websites and hosting support conversion. We diagnose the right mix together.",
+  },
+  {
+    q: "When should I choose Google Ads vs SEO?",
+    a: "Google Ads delivers while the budget runs. SEO takes time but builds a durable asset. Most businesses combine both — paid for immediacy, organic for growth.",
+  },
+  {
+    q: "What's the difference between social management and paid promotion?",
+    a: "Social management covers content, community, and sometimes Meta ads. Paid promotion (Google/Meta Ads) focuses on conversion campaigns. They can work together.",
+  },
+  {
+    q: "How is the ad budget set?",
+    a: "Media budget depends on industry, competition, goals, and cost per lead. Management fees are separate from ad spend. We suggest a realistic range after a short briefing.",
+  },
+  {
+    q: "What affects service pricing?",
+    a: "Scope (campaigns/channels), complexity (Shopping, PMax, languages), site condition, and competition. Starting prices are in the price hub — final quotes match your needs.",
+  },
+  {
+    q: "How soon can we measure results?",
+    a: "Google Ads — often days to weeks for meaningful data. SEO — months. Social and content — depends on cadence. We define KPIs and measurement from day one.",
+  },
+  {
+    q: "Can we combine several services?",
+    a: "Yes — that's our approach: website, SEO, Google Ads, and social work better together with shared strategy and measurement.",
+  },
+  {
+    q: "What does the work process look like?",
+    a: "Brief and goals → quote and scope → setup and measurement → ongoing management, reporting, and optimization — with transparency and personal support.",
+  },
+] as const;

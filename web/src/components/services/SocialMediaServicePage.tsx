@@ -8,6 +8,7 @@ import type { LocaleProps } from "@/lib/locale-props";
 import { getServicePopupConfig } from "@/lib/popups/service-pages";
 import { ServiceAreasNote } from "./shared/ServiceAreasNote";
 import { ServiceCtaRow, ServiceContactButton, ServicePhoneLink } from "./shared/ServiceCtas";
+import { ServiceCaseStudySection } from "./shared/ServiceCaseStudySection";
 import { ServiceFaq } from "./shared/ServiceFaq";
 import { ServiceHero } from "./shared/ServiceHero";
 import { ServiceRelatedGuides } from "./shared/ServiceRelatedGuides";
@@ -129,6 +130,8 @@ export function SocialMediaServicePage({ locale = "he" }: LocaleProps) {
           <ServiceRelatedGuides posts={guides} locale={locale} />
         </Section>
       )}
+
+      <ServiceCaseStudySection category="meta-ads" locale={locale} />
 
       <Section
         tone="sky"
