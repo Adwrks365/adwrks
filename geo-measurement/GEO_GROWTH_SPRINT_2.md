@@ -280,9 +280,24 @@
 | S2-05 GBP | ✅ | post 14288 + מדריך ב-Hub |
 | S2-07 Hub FAQ | ✅ | 8 שאלות + FAQPage schema HE/EN |
 | S2-08 Shopping | ✅ | post 17923 — CTA למעלה |
-| Case studies | 🔶 | תשתית `registry.ts` — **PENDING_DATA** |
+| Case studies | ✅ | 4 מקרים ב-`cases.ts` — SEO×2, Tal (WB+GAds), Meta אנונימי; ראה `CASE_STUDY_SOURCE_LOG.md` |
 | E1–E6 / Round 1 | 🔶 | `SPRINT2_EXTERNAL_ACTIONS.md` |
 
 **QA מקומי:** typecheck ✅ · build ✅ · lint — 6 errors קיימים (לא מ-Sprint 2).
 
 **Baseline למעקב (28d / 90d):** GSC Web impr./clk · GenAI impr. · `/seo/` `/google-ads/` clk · hub FAQ impressions · leads (GA4) — ללא Round 1 מזויף.
+
+---
+
+## 17. מקרי בוחן — לקוחות אמיתיים (2026-10-31)
+
+**מיקום באתר:** סקשן «מקרי בוחן» בעמודי `/seo/`, `/google-ads/`, `/website-building/`, `/social-media-management/` (+ EN).
+
+| ID | פרסום | מקור |
+|----|--------|------|
+| `cs-seo-menofeyhasdai` | כן (שם + אתר) | דוח UBS (owner brief) |
+| `cs-seo-express-hovalot` | כן (שם + אתר) | דוח UBS (owner brief) |
+| `cs-wb-tal-shina-gads` | כן (שם) | ביקורת דף הבית + צילום GAds |
+| `cs-meta-leads-oct2026` | כן (אנונימי) | צילום Meta Ads |
+
+PDF/צילומים: **`CASE_STUDY_SOURCE_LOG.md`** — לא נמצאו ב-workspace; יש להעלות לארכיון פנימי.
