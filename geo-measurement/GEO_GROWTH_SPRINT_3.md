@@ -18,7 +18,7 @@
 
 **תיקון:** `LocationsHubRegions` — כרטיסי אזור עם grid קישורים; **הסרת** כפילות regions+cities; סקשן שירותים = 6 שירותים בלבד; כותרות ממורכזות; רוחב `max-width: 72rem`.
 
-**Deploy:** (SHA after push).
+**Deploy:** **`df4425f`** · GitHub **7457711335** · smoke **39/39 PASS** · צילומים `migration-audit/visual-qa-2026-10-31/{390,768,1440}/`.
 
 ## עמודים שנבדקו (UI audit)
 

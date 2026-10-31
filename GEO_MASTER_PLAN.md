@@ -940,3 +940,4 @@ Pricing source of truth in code: `web/src/lib/pages/pricing-content.ts` (+ EN). 
 | 2026-10-31 | Case study PDF cross-check deploy | **`6525c37`** — Express/Meta/Tal data fixes, verify scripts, source log; GitHub deployment **7457537564**; live `data-dpl-id` **`dpl_BMbs93LJgHxBtbechiwr9d1kM8AT`**; PDFs **not** in Git |
 | 2026-10-31 | Case study UX compact cards | **`4bd54be`** — grid SEO, card teasers, details for full data; GitHub deployment **7457594103**; smoke **PASS** |
 | 2026-10-31 | Sprint 3 UI — case study balance | **`3f97314`** — no asymmetric screenshots, verified badge, centered section header, LTR metrics, equal card/CTA layout; deploy **7457653036** |
+| 2026-10-31 | Sprint 3 UI — service areas hub | **`df4425f`** — region panels, removed duplicate city cards; visual QA script; deploy **7457711335** |
