@@ -12,7 +12,7 @@
 | Layer | Result |
 |--------|--------|
 | **Routable index (268 URLs)** | **PASS** — all **200**, 0×404, 0×5xx, 0 redirect chains (2026-11-01 crawl) |
-| **Legacy GSC URLs with traffic** | **Mixed** — some **404** (see §4); not in routable index |
+| **Legacy GSC URLs with traffic** | Article **`/פרסום-עסק-חינם/`** **OK** (§2.5); **`/netanya-locksmith/`** intentional **404** (§2.5) |
 | **Commercial service URLs** | **200** with title, description, canonical, H1 on `/seo/`, `/google-ads/`, hub |
 | **Rank drop (Ubersuggest)** | **INSUFFICIENT_EVIDENCE** to attribute to migration alone; GSC same window shows indexation + impressions on key URLs |
 | **Code changes this audit** | **None** (no 301/URL/content changes without owner approval) |
@@ -77,16 +77,26 @@ Service routes use **React commercial templates** (`*-content.ts`), not raw Word
 
 **Classification:** **NORMAL_FLUCTUATION_POSSIBLE** / indexing artifact — not mass 404 on legacy slugs in sample.
 
-### 2.4 URLs with GSC traffic but 404 in production (2026-11-01)
+### 2.4 Initial audit error (corrected 2026-11-01, owner review)
 
-| URL | GSC Web (Jul 29–Oct 28) | HTTP now | Classification |
-|-----|-------------------------|----------|----------------|
-| `/netanya-locksmith/` | 961 impr., 6 clk | **404** | **MIGRATION_REGRESSION_CONFIRMED** (traffic on dead URL) |
-| `/פרסום-עסק-חינם/` | 2,013 impr., 5 clk | **404** | **MIGRATION_REGRESSION_CONFIRMED** (slug not routable; EN variant may exist) |
+The first pass tested a **wrong slug** for the free-advertising post (`…-חינם/` with a **typo**, missing **נ** in **חינם**). That URL returns **404**. The **canonical live article** is:
 
-**No fix applied** — redirects/410 require **explicit owner approval** per audit charter.
+**https://adwrks.co.il/פרסום-עסק-חינם/** (`routes.ts` · `post-20969` · EN `/en/free-business-advertising/`)
 
-### 2.5 Duplicate intent: service vs taxonomy archive
+### 2.5 Verified production — two owner findings (2026-11-01)
+
+| URL | GSC Web (Jul 29–Oct 28)* | HTTP | Canonical | Robots | Sitemap | Classification |
+|-----|--------------------------|------|-----------|--------|---------|----------------|
+| **`/פרסום-עסק-חינם/`** | 2,013 impr., 5 clk | **200** | Self | `index, follow` | **`sitemap-he.xml`** | **PRESERVED — not a migration regression** |
+| **`/netanya-locksmith/`** | 961 impr., 6 clk | **404** | — | — | Not listed | **INTENTIONALLY_REMOVED_LEGACY** (not ADWRKS; no restore, no redirect) |
+
+\*GSC rows are **historical measurement** — do not delete from exports; annotate only.
+
+**Codebase search (`netanya-locksmith`):** no matches in `web/src/data`, routing, redirects, or sitemap generators — only **historical docs/GSC CSV**. **No deploy** required to remove site links.
+
+**Owner policy (2026-11-01):** keep locksmith URL as **404** (optional future **410** — separate approval). Do **not** redirect to home or services.
+
+### 2.6 Duplicate intent: service vs taxonomy archive
 
 | URL | Role | GSC impressions | Avg position | Issue |
 |-----|------|-----------------|--------------|--------|
@@ -95,13 +105,13 @@ Service routes use **React commercial templates** (`*-content.ts`), not raw Word
 
 Both **200**, both indexed. **Classification:** **SUSPECTED** cannibalization / split signals for SEO intent (pre-existed in WP IA, preserved in migration). Consolidation = **301 or canonical strategy → OWNER approval**.
 
-### 2.6 hreflang / language
+### 2.7 hreflang / language
 
 - Middleware + `legacy-redirects.ts`: `/en/{hebrew-slug}/` → Hebrew path when routable (**308** rule) — **corrective**, reduces wrong-locale URLs.
 - Production `/seo/`: canonical `https://adwrks.co.il/seo/`; EN pair `/en/seo/` in index.
 - **Hebrew queries showing `/en/` in Ubersuggest:** **INSUFFICIENT_EVIDENCE** without GSC **Query × Page** (see §3). EN pages do receive impressions (e.g. `/en/digital-marketing-for-business/` 2,290 impr.) — may be **valid Google locale choice** or **hreflang/snippet** issue — needs drill-down.
 
-### 2.7 On-page SEO gaps (non-commercial)
+### 2.8 On-page SEO gaps (non-commercial)
 
 Five paths flagged **missing H1** (legal/thank-you): accessibility, privacy, terms, thank-you HE/EN — **SUSPECTED** low impact on commercial recovery; unchanged per scope.
 
@@ -140,7 +150,8 @@ Five paths flagged **missing H1** (legal/thank-you): accessibility, privacy, ter
 | ID | Finding | Class | Action |
 |----|---------|-------|--------|
 | F1 | 268/268 routable URLs return 200, no chains | Verified OK | Monitor |
-| F2 | `/netanya-locksmith/`, `/פרסום-עסק-חינם/` 404 with GSC impressions | **MIGRATION_REGRESSION_CONFIRMED** | Owner: 301/410/restore |
+| F2 | **`/פרסום-עסק-חינם/`** — live post preserved | **Verified OK** (was false 404 in §2.4 typo check) | None |
+| F2b | **`/netanya-locksmith/`** — not part of site | **INTENTIONALLY_REMOVED_LEGACY** | Keep 404; GSC may lag; no redirect |
 | F3 | `/digital-marketing/seo/` vs `/seo/` split impressions | **SUSPECTED** | Owner: canonical/redirect strategy |
 | F4 | Service pages on React; archive/taxonomy URLs retained | **NORMAL_FLUCTUATION_POSSIBLE** | IA decision |
 | F5 | Ubersuggest 32→49 avg | **INSUFFICIENT_EVIDENCE** (causal) | Owner export + compare |
@@ -164,8 +175,8 @@ Ranked by **commercial relevance × (high impressions + poor position or 404)**:
 | 5 | `/google-ads/` | 2,757 | 3 | 62.1 | Service deep in SERP |
 | 6 | `/google-business-profile/` | 6,076 | 0 | (see pages.csv) | Local/commercial |
 | 7 | `/כמה-עולה-פרסום-בגוגל/` | (cluster) | low | ~35–41 | Cannibalize with `/google-ads/` |
-| 8 | `/פרסום-עסק-חינם/` | 2,013 | 5 | 46.8 | **404** |
-| 9 | `/netanya-locksmith/` | 961 | 6 | 3.8 | **404** (legacy programmatic) |
+| 8 | `/פרסום-עסק-חינם/` | 2,013 | 5 | 46.8 | **200** — guide post; not a service URL |
+| 9 | `/netanya-locksmith/` | 961 | 6 | 3.8 | **404 by design** — legacy WP page; **not** ADWRKS (historical GSC only) |
 | 10 | `/en/digital-marketing-for-business/` | 2,290 | 0 | 35.3 | EN URL; check Hebrew query pairing |
 
 ---
@@ -174,7 +185,7 @@ Ranked by **commercial relevance × (high impressions + poor position or 404)**:
 
 | Area | Preserved | Gap |
 |------|-----------|-----|
-| Hebrew slugs (core) | Yes | Some legacy slugs 404 (F2) |
+| Hebrew slugs (core) | Yes | `/פרסום-עסק-חינם/` OK; `/netanya-locksmith/` removed (F2b) |
 | Service URLs `/seo/`, `/google-ads/` | Yes | Body = new React (not WP Elementor) — **intentional** |
 | Taxonomy `/digital-marketing/*` | Yes | Competes with service URLs (F3) |
 | Metadata | Mostly | Archive vs service messaging differs |
@@ -186,11 +197,12 @@ Ranked by **commercial relevance × (high impressions + poor position or 404)**:
 
 ## 7. Owner approvals required (no auto-fix)
 
-1. **301/410** for `/netanya-locksmith/`, `/פרסום-עסק-חינם/` (and full list from GSC “Pages” with 404 + impressions).  
-2. **Consolidation** `/digital-marketing/seo/` → `/seo/` (or noindex archive) — SEO strategy choice.  
-3. **Title/meta/CTR** tests on `/seo/`, `/google-ads/` — copy change approval.  
-4. **GSC exports** in §3.2 for evidence-based recovery plan.  
-5. **Ubersuggest** export upload to repo for Aug vs Oct keyword-URL mapping.
+1. ~~Restore / redirect free-ad post~~ — **closed:** `/פרסום-עסק-חינם/` is **200** and indexed.  
+2. **`/netanya-locksmith/`** — **closed:** stay **404**; optional **410** + GSC “remove outdated URL” (owner, no auto-fix).  
+3. **Consolidation** `/digital-marketing/seo/` → `/seo/` (or noindex archive) — SEO strategy choice.  
+4. **Title/meta/CTR** tests on `/seo/`, `/google-ads/` — copy change approval.  
+5. **GSC exports** in §3.2 for evidence-based recovery plan.  
+6. **Ubersuggest** export upload to repo for Aug vs Oct keyword-URL mapping.
 
 ---
 
@@ -209,7 +221,7 @@ Ranked by **commercial relevance × (high impressions + poor position or 404)**:
 
 | Checkpoint | Target date | Actions |
 |------------|-------------|---------|
-| **14-day** | **2026-11-15** | Re-run `post-migration-verify.mjs`; GSC 14d compare; spot-check F2 URLs |
+| **14-day** | **2026-11-15** | Re-run `post-migration-verify.mjs`; GSC 14d compare; spot-check `/פרסום-עסק-חינם/` + locksmith still 404 |
 | **28-day** | **2026-11-29** | Full GSC 28d vs prior 28d; Ubersuggest snapshot; update this doc |
 
 ---
@@ -222,3 +234,13 @@ Ranked by **commercial relevance × (high impressions + poor position or 404)**:
 - `web/scripts/audit-wp-sitemap-vs-routable.mjs` (new helper)
 
 **Do not declare** the Ubersuggest drop **temporary** or **fully caused by migration** without §3.2 data.
+
+---
+
+## 11. Correction log (2026-11-01)
+
+| Item | Before | After verification |
+|------|--------|-------------------|
+| Free-ad article | Flagged **404** / regression | **200**, canonical, indexable, in **sitemap-he** |
+| `netanya-locksmith` | Flagged regression | **Intentional 404**; no code/sitemap links; GSC history retained |
+| Deploy | — | **Not required** (documentation-only correction) |

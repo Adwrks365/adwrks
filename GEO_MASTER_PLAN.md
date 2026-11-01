@@ -796,7 +796,7 @@ Target after full Round 1: up to **240** scored runs; report rates with explicit
 | GA4 catalog (`G-Z0DMMQVTQN`) | Old screenshots (522 users) | **`NOT_APPLICABLE`** (§1.4d) |
 | Round 1 (30q) | **0** runs in `runs-log.csv` | Any traffic metric |
 
-**Priority matrix (no site changes yet):** `geo-measurement/SEO_GEO_OPPORTUNITY_MATRIX.md` — **P0 infra (GSC):** `/netanya-locksmith/` and `/פרסום-עסק-חינם/` (**404** on Next while GSC still shows impressions).
+**Priority matrix:** `geo-measurement/SEO_GEO_OPPORTUNITY_MATRIX.md` — **P0 infra (GSC, 2026-11-01):** `/פרסום-עסק-חינם/` **closed** (200, preserved); `/netanya-locksmith/` **intentional 404** (no redirect) — see `migration-audit/SEO_RECOVERY_AUDIT_2026-11-01.md` §2.5.
 
 **Next data from owner:** GA4 Exploration from **`G-T4TE22LLC1` only** (§6 in `GA4_AI_REFERRAL_ANALYSIS.md`); GSC query→page for eight commercial queries.
 
