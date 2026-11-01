@@ -45,6 +45,9 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
   return {
     ...base,
     metadataBase: new URL(site.domain),
+    verification: {
+      google: "ZG5V-bR8VIwX8kF5Elan32ImeJnl7SpZDUF4iN6vup0",
+    },
     icons: {
       icon: [
         { url: "/favicon.ico", sizes: "32x32", type: "image/x-icon" },
