@@ -6,6 +6,7 @@ import type { ArticleAuthor } from "@/lib/content/article";
 import { getArticleUi } from "@/lib/i18n/article-ui";
 
 type ArticleTopMetaProps = {
+  breadcrumbTitle: string;
   date?: string;
   modified?: string;
   author?: ArticleAuthor | null;
@@ -30,20 +31,46 @@ function isDifferentCalendarDay(a?: string, b?: string): boolean {
   return a.slice(0, 10) !== b.slice(0, 10);
 }
 
-export function ArticleTopMeta({ date, modified, author, locale = "he" }: ArticleTopMetaProps) {
+export function ArticleTopMeta({
+  breadcrumbTitle,
+  date,
+  modified,
+  author,
+  locale = "he",
+}: ArticleTopMetaProps) {
   const ui = getArticleUi(locale);
   const showUpdated = isDifferentCalendarDay(date, modified);
   const displayIso = showUpdated && modified ? modified : date ?? modified;
   const formattedDate = formatDate(displayIso, locale);
   const authorName = author?.name?.trim();
-  const backIcon = locale === "en" ? "arrow-left" : "arrow-right";
 
   return (
     <header className="article-top-meta">
-      <Link href={ui.blogHref} className="article-top-back">
-        <LineIcon name={backIcon} className="article-top-back-icon" />
-        <span>{ui.backToBlog}</span>
-      </Link>
+      <nav className="article-breadcrumbs" aria-label={ui.breadcrumbNavLabel}>
+        <ol className="article-breadcrumbs-list">
+          <li className="article-breadcrumbs-item">
+            <Link href={ui.homeHref} className="article-breadcrumbs-link">
+              {ui.breadcrumbHome}
+            </Link>
+          </li>
+          <li className="article-breadcrumbs-item" aria-hidden="true">
+            <span className="article-breadcrumbs-sep">›</span>
+          </li>
+          <li className="article-breadcrumbs-item">
+            <Link href={ui.blogHref} className="article-breadcrumbs-link">
+              {ui.breadcrumbBlog}
+            </Link>
+          </li>
+          <li className="article-breadcrumbs-item" aria-hidden="true">
+            <span className="article-breadcrumbs-sep">›</span>
+          </li>
+          <li className="article-breadcrumbs-item article-breadcrumbs-item--current">
+            <span className="article-breadcrumbs-current" aria-current="page">
+              {breadcrumbTitle}
+            </span>
+          </li>
+        </ol>
+      </nav>
 
       {(formattedDate || authorName) && (
         <div className="article-top-details">

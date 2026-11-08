@@ -17,6 +17,7 @@ import {
   getRelatedArticles,
   prepareArticleBodyHtml,
 } from "@/lib/content/article";
+import { resolvePageSeoLabels } from "@/lib/content/page-seo-labels";
 import { resolveArticlePopupConfig } from "@/lib/popups/article-pages";
 import type { ContentItem } from "@/lib/content/types";
 
@@ -38,6 +39,12 @@ export function ArticleTemplate({ content, locale = "he" }: ArticleTemplateProps
   const adjacent = getAdjacentArticles(content, locale);
   const showHeroImage = Boolean(content.featuredImageUrl);
   const popupConfig = resolveArticlePopupConfig(content, locale);
+  const breadcrumbTitle = resolvePageSeoLabels(
+    content.path,
+    locale,
+    content.title,
+    content.excerpt?.trim(),
+  ).schemaTitle;
 
   return (
     <article className="content-page-shell article-page">
@@ -54,6 +61,7 @@ export function ArticleTemplate({ content, locale = "he" }: ArticleTemplateProps
         <div className="article-layout">
           <div className="article-main">
             <ArticleTopMeta
+              breadcrumbTitle={breadcrumbTitle}
               date={content.date}
               modified={content.modified}
               author={author}

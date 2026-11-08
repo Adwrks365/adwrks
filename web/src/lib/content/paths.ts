@@ -53,6 +53,16 @@ export function absoluteUrl(path: string): string {
   return `${SITE.domain}${normalizePath(path)}`;
 }
 
+/** Percent-encoded absolute URL (pathname segments) — matches canonical href for non-ASCII slugs. */
+export function absoluteUrlCanonical(path: string): string {
+  const normalized = normalizePath(path);
+  const pathname = normalized
+    .split("/")
+    .map((segment) => (segment ? encodeURIComponent(segment) : ""))
+    .join("/");
+  return `${SITE.domain}${pathname}`;
+}
+
 /** Detect category pagination: /digital-marketing/page/2/ */
 export function parsePaginationPath(path: string): {
   basePath: string;

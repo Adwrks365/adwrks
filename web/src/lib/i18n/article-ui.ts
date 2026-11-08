@@ -45,6 +45,10 @@ const HE = {
   formSuccess: "ההודעה נשלחה בהצלחה.",
   formError: "לא ניתן לשלוח את הטופס כרגע. נסו שוב מאוחר יותר.",
   blogHref: "/blog/",
+  homeHref: "/",
+  breadcrumbNavLabel: "מיקום במאמר",
+  breadcrumbHome: "דף הבית",
+  breadcrumbBlog: "בלוג",
   contactHref: "/contact-us/",
 } as const;
 
@@ -93,6 +97,10 @@ const EN = {
   formSuccess: "Your message was sent successfully.",
   formError: "Could not submit the form. Please try again later.",
   blogHref: "/en/blog/",
+  homeHref: "/en/",
+  breadcrumbNavLabel: "Article location",
+  breadcrumbHome: "Home",
+  breadcrumbBlog: "Blog",
   contactHref: "/en/contact-us/",
 } as const;
 
@@ -141,6 +149,10 @@ export type ArticleUi = {
   formSuccess: string;
   formError: string;
   blogHref: string;
+  homeHref: string;
+  breadcrumbNavLabel: string;
+  breadcrumbHome: string;
+  breadcrumbBlog: string;
   contactHref: string;
 };
 

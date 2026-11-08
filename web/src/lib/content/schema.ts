@@ -9,7 +9,7 @@ import {
 import { getEnComposerFaqSchema } from "@/lib/content/en-composer-faq-schema";
 import { ORGANIZATION_ID, ORGANIZATION_SAME_AS, organizationEntityFields } from "@/lib/schema";
 import { SITE } from "@/lib/site";
-import { absoluteUrl, normalizePath } from "./paths";
+import { absoluteUrl, absoluteUrlCanonical, normalizePath } from "./paths";
 
 const SCHEMA_TYPES_WITH_LANGUAGE = new Set([
   "Article",
@@ -163,7 +163,7 @@ export function buildBreadcrumbSchema(options: {
       "@type": "ListItem",
       position: 3,
       name: title,
-      item: absoluteUrl(normalizePath(path)),
+      item: absoluteUrlCanonical(path),
     });
   } else if (normalizePath(path) !== homePath) {
     items.push({
