@@ -1,7 +1,7 @@
-import index from "@/generated/routable-path-index.json";
-import { normalizeRequestPathname } from "@/lib/routing/routable-path-index";
-
-const ROUTABLE = new Set(index.paths as string[]);
+import {
+  isRoutablePathname,
+  normalizeRequestPathname,
+} from "@/lib/routing/routable-path-index";
 
 const HEBREW = /[\u0590-\u05FF]/;
 
@@ -38,20 +38,20 @@ export function resolveLegacyRedirect(pathname: string): string | null {
 
   if (/\/feed\/$/.test(path)) {
     const parent = normalizeRequestPathname(path.replace(/\/feed\/$/, "/"));
-    if (ROUTABLE.has(parent)) return parent;
+    if (isRoutablePathname(parent)) return parent;
     return "/blog/";
   }
 
   if (path.startsWith("/en/") && path.length > "/en/".length) {
     const hePath = normalizeRequestPathname(path.slice("/en".length));
-    if (HEBREW.test(hePath) && ROUTABLE.has(hePath)) {
+    if (HEBREW.test(hePath) && isRoutablePathname(hePath)) {
       return hePath;
     }
   }
 
-  if (!path.startsWith("/en/") && path !== "/" && !ROUTABLE.has(path) && !HEBREW.test(path)) {
+  if (!path.startsWith("/en/") && path !== "/" && !isRoutablePathname(path) && !HEBREW.test(path)) {
     const enPath = enPathForRootSegment(path);
-    if (ROUTABLE.has(enPath)) return enPath;
+    if (isRoutablePathname(enPath)) return enPath;
   }
 
   return null;

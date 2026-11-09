@@ -95,6 +95,11 @@ const REDIRECT_SOURCES = [
   "/en/how-to-choose-digital-marketing-company/",
 ];
 
+function readPathConstant(src, name) {
+  const m = src.match(new RegExp(`${name} = "([^"]+)"`));
+  return m ? normalizePath(m[1]) : null;
+}
+
 function collectLocationPathsFromSource() {
   const pathsFile = path.join(WEB_ROOT, "src/lib/pages/locations/paths.ts");
   const src = fs.readFileSync(pathsFile, "utf8");
@@ -103,6 +108,16 @@ function collectLocationPathsFromSource() {
   const en = [];
   for (const m of block.matchAll(/he: "([^"]+)"/g)) he.push(normalizePath(m[1]));
   for (const m of block.matchAll(/en: "([^"]+)"/g)) en.push(normalizePath(m[1]));
+  for (const value of [
+    readPathConstant(src, "HUB_HE_PATH"),
+    readPathConstant(src, "HUB_EN_PATH"),
+    readPathConstant(src, "KARMIEL_HE_PATH"),
+    readPathConstant(src, "KARMIEL_EN_PATH"),
+  ]) {
+    if (!value) continue;
+    if (value.startsWith("/en/")) en.push(value);
+    else he.push(value);
+  }
   return { he, en };
 }
 
