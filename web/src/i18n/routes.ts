@@ -80,11 +80,6 @@ export const ROUTE_PAIRS: RoutePair[] = [
     "contentId": "page-20330"
   },
   {
-    "he": "/thank-you-page/",
-    "en": "/en/thank-you-page/",
-    "contentId": "page-9103"
-  },
-  {
     "he": "/hosting-plans/",
     "en": "/en/hosting-plans/",
     "contentId": "page-173"
