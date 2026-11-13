@@ -4,6 +4,7 @@ import { NextResponse } from "next/server";
 import { routing } from "@/i18n/routing";
 import { isPreviewOrNonProductionDeployment, isProductionHostname } from "@/lib/indexing";
 import { resolveLegacyRedirect } from "@/lib/routing/legacy-redirects";
+import { isGonePathname } from "@/lib/routing/gone-paths";
 import { isRoutablePathname } from "@/lib/routing/routable-path-index";
 
 const intlMiddleware = createMiddleware(routing);
@@ -18,11 +19,22 @@ function fastNotFound(): NextResponse {
   });
 }
 
+function fastGone(): NextResponse {
+  return new NextResponse("Gone", {
+    status: 410,
+    headers: { "Content-Type": "text/plain; charset=utf-8" },
+  });
+}
+
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   if (JUNK_PATH.test(pathname)) {
     return fastNotFound();
+  }
+
+  if (isGonePathname(pathname)) {
+    return fastGone();
   }
 
   if (isRoutablePathname(pathname)) {
