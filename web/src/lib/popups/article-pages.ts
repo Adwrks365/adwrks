@@ -22,6 +22,30 @@ const CATEGORY_CONTEXT: Record<number, PopupContextKey> = {
   1: "digital-marketing", // שיווק דיגיטלי
 };
 
+/** When a post has many categories, prefer the most specific service context (not WP list order). */
+const CATEGORY_CONTEXT_PRIORITY: PopupContextKey[] = [
+  "google-maps",
+  "google-ads",
+  "meta-ads",
+  "seo",
+  "hosting",
+  "digital-marketing",
+  "website",
+];
+
+function resolveContextFromCategories(categoryIds?: number[]): PopupContextKey | null {
+  if (!categoryIds?.length) return null;
+  const contexts = new Set(
+    categoryIds
+      .map((id) => CATEGORY_CONTEXT[id])
+      .filter((key): key is PopupContextKey => Boolean(key)),
+  );
+  for (const key of CATEGORY_CONTEXT_PRIORITY) {
+    if (contexts.has(key)) return key;
+  }
+  return null;
+}
+
 function normalizeText(value: string): string {
   return decodeHtmlEntities(value).toLowerCase();
 }
@@ -81,6 +105,18 @@ function inferContextFromText(title: string, path: string): PopupContextKey | nu
     return "website";
   }
 
+  if (
+    text.includes("פרסום דיגיטלי") ||
+    text.includes("שיווק דיגיטלי") ||
+    text.includes("שיווק באינטרנט") ||
+    text.includes("פרסום באינטרנט") ||
+    text.includes("סוכנות דיגיטל") ||
+    text.includes("digital marketing") ||
+    text.includes("digital advertising")
+  ) {
+    return "digital-marketing";
+  }
+
   if (text.includes("אחסון") || text.includes("hosting") || text.includes("תחזוק")) {
     return "hosting";
   }
@@ -94,9 +130,8 @@ export function resolveArticlePopupContextKey(content: ContentItem): PopupContex
     return "website-speed";
   }
 
-  const categoryId = content.categoryIds?.[0];
-  const fromCategory = categoryId ? CATEGORY_CONTEXT[categoryId] : null;
   const fromText = inferContextFromText(content.title, content.path);
+  const fromCategory = resolveContextFromCategories(content.categoryIds);
   return fromText ?? fromCategory ?? "general";
 }
 
