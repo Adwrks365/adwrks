@@ -2114,6 +2114,20 @@ section.home-hero-v2.home-hero-v2-lcp {
   color: var(--muted);
 }
 
+.article-top-detail--emphasis {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.article-top-detail--published-secondary {
+  color: var(--muted);
+  font-size: 0.8125rem;
+}
+
+.article-top-detail--published-secondary svg {
+  opacity: 0.75;
+}
+
 .article-card-title {
   font-size: 1.0625rem;
   font-weight: 700;
@@ -3408,10 +3422,12 @@ section.home-hero-v2.home-hero-v2-lcp {
 }
 
 .adwrks-article-lead {
-  background: color-mix(in srgb, var(--brand-primary) 6%, transparent);
+  background: color-mix(in srgb, var(--brand-primary) 5%, var(--surface, #fff));
+  border: 1px solid color-mix(in srgb, var(--brand-primary) 18%, transparent);
   border-inline-start: 3px solid var(--brand-primary);
-  margin: 0 0 1.25rem;
-  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md, 8px);
+  margin: 0 0 1.5rem;
+  padding: 0.85rem 1.05rem;
 }
 
 .adwrks-article-lead__title {
@@ -3433,9 +3449,14 @@ section.home-hero-v2.home-hero-v2-lcp {
 }
 
 .adwrks-article-faq-block {
-  margin-top: 1.75rem;
+  margin-top: 2rem;
+  padding-top: 0.25rem;
   width: 100%;
   max-width: 100%;
+}
+
+.article-body-html .adwrks-article-lead + .elementor-section {
+  margin-top: 0.25rem;
 }
 
 .article-body-html .adwrks-article-faq-block .elementor-container {

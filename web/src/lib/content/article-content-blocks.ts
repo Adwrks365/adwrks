@@ -74,6 +74,32 @@ export function htmlHasArticleLead(html: string): boolean {
   return /adwrks-article-lead__title[^>]*>\s*(בקצרה|At a glance)\s*</i.test(html);
 }
 
+const LEAD_ASIDE_RE =
+  /<aside[^>]*class="[^"]*adwrks-article-lead[^"]*"[^>]*data-adwrks-content="adwrks-article-lead-2026"[\s\S]*?<\/aside>/i;
+
+const INJECTED_FAQ_SECTION_RE =
+  /<section[^>]*class="[^"]*adwrks-article-faq-block[^"]*"[^>]*data-adwrks-content="adwrks-article-faq-2026"[\s\S]*?<\/section>/i;
+
+/** Replace runtime lead block or inject if missing. */
+export function upsertArticleLead(html: string, block: string): string {
+  if (LEAD_ASIDE_RE.test(html)) {
+    return html.replace(LEAD_ASIDE_RE, block);
+  }
+  return injectArticleLead(html, block);
+}
+
+/** Replace injected FAQ section or append if missing. */
+export function upsertArticleFaq(
+  html: string,
+  block: string,
+  postMarker: string,
+): string {
+  if (INJECTED_FAQ_SECTION_RE.test(html)) {
+    return html.replace(INJECTED_FAQ_SECTION_RE, block);
+  }
+  return injectArticleFaq(html, block, postMarker);
+}
+
 export { consolidateDuplicateFaqSections } from "@/lib/content/article-faq-consolidate";
 
 /** Insert lead once, right after the main Elementor content wrap opens. */

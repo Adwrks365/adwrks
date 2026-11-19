@@ -28,7 +28,13 @@ for (const path of [...BATCH4, ...FAQ_LAYOUT, "/בדיקת-מהירות-אתר/"
     continue;
   }
   const { html } = prepareArticleBodyHtml(content.content, "he", key);
-  const faqBlock = html.match(/<section[^>]*adwrks-article-faq-block[\s\S]*?<\/section>/i)?.[0] ?? "";
+  const faqStart = html.indexOf('<section class="adwrks-article-faq-block"');
+  const faqEnd =
+    faqStart === -1 ? -1 : html.indexOf("</section>", faqStart);
+  const faqBlock =
+    faqStart === -1 || faqEnd === -1
+      ? ""
+      : html.slice(faqStart, faqEnd + "</section>".length);
   const containerFlexCol = faqBlock.includes("adwrks-faq-accordion");
   const headingBeforeAccordion =
     faqBlock.indexOf("<h2") !== -1 &&

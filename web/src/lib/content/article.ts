@@ -4,6 +4,8 @@ import { consolidateDuplicateFaqSections } from "@/lib/content/article-content-b
 import { applyArticleBatch2Enrichment2026 } from "@/lib/content/article-batch2-enrichment-2026";
 import { applyArticleBatch3Enrichment2026 } from "@/lib/content/article-batch3-enrichment-2026";
 import { applyArticleBatch4Enrichment2026 } from "@/lib/content/article-batch4-enrichment-2026";
+import { applyArticleBatch4StructurePolish } from "@/lib/content/article-batch4-structure-polish";
+import { applyArticleReadingPolishShared } from "@/lib/content/article-reading-polish-shared";
 import { applyArticleFaqAccordionPresentation } from "@/lib/content/article-faq-accordion";
 import { applyPilot2026BodyPolish } from "@/lib/content/article-pilot-2026-body-polish";
 import { applyArticlePilotEnrichment2026 } from "@/lib/content/article-pilot-enrichment-2026";
@@ -263,6 +265,8 @@ export function prepareArticleBodyHtml(
     html = applyArticleBatch2Enrichment2026(html, pagePath, locale);
     html = applyArticleBatch3Enrichment2026(html, pagePath, locale);
     html = applyArticleBatch4Enrichment2026(html, pagePath, locale);
+    html = applyArticleBatch4StructurePolish(html, pagePath, locale);
+    html = applyArticleReadingPolishShared(html, pagePath, locale);
     html = applyPilot2026BodyPolish(html, pagePath, locale);
     html = consolidateDuplicateFaqSections(html, locale);
     html = applyArticleFaqAccordionPresentation(html, locale);
