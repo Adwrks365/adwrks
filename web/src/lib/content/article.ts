@@ -2,11 +2,14 @@ import { PRICING_CALCULATOR_EMBED_SLOT } from "@/lib/calculators/pricing-calcula
 import { ROI_CALCULATOR_EMBED_SLOT } from "@/lib/calculators/roi-calculator-data";
 import { consolidateDuplicateFaqSections } from "@/lib/content/article-content-blocks";
 import { applyArticleBatch2Enrichment2026 } from "@/lib/content/article-batch2-enrichment-2026";
+import { applyArticleBatch3Enrichment2026 } from "@/lib/content/article-batch3-enrichment-2026";
+import { applyArticleFaqAccordionPresentation } from "@/lib/content/article-faq-accordion";
 import { applyPilot2026BodyPolish } from "@/lib/content/article-pilot-2026-body-polish";
 import { applyArticlePilotEnrichment2026 } from "@/lib/content/article-pilot-enrichment-2026";
 import { polishContentInternalLinks } from "@/lib/content/content-internal-links-polish";
 import { polishGoogleSeoArticleHtml } from "@/lib/content/post-19428-polish";
 import { polishWordPressCostArticleHtml } from "@/lib/content/post-19792-polish";
+import { polishGoogleMapsArticleHtml } from "@/lib/content/post-20155-polish";
 import { injectPageSpeedCrossLinks } from "@/lib/content/post-21496-polish-content";
 import { polishPageSpeedArticleHtml } from "@/lib/content/post-21496-polish";
 import { polishRussianDigitalArticleHtml } from "@/lib/content/post-20350-polish";
@@ -256,8 +259,11 @@ export function prepareArticleBodyHtml(
   if (pagePath) {
     html = applyArticlePilotEnrichment2026(html, pagePath, locale);
     html = applyArticleBatch2Enrichment2026(html, pagePath, locale);
+    html = applyArticleBatch3Enrichment2026(html, pagePath, locale);
     html = applyPilot2026BodyPolish(html, pagePath, locale);
     html = consolidateDuplicateFaqSections(html, locale);
+    html = applyArticleFaqAccordionPresentation(html, locale);
+    html = polishGoogleMapsArticleHtml(html);
   }
 
   const headings = extractArticleHeadings(html);

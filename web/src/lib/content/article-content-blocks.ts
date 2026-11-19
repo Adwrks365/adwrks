@@ -20,11 +20,6 @@ function heading(level: 2 | 3, text: string): string {
   return `<div class="elementor-element elementor-widget elementor-widget-heading" data-element_type="widget" data-widget_type="heading.default"><${tag} class="elementor-heading-title elementor-size-default">${text}</${tag}></div>`;
 }
 
-function proseHtml(paragraphs: string[]): string {
-  const body = paragraphs.map((p) => `<p>${p}</p>`).join("");
-  return `<div class="elementor-element elementor-widget elementor-widget-text-editor" data-element_type="widget" data-widget_type="text-editor.default"><div class="elementor-widget-container">${body}</div></div>`;
-}
-
 /** Compact lead block — visible in initial HTML, subtle styling via BEM class. */
 export function buildArticleLeadBlock(locale: Locale, paragraphs: string[], title?: string): string {
   const label = title ?? LEAD_TITLE[locale];
@@ -34,12 +29,39 @@ ${paragraphs.map((p) => `<p class="adwrks-article-lead__text">${p}</p>`).join(""
 </aside>`;
 }
 
-/** Article FAQ — headings only (no FAQPage schema). */
+function escapeHtmlText(text: string): string {
+  return text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function faqAnswerHtml(answer: string): string {
+  if (/<[a-z][\s\S]*>/i.test(answer)) {
+    return answer;
+  }
+  return `<p>${answer}</p>`;
+}
+
+/** Article FAQ — semantic accordion (`details`); answers stay in initial HTML (no FAQPage schema). */
 export function buildArticleFaqBlock(locale: Locale, items: FaqItem[], title?: string): string {
   const label = title ?? FAQ_TITLE[locale];
+  const accordionItems = items
+    .map(
+      (item) =>
+        `<details class="adwrks-faq-item">
+<summary class="adwrks-faq-item__summary">
+<span class="adwrks-faq-item__icon" aria-hidden="true"></span>
+<span class="adwrks-faq-item__question">${escapeHtmlText(item.question)}</span>
+</summary>
+<div class="adwrks-faq-item__answer">${faqAnswerHtml(item.answer)}</div>
+</details>`,
+    )
+    .join("");
   const inner = [
     heading(2, label),
-    ...items.flatMap((item) => [heading(3, item.question), proseHtml([item.answer])]),
+    `<div class="adwrks-faq-accordion" data-adwrks-faq-accordion="exclusive" role="presentation">${accordionItems}</div>`,
   ].join("");
   return `<section class="adwrks-article-faq-block" data-adwrks-content="${ARTICLE_FAQ_MARKER}" data-element_type="section">
 <div class="elementor-container elementor-column-gap-default">${inner}</div></section>`;

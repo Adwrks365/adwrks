@@ -97,6 +97,36 @@
       "locales": { "he": "2026-11-19T15:55:00+02:00" },
       "source": "git:1c28055",
       "note": "Batch2 HE — digital marketing for business lead (legacy FAQ kept)"
+    },
+    {
+      "postId": 20919,
+      "locales": { "he": "2026-11-20T14:00:00+02:00" },
+      "source": "batch3-2026",
+      "note": "Batch3 — Google Ads 10 steps lead + FAQ"
+    },
+    {
+      "postId": 21638,
+      "locales": { "he": "2026-11-20T14:00:00+02:00" },
+      "source": "batch3-2026",
+      "note": "Batch3 — Google Ads cost lead + 2026 context"
+    },
+    {
+      "postId": 19792,
+      "locales": { "he": "2026-11-20T14:00:00+02:00" },
+      "source": "batch3-2026",
+      "note": "Batch3 — WordPress site cost lead (polish unchanged)"
+    },
+    {
+      "postId": 20155,
+      "locales": { "he": "2026-11-20T14:00:00+02:00" },
+      "source": "batch3-2026",
+      "note": "Batch3 — Google Maps advertising lead + FAQ"
+    },
+    {
+      "postId": 20529,
+      "locales": { "he": "2026-11-20T14:00:00+02:00" },
+      "source": "batch3-2026",
+      "note": "Batch3 — SEM vs PPC lead + FAQ"
     }
   ]
 }

@@ -28,24 +28,31 @@ export type VisibleFaqAudit = {
   totalSections: number;
 };
 
+export function legacyFaqRegionHasItems(html: string): boolean {
+  const legacy = extractLegacyFaqChunk(html);
+  if (!legacy) return false;
+  if (parseFaqChunkItems(legacy.chunk).length > 0) return true;
+  const window = html.slice(legacy.start, Math.min(html.length, legacy.start + 20000));
+  const tabTitles = window.match(/elementor-tab-title|elementor-toggle-title/g);
+  return (tabTitles?.length ?? 0) >= 2;
+}
+
 export function countVisibleFaqSections(html: string): VisibleFaqAudit {
   const injectedBlocks = (html.match(/class="adwrks-article-faq-block"/g) || []).length;
   const withoutInjected = htmlWithoutInjectedFaqBlocks(html);
 
-  const legacyFaqH2 = [...withoutInjected.matchAll(/<h2[^>]*>([\s\S]*?)<\/h2>/gi)].filter((m) =>
-    isFaqHeadingText(m[1]),
-  ).length;
+  const legacyWithItems = legacyFaqRegionHasItems(withoutInjected) ? 1 : 0;
 
   const accordionWidgets = (withoutInjected.match(/elementor-widget-accordion/g) || []).length;
   const toggleWidgets = (withoutInjected.match(/elementor-widget-toggle/g) || []).length;
 
-  let totalSections = injectedBlocks + legacyFaqH2;
+  let totalSections = injectedBlocks + legacyWithItems;
   if (accordionWidgets > 0) totalSections += 1;
   if (toggleWidgets > 0) totalSections += 1;
 
   return {
     injectedBlocks,
-    legacyFaqH2,
+    legacyFaqH2: legacyWithItems,
     accordionWidgets,
     toggleWidgets,
     totalSections,
@@ -55,14 +62,12 @@ export function countVisibleFaqSections(html: string): VisibleFaqAudit {
 export function htmlHasLegacyArticleFaq(html: string): boolean {
   if (html.includes(INJECTED_FAQ_MARKER)) return true;
 
-  if (/elementor-widget-accordion|elementor-widget-toggle/.test(html)) {
-    const tabs = html.match(/elementor-tab-title|elementor-toggle-title/g);
-    if (tabs && tabs.length >= 2) return true;
-  }
-
   const withoutInjected = htmlWithoutInjectedFaqBlocks(html);
-  for (const m of withoutInjected.matchAll(/<h2[^>]*>([\s\S]*?)<\/h2>/gi)) {
-    if (isFaqHeadingText(m[1])) return true;
+  if (legacyFaqRegionHasItems(withoutInjected)) return true;
+
+  if (/elementor-widget-accordion|elementor-widget-toggle/.test(withoutInjected)) {
+    const tabs = withoutInjected.match(/elementor-tab-title|elementor-toggle-title/g);
+    if (tabs && tabs.length >= 2) return true;
   }
 
   return false;
@@ -74,7 +79,25 @@ export function htmlHasArticleFaq(html: string): boolean {
 
 export type ParsedFaqItem = { question: string; answer: string };
 
+function parseDetailsFaqItems(chunk: string): ParsedFaqItem[] {
+  const items: ParsedFaqItem[] = [];
+  const re = /<details[^>]*class="[^"]*adwrks-faq-item[^"]*"[\s\S]*?<\/details>/gi;
+  for (const block of chunk.match(re) ?? []) {
+    const qm = block.match(/adwrks-faq-item__question[^>]*>([\s\S]*?)<\/span>/i);
+    const am = block.match(/class="adwrks-faq-item__answer"[^>]*>([\s\S]*?)<\/div>/i);
+    const question = qm ? stripTags(qm[1]) : "";
+    const answer = am ? stripTags(am[1]) : "";
+    if (question) items.push({ question, answer });
+  }
+  return items;
+}
+
 export function parseFaqChunkItems(chunk: string): ParsedFaqItem[] {
+  if (chunk.includes("adwrks-faq-item")) {
+    const fromDetails = parseDetailsFaqItems(chunk);
+    if (fromDetails.length > 0) return fromDetails;
+  }
+
   const parts = chunk.split(/<h3[^>]*>/i).slice(1);
   const items: ParsedFaqItem[] = [];
   for (const part of parts) {
@@ -92,6 +115,9 @@ export function parseFaqChunkItems(chunk: string): ParsedFaqItem[] {
 export function parseInjectedFaqItems(html: string): ParsedFaqItem[] {
   const m = html.match(/<section[^>]*adwrks-article-faq-block[\s\S]*?<\/section>/i);
   if (!m) return [];
+  if (m[0].includes("adwrks-faq-item")) {
+    return parseDetailsFaqItems(m[0]);
+  }
   return parseFaqChunkItems(m[0]);
 }
 
