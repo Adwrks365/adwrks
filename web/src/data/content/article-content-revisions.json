@@ -21,33 +21,63 @@
     },
     {
       "postId": 21776,
-      "dateModified": "2026-11-19T14:00:00+02:00",
-      "source": "git:704ad18",
-      "note": "2026 audit pilot — lead + 2026 body context (21776)"
+      "dateModified": "2026-11-19T15:55:00+02:00",
+      "source": "git:batch2",
+      "note": "PR4 HE pilot + batch2 EN lead/2026 context"
     },
     {
       "postId": 21817,
-      "dateModified": "2026-11-19T14:00:00+02:00",
-      "source": "git:704ad18",
-      "note": "2026 audit pilot — lead, body 2026, link to seo-2026-ai-answers"
+      "dateModified": "2026-11-19T15:55:00+02:00",
+      "source": "git:batch2",
+      "note": "PR4 HE pilot + batch2 EN lead/2026 context"
     },
     {
       "postId": 22368,
-      "dateModified": "2026-11-19T14:00:00+02:00",
-      "source": "git:704ad18",
-      "note": "2026 audit pilot — lead only (legacy FAQ kept)"
+      "dateModified": "2026-11-19T15:55:00+02:00",
+      "source": "git:batch2",
+      "note": "PR4 HE lead + batch2 EN lead"
     },
     {
       "postId": 21161,
-      "dateModified": "2026-11-19T14:00:00+02:00",
-      "source": "git:704ad18",
-      "note": "2026 audit pilot — lead only (legacy FAQ + calculator kept)"
+      "dateModified": "2026-11-19T15:55:00+02:00",
+      "source": "git:batch2",
+      "note": "PR4 HE lead + batch2 EN lead"
     },
     {
       "postId": 21578,
-      "dateModified": "2026-11-19T14:00:00+02:00",
-      "source": "git:704ad18",
-      "note": "2026 audit pilot — lead + 2026 Meta context body"
+      "dateModified": "2026-11-19T15:55:00+02:00",
+      "source": "git:batch2",
+      "note": "PR4 HE pilot + batch2 EN lead/2026 context"
+    },
+    {
+      "postId": 17923,
+      "dateModified": "2026-11-19T15:55:00+02:00",
+      "source": "git:seo/blog-content-audit-2026-batch2-en-he",
+      "note": "Batch2 HE — Google Shopping lead, 2026 context, FAQ"
+    },
+    {
+      "postId": 10369,
+      "dateModified": "2026-11-19T15:55:00+02:00",
+      "source": "git:seo/blog-content-audit-2026-batch2-en-he",
+      "note": "Batch2 HE — digital ad agency office guide lead + FAQ"
+    },
+    {
+      "postId": 18480,
+      "dateModified": "2026-11-19T15:55:00+02:00",
+      "source": "git:seo/blog-content-audit-2026-batch2-en-he",
+      "note": "Batch2 HE — agency guide lead + FAQ"
+    },
+    {
+      "postId": 19548,
+      "dateModified": "2026-11-19T15:55:00+02:00",
+      "source": "git:seo/blog-content-audit-2026-batch2-en-he",
+      "note": "Batch2 HE — hosting/maintenance lead"
+    },
+    {
+      "postId": 21068,
+      "dateModified": "2026-11-19T15:55:00+02:00",
+      "source": "git:seo/blog-content-audit-2026-batch2-en-he",
+      "note": "Batch2 HE — digital marketing for business lead (legacy FAQ kept)"
     }
   ]
 }
