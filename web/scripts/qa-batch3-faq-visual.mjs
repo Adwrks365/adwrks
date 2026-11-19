@@ -40,6 +40,7 @@ async function scrollToFaq(page) {
 async function runChecks(page, label) {
   const items = page.locator("details.adwrks-faq-item");
   const count = await items.count();
+  await items.evaluateAll((nodes) => nodes.forEach((d) => (d.open = false)));
   if (count < 2) {
     console.error("FAIL faq items", label, count);
     failed++;
@@ -71,7 +72,14 @@ async function runChecks(page, label) {
 
 async function main() {
   const desktop = await chromium.launch();
+  const blockPopup = async (page) => {
+    await page.addInitScript(() => {
+      sessionStorage.setItem("adwrks_popup_session_suppressed", "1");
+      localStorage.setItem("adwrks_popup_dismissed_until", String(Date.now() + 86_400_000));
+    });
+  };
   const dPage = await desktop.newPage({ viewport: { width: 1280, height: 900 } });
+  await blockPopup(dPage);
   await dPage.goto(`${BASE}${HERO}`, { waitUntil: "networkidle" });
   await dismissContextualPopup(dPage);
   await scrollToFaq(dPage);
@@ -83,6 +91,7 @@ async function main() {
 
   const iPhone = devices["iPhone 13"];
   const mPage = await desktop.newPage({ ...iPhone });
+  await blockPopup(mPage);
   await mPage.goto(`${BASE}${HERO}`, { waitUntil: "networkidle" });
   await dismissContextualPopup(mPage);
   await scrollToFaq(mPage);
