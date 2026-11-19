@@ -41,7 +41,7 @@ export function ArticleDateDisplay({
   dates: datesProp,
 }: ArticleDateDisplayProps) {
   const ui = getArticleUi(locale);
-  const dates = datesProp ?? resolveArticleDates(item);
+  const dates = datesProp ?? resolveArticleDates(item, locale);
   const published = formatDisplayDate(dates.datePublished, locale);
   const updated = formatDisplayDate(dates.dateModified, locale);
 

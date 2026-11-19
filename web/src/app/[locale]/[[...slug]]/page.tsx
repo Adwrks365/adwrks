@@ -297,7 +297,7 @@ export default async function CatchAllPage({ params }: PageProps) {
     metaDesc,
     categoryTitles,
   );
-  const articleDates = content.type === "post" ? resolveArticleDates(content) : undefined;
+  const articleDates = content.type === "post" ? resolveArticleDates(content, validLocale) : undefined;
   const jsonLd = mergePageJsonLd({
     locale: validLocale,
     path: pathKey,

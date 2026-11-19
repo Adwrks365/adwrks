@@ -1,5 +1,5 @@
 {
-  "_doc": "Explicit content-revision dates (not deploy/build). When a post gets a meaningful body/meta polish, add postId + dateModified (ISO with offset). Verify via git commit time. postId applies to HE + EN pairs.",
+  "_doc": "Explicit content-revision dates (not deploy/build). Add postId + dateModified (both locales) or locales.he / locales.en for per-language updates on shared postId. dateModified is fallback when a locale key is missing.",
   "revisions": [
     {
       "postId": 19428,
@@ -22,60 +22,79 @@
     {
       "postId": 21776,
       "dateModified": "2026-11-19T14:00:00+02:00",
+      "locales": {
+        "en": "2026-11-19T15:55:00+02:00"
+      },
       "source": "git:704ad18",
-      "note": "2026 audit pilot — lead + 2026 body context (21776)"
+      "note": "HE pilot PR4; EN batch2 lead + 2026 context"
     },
     {
       "postId": 21817,
       "dateModified": "2026-11-19T14:00:00+02:00",
+      "locales": {
+        "en": "2026-11-19T15:55:00+02:00"
+      },
       "source": "git:704ad18",
-      "note": "2026 audit pilot — lead, body 2026, link to seo-2026-ai-answers"
+      "note": "HE pilot PR4; EN batch2 lead + 2026 context"
     },
     {
       "postId": 22368,
       "dateModified": "2026-11-19T14:00:00+02:00",
+      "locales": {
+        "en": "2026-11-19T15:55:00+02:00"
+      },
       "source": "git:704ad18",
-      "note": "2026 audit pilot — lead only (legacy FAQ kept)"
+      "note": "HE pilot PR4; EN batch2 lead"
     },
     {
       "postId": 21161,
       "dateModified": "2026-11-19T14:00:00+02:00",
+      "locales": {
+        "en": "2026-11-19T15:55:00+02:00"
+      },
       "source": "git:704ad18",
-      "note": "2026 audit pilot — lead only (legacy FAQ + calculator kept)"
+      "note": "HE pilot PR4; EN batch2 lead"
     },
     {
       "postId": 21578,
       "dateModified": "2026-11-19T14:00:00+02:00",
+      "locales": {
+        "en": "2026-11-19T15:55:00+02:00"
+      },
       "source": "git:704ad18",
-      "note": "2026 audit pilot — lead + 2026 Meta context body"
+      "note": "HE pilot PR4; EN batch2 lead + 2026 context"
     },
     {
       "postId": 17923,
       "dateModified": "2026-11-19T15:55:00+02:00",
+      "locales": {
+        "he": "2026-11-19T15:55:00+02:00",
+        "en": "2026-11-19T15:55:00+02:00"
+      },
       "source": "git:1c28055",
-      "note": "Batch2 HE — Google Shopping lead, 2026 context, FAQ"
+      "note": "Batch2 — Google Shopping HE+EN lead, 2026 context, FAQ"
     },
     {
       "postId": 10369,
-      "dateModified": "2026-11-19T15:55:00+02:00",
+      "locales": { "he": "2026-11-19T15:55:00+02:00" },
       "source": "git:1c28055",
       "note": "Batch2 HE — digital ad agency office guide lead + FAQ"
     },
     {
       "postId": 18480,
-      "dateModified": "2026-11-19T15:55:00+02:00",
+      "locales": { "he": "2026-11-19T15:55:00+02:00" },
       "source": "git:1c28055",
       "note": "Batch2 HE — agency guide lead + FAQ"
     },
     {
       "postId": 19548,
-      "dateModified": "2026-11-19T15:55:00+02:00",
+      "locales": { "he": "2026-11-19T15:55:00+02:00" },
       "source": "git:1c28055",
       "note": "Batch2 HE — hosting/maintenance lead"
     },
     {
       "postId": 21068,
-      "dateModified": "2026-11-19T15:55:00+02:00",
+      "locales": { "he": "2026-11-19T15:55:00+02:00" },
       "source": "git:1c28055",
       "note": "Batch2 HE — digital marketing for business lead (legacy FAQ kept)"
     }

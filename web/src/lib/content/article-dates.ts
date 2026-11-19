@@ -1,18 +1,28 @@
 import revisionsData from "@/data/content/article-content-revisions.json";
+import type { Locale } from "@/i18n/routing";
 import type { ContentItem } from "@/lib/content/types";
 
 const ISRAEL_TZ = "Asia/Jerusalem";
 
 type RevisionEntry = {
   postId: number;
-  dateModified: string;
+  /** Legacy: both locales when `locales` is omitted. */
+  dateModified?: string;
+  /** Per-locale overrides; unset locale uses `dateModified` only if no `locales` key at all. */
+  locales?: Partial<Record<Locale, string>>;
   source?: string;
   note?: string;
 };
 
-const REVISIONS_BY_POST_ID = new Map<number, string>(
-  (revisionsData.revisions as RevisionEntry[]).map((r) => [r.postId, r.dateModified]),
+const REVISIONS_BY_POST_ID = new Map<number, RevisionEntry>(
+  (revisionsData.revisions as RevisionEntry[]).map((r) => [r.postId, r]),
 );
+
+function revisionDateForLocale(entry: RevisionEntry, locale: Locale): string | undefined {
+  const perLocale = entry.locales?.[locale];
+  if (perLocale) return perLocale;
+  return entry.dateModified;
+}
 
 export type ResolvedArticleDates = {
   datePublished: string | undefined;
@@ -81,6 +91,7 @@ function pickLatestModified(stored?: string, revision?: string): string | undefi
 
 export function resolveArticleDates(
   item: Pick<ContentItem, "id" | "date" | "modified" | "type">,
+  locale: Locale = "he",
 ): ResolvedArticleDates {
   if (item.type !== "post") {
     return {
@@ -93,7 +104,8 @@ export function resolveArticleDates(
   }
 
   const datePublished = item.date;
-  const revision = REVISIONS_BY_POST_ID.get(item.id);
+  const entry = REVISIONS_BY_POST_ID.get(item.id);
+  const revision = entry ? revisionDateForLocale(entry, locale) : undefined;
   const dateModified = pickLatestModified(item.modified, revision);
   const showUpdated = isArticleUpdated(datePublished, dateModified);
 
@@ -106,10 +118,10 @@ export function resolveArticleDates(
   };
 }
 
-/** Merge controlled revision dates into post items after loader read. */
-export function withResolvedArticleDates(item: ContentItem): ContentItem {
+/** Merge controlled revision dates into post items after loader read (locale-aware). */
+export function withResolvedArticleDates(item: ContentItem, locale: Locale): ContentItem {
   if (item.type !== "post") return item;
-  const dates = resolveArticleDates(item);
+  const dates = resolveArticleDates(item, locale);
   return {
     ...item,
     modified: dates.dateModified ?? item.modified,

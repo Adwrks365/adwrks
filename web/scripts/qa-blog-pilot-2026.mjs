@@ -82,7 +82,7 @@ for (const c of PILOT) {
     failed++;
   }
 
-  const dates = resolveArticleDates(content);
+  const dates = resolveArticleDates(content, "he");
   const seo = getSeoByPath(pathKey, "he");
   const jsonLd = mergePageJsonLd({
     locale: "he",

@@ -117,19 +117,22 @@ function getCache(locale: Locale): LocaleCache {
     routes.set(
       routePath,
       withFeaturedMedia(
-        withResolvedArticleDates({
-          type: "post",
-          id: post.id,
-          slug: post.slug,
-          path: routePath,
-          title: decodeHtmlEntities(post.title),
-          content: post.content || "",
-          excerpt: post.excerpt || "",
-          date: post.date,
-          modified: post.modified,
-          categoryIds: post.categories,
-          tagIds: post.tags,
-        }),
+        withResolvedArticleDates(
+          {
+            type: "post",
+            id: post.id,
+            slug: post.slug,
+            path: routePath,
+            title: decodeHtmlEntities(post.title),
+            content: post.content || "",
+            excerpt: post.excerpt || "",
+            date: post.date,
+            modified: post.modified,
+            categoryIds: post.categories,
+            tagIds: post.tags,
+          },
+          locale,
+        ),
         post.featuredMedia,
       ),
     );
