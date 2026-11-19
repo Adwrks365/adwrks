@@ -3434,6 +3434,32 @@ section.home-hero-v2.home-hero-v2-lcp {
 
 .adwrks-article-faq-block {
   margin-top: 1.75rem;
+  width: 100%;
+  max-width: 100%;
+}
+
+.article-body-html .adwrks-article-faq-block .elementor-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: 0.75rem;
+  margin-inline: 0;
+  max-width: 100%;
+  width: 100%;
+}
+
+.article-body-html .adwrks-article-faq-block .elementor-element,
+.article-body-html .adwrks-article-faq-block .adwrks-faq-accordion {
+  flex: 0 0 auto;
+  max-width: 100%;
+  width: 100%;
+}
+
+.article-body-html .adwrks-article-faq-block .elementor-heading-title {
+  margin: 0 0 0.25rem;
+  text-align: start;
+  width: 100%;
 }
 
 .adwrks-faq-accordion {
@@ -3523,6 +3549,10 @@ section.home-hero-v2.home-hero-v2-lcp {
   .adwrks-faq-item__answer {
     padding: 0.65rem 0.85rem 0.85rem;
   }
+}
+
+.article-body-html:has([data-adwrks-pagespeed-insights]) [data-adwrks-pagespeed-insights] {
+  margin-block: 1.25rem 1.75rem;
 }
 
 .adwrks-pilot-2026-body {
