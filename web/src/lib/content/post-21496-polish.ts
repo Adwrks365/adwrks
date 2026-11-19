@@ -62,3 +62,16 @@ export function polishPageSpeedArticleHtml(html: string): string {
 
   return `${result.slice(0, insertAt)}\n${reordered}${result.slice(insertAt)}`;
 }
+
+/** Collapse excessive Elementor spacer widgets after the speed tool (readability, not content removal). */
+export function trimPageSpeedArticleSpacers(html: string): string {
+  if (!html.includes("elementor-21496")) return html;
+  return html.replace(
+    /(<div class="elementor-spacer-inner" style="height:\s*)(\d+)(px)/gi,
+    (full, prefix, px, suffix) => {
+      const height = Number(px);
+      if (!Number.isFinite(height) || height <= 96) return full;
+      return `${prefix}56${suffix}`;
+    },
+  );
+}
