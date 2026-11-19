@@ -157,6 +157,39 @@
       "locales": { "he": "2026-11-19T14:00:00+02:00" },
       "source": "batch4-2026",
       "note": "Batch4 — reading UX: lead/FAQ rewrite + duplicate summary removal"
+    },
+    {
+      "postId": 20051,
+      "locales": {
+        "he": "2026-11-19T17:15:00+02:00",
+        "en": "2026-11-19T17:15:00+02:00"
+      },
+      "source": "batch5-pilot-2026",
+      "note": "Batch5 pilot — lead/FAQ + structure polish"
+    },
+    {
+      "postId": 20081,
+      "locales": { "he": "2026-11-19T17:15:00+02:00" },
+      "source": "batch5-pilot-2026",
+      "note": "Batch5 pilot — lead/FAQ + structure polish"
+    },
+    {
+      "postId": 20029,
+      "locales": { "he": "2026-11-19T17:15:00+02:00" },
+      "source": "batch5-pilot-2026",
+      "note": "Batch5 pilot — lead/FAQ + structure polish"
+    },
+    {
+      "postId": 19933,
+      "locales": { "he": "2026-11-19T17:15:00+02:00" },
+      "source": "batch5-pilot-2026",
+      "note": "Batch5 pilot — lead/FAQ + structure polish"
+    },
+    {
+      "postId": 19281,
+      "locales": { "he": "2026-11-19T17:15:00+02:00" },
+      "source": "batch5-pilot-2026",
+      "note": "Batch5 pilot — lead/FAQ + structure polish"
     }
   ]
 }
