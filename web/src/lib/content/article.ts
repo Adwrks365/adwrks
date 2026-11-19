@@ -1,7 +1,11 @@
 import { PRICING_CALCULATOR_EMBED_SLOT } from "@/lib/calculators/pricing-calculator-data";
 import { ROI_CALCULATOR_EMBED_SLOT } from "@/lib/calculators/roi-calculator-data";
+import { polishContentInternalLinks } from "@/lib/content/content-internal-links-polish";
+import { polishGoogleSeoArticleHtml } from "@/lib/content/post-19428-polish";
 import { polishWordPressCostArticleHtml } from "@/lib/content/post-19792-polish";
+import { injectPageSpeedCrossLinks } from "@/lib/content/post-21496-polish-content";
 import { polishPageSpeedArticleHtml } from "@/lib/content/post-21496-polish";
+import { polishRussianDigitalArticleHtml } from "@/lib/content/post-20350-polish";
 import { PAGESPEED_INSIGHTS_EMBED_SLOT } from "@/lib/pagespeed/pagespeed-insights-data";
 import { decodeHtmlEntities } from "./paths";
 import { getAllPosts, getCategories, getPostsForCategory } from "./loader";
@@ -236,7 +240,11 @@ export function prepareArticleBodyHtml(rawHtml: string, locale: Locale = "he"): 
   );
   html = downgradeEmbeddedH1(html);
   html = polishPageSpeedArticleHtml(html);
+  html = injectPageSpeedCrossLinks(html);
   html = polishWordPressCostArticleHtml(html);
+  html = polishGoogleSeoArticleHtml(html);
+  html = polishRussianDigitalArticleHtml(html);
+  html = polishContentInternalLinks(html);
 
   const headings = extractArticleHeadings(html);
   html = injectHeadingAnchors(html, headings);
