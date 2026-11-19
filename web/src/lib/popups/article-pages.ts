@@ -1,4 +1,5 @@
 import { decodeHtmlEntities } from "@/lib/content/paths";
+import { applyArticlePopupOverrides } from "@/lib/popups/article-popup-overrides";
 import { getPopupMessaging } from "@/lib/popups/messaging";
 import type { PopupConfig, PopupContextKey } from "@/lib/popups/types";
 import { normalizePath } from "@/lib/content/paths";
@@ -143,14 +144,17 @@ export function resolveArticlePopupConfig(
   if (WEBSITE_SPEED_TEST_PATHS.has(pagePath)) {
     const messaging = getPopupMessaging("website-speed", locale);
     const slugPart = pagePath.replace(/\//g, "-").replace(/^-|-$/g, "") || "speed-test";
-    return {
-      ...messaging,
-      popupId: `article-website-speed-${slugPart}`,
-      audience: "article",
-      pageTitle: decodeHtmlEntities(content.title),
-      pagePath,
+    return applyArticlePopupOverrides(
+      {
+        ...messaging,
+        popupId: `article-website-speed-${slugPart}`,
+        audience: "article",
+        pageTitle: decodeHtmlEntities(content.title),
+        pagePath,
+        locale,
+      },
       locale,
-    };
+    );
   }
 
   const context = resolveArticlePopupContextKey(content);
@@ -158,12 +162,15 @@ export function resolveArticlePopupConfig(
   const messaging = getPopupMessaging(context, locale);
   const slugPart = content.path.replace(/\//g, "-").replace(/^-|-$/g, "") || "article";
 
-  return {
-    ...messaging,
-    popupId: `article-${context}-${slugPart}`,
-    audience: "article",
-    pageTitle: decodeHtmlEntities(content.title),
-    pagePath: content.path,
+  return applyArticlePopupOverrides(
+    {
+      ...messaging,
+      popupId: `article-${context}-${slugPart}`,
+      audience: "article",
+      pageTitle: decodeHtmlEntities(content.title),
+      pagePath: content.path,
+      locale,
+    },
     locale,
-  };
+  );
 }
