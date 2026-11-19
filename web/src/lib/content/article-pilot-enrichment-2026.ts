@@ -1,7 +1,6 @@
 import type { Locale } from "@/i18n/routing";
 import { normalizePath } from "@/lib/content/paths";
 import {
-  buildArticleFaqBlock,
   buildArticleLeadBlock,
   htmlHasArticleFaq,
   htmlHasArticleLead,
@@ -40,52 +39,18 @@ const PILOTS: Record<string, PilotConfig> = {
     postMarker: "elementor-22368",
     lead: () =>
       buildArticleLeadBlock("he", [
-        "Google מציג יותר תשובות מסוכנות AI (AI Overviews) בראש התוצאות. המאמר מסביר מה זה משנה בפרקטיקה של קידום אתרים, כתיבה ומבנה דפים.",
+        "Google מציג יותר סיכומי AI (AI Overviews) בראש תוצאות החיפוש. המאמר מסביר מה זה משנה בפרקטיקה של קידום אתרים, כתיבה ומבנה דפים.",
         "תמצאו הסבר על AEO, איכות תוכן, נתונים מובנים וטעויות נפוצות — בלי להבטיח הופעה בכל שאילתה.",
       ]),
-    faq: () =>
-      buildArticleFaqBlock("he", [
-        {
-          question: "האם AI Overviews מחליף את SEO?",
-          answer:
-            "לא. זה משנה אילו תוצאות מקבלות קליקים, אבל אתרים עם תוכן מדויק, מהיר ומהימן עדיין צריכים קידום אורגני, טכני ומדידה.",
-        },
-        {
-          question: "מה אפשר לעשות בלי הבטחת מקום ב-AI?",
-          answer:
-            "לענות בבירור על שאלות נפוצות, לשמור על מבנה כותרות תקין, לעדכן עובדות והמחאות, ולמדוד תנועה ולידים ב-GA4 ו-Search Console.",
-        },
-        {
-          question: "מתי כדאי לפנות לסוכנות?",
-          answer:
-            "כשחסרה שכבת תוכן, הטכני או המדידה, או כשיש ירידה בביצועים ואין זמן פנימי לבחון גורמים אחד-אחד.",
-        },
-      ]),
+    skipFaqIfPresent: true,
   },
   "/מחיר-קידום-אתרים/": {
     postMarker: "elementor-21161",
+    skipFaqIfPresent: true,
     lead: () =>
       buildArticleLeadBlock("he", [
         "מדריך להבנת מה משפיע על מחיר קידום אתרים: היקף תחרות, מצב האתר, תוכן, קישורים ושילוב עם פרסום ממומן.",
         "אין כאן מחירון מחייב — רק גורמים שבוחנים סוכנויות ומה כדאי לבקש בייעוץ.",
-      ]),
-    faq: () =>
-      buildArticleFaqBlock("he", [
-        {
-          question: "למה שני הצעות מחיר לקידום יכולות להיות שונות מאוד?",
-          answer:
-            "כי היקף העבודה שונה: מספר מילות מפתח, שפות, תחומים תחרותיים, כתיבת תוכן, קישורים, דוחות, ולעיתים גם פרסום ממומן משולב.",
-        },
-        {
-          question: "כמה זמן לוקח לראות תוצאות?",
-          answer:
-            "לרוב סימנים ראשונים תוך חודשים — תלוי בתחרות, גיל האתר והיסטוריית הענישות. אין לוח זמנים אחיד לכל ענף.",
-        },
-        {
-          question: "האם מחיר נמוך אומר קידום איכותי?",
-          answer:
-            "לא בהכרח. חשוב לבדוק מה כלול: אסטרטגיה, טכני, תוכן, שקיפות בדוחות ואיך נמדדת הצלחה.",
-        },
       ]),
   },
   "/שיווק-בפייסבוק-ואינסטגרם/": {
@@ -109,7 +74,7 @@ export function applyArticlePilotEnrichment2026(html: string, path: string, loca
   if (pilot.lead && !htmlHasArticleLead(html)) {
     next = injectArticleLead(next, pilot.lead(locale));
   }
-  if (pilot.faq && !(pilot.skipFaqIfPresent && htmlHasArticleFaq(html))) {
+  if (pilot.faq && !htmlHasArticleFaq(html)) {
     next = injectArticleFaq(next, pilot.faq(locale), pilot.postMarker);
   }
   return next;

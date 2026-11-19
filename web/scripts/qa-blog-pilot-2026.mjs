@@ -10,11 +10,29 @@ import { getSeoByPath } from "../src/lib/content/loader.ts";
 import { normalizePath } from "../src/lib/content/paths.ts";
 
 const PILOT = [
-  { key: "strategies", path: "/אסטרטגיות-שיווק-דיגיטלי-2025/", expectFaq: false, expectLead: true },
-  { key: "seo-future", path: "/עתיד-ה-seo-כך-ייראה-הקידום-האורגני-ב-2025-ומעב/", expectFaq: false, expectLead: true },
-  { key: "seo-ai", path: "/seo-2026-ai-answers/", expectFaq: true, expectLead: true },
-  { key: "seo-price", path: "/מחיר-קידום-אתרים/", expectFaq: true, expectLead: true },
-  { key: "meta", path: "/שיווק-בפייסבוק-ואינסטגרם/", expectFaq: false, expectLead: true },
+  {
+    key: "strategies",
+    path: "/אסטרטגיות-שיווק-דיגיטלי-2025/",
+    expectLead: true,
+    expectFaq: false,
+    expectBody2026: true,
+  },
+  {
+    key: "seo-future",
+    path: "/עתיד-ה-seo-כך-ייראה-הקידום-האורגני-ב-2025-ומעב/",
+    expectLead: true,
+    expectFaq: false,
+    expectBody2026: true,
+  },
+  { key: "seo-ai", path: "/seo-2026-ai-answers/", expectLead: true, expectFaq: false },
+  { key: "seo-price", path: "/מחיר-קידום-אתרים/", expectLead: true, expectFaq: false },
+  {
+    key: "meta",
+    path: "/שיווק-בפייסבוק-ואינסטגרם/",
+    expectLead: true,
+    expectFaq: false,
+    expectBody2026: true,
+  },
 ];
 
 function findArticleNode(blocks) {
@@ -55,8 +73,12 @@ for (const c of PILOT) {
     console.error("FAIL faq", c.key);
     failed++;
   }
-  if (!c.expectFaq && faqBlocks > 1) {
+  if (faqBlocks > 1) {
     console.error("FAIL duplicate pilot faq", c.key, faqBlocks);
+    failed++;
+  }
+  if (c.expectBody2026 && !html.includes("adwrks-pilot-2026-body")) {
+    console.error("FAIL missing 2026 body patch", c.key);
     failed++;
   }
 

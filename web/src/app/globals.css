@@ -3436,6 +3436,31 @@ section.home-hero-v2.home-hero-v2-lcp {
   margin-top: 1.75rem;
 }
 
+.adwrks-pilot-2026-body {
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  margin: 0 0 1.25rem;
+  padding: 0.75rem 1rem;
+}
+
+.adwrks-pilot-2026-body__title {
+  color: var(--text);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  margin: 0 0 0.4rem;
+}
+
+.adwrks-pilot-2026-body__text {
+  color: var(--muted);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  margin: 0 0 0.5rem;
+}
+
+.adwrks-pilot-2026-body__text:last-child {
+  margin-bottom: 0;
+}
+
 .article-body-html {
   font-size: 1.0625rem;
   line-height: 1.8;
