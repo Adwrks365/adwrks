@@ -2,11 +2,11 @@ import type { Locale } from "@/i18n/routing";
 import { normalizePath } from "@/lib/content/paths";
 import {
   buildArticleLeadBlock,
-  htmlHasArticleFaq,
   htmlHasArticleLead,
   injectArticleFaq,
   injectArticleLead,
 } from "@/lib/content/article-content-blocks";
+import { htmlHasArticleFaq } from "@/lib/content/article-faq-detect";
 
 type PilotConfig = {
   postMarker: string;

@@ -3,11 +3,11 @@ import { normalizePath } from "@/lib/content/paths";
 import {
   buildArticleFaqBlock,
   buildArticleLeadBlock,
-  htmlHasArticleFaq,
   htmlHasArticleLead,
   injectArticleFaq,
   injectArticleLead,
 } from "@/lib/content/article-content-blocks";
+import { htmlHasArticleFaq } from "@/lib/content/article-faq-detect";
 
 type BatchConfig = {
   postMarker: string;

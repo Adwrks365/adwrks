@@ -3,7 +3,7 @@ import type { Locale } from "@/i18n/routing";
 export const ARTICLE_LEAD_MARKER = "adwrks-article-lead-2026";
 export const ARTICLE_FAQ_MARKER = "adwrks-article-faq-2026";
 
-type FaqItem = { question: string; answer: string };
+export type FaqItem = { question: string; answer: string };
 
 const LEAD_TITLE: Record<Locale, string> = {
   he: "בקצרה",
@@ -52,10 +52,7 @@ export function htmlHasArticleLead(html: string): boolean {
   return /adwrks-article-lead__title[^>]*>\s*(בקצרה|At a glance)\s*</i.test(html);
 }
 
-export function htmlHasArticleFaq(html: string): boolean {
-  if (html.includes(ARTICLE_FAQ_MARKER)) return true;
-  return /(שאלות נפוצות|שאלות ותשובות|Frequently asked questions|FAQ)/i.test(html);
-}
+export { consolidateDuplicateFaqSections } from "@/lib/content/article-faq-consolidate";
 
 /** Insert lead once, right after the main Elementor content wrap opens. */
 export function injectArticleLead(html: string, block: string): string {
