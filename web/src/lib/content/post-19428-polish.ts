@@ -46,8 +46,6 @@ const ENRICHMENT = guideSection(`
 <div class="elementor-element elementor-widget elementor-widget-heading"><h3 class="elementor-heading-title elementor-size-default">שאלות נפוצות על קידום אתרים בגוגל</h3></div>
 <div class="elementor-element elementor-widget elementor-widget-heading"><h3 class="elementor-heading-title elementor-size-default">כמה זמן לוקח לראות תוצאות SEO?</h3></div>
 <div class="elementor-element elementor-widget elementor-widget-text-editor"><p>לרוב חודשים 3–6 לסימנים משמעותיים; תלוי בתחרות, גיל הדומיין ואיכות האתר. SEO הוא השקעה לטווח ארוך לצד ערוצים מהירים יותר.</p></div>
-<div class="elementor-element elementor-widget elementor-widget-heading"><h3 class="elementor-heading-title elementor-size-default">מה ההבדל בין SEO לקידום ממומן (PPC)?</h3></div>
-<div class="elementor-element elementor-widget elementor-widget-text-editor"><p>SEO בונה נראות אורגנית לאורך זמן; PPC קונה חשיפה מיידית. רוב העסקים משלבים: מודעות קצרה ב-Ads וצמיחה יציבה ב-SEO.</p></div>
 <div class="elementor-element elementor-widget elementor-widget-heading"><h3 class="elementor-heading-title elementor-size-default">מתי כדאי סוכנות קידום אתרים?</h3></div>
 <div class="elementor-element elementor-widget elementor-widget-text-editor"><p>כשאין זמן פנימי לתוכן, טכני ודוחות, או כשהתחרות דורשת אסטרטגיה מרובת ערוצים. סוכנות טובה שקופה בדוחות — לא מבטיחה מקום ראשון.</p></div>
 `);
