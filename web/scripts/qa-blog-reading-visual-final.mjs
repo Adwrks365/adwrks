@@ -41,7 +41,7 @@ const REGIONS = [
   { id: "lead", selector: ".adwrks-article-lead" },
   { id: "body-mid", selector: ".article-body-html h2:nth-of-type(3)" },
   { id: "faq", selector: ".adwrks-article-faq-block" },
-  { id: "cta", selector: ".article-cta-block, .adwrks-article-cta" },
+  { id: "cta", selector: ".article-cta-band" },
 ];
 
 mkdirSync(OUT, { recursive: true });
