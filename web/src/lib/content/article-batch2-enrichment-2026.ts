@@ -3,11 +3,9 @@ import { normalizePath } from "@/lib/content/paths";
 import {
   buildArticleFaqBlock,
   buildArticleLeadBlock,
-  htmlHasArticleLead,
-  injectArticleFaq,
-  injectArticleLead,
+  upsertArticleLead,
+  upsertArticleFaq,
 } from "@/lib/content/article-content-blocks";
-import { htmlHasArticleFaq } from "@/lib/content/article-faq-detect";
 
 type BatchConfig = {
   postMarker: string;
@@ -52,8 +50,8 @@ const BATCH2_EN: Record<string, BatchConfig> = {
     postMarker: "elementor-17923",
     lead: () =>
       buildArticleLeadBlock("en", [
-        "A practical Google Shopping guide for e-commerce: Merchant Center, product feeds, and how Shopping ads fit your mix.",
-        "The title says 2025; in 2026 focus on feed quality, shipping/return policy clarity, and GA4 conversion tracking before scaling <a href=\"/en/google-ads/\">Google Ads</a> spend.",
+        "To sell on Google Shopping in 2026, fix Merchant Center and your product feed first (titles, price, availability, images, shipping/returns), then add paid Shopping or Performance Max only when conversions track reliably in GA4.",
+        "This guide covers setup, optimisation, and free listings. For managed campaigns see <a href=\"/en/google-ads/\">Google Ads</a>. The article title still says 2025; the steps below reflect current feed and policy requirements.",
       ]),
     faq: () =>
       buildArticleFaqBlock("en", [
@@ -176,12 +174,8 @@ function applyMap(
   if (!pilot) return html;
 
   let next = html;
-  if (!htmlHasArticleLead(html)) {
-    next = injectArticleLead(next, pilot.lead(locale));
-  }
-  if (pilot.faq && !htmlHasArticleFaq(html)) {
-    next = injectArticleFaq(next, pilot.faq(locale), pilot.postMarker);
-  }
+  if (pilot.lead) next = upsertArticleLead(next, pilot.lead(locale));
+  if (pilot.faq) next = upsertArticleFaq(next, pilot.faq(locale), pilot.postMarker);
   return next;
 }
 

@@ -68,19 +68,25 @@ export function ArticleDateDisplay({
   if (variant === "article-top") {
     return (
       <>
-        {published && dates.datePublished && (
-          <span className="article-top-detail">
-            <LineIcon name="calendar" />
-            <time dateTime={dates.datePublished}>
-              {ui.datePublished} {published}
-            </time>
-          </span>
-        )}
         {dates.showUpdated && updated && dates.dateModified && (
-          <span className={updatedClass}>
+          <span className="article-top-detail article-top-detail--emphasis">
             <LineIcon name="calendar" />
             <time dateTime={dates.dateModified}>
               {ui.dateUpdated} {updated}
+            </time>
+          </span>
+        )}
+        {published && dates.datePublished && (
+          <span
+            className={
+              dates.showUpdated
+                ? "article-top-detail article-top-detail--published-secondary"
+                : "article-top-detail"
+            }
+          >
+            <LineIcon name="calendar" />
+            <time dateTime={dates.datePublished}>
+              {ui.datePublished} {published}
             </time>
           </span>
         )}
