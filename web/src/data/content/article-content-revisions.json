@@ -127,6 +127,36 @@
       "locales": { "he": "2026-11-20T14:00:00+02:00" },
       "source": "batch3-2026",
       "note": "Batch3 — SEM vs PPC lead + FAQ"
+    },
+    {
+      "postId": 20897,
+      "locales": { "he": "2026-11-19T14:00:00+02:00" },
+      "source": "batch4-2026",
+      "note": "Batch4 — Google Ads 7 strategies lead + FAQ"
+    },
+    {
+      "postId": 20803,
+      "locales": { "he": "2026-11-19T14:00:00+02:00" },
+      "source": "batch4-2026",
+      "note": "Batch4 — digital marketing company lead + FAQ"
+    },
+    {
+      "postId": 21716,
+      "locales": { "he": "2026-11-19T14:00:00+02:00" },
+      "source": "batch4-2026",
+      "note": "Batch4 — choosing agency guide lead + FAQ"
+    },
+    {
+      "postId": 21115,
+      "locales": { "he": "2026-11-19T14:00:00+02:00" },
+      "source": "batch4-2026",
+      "note": "Batch4 — SEO beginners guide lead + FAQ"
+    },
+    {
+      "postId": 20092,
+      "locales": { "he": "2026-11-19T14:00:00+02:00" },
+      "source": "batch4-2026",
+      "note": "Batch4 — digital consultant lead + FAQ"
     }
   ]
 }

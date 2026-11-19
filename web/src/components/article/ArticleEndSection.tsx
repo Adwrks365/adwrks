@@ -8,6 +8,7 @@ import type { AdjacentArticles, ArticleAuthor } from "@/lib/content/article";
 import { resolveArticleEndCta } from "@/lib/content/article-end-cta";
 import { getArticleUi } from "@/lib/i18n/article-ui";
 import type { ContentItem } from "@/lib/content/types";
+import { isRatingsConfigured } from "@/lib/ratings/config";
 
 type ArticleEndSectionProps = {
   content: ContentItem;
@@ -33,7 +34,9 @@ export function ArticleEndSection({
     <div className="article-end-wrapper">
       <div className="article-end-shell">
         <section className="article-end-section" aria-label={ui.endSection}>
-          <ArticleRating postPath={postPath} locale={locale} />
+          {isRatingsConfigured() ? (
+            <ArticleRating postPath={postPath} locale={locale} />
+          ) : null}
           <ArticleAdjacentNav previous={adjacent.previous} next={adjacent.next} locale={locale} />
           <ArticleAuthorCard author={author} locale={locale} />
 

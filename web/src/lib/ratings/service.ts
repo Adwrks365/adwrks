@@ -1,4 +1,5 @@
 import { getContentId } from "@/i18n/routes";
+import { getContentByPath } from "@/lib/content/loader";
 import { normalizePath } from "@/lib/content/paths";
 import { getRatingsConfig } from "@/lib/ratings/config";
 import { resolveArticleRatingPath } from "@/lib/ratings/path";
@@ -74,6 +75,72 @@ function wordpressIdForArticlePath(inputPath: string, resolvedHePath: string): n
   );
 }
 
+const EMPTY_AGGREGATE: ArticleRatingAggregate = {
+  averageRating: null,
+  totalVoteCount: 0,
+};
+
+function findPublishedArticleForRating(
+  inputPath: string,
+): { canonicalPath: string; wordpressId: number } | null {
+  const normalized = normalizePath(inputPath);
+  const canonicalPath = resolveArticleRatingPath(inputPath);
+  const candidates = [canonicalPath, normalized].filter(
+    (p, i, arr) => p && p !== "/" && arr.indexOf(p) === i,
+  );
+
+  for (const path of candidates) {
+    const he = getContentByPath(path, "he");
+    if (he?.id) {
+      return { canonicalPath: resolveArticleRatingPath(he.path), wordpressId: he.id };
+    }
+    const en = getContentByPath(path, "en");
+    if (en?.id) {
+      return { canonicalPath: resolveArticleRatingPath(en.path), wordpressId: en.id };
+    }
+  }
+
+  return null;
+}
+
+/** Register migrated posts that were never imported into rating baselines (no historical votes). */
+async function ensureArticleRatingBaseline(
+  canonicalPath: string,
+  wordpressId: number,
+): Promise<void> {
+  const byId = await fetchAggregateRow(`wordpress_id=eq.${wordpressId}`);
+  if (byId) return;
+
+  const quoted = await fetchAggregateRow(`article_path=eq.${encodePostgrestQuoted(canonicalPath)}`);
+  if (quoted) return;
+
+  const plain = await fetchAggregateRow(`article_path=eq.${encodePostgrestPlain(canonicalPath)}`);
+  if (plain) return;
+
+  const response = await supabaseFetch("article_rating_baselines", {
+    method: "POST",
+    headers: { Prefer: "return=minimal" },
+    body: JSON.stringify({
+      wordpress_id: wordpressId,
+      article_path: canonicalPath,
+      historical_vote_count: 0,
+      historical_rating_sum: 0,
+      historical_average: 1,
+      source_plugin: "next-site",
+    }),
+  });
+
+  if (!response.ok) {
+    const body = await response.text();
+    console.warn("[article-rating] baseline upsert skipped", {
+      wordpressId,
+      canonicalPath,
+      status: response.status,
+      body: body.slice(0, 200),
+    });
+  }
+}
+
 async function fetchAggregateRow(query: string): Promise<AggregateRow | null> {
   const response = await supabaseFetch(
     `article_rating_aggregates?${query}&select=article_path,average_rating,total_vote_count&limit=1`,
@@ -120,7 +187,28 @@ export async function resolveArticleRatingContext(
     }
   }
 
-  return null;
+  const published = findPublishedArticleForRating(inputPath);
+  if (!published) {
+    return null;
+  }
+
+  await ensureArticleRatingBaseline(published.canonicalPath, published.wordpressId);
+
+  const retryQuoted = await fetchAggregateRow(
+    `article_path=eq.${encodePostgrestQuoted(published.canonicalPath)}`,
+  );
+  if (retryQuoted) {
+    return { canonicalPath: retryQuoted.article_path, aggregate: rowToAggregate(retryQuoted) };
+  }
+
+  const retryPlain = await fetchAggregateRow(
+    `article_path=eq.${encodePostgrestPlain(published.canonicalPath)}`,
+  );
+  if (retryPlain) {
+    return { canonicalPath: retryPlain.article_path, aggregate: rowToAggregate(retryPlain) };
+  }
+
+  return { canonicalPath: published.canonicalPath, aggregate: EMPTY_AGGREGATE };
 }
 
 export async function fetchArticleRatingAggregate(
