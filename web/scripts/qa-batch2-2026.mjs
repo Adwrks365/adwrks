@@ -7,6 +7,7 @@ import { prepareArticleBodyHtml } from "../src/lib/content/article.ts";
 import { resolveArticleDates } from "../src/lib/content/article-dates.ts";
 import { mergePageJsonLd } from "../src/lib/content/schema.ts";
 import { normalizePath } from "../src/lib/content/paths.ts";
+import { countVisibleFaqSections } from "../src/lib/content/article-faq-detect.ts";
 
 const PAGES = [
   { path: "/en/digital-marketing-strategies-2025/", locale: "en", body2026: true, expectMod: "2026-11-19" },
@@ -60,7 +61,7 @@ for (const c of PAGES) {
   }
   const { html } = prepareArticleBodyHtml(content.content, c.locale, content.path);
   const leadCount = (html.match(/class="adwrks-article-lead"/g) || []).length;
-  const faqCount = (html.match(/adwrks-article-faq-2026/g) || []).length;
+  const faqCount = countVisibleFaqSections(html).totalSections;
 
   if (leadCount !== 1) {
     console.error("FAIL lead count", c.path, leadCount);
