@@ -32,21 +32,76 @@ const PATCHES: Patch[] = [
   },
 ];
 
-function buildContextBlock(paragraphs: string[]): string {
+const BATCH2_PATCHES: (Patch & { locale: Locale; title: string })[] = [
+  {
+    locale: "he",
+    title: "מה חשוב ב-2026?",
+    paths: ["/google-shopping-guide/"],
+    postMarker: "elementor-17923",
+    paragraphs: [
+      "<strong>עדכון הקשר (2026):</strong> גוגל שופינג נשען על Merchant Center מדויק, פיד מעודכן ומדיניות משלוחים/החזרות ברורה. Performance Max יכול לשלב מיקומי Shopping — מתחילים מקטלוג נקי לפני הגדלת תקציב.",
+      "מודדים המרות ב-GA4 ומקשרים בין Merchant Center לפרסום; מתקנים חסימות בפיד לפני שמייחסים ירידה לאלגוריתם.",
+    ],
+  },
+  {
+    locale: "en",
+    title: "What matters in 2026",
+    paths: ["/en/digital-marketing-strategies-2025/"],
+    postMarker: "elementor-21776",
+    paragraphs: [
+      "<strong>2026 context:</strong> Funnel planning still starts with one measurable goal. In 2026 prioritize consent-ready tracking, first-party data, and creative/content that answers real buyer questions — including how you show up in AI-assisted search.",
+    ],
+  },
+  {
+    locale: "en",
+    title: "What matters in 2026",
+    paths: ["/en/future-of-seo-2025/"],
+    postMarker: "elementor-21817",
+    paragraphs: [
+      "<strong>2026 context:</strong> AI Overviews and helpful-content signals reward clarity, expertise, and technical health. Update facts and internal links instead of chasing every trend headline.",
+      "See also <a href=\"/en/seo-2026-ai-answers/\">SEO 2026 and AI Overviews</a>.",
+    ],
+  },
+  {
+    locale: "en",
+    title: "What matters in 2026",
+    paths: ["/en/google-shopping-guide/"],
+    postMarker: "elementor-17923",
+    paragraphs: [
+      "<strong>2026 context:</strong> Shopping performance still depends on feed accuracy, Merchant Center hygiene, and measurement in GA4. Scale paid spend only after disapprovals are fixed and conversion tracking is reliable.",
+    ],
+  },
+  {
+    locale: "en",
+    title: "What matters in 2026",
+    paths: ["/en/facebook-instagram-marketing/"],
+    postMarker: "elementor-21578",
+    paragraphs: [
+      "<strong>2026 context:</strong> Meta continues to push automated campaign types and site conversion tracking. Pair organic posts with measured paid tests; verify Business Manager, pixel/CAPI, and landing pages before increasing budget.",
+    ],
+  },
+];
+
+function buildContextBlock(paragraphs: string[], title: string): string {
   const body = paragraphs.map((p) => `<p class="adwrks-pilot-2026-body__text">${p}</p>`).join("");
   return `<div class="adwrks-pilot-2026-body" data-adwrks-content="${PILOT_2026_BODY_MARKER}">
-<p class="adwrks-pilot-2026-body__title">מה חשוב ב-2026?</p>
+<p class="adwrks-pilot-2026-body__title">${title}</p>
 ${body}
 </div>`;
 }
 
 export function applyPilot2026BodyPolish(html: string, path: string, locale: Locale): string {
-  if (locale !== "he" || html.includes(PILOT_2026_BODY_MARKER)) return html;
+  if (html.includes(PILOT_2026_BODY_MARKER)) return html;
   const key = normalizePath(path);
-  const patch = PATCHES.find((p) => p.paths.some((x) => normalizePath(x) === key));
+  const patch =
+    PATCHES.find((p) => p.paths.some((x) => normalizePath(x) === key)) ??
+  BATCH2_PATCHES.find((p) => p.locale === locale && p.paths.some((x) => normalizePath(x) === key));
   if (!patch || !html.includes(patch.postMarker)) return html;
-
-  const block = buildContextBlock(patch.paragraphs);
+  const title =
+    "title" in patch && typeof (patch as { title?: string }).title === "string"
+      ? (patch as { title: string }).title
+      : "מה חשוב ב-2026?";
+  const block = buildContextBlock(patch.paragraphs, title);
   const leadEnd = html.indexOf("</aside>");
   if (leadEnd !== -1) {
     const insertAt = leadEnd + "</aside>".length;

@@ -75,7 +75,7 @@ for (const c of CASES) {
     failed++;
     continue;
   }
-  const dates = resolveArticleDates(content);
+  const dates = resolveArticleDates(content, c.locale);
   const seo = getSeoByPath(pathKey, c.locale);
   const jsonLd = mergePageJsonLd({
     locale: c.locale,

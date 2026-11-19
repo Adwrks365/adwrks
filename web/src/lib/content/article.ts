@@ -1,5 +1,6 @@
 import { PRICING_CALCULATOR_EMBED_SLOT } from "@/lib/calculators/pricing-calculator-data";
 import { ROI_CALCULATOR_EMBED_SLOT } from "@/lib/calculators/roi-calculator-data";
+import { applyArticleBatch2Enrichment2026 } from "@/lib/content/article-batch2-enrichment-2026";
 import { applyPilot2026BodyPolish } from "@/lib/content/article-pilot-2026-body-polish";
 import { applyArticlePilotEnrichment2026 } from "@/lib/content/article-pilot-enrichment-2026";
 import { polishContentInternalLinks } from "@/lib/content/content-internal-links-polish";
@@ -253,6 +254,7 @@ export function prepareArticleBodyHtml(
   html = polishContentInternalLinks(html);
   if (pagePath) {
     html = applyArticlePilotEnrichment2026(html, pagePath, locale);
+    html = applyArticleBatch2Enrichment2026(html, pagePath, locale);
     html = applyPilot2026BodyPolish(html, pagePath, locale);
   }
 

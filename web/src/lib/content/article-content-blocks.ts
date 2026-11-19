@@ -46,7 +46,10 @@ export function buildArticleFaqBlock(locale: Locale, items: FaqItem[], title?: s
 }
 
 export function htmlHasArticleLead(html: string): boolean {
-  return html.includes(ARTICLE_LEAD_MARKER) || /\bבקצרה\b|At a glance/i.test(html);
+  if (html.includes(ARTICLE_LEAD_MARKER) || html.includes("adwrks-article-lead")) {
+    return true;
+  }
+  return /adwrks-article-lead__title[^>]*>\s*(בקצרה|At a glance)\s*</i.test(html);
 }
 
 export function htmlHasArticleFaq(html: string): boolean {
@@ -58,8 +61,23 @@ export function htmlHasArticleFaq(html: string): boolean {
 export function injectArticleLead(html: string, block: string): string {
   if (html.includes(ARTICLE_LEAD_MARKER)) return html;
   const needle = '<div class="elementor-widget-wrap elementor-element-populated">';
-  const idx = html.indexOf(needle);
-  if (idx === -1) return html;
+  let idx = html.indexOf(needle);
+  if (idx === -1) {
+    const populated = html.indexOf('elementor-element-populated">');
+    if (populated !== -1) {
+      idx = populated + 'elementor-element-populated">'.length - 1;
+      const insertAt = populated + 'elementor-element-populated">'.length;
+      return `${html.slice(0, insertAt)}${block}${html.slice(insertAt)}`;
+    }
+    if (html.startsWith("<")) {
+      const gt = html.indexOf(">");
+      if (gt !== -1) {
+        const insertAt = gt + 1;
+        return `${html.slice(0, insertAt)}${block}${html.slice(insertAt)}`;
+      }
+    }
+    return `${block}${html}`;
+  }
   const insertAt = idx + needle.length;
   return `${html.slice(0, insertAt)}${block}${html.slice(insertAt)}`;
 }
