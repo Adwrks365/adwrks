@@ -3407,6 +3407,35 @@ section.home-hero-v2.home-hero-v2-lcp {
     clamp(1.5rem, 3vw, 2.25rem);
 }
 
+.adwrks-article-lead {
+  background: color-mix(in srgb, var(--brand-primary) 6%, transparent);
+  border-inline-start: 3px solid var(--brand-primary);
+  margin: 0 0 1.25rem;
+  padding: 0.75rem 1rem;
+}
+
+.adwrks-article-lead__title {
+  color: var(--text);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  margin: 0 0 0.35rem;
+}
+
+.adwrks-article-lead__text {
+  color: var(--muted);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  margin: 0 0 0.35rem;
+}
+
+.adwrks-article-lead__text:last-child {
+  margin-bottom: 0;
+}
+
+.adwrks-article-faq-block {
+  margin-top: 1.75rem;
+}
+
 .article-body-html {
   font-size: 1.0625rem;
   line-height: 1.8;

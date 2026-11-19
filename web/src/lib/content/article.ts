@@ -1,5 +1,6 @@
 import { PRICING_CALCULATOR_EMBED_SLOT } from "@/lib/calculators/pricing-calculator-data";
 import { ROI_CALCULATOR_EMBED_SLOT } from "@/lib/calculators/roi-calculator-data";
+import { applyArticlePilotEnrichment2026 } from "@/lib/content/article-pilot-enrichment-2026";
 import { polishContentInternalLinks } from "@/lib/content/content-internal-links-polish";
 import { polishGoogleSeoArticleHtml } from "@/lib/content/post-19428-polish";
 import { polishWordPressCostArticleHtml } from "@/lib/content/post-19792-polish";
@@ -218,7 +219,11 @@ export function replaceBrokenCalculatorEmbeds(html: string): string {
     );
 }
 
-export function prepareArticleBodyHtml(rawHtml: string, locale: Locale = "he"): {
+export function prepareArticleBodyHtml(
+  rawHtml: string,
+  locale: Locale = "he",
+  pagePath?: string,
+): {
   html: string;
   headings: ArticleHeading[];
 } {
@@ -245,6 +250,9 @@ export function prepareArticleBodyHtml(rawHtml: string, locale: Locale = "he"): 
   html = polishGoogleSeoArticleHtml(html);
   html = polishRussianDigitalArticleHtml(html);
   html = polishContentInternalLinks(html);
+  if (pagePath) {
+    html = applyArticlePilotEnrichment2026(html, pagePath, locale);
+  }
 
   const headings = extractArticleHeadings(html);
   html = injectHeadingAnchors(html, headings);

@@ -18,6 +18,36 @@
       "dateModified": "2026-11-19T11:13:04+02:00",
       "source": "git:01aab0c",
       "note": "SEO week — PageSpeed links + FAQ trim"
+    },
+    {
+      "postId": 21776,
+      "dateModified": "2026-11-19T14:00:00+02:00",
+      "source": "git:seo/blog-content-audit-2026-pilot",
+      "note": "2026 audit pilot — lead block (strategies context)"
+    },
+    {
+      "postId": 21817,
+      "dateModified": "2026-11-19T14:00:00+02:00",
+      "source": "git:seo/blog-content-audit-2026-pilot",
+      "note": "2026 audit pilot — lead + internal link to seo-2026-ai-answers"
+    },
+    {
+      "postId": 22368,
+      "dateModified": "2026-11-19T14:00:00+02:00",
+      "source": "git:seo/blog-content-audit-2026-pilot",
+      "note": "2026 audit pilot — lead + supplemental FAQ"
+    },
+    {
+      "postId": 21161,
+      "dateModified": "2026-11-19T14:00:00+02:00",
+      "source": "git:seo/blog-content-audit-2026-pilot",
+      "note": "2026 audit pilot — lead + FAQ (pricing factors, no invented rates)"
+    },
+    {
+      "postId": 21578,
+      "dateModified": "2026-11-19T14:00:00+02:00",
+      "source": "git:seo/blog-content-audit-2026-pilot",
+      "note": "2026 audit pilot — lead block (Meta 2026 context)"
     }
   ]
 }
