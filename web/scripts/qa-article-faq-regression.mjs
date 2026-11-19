@@ -48,8 +48,18 @@ const CASES = [
     path: "/שיווק-דיגיטלי-לעסקים/",
     locale: "he",
     expectLegacyRaw: true,
-    expectInject: false,
+    expectInject: true,
     maxSections: 1,
+    requireAccordion: true,
+  },
+  {
+    key: "batch3-google-ads-steps",
+    path: "/פרסום-בגוגל-אדס-10-שלבים-פשוטים/",
+    locale: "he",
+    expectLegacyRaw: false,
+    expectInject: true,
+    maxSections: 1,
+    requireAccordion: true,
   },
   {
     key: "seo-ai-pilot-lead-only",
@@ -87,8 +97,12 @@ for (const c of CASES) {
   const okRaw = rawLegacy === c.expectLegacyRaw;
   const okInject = hasInjected === c.expectInject;
   const okSections = audit.totalSections <= c.maxSections;
+  const okAccordion = c.requireAccordion ? html.includes("adwrks-faq-accordion") : true;
+  const answersInDom =
+    !c.requireAccordion ||
+  (html.match(/<details[^>]*adwrks-faq-item/gi) || []).length >= 1;
 
-  if (!okRaw || !okInject || !okSections) {
+  if (!okRaw || !okInject || !okSections || !okAccordion || !answersInDom) {
     console.error("FAIL", c.key, { rawLegacy, audit, expect: c });
     failed++;
   } else {

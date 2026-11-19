@@ -29,8 +29,25 @@ export function ArticleBodyInteractions({ children }: ArticleBodyInteractionsPro
   useEffect(() => {
     const root = rootRef.current;
     if (!root) return;
+
+    const onToggle = (event: Event) => {
+      const target = event.target;
+      if (!(target instanceof HTMLDetailsElement) || !target.open) return;
+      const group = target.closest('[data-adwrks-faq-accordion="exclusive"]');
+      if (!group) return;
+      group.querySelectorAll("details[open]").forEach((item) => {
+        if (item !== target) {
+          (item as HTMLDetailsElement).open = false;
+        }
+      });
+    };
+
     root.addEventListener("click", handleClick);
-    return () => root.removeEventListener("click", handleClick);
+    root.addEventListener("toggle", onToggle, true);
+    return () => {
+      root.removeEventListener("click", handleClick);
+      root.removeEventListener("toggle", onToggle, true);
+    };
   }, [handleClick]);
 
   return (
