@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Locale } from "@/i18n/routing";
-import { numberFormatLocale } from "@/i18n/locale";
+import { ArticleDateDisplay } from "@/components/article/ArticleDateDisplay";
 import { formatExcerpt } from "@/lib/content/excerpt";
 import { getArticleUi } from "@/lib/i18n/article-ui";
 import type { ContentItem } from "@/lib/content/types";
@@ -13,19 +13,6 @@ type RelatedArticlesListProps = {
   ctaLabel?: string;
   locale?: Locale;
 };
-
-function formatDate(date: string | undefined, locale: Locale): string {
-  if (!date) return "";
-  try {
-    return new Intl.DateTimeFormat(numberFormatLocale(locale), {
-      day: "numeric",
-      month: "short",
-      year: "numeric",
-    }).format(new Date(date));
-  } catch {
-    return "";
-  }
-}
 
 export function RelatedArticlesList({
   posts,
@@ -55,10 +42,8 @@ export function RelatedArticlesList({
             </Link>
           )}
           <div className="article-related-body">
-            {post.date && (
-              <time dateTime={post.date} className="article-related-date">
-                {formatDate(post.date, locale)}
-              </time>
+            {(post.date || post.modified) && (
+              <ArticleDateDisplay item={post} locale={locale} variant="related-list" />
             )}
             <Link href={post.path} className="article-related-title">
               {post.title}

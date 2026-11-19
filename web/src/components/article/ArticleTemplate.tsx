@@ -62,8 +62,7 @@ export function ArticleTemplate({ content, locale = "he" }: ArticleTemplateProps
           <div className="article-main">
             <ArticleTopMeta
               breadcrumbTitle={breadcrumbTitle}
-              date={content.date}
-              modified={content.modified}
+              content={content}
               author={author}
               locale={locale}
             />

@@ -11,6 +11,7 @@ import {
   slugSegmentsFromPath,
 } from "./paths";
 import { contentDataDirForLocale, CONTENT_DATA_DIR, CONTENT_EN_DATA_DIR } from "./data-dir";
+import { withResolvedArticleDates } from "@/lib/content/article-dates";
 import { HIDDEN_FROM_LISTINGS } from "@/lib/pages/locations/paths";
 
 type WpPage = {
@@ -116,7 +117,7 @@ function getCache(locale: Locale): LocaleCache {
     routes.set(
       routePath,
       withFeaturedMedia(
-        {
+        withResolvedArticleDates({
           type: "post",
           id: post.id,
           slug: post.slug,
@@ -128,7 +129,7 @@ function getCache(locale: Locale): LocaleCache {
           modified: post.modified,
           categoryIds: post.categories,
           tagIds: post.tags,
-        },
+        }),
         post.featuredMedia,
       ),
     );
