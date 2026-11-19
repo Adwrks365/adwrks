@@ -35,7 +35,7 @@ export function consolidateDuplicateFaqSections(html: string, locale: Locale): s
   }
 
   const rebuilt = buildArticleFaqBlock(locale, merged);
-  let next = html.slice(0, legacy.start) + html.slice(legacy.end);
+  const next = html.slice(0, legacy.start) + html.slice(legacy.end);
   const blockIdx = next.indexOf("adwrks-article-faq-block");
   if (blockIdx === -1) return next;
   const secStart = next.lastIndexOf("<section", blockIdx);
