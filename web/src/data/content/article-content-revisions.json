@@ -21,33 +21,33 @@
     },
     {
       "postId": 21776,
-      "dateModified": "2026-11-19T15:55:00+02:00",
-      "source": "git:1c28055",
-      "note": "PR4 HE pilot + batch2 EN lead/2026 context"
+      "dateModified": "2026-11-19T14:00:00+02:00",
+      "source": "git:704ad18",
+      "note": "2026 audit pilot — lead + 2026 body context (21776)"
     },
     {
       "postId": 21817,
-      "dateModified": "2026-11-19T15:55:00+02:00",
-      "source": "git:1c28055",
-      "note": "PR4 HE pilot + batch2 EN lead/2026 context"
+      "dateModified": "2026-11-19T14:00:00+02:00",
+      "source": "git:704ad18",
+      "note": "2026 audit pilot — lead, body 2026, link to seo-2026-ai-answers"
     },
     {
       "postId": 22368,
-      "dateModified": "2026-11-19T15:55:00+02:00",
-      "source": "git:1c28055",
-      "note": "PR4 HE lead + batch2 EN lead"
+      "dateModified": "2026-11-19T14:00:00+02:00",
+      "source": "git:704ad18",
+      "note": "2026 audit pilot — lead only (legacy FAQ kept)"
     },
     {
       "postId": 21161,
-      "dateModified": "2026-11-19T15:55:00+02:00",
-      "source": "git:1c28055",
-      "note": "PR4 HE lead + batch2 EN lead"
+      "dateModified": "2026-11-19T14:00:00+02:00",
+      "source": "git:704ad18",
+      "note": "2026 audit pilot — lead only (legacy FAQ + calculator kept)"
     },
     {
       "postId": 21578,
-      "dateModified": "2026-11-19T15:55:00+02:00",
-      "source": "git:1c28055",
-      "note": "PR4 HE pilot + batch2 EN lead/2026 context"
+      "dateModified": "2026-11-19T14:00:00+02:00",
+      "source": "git:704ad18",
+      "note": "2026 audit pilot — lead + 2026 Meta context body"
     },
     {
       "postId": 17923,
