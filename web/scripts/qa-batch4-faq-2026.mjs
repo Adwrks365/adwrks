@@ -51,7 +51,7 @@ for (const path of [...BATCH4, ...FAQ_LAYOUT, "/בדיקת-מהירות-אתר/"
       continue;
     }
     const dates = resolveArticleDates(content, "he");
-    if (!dates.dateModified.includes("2026-11-21")) {
+    if (!dates.dateModified.includes("2026-11-19")) {
       console.error("FAIL date", path, dates.dateModified);
       failed++;
       continue;
