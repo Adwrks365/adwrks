@@ -1,0 +1,23 @@
+{
+  "_doc": "Explicit content-revision dates (not deploy/build). When a post gets a meaningful body/meta polish, add postId + dateModified (ISO with offset). Verify via git commit time. postId applies to HE + EN pairs.",
+  "revisions": [
+    {
+      "postId": 19428,
+      "dateModified": "2026-11-19T11:08:52+02:00",
+      "source": "git:f6b1339",
+      "note": "SEO week — post-19428-polish.ts, internal links"
+    },
+    {
+      "postId": 20350,
+      "dateModified": "2026-11-19T11:08:52+02:00",
+      "source": "git:f6b1339",
+      "note": "SEO week — post-20350-polish.ts"
+    },
+    {
+      "postId": 21496,
+      "dateModified": "2026-11-19T11:13:04+02:00",
+      "source": "git:01aab0c",
+      "note": "SEO week — PageSpeed links + FAQ trim"
+    }
+  ]
+}

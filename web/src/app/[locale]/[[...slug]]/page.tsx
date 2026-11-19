@@ -24,6 +24,7 @@ import { buildPageMetadata, withHomeHeroLcpPreload } from "@/lib/content/metadat
 import { getHomepageData } from "@/lib/homepage";
 import { buildEnSchemaContext } from "@/lib/content/en-schema-localize";
 import { resolvePageSeoLabels } from "@/lib/content/page-seo-labels";
+import { resolveArticleDates } from "@/lib/content/article-dates";
 import { mergePageJsonLd } from "@/lib/content/schema";
 import { isHomePath } from "@/lib/i18n/composer-path";
 import { skipHtmlJsonLdExtraction } from "@/lib/i18n/composer-html-jsonld";
@@ -296,6 +297,7 @@ export default async function CatchAllPage({ params }: PageProps) {
     metaDesc,
     categoryTitles,
   );
+  const articleDates = content.type === "post" ? resolveArticleDates(content) : undefined;
   const jsonLd = mergePageJsonLd({
     locale: validLocale,
     path: pathKey,
@@ -304,6 +306,7 @@ export default async function CatchAllPage({ params }: PageProps) {
     seoNodes: seo?.jsonLd ?? [],
     htmlNodes: htmlJsonLd,
     isBlogPost: content.type === "post",
+    articleDates,
   });
 
   return (

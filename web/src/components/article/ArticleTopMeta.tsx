@@ -1,47 +1,25 @@
 import Link from "next/link";
-import { LineIcon } from "@/components/ui/LineIcon";
 import type { Locale } from "@/i18n/routing";
-import { numberFormatLocale } from "@/i18n/locale";
 import type { ArticleAuthor } from "@/lib/content/article";
+import type { ContentItem } from "@/lib/content/types";
 import { getArticleUi } from "@/lib/i18n/article-ui";
+import { ArticleDateDisplay } from "@/components/article/ArticleDateDisplay";
+import { LineIcon } from "@/components/ui/LineIcon";
 
 type ArticleTopMetaProps = {
   breadcrumbTitle: string;
-  date?: string;
-  modified?: string;
+  content: Pick<ContentItem, "id" | "date" | "modified" | "type">;
   author?: ArticleAuthor | null;
   locale?: Locale;
 };
 
-function formatDate(date: string | undefined, locale: Locale): string {
-  if (!date) return "";
-  try {
-    return new Intl.DateTimeFormat(numberFormatLocale(locale), {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    }).format(new Date(date));
-  } catch {
-    return "";
-  }
-}
-
-function isDifferentCalendarDay(a?: string, b?: string): boolean {
-  if (!a || !b) return false;
-  return a.slice(0, 10) !== b.slice(0, 10);
-}
-
 export function ArticleTopMeta({
   breadcrumbTitle,
-  date,
-  modified,
+  content,
   author,
   locale = "he",
 }: ArticleTopMetaProps) {
   const ui = getArticleUi(locale);
-  const showUpdated = isDifferentCalendarDay(date, modified);
-  const displayIso = showUpdated && modified ? modified : date ?? modified;
-  const formattedDate = formatDate(displayIso, locale);
   const authorName = author?.name?.trim();
 
   return (
@@ -72,16 +50,9 @@ export function ArticleTopMeta({
         </ol>
       </nav>
 
-      {(formattedDate || authorName) && (
+      {(content.date || content.modified || authorName) && (
         <div className="article-top-details">
-          {formattedDate && displayIso && (
-            <span className="article-top-detail">
-              <LineIcon name="calendar" />
-              <time dateTime={displayIso}>
-                {showUpdated ? `${ui.dateUpdated} ${formattedDate}` : formattedDate}
-              </time>
-            </span>
-          )}
+          <ArticleDateDisplay item={content} locale={locale} variant="article-top" />
           {authorName && (
             <span className="article-top-detail">
               <LineIcon name="user" />

@@ -1,24 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Locale } from "@/i18n/routing";
-import { numberFormatLocale } from "@/i18n/locale";
+import { ArticleDateDisplay } from "@/components/article/ArticleDateDisplay";
 import { PhysicalNavRow } from "@/components/ui/PhysicalNavRow";
 import { formatExcerpt } from "@/lib/content/excerpt";
 import { getArticleUi } from "@/lib/i18n/article-ui";
 import type { ContentItem } from "@/lib/content/types";
-
-function formatDate(date: string | undefined, locale: Locale): string {
-  if (!date) return "";
-  try {
-    return new Intl.DateTimeFormat(numberFormatLocale(locale), {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    }).format(new Date(date));
-  } catch {
-    return "";
-  }
-}
 
 type ArticleCardProps = {
   post: ContentItem;
@@ -51,10 +38,8 @@ export function ArticleCard({ post, locale = "he" }: ArticleCardProps) {
         </Link>
       )}
       <div className="article-card-body">
-        {post.date && (
-          <time dateTime={post.date} className="article-card-date">
-            {formatDate(post.date, locale)}
-          </time>
+        {(post.date || post.modified) && (
+          <ArticleDateDisplay item={post} locale={locale} variant="card" />
         )}
         <h2 className="article-card-title">
           <Link href={post.path}>{post.title}</Link>

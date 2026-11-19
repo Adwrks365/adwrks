@@ -9,6 +9,7 @@ import {
 import { getEnComposerFaqSchema } from "@/lib/content/en-composer-faq-schema";
 import { ORGANIZATION_ID, ORGANIZATION_SAME_AS, organizationEntityFields } from "@/lib/schema";
 import { SITE } from "@/lib/site";
+import type { ResolvedArticleDates } from "@/lib/content/article-dates";
 import { absoluteUrl, absoluteUrlCanonical, normalizePath } from "./paths";
 
 const SCHEMA_TYPES_WITH_LANGUAGE = new Set([
@@ -378,6 +379,31 @@ function graphHasValidBreadcrumb(nodes: unknown[]): boolean {
   return false;
 }
 
+const ARTICLE_DATE_SCHEMA_TYPES = new Set(["Article", "BlogPosting", "NewsArticle"]);
+
+function applyArticleDatesToJsonLd(nodes: unknown[], dates: ResolvedArticleDates): unknown[] {
+  const published = dates.schemaDatePublished;
+  const modified = dates.schemaDateModified;
+  if (!published && !modified) return nodes;
+
+  const visit = (node: unknown): unknown => {
+    if (Array.isArray(node)) return node.map(visit);
+    if (!isRecord(node)) return node;
+    const types = nodeTypes(node);
+    const out: Record<string, unknown> = {};
+    for (const [key, value] of Object.entries(node)) {
+      out[key] = visit(value);
+    }
+    if (types.some((t) => ARTICLE_DATE_SCHEMA_TYPES.has(t))) {
+      if (published) out.datePublished = published;
+      if (modified) out.dateModified = modified;
+    }
+    return out;
+  };
+
+  return nodes.map(visit);
+}
+
 export function mergePageJsonLd(options: {
   locale: Locale;
   path: string;
@@ -386,6 +412,7 @@ export function mergePageJsonLd(options: {
   seoNodes?: unknown[];
   htmlNodes?: unknown[];
   isBlogPost?: boolean;
+  articleDates?: ResolvedArticleDates;
 }): unknown[] {
   const labels: EnSchemaContext = options.seoLabels ?? {
     title: options.title,
@@ -423,6 +450,10 @@ export function mergePageJsonLd(options: {
 
   merged = stripMisplacedInLanguage(merged) as unknown[];
 
+  if (options.isBlogPost && options.articleDates) {
+    merged = applyArticleDatesToJsonLd(merged, options.articleDates);
+  }
+
   if (!needsBreadcrumb || graphHasValidBreadcrumb(merged)) {
     return merged;
   }
@@ -434,7 +465,11 @@ export function mergePageJsonLd(options: {
     isBlogPost: options.isBlogPost,
   });
 
-  return [...merged, breadcrumb];
+  const withBreadcrumb = [...merged, breadcrumb];
+  if (options.isBlogPost && options.articleDates) {
+    return applyArticleDatesToJsonLd(withBreadcrumb, options.articleDates);
+  }
+  return withBreadcrumb;
 }
 
 /** Resolve hreflang pair for sitemap alternates */

@@ -2097,6 +2097,23 @@ section.home-hero-v2.home-hero-v2-lcp {
   font-size: 0.8125rem;
 }
 
+.article-date-inline {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.article-card-date--updated,
+.article-related-date--updated,
+.related-article-card-date--updated {
+  color: #64748b;
+  font-size: 0.75rem;
+}
+
+.article-top-detail--updated {
+  color: var(--muted);
+}
+
 .article-card-title {
   font-size: 1.0625rem;
   font-weight: 700;

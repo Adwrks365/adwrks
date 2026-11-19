@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Locale } from "@/i18n/routing";
-import { numberFormatLocale } from "@/i18n/locale";
+import { ArticleDateDisplay } from "@/components/article/ArticleDateDisplay";
 import { formatExcerpt } from "@/lib/content/excerpt";
 import { getArticleUi } from "@/lib/i18n/article-ui";
 import type { ContentItem } from "@/lib/content/types";
@@ -10,19 +10,6 @@ type RelatedArticleCardsProps = {
   posts: ContentItem[];
   locale?: Locale;
 };
-
-function formatDate(date: string | undefined, locale: Locale): string {
-  if (!date) return "";
-  try {
-    return new Intl.DateTimeFormat(numberFormatLocale(locale), {
-      day: "numeric",
-      month: "short",
-      year: "numeric",
-    }).format(new Date(date));
-  } catch {
-    return "";
-  }
-}
 
 export function RelatedArticleCards({ posts, locale = "he" }: RelatedArticleCardsProps) {
   const ui = getArticleUi(locale);
@@ -50,10 +37,8 @@ export function RelatedArticleCards({ posts, locale = "he" }: RelatedArticleCard
             </Link>
           )}
           <div className="related-article-card-body">
-            {post.date && (
-              <time dateTime={post.date} className="related-article-card-date">
-                {formatDate(post.date, locale)}
-              </time>
+            {(post.date || post.modified) && (
+              <ArticleDateDisplay item={post} locale={locale} variant="related" />
             )}
             <h3 className="related-article-card-title">
               <Link href={post.path}>{post.title}</Link>

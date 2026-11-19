@@ -3,7 +3,8 @@ import type { Locale } from "@/i18n/routing";
 const HE = {
   asideLabel: "מידע נלווה למאמר",
   backToBlog: "חזרה לכל המאמרים",
-  dateUpdated: "עודכן",
+  datePublished: "פורסם",
+  dateUpdated: "עודכן לאחרונה",
   tocSummary: "תוכן עניינים",
   tocNav: "תוכן עניינים",
   moreArticles: "מאמרים נוספים",
@@ -55,7 +56,8 @@ const HE = {
 const EN = {
   asideLabel: "Article sidebar",
   backToBlog: "Back to all articles",
-  dateUpdated: "Updated",
+  datePublished: "Published",
+  dateUpdated: "Last updated",
   tocSummary: "Table of contents",
   tocNav: "Table of contents",
   moreArticles: "More articles",
@@ -107,6 +109,7 @@ const EN = {
 export type ArticleUi = {
   asideLabel: string;
   backToBlog: string;
+  datePublished: string;
   dateUpdated: string;
   tocSummary: string;
   tocNav: string;
