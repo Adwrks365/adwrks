@@ -3747,22 +3747,26 @@ section.home-hero-v2.home-hero-v2-lcp {
 
 /* Phase 5G.5 — repaired in-article CTA visual normalization */
 .article-body-html .article-inline-cta-block {
+  align-items: center;
   clear: both;
-  display: block;
-  margin-block: 1.25rem 2.25rem;
+  display: flex;
+  flex-direction: column;
+  margin-block: 1.75rem 2.5rem;
   max-width: 100%;
-  text-align: right;
+  text-align: center;
   width: 100%;
 }
 
 .article-body-html .article-inline-cta-block--solo {
-  margin-top: 1.25rem;
+  margin-top: 1.5rem;
 }
 
 .article-body-html .article-inline-cta-block .elementor-widget-heading {
-  margin: 0 0 0.625rem;
+  margin: 0 0 0.75rem;
+  max-width: 38rem;
   padding: 0;
-  text-align: right;
+  text-align: center;
+  width: 100%;
 }
 
 .article-body-html .article-inline-cta-block .elementor-widget-heading .elementor-heading-title {
@@ -3774,14 +3778,28 @@ section.home-hero-v2.home-hero-v2-lcp {
 }
 
 .article-body-html .article-inline-cta-block .elementor-widget-button {
+  display: flex;
+  justify-content: center;
   margin: 0;
   padding: 0;
-  text-align: right;
+  text-align: center;
+  width: 100%;
+}
+
+.article-body-html .article-inline-cta-block .elementor-button-wrapper {
+  display: inline-flex;
+  justify-content: center;
+  width: auto;
 }
 
 .article-body-html .article-inline-cta-block .elementor-align-center,
-.article-body-html .article-inline-cta-block .elementor-align-center .elementor-button-wrapper {
-  text-align: right;
+.article-body-html .article-inline-cta-block .elementor-align-center .elementor-button-wrapper,
+.article-body-html .article-inline-cta-block .elementor-align-right,
+.article-body-html .article-inline-cta-block .elementor-align-left {
+  display: inline-flex;
+  justify-content: center;
+  text-align: center;
+  width: auto;
 }
 
 .article-body-html .article-inline-cta-block + .elementor-widget-heading h2,
@@ -3849,9 +3867,39 @@ section.home-hero-v2.home-hero-v2-lcp {
 }
 
 .article-body-html .article-inline-cta-block--price-table .elementor-price-table__footer {
+  display: flex;
+  justify-content: center;
   margin: 0;
   padding: 0;
-  text-align: right;
+  text-align: center;
+}
+
+/* Contact CTA widgets still outside the wrapper (safety net). */
+.article-body-html
+  .elementor-widget-button:has(> .elementor-button[data-open-contextual-popup="true"]),
+.article-body-html
+  .elementor-widget-button:has(> .elementor-button[href*="/contact"]),
+.article-body-html
+  .elementor-widget-button:has(> .elementor-button[href*="/check-fit"]) {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-block: 1.75rem 2.35rem;
+  text-align: center;
+  width: 100%;
+}
+
+.article-body-html .elementor-section {
+  padding-block: 0.65rem;
+}
+
+.article-body-html .adwrks-article-lead {
+  margin-bottom: 1.65rem;
+}
+
+.article-body-html .adwrks-article-faq-block {
+  margin-block: 2rem 1.75rem;
 }
 
 /* Elementor price tables inside articles (e.g. WordPress cost guide) */
