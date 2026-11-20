@@ -3,6 +3,7 @@ import { normalizePath } from "@/lib/content/paths";
 import { PILOT_ARTICLE_PATHS } from "@/lib/content/article-pilot-enrichment-2026";
 import { BATCH6_HE_PATHS } from "@/lib/content/article-batch6-enrichment-2026";
 import { BATCH7_EN_PATHS } from "@/lib/content/article-batch7-enrichment-2026";
+import { FINAL_ROLLOUT_PATHS } from "@/lib/content/article-final-rollout-enrichment-2026";
 
 /** Static paths from enrichment modules — single place for rollout audits. */
 const BATCH2_HE = [
@@ -78,6 +79,11 @@ const MAP: Array<{ path: string; locale?: Locale; source: string }> = [
   { path: "/en/google-business-promotion-guide/", locale: "en", source: "batch9-2026" },
   { path: "/en/business-growth-through-seo/", locale: "en", source: "batch9-2026" },
   { path: "/en/digital-marketing-agency-maximize/", locale: "en", source: "batch9-2026" },
+  ...FINAL_ROLLOUT_PATHS.map((p) => ({
+    path: p,
+    locale: (p.startsWith("/en/") ? "en" : "he") as Locale,
+    source: "final-rollout-2026",
+  })),
   ...POLISH_ONLY,
 ];
 

@@ -15,6 +15,8 @@ import { applyArticleBatch8Enrichment2026 } from "@/lib/content/article-batch8-e
 import { applyArticleBatch8StructurePolish } from "@/lib/content/article-batch8-structure-polish";
 import { applyArticleBatch9Enrichment2026 } from "@/lib/content/article-batch9-enrichment-2026";
 import { applyArticleBatch9StructurePolish } from "@/lib/content/article-batch9-structure-polish";
+import { applyArticleFinalRolloutEnrichment2026 } from "@/lib/content/article-final-rollout-enrichment-2026";
+import { applyArticleFinalRolloutStructurePolish } from "@/lib/content/article-final-rollout-structure-polish";
 import { applyArticleReadingPolishShared } from "@/lib/content/article-reading-polish-shared";
 import { applyArticleFaqAccordionPresentation } from "@/lib/content/article-faq-accordion";
 import { applyPilot2026BodyPolish } from "@/lib/content/article-pilot-2026-body-polish";
@@ -243,6 +245,8 @@ export type PrepareArticleBodyHtmlOptions = {
   skipBatch8?: boolean;
   /** When true, skips batch9 enrichment/structure (for before/after audits). */
   skipBatch9?: boolean;
+  /** When true, skips final rollout enrichment/structure (for before/after audits). */
+  skipFinalRollout?: boolean;
 };
 
 export function prepareArticleBodyHtml(
@@ -297,6 +301,10 @@ export function prepareArticleBodyHtml(
     if (!options?.skipBatch9) {
       html = applyArticleBatch9Enrichment2026(html, pagePath, locale);
       html = applyArticleBatch9StructurePolish(html, pagePath, locale);
+    }
+    if (!options?.skipFinalRollout) {
+      html = applyArticleFinalRolloutEnrichment2026(html, pagePath, locale);
+      html = applyArticleFinalRolloutStructurePolish(html, pagePath, locale);
     }
     html = applyArticleReadingPolishShared(html, pagePath, locale);
     html = applyPilot2026BodyPolish(html, pagePath, locale);

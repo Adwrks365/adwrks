@@ -4,20 +4,30 @@
     {
       "postId": 19428,
       "dateModified": "2026-11-19T11:08:52+02:00",
-      "source": "git:f6b1339",
-      "note": "SEO week — post-19428-polish.ts, internal links"
+      "source": "final-rollout-2026",
+      "note": "SEO week — post-19428-polish.ts, internal links; Final rollout — lead/FAQ",
+      "locales": {
+        "en": "2026-11-20T11:30:00+02:00"
+      }
     },
     {
       "postId": 20350,
       "dateModified": "2026-11-19T11:08:52+02:00",
-      "source": "git:f6b1339",
-      "note": "SEO week — post-20350-polish.ts"
+      "source": "final-rollout-2026",
+      "note": "SEO week — post-20350-polish.ts; Final rollout — lead/FAQ",
+      "locales": {
+        "en": "2026-11-20T11:30:00+02:00"
+      }
     },
     {
       "postId": 21496,
       "dateModified": "2026-11-19T11:13:04+02:00",
-      "source": "git:01aab0c",
-      "note": "SEO week — PageSpeed links + FAQ trim"
+      "source": "final-rollout-2026",
+      "note": "SEO week — PageSpeed links + FAQ trim; Final rollout — lead/FAQ",
+      "locales": {
+        "he": "2026-11-20T11:30:00+02:00",
+        "en": "2026-11-20T11:30:00+02:00"
+      }
     },
     {
       "postId": 21776,
@@ -76,7 +86,9 @@
     },
     {
       "postId": 10369,
-      "locales": { "he": "2026-11-19T15:55:00+02:00" },
+      "locales": {
+        "he": "2026-11-19T15:55:00+02:00"
+      },
       "source": "git:1c28055",
       "note": "Batch2 HE — digital ad agency office guide lead + FAQ"
     },
@@ -91,57 +103,84 @@
     },
     {
       "postId": 19548,
-      "locales": { "he": "2026-11-19T15:55:00+02:00" },
-      "source": "git:1c28055",
-      "note": "Batch2 HE — hosting/maintenance lead"
+      "locales": {
+        "he": "2026-11-19T15:55:00+02:00",
+        "en": "2026-11-20T11:30:00+02:00"
+      },
+      "source": "final-rollout-2026",
+      "note": "Batch2 HE — hosting/maintenance lead; Final rollout — lead/FAQ"
     },
     {
       "postId": 21068,
-      "locales": { "he": "2026-11-19T15:55:00+02:00" },
-      "source": "git:1c28055",
-      "note": "Batch2 HE — digital marketing for business lead (legacy FAQ kept)"
+      "locales": {
+        "he": "2026-11-19T15:55:00+02:00",
+        "en": "2026-11-20T11:30:00+02:00"
+      },
+      "source": "final-rollout-2026",
+      "note": "Batch2 HE — digital marketing for business lead (legacy FAQ kept); Final rollout — lead/FAQ"
     },
     {
       "postId": 20919,
-      "locales": { "he": "2026-11-20T14:00:00+02:00" },
-      "source": "batch3-2026",
-      "note": "Batch3 — Google Ads 10 steps lead + FAQ"
+      "locales": {
+        "he": "2026-11-20T14:00:00+02:00",
+        "en": "2026-11-20T11:30:00+02:00"
+      },
+      "source": "batch3-2026; final-rollout-2026; final-rollout-2026",
+      "note": "Batch3 — Google Ads 10 steps lead + FAQ; Final rollout — lead/FAQ"
     },
     {
       "postId": 21638,
-      "locales": { "he": "2026-11-20T14:00:00+02:00" },
-      "source": "batch3-2026",
-      "note": "Batch3 — Google Ads cost lead + 2026 context"
+      "locales": {
+        "he": "2026-11-20T14:00:00+02:00",
+        "en": "2026-11-20T11:30:00+02:00"
+      },
+      "source": "batch3-2026; final-rollout-2026; final-rollout-2026",
+      "note": "Batch3 — Google Ads cost lead + 2026 context; Final rollout — lead/FAQ"
     },
     {
       "postId": 19792,
-      "locales": { "he": "2026-11-20T14:00:00+02:00" },
-      "source": "batch3-2026",
-      "note": "Batch3 — WordPress site cost lead (polish unchanged)"
+      "locales": {
+        "he": "2026-11-20T14:00:00+02:00",
+        "en": "2026-11-20T11:30:00+02:00"
+      },
+      "source": "batch3-2026; final-rollout-2026; final-rollout-2026",
+      "note": "Batch3 — WordPress site cost lead (polish unchanged); Final rollout — lead/FAQ"
     },
     {
       "postId": 20155,
-      "locales": { "he": "2026-11-20T14:00:00+02:00" },
-      "source": "batch3-2026",
-      "note": "Batch3 — Google Maps advertising lead + FAQ"
+      "locales": {
+        "he": "2026-11-20T14:00:00+02:00",
+        "en": "2026-11-20T11:30:00+02:00"
+      },
+      "source": "batch3-2026; final-rollout-2026; final-rollout-2026",
+      "note": "Batch3 — Google Maps advertising lead + FAQ; Final rollout — lead/FAQ"
     },
     {
       "postId": 20529,
-      "locales": { "he": "2026-11-20T14:00:00+02:00" },
-      "source": "batch3-2026",
-      "note": "Batch3 — SEM vs PPC lead + FAQ"
+      "locales": {
+        "he": "2026-11-20T14:00:00+02:00",
+        "en": "2026-11-20T11:30:00+02:00"
+      },
+      "source": "batch3-2026; final-rollout-2026; final-rollout-2026",
+      "note": "Batch3 — SEM vs PPC lead + FAQ; Final rollout — lead/FAQ"
     },
     {
       "postId": 20897,
-      "locales": { "he": "2026-11-19T14:00:00+02:00" },
-      "source": "batch4-2026",
-      "note": "Batch4 — reading UX: lead/FAQ rewrite + duplicate summary removal"
+      "locales": {
+        "he": "2026-11-19T14:00:00+02:00",
+        "en": "2026-11-20T11:30:00+02:00"
+      },
+      "source": "batch4-2026; final-rollout-2026; final-rollout-2026",
+      "note": "Batch4 — reading UX: lead/FAQ rewrite + duplicate summary removal; Final rollout — lead/FAQ"
     },
     {
       "postId": 20803,
-      "locales": { "he": "2026-11-19T14:00:00+02:00" },
-      "source": "batch4-2026",
-      "note": "Batch4 — reading UX: lead/FAQ rewrite + duplicate summary removal"
+      "locales": {
+        "he": "2026-11-19T14:00:00+02:00",
+        "en": "2026-11-20T11:30:00+02:00"
+      },
+      "source": "batch4-2026; final-rollout-2026; final-rollout-2026",
+      "note": "Batch4 — reading UX: lead/FAQ rewrite + duplicate summary removal; Final rollout — lead/FAQ"
     },
     {
       "postId": 21716,
@@ -154,15 +193,21 @@
     },
     {
       "postId": 21115,
-      "locales": { "he": "2026-11-19T14:00:00+02:00" },
-      "source": "batch4-2026",
-      "note": "Batch4 — reading UX: lead/FAQ rewrite + duplicate summary removal"
+      "locales": {
+        "he": "2026-11-19T14:00:00+02:00",
+        "en": "2026-11-20T11:30:00+02:00"
+      },
+      "source": "batch4-2026; final-rollout-2026; final-rollout-2026",
+      "note": "Batch4 — reading UX: lead/FAQ rewrite + duplicate summary removal; Final rollout — lead/FAQ"
     },
     {
       "postId": 20092,
-      "locales": { "he": "2026-11-19T14:00:00+02:00" },
-      "source": "batch4-2026",
-      "note": "Batch4 — reading UX: lead/FAQ rewrite + duplicate summary removal"
+      "locales": {
+        "he": "2026-11-19T14:00:00+02:00",
+        "en": "2026-11-20T11:30:00+02:00"
+      },
+      "source": "batch4-2026; final-rollout-2026; final-rollout-2026",
+      "note": "Batch4 — reading UX: lead/FAQ rewrite + duplicate summary removal; Final rollout — lead/FAQ"
     },
     {
       "postId": 20051,
@@ -175,27 +220,39 @@
     },
     {
       "postId": 20081,
-      "locales": { "he": "2026-11-19T17:15:00+02:00" },
-      "source": "batch5-pilot-2026",
-      "note": "Batch5 pilot — lead/FAQ + structure polish"
+      "locales": {
+        "he": "2026-11-19T17:15:00+02:00",
+        "en": "2026-11-20T11:30:00+02:00"
+      },
+      "source": "batch5-pilot-2026; final-rollout-2026; final-rollout-2026",
+      "note": "Batch5 pilot — lead/FAQ + structure polish; Final rollout — lead/FAQ"
     },
     {
       "postId": 20029,
-      "locales": { "he": "2026-11-19T17:15:00+02:00" },
-      "source": "batch5-pilot-2026",
-      "note": "Batch5 pilot — lead/FAQ + structure polish"
+      "locales": {
+        "he": "2026-11-19T17:15:00+02:00",
+        "en": "2026-11-20T11:30:00+02:00"
+      },
+      "source": "batch5-pilot-2026; final-rollout-2026; final-rollout-2026",
+      "note": "Batch5 pilot — lead/FAQ + structure polish; Final rollout — lead/FAQ"
     },
     {
       "postId": 19933,
-      "locales": { "he": "2026-11-19T17:15:00+02:00" },
-      "source": "batch5-pilot-2026",
-      "note": "Batch5 pilot — lead/FAQ + structure polish"
+      "locales": {
+        "he": "2026-11-19T17:15:00+02:00",
+        "en": "2026-11-20T11:30:00+02:00"
+      },
+      "source": "batch5-pilot-2026; final-rollout-2026; final-rollout-2026",
+      "note": "Batch5 pilot — lead/FAQ + structure polish; Final rollout — lead/FAQ"
     },
     {
       "postId": 19281,
-      "locales": { "he": "2026-11-19T17:15:00+02:00" },
-      "source": "batch5-pilot-2026",
-      "note": "Batch5 pilot — lead/FAQ + structure polish"
+      "locales": {
+        "he": "2026-11-19T17:15:00+02:00",
+        "en": "2026-11-20T11:30:00+02:00"
+      },
+      "source": "batch5-pilot-2026; final-rollout-2026; final-rollout-2026",
+      "note": "Batch5 pilot — lead/FAQ + structure polish; Final rollout — lead/FAQ"
     },
     {
       "postId": 19070,
@@ -208,21 +265,29 @@
     },
     {
       "postId": 10373,
-      "locales": { "he": "2026-11-20T10:00:00+02:00" },
+      "locales": {
+        "he": "2026-11-20T10:00:00+02:00"
+      },
       "source": "batch6-2026",
       "note": "Batch6 — reviews lead/FAQ + structure polish"
     },
     {
       "postId": 19143,
-      "locales": { "he": "2026-11-20T10:00:00+02:00" },
-      "source": "batch6-2026",
-      "note": "Batch6 — digital agency guide lead/FAQ"
+      "locales": {
+        "he": "2026-11-20T10:00:00+02:00",
+        "en": "2026-11-20T11:30:00+02:00"
+      },
+      "source": "batch6-2026; final-rollout-2026; final-rollout-2026",
+      "note": "Batch6 — digital agency guide lead/FAQ; Final rollout — lead/FAQ"
     },
     {
       "postId": 20506,
-      "locales": { "he": "2026-11-20T10:00:00+02:00" },
-      "source": "batch6-2026",
-      "note": "Batch6 — agency selection lead/FAQ"
+      "locales": {
+        "he": "2026-11-20T10:00:00+02:00",
+        "en": "2026-11-20T11:30:00+02:00"
+      },
+      "source": "batch6-2026; final-rollout-2026; final-rollout-2026",
+      "note": "Batch6 — agency selection lead/FAQ; Final rollout — lead/FAQ"
     },
     {
       "postId": 19121,
@@ -235,21 +300,30 @@
     },
     {
       "postId": 21051,
-      "locales": { "en": "2026-11-20T10:00:00+02:00" },
-      "source": "batch7-2026",
-      "note": "Batch7 — internet marketing lead/FAQ"
+      "locales": {
+        "en": "2026-11-20T10:00:00+02:00",
+        "he": "2026-11-20T11:30:00+02:00"
+      },
+      "source": "batch7-2026; final-rollout-2026; final-rollout-2026",
+      "note": "Batch7 — internet marketing lead/FAQ; Final rollout — lead/FAQ"
     },
     {
       "postId": 21860,
-      "locales": { "en": "2026-11-20T10:00:00+02:00" },
-      "source": "batch7-2026",
-      "note": "Batch7 — paid vs organic lead/FAQ"
+      "locales": {
+        "en": "2026-11-20T10:00:00+02:00",
+        "he": "2026-11-20T11:30:00+02:00"
+      },
+      "source": "batch7-2026; final-rollout-2026; final-rollout-2026",
+      "note": "Batch7 — paid vs organic lead/FAQ; Final rollout — lead/FAQ"
     },
     {
       "postId": 21272,
-      "locales": { "en": "2026-11-20T10:00:00+02:00" },
-      "source": "batch7-2026",
-      "note": "Batch7 — remarketing lead/FAQ"
+      "locales": {
+        "en": "2026-11-20T10:00:00+02:00",
+        "he": "2026-11-20T11:30:00+02:00"
+      },
+      "source": "batch7-2026; final-rollout-2026; final-rollout-2026",
+      "note": "Batch7 — remarketing lead/FAQ; Final rollout — lead/FAQ"
     },
     {
       "postId": 10983,
@@ -272,13 +346,17 @@
     },
     {
       "postId": 10373,
-      "locales": { "en": "2026-11-20T10:18:00+02:00" },
+      "locales": {
+        "en": "2026-11-20T10:18:00+02:00"
+      },
       "source": "batch8-2026",
       "note": "Batch8 — EN power of reviews: lead/FAQ, stats cleanup"
     },
     {
       "postId": 10369,
-      "locales": { "en": "2026-11-20T10:18:00+02:00" },
+      "locales": {
+        "en": "2026-11-20T10:18:00+02:00"
+      },
       "source": "batch8-2026",
       "note": "Batch8 — EN digital advertising office: lead/FAQ, closing polish"
     },
@@ -290,6 +368,139 @@
       },
       "source": "batch9-2026",
       "note": "Batch9 — business growth HE + EN SEO growth lead/FAQ"
+    },
+    {
+      "postId": 19398,
+      "locales": {
+        "he": "2026-11-20T11:30:00+02:00",
+        "en": "2026-11-20T11:30:00+02:00"
+      },
+      "source": "final-rollout-2026",
+      "note": "Final rollout — lead/FAQ"
+    },
+    {
+      "postId": 19644,
+      "locales": {
+        "he": "2026-11-20T11:30:00+02:00",
+        "en": "2026-11-20T11:30:00+02:00"
+      },
+      "source": "final-rollout-2026",
+      "note": "Final rollout — lead/FAQ"
+    },
+    {
+      "postId": 19758,
+      "locales": {
+        "he": "2026-11-20T11:30:00+02:00",
+        "en": "2026-11-20T11:30:00+02:00"
+      },
+      "source": "final-rollout-2026",
+      "note": "Final rollout — lead/FAQ"
+    },
+    {
+      "postId": 19781,
+      "locales": {
+        "he": "2026-11-20T11:30:00+02:00",
+        "en": "2026-11-20T11:30:00+02:00"
+      },
+      "source": "final-rollout-2026",
+      "note": "Final rollout — lead/FAQ"
+    },
+    {
+      "postId": 20230,
+      "locales": {
+        "he": "2026-11-20T11:30:00+02:00",
+        "en": "2026-11-20T11:30:00+02:00"
+      },
+      "source": "final-rollout-2026",
+      "note": "Final rollout — lead/FAQ"
+    },
+    {
+      "postId": 20388,
+      "locales": {
+        "he": "2026-11-20T11:30:00+02:00",
+        "en": "2026-11-20T11:30:00+02:00"
+      },
+      "source": "final-rollout-2026",
+      "note": "Final rollout — lead/FAQ"
+    },
+    {
+      "postId": 20403,
+      "locales": {
+        "he": "2026-11-20T11:30:00+02:00",
+        "en": "2026-11-20T11:30:00+02:00"
+      },
+      "source": "final-rollout-2026",
+      "note": "Final rollout — lead/FAQ"
+    },
+    {
+      "postId": 20969,
+      "locales": {
+        "he": "2026-11-20T11:30:00+02:00",
+        "en": "2026-11-20T11:30:00+02:00"
+      },
+      "source": "final-rollout-2026",
+      "note": "Final rollout — lead/FAQ"
+    },
+    {
+      "postId": 21189,
+      "locales": {
+        "he": "2026-11-20T11:30:00+02:00",
+        "en": "2026-11-20T11:30:00+02:00"
+      },
+      "source": "final-rollout-2026",
+      "note": "Final rollout — lead/FAQ"
+    },
+    {
+      "postId": 21249,
+      "locales": {
+        "he": "2026-11-20T11:30:00+02:00",
+        "en": "2026-11-20T11:30:00+02:00"
+      },
+      "source": "final-rollout-2026",
+      "note": "Final rollout — lead/FAQ"
+    },
+    {
+      "postId": 21317,
+      "locales": {
+        "he": "2026-11-20T11:30:00+02:00",
+        "en": "2026-11-20T11:30:00+02:00"
+      },
+      "source": "final-rollout-2026",
+      "note": "Final rollout — lead/FAQ"
+    },
+    {
+      "postId": 21339,
+      "locales": {
+        "he": "2026-11-20T11:30:00+02:00",
+        "en": "2026-11-20T11:30:00+02:00"
+      },
+      "source": "final-rollout-2026",
+      "note": "Final rollout — lead/FAQ"
+    },
+    {
+      "postId": 22727,
+      "locales": {
+        "he": "2026-11-20T11:30:00+02:00",
+        "en": "2026-11-20T11:30:00+02:00"
+      },
+      "source": "final-rollout-2026",
+      "note": "Final rollout — lead/FAQ"
+    },
+    {
+      "postId": 22840,
+      "locales": {
+        "he": "2026-11-20T11:30:00+02:00"
+      },
+      "source": "final-rollout-2026",
+      "note": "Final rollout — lead/FAQ"
+    },
+    {
+      "postId": 22841,
+      "locales": {
+        "he": "2026-11-20T11:30:00+02:00"
+      },
+      "source": "final-rollout-2026",
+      "note": "Final rollout — lead/FAQ"
     }
   ]
 }
