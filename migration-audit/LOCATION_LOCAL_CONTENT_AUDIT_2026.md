@@ -3,7 +3,8 @@
 **ענף:** `feat/location-local-content-audit-2026`  
 **בסיס:** `main` אחרי מיזוג PR #15  
 **מותג:** Adwrks 365  
-**סטטוס:** ממתין לאישור merge / פריסה
+**סטטוס:** ממתין לאישור merge / פריסה  
+**עדכון (גיאוגרפיה):** commit `d6eb7a4` — `titleKind` (`nearby` | `more_cities` | `areas`) + `NEARBY_CITIES_ALLOWED` + QA על כותרות מטעות
 
 ## סיכום
 
