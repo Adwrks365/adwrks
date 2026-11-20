@@ -4,6 +4,7 @@ import {
   applyHubHeroPatchEn,
   applyLocationHeroPatchesEn,
 } from "./location-hero-copy-2026";
+import { applyHubSeoMeta2026En, applyLocationSeoMeta2026En } from "./location-seo-meta-2026";
 import {
   FAQ_BUDGET_ROI_EN,
   HUB_WORK_EN,
@@ -558,3 +559,5 @@ export const LOCATION_EN: Record<string, LocationCopy> = {
 
 applyLocationHeroPatchesEn(LOCATION_EN);
 applyHubHeroPatchEn(HUB_EN);
+applyLocationSeoMeta2026En(LOCATION_EN);
+applyHubSeoMeta2026En(HUB_EN);
