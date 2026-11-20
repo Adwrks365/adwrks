@@ -244,6 +244,34 @@
       "locales": { "en": "2026-11-20T10:00:00+02:00" },
       "source": "batch7-2026",
       "note": "Batch7 — remarketing lead/FAQ"
+    },
+    {
+      "postId": 10983,
+      "dateModified": "2026-11-20T16:30:00+02:00",
+      "locales": {
+        "he": "2026-11-20T16:30:00+02:00",
+        "en": "2026-11-20T16:35:00+02:00"
+      },
+      "source": "batch8-2026",
+      "note": "Batch8 — popular searches HE+EN: honest Trends framing, lead/FAQ, removed fake live table"
+    },
+    {
+      "postId": 14288,
+      "locales": { "he": "2026-11-20T16:30:00+02:00" },
+      "source": "batch8-2026",
+      "note": "Batch8 — Google Business Profile HE: lead/FAQ, sales/keyword cleanup"
+    },
+    {
+      "postId": 10373,
+      "locales": { "en": "2026-11-20T16:35:00+02:00" },
+      "source": "batch8-2026",
+      "note": "Batch8 — EN power of reviews: lead/FAQ, stats cleanup"
+    },
+    {
+      "postId": 10369,
+      "locales": { "en": "2026-11-20T16:35:00+02:00" },
+      "source": "batch8-2026",
+      "note": "Batch8 — EN digital advertising office: lead/FAQ, closing polish"
     }
   ]
 }
