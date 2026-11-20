@@ -6,7 +6,7 @@
 |------|--------|
 | Branch | `feat/blog-content-batch9-2026` |
 | Base | `main` @ `0f76f7d` (Batch8 merged) |
-| Commit | `08980f9` |
+| Commit | _(latest on branch — see git log)_ |
 | PR | https://github.com/Adwrks365/adwrks/pull/18 |
 | Production | **Not deployed** — review only |
 
@@ -30,9 +30,25 @@
 | Growth EN (19100) | Empty mirror of HE | EN-native lead + 4 FAQ; growth framing for SEO intent |
 | Agency EN (18480) | **Pipeline stripped body** (legacy contact heuristic) | `legacy-blocks.ts` fix preserves substantive sections; lead + 4 FAQ; footer pitch section removed |
 
-## 4. Infrastructure fix
+## 4. Infrastructure fixes (PR #18 review)
 
-`stripLegacyArticleContactBlocks` no longer deletes top-level Elementor sections that contain substantive article body (multiple H2/H3 or paragraphs) when they only embed footer phone/partner widgets. Unblocks EN `elementor-18480` and similar layouts.
+### 4a. `dateModified`
+
+- Corrected Batch9 locale timestamps to git commit time **`2026-11-20T12:54:14+02:00`** (commit `08980f9`), not future `14:30`.
+- HE locales for shared posts unchanged where Batch9 did not edit them (e.g. 14288 he, 19121 he, 18480 he).
+- `qa-blog-rollout-batch9.mjs` fails on `dateModified` more than **3 minutes** ahead of runtime; checks schema calendar day matches visible `dateModified`.
+
+### 4b. GBP EN lead visibility
+
+- Root cause: lead injected into first `elementor-widget-wrap` inside section `e6fffa5` with **`elementor-hidden-desktop elementor-hidden-tablet`** (Elementor responsive CSS in `globals.css`).
+- Fix: `injectArticleLead` skips widget-wraps inside desktop-hidden sections; `upsertArticleLead` removes prior aside and re-injects at a visible wrap.
+- No global CSS change. Lead is in initial HTML inside visible section `2f35757`.
+
+### 4c. Legacy contact strip regression
+
+- `stripLegacyArticleContactBlocks` now (1) strips contact widgets inside **substantive** sections, (2) removes only **contact-only** top-level sections.
+- `isLegacyContactSection` never removes substantive sections; Hebrew marker sections still drop when not substantive.
+- Regression: `web/scripts/qa-legacy-contact-blocks-regression.mjs` (fixture HTML + `elementor-18480` + Batch8 HE GBP preserve markers).
 
 ## 5. SEO / Meta
 
@@ -50,10 +66,10 @@ No URL, canonical, or hreflang changes. No title/meta edits (no material mismatc
 
 | postId | he | en |
 |--------|----|----|
-| 19100 | `2026-11-20T14:30:00+02:00` | `2026-11-20T14:30:00+02:00` |
-| 14288 | `2026-11-20T10:15:00+02:00` (Batch8) | `2026-11-20T14:30:00+02:00` |
-| 19121 | `2026-11-20T10:00:00+02:00` (Batch6) | `2026-11-20T14:30:00+02:00` |
-| 18480 | `2026-11-19T15:55:00+02:00` (Batch2) | `2026-11-20T14:30:00+02:00` |
+| 19100 | `2026-11-20T12:54:14+02:00` | `2026-11-20T12:54:14+02:00` |
+| 14288 | `2026-11-20T10:15:00+02:00` (Batch8) | `2026-11-20T12:54:14+02:00` |
+| 19121 | `2026-11-20T10:00:00+02:00` (Batch6) | `2026-11-20T12:54:14+02:00` |
+| 18480 | `2026-11-19T15:55:00+02:00` (Batch2) | `2026-11-20T12:54:14+02:00` |
 
 ## 8. HTML before/after
 
@@ -64,18 +80,21 @@ No URL, canonical, or hreflang changes. No title/meta edits (no material mismatc
 
 | Check | Result |
 |-------|--------|
-| `qa-blog-rollout-batch9.mjs` | PASS |
+| `qa-blog-rollout-batch9.mjs` | PASS (incl. future-date + lead-not-hidden + schema day) |
+| `qa-legacy-contact-blocks-regression.mjs` | PASS |
 | `qa-blog-rollout-batch8.mjs` (regression + skipBatch9) | PASS |
 | `qa-blog-reading-ux.mjs` | PASS (batch4 sample) |
-| `qa-blog-cta-centering.mjs` | Ran (wrapped total 2) |
+| `qa-blog-cta-centering.mjs` | PASS (wrapped total 2) |
+| `audit-batch9-before-after.mjs` | PASS |
 | `npm run build` (web) | PASS |
 
 ## 10. Playwright
 
 - Script: `web/scripts/qa-blog-rollout-batch9-visual.mjs`
-- Base: `http://localhost:3099` (local production build — **not** production adwrks.co.il)
+- Base: `http://localhost:3098` (local production build after review fixes — **not** production adwrks.co.il)
 - Output: `migration-audit/qa-blog-rollout-batch9/` — 10 PNG (5 × desktop + mobile)
-- Note: GBP EN lead is present in DOM; Elementor wrapper can report `hidden` until scroll — script validates text + scroll.
+- Assertions: `state: visible`, bounding box, FAQ toggle, no horizontal overflow; **no scroll workaround for GBP**.
+- GBP EN: lead visible at load on desktop and mobile without forced scroll.
 
 ## 11. Production spot
 
@@ -91,6 +110,5 @@ No URL, canonical, or hreflang changes. No title/meta edits (no material mismatc
 
 ## 13. Exceptions / follow-ups
 
-1. GBP EN: consider CSS follow-up so lead is visibly on-screen without JS scroll (layout inside Elementor column).
-2. HE growth still has legacy H3 «עבודה עם Adwrks 365» in source HTML — not removed in Batch9 (preserve body); optional future polish.
-3. Tmp survey scripts under `web/scripts/_tmp-*` — not committed.
+1. HE growth still has legacy H3 «עבודה עם Adwrks 365» in source HTML — not removed in Batch9 (preserve body); optional future polish.
+2. `BATCH9_HTML_BEFORE_AFTER.json` is gitignored locally; regenerate with `audit-batch9-before-after.mjs`.

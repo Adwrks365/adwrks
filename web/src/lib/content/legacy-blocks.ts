@@ -38,11 +38,7 @@ function isSubstantiveArticleSection(sectionHtml: string): boolean {
   return h3Count >= 2 || h2Count >= 2 || paragraphCount >= 5;
 }
 
-function isLegacyContactSection(sectionHtml: string): boolean {
-  if (LEGACY_CONTACT_SECTION_MARKERS.some((marker) => sectionHtml.includes(marker))) {
-    return true;
-  }
-
+function hasLegacyContactSignals(sectionHtml: string): boolean {
   const hasOfficePhone =
     /tel:0795599449|tel:079-5599449|079-55-99-449|079-5599449/i.test(sectionHtml);
   const hasSocialWidget = /elementor-social-icon|elementor-widget-social-icons/i.test(
@@ -54,14 +50,51 @@ function isLegacyContactSection(sectionHtml: string): boolean {
     /שעות פתיחה[\s\S]{0,400}09:00|שעות פתיחה[\s\S]{0,400}א['']-ה['']/i.test(
       sectionHtml,
     );
+  return (
+    LEGACY_CONTACT_SECTION_MARKERS.some((marker) => sectionHtml.includes(marker)) ||
+    (hasOfficePhone && (hasSocialWidget || hasPartnerBadge || hasOfficeHoursBlock))
+  );
+}
 
-  if (hasOfficePhone && (hasSocialWidget || hasPartnerBadge || hasOfficeHoursBlock)) {
-    // Embedded phone/partner blocks inside long Elementor articles — strip widgets later, not the section.
-    if (isSubstantiveArticleSection(sectionHtml)) return false;
-    return true;
+function isLegacyContactSection(sectionHtml: string): boolean {
+  if (!hasLegacyContactSignals(sectionHtml)) return false;
+  if (isSubstantiveArticleSection(sectionHtml)) return false;
+  return true;
+}
+
+/** Strip contact/footer widgets inside article sections — keep professional body copy. */
+function stripLegacyContactWidgetsInSection(sectionHtml: string): string {
+  let result = stripElementorFormWidgets(sectionHtml);
+  result = result.replace(
+    /<div class="elementor-element\b[^>]*\belementor-widget-social-icons\b[^>]*>[\s\S]*?<\/div>/gi,
+    "",
+  );
+  result = result.replace(
+    /<div class="elementor-element\b[^>]*\belementor-widget-icon-list\b[^>]*>[\s\S]*?tel:\s*0?79[\s\S]*?<\/div>/gi,
+    "",
+  );
+  for (const marker of LEGACY_CONTACT_SECTION_MARKERS) {
+    if (!result.includes(marker)) continue;
+    result = result.replace(
+      new RegExp(
+        `<div class="elementor-element[\\s\\S]*?${marker.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}[\\s\\S]*?<\\/div>\\s*(?:<\\/div>\\s*){1,4}`,
+        "i",
+      ),
+      "",
+    );
   }
+  return result;
+}
 
-  return false;
+function stripLegacyContactWidgetsFromSubstantiveSections(html: string): string {
+  const sectionPattern =
+    /<section\s[^>]*class="[^"]*elementor-top-section[^"]*"[^>]*>[\s\S]*?<\/section>/gi;
+  return html.replace(sectionPattern, (section) => {
+    if (!isSubstantiveArticleSection(section) || !hasLegacyContactSignals(section)) {
+      return section;
+    }
+    return stripLegacyContactWidgetsInSection(section);
+  });
 }
 
 function isEmptyTopLevelSection(sectionHtml: string): boolean {
@@ -120,7 +153,7 @@ export function stripElementorFormWidgets(html: string): string {
 
 /** Remove legacy contact/form/footer Elementor sections (not keyword SEO blocks). */
 export function stripLegacyArticleContactBlocks(html: string): string {
-  let result = html;
+  let result = stripLegacyContactWidgetsFromSubstantiveSections(html);
   let previous = "";
   let safety = 0;
 

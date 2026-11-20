@@ -48,6 +48,7 @@ const REGRESSION = [
 ];
 
 let failed = 0;
+const CLOCK_SKEW_MS = 3 * 60 * 1000;
 
 function parseIso(s) {
   if (!s) return null;
@@ -121,6 +122,27 @@ function check({ path: articlePath, locale, preserve }) {
   if (modified && published && modified < published) {
     console.error("FAIL modified before published", articlePath, dates);
     failed++;
+  }
+  const now = Date.now();
+  if (modified && modified.getTime() > now + CLOCK_SKEW_MS) {
+    console.error("FAIL future dateModified", articlePath, dates.dateModified);
+    failed++;
+  }
+  if (dates.dateModified && dates.schemaDateModified) {
+    const visibleDay = dates.dateModified.slice(0, 10);
+    const schemaDay = dates.schemaDateModified.slice(0, 10);
+    if (visibleDay !== schemaDay) {
+      console.error("FAIL schema/visible date mismatch", articlePath, { visibleDay, schemaDay });
+      failed++;
+    }
+  }
+  const leadIdx = html.indexOf("adwrks-article-lead-2026");
+  if (leadIdx !== -1) {
+    const sectionTag = html.slice(html.lastIndexOf("<section", leadIdx), html.indexOf(">", html.lastIndexOf("<section", leadIdx)) + 1);
+    if (/elementor-hidden-desktop/i.test(sectionTag)) {
+      console.error("FAIL lead inside elementor-hidden-desktop", articlePath);
+      failed++;
+    }
   }
   console.log("OK", articlePath, "faq", details, "modified", dates.dateModified);
 }

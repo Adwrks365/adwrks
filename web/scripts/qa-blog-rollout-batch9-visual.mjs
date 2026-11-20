@@ -21,15 +21,12 @@ mkdirSync(OUT, { recursive: true });
 
 async function assertArticle(page, name) {
   const lead = page.locator('aside.adwrks-article-lead[data-adwrks-content="adwrks-article-lead-2026"]');
-  await lead.first().waitFor({ state: "attached", timeout: 60000 });
+  await lead.first().waitFor({ state: "visible", timeout: 60000 });
   const leadText = (await lead.first().innerText()).trim();
   if (leadText.length < 40) throw new Error(`lead too short on ${name}`);
-  if (name.includes("gbp-en")) {
-    await lead.first().evaluate((el) => el.scrollIntoView({ block: "center" }));
-  } else {
-    await lead.first().scrollIntoViewIfNeeded();
-    if (!(await lead.first().isVisible())) throw new Error(`lead not visible on ${name}`);
-  }
+  if (!(await lead.first().isVisible())) throw new Error(`lead not visible on ${name}`);
+  const box = await lead.first().boundingBox();
+  if (!box || box.height < 8 || box.width < 8) throw new Error(`lead has no layout box on ${name}`);
   const faq = page.locator(".adwrks-article-faq-block details.adwrks-faq-item");
   if ((await faq.count()) < 3) throw new Error(`faq count on ${name}`);
   const first = faq.first();
@@ -59,11 +56,11 @@ async function main() {
         localStorage.setItem("adwrks_popup_dismissed_until", String(Date.now() + 86400000));
       });
       try {
-        await page.goto(`${BASE}${p.slug}`, { waitUntil: "domcontentloaded", timeout: 90000 });
+        await page.goto(`${BASE}${p.slug}`, { waitUntil: "networkidle", timeout: 90000 });
         await page
           .locator('aside.adwrks-article-lead[data-adwrks-content="adwrks-article-lead-2026"]')
           .first()
-          .waitFor({ state: "attached", timeout: 60000 });
+          .waitFor({ state: "visible", timeout: 60000 });
         await assertArticle(page, `${p.name}-${mode}`);
         await page.locator(".adwrks-article-lead").first().scrollIntoViewIfNeeded().catch(() => {});
         await page.screenshot({ path: path.join(OUT, `${p.name}-${mode}.png`), fullPage: false });

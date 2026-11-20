@@ -84,7 +84,7 @@
       "postId": 18480,
       "locales": {
         "he": "2026-11-19T15:55:00+02:00",
-        "en": "2026-11-20T14:30:00+02:00"
+        "en": "2026-11-20T12:54:14+02:00"
       },
       "source": "batch9-2026",
       "note": "Batch2 HE lead; Batch9 EN maximize agency — lead/FAQ, contact-strip fix"
@@ -228,7 +228,7 @@
       "postId": 19121,
       "locales": {
         "he": "2026-11-20T10:00:00+02:00",
-        "en": "2026-11-20T14:30:00+02:00"
+        "en": "2026-11-20T12:54:14+02:00"
       },
       "source": "batch9-2026",
       "note": "Batch6 HE guide; Batch9 EN promotion guide lead/FAQ"
@@ -265,7 +265,7 @@
       "postId": 14288,
       "locales": {
         "he": "2026-11-20T10:15:00+02:00",
-        "en": "2026-11-20T14:30:00+02:00"
+        "en": "2026-11-20T12:54:14+02:00"
       },
       "source": "batch9-2026",
       "note": "Batch8 HE GBP; Batch9 EN GBP lead/FAQ + polish"
@@ -285,8 +285,8 @@
     {
       "postId": 19100,
       "locales": {
-        "he": "2026-11-20T14:30:00+02:00",
-        "en": "2026-11-20T14:30:00+02:00"
+        "he": "2026-11-20T12:54:14+02:00",
+        "en": "2026-11-20T12:54:14+02:00"
       },
       "source": "batch9-2026",
       "note": "Batch9 — business growth HE + EN SEO growth lead/FAQ"
