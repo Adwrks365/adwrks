@@ -8048,6 +8048,57 @@ body.contextual-popup-open {
   position: absolute;
 }
 
+/* Location / area pages — stronger hero separation, readable CTAs */
+.sp-hero.sp-hero--location {
+  background: linear-gradient(
+    165deg,
+    #e8f2ff 0%,
+    #dbeafe 38%,
+    #f0f7ff 72%,
+    #f8fafc 100%
+  );
+  border-bottom: 1px solid rgb(37 124 255 / 0.14);
+  box-shadow: 0 1px 0 rgb(255 255 255 / 0.9) inset;
+  padding-block: clamp(2.25rem, 5vw, 3.5rem);
+}
+
+.sp-hero.sp-hero--location .sp-hero-bg {
+  background:
+    radial-gradient(circle at 8% 22%, rgb(37 124 255 / 0.22), transparent 48%),
+    radial-gradient(circle at 92% 78%, rgb(59 130 246 / 0.12), transparent 44%),
+    linear-gradient(180deg, rgb(37 124 255 / 0.06) 0%, transparent 55%);
+}
+
+.sp-hero.sp-hero--location .sp-hero-copy {
+  margin-inline: auto;
+  max-width: 44rem;
+  padding-inline: clamp(0.25rem, 2vw, 0.75rem);
+}
+
+.sp-hero.sp-hero--location .sp-hero-title {
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.sp-hero.sp-hero--location .sp-hero-lead {
+  margin-inline: auto;
+  margin-top: 1.125rem;
+  max-width: 40rem;
+}
+
+.sp-hero.sp-hero--location .sp-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  justify-content: center;
+  margin-top: 1.65rem;
+}
+
+.sp-hero.sp-hero--location .sp-hero-badge {
+  background: rgb(37 124 255 / 0.12);
+  border-color: rgb(37 124 255 / 0.22);
+}
+
 .sp-hero-shell {
   align-items: center;
   display: grid;
