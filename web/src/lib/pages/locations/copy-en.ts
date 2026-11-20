@@ -4,6 +4,10 @@ import {
   applyHubHeroPatchEn,
   applyLocationHeroPatchesEn,
 } from "./location-hero-copy-2026";
+import {
+  applyHubContentUx2026En,
+  applyLocationContentUx2026En,
+} from "./location-content-ux-2026";
 import { applyHubSeoMeta2026En, applyLocationSeoMeta2026En } from "./location-seo-meta-2026";
 import {
   FAQ_BUDGET_ROI_EN,
@@ -559,5 +563,7 @@ export const LOCATION_EN: Record<string, LocationCopy> = {
 
 applyLocationHeroPatchesEn(LOCATION_EN);
 applyHubHeroPatchEn(HUB_EN);
+applyLocationContentUx2026En(LOCATION_EN);
+applyHubContentUx2026En(HUB_EN);
 applyLocationSeoMeta2026En(LOCATION_EN);
 applyHubSeoMeta2026En(HUB_EN);
