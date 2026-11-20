@@ -9,13 +9,18 @@ import path from "node:path";
 const BASE = (process.env.QA_BASE_URL ?? "http://localhost:3000").replace(/\/$/, "");
 const OUT = path.resolve("..", "migration-audit", "qa-blog-rollout-batch9");
 
-const PAGES = [
+const ALL_PAGES = [
   { slug: "/%d7%a6%d7%9e%d7%99%d7%97%d7%94-%d7%a2%d7%a1%d7%a7%d7%99%d7%aa-%d7%91%d7%90%d7%9e%d7%a6%d7%a2%d7%95%d7%aa-%d7%a7%d7%99%d7%93%d7%95%d7%9d-%d7%91%d7%90%d7%99%d7%a0%d7%98%d7%a8%d7%a0%d7%98/", name: "batch9-growth-he" },
   { slug: "/en/google-business-profile/", name: "batch9-gbp-en" },
   { slug: "/en/google-business-promotion-guide/", name: "batch9-promo-en" },
   { slug: "/en/business-growth-through-seo/", name: "batch9-growth-en" },
   { slug: "/en/digital-marketing-agency-maximize/", name: "batch9-agency-en" },
 ];
+
+const only = process.env.QA_VISUAL_ONLY?.split(",").map((s) => s.trim()).filter(Boolean);
+const PAGES = only?.length
+  ? ALL_PAGES.filter((p) => only.includes(p.name))
+  : ALL_PAGES;
 
 mkdirSync(OUT, { recursive: true });
 

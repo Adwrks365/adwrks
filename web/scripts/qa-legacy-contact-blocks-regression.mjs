@@ -5,6 +5,7 @@
 import { getContentByPath } from "../src/lib/content/loader.ts";
 import { prepareArticleBodyHtml } from "../src/lib/content/article.ts";
 import { stripLegacyArticleContactBlocks } from "../src/lib/content/legacy-blocks.ts";
+import { countTagBalance } from "../src/lib/content/article-html-sanitize.ts";
 
 const PROFESSIONAL = `<section class="elementor-section elementor-top-section"><div class="elementor-widget-wrap elementor-element-populated">
 <h3 class="elementor-heading-title">Services we offer</h3>
@@ -25,6 +26,19 @@ const FOOTER_ONLY = `<section class="elementor-section elementor-top-section"><d
 
 const FOOTER_HE = `<section class="elementor-section elementor-top-section"><p>דרכים ליצירת קשר</p><p>טלפון</p></section>`;
 
+/** Contact Elementor widget sandwiched between professional copy — only widget removed. */
+const MID_CONTACT = `<section class="elementor-section elementor-top-section elementor-top-section"><div class="elementor-widget-wrap elementor-element-populated">
+<h3 class="elementor-heading-title">Professional topic</h3>
+<p>Professional paragraph A before contact widget.</p>
+<p>Professional paragraph B before contact widget.</p>
+<div class="elementor-element elementor-element-a1b2c3d elementor-widget elementor-widget-text-editor" data-id="a1b2c3d">
+<div class="elementor-widget-container"><p>דרכים ליצירת קשר</p><p>אנחנו כאן לכל שאלה, בדרך הנוחה ביותר עבורך</p></div>
+</div>
+<p>Professional paragraph C after contact widget.</p>
+<p>Professional paragraph D after contact widget.</p>
+<p>Professional paragraph E after contact widget.</p>
+</div></section>`;
+
 let failed = 0;
 
 function assert(cond, msg) {
@@ -35,6 +49,15 @@ function assert(cond, msg) {
     console.log("OK", msg);
   }
 }
+
+const midOut = stripLegacyArticleContactBlocks(MID_CONTACT);
+assert(midOut.includes("Professional paragraph A before contact widget."), "mid-fixture: content before contact kept");
+assert(midOut.includes("Professional paragraph B before contact widget."), "mid-fixture: content before contact kept (B)");
+assert(midOut.includes("Professional paragraph C after contact widget."), "mid-fixture: content after contact kept");
+assert(midOut.includes("Professional paragraph E after contact widget."), "mid-fixture: content after contact kept (E)");
+assert(!midOut.includes("דרכים ליצירת קשר"), "mid-fixture: contact widget text removed");
+const midBal = countTagBalance(midOut);
+assert(Math.abs(midBal.div) <= 1 && Math.abs(midBal.p) <= 1, "mid-fixture: DOM tag balance");
 
 const proOut = stripLegacyArticleContactBlocks(PROFESSIONAL);
 assert(proOut.includes("Services we offer"), "substantive headings kept");

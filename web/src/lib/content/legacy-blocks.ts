@@ -1,5 +1,7 @@
 /** Strip legacy WordPress/Elementor contact/footer blocks from article body HTML. */
 
+import { stripBalancedDivFrom } from "@/lib/content/article-html-sanitize";
+
 const LEGACY_CONTACT_SECTION_MARKERS = [
   "דרכים ליצירת קשר",
   "אנחנו כאן לכל שאלה, בדרך הנוחה ביותר עבורך",
@@ -62,26 +64,50 @@ function isLegacyContactSection(sectionHtml: string): boolean {
   return true;
 }
 
+function sliceBalancedElementorWidget(html: string, startIndex: number): string | null {
+  const after = stripBalancedDivFrom(html, startIndex);
+  if (after.length >= html.length) return null;
+  return html.slice(startIndex, startIndex + (html.length - after.length));
+}
+
+/** Remove matching Elementor widget roots (`<div class="elementor-element…">`) one at a time. */
+function stripElementorWidgetsWhere(
+  html: string,
+  shouldStrip: (widgetHtml: string) => boolean,
+): string {
+  let result = html;
+  let safety = 0;
+  while (safety++ < 40) {
+    const re = /<div class="elementor-element\b[^>]*>/gi;
+    let removed = false;
+    let m: RegExpExecArray | null;
+    while ((m = re.exec(result)) !== null) {
+      const start = m.index;
+      const widget = sliceBalancedElementorWidget(result, start);
+      if (!widget) continue;
+      if (!shouldStrip(widget)) continue;
+      const next = stripBalancedDivFrom(result, start);
+      if (next.length === result.length) continue;
+      result = next;
+      removed = true;
+      break;
+    }
+    if (!removed) break;
+  }
+  return result;
+}
+
 /** Strip contact/footer widgets inside article sections — keep professional body copy. */
 function stripLegacyContactWidgetsInSection(sectionHtml: string): string {
   let result = stripElementorFormWidgets(sectionHtml);
-  result = result.replace(
-    /<div class="elementor-element\b[^>]*\belementor-widget-social-icons\b[^>]*>[\s\S]*?<\/div>/gi,
-    "",
-  );
-  result = result.replace(
-    /<div class="elementor-element\b[^>]*\belementor-widget-icon-list\b[^>]*>[\s\S]*?tel:\s*0?79[\s\S]*?<\/div>/gi,
-    "",
+  result = stripElementorWidgetsWhere(result, (w) => /elementor-widget-social-icons/i.test(w));
+  result = stripElementorWidgetsWhere(
+    result,
+    (w) => /elementor-widget-icon-list/i.test(w) && /tel:\s*0?79/i.test(w),
   );
   for (const marker of LEGACY_CONTACT_SECTION_MARKERS) {
     if (!result.includes(marker)) continue;
-    result = result.replace(
-      new RegExp(
-        `<div class="elementor-element[\\s\\S]*?${marker.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}[\\s\\S]*?<\\/div>\\s*(?:<\\/div>\\s*){1,4}`,
-        "i",
-      ),
-      "",
-    );
+    result = stripElementorWidgetsWhere(result, (w) => w.includes(marker));
   }
   return result;
 }
