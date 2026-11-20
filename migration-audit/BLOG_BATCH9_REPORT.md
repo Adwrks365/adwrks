@@ -6,7 +6,8 @@
 |------|--------|
 | Branch | `feat/blog-content-batch9-2026` |
 | Base | `main` @ `0f76f7d` (Batch8 merged) |
-| PR | _(fill after `gh pr create`)_ |
+| Commit | `08980f9` |
+| PR | https://github.com/Adwrks365/adwrks/pull/18 |
 | Production | **Not deployed** — review only |
 
 ## 2. Articles (5)
