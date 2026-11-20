@@ -6,6 +6,10 @@ import {
   SHARED_WORK_HE,
 } from "./copy-shared-he";
 import { EXTRA_LOCATION_HE } from "./copy-he-extra";
+import {
+  applyHubHeroPatchHe,
+  applyLocationHeroPatchesHe,
+} from "./location-hero-copy-2026";
 
 function base(partial: Omit<LocationCopy, keyof typeof SHARED_WORK_HE | "serviceBlocks">): LocationCopy {
   return {
@@ -567,3 +571,6 @@ export const LOCATION_HE: Record<string, LocationCopy> = {
   }),
   ...EXTRA_LOCATION_HE,
 };
+
+applyLocationHeroPatchesHe(LOCATION_HE);
+applyHubHeroPatchHe(HUB_HE);

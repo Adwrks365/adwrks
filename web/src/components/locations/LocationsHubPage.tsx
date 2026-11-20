@@ -26,6 +26,7 @@ export function LocationsHubPage({ view, locale }: LocationsHubPageProps) {
   return (
     <article className="sp-page structured-page service-page sp-page--location sp-page--locations-hub">
       <ServiceHero
+        className="sp-hero--location"
         badge={c.badge}
         title={c.h1}
         lead={c.lead}

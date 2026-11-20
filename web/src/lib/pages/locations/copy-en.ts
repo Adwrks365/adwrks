@@ -1,6 +1,10 @@
 import type { HubCopy, LocationCopy } from "./types";
 import { EXTRA_LOCATION_EN } from "./copy-en-extra";
 import {
+  applyHubHeroPatchEn,
+  applyLocationHeroPatchesEn,
+} from "./location-hero-copy-2026";
+import {
   FAQ_BUDGET_ROI_EN,
   HUB_WORK_EN,
   SHARED_SERVICE_BLOCKS_EN,
@@ -551,3 +555,6 @@ export const LOCATION_EN: Record<string, LocationCopy> = {
   }),
   ...EXTRA_LOCATION_EN,
 };
+
+applyLocationHeroPatchesEn(LOCATION_EN);
+applyHubHeroPatchEn(HUB_EN);
