@@ -61,8 +61,12 @@ async function main() {
       const pathUrl = locale === "he" ? route.he : route.en;
       for (const mobile of [false, true]) {
         const layout = await run(browser, pathUrl, `${route.id} ${locale}`, mobile);
-        if (!mobile && layout.overflowX) {
-          console.error("FAIL overflow", route.id, locale, "desktop");
+        if (layout.overflowX) {
+          console.error("FAIL overflow", route.id, locale, mobile ? "mobile" : "desktop");
+          failed++;
+        }
+        if (!layout.hasForm) {
+          console.error("FAIL missing contact form", route.id, locale, mobile ? "mobile" : "desktop");
           failed++;
         }
         if (!layout.hasAudience && route.id !== "hub") {
