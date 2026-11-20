@@ -17,7 +17,29 @@ const NEARBY_TITLE_EN = /\bCities near\b/i;
 const DISTANCE_CLAIM_HE = /קרובה|צמודה|צמוד|שכנות.*מרחוב|נסיעה\s+קצר|במרחק\s+נסיעה/i;
 const DISTANCE_CLAIM_EN = /\bclose to\b|\bsits next\b|\bnext-door\b|\bshort drive\b|\bneighboring\b/i;
 
-const TYPO_HE = /שתי\s+עמודים/;
+const TYPO_HE = /שתי\s+עמודים|המטרופולין\s+הדרומית/;
+
+/** Editorial — intros explain value to visitors, not why links were picked. */
+const META_INTRO_HE = [
+  /אינם «שכנות»/,
+  /לא מוצגים/,
+  /לא מוצג/,
+  /בלי טענ/,
+  /ללא כלילת/,
+  /ללא הנחה/,
+  /בלי לפרוש/,
+  /אין כאן קישור/,
+];
+const META_INTRO_EN = [
+  /not street-level/,
+  /without implying/,
+  /without stretching/,
+  /without fake/,
+  /without claiming/,
+  /without a Beer/,
+  /not shown as/,
+  /not a generic/,
+];
 
 let failed = 0;
 
@@ -101,7 +123,10 @@ for (const route of LOCATION_ROUTES) {
     assert(title === expTitle && intro === expIntro, `nearby copy ${route.id} ${locale}`);
 
     if (locale === "he" && TYPO_HE.test(intro)) {
-      assert(false, `${route.id} intro typo שתי עמודים`);
+      assert(false, `${route.id} he intro typo`);
+    }
+    for (const re of locale === "he" ? META_INTRO_HE : META_INTRO_EN) {
+      if (re.test(intro)) assert(false, `${route.id} ${locale} meta/editorial intro: ${re}`);
     }
 
     if (cfg.titleKind !== "nearby") {
