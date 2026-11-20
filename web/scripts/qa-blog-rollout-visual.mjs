@@ -42,7 +42,7 @@ async function main() {
       });
       try {
         await page.goto(`${BASE}${p.slug}`, { waitUntil: "domcontentloaded", timeout: 60000 });
-        await page.locator(".article-body, .adwrks-article-lead").first().waitFor({ timeout: 20000 });
+        await page.locator(".article-body-html, .adwrks-article-lead").first().waitFor({ timeout: 45000 });
         await assertLead(page, `${p.name}-${mode}`);
         await page.locator(".adwrks-article-lead").first().scrollIntoViewIfNeeded().catch(() => {});
         await page.screenshot({

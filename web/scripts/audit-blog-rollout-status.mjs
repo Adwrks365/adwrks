@@ -96,7 +96,7 @@ for (const r of rows.filter((x) => !x.source && x.status !== "acceptable-no-runt
   byBatch.get(b).push(r);
 }
 
-let md = `# Blog content rollout plan (110 posts)
+let md = `# Blog content rollout plan (108 routable posts; 110 in posts.json incl. 2 Carmiel location)
 
 Generated: ${summary.generatedAt}
 
