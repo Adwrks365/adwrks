@@ -4,19 +4,30 @@ import {
   stripH2HeadingWidgets,
 } from "@/lib/content/article-structure-polish";
 import { stripInlineCtaBlocks } from "@/lib/content/article-ctas";
+import {
+  replaceSingleParagraphStartingWith,
+  stripBalancedDivFrom,
+  stripDivByClassName,
+  stripElementorWidgetByDataId,
+  stripSingleParagraphStartingWith,
+} from "@/lib/content/article-html-sanitize";
 
 const MARKER_POPULAR = "elementor-10983";
 const MARKER_GBP = "elementor-14288";
 const MARKER_OFFICE = "elementor-10369";
+const TRENDS_SHORTCODE_WIDGET_ID = "e4edc2f";
+const GBP_KEYWORD_WIDGET_IDS = ["e255658", "445d663"];
 
 function stripFakeTrendsWidget(html: string): string {
-  let next = html;
-  next = next.replace(/<div id="google-trends-widget">[\s\S]*?<\/div>\s*(?:<style>[\s\S]*?<\/style>)?/gi, "");
+  let next = stripElementorWidgetByDataId(html, TRENDS_SHORTCODE_WIDGET_ID);
+  if (next.includes('id="google-trends-widget"')) {
+    const wIdx = next.indexOf('id="google-trends-widget"');
+    const start = next.lastIndexOf("<div", wIdx);
+    if (start !== -1) next = stripBalancedDivFrom(next, start);
+  }
   next = next.replace(/<table id="trend-table">[\s\S]*?<\/table>/gi, "");
   next = next.replace(/<div class="cta-box">[\s\S]*?<\/div>/gi, "");
   next = next.replace(/<style>[\s\S]*?#trend-table[\s\S]*?<\/style>/gi, "");
-  next = next.replace(/<h2[^>]*>[\s\S]*?🔥[\s\S]*?<\/h2>/gi, "");
-  next = next.replace(/<h2[^>]*>[\s\S]*?&#x1f525;[\s\S]*?<\/h2>/gi, "");
   return next;
 }
 
@@ -81,24 +92,23 @@ export function polishPopularGoogleSearchesArticleHtml(html: string, locale: Loc
   return next;
 }
 
+const GBP_ORGANIC_REPLACEMENT =
+  "<p>פרופיל עסק מעודכן משפר סיכוי להופיע בחיפוש ובמפות, אך אין הבטחת מיקום. לעיתים משלבים גם פרסום ממומן לכיסוי מהיר.</p>";
+
 function stripGbpSalesBlocks(html: string): string {
-  let next = html;
-  next = next.replace(
-    /<p[^>]*>[\s\S]*?ליווי מקצועי ב-Google Business Profile[\s\S]*?צור קשר[\s\S]*?<\/p>/i,
-    "",
+  let next = stripDivByClassName(html, "adwrks-sprint2-gbp-service-bridge");
+  next = replaceSingleParagraphStartingWith(
+    next,
+    "פרופיל עסק מקודם אורגנית",
+    GBP_ORGANIC_REPLACEMENT,
   );
-  next = next.replace(
-    /<p[^>]*>\s*פרופיל עסק מקודם אורגנית[\s\S]*?אורגנית הקליקים ללא תשלום!\s*<\/p>/gi,
-    "<p>פרופיל עסק מעודכן משפר סיכוי להופיע בחיפוש ובמפות, אך אין הבטחת מיקום. לעיתים משלבים גם פרסום ממומן לכיסוי מהיר.</p>",
-  );
-  next = stripElementorContentBlockByH2(next, (t) =>
-    /מונחי חיפוש|Search terms that people search/i.test(t),
-  );
-  next = stripH2HeadingWidgets(next, (t) => /מונחי חיפוש/i.test(t));
+  for (const widgetId of GBP_KEYWORD_WIDGET_IDS) {
+    next = stripElementorWidgetByDataId(next, widgetId);
+  }
+  next = stripH2HeadingWidgets(next, (t) => /^שאלות ותשובות$/i.test(t.trim()));
   next = stripElementorContentBlockByH2(next, (t) =>
     /ניהול פרופיל העסק ב\s*-\s*Google עם Adwrks/i.test(t),
   );
-  next = stripElementorContentBlockByH2(next, (t) => /^שאלות ותשובות$/i.test(t.trim()));
   return next;
 }
 
@@ -122,21 +132,33 @@ export function polishGoogleBusinessProfileArticleHtml(html: string): string {
   return next;
 }
 
-const REVIEWS_BROKEN_STATS_RE =
-  /<p><strong>Get a sneak peek at the stats[\s\S]*?<h4><strong>The impact of online reviews on sales and revenue<\/strong>[\s\S]*?<\/h4>/i;
-
-const REVIEWS_STATS_REPLACEMENT = `<h2 class="elementor-heading-title elementor-size-default">Why reviews matter</h2>
-<p>Shoppers usually read feedback before they call, book, or buy. A steady flow of genuine reviews — plus professional responses — builds more trust than perfect stars with almost no volume. We avoid citing exact percentages here because studies and years differ; focus on ethical collection on Google, relevant directories, and your site.</p>
-<h2 class="elementor-heading-title elementor-size-default">The impact of online reviews on sales and revenue</h2>`;
+const REVIEWS_WHY_BLOCK = `<h2 class="elementor-heading-title elementor-size-default">Why reviews matter</h2>
+<p>Shoppers usually read feedback before they call, book, or buy. A steady flow of genuine reviews — plus professional responses — builds more trust than perfect stars with almost no volume. We avoid citing exact percentages here because studies and years differ; focus on ethical collection on Google, relevant directories, and your site.</p>`;
 
 function normalizeReviewsHeadings(html: string): string {
   return html
     .replace(/<h3>\s*<\/h3>/gi, "")
     .replace(
       /<h3>The power of reviews and recommendations and their impact on your business!<\/h3>/i,
-      "<h2 class=\"elementor-heading-title elementor-size-default\">The power of reviews and recommendations</h2>",
+      '<h2 class="elementor-heading-title elementor-size-default">The power of reviews and recommendations</h2>',
     )
     .replace(/<h4><strong>Have you ever hesitated[\s\S]*?<\/h4>/i, "");
+}
+
+function repairReviewsStatsSection(html: string): string {
+  let next = stripSingleParagraphStartingWith(html, "Get a sneak peek at the stats");
+  const statsRe = /<p><strong>\s*Some more statistics[\s\S]*?<\/p>/gi;
+  next = next.replace(statsRe, "");
+  if (!/Why reviews matter/i.test(next)) {
+    const impactH2 =
+      '<h2 class="elementor-heading-title elementor-size-default">The impact of online reviews on sales and revenue</h2>';
+    const impactRe =
+      /<h4[^>]*>\s*<strong>\s*The impact of online reviews on sales and revenue\s*<\/strong>[\s\S]*?<\/h4>/i;
+    if (impactRe.test(next)) {
+      next = next.replace(impactRe, `${REVIEWS_WHY_BLOCK}${impactH2}`);
+    }
+  }
+  return next;
 }
 
 function ensureReviewsClosing(html: string): string {
@@ -152,33 +174,32 @@ function ensureReviewsClosing(html: string): string {
 export function polishEnPowerOfReviewsArticleHtml(html: string): string {
   if (!/power of reviews/i.test(html)) return html;
   let next = normalizeReviewsHeadings(html);
-  if (REVIEWS_BROKEN_STATS_RE.test(next)) {
-    next = next.replace(REVIEWS_BROKEN_STATS_RE, REVIEWS_STATS_REPLACEMENT);
-  }
-  next = next.replace(
-    /<p><strong>Some more statistics[\s\S]*?(?=<h4|<h2|<section class="adwrks-article-faq)/i,
-          "",
-  );
+  next = repairReviewsStatsSection(next);
+  next = next.replace(/<ins class="adsbygoogle"[\s\S]*?<\/ins>\s*/gi, "");
   if (html.includes("adwrks-article-lead-2026")) {
     next = ensureReviewsClosing(next);
   }
   return next;
 }
 
+const OFFICE_PITCH_REPLACEMENT =
+  "<p>When choosing a digital advertising office, compare channels, reporting, and who owns ad accounts. Adwrks 365 supports integrated digital marketing — strategy, Google Ads, SEO, and content — with measurable goals rather than vague promises.</p>";
+
 export function polishEnDigitalAdvertisingOfficeArticleHtml(html: string): string {
   if (!html.includes(MARKER_OFFICE)) return html;
   let next = html;
   next = stripElementorContentBlockByH2(next, (t) => /why choose adwrks|free advertising package/i.test(t));
   next = stripInlineCtaBlocks(next);
-  const pitchStart = next.indexOf("With us you can enjoy advertising packages");
-  if (pitchStart !== -1) {
-    const faqMarker = '<section class="adwrks-article-faq-block"';
-    const faqIdx = next.indexOf(faqMarker);
-    const end = faqIdx !== -1 && faqIdx > pitchStart ? faqIdx : next.length;
-    const replacement =
-      "<p>When choosing a digital advertising office, compare channels, reporting, and who owns ad accounts. Adwrks 365 supports integrated digital marketing — strategy, Google Ads, SEO, and content — with measurable goals rather than vague promises.</p>";
-    next = `${next.slice(0, pitchStart)}${replacement}${next.slice(end)}`;
-  }
+  next = stripSingleParagraphStartingWith(
+    next,
+    "The marketing actions can of course be done independently",
+  );
+  next = replaceSingleParagraphStartingWith(
+    next,
+    "With us you can enjoy advertising packages",
+    OFFICE_PITCH_REPLACEMENT,
+  );
+  next = next.replace(/<ins class="adsbygoogle"[\s\S]*?<\/ins>\s*/gi, "");
   if (html.includes("adwrks-article-lead-2026") && !/In summary/i.test(next)) {
     const block =
       '<h2 class="elementor-heading-title elementor-size-default">In summary</h2><p>Online marketing works when goals, budget, and measurement are clear. Start with one or two channels, verify results after 90 days, then scale what performs.</p>';
@@ -188,3 +209,11 @@ export function polishEnDigitalAdvertisingOfficeArticleHtml(html: string): strin
   }
   return next;
 }
+
+/** Documented removal labels for batch8 audit scripts. */
+export const BATCH8_REMOVED_MARKERS: Record<string, string[]> = {
+  popular: ["elementor shortcode widget e4edc2f (fake trends)", "trend-table", "cta-box"],
+  gbp: ["adwrks-sprint2-gbp-service-bridge", "organic guarantee paragraph", "keyword H2 block"],
+  reviews: ["broken stats paragraphs", "empty h3/h4 intro"],
+  office: ["agency pitch paragraphs", "adsbygoogle"],
+};

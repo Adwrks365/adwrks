@@ -6,7 +6,8 @@
 |------|--------|
 | Branch | `feat/blog-content-batch8-2026` |
 | Base | `main` (post PR #16 / `5929612`) |
-| PR | *(open after push — link in PR body)* |
+| PR | https://github.com/Adwrks365/adwrks/pull/17 |
+| Follow-up commit | HTML-safe polish + before/after audit (see git log on branch) |
 
 ## 2. Articles (5)
 
@@ -78,6 +79,15 @@ No URL or canonical changes. Title/meta in content JSON unchanged in this batch 
 
 - Added/finalized `web/scripts/qa-location-prod-nearby-spot.mjs` with `QA_BASE` (localhost / preview / production).
 
-## 12. Open issues
+## 12. HTML safety (PR review follow-up)
+
+- **`stripGbpSalesBlocks`:** removes only `adwrks-sprint2-gbp-service-bridge` + one sales `<p>` via `replaceSingleParagraphStartingWith`; keyword spam via Elementor widget ids `e255658`/`445d663` (not broad `stripElementorContentBlockByH2` for keywords).
+- **Digital office EN:** two pitch `<p>` nodes removed/replaced; no string slice to EOF; `adsbygoogle` stripped.
+- **Trends:** Elementor shortcode widget `e4edc2f` removed with balanced div stripping.
+- **Reviews EN:** broken stat `<p>` blocks removed; `adsbygoogle` removed.
+- **Audit artifact:** `migration-audit/BATCH8_HTML_BEFORE_AFTER.json` via `web/scripts/audit-batch8-before-after.mjs`.
+- **Regression:** batch6/7 sample articles unchanged when `skipBatch8: true` vs full pipeline (`qa-blog-rollout-batch8.mjs`).
+
+## 13. Open issues
 
 - None blocking merge review. EN `/en/google-business-profile/` remains batch9.

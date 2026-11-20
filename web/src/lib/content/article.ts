@@ -236,10 +236,16 @@ export function replaceBrokenCalculatorEmbeds(html: string): string {
     );
 }
 
+export type PrepareArticleBodyHtmlOptions = {
+  /** When true, skips batch8 enrichment/structure (for before/after audits). */
+  skipBatch8?: boolean;
+};
+
 export function prepareArticleBodyHtml(
   rawHtml: string,
   locale: Locale = "he",
   pagePath?: string,
+  options?: PrepareArticleBodyHtmlOptions,
 ): {
   html: string;
   headings: ArticleHeading[];
@@ -280,8 +286,10 @@ export function prepareArticleBodyHtml(
     html = applyArticleBatch6StructurePolish(html, pagePath, locale);
     html = applyArticleBatch7Enrichment2026(html, pagePath, locale);
     html = applyArticleBatch7StructurePolish(html, pagePath, locale);
-    html = applyArticleBatch8Enrichment2026(html, pagePath, locale);
-    html = applyArticleBatch8StructurePolish(html, pagePath, locale);
+    if (!options?.skipBatch8) {
+      html = applyArticleBatch8Enrichment2026(html, pagePath, locale);
+      html = applyArticleBatch8StructurePolish(html, pagePath, locale);
+    }
     html = applyArticleReadingPolishShared(html, pagePath, locale);
     html = applyPilot2026BodyPolish(html, pagePath, locale);
     html = consolidateDuplicateFaqSections(html, locale);
