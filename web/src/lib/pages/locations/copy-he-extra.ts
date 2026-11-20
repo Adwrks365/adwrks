@@ -5,15 +5,17 @@ function base(partial: Omit<LocationCopy, keyof typeof SHARED_WORK_HE | "service
   return { ...SHARED_WORK_HE, serviceBlocks: SHARED_SERVICE_BLOCKS_HE, ...partial };
 }
 
-const faqLocal = (place: string, extra: { q: string; a: string }) =>
-  [
+const faqLocal = (place: string, extra: { q: string; a: string }) => {
+  const inPlace = place.startsWith("ב") ? place : `ב${place}`;
+  return [
     ...FAQ_BUDGET_ROI_HE,
     extra,
     {
-      q: `האם השירות מתבצע מ-${place}?`,
-      a: "הליווי מתבצע אונליין בפריסה ארצית. העמוד מתמקד בתחרות ובקהל המקומי — לא במיקום פיזי.",
+      q: `האם אתם מספקים שירותי שיווק דיגיטלי לעסקים ${inPlace}?`,
+      a: "כן. הליווי מתבצע אונליין בפריסה ארצית — אסטרטגיה, הפעלה ודוחות מרחוק. התוכן בעמוד מותאם לקהל ובהקשר המקומי, בלי תלות במשרד פיזי בעיר.",
     },
   ] as LocationCopy["faq"];
+};
 
 export const EXTRA_LOCATION_HE: Record<string, LocationCopy> = {
   sharon: base({

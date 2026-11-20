@@ -4,37 +4,30 @@ import { FAQ_BUDGET_ROI_EN } from "./copy-shared-en";
 
 export type SectionRewritePatch = Partial<LocationCopy>;
 
-const FAQ_REMOTE_HE = {
-  q: "האם השירות מתבצע מהאזור?",
-  a: "הליווי מתבצע אונליין בפריסה ארצית. העמוד מתמקד בקהל ובצרכים המקומיים — לא במיקום פיזי של משרד בעיר.",
-};
+function serviceFaqHe(place: string): { q: string; a: string } {
+  const inPlace =
+    place === "שרון" ? "באזור השרון" : place.startsWith("ב") ? place : `ב${place}`;
+  return {
+    q: `האם אתם מספקים שירותי שיווק דיגיטלי לעסקים ${inPlace}?`,
+    a: "כן. הליווי מתבצע אונליין בפריסה ארצית — אסטרטגיה, הפעלה ודוחות מרחוק. התוכן בעמוד מותאם לקהל ובהקשר המקומי, בלי תלות במשרד פיזי בעיר.",
+  };
+}
 
-const FAQ_REMOTE_EN = {
-  q: "Do you work from this city?",
-  a: "We work fully online nationwide. This page focuses on local audience and context — not a physical office in town.",
-};
+function serviceFaqEn(place: string): { q: string; a: string } {
+  const inPlace = place === "the Sharon" ? "in the Sharon area" : `in ${place}`;
+  return {
+    q: `Do you provide digital marketing services for businesses ${inPlace}?`,
+    a: "Yes. Strategy, campaigns, and reporting are fully online nationwide. This page reflects local audience context — we do not present a physical office in your city.",
+  };
+}
 
-/** Budget FAQ + one local Q&A + remote-service Q (matches legacy faqLocal). */
+/** Budget FAQ + one local Q&A + service-scope Q. */
 function faqHe(place: string, extra: { q: string; a: string }): LocationCopy["faq"] {
-  return [
-    ...FAQ_BUDGET_ROI_HE,
-    extra,
-    {
-      q: `האם השירות מתבצע מ${place}?`,
-      a: FAQ_REMOTE_HE.a,
-    },
-  ];
+  return [...FAQ_BUDGET_ROI_HE, extra, serviceFaqHe(place)];
 }
 
 function faqEn(place: string, extra: { q: string; a: string }): LocationCopy["faq"] {
-  return [
-    ...FAQ_BUDGET_ROI_EN,
-    extra,
-    {
-      q: `Do you provide service from ${place}?`,
-      a: FAQ_REMOTE_EN.a,
-    },
-  ];
+  return [...FAQ_BUDGET_ROI_EN, extra, serviceFaqEn(place)];
 }
 
 /** Visible section copy (2026 fundamental rewrite) — applied after hero, before UX CTAs. */
@@ -119,9 +112,10 @@ export const LOCATION_SECTION_REWRITE_HE: Record<string, SectionRewritePatch> = 
     faq: [
       ...FAQ_BUDGET_ROI_HE,
       {
-        q: "האם נתניה שייכת למרכז או לשרון?",
-        a: "נתניה בשרון. יש עמוד שרון לעסקים שפועלים במספר יישובי האזור; כאן מתמקדים בנתניה עצמה.",
+        q: "האם אפשר לפרסם גם בנתניה וגם בערים נוספות בשרון?",
+        a: "כן, כשהעסק פעיל במספר יישובים. נפריד קמפיינים, מסרים ומדידה לפי עיר, כדי שלא יתערבבו קהלים שונים באותו תקציב.",
       },
+      serviceFaqHe("נתניה"),
     ],
   },
   "ramat-gan": {
@@ -249,13 +243,10 @@ export const LOCATION_SECTION_REWRITE_EN: Record<string, SectionRewritePatch> = 
     faq: [
       ...FAQ_BUDGET_ROI_EN,
       {
-        q: "Is Netanya in the Center or the Sharon?",
-        a: "Netanya is in the Sharon. The Sharon region page suits businesses across several Sharon towns; this page focuses on Netanya itself.",
+        q: "Can we advertise in Netanya and other Sharon cities too?",
+        a: "Yes, when you serve several towns. We split campaigns, messaging, and measurement by city so different audiences do not mix in one budget.",
       },
-      {
-        q: "Do you only work with businesses in Netanya?",
-        a: "No. We work nationwide online. This page focuses on audience and context relevant to Netanya.",
-      },
+      serviceFaqEn("Netanya"),
     ],
   },
   "ramat-gan": {
