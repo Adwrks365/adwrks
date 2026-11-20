@@ -34,6 +34,10 @@ Generated: 2026-11-20
 - `web/scripts/qa-location-content-ux-2026.mjs`
 - `web/scripts/capture-location-content-ux.mjs`
 
-## QA
+## QA (עדכון סקירת קוד)
 
-ראה דוח PR — `qa-location-content-ux-2026`, `qa-location-seo-*`, `qa-location-hero-2026`, build, צילומי מסך.
+- `qa-location-content-ux-polish-regression.mjs` — ליטוש ב־faq / workSteps / serviceBlocks
+- `qa-location-visual-all-2026.mjs` — 25×HE+EN, desktop+mobile, overflow desktop, RTL/LTR, רגרסיה `/seo/`
+- `qa-location-content-ux-2026` (+ typos: קפות, נמדיד)
+- SEO / hero / build — ללא שינוי
+- צילומים מייצגים: `migration-audit/location-content-ux-screenshots/` (gitignore)
