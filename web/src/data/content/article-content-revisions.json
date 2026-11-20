@@ -190,6 +190,63 @@
       "locales": { "he": "2026-11-19T17:15:00+02:00" },
       "source": "batch5-pilot-2026",
       "note": "Batch5 pilot — lead/FAQ + structure polish"
+    },
+    {
+      "postId": 19070,
+      "locales": {
+        "he": "2026-11-20T10:00:00+02:00",
+        "en": "2026-11-20T10:00:00+02:00"
+      },
+      "source": "batch6-2026",
+      "note": "Batch6/7 rollout — business advertising lead/FAQ HE+EN"
+    },
+    {
+      "postId": 10373,
+      "locales": { "he": "2026-11-20T10:00:00+02:00" },
+      "source": "batch6-2026",
+      "note": "Batch6 — reviews lead/FAQ + structure polish"
+    },
+    {
+      "postId": 19143,
+      "locales": { "he": "2026-11-20T10:00:00+02:00" },
+      "source": "batch6-2026",
+      "note": "Batch6 — digital agency guide lead/FAQ"
+    },
+    {
+      "postId": 20506,
+      "locales": { "he": "2026-11-20T10:00:00+02:00" },
+      "source": "batch6-2026",
+      "note": "Batch6 — agency selection lead/FAQ"
+    },
+    {
+      "postId": 19121,
+      "locales": { "he": "2026-11-20T10:00:00+02:00" },
+      "source": "batch6-2026",
+      "note": "Batch6 — Google promotion guide lead/FAQ"
+    },
+    {
+      "postId": 21051,
+      "locales": { "en": "2026-11-20T10:00:00+02:00" },
+      "source": "batch7-2026",
+      "note": "Batch7 — internet marketing lead/FAQ"
+    },
+    {
+      "postId": 21860,
+      "locales": { "en": "2026-11-20T10:00:00+02:00" },
+      "source": "batch7-2026",
+      "note": "Batch7 — paid vs organic lead/FAQ"
+    },
+    {
+      "postId": 21272,
+      "locales": { "en": "2026-11-20T10:00:00+02:00" },
+      "source": "batch7-2026",
+      "note": "Batch7 — remarketing lead/FAQ"
+    },
+    {
+      "postId": 21716,
+      "locales": { "en": "2026-11-20T10:00:00+02:00" },
+      "source": "batch7-2026",
+      "note": "Batch7 — choosing agency lead/FAQ"
     }
   ]
 }
