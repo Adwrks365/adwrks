@@ -31,6 +31,7 @@ export function LocationLandingPage({ view, locale }: LocationLandingPageProps) 
   return (
     <article className="sp-page structured-page service-page sp-page--location">
       <ServiceHero
+        className="sp-hero--location"
         badge={c.badge}
         title={c.h1}
         lead={c.lead}
