@@ -82,9 +82,12 @@
     },
     {
       "postId": 18480,
-      "locales": { "he": "2026-11-19T15:55:00+02:00" },
-      "source": "git:1c28055",
-      "note": "Batch2 HE — agency guide lead + FAQ"
+      "locales": {
+        "he": "2026-11-19T15:55:00+02:00",
+        "en": "2026-11-20T14:30:00+02:00"
+      },
+      "source": "batch9-2026",
+      "note": "Batch2 HE lead; Batch9 EN maximize agency — lead/FAQ, contact-strip fix"
     },
     {
       "postId": 19548,
@@ -223,9 +226,12 @@
     },
     {
       "postId": 19121,
-      "locales": { "he": "2026-11-20T10:00:00+02:00" },
-      "source": "batch6-2026",
-      "note": "Batch6 — Google promotion guide lead/FAQ"
+      "locales": {
+        "he": "2026-11-20T10:00:00+02:00",
+        "en": "2026-11-20T14:30:00+02:00"
+      },
+      "source": "batch9-2026",
+      "note": "Batch6 HE guide; Batch9 EN promotion guide lead/FAQ"
     },
     {
       "postId": 21051,
@@ -257,9 +263,12 @@
     },
     {
       "postId": 14288,
-      "locales": { "he": "2026-11-20T10:15:00+02:00" },
-      "source": "batch8-2026",
-      "note": "Batch8 — Google Business Profile HE: lead/FAQ, sales/keyword cleanup"
+      "locales": {
+        "he": "2026-11-20T10:15:00+02:00",
+        "en": "2026-11-20T14:30:00+02:00"
+      },
+      "source": "batch9-2026",
+      "note": "Batch8 HE GBP; Batch9 EN GBP lead/FAQ + polish"
     },
     {
       "postId": 10373,
@@ -272,6 +281,15 @@
       "locales": { "en": "2026-11-20T10:18:00+02:00" },
       "source": "batch8-2026",
       "note": "Batch8 — EN digital advertising office: lead/FAQ, closing polish"
+    },
+    {
+      "postId": 19100,
+      "locales": {
+        "he": "2026-11-20T14:30:00+02:00",
+        "en": "2026-11-20T14:30:00+02:00"
+      },
+      "source": "batch9-2026",
+      "note": "Batch9 — business growth HE + EN SEO growth lead/FAQ"
     }
   ]
 }

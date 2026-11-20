@@ -73,6 +73,11 @@ const MAP: Array<{ path: string; locale?: Locale; source: string }> = [
   { path: "/en/popular-google-searches-israel/", locale: "en", source: "batch8-2026" },
   { path: "/en/power-of-reviews/", locale: "en", source: "batch8-2026" },
   { path: "/en/digital-advertising-office/", locale: "en", source: "batch8-2026" },
+  { path: "/צמיחה-עסקית-באמצעות-קידום-באינטרנט/", locale: "he", source: "batch9-2026" },
+  { path: "/en/google-business-profile/", locale: "en", source: "batch9-2026" },
+  { path: "/en/google-business-promotion-guide/", locale: "en", source: "batch9-2026" },
+  { path: "/en/business-growth-through-seo/", locale: "en", source: "batch9-2026" },
+  { path: "/en/digital-marketing-agency-maximize/", locale: "en", source: "batch9-2026" },
   ...POLISH_ONLY,
 ];
 

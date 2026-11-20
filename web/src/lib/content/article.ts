@@ -13,6 +13,8 @@ import { applyArticleBatch7Enrichment2026 } from "@/lib/content/article-batch7-e
 import { applyArticleBatch7StructurePolish } from "@/lib/content/article-batch7-structure-polish";
 import { applyArticleBatch8Enrichment2026 } from "@/lib/content/article-batch8-enrichment-2026";
 import { applyArticleBatch8StructurePolish } from "@/lib/content/article-batch8-structure-polish";
+import { applyArticleBatch9Enrichment2026 } from "@/lib/content/article-batch9-enrichment-2026";
+import { applyArticleBatch9StructurePolish } from "@/lib/content/article-batch9-structure-polish";
 import { applyArticleReadingPolishShared } from "@/lib/content/article-reading-polish-shared";
 import { applyArticleFaqAccordionPresentation } from "@/lib/content/article-faq-accordion";
 import { applyPilot2026BodyPolish } from "@/lib/content/article-pilot-2026-body-polish";
@@ -239,6 +241,8 @@ export function replaceBrokenCalculatorEmbeds(html: string): string {
 export type PrepareArticleBodyHtmlOptions = {
   /** When true, skips batch8 enrichment/structure (for before/after audits). */
   skipBatch8?: boolean;
+  /** When true, skips batch9 enrichment/structure (for before/after audits). */
+  skipBatch9?: boolean;
 };
 
 export function prepareArticleBodyHtml(
@@ -289,6 +293,10 @@ export function prepareArticleBodyHtml(
     if (!options?.skipBatch8) {
       html = applyArticleBatch8Enrichment2026(html, pagePath, locale);
       html = applyArticleBatch8StructurePolish(html, pagePath, locale);
+    }
+    if (!options?.skipBatch9) {
+      html = applyArticleBatch9Enrichment2026(html, pagePath, locale);
+      html = applyArticleBatch9StructurePolish(html, pagePath, locale);
     }
     html = applyArticleReadingPolishShared(html, pagePath, locale);
     html = applyPilot2026BodyPolish(html, pagePath, locale);

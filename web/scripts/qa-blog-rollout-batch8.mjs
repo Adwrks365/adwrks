@@ -119,9 +119,12 @@ function check({ path: articlePath, locale, preserve }) {
 function checkRegression({ path: articlePath, locale }) {
   const c = getContentByPath(articlePath, locale);
   const full = prepareArticleBodyHtml(c.content, locale, articlePath);
-  const skip = prepareArticleBodyHtml(c.content, locale, articlePath, { skipBatch8: true });
+  const skip = prepareArticleBodyHtml(c.content, locale, articlePath, {
+    skipBatch8: true,
+    skipBatch9: true,
+  });
   if (full.html !== skip.html) {
-    console.error("FAIL batch8 touched non-batch8 article", articlePath);
+    console.error("FAIL batch8/9 touched non-batch article", articlePath);
     failed++;
     return;
   }

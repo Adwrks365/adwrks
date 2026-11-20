@@ -30,6 +30,14 @@ function hasVisibleElementorContent(sectionHtml: string): boolean {
   return false;
 }
 
+/** Whole top-level sections that look like articles — not dedicated contact footers. */
+function isSubstantiveArticleSection(sectionHtml: string): boolean {
+  const h3Count = (sectionHtml.match(/<h3[\s>]/gi) ?? []).length;
+  const h2Count = (sectionHtml.match(/<h2[\s>]/gi) ?? []).length;
+  const paragraphCount = (sectionHtml.match(/<p[^>]*>[\s\S]*?\S[\s\S]*?<\/p>/gi) ?? []).length;
+  return h3Count >= 2 || h2Count >= 2 || paragraphCount >= 5;
+}
+
 function isLegacyContactSection(sectionHtml: string): boolean {
   if (LEGACY_CONTACT_SECTION_MARKERS.some((marker) => sectionHtml.includes(marker))) {
     return true;
@@ -48,6 +56,8 @@ function isLegacyContactSection(sectionHtml: string): boolean {
     );
 
   if (hasOfficePhone && (hasSocialWidget || hasPartnerBadge || hasOfficeHoursBlock)) {
+    // Embedded phone/partner blocks inside long Elementor articles — strip widgets later, not the section.
+    if (isSubstantiveArticleSection(sectionHtml)) return false;
     return true;
   }
 
