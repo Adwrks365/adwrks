@@ -11,33 +11,7 @@ import {
   type LocationRoute,
 } from "./paths";
 import type { HubCopy, LocationCopy } from "./types";
-
-const NEARBY: Record<string, readonly string[]> = {
-  karmiel: ["north", "haifa", "afula"],
-  north: ["karmiel", "haifa", "hadera"],
-  krayot: ["haifa", "karmiel", "akko"],
-  center: ["tel-aviv", "ramat-gan", "petah-tikva"],
-  sharon: ["herzliya", "netanya", "kfar-saba"],
-  south: ["beer-sheva", "ashdod", "ashkelon"],
-  haifa: ["krayot", "karmiel", "akko"],
-  "tel-aviv": ["center", "ramat-gan", "holon"],
-  "ramat-gan": ["tel-aviv", "center", "petah-tikva"],
-  "petah-tikva": ["ramat-gan", "rishon-lezion", "center"],
-  "rishon-lezion": ["holon", "bat-yam", "petah-tikva"],
-  holon: ["bat-yam", "tel-aviv", "rishon-lezion"],
-  "bat-yam": ["holon", "tel-aviv", "rishon-lezion"],
-  akko: ["haifa", "krayot", "hadera"],
-  hadera: ["netanya", "afula", "haifa"],
-  afula: ["karmiel", "north", "hadera"],
-  herzliya: ["raanana", "kfar-saba", "tel-aviv"],
-  "kfar-saba": ["raanana", "herzliya", "netanya"],
-  raanana: ["kfar-saba", "herzliya", "sharon"],
-  netanya: ["hadera", "sharon", "herzliya"],
-  jerusalem: ["center", "beer-sheva", "ashdod"],
-  "beer-sheva": ["ashkelon", "ashdod", "jerusalem"],
-  ashdod: ["ashkelon", "beer-sheva", "south"],
-  ashkelon: ["ashdod", "beer-sheva", "south"],
-};
+import { NEARBY_IDS } from "./location-nearby-2026";
 
 const AREA_TYPE: Record<string, "City" | "AdministrativeArea"> = {
   north: "AdministrativeArea",
@@ -163,7 +137,7 @@ export function getLocationView(path: string, locale: Locale): LocationView | nu
   const route = locationRouteByPath(normalizePath(path));
   if (!route || route.kind === "hub") return null;
 
-  const nearbyIds = NEARBY[route.id] ?? [];
+  const nearbyIds = NEARBY_IDS[route.id] ?? [];
   return {
     id: route.id,
     kind: route.kind,
