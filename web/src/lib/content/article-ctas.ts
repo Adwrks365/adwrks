@@ -186,6 +186,40 @@ export function wrapRepairedArticleCtaBlocks(html: string): string {
   return result;
 }
 
+/** Remove wrapped mid-article popup CTAs (end-of-article band + lead cover conversion). */
+export function stripInlineCtaBlocks(html: string): string {
+  let result = html;
+  let guard = 0;
+  while (result.includes("article-inline-cta-block") && guard++ < 32) {
+    const marker = result.indexOf("article-inline-cta-block");
+    const start = result.lastIndexOf("<div", marker);
+    if (start === -1) break;
+
+    let depth = 0;
+    let pos = start;
+    let end = start;
+    while (pos < result.length) {
+      const open = result.indexOf("<div", pos);
+      const close = result.indexOf("</div>", pos);
+      if (close === -1) break;
+      if (open !== -1 && open < close) {
+        depth++;
+        pos = open + 4;
+        continue;
+      }
+      depth--;
+      pos = close + 6;
+      if (depth === 0) {
+        end = pos;
+        break;
+      }
+    }
+    if (end <= start) break;
+    result = result.slice(0, start) + result.slice(end);
+  }
+  return result;
+}
+
 /** Summarize audit results across all articles. */
 export function summarizeCtaAudits(results: ArticleCtaAuditResult[]): {
   totalButtons: number;

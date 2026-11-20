@@ -14,9 +14,21 @@ type RevisionEntry = {
   note?: string;
 };
 
-const REVISIONS_BY_POST_ID = new Map<number, RevisionEntry>(
-  (revisionsData.revisions as RevisionEntry[]).map((r) => [r.postId, r]),
-);
+function mergeRevisionEntries(a: RevisionEntry, b: RevisionEntry): RevisionEntry {
+  return {
+    postId: a.postId,
+    dateModified: a.dateModified ?? b.dateModified,
+    locales: { ...(a.locales ?? {}), ...(b.locales ?? {}) },
+    source: [a.source, b.source].filter(Boolean).join("+"),
+    note: [a.note, b.note].filter(Boolean).join(" | "),
+  };
+}
+
+const REVISIONS_BY_POST_ID = new Map<number, RevisionEntry>();
+for (const row of revisionsData.revisions as RevisionEntry[]) {
+  const prev = REVISIONS_BY_POST_ID.get(row.postId);
+  REVISIONS_BY_POST_ID.set(row.postId, prev ? mergeRevisionEntries(prev, row) : row);
+}
 
 function revisionDateForLocale(entry: RevisionEntry, locale: Locale): string | undefined {
   const perLocale = entry.locales?.[locale];

@@ -130,7 +130,12 @@ export function injectArticleLead(html: string, block: string): string {
 /** Append FAQ before the closing sections of the Elementor post root. */
 export function injectArticleFaq(html: string, block: string, postMarker: string): string {
   if (!block || html.includes(ARTICLE_FAQ_MARKER)) return html;
-  if (!html.includes(postMarker)) return html;
+  if (!html.includes(postMarker)) {
+    if (!/data-elementor-type\s*=\s*["']wp-post["']/i.test(html)) {
+      return `${html}${block}`;
+    }
+    return html;
+  }
   const closeTag = "</section></div>";
   const last = html.lastIndexOf(closeTag);
   if (last === -1) return `${html}${block}`;
