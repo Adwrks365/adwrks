@@ -68,8 +68,14 @@ export function LocationLandingPage({ view, locale }: LocationLandingPageProps) 
         </div>
       </Section>
 
-      <Section tone="muted" label={c.audienceLabel} title={c.audienceTitle} align="start">
-        <ul className="sp-audience-list">
+      <Section
+        tone="muted"
+        label={c.audienceLabel}
+        title={c.audienceTitle}
+        align="center"
+        className="sp-section-audience"
+      >
+        <ul className="sp-audience-list sp-audience-list--location">
           {c.audienceItems.map((item) => (
             <li key={item}>{item}</li>
           ))}
@@ -86,12 +92,12 @@ export function LocationLandingPage({ view, locale }: LocationLandingPageProps) 
         <ServiceRelatedServices services={view.services} locale={locale} />
       </Section>
 
-      <Section tone="sky" title={c.faqTitle} align="start" className="sp-section-faq">
+      <Section tone="sky" title={c.faqTitle} align="center" className="sp-section-faq">
         <ServiceFaq items={c.faq} />
       </Section>
 
-      <Section tone="white" title={c.contactTitle} align="start" className="sp-section-contact">
-        <p className="sp-body-lead sp-body-lead--narrow">{c.contactIntro}</p>
+      <Section tone="white" title={c.contactTitle} align="center" className="sp-section-contact">
+        <p className="sp-body-lead sp-body-lead--narrow sp-body-lead--centered">{c.contactIntro}</p>
         <LocationPageContactForm locale={locale} pageTitle={c.h1} pagePath={view.path} />
       </Section>
 
