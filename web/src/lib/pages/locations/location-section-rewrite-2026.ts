@@ -4,12 +4,37 @@ import { FAQ_BUDGET_ROI_EN } from "./copy-shared-en";
 
 export type SectionRewritePatch = Partial<LocationCopy>;
 
-function faqHe(extra: { q: string; a: string }): LocationCopy["faq"] {
-  return [...FAQ_BUDGET_ROI_HE, extra];
+const FAQ_REMOTE_HE = {
+  q: "האם השירות מתבצע מהאזור?",
+  a: "הליווי מתבצע אונליין בפריסה ארצית. העמוד מתמקד בקהל ובצרכים המקומיים — לא במיקום פיזי של משרד בעיר.",
+};
+
+const FAQ_REMOTE_EN = {
+  q: "Do you work from this city?",
+  a: "We work fully online nationwide. This page focuses on local audience and context — not a physical office in town.",
+};
+
+/** Budget FAQ + one local Q&A + remote-service Q (matches legacy faqLocal). */
+function faqHe(place: string, extra: { q: string; a: string }): LocationCopy["faq"] {
+  return [
+    ...FAQ_BUDGET_ROI_HE,
+    extra,
+    {
+      q: `האם השירות מתבצע מ${place}?`,
+      a: FAQ_REMOTE_HE.a,
+    },
+  ];
 }
 
-function faqEn(extra: { q: string; a: string }): LocationCopy["faq"] {
-  return [...FAQ_BUDGET_ROI_EN, extra];
+function faqEn(place: string, extra: { q: string; a: string }): LocationCopy["faq"] {
+  return [
+    ...FAQ_BUDGET_ROI_EN,
+    extra,
+    {
+      q: `Do you provide service from ${place}?`,
+      a: FAQ_REMOTE_EN.a,
+    },
+  ];
 }
 
 /** Visible section copy (2026 fundamental rewrite) — applied after hero, before UX CTAs. */
@@ -44,7 +69,7 @@ export const LOCATION_SECTION_REWRITE_HE: Record<string, SectionRewritePatch> = 
       "בשרון יש הייטק בהרצליה, משפחות בכפר סבא ורעננה, ותיירות ונדל״ן בנתניה. קמפיין אחד «לכל האזור» מביא הרבה פעמים פניות מחוץ לרדיוס שאתם באמת משרתים.",
     servicesIntro:
       "פרסום בגוגל לפי עיר וקהל, קידום אורגני, פרסום ב-Meta, דפי נחיתה ובניית אתרים — לפי סוג הלקוח בכל יישוב.",
-    faq: faqHe({
+    faq: faqHe("שרון", {
       q: "מה ההבדל בין עמוד נתניה לעמוד השרון?",
       a: "עמוד נתניה מתמקד בעיר עצמה. עמוד השרון מתאים לעסקים שפועלים במספר יישובי השרון ורוצים פילוח ברור בין קהלים.",
     }),
@@ -64,11 +89,14 @@ export const LOCATION_SECTION_REWRITE_HE: Record<string, SectionRewritePatch> = 
   },
   "tel-aviv": {
     servicesIntro:
-      "פרסום ממוקד בגוגל וב-Meta, קידום אורגני, בניית אתרים ודפי נחיתה מהירים, ושיפור מעקב אחרי פניות — עם התאמה לתחרות בתל אביב.",
-    faq: faqHe({
-      q: "מתאים לסטארטאפ בשלב מוקדם?",
-      a: "כשיש התאמה ברורה בין המוצר לקהל ויעד מדיד — כן. נגדיר קמפיין התחלתי למבחן ונמדוד לפני שמרחיבים תקציב.",
-    }),
+      "פרסום ממוקד בגוגל וב-Meta, קידום אורגני, בניית אתרים ודפי נחיתה, ושיפור מעקב אחרי פניות — עם התאמה למטרות העסק בתל אביב.",
+    faq: [
+      ...FAQ_BUDGET_ROI_HE,
+      {
+        q: "מתאים לסטארטאפ בשלב מוקדם?",
+        a: "כשיש התאמה ברורה בין המוצר לקהל ויעד מדיד — כן. נגדיר קמפיין התחלתי למבחן ונמדוד לפני שמרחיבים תקציב.",
+      },
+    ],
   },
   jerusalem: {
     servicesIntro:
@@ -88,6 +116,13 @@ export const LOCATION_SECTION_REWRITE_HE: Record<string, SectionRewritePatch> = 
     challengesTitle: "חוף, נדל״ן ומסחר — איך מפרידים בין קהלים?",
     servicesIntro:
       "מודעות מותאמות לעונה, קידום מקומי בגוגל, פרסום ב-Meta עם תוכן ויזואלי, ובניית דפי נחיתה לפי סוג לקוח בנתניה.",
+    faq: [
+      ...FAQ_BUDGET_ROI_HE,
+      {
+        q: "האם נתניה שייכת למרכז או לשרון?",
+        a: "נתניה בשרון. יש עמוד שרון לעסקים שפועלים במספר יישובי האזור; כאן מתמקדים בנתניה עצמה.",
+      },
+    ],
   },
   "ramat-gan": {
     challengesTitle: "ליד תל אביב — איך בולטים בלי לבזבז תקציב?",
@@ -103,7 +138,7 @@ export const LOCATION_SECTION_REWRITE_HE: Record<string, SectionRewritePatch> = 
   "rishon-lezion": {
     challengesTitle: "איך העסק שלכם יכול להתבלט מול המתחרים?",
     challengesIntro:
-      "גולשים משווים בין ספקים בגוש דן. מי שמופיע בביטויים של ראשון לציון, עם תוכן ודף ברור, לרוב מקבל פניות במחיר סביר יותר ממי שמתחרה רק על «תל אביב».",
+      "גולשים בראשון לציון ובסביבה משווים בין מספר ספקים לפני פנייה. ביטויי חיפוש שמציינים את העיר, יחד עם דף ותוכן ברורים, עוזרים להביא פניות שמתאימות לקהל המקומי — בלי להסתמך רק על ביטויים של גוש דן.",
     servicesIntro:
       "קידום אורגני ופרסום בגוגל יחד, פרסום ב-Meta, שיפור דפים ובניית אתרים — להתמקדות בקהל המקומי.",
   },
@@ -132,7 +167,7 @@ export const LOCATION_SECTION_REWRITE_HE: Record<string, SectionRewritePatch> = 
   herzliya: {
     servicesIntro:
       "פרסום בגוגל, קידום אורגני, פרסום בפייסבוק ובאינסטגרם, בניית אתרים ודפי נחיתה, וליווי שיווקי עם מדידת פניות — להייטק ולשירותים בהרצליה.",
-    faq: faqHe({
+    faq: faqHe("הרצליה", {
       q: "מה חשוב לעסקים בהרצליה לפני שמתחילים לפרסם?",
       a: "מסר ברור, דף מהיר שמסביר את ההצעה, ומדידה של טפסים ושיחות. בשיחה הראשונה נבין יחד מה המטרה ומה תקציב הגיוני להתחלה.",
     }),
@@ -181,7 +216,7 @@ export const LOCATION_SECTION_REWRITE_EN: Record<string, SectionRewritePatch> = 
   sharon: {
     servicesIntro:
       "Google Ads by city and audience, SEO, Meta, landing pages, and websites — for hi-tech, families, and coastal buyers across the Sharon.",
-    faq: faqEn({
+    faq: faqEn("the Sharon", {
       q: "What is the difference between the Netanya page and the Sharon region page?",
       a: "The Netanya page focuses on the city. The Sharon page is for businesses active across several Sharon towns and need clear audience splits.",
     }),
@@ -197,7 +232,7 @@ export const LOCATION_SECTION_REWRITE_EN: Record<string, SectionRewritePatch> = 
   },
   "tel-aviv": {
     servicesIntro:
-      "Paid search and Meta, SEO, fast landing pages, websites, and conversion tracking — adapted to Tel Aviv competition.",
+      "Paid search and Meta, SEO, landing pages, websites, and inquiry tracking — aligned with your Tel Aviv business goals.",
   },
   jerusalem: {
     servicesIntro:
@@ -211,6 +246,17 @@ export const LOCATION_SECTION_REWRITE_EN: Record<string, SectionRewritePatch> = 
     challengesTitle: "Coast, real estate, and trade — how do you split audiences?",
     servicesIntro:
       "Seasonal campaigns, local SEO, visual Meta ads, and landing pages built for each customer type in Netanya.",
+    faq: [
+      ...FAQ_BUDGET_ROI_EN,
+      {
+        q: "Is Netanya in the Center or the Sharon?",
+        a: "Netanya is in the Sharon. The Sharon region page suits businesses across several Sharon towns; this page focuses on Netanya itself.",
+      },
+      {
+        q: "Do you only work with businesses in Netanya?",
+        a: "No. We work nationwide online. This page focuses on audience and context relevant to Netanya.",
+      },
+    ],
   },
   "ramat-gan": {
     challengesTitle: "Next to Tel Aviv — how do you stand out without wasted spend?",
@@ -223,8 +269,18 @@ export const LOCATION_SECTION_REWRITE_EN: Record<string, SectionRewritePatch> = 
   },
   "rishon-lezion": {
     challengesTitle: "How can your business stand out from local competitors?",
+    challengesIntro:
+      "Shoppers in Rishon LeZion and nearby areas often compare several providers before they inquire. City-focused search terms, clear pages, and relevant content help you reach local buyers without relying only on Gush Dan wording.",
     servicesIntro:
       "SEO plus Google Ads, Meta, page improvements, and websites — focused on the local audience in Rishon LeZion.",
+  },
+  herzliya: {
+    servicesIntro:
+      "Google Ads, SEO, Facebook and Instagram ads, websites and landing pages, and ongoing marketing support with lead tracking.",
+    faq: faqEn("Herzliya", {
+      q: "What should Herzliya businesses prepare before running ads?",
+      a: "Clear messaging, a fast page that explains the offer, and measurement on forms and calls. In the first call we align on goals and a sensible starting budget.",
+    }),
   },
   holon: {
     challengesTitle: "Local services — how do you show up for «in Holon» searches?",
@@ -247,10 +303,6 @@ export const LOCATION_SECTION_REWRITE_EN: Record<string, SectionRewritePatch> = 
   afula: {
     servicesIntro:
       "Local SEO, Google Ads, Meta, landing pages, and websites — for businesses in the Jezreel Valley.",
-  },
-  herzliya: {
-    servicesIntro:
-      "Google Ads, SEO, Facebook and Instagram ads, websites and landing pages, and ongoing marketing support with lead tracking.",
   },
   "kfar-saba": {
     challengesTitle: "Home services — how do you reach the top of local search?",

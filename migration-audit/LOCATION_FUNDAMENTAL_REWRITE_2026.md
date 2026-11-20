@@ -95,3 +95,12 @@ Additional section fixes: e.g. ראשון `challengesTitle` → «איך העס�
 - Service/blog smoke: run existing sprint QA scripts if merging to production.
 
 **No merge or deploy without owner approval. Batch8 not started.**
+
+## PR #15 follow-up (review fixes)
+
+- קריות: «מסייעת **לעסקים**»; ניסוח חיפוש ברור.
+- נתניה: פתיח מחדש (שאלה + סוגי עסקים + תושבים/אורחים).
+- FAQ: `faqHe`/`faqEn` משחזרים שאלת «שירות מ…» + שאלה מקומית (שרון, הרצליה, נתניה HE/EN).
+- ראשון לציון: `challengesIntro` בלי טענת מחיר לליד.
+- Heroes: הוסרו «מחירים שונים» / תחרות לא מבוססת; מעבר ידני על פתיחים עיקריים.
+- QA חדש: `qa-location-faq-rewrite.mjs`, `qa-location-sample-8-2026.mjs`.
