@@ -68,6 +68,11 @@ const MAP: Array<{ path: string; locale?: Locale; source: string }> = [
   ...BATCH5_EN.map((p) => ({ path: p, locale: "en" as Locale, source: "batch5-pilot-2026" })),
   ...BATCH6_HE.map((p) => ({ path: p, locale: "he" as Locale, source: "batch6-2026" })),
   ...BATCH7_EN.map((p) => ({ path: p, locale: "en" as Locale, source: "batch7-2026" })),
+  { path: "/החיפושים-הכי-פופולריים-בגוגל-היום-ביש/", locale: "he", source: "batch8-2026" },
+  { path: "/google-business-profile/", locale: "he", source: "batch8-2026" },
+  { path: "/en/popular-google-searches-israel/", locale: "en", source: "batch8-2026" },
+  { path: "/en/power-of-reviews/", locale: "en", source: "batch8-2026" },
+  { path: "/en/digital-advertising-office/", locale: "en", source: "batch8-2026" },
   ...POLISH_ONLY,
 ];
 

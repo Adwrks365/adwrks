@@ -7,8 +7,8 @@ Generated: 2026-11-20T06:59:08.422Z
 | Metric | Count |
 |--------|------:|
 | Total posts | 108 |
-| Already enriched (pilot/batch2–5) | 46 |
-| Needs full content work | 58 |
+| Already enriched (pilot/batch2–8) | 51 |
+| Needs full content work | 53 |
 | Needs partial (lead or FAQ) | 4 |
 | Needs structure polish only | 0 |
 | Acceptable (no runtime injection) | 0 |
@@ -47,6 +47,8 @@ Generated: 2026-11-20T06:59:08.422Z
 - `/פרסום-לעסקים/` (he) — **batch6-2026**
 - `/סוכנות-שיווק-דיגיטלית/` (he) — **batch2-2026**
 - `/כוחם-של-ביקורות-והמלצות/` (he) — **batch6-2026**
+- `/החיפושים-הכי-פופולריים-בגוגל-היום-ביש/` (he) — **batch8-2026**
+- `/google-business-profile/` (he) — **batch8-2026**
 - `/משרד-פרסום-דיגיטלי/` (he) — **batch2-2026**
 - `/en/seo-2026-ai-answers/` (en) — **batch2-2026**
 - `/en/website-speed-optimization-2026-pagespeed/` (en) — **post-polish-21496**
@@ -61,6 +63,9 @@ Generated: 2026-11-20T06:59:08.422Z
 - `/en/what-is-internet-marketing/` (en) — **batch7-2026**
 - `/en/managing-business-digital-age/` (en) — **batch5-pilot-2026**
 - `/en/business-advertising/` (en) — **batch7-2026**
+- `/en/popular-google-searches-israel/` (en) — **batch8-2026**
+- `/en/power-of-reviews/` (en) — **batch8-2026**
+- `/en/digital-advertising-office/` (en) — **batch8-2026**
 
 ## Planned batches (remaining)
 
@@ -149,13 +154,9 @@ Generated: 2026-11-20T06:59:08.422Z
 - `/קידום-אתרים-ברוסית/` (he, id 22841) — needs-partial
 - `/בניית-אתרים-ברוסית/` (he, id 22840) — needs-partial
 
-### batch8-planned (5 posts)
+### batch8-complete (2026-11-20)
 
-- `/החיפושים-הכי-פופולריים-בגוגל-היום-ביש/` (he, id 10983) — needs-content
-- `/google-business-profile/` (he, id 14288) — needs-content
-- `/en/popular-google-searches-israel/` (en, id 10983) — needs-content
-- `/en/power-of-reviews/` (en, id 10373) — needs-content
-- `/en/digital-advertising-office/` (en, id 10369) — needs-content
+Merged in PR (pending): lead + FAQ + structure polish for 5 posts — see `BLOG_BATCH8_REPORT.md`.
 
 ### batch9-planned (5 posts)
 
