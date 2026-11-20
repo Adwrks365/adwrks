@@ -10,6 +10,8 @@ import {
 } from "./location-content-ux-2026";
 import { applyHubSeoMeta2026En, applyLocationSeoMeta2026En } from "./location-seo-meta-2026";
 import { applyLocationSectionRewriteEn } from "./location-section-rewrite-2026";
+import { applyLocationNearbyCopyEn } from "./location-nearby-2026";
+import { applyLocationLocalContent2026En } from "./location-local-content-2026";
 import {
   FAQ_BUDGET_ROI_EN,
   HUB_WORK_EN,
@@ -566,6 +568,8 @@ applyLocationHeroPatchesEn(LOCATION_EN);
 applyLocationSectionRewriteEn(LOCATION_EN);
 applyHubHeroPatchEn(HUB_EN);
 applyLocationContentUx2026En(LOCATION_EN);
+applyLocationNearbyCopyEn(LOCATION_EN);
+applyLocationLocalContent2026En(LOCATION_EN);
 applyHubContentUx2026En(HUB_EN);
 applyLocationSeoMeta2026En(LOCATION_EN);
 applyHubSeoMeta2026En(HUB_EN);

@@ -16,6 +16,8 @@ import {
 } from "./location-content-ux-2026";
 import { applyHubSeoMeta2026He, applyLocationSeoMeta2026He } from "./location-seo-meta-2026";
 import { applyLocationSectionRewriteHe } from "./location-section-rewrite-2026";
+import { applyLocationNearbyCopyHe } from "./location-nearby-2026";
+import { applyLocationLocalContent2026He } from "./location-local-content-2026";
 
 function base(partial: Omit<LocationCopy, keyof typeof SHARED_WORK_HE | "serviceBlocks">): LocationCopy {
   return {
@@ -582,6 +584,8 @@ applyLocationHeroPatchesHe(LOCATION_HE);
 applyLocationSectionRewriteHe(LOCATION_HE);
 applyHubHeroPatchHe(HUB_HE);
 applyLocationContentUx2026He(LOCATION_HE);
+applyLocationNearbyCopyHe(LOCATION_HE);
+applyLocationLocalContent2026He(LOCATION_HE);
 applyHubContentUx2026He(HUB_HE);
 applyLocationSeoMeta2026He(LOCATION_HE);
 applyHubSeoMeta2026He(HUB_HE);

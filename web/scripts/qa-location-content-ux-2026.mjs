@@ -20,6 +20,10 @@ const BANNED_HE = [
   /Meta לvisual/i,
   /\bremarketing\b/i,
   /MVP קמפיין/,
+  /דיגיטל שווה זהב/,
+  /איתם לא בונים/,
+  /^ייעוץ ל[א-ת]/,
+  /^ייעוץ לה[א-ת]/,
 ];
 const BANNED_EN = [/\bvanity clicks\b/i, /improve ROI faster/i, /measurable ROI only/i];
 
