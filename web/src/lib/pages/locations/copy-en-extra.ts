@@ -39,6 +39,10 @@ function enCity(name: string): LocationCopy {
         q: "How fast can Google Ads deliver leads?",
         a: "Often within days when the offer and landing page are clear. SEO takes longer — we set expectations per channel.",
       },
+      {
+        q: `Do you provide digital marketing services for businesses in ${name}?`,
+        a: "Yes. Strategy, campaigns, and reporting are fully online nationwide. This page reflects local audience context — we do not present a physical office in your city.",
+      },
     ],
     contactTitle: `Consultation — digital marketing in ${name}`,
     contactIntro: "Tell us about your business and goals.",

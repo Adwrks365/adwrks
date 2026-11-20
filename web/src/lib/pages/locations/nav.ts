@@ -45,6 +45,30 @@ export function serviceAreaGroups(locale: Locale): ServiceAreaGroup[] {
 
   return [
     {
+      id: "north",
+      label: L("צפון", "North"),
+      regionHref: regionHref("north", locale),
+      cities: [
+        cityLink("karmiel", locale),
+        cityLink("haifa", locale),
+        cityLink("krayot", locale),
+        cityLink("akko", locale),
+        cityLink("afula", locale),
+      ],
+    },
+    {
+      id: "sharon",
+      label: L("שרון", "Sharon"),
+      regionHref: regionHref("sharon", locale),
+      cities: [
+        cityLink("netanya", locale),
+        cityLink("hadera", locale),
+        cityLink("herzliya", locale),
+        cityLink("kfar-saba", locale),
+        cityLink("raanana", locale),
+      ],
+    },
+    {
       id: "center",
       label: L("מרכז", "Center"),
       regionHref: regionHref("center", locale),
@@ -55,31 +79,6 @@ export function serviceAreaGroups(locale: Locale): ServiceAreaGroup[] {
         cityLink("rishon-lezion", locale),
         cityLink("holon", locale),
         cityLink("bat-yam", locale),
-      ],
-    },
-    {
-      id: "north",
-      label: L("צפון", "North"),
-      regionHref: regionHref("north", locale),
-      cities: [
-        cityLink("haifa", locale),
-        cityLink("krayot", locale),
-        cityLink("akko", locale),
-        cityLink("hadera", locale),
-        cityLink("netanya", locale),
-        cityLink("afula", locale),
-        cityLink("karmiel", locale),
-      ],
-    },
-    {
-      id: "sharon",
-      label: L("שרון", "Sharon"),
-      regionHref: regionHref("sharon", locale),
-      cities: [
-        cityLink("herzliya", locale),
-        cityLink("kfar-saba", locale),
-        cityLink("raanana", locale),
-        cityLink("netanya", locale),
       ],
     },
     {

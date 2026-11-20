@@ -15,6 +15,11 @@ const BANNED_HE = [
   /\bbuzz\b/i,
   /לידים ליד גוש/,
   /עסקים שרוצים scale/,
+  /ניצחים מקומית/,
+  /איך ניצחים/,
+  /Meta לvisual/i,
+  /\bremarketing\b/i,
+  /MVP קמפיין/,
 ];
 const BANNED_EN = [/\bvanity clicks\b/i, /improve ROI faster/i, /measurable ROI only/i];
 

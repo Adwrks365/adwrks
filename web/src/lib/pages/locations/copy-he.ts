@@ -15,6 +15,7 @@ import {
   applyLocationContentUx2026He,
 } from "./location-content-ux-2026";
 import { applyHubSeoMeta2026He, applyLocationSeoMeta2026He } from "./location-seo-meta-2026";
+import { applyLocationSectionRewriteHe } from "./location-section-rewrite-2026";
 
 function base(partial: Omit<LocationCopy, keyof typeof SHARED_WORK_HE | "serviceBlocks">): LocationCopy {
   return {
@@ -578,6 +579,7 @@ export const LOCATION_HE: Record<string, LocationCopy> = {
 };
 
 applyLocationHeroPatchesHe(LOCATION_HE);
+applyLocationSectionRewriteHe(LOCATION_HE);
 applyHubHeroPatchHe(HUB_HE);
 applyLocationContentUx2026He(LOCATION_HE);
 applyHubContentUx2026He(HUB_HE);
