@@ -70,22 +70,43 @@ function sliceBalancedElementorWidget(html: string, startIndex: number): string 
   return html.slice(startIndex, startIndex + (html.length - after.length));
 }
 
-/** Remove matching Elementor widget roots (`<div class="elementor-element…">`) one at a time. */
+/** Opening tag for a leaf Elementor widget — not column / container / widget-wrap. */
+const ELEMENTOR_WIDGET_ROOT_OPEN_RE =
+  /<div class="elementor-element\b[^>]*\belementor-widget\s+elementor-widget-[\w-]+\b[^>]*>/gi;
+
+const LEGACY_CONTACT_WIDGET_TYPES = [
+  "elementor-widget-text-editor",
+  "elementor-widget-form",
+  "elementor-widget-social-icons",
+  "elementor-widget-icon-list",
+  "elementor-widget-html",
+] as const;
+
+function isLegacyContactWidgetRoot(openTag: string, widgetHtml: string): boolean {
+  if (/elementor-column\b|elementor-container\b|elementor-widget-wrap\b/i.test(openTag)) {
+    return false;
+  }
+  if (!/\belementor-widget\s+elementor-widget-[\w-]+\b/i.test(openTag)) return false;
+  return LEGACY_CONTACT_WIDGET_TYPES.some((t) => widgetHtml.includes(t));
+}
+
+/** Remove matching Elementor widget roots one at a time (balanced `<div>`). */
 function stripElementorWidgetsWhere(
   html: string,
-  shouldStrip: (widgetHtml: string) => boolean,
+  shouldStrip: (widgetHtml: string, openTag: string) => boolean,
 ): string {
   let result = html;
   let safety = 0;
   while (safety++ < 40) {
-    const re = /<div class="elementor-element\b[^>]*>/gi;
+    ELEMENTOR_WIDGET_ROOT_OPEN_RE.lastIndex = 0;
     let removed = false;
     let m: RegExpExecArray | null;
-    while ((m = re.exec(result)) !== null) {
+    while ((m = ELEMENTOR_WIDGET_ROOT_OPEN_RE.exec(result)) !== null) {
       const start = m.index;
+      const openTag = m[0];
       const widget = sliceBalancedElementorWidget(result, start);
       if (!widget) continue;
-      if (!shouldStrip(widget)) continue;
+      if (!shouldStrip(widget, openTag)) continue;
       const next = stripBalancedDivFrom(result, start);
       if (next.length === result.length) continue;
       result = next;
@@ -100,14 +121,26 @@ function stripElementorWidgetsWhere(
 /** Strip contact/footer widgets inside article sections — keep professional body copy. */
 function stripLegacyContactWidgetsInSection(sectionHtml: string): string {
   let result = stripElementorFormWidgets(sectionHtml);
-  result = stripElementorWidgetsWhere(result, (w) => /elementor-widget-social-icons/i.test(w));
   result = stripElementorWidgetsWhere(
     result,
-    (w) => /elementor-widget-icon-list/i.test(w) && /tel:\s*0?79/i.test(w),
+    (w, open) => /elementor-widget-social-icons/i.test(w) && isLegacyContactWidgetRoot(open, w),
+  );
+  result = stripElementorWidgetsWhere(
+    result,
+    (w, open) =>
+      /elementor-widget-icon-list/i.test(w) &&
+      /tel:\s*0?79/i.test(w) &&
+      isLegacyContactWidgetRoot(open, w),
   );
   for (const marker of LEGACY_CONTACT_SECTION_MARKERS) {
     if (!result.includes(marker)) continue;
-    result = stripElementorWidgetsWhere(result, (w) => w.includes(marker));
+    result = stripElementorWidgetsWhere(
+      result,
+      (w, open) =>
+        w.includes(marker) &&
+        isLegacyContactWidgetRoot(open, w) &&
+        LEGACY_CONTACT_WIDGET_TYPES.some((t) => w.includes(t)),
+    );
   }
   return result;
 }

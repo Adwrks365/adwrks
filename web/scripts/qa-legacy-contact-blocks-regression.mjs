@@ -39,6 +39,24 @@ const MID_CONTACT = `<section class="elementor-section elementor-top-section ele
 <p>Professional paragraph E after contact widget.</p>
 </div></section>`;
 
+const COLUMN_CONTACT = `<section class="elementor-section elementor-top-section">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-colwrap" data-element_type="column">
+<div class="elementor-widget-wrap elementor-element-populated">
+<h3 class="elementor-heading-title">Guide section</h3>
+<p>Professional paragraph A inside column before widget.</p>
+<p>Professional paragraph B inside column before widget.</p>
+<div class="elementor-element elementor-element-a1b2c3d elementor-widget elementor-widget-text-editor" data-id="a1b2c3d">
+<div class="elementor-widget-container"><p>דרכים ליצירת קשר</p><p>טלפון: 079-5599449</p></div>
+</div>
+<p>Professional paragraph C inside column after widget.</p>
+<p>Professional paragraph D inside column after widget.</p>
+<p>Professional paragraph E inside column after widget.</p>
+</div>
+</div>
+</div>
+</section>`;
+
 let failed = 0;
 
 function assert(cond, msg) {
@@ -49,6 +67,17 @@ function assert(cond, msg) {
     console.log("OK", msg);
   }
 }
+
+const colOut = stripLegacyArticleContactBlocks(COLUMN_CONTACT);
+assert(colOut.includes("Professional paragraph A inside column before widget."), "column-fixture: before A");
+assert(colOut.includes("Professional paragraph B inside column before widget."), "column-fixture: before B");
+assert(colOut.includes("Professional paragraph C inside column after widget."), "column-fixture: after C");
+assert(colOut.includes("Professional paragraph E inside column after widget."), "column-fixture: after E");
+assert(colOut.includes("elementor-column"), "column-fixture: column wrapper kept");
+assert(colOut.includes("elementor-widget-wrap"), "column-fixture: widget wrap kept");
+assert(!colOut.includes("דרכים ליצירת קשר"), "column-fixture: contact widget removed");
+const colBal = countTagBalance(colOut);
+assert(Math.abs(colBal.div) <= 1 && Math.abs(colBal.section) <= 1, "column-fixture: DOM tag balance");
 
 const midOut = stripLegacyArticleContactBlocks(MID_CONTACT);
 assert(midOut.includes("Professional paragraph A before contact widget."), "mid-fixture: content before contact kept");
