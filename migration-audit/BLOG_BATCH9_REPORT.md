@@ -8,7 +8,7 @@
 | Base | `main` @ `0f76f7d` (Batch8 merged) |
 | Commit | _(latest on branch — see git log)_ |
 | PR | https://github.com/Adwrks365/adwrks/pull/18 |
-| Production | **Not deployed** — review only |
+| Production | **Deployed** — merge `26da85c` (#18) · verified 2026-11-20 |
 
 ## 2. Articles (5)
 
@@ -99,7 +99,8 @@ No URL, canonical, or hreflang changes. No title/meta edits (no material mismatc
 ## 11. Production spot
 
 - `qa-batch8-production-spot.mjs` added with `QA_BASE` + optional `BATCH_SPOT=batch9`
-- **Not run as PASS against production** for Batch9 (pre-merge); production still on `0f76f7d` without Batch9.
+- **PASS** `qa-batch9-production-verify.mjs` on https://adwrks.co.il (5× HTTP 200, lead/FAQ/CTA/schema).
+- **PASS** `BATCH_SPOT=batch9` + batch8 spot + `qa-location-prod-nearby-spot.mjs` (`SPOT_PASSED`).
 
 ## 12. Rollout map
 
@@ -112,3 +113,11 @@ No URL, canonical, or hreflang changes. No title/meta edits (no material mismatc
 
 1. HE growth still has legacy H3 «עבודה עם Adwrks 365» in source HTML — not removed in Batch9 (preserve body); optional future polish.
 2. `BATCH9_HTML_BEFORE_AFTER.json` is gitignored locally; regenerate with `audit-batch9-before-after.mjs`.
+3. Playwright desktop on HE growth previously timed out on `networkidle`; **PASS** with `domcontentloaded` + lead wait (production, desktop + mobile) — no redeploy required for flake.
+4. GBP EN: full-page fetch shows **WARN div imbalance** (layout shell); prepared article body tag balance OK — cosmetic / false positive on whole document.
+5. **Agency EN:** legacy H3 `Summary` + injected `In summary` on production — fix PR (strip legacy block) pending merge.
+
+## 14. Production closure status
+
+- **Batch9: Production Verified** on `26da85c` (content + regression), pending optional **agency summary** follow-up PR.
+- **Tally:** 56 / 108 enriched · 48 full remaining · 4 partial · **do not start Batch10.**

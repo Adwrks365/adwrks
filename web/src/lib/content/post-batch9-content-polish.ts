@@ -8,6 +8,7 @@ import {
 } from "@/lib/content/article-html-sanitize";
 import {
   stripElementorContentBlockByH2,
+  stripElementorContentBlockByH3,
   stripH2HeadingWidgets,
 } from "@/lib/content/article-structure-polish";
 import { polishGoogleBusinessProfileArticleHtml } from "@/lib/content/post-batch8-content-polish";
@@ -146,7 +147,8 @@ export function polishEnDigitalMarketingAgencyMaximizeArticleHtml(html: string):
     AGENCY_PITCH_REPLACEMENT,
   );
   next = next.replace(/<ins class="adsbygoogle"[\s\S]*?<\/ins>\s*/gi, "");
-  if (html.includes("adwrks-article-lead-2026") && !/in summary/i.test(next)) {
+  next = stripElementorContentBlockByH3(next, (t) => /^summary$/i.test(t));
+  if (next.includes("adwrks-article-lead-2026") && !/in summary/i.test(next)) {
     const block =
       '<h2 class="elementor-heading-title elementor-size-default">In summary</h2><p>Agency value shows up in clear KPIs, shared data access, and steady iteration. Define success upfront, keep your accounts, and review results on a fixed cadence.</p>';
     const marker = '<section class="adwrks-article-faq-block"';

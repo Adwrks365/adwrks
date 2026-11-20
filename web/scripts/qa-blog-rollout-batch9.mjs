@@ -111,7 +111,13 @@ function check({ path: articlePath, locale, preserve }) {
     console.error("FAIL embedded h1", articlePath, h1.length);
     failed++;
   }
-  const dup = headings.filter((h) => /^(סיכום|לסיכום|In summary|Summary:)/i.test(h.text.trim()));
+  const dup = headings.filter((h) => /^(סיכום|לסיכום|In summary|Summary:)$/i.test(h.text.trim()));
+  const summaryTitles = headings.filter((h) => /^summary$/i.test(h.text.trim()));
+  const hasInSummary = headings.some((h) => /^in summary$/i.test(h.text.trim()));
+  if (summaryTitles.length > 0 && hasInSummary && articlePath === "/en/digital-marketing-agency-maximize/") {
+    console.error("FAIL agency legacy Summary + In summary", articlePath);
+    failed++;
+  }
   if (dup.length > 1) {
     console.error("FAIL dup summary", articlePath, dup.map((d) => d.text));
     failed++;

@@ -68,6 +68,42 @@ export function stripElementorContentBlockByH2(
   return result;
 }
 
+/**
+ * Removes a matching `elementor-heading-title` H3 and following widgets until the next H2, H3, or FAQ block.
+ */
+export function stripElementorContentBlockByH3(
+  html: string,
+  matches: (headingText: string) => boolean,
+): string {
+  const h3Re = /<h3 class="elementor-heading-title[^"]*"[\s\S]*?<\/h3>/gi;
+  let result = html;
+  let m: RegExpExecArray | null;
+  const hits: { start: number; end: number }[] = [];
+
+  while ((m = h3Re.exec(result)) !== null) {
+    const text = normalizeHeadingText(m[0]);
+    if (!matches(text)) continue;
+    if (indexInsideInjectedContentBlock(result, m.index)) continue;
+    const start = m.index;
+    const after = m.index + m[0].length;
+    const nextH2 = result.indexOf('<h2 class="elementor-heading-title', after);
+    const nextH3 = result.indexOf('<h3 class="elementor-heading-title', after);
+    const nextFaq = nextInjectedFaqSectionStart(result, after);
+    let end = result.length;
+    if (nextH2 !== -1) end = Math.min(end, nextH2);
+    if (nextH3 !== -1) end = Math.min(end, nextH3);
+    if (nextFaq !== -1) end = Math.min(end, nextFaq);
+    hits.push({ start, end });
+  }
+
+  for (let i = hits.length - 1; i >= 0; i--) {
+    const { start, end } = hits[i];
+    result = result.slice(0, start) + result.slice(end);
+  }
+
+  return result;
+}
+
 /** @deprecated use stripElementorContentBlockByH2 */
 export function stripElementorTopSectionsByH2(
   html: string,
