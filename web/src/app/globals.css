@@ -9339,6 +9339,20 @@ body.contextual-popup-open {
   max-width: 32rem;
 }
 
+.sp-page--location .sp-section-faq .sp-faq-list {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 40rem;
+}
+
+.sp-page--location .sp-section-faq .sp-faq-q {
+  text-align: start;
+}
+
+.sp-page--location .sp-section-faq .sp-faq-a {
+  text-align: start;
+}
+
 .sp-process-split {
   display: grid;
   gap: 1.75rem;

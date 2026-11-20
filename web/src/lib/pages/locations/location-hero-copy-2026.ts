@@ -6,265 +6,265 @@ export type LocationHeroPatch = {
   badge?: string;
 };
 
-/** Hero H1 + lead refresh (2026) — commercial, varied; URLs/meta unchanged. */
+/** Hero H1 + opening paragraph (2026 fundamental rewrite). URLs and SEO meta unchanged. */
 export const LOCATION_HERO_PATCHES_HE: Record<string, LocationHeroPatch> = {
   karmiel: {
     badge: "גליל • שיווק דיגיטלי",
     h1: "חברה לשיווק דיגיטלי בכרמיאל",
     lead:
-      "Adwrks 365 מלווה עסקים בכרמיאל ובגליל ב-Google Ads, קידום אורגני (SEO), פרסום ב-Meta ומדידה ב-GA4. הליווי דיגיטלי מלא — בלי להציג משרד בעיר, עם התאמה לתחרות מול חיפה והמרכז.",
+      "מחפשים דרך להביא יותר לקוחות לעסק בכרמיאל והגליל? Adwrks 365 מציעה שירותי שיווק דיגיטלי לעסקים: פרסום בגוגל, קידום אורגני, פרסום בפייסבוק ובאינסטגרם, בניית אתרים ודפי נחיתה, וליווי אסטרטגי. אנחנו מתאימים את הפעילות לצורכי העסק, לקהל היעד ולתקציב — בליווי אונליין מלא ומעקב אחר פניות.",
   },
   north: {
     h1: "שיווק דיגיטלי בצפון — סוכנות לפרסום וקידום",
     lead:
-      "תיירות, תעשייה ושירותים בגליל ובצפון דורשים עונות, מסרים וערוצים שונים. אנחנו בונים מעטפת שיווק דיגיטלי: חיפוש ממומן, SEO, מדיה חברתית ודפי המרה — עם דוחות ברורים ועבודה מרחוק.",
+      "עסקים בצפון מתמודדים עם עונות, קהלים מגוונים ותחרות מול מותגים גדולים. Adwrks 365 בונה מעטפת שיווק דיגיטלי שכוללת פרסום בגוגל, קידום אורגני, פרסום ב-Meta, בניית אתרים ודפי נחיתה, ושיפור מעקב אחרי פניות — עם התאמה לפי עיר ותחום, בלי משרד פיזי באזור.",
   },
   krayot: {
     h1: "חברה לשיווק דיגיטלי בקריות",
     lead:
-      "בקריות רוב הפניות מתחילות בגוגל, במפות או במודעה מקומית. אנחנו מחזקים פרופיל עסקי, SEO מקומי, Google Ads ברדיוס ו-Meta — כדי שיעברו אליכם, לא למתחרה השכנ.",
+      "רוב הפניות בקריות מתחילות בגוגל, במפות או במודעה מקומית. Adwrks 365 מסייעת בעסקים בקידום אורגני, פרסום בגוגל, פרסום בפייסבוק ובאינסטגרם, שיפור פרופיל עסקי, בניית דפי נחיתה ואתרים — כדי שהשיחה והטופס יגיעו אליכם, לא למתחרה הסמוך.",
   },
   center: {
     h1: "שיווק דיגיטלי במרכז — מעטפת לעסקים בגוש דן",
     lead:
-      "במרכז עלות הקליק גבוהה; חשוב לבחור ערוצים ומסר, לא «הכול בבת אחת». Adwrks 365 מספקת Google Ads, SEO, סושיאל ואופטימיזציה לדפים — עם שקיפות ומדידה, בליווי אונליין.",
+      "במרכז חשוב לבחור ערוץ ומסר נכון לפני שמוציאים תקציב. Adwrks 365 מלווה עסקים בפרסום בגוגל, קידום אורגני, פרסום ב-Meta, בניית אתרים ודפי נחיתה, אסטרטגיה ומדידת פניות — עם שקיפות ועבודה מרחוק לכל הארץ.",
   },
   sharon: {
     h1: "סוכנות שיווק דיגיטלי בשרון",
     lead:
-      "הרצליה, כפר סבא, רעננה ונתניה מייצרות קהלים שונים — הייטק, משפחות, נדל״ן ומסחר. אנחנו מתאימים שיווק דיגיטלי לפי עיר וקהל: PPC, SEO, Meta ותוכן, בלי תבנית אחת לכל השרון.",
+      "הרצליה, נתניה, חדרה, כפר סבא ורעננה — כל עיר עם קהל שונה. Adwrks 365 מתאימה פרסום בגוגל, קידום אורגני, פרסום בפייסבוק ובאינסטגרם, בניית אתרים ודפי נחיתה לפי היישוב והמטרה, עם ליווי אישי ומעקב אחר תוצאות.",
   },
   south: {
     h1: "שיווק דיגיטלי בדרום — פרסום דיגיטלי לנגב והחוף",
     lead:
-      "מפעל באשדוד, שירות בבאר שבע או אירוח באשקלון — לא אותה אסטרטגיה. אנחנו מגדירים Google Ads, SEO ו-Meta לפי אזור ומטרה, עם מדידת פניות ולא רק חשיפות.",
+      "מפעל באשדוד, שירות בבאר שבע או אירוח באשקלון דורשים גישה שונה בשיווק. Adwrks 365 מגדירה פרסום בגוגל, קידום אורגני, פרסום ב-Meta, בניית אתרים ודפי נחיתה לפי אזור ומטרה — ומודדת פניות, לא רק חשיפות.",
   },
   haifa: {
     h1: "חברה לשיווק דיגיטלי בחיפה",
     lead:
-      "בחיפה צריך להפריד בין B2B, שירות מקומי וקהלים שונים — מודעה אחת לא מספיקה. Adwrks 365 משלבת Google Ads, SEO, רשתות חברתיות ושיפור דפים, בליווי מרחוק ועם דגש על פניות איכותיות.",
+      "בחיפה יש לעיתים כמה סוגי לקוחות באותו עסק — B2B, שירות מקומי וקמעונאות. Adwrks 365 משלבת פרסום בגוגל, קידום אורגני, פרסום ב-Meta, בניית אתרים ודפי נחיתה, וליווי שיווקי עם דגש על פניות איכותיות, בליווי אונליין מלא.",
   },
   "tel-aviv": {
     badge: "תל אביב • שיווק דיגיטלי",
     h1: "חברה לשיווק דיגיטלי בתל אביב",
     lead:
-      "בתל אביב התחרות על מילות מפתח יקרה. אנחנו בונים קמפיינים בגוגל ו-Meta, קידום אורגני ודפי המרה מהירים — עם מעקב המרות ושיפור שוטף, בלי להבטיח אחוזי צמיחה קבועים.",
+      "מחפשים יותר לקוחות לעסק בתל אביב? Adwrks 365 בונה קמפיינים בגוגל וב-Meta, קידום אורגני, בניית אתרים ודפי נחיתה מהירים, ושיפור מעקב אחרי פניות — עם התאמה לתחרות בעיר ולתקציב שלכם, בלי הבטחות שלא ניתן למדוד.",
   },
   jerusalem: {
     h1: "חברה לשיווק דיגיטלי בירושלים",
     lead:
-      "בירושלים לעיתים נדרש זמן עד לפנייה. אנחנו משלבים SEO ותוכן שבונים אמון, Google Ads לכוונה חמה ו-Meta כשזה מתאים — תמיד עם מדידה וליווי דיגיטלי מלא.",
+      "לקוחות בירושלים לעיתים צריכים זמן וביטחון לפני פנייה. Adwrks 365 משלבת תוכן וקידום אורגני, פרסום בגוגל לכוונה גבוהה, פרסום ב-Meta כשזה מתאים, בניית אתרים ודפי נחיתה — תמיד עם מדידה וליווי דיגיטלי מרחוק.",
   },
   "beer-sheva": {
     h1: "שיווק דיגיטלי בבאר שבע — סוכנות מרחוק",
     lead:
-      "פארק ההייטק, שירותים עירוניים ועסקים בנגב זקוקים לנוכחות דיגיטלית שמדברת אל הקהל הנכון. Google Ads, SEO, מדיה חברתית ואנליטיקס — מאותו צוות, בלי משרד פיזי בעיר.",
+      "עסקים בבאר שבע והנגב זקוקים לנוכחות דיגיטלית שמדברת לקהל הנכון. Adwrks 365 מציעה פרסום בגוגל, קידום אורגני, פרסום ב-Meta, בניית אתרים ודפי נחיתה, אסטרטגיה ומעקב פניות — מהצוות שלנו אונליין, בלי משרד פיזי בעיר.",
   },
   netanya: {
     h1: "משרד פרסום דיגיטלי בנתניה — שיווק דיגיטלי לעסקים",
     lead:
-      "נתניה מחברת חוף, נדל״ן, תיירות ומסחר. אנחנו מפרידים בין קמפיינים לתייר לבין שיווק דיגיטלי לתושב המקומי — PPC, SEO ו-Meta עם דגש על פניות מדידות.",
+      "בנתניה פועלים לצד תושבים מקומיים, נדל״ן ותיירות ליד הים. Adwrks 365 מפרידה בין קמפיינים לפי קהל, עם פרסום בגוגל, קידום אורגני, פרסום ב-Meta, בניית אתרים ודפי נחיתה — וליווי עם מעקב אחר פניות.",
   },
   "ramat-gan": {
     h1: "חברה לשיווק דיגיטלי ברמת גן",
     lead:
-      "רמת גן צמודה לתל אביב אך הקהל והמחירים שונים. אנחנו מתמקדים ב-SEO מקומי, Google Ads ברדיוס ומסר שמבדיל אתכם — כולל מדידה בטפסים ובשיחות.",
+      "רמת גן צמודה לתל אביב, אבל הקהל והמחירים שונים. Adwrks 365 מתמקדת בקידום מקומי, פרסום בגוגל בשטח רלוונטי, פרסום ב-Meta, בניית אתרים ודפי נחיתה — עם מסר שמבדיל אתכם ומדידה של טפסים ושיחות.",
   },
   "petah-tikva": {
     h1: "שיווק דיגיטלי בפתח תקווה — חברה לפרסום דיגיטלי",
     lead:
-      "עיר גדוּלה דורשת פילוח: תעשייה מול שירותים לשכונות. Adwrks 365 מתאימה Google Ads, SEO ו-Meta ליעד שלכם, עם דפי נחיתה שמסבירים הצעה ולא «צועקים».",
+      "עיר גדולה דורשת פילוח בין תעשייה, מסחר ושירותים לשכונות. Adwrks 365 מתאימה פרסום בגוגל, קידום אורגני, פרסום ב-Meta, בניית אתרים ודפי נחיתה למטרות שלכם — עם ליווי אונליין ודגש על פניות שמתאימות לקהל.",
   },
   "rishon-lezion": {
     h1: "שיווק דיגיטלי בראשון לציון — מעטפת לעסקים בגוש דן",
     lead:
-      "בראשון לציון אפשר לנצח מקומית בלי לבזבז על מילות מפתח של תל אביב. שיווק דיגיטלי מסודר: חיפוש ממומן, SEO, רשתות חברתיות ושיפור המרה — בליווי אונליין.",
+      "מחפשים לחזק את הנוכחות הדיגיטלית בראשון לציון? Adwrks 365 מספקת פרסום בגוגל, קידום אורגני, פרסום ב-Meta, בניית אתרים ודפי נחיתה, ושיפור המרות — עם התמקדות בקהל מקומי ובתקציב הגיוני, בליווי מרחוק.",
   },
   holon: {
     h1: "שיווק דיגיטלי בחולון — פניות מהעיר והסביבה",
     lead:
-      "שירותים בחולון נסגרים בחיפוש «בחולון» ובמפות. אנחנו מחזקים נוכחות מקומית, מודעות ממוקדות ודף שמבהיר מחיר וזמינות — עם Google Ads, SEO ו-Meta לפי צורך.",
+      "שירותים בחולון נסגרים בחיפוש מקומי ובמפות. Adwrks 365 מחזקת נוכחות בגוגל, פרסום ממוקד, פרסום ב-Meta, בניית אתרים ודפי נחיתה שמסבירים מחיר וזמינות — עם מעקב אחר פניות מהאזור.",
   },
   "bat-yam": {
     h1: "שיווק דיגיטלי בבת ים — לעסקים בעיר ובחוף",
     lead:
-      "חוף, מגורים ומסחר בבת ים משנים עונות ומסרים. אנחנו בונים שיווק דיגיטלי גמיש: קידום אורגני, פרסום ממומן ו-Meta — תמיד עם מעקב פניות, בלי הבטחות תוצאה שלא ניתן למדוד.",
+      "בת ים משלבת חוף, מגורים ומסחר עם שינויי עונה. Adwrks 365 בונה שיווק דיגיטלי גמיש: קידום אורגני, פרסום בגוגל וב-Meta, בניית אתרים ודפי נחיתה — עם מעקב פניות וליווי אישי, בלי הבטחות שלא ניתן למדוד.",
   },
   akko: {
     h1: "שיווק דיגיטלי בעכו — תיירות ושירות מקומי",
     lead:
-      "עכו משלבת תיירות וקהילה מקומית. אנחנו מתאימים תוכן, SEO וקמפיינים לקהל הנכון בעונה הנכונה — Google Ads, Meta ומדידה, בליווי דיגיטלי מלא.",
+      "עכו משלבת תיירות וקהילה מקומית. Adwrks 365 מתאימה תוכן, קידום אורגני, פרסום בגוגל וב-Meta, בניית אתרים ודפי נחיתה לקהל הנכון בעונה הנכונה — בליווי דיגיטלי מלא.",
   },
   hadera: {
     h1: "סוכנות שיווק דיגיטלי בחדרה",
     lead:
-      "חדרה בצומת שרון–צפון זקוקה לפילוח ברור בין לקוח מקומי ללקוח ארצי. מעטפת שיווק דיגיטלי: PPC, SEO, מדיה חברתית ודפים שממירים — בלי להעמיס מילות מפתח בכותרת אחת.",
+      "חדרה בצומת שרון–צפון — חשוב לדעת אם פונים ללקוח מקומי או ארצי. Adwrks 365 בונה מעטפת של פרסום בגוגל, קידום אורגני, פרסום ב-Meta, בניית אתרים ודפי נחיתה, עם אסטרטגיה ומדידת פניות לפי הקהל שלכם.",
   },
   afula: {
     h1: "שיווק דיגיטלי בעפולה — חברה לקידום ופרסום",
     lead:
-      "בעמק יזרעאל רבים מחפשים בגוגל לפני שיחה. אנחנו מחזקים SEO מקומי, Google Ads לכוונה חמה ו-Meta כשמתאים — עם ליווי מרחוק ודוחות שקופים.",
+      "בעמק יזרעאל רבים מחפשים בגוגל לפני שיחה. Adwrks 365 מחזקת קידום מקומי, פרסום בגוגל לכוונה גבוהה, פרסום ב-Meta, בניית אתרים ודפי נחיתה — עם ליווי מרחוק ודוחות שקופים.",
   },
   herzliya: {
     h1: "חברה לשיווק דיגיטלי בהרצליה",
     lead:
-      "הייטק ושירותים פרימיום בהרצליה דורשים מסר חד ודף מהיר. Adwrks 365 מפעילה Google Ads, SEO ותוכן מומחה — עם מדידה מלאה, בלי להבטיח לידים במספר קבוע.",
+      "מחפשים דרך להביא יותר לקוחות לעסק בהרצליה? Adwrks 365 מציעה שירותי שיווק דיגיטלי לעסקים, כולל פרסום בגוגל, קידום אורגני, פרסום בפייסבוק ובאינסטגרם, בניית אתרים ודפי נחיתה. אנחנו מתאימים את הפעילות לצורכי העסק, לקהל היעד ולתקציב, עם ליווי אישי ומעקב אחר התוצאות.",
   },
   "kfar-saba": {
     h1: "שיווק דיגיטלי בכפר סבא — סוכנות דיגיטלית מרחוק",
     lead:
-      "שירותים לתושבים בכפר סבא נסגרים ב-Maps, ביקורות ובחיפוש מקומי. אנחנו משלבים SEO, Google Ads ו-Meta לפי סוג העסק — עם שיפור דפים ומעקב פניות.",
+      "שירותים בכפר סבא נסגרים במפות, ביקורות ובחיפוש מקומי. Adwrks 365 משלבת קידום אורגני, פרסום בגוגל, פרסום ב-Meta, שיפור אתרים ודפי נחיתה — עם מעקב אחר פניות לפי סוג העסק.",
   },
   raanana: {
     h1: "שיווק דיגיטלי ברעננה — סוכנות עם מדידה שקופה",
     lead:
-      "קהל ברעננה מצפה לאמון לפני פנייה. שיווק דיגיטלי מבוסס תוכן, SEO, קמפיינים מדויקים ו-Meta ממוקד — מהצוות של Adwrks 365, בליווי אונליין ארצי.",
+      "קהל ברעננה מחפש אמון לפני פנייה. Adwrks 365 בונה תוכן, קידום אורגני, קמפיינים מדויקים בגוגל וב-Meta, אתרים ודפי נחיתה — בליווי אונליין ארצי עם מדידה ברורה.",
   },
   ashdod: {
     h1: "שיווק דיגיטלי באשדוד — פרסום דיגיטלי לעסקים",
     lead:
-      "אשדוד משלבת נמל, תעשייה ושירותים לעיר גדולה. אנחנו מפרידים B2B מ-B2C בערוצים ובמסרים: Google Ads, SEO, רשתות חברתיות ומדידה ב-GA4.",
+      "אשדוד משלב נמל, תעשייה ושירותים עירוניים. Adwrks 365 מפרידה בין מסלולי B2B ו-B2C עם פרסום בגוגל, קידום אורגני, פרסום ב-Meta, בניית אתרים ודפי נחיתה, ומעקב בנתוני פניות.",
   },
   ashkelon: {
     h1: "שיווק דיגיטלי באשקלון — ליווי דיגיטלי מהחוף והעיר",
     lead:
-      "תעשייה, חוף ושירותים באשקלון דורשים עונות וקמפיינים שונים. מעטפת שיווק דיגיטלי מ-Adwrks: חיפוש ממומן, SEO מקומי ו-Meta — בליווי מרחוק, עם דגש על פניות מדידות.",
+      "תעשייה, חוף ושירותים באשקלון משתנים לפי עונה. Adwrks 365 מציעה פרסום בגוגל, קידום מקומי, פרסום ב-Meta, בניית אתרים ודפי נחיתה — בליווי מרחוק, עם דגש על פניות מדידות.",
   },
 };
 
 export const HUB_HERO_PATCH_HE: LocationHeroPatch = {
   h1: "שיווק דיגיטלי בכל הארץ — בחרו אזור שירות",
   lead:
-    "Adwrks 365 מלווה עסקים בכל רחבי ישראל בשיווק דיגיטלי מקצועי: Google Ads, קידום אורגני, מדיה חברתית, דפי נחיתה ומדידה. העבודה מתבצעת אונליין — ללא פגישות במשרד בעיר שלכם.",
+    "Adwrks 365 מלווה עסקים בכל רחבי ישראל בשיווק דיגיטלי: פרסום בגוגל, קידום אורגני, פרסום בפייסבוק ובאינסטגרם, בניית אתרים ודפי נחיתה, אסטרטגיה ומעקב אחר פניות. העבודה מתבצעת אונליין — בחרו אזור לפרטים מקומיים או צרו קשר לייעוץ כללי.",
 };
 
 export const LOCATION_HERO_PATCHES_EN: Record<string, LocationHeroPatch> = {
   karmiel: {
     h1: "Digital marketing agency in Karmiel",
     lead:
-      "Adwrks 365 helps Galilee businesses with Google Ads, SEO, Meta campaigns, and GA4 tracking. Fully remote delivery — no claim of a local office, with strategy tuned to northern competition.",
+      "Looking for more customers for your business in Karmiel and the Galilee? Adwrks 365 provides Google Ads, SEO, Facebook and Instagram ads, websites and landing pages, and ongoing marketing strategy. We align channels, audience, and budget — with full remote support and lead tracking.",
   },
   north: {
     h1: "Digital marketing in Northern Israel",
     lead:
-      "Tourism, industry, and local services in the north need season-aware strategy. We run paid search, SEO, social, and landing pages with clear reporting — online end to end.",
+      "Northern businesses face seasons, varied audiences, and competition from larger brands. Adwrks 365 builds a digital marketing mix: Google Ads, SEO, Meta, websites and landing pages, and conversion tracking — tuned by city and industry, with no local storefront.",
   },
   krayot: {
     h1: "Digital marketing agency in the Krayot",
     lead:
-      "Most Krayot leads start on Google, Maps, or a radius ad. We strengthen local SEO, Google Business Profile, paid search, and Meta so calls go to you — not the competitor next door.",
+      "Most Krayot leads start on Google, Maps, or a local ad. Adwrks 365 helps with local SEO, Google Ads, Meta, Business Profile, landing pages, and websites — so calls and forms reach you, not the shop next door.",
   },
   center: {
     h1: "Digital marketing in Central Israel",
     lead:
-      "CPC is high in the center; channel choice matters. Adwrks 365 provides Google Ads, SEO, social, and page optimization with transparent measurement — no vanity metrics only.",
+      "In the center, channel and message matter before budget goes live. Adwrks 365 supports businesses with Google Ads, SEO, Meta, websites and landing pages, strategy, and lead measurement — transparent remote work nationwide.",
   },
   sharon: {
     h1: "Digital marketing agency in the Sharon",
     lead:
-      "Herzliya, Kfar Saba, Raanana, and Netanya attract different buyers. We tailor PPC, SEO, and Meta by city and audience — not one swapped template for the whole region.",
+      "Herzliya, Netanya, Hadera, Kfar Saba, and Raanana each attract different buyers. Adwrks 365 tailors Google Ads, SEO, Meta, websites, and landing pages per town and goal — with personal guidance and results tracking.",
   },
   south: {
     h1: "Digital marketing in the South",
     lead:
-      "Ashdod industry, Beer Sheva services, and coastal hospitality need different funnels. We set up Google Ads, SEO, and Meta by area and goal, tracking leads — not clicks alone.",
+      "Industry in Ashdod, services in Beer Sheva, and coastal hospitality in Ashkelon need different marketing paths. Adwrks 365 sets up Google Ads, SEO, Meta, websites, and landing pages by area and goal — measuring inquiries, not vanity views.",
   },
   haifa: {
     h1: "Digital marketing agency in Haifa",
     lead:
-      "Haifa mixes B2B, local services, and diverse audiences. We combine Google Ads, SEO, social, and conversion-focused pages — remote delivery with emphasis on qualified inquiries.",
+      "Haifa often mixes B2B, local services, and retail in one business. Adwrks 365 combines Google Ads, SEO, Meta, websites and landing pages, and marketing guidance with a focus on qualified inquiries — fully remote.",
   },
   "tel-aviv": {
     h1: "Digital marketing agency in Tel Aviv",
     lead:
-      "Tel Aviv keywords are expensive. We build sharp Google and Meta campaigns, organic search, and fast landing pages with conversion tracking — without promising fixed growth rates.",
+      "Need more customers in Tel Aviv? Adwrks 365 builds Google and Meta campaigns, SEO, fast websites and landing pages, and better lead tracking — adapted to city competition and your budget, without unmeasurable promises.",
   },
   jerusalem: {
     h1: "Digital marketing agency in Jerusalem",
     lead:
-      "Jerusalem buyers often need trust before they call. We use SEO and content, paid search for high intent, and Meta when it fits — always measured, always remote.",
+      "Jerusalem buyers often need trust before they reach out. Adwrks 365 blends content and SEO, high-intent Google Ads, Meta when relevant, websites and landing pages — always measured, always remote.",
   },
   "beer-sheva": {
     h1: "Digital marketing in Beer Sheva",
     lead:
-      "Hi-tech, public sector, and local businesses in the Negev need the right message. Google Ads, SEO, social, and analytics from one team — no physical office in the city.",
+      "Beer Sheva and Negev businesses need messaging that fits the right audience. Adwrks 365 offers Google Ads, SEO, Meta, websites and landing pages, strategy, and inquiry tracking — online from our team, with no city office.",
   },
   netanya: {
     h1: "Digital marketing in Netanya",
     lead:
-      "Netanya blends coast, real estate, tourism, and local trade. We separate tourist campaigns from resident-focused digital marketing — PPC, SEO, and Meta with lead tracking.",
+      "Netanya brings together residents, real estate, and seaside tourism. Adwrks 365 splits campaigns by audience with Google Ads, SEO, Meta, websites, and landing pages — plus guidance and lead tracking.",
   },
   "ramat-gan": {
     h1: "Digital marketing agency in Ramat Gan",
     lead:
-      "Next to Tel Aviv but not the same CPC or audience. Local SEO, radius ads, and a differentiated offer — plus forms and call tracking.",
+      "Ramat Gan sits next to Tel Aviv but the audience and costs differ. Adwrks 365 focuses on local SEO, relevant Google Ads, Meta, websites and landing pages — clear positioning plus form and call measurement.",
   },
   "petah-tikva": {
     h1: "Digital marketing in Petah Tikva",
     lead:
-      "A large city needs split messaging: industry vs neighborhoods. Adwrks 365 aligns Google Ads, SEO, and Meta to your target customer.",
+      "A large city needs separate paths for industry, retail, and neighborhood services. Adwrks 365 aligns Google Ads, SEO, Meta, websites, and landing pages to your goals — remote support with audience-fit inquiries.",
   },
   "rishon-lezion": {
     h1: "Digital marketing agency in Rishon LeZion",
     lead:
-      "Win locally without bidding only on Tel Aviv terms. Paid search, SEO, social, and conversion improvements — delivered online.",
+      "Want a stronger digital presence in Rishon LeZion? Adwrks 365 delivers Google Ads, SEO, Meta, websites and landing pages, and conversion improvements — focused on local buyers and sensible budgets, remotely.",
   },
   holon: {
     h1: "Digital marketing in Holon",
     lead:
-      "Local services win on «in Holon» searches and Maps. We strengthen local presence, targeted ads, and pages that explain price and availability.",
+      "Holon services close on local search and Maps. Adwrks 365 strengthens Google presence, targeted ads, Meta, websites and landing pages that explain price and availability — with area lead tracking.",
   },
   "bat-yam": {
     h1: "Digital marketing agency in Bat Yam",
     lead:
-      "Coast, residents, and retail shift by season. Flexible digital marketing: SEO, paid channels, and Meta with lead measurement — no unverifiable promises.",
+      "Bat Yam mixes coast, housing, and retail with seasonal swings. Adwrks 365 builds flexible digital marketing: SEO, Google and Meta ads, websites and landing pages — with inquiry tracking and personal guidance.",
   },
   akko: {
     h1: "Digital marketing in Akko",
     lead:
-      "Tourism and local community need different campaigns. Content, SEO, and paid media timed to the right audience — remote delivery from Adwrks 365.",
+      "Akko blends tourism and a local community. Adwrks 365 adapts content, SEO, Google and Meta ads, websites and landing pages to the right audience in the right season — full remote delivery.",
   },
   hadera: {
     h1: "Digital marketing in Hadera",
     lead:
-      "Between Sharon and the north — local vs national buyers need clear funnels. PPC, SEO, social, and converting pages.",
+      "Hadera sits between the Sharon and the north — local and national buyers need different funnels. Adwrks 365 provides Google Ads, SEO, Meta, websites and landing pages, strategy, and lead measurement for your audience.",
   },
   afula: {
     h1: "Digital marketing in Afula",
     lead:
-      "Jezreel Valley searches often precede a phone call. Local SEO, focused Google Ads, and Meta when relevant — transparent reporting, remote team.",
+      "In the Jezreel Valley, many buyers search on Google before they call. Adwrks 365 strengthens local SEO, focused Google Ads, Meta, websites and landing pages — remote team, transparent reporting.",
   },
   herzliya: {
     h1: "Digital marketing agency in Herzliya",
     lead:
-      "Hi-tech and premium services need sharp copy and fast pages. Google Ads, expert SEO, and tracking — without guaranteed lead counts.",
+      "Looking for more customers in Herzliya? Adwrks 365 offers Google Ads, SEO, Facebook and Instagram ads, websites and landing pages, and marketing strategy. We match activity to your business, audience, and budget — with personal guidance and results tracking.",
   },
   "kfar-saba": {
     h1: "Digital marketing in Kfar Saba",
     lead:
-      "Local services convert on Maps, reviews, and «near me» search. SEO, Google Ads, Meta, and page improvements with inquiry tracking.",
+      "Kfar Saba services close on Maps, reviews, and local search. Adwrks 365 combines SEO, Google Ads, Meta, site and landing page improvements — with inquiry tracking by business type.",
   },
   raanana: {
     h1: "Digital marketing agency in Raanana",
     lead:
-      "A demanding audience expects trust first. Content, SEO, precise ads, and focused Meta — nationwide delivery from Adwrks 365.",
+      "Raanana buyers look for trust before they inquire. Adwrks 365 builds content, SEO, precise Google and Meta campaigns, websites and landing pages — nationwide remote delivery with clear measurement.",
   },
   ashdod: {
     h1: "Digital marketing in Ashdod",
     lead:
-      "Port, industry, and city services need separate B2B and B2C paths. Google Ads, SEO, social, and GA4 measurement.",
+      "Ashdod combines port activity, industry, and city services. Adwrks 365 separates B2B and B2C paths with Google Ads, SEO, Meta, websites and landing pages, and analytics on inquiries.",
   },
   ashkelon: {
     h1: "Digital marketing agency in Ashkelon",
     lead:
-      "Industry, coast, and services shift by season. Paid search, local SEO, and Meta — remote delivery with measurable inquiries.",
+      "Industry, coast, and city services in Ashkelon shift by season. Adwrks 365 offers Google Ads, local SEO, Meta, websites and landing pages — remote delivery focused on measurable inquiries.",
   },
 };
 
 export const HUB_HERO_PATCH_EN: LocationHeroPatch = {
   h1: "Digital marketing across Israel — pick your area",
   lead:
-    "Adwrks 365 supports businesses nationwide with Google Ads, SEO, social, landing pages, and analytics. Work is fully online — we do not present a storefront in your city.",
+    "Adwrks 365 supports businesses nationwide with Google Ads, SEO, social ads, websites and landing pages, strategy, and lead tracking. Work is fully online — choose an area for local detail or contact us for general guidance.",
 };
 
 export function applyLocationHeroPatchesHe(table: Record<string, LocationCopy>): void {
@@ -297,5 +297,5 @@ export function applyHubHeroPatchEn(hub: HubCopy): void {
   hub.lead = HUB_HERO_PATCH_EN.lead;
 }
 
-/** For QA / rollout report — snapshot before deploy uses git; runtime truth is patched copy. */
+/** For QA / rollout report — runtime truth is patched copy. */
 export const LOCATION_PAGE_IDS = Object.keys(LOCATION_HERO_PATCHES_HE);

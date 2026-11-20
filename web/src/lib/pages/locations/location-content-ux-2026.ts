@@ -1,7 +1,4 @@
 import type { HubCopy, LocationCopy } from "./types";
-import { polishLocationText, polishStringFields } from "./location-content-ux-polish";
-
-const SKIP = new Set(["seoTitle", "seoDescription", "h1", "name", "areaServedName", "imageAlt"]);
 
 export type LocationUxPatch = Partial<
   Omit<LocationCopy, "seoTitle" | "seoDescription" | "h1" | "name" | "areaServedName" | "imageAlt">
@@ -641,42 +638,26 @@ function mergePatch(copy: LocationCopy, patch: LocationUxPatch): void {
   }
 }
 
-function polishLead(copy: LocationCopy, locale: "he" | "en"): void {
-  copy.lead = polishLocationText(copy.lead, locale);
-}
-
 export function applyLocationContentUx2026He(table: Record<string, LocationCopy>): void {
-  for (const row of Object.values(table)) {
-    polishStringFields(row, "he", SKIP);
-    polishLead(row, "he");
-  }
   for (const [id, patch] of Object.entries(LOCATION_UX_PATCHES_HE)) {
     const row = table[id];
     if (!row) continue;
     mergePatch(row, patch);
-    polishStringFields(row, "he", SKIP);
   }
 }
 
 export function applyLocationContentUx2026En(table: Record<string, LocationCopy>): void {
-  for (const row of Object.values(table)) {
-    polishStringFields(row, "en", SKIP);
-    polishLead(row, "en");
-  }
   for (const [id, patch] of Object.entries(LOCATION_UX_PATCHES_EN)) {
     const row = table[id];
     if (!row) continue;
     mergePatch(row, patch);
-    polishStringFields(row, "en", SKIP);
   }
 }
 
 export function applyHubContentUx2026He(hub: HubCopy): void {
   Object.assign(hub, HUB_UX_PATCH_HE);
-  polishStringFields(hub, "he", new Set(["seoTitle", "seoDescription", "h1"]));
 }
 
 export function applyHubContentUx2026En(hub: HubCopy): void {
   Object.assign(hub, HUB_UX_PATCH_EN);
-  polishStringFields(hub, "en", new Set(["seoTitle", "seoDescription", "h1"]));
 }
