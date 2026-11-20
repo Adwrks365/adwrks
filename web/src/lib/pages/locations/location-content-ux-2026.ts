@@ -7,43 +7,67 @@ export type LocationUxPatch = Partial<
   Omit<LocationCopy, "seoTitle" | "seoDescription" | "h1" | "name" | "areaServedName" | "imageAlt">
 >;
 
-function ctaHe(place: string, midBody?: string): LocationUxPatch {
+function ctaHe(place: string, variant: number, midBody?: string): LocationUxPatch {
+  const midTitles = [
+    `רוצים יותר פניות לעסק ב${place}?`,
+    `מתחילים לחזק את הנוכחות הדיגיטלית ב${place}?`,
+    `מחפשים דרך להביא לקוחות נוספים ב${place}?`,
+  ];
+  const finalTitles = [
+    "בואו נתכנן יחד את השיווק לעסק שלכם",
+    "נבדוק אילו ערוצים מתאימים לכם עכשיו",
+    "קבלו כיוון ראשוני — בלי התחייבות",
+  ];
+  const v = variant % 3;
   return {
-    audienceTitle: `למי השירות מתאים ב${place}?`,
-    midCtaTitle: `רוצים להביא יותר לקוחות לעסק ב${place}?`,
+    audienceTitle: "למי השירות מתאים?",
+    midCtaTitle: midTitles[v]!,
     midCtaBody:
       midBody ??
-      "נבחן יחד את פעילות השיווק שלכם, את קהל היעד ואת האפשרויות לשפר את כמות הפניות מהאתר ומהקמפיינים.",
-    finalCtaTitle: `בואו נבנה תוכנית שיווק שמתאימה לעסק ב${place}`,
+      "נבחן יחד את השיווק הקיים, את קהל היעד ודרכים מעשיות להגדיל פניות מהאתר ומהקמפיינים.",
+    finalCtaTitle: finalTitles[v]!,
     finalCtaBody:
-      "ספרו לנו על העסק והשירותים שלכם, ונעזור לבחור את ערוצי הפרסום המתאימים למטרות ולתקציב.",
-    contactIntro: `ספרו על סוג הלקוחות שאתם מחפשים ב${place} ומה חשוב לכם בשיווק — נחזור עם כיוון ראשוני, בלי התחייבות.`,
-    popupDescription: `ספרו על העסק והמטרות ב${place}. נבחן יחד אילו ערוצים ותקציב הגיוניים לפני כל התחייבות.`,
+      "ספרו על העסק והשירותים שלכם. נעזור לבחור ערוצי פרסום שמתאימים למטרות ולתקציב.",
+    contactIntro: `ספרו על העסק והקהל שאתם מחפשים באזור ${place}. נחזור עם כיוון ראשוני — בלי התחייבות.`,
+    popupHeadline: `שיחה על שיווק דיגיטלי ב${place}?`,
+    popupDescription: "ספרו בקצרה על העסק והמטרות. נדבר על ערוצים ותקציב הגיוניים.",
   };
 }
 
-function ctaEn(place: string, midBody?: string): LocationUxPatch {
+function ctaEn(place: string, variant: number, midBody?: string): LocationUxPatch {
+  const midTitles = [
+    `Want more inquiries for your business in ${place}?`,
+    `Ready to strengthen your digital presence in ${place}?`,
+    `Looking for more customers in ${place}?`,
+  ];
+  const finalTitles = [
+    "Let's plan your marketing together",
+    "See which channels fit you today",
+    "Get an initial direction — no obligation",
+  ];
+  const v = variant % 3;
   return {
-    audienceTitle: `Who is this for in ${place}?`,
-    midCtaTitle: `Want more customer inquiries for your business in ${place}?`,
+    audienceTitle: "Who is this service for?",
+    midCtaTitle: midTitles[v]!,
     midCtaBody:
       midBody ??
-      "We will review your marketing today, your target audience, and practical ways to increase inquiries from your site and campaigns.",
-    finalCtaTitle: `Let's plan marketing that fits your business in ${place}`,
+      "We will review your current marketing, your audience, and practical ways to increase inquiries.",
+    finalCtaTitle: finalTitles[v]!,
     finalCtaBody:
-      "Tell us about your business and services. We will help you choose channels that match your goals and budget.",
-    contactIntro: `Describe the customers you want in ${place} and what matters to you in marketing — we will reply with an initial direction, no obligation.`,
-    popupDescription: `Tell us about your business and goals in ${place}. We will discuss sensible channels and budget before any commitment.`,
+      "Tell us about your business and services. We will help you pick channels that fit your goals and budget.",
+    contactIntro: `Tell us about your business and the customers you want in ${place}. We will reply with an initial direction.`,
+    popupHeadline: `Talk about digital marketing in ${place}?`,
+    popupDescription: "Briefly describe your business and goals. We will discuss sensible channels and budget.",
   };
 }
 
 /** Region/city-specific audiences — visible copy only. */
 export const LOCATION_UX_PATCHES_HE: Record<string, LocationUxPatch> = {
   karmiel: {
-    ...ctaHe("כרמיאל"),
+    ...ctaHe("כרמיאל", 0),
     audienceItems: [
       "קבלני שיפוצים, חשמלאים ואינסטלטורים בגליל",
-      "מסעדות, קפות ואירוח בכרמיאל והסביבה",
+      "מסעדות, בתי קפה ומקומות אירוח בכרמיאל והסביבה",
       "קליניקות, מטפלים ורופאים פרטיים",
       "חנויות מקומיות ונותני שירות לבית",
       "משרדי עורכי דין, יועצי עסקים ורואי חשבון",
@@ -53,7 +77,7 @@ export const LOCATION_UX_PATCHES_HE: Record<string, LocationUxPatch> = {
       "מודעות בגוגל לחיפושים דחופים, קידום אורגני לאורך זמן, פרסום ב-Meta כשמתאים, ודפי נחיתה שמסבירים הצעה ברורה.",
   },
   north: {
-    ...ctaHe("צפון הארץ"),
+    ...ctaHe("צפון הארץ", 1),
     audienceItems: [
       "עסקי תיירות, אירוח ומסעדות בגליל",
       "מפעלים וחברות תעשייה בצפון",
@@ -65,7 +89,7 @@ export const LOCATION_UX_PATCHES_HE: Record<string, LocationUxPatch> = {
     challengesTitle: "קהלים שונים באזור אחד — צריך מסרים נפרדים",
   },
   krayot: {
-    ...ctaHe("קריות"),
+    ...ctaHe("קריות", 2),
     audienceItems: [
       "טכנאים, מתקינים ושירותי תחזוקה לבית",
       "מספרות, מכוני יופי וקוסמטיקה",
@@ -76,7 +100,7 @@ export const LOCATION_UX_PATCHES_HE: Record<string, LocationUxPatch> = {
     ],
   },
   center: {
-    ...ctaHe("מרכז הארץ", "במרכז התחרות גבוהה — נבדוק אילו ערוצים ומסרים מתאימים לתקציב ולקהל שלכם."),
+    ...ctaHe("מרכז הארץ", 0, "במרכז התחרות גבוהה — נבדוק אילו ערוצים ומסרים מתאימים לתקציב ולקהל שלכם."),
     audienceItems: [
       "חברות B2B ומשרדי שירות בגוש דן",
       "יבואנים, מפיצים וסיטונאות",
@@ -85,14 +109,13 @@ export const LOCATION_UX_PATCHES_HE: Record<string, LocationUxPatch> = {
       "מוסדות לימוד, הכשרות והייטק",
       "עסקים שמגיעים מלקוחות בכל הארץ",
     ],
-    finalCtaTitle: "בואו נתכנן שיווק שמתאים לתקציב במרכז",
     challengesTitle: "תחרות גבוהה — חשוב לבחור ערוץ ומסר נכון",
   },
   sharon: {
-    ...ctaHe("שרון"),
+    ...ctaHe("שרון", 1),
     audienceItems: [
-      "חברות הייטק ושירותי B2B בהרצליה",
-      "נדל״ן, תיווך ומשרדי נדל״ן בנתניה",
+      "חברות טכנולוגיה ושירותים לעסקים בערי השרון",
+      "נדל״ן, תיווך וליווי עסקאות",
       "מסעדות ואירוח ליד החוף",
       "קליניקות ורופאים ברעננה וכפר סבא",
       "חנויות ומותגים לקהל משפחות",
@@ -102,22 +125,21 @@ export const LOCATION_UX_PATCHES_HE: Record<string, LocationUxPatch> = {
       "פרסום בגוגל לפי עיר וקהל, קידום מקומי, פרסום ב-Meta עם תוכן ויזואלי, ודפי נחיתה לפי סוג לקוח.",
   },
   south: {
-    ...ctaHe("דרום הארץ"),
+    ...ctaHe("דרום הארץ", 2),
     audienceItems: [
-      "מפעלים, לוגיסטיקה וספקים באשדוד",
-      "עסקי תיירות ואירוח באשקלון",
-      "חברות הייטק ושירותים בבאר שבע",
+      "מפעלים, לוגיסטיקה וספקים בערי הדרום",
+      "עסקי תיירות ואירוח בחוף הדרומי",
+      "חברות טכנולוגיה, שירותים ועסקים בערים בנגב",
       "קבלנים, שיפוצים ושירותי בית בערים הדרומיות",
       "קליניקות, רופאים ומכוני טיפול",
       "חנויות ומסעדות בשכונות ובמרכזים מסחריים",
     ],
-    audienceTitle: "למי השירות מתאים בדרום?",
     challengesTitle: "עיר, תעשייה וחוף — לכל אחד שפה אחרת בשיווק",
   },
   haifa: {
-    ...ctaHe("חיפה"),
+    ...ctaHe("חיפה", 0),
     audienceItems: [
-      "חברות הייטק וסטארטאפים במפרץ",
+      "חברות טכנולוגיה ושירותים בחיפה והסביבה",
       "מפעלים, הנדסה ושירותי תחזוקה",
       "מסעדות, בתי קפה ואירוח",
       "קליניקות, רופאים ומטפלים",
@@ -126,7 +148,7 @@ export const LOCATION_UX_PATCHES_HE: Record<string, LocationUxPatch> = {
     ],
   },
   "tel-aviv": {
-    ...ctaHe("תל אביב", "בתל אביב חשוב לדייק במסר ובמילות מפתח — נבחן יחד מה עובד לתקציב שלכם."),
+    ...ctaHe("תל אביב", 1, "בתל אביב חשוב לדייק במסר ובמילות מפתח — נבחן יחד מה עובד לתקציב שלכם."),
     audienceItems: [
       "סטארטאפים, סוכנויות וחברות שירות",
       "מסעדות, ברים ומסחר בתל אביב",
@@ -135,11 +157,10 @@ export const LOCATION_UX_PATCHES_HE: Record<string, LocationUxPatch> = {
       "משרדי נדל״ן והשכרת נכסים",
       "מסחר מקוון ומותגים שמוכרים ארצי",
     ],
-    audienceTitle: "למי השירות מתאים בתל אביב?",
     challengesTitle: "תחרות יקרה — כל קמפיין צריך מטרה ברורה",
   },
   jerusalem: {
-    ...ctaHe("ירושלים"),
+    ...ctaHe("ירושלים", 2),
     audienceItems: [
       "מוסדות, קהילות ועמותות",
       "קליניקות, מטפלים ובריאות",
@@ -150,9 +171,9 @@ export const LOCATION_UX_PATCHES_HE: Record<string, LocationUxPatch> = {
     ],
   },
   "beer-sheva": {
-    ...ctaHe("באר שבע"),
+    ...ctaHe("באר שבע", 0),
     audienceItems: [
-      "חברות הייטק בפארק",
+      "חברות טכנולוגיה ושירותים בבאר שבע",
       "קבלנים ושירותים לתושבים",
       "מסעדות, אירועים ואירוח",
       "רופאים, קליניקות וטיפולים",
@@ -161,7 +182,7 @@ export const LOCATION_UX_PATCHES_HE: Record<string, LocationUxPatch> = {
     ],
   },
   netanya: {
-    ...ctaHe("נתניה"),
+    ...ctaHe("נתניה", 1),
     audienceItems: [
       "נדל״ן, תיווך ונותני שירות לדיירים",
       "מלונות, צימרים ואירוח ליד הים",
@@ -174,9 +195,9 @@ export const LOCATION_UX_PATCHES_HE: Record<string, LocationUxPatch> = {
     midCtaBody: "נפריד בין קמפיינים לתיירים לבין שיווק לתושבים, ונכוון מודעות וקידום בגוגל בהתאם.",
   },
   "ramat-gan": {
-    ...ctaHe("רמת גן"),
+    ...ctaHe("רמת גן", 2),
     audienceItems: [
-      "משרדים, יועצים וחברות B2B במגדלים",
+      "משרדי ייעוץ, שירותים לעסקים ו-B2B",
       "רופאים, רופאי שיניים וקליניקות",
       "עורכי דין, רואי חשבון ומנהלי חשבונות",
       "חנויות ומותגים במרכזי קניות",
@@ -188,29 +209,29 @@ export const LOCATION_UX_PATCHES_HE: Record<string, LocationUxPatch> = {
       "פרסום בגוגל לחיפושים רלוונטיים, קידום מקומי, פרסום חוזר לעסקים שמחפשים שותף, ודפי נחיתה שמסבירים למה דווקא אתם.",
   },
   "petah-tikva": {
-    ...ctaHe("פתח תקווה"),
+    ...ctaHe("פתח תקווה", 0),
     audienceItems: [
       "מפעלים וספקים באזורי התעשייה",
       "קליניקות ושירותי בריאות",
       "חנויות ורשתות מסחר",
       "קבלני שיפוץ, חשמל ואינסטלציה",
-      "משרדי שירות ו-B2B",
+      "משרדי ייעוץ, שירותים לעסקים ו-B2B",
       "מסעדות ואספקת אוכל לעובדים",
     ],
   },
   "rishon-lezion": {
-    ...ctaHe("ראשון לציון"),
+    ...ctaHe("ראשון לציון", 1),
     audienceItems: [
       "שיפוצנים, טכנאים ושירותי בית",
       "מסעדות ומזון בעיר הגדולה",
       "קליניקות ובריאות",
       "חנויות ומסחר בשכונות",
       "משרדי נדל״ן ושירותים",
-      "חברות שמעדיפות לנצח מקומית לפני גוש דן",
+      "עסקים שרוצים להתמקד בקהל מקומי לפני ביטויי חיפוש של גוש דן",
     ],
   },
   holon: {
-    ...ctaHe("חולון"),
+    ...ctaHe("חולון", 2),
     audienceItems: [
       "שירותי בית: ניקיון, מנעולנים, הדברה",
       "מספרות, יופי וטיפוח",
@@ -221,7 +242,7 @@ export const LOCATION_UX_PATCHES_HE: Record<string, LocationUxPatch> = {
     ],
   },
   "bat-yam": {
-    ...ctaHe("בת ים"),
+    ...ctaHe("בת ים", 0),
     audienceItems: [
       "מסעדות ואירוח ליד החוף",
       "נדל״ן והשכרה למגורים",
@@ -232,7 +253,7 @@ export const LOCATION_UX_PATCHES_HE: Record<string, LocationUxPatch> = {
     ],
   },
   akko: {
-    ...ctaHe("עכו"),
+    ...ctaHe("עכו", 1),
     audienceItems: [
       "מסעדות ותיירות בעיר העתיקה",
       "סיורים, אירוח וחוויות",
@@ -243,7 +264,7 @@ export const LOCATION_UX_PATCHES_HE: Record<string, LocationUxPatch> = {
     ],
   },
   hadera: {
-    ...ctaHe("חדרה"),
+    ...ctaHe("חדרה", 2),
     audienceItems: [
       "עסקים בחוף הכרמל",
       "מסעדות ואירוח",
@@ -254,7 +275,7 @@ export const LOCATION_UX_PATCHES_HE: Record<string, LocationUxPatch> = {
     ],
   },
   afula: {
-    ...ctaHe("עפולה"),
+    ...ctaHe("עפולה", 0),
     audienceItems: [
       "חקלאות, מו״פ ושירותים לחקלאים",
       "מסעדות ומסחר במרכז העיר",
@@ -265,18 +286,18 @@ export const LOCATION_UX_PATCHES_HE: Record<string, LocationUxPatch> = {
     ],
   },
   herzliya: {
-    ...ctaHe("הרצליה"),
+    ...ctaHe("הרצליה", 1),
     audienceItems: [
-      "סטארטאפים וחברות הייטק",
+      "סטארטאפים וחברות טכנולוגיה",
       "משרדי ייעוץ, עורכי דין ופיננסים",
-      "מסעדות ומותגי מזון פרימיום",
+      "מסעדות ומותגי מזון",
       "קליניקות ושירותי בריאות",
-      "נדל״ן והשכרות בהרצליה פיתוח",
+      "נדל״ן והשכרות למגורים ולעסקים",
       "חברות שמוכרות ללקוחות בארץ ובחו״ל",
     ],
   },
   "kfar-saba": {
-    ...ctaHe("כפר סבא"),
+    ...ctaHe("כפר סבא", 2),
     audienceItems: [
       "שירותי בית לתושבים",
       "מספרות, יופי וטיפוח",
@@ -287,18 +308,18 @@ export const LOCATION_UX_PATCHES_HE: Record<string, LocationUxPatch> = {
     ],
   },
   raanana: {
-    ...ctaHe("רעננה"),
+    ...ctaHe("רעננה", 0),
     audienceItems: [
       "חברות הייטק ושירותים טכנולוגיים",
       "עורכי דין, יועצים ומשרדי מקצוע",
       "קליניקות ורפואה פרטית",
       "מסעדות ואירוח לקהל מקומי",
       "חנויות ומותגים",
-      "נותני שירות לתושבים באיכות גבוהה",
+      "נותני שירות מקומיים לתושבים",
     ],
   },
   ashdod: {
-    ...ctaHe("אשדוד"),
+    ...ctaHe("אשדוד", 1),
     audienceItems: [
       "תעשייה, יבוא ויצוא סביב הנמל",
       "חברות לוגיסטיקה ומחסנים",
@@ -309,7 +330,7 @@ export const LOCATION_UX_PATCHES_HE: Record<string, LocationUxPatch> = {
     ],
   },
   ashkelon: {
-    ...ctaHe("אשקלון"),
+    ...ctaHe("אשקלון", 2),
     audienceItems: [
       "תיירות ואירוח בחוף",
       "מפעלים ומסחר",
@@ -323,10 +344,10 @@ export const LOCATION_UX_PATCHES_HE: Record<string, LocationUxPatch> = {
 
 export const LOCATION_UX_PATCHES_EN: Record<string, LocationUxPatch> = {
   karmiel: {
-    ...ctaEn("Karmiel"),
+    ...ctaEn("Karmiel", 0),
     audienceItems: [
       "Contractors, electricians, and plumbers in the Galilee",
-      "Restaurants, cafés, and hospitality in Karmiel",
+      "Restaurants, cafés, and local hospitality in Karmiel",
       "Clinics, therapists, and private practices",
       "Local shops and home-service providers",
       "Law firms, accountants, and business consultants",
@@ -336,7 +357,7 @@ export const LOCATION_UX_PATCHES_EN: Record<string, LocationUxPatch> = {
       "Google Ads for urgent searches, SEO for long-term visibility, Meta when creative reach helps, and landing pages with a clear offer.",
   },
   north: {
-    ...ctaEn("Northern Israel"),
+    ...ctaEn("Northern Israel", 1),
     audienceItems: [
       "Tourism, hospitality, and restaurants in the Galilee",
       "Industrial plants and northern manufacturers",
@@ -347,7 +368,7 @@ export const LOCATION_UX_PATCHES_EN: Record<string, LocationUxPatch> = {
     ],
   },
   krayot: {
-    ...ctaEn("the Krayot"),
+    ...ctaEn("the Krayot", 2),
     audienceItems: [
       "Technicians, installers, and maintenance",
       "Salons, beauty, and cosmetics studios",
@@ -358,7 +379,7 @@ export const LOCATION_UX_PATCHES_EN: Record<string, LocationUxPatch> = {
     ],
   },
   center: {
-    ...ctaEn("Central Israel"),
+    ...ctaEn("Central Israel", 0),
     audienceItems: [
       "B2B companies and service firms in Gush Dan",
       "Importers, distributors, and wholesalers",
@@ -369,7 +390,7 @@ export const LOCATION_UX_PATCHES_EN: Record<string, LocationUxPatch> = {
     ],
   },
   sharon: {
-    ...ctaEn("the Sharon"),
+    ...ctaEn("the Sharon", 1),
     audienceItems: [
       "Hi-tech and B2B services in Herzliya",
       "Real estate and brokerage in Netanya",
@@ -380,7 +401,7 @@ export const LOCATION_UX_PATCHES_EN: Record<string, LocationUxPatch> = {
     ],
   },
   south: {
-    ...ctaEn("the South"),
+    ...ctaEn("the South", 2),
     audienceItems: [
       "Industry, logistics, and port-related businesses in Ashdod",
       "Coastal tourism and hospitality in Ashkelon",
@@ -391,9 +412,9 @@ export const LOCATION_UX_PATCHES_EN: Record<string, LocationUxPatch> = {
     ],
   },
   haifa: {
-    ...ctaEn("Haifa"),
+    ...ctaEn("Haifa", 0),
     audienceItems: [
-      "Hi-tech and startups in the bay area",
+      "Technology companies and professional services in Haifa",
       "Plants, engineering, and maintenance",
       "Restaurants, cafés, and events",
       "Clinics, doctors, and therapists",
@@ -402,7 +423,7 @@ export const LOCATION_UX_PATCHES_EN: Record<string, LocationUxPatch> = {
     ],
   },
   "tel-aviv": {
-    ...ctaEn("Tel Aviv"),
+    ...ctaEn("Tel Aviv", 1),
     audienceItems: [
       "Startups, agencies, and B2B services",
       "Restaurants, bars, and retail",
@@ -411,10 +432,9 @@ export const LOCATION_UX_PATCHES_EN: Record<string, LocationUxPatch> = {
       "Real-estate offices and rentals",
       "E-commerce and national brands",
     ],
-    audienceTitle: "Who is this for in Tel Aviv?",
   },
   jerusalem: {
-    ...ctaEn("Jerusalem"),
+    ...ctaEn("Jerusalem", 2),
     audienceItems: [
       "Institutions, communities, and nonprofits",
       "Clinics, therapists, and healthcare",
@@ -425,9 +445,9 @@ export const LOCATION_UX_PATCHES_EN: Record<string, LocationUxPatch> = {
     ],
   },
   "beer-sheva": {
-    ...ctaEn("Beer Sheva"),
+    ...ctaEn("Beer Sheva", 0),
     audienceItems: [
-      "Hi-tech park companies",
+      "Technology and service companies in Beer Sheva",
       "Contractors and home services",
       "Restaurants, events, and hospitality",
       "Clinics and medical practices",
@@ -436,7 +456,7 @@ export const LOCATION_UX_PATCHES_EN: Record<string, LocationUxPatch> = {
     ],
   },
   netanya: {
-    ...ctaEn("Netanya"),
+    ...ctaEn("Netanya", 1),
     audienceItems: [
       "Real estate, brokerage, and resident services",
       "Hotels, guesthouses, and coastal hospitality",
@@ -447,7 +467,7 @@ export const LOCATION_UX_PATCHES_EN: Record<string, LocationUxPatch> = {
     ],
   },
   "ramat-gan": {
-    ...ctaEn("Ramat Gan"),
+    ...ctaEn("Ramat Gan", 2),
     audienceItems: [
       "B2B offices and consultants in towers",
       "Doctors, dentists, and clinics",
@@ -460,7 +480,7 @@ export const LOCATION_UX_PATCHES_EN: Record<string, LocationUxPatch> = {
       "Google Ads for relevant searches, local SEO, follow-up ads for warm audiences, and landing pages that explain your edge.",
   },
   "petah-tikva": {
-    ...ctaEn("Petah Tikva"),
+    ...ctaEn("Petah Tikva", 0),
     audienceItems: [
       "Industrial suppliers and plants",
       "Clinics and healthcare",
@@ -471,7 +491,7 @@ export const LOCATION_UX_PATCHES_EN: Record<string, LocationUxPatch> = {
     ],
   },
   "rishon-lezion": {
-    ...ctaEn("Rishon LeZion"),
+    ...ctaEn("Rishon LeZion", 1),
     audienceItems: [
       "Trades and home services",
       "Restaurants in a large mixed city",
@@ -482,7 +502,7 @@ export const LOCATION_UX_PATCHES_EN: Record<string, LocationUxPatch> = {
     ],
   },
   holon: {
-    ...ctaEn("Holon"),
+    ...ctaEn("Holon", 2),
     audienceItems: [
       "Home services: cleaning, locksmiths, pest control",
       "Salons, beauty, and grooming",
@@ -493,7 +513,7 @@ export const LOCATION_UX_PATCHES_EN: Record<string, LocationUxPatch> = {
     ],
   },
   "bat-yam": {
-    ...ctaEn("Bat Yam"),
+    ...ctaEn("Bat Yam", 0),
     audienceItems: [
       "Coastal restaurants and hospitality",
       "Residential real estate and rentals",
@@ -504,7 +524,7 @@ export const LOCATION_UX_PATCHES_EN: Record<string, LocationUxPatch> = {
     ],
   },
   akko: {
-    ...ctaEn("Akko"),
+    ...ctaEn("Akko", 1),
     audienceItems: [
       "Old City restaurants and tourism",
       "Tours, hospitality, and experiences",
@@ -515,7 +535,7 @@ export const LOCATION_UX_PATCHES_EN: Record<string, LocationUxPatch> = {
     ],
   },
   hadera: {
-    ...ctaEn("Hadera"),
+    ...ctaEn("Hadera", 2),
     audienceItems: [
       "Coastal Carmel businesses",
       "Restaurants and events",
@@ -526,7 +546,7 @@ export const LOCATION_UX_PATCHES_EN: Record<string, LocationUxPatch> = {
     ],
   },
   afula: {
-    ...ctaEn("Afula"),
+    ...ctaEn("Afula", 0),
     audienceItems: [
       "Agriculture and agri-services",
       "City-center restaurants and retail",
@@ -537,7 +557,7 @@ export const LOCATION_UX_PATCHES_EN: Record<string, LocationUxPatch> = {
     ],
   },
   herzliya: {
-    ...ctaEn("Herzliya"),
+    ...ctaEn("Herzliya", 1),
     audienceItems: [
       "Startups and hi-tech",
       "Consulting, legal, and finance offices",
@@ -548,7 +568,7 @@ export const LOCATION_UX_PATCHES_EN: Record<string, LocationUxPatch> = {
     ],
   },
   "kfar-saba": {
-    ...ctaEn("Kfar Saba"),
+    ...ctaEn("Kfar Saba", 2),
     audienceItems: [
       "Home services for residents",
       "Salons and beauty",
@@ -559,7 +579,7 @@ export const LOCATION_UX_PATCHES_EN: Record<string, LocationUxPatch> = {
     ],
   },
   raanana: {
-    ...ctaEn("Ra'anana"),
+    ...ctaEn("Ra'anana", 0),
     audienceItems: [
       "Tech and professional services",
       "Law, consulting, and finance",
@@ -570,7 +590,7 @@ export const LOCATION_UX_PATCHES_EN: Record<string, LocationUxPatch> = {
     ],
   },
   ashdod: {
-    ...ctaEn("Ashdod"),
+    ...ctaEn("Ashdod", 1),
     audienceItems: [
       "Port-related industry and import/export",
       "Logistics and warehouses",
@@ -581,7 +601,7 @@ export const LOCATION_UX_PATCHES_EN: Record<string, LocationUxPatch> = {
     ],
   },
   ashkelon: {
-    ...ctaEn("Ashkelon"),
+    ...ctaEn("Ashkelon", 2),
     audienceItems: [
       "Coastal tourism and hospitality",
       "Industry and trade",

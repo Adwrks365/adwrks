@@ -30,7 +30,8 @@ const HE_RULES: [RegExp, string][] = [
   [/יותר לידים, פחות חשיפה/g, "יותר פניות רלוונטיות, פחות בזבוז על חשיפה"],
   [/פחות קליקים מגוש דן — יותר לידים מקומיים/g, "פחות בזבוז על גולשים מחוץ לאזור — יותר פניות מקומיות"],
   [/נכוון מודעות ו-SEO לקהל הנכון/g, "נכוון את המודעות ואת הקידום בגוגל לקהל שמתאים לכם באמת"],
-  [/נפריד קהלים ונמדוד ROI לפי עיר/g, "נפריד בין קהלים שונים ונמדיד תוצאות לפי כל עיר"],
+  [/נפריד קהלים ונמדוד ROI לפי עיר/g, "נפריד בין קהלים שונים ונמדוד תוצאות לפי כל עיר"],
+  [/נפריד קהלים ונמדיד תוצאות/g, "נפריד בין קהלים שונים ונמדוד תוצאות"],
   [/תוכנית מרחוק עם ROI ברור/g, "תוכנית מרחוק עם יעדים ומדידה ברורים"],
   [/nurturing/gi, "טיפוח לאורך זמן"],
   [/product-market fit/gi, "התאמה בין המוצר לקהל"],
@@ -39,6 +40,7 @@ const HE_RULES: [RegExp, string][] = [
   [/PPC ו-SEO בתחרות יקרה, עם מסר חד ו-ROI/g, "פרסום ממומן וקידום אורגני בתחרות גבוהה, עם מסר ברור ומדידה"],
   [/Ads בעונה, SEO מקומי, Meta לvisual/g, "מודעות מותאמות לעונה, קידום מקומי בגוגל ופרסום ויזואלי ב-Meta"],
   [/Meta לעונות, Search לכוונה/g, "פרסום עונתי ב-Meta וחיפוש בגוגל ללקוחות עם כוונה"],
+  [/קפות ואירוח/g, "בתי קפה ומקומות אירוח"],
 ];
 
 const EN_RULES: [RegExp, string][] = [
@@ -63,9 +65,38 @@ export function polishLocationText(text: string, locale: "he" | "en"): string {
   let out = text;
   const rules = locale === "he" ? HE_RULES : EN_RULES;
   for (const [re, rep] of rules) {
-    out = typeof rep === "string" ? out.replace(re, rep) : out.replace(re, rep);
+    out = out.replace(re, rep);
   }
   return out;
+}
+
+type FaqItem = { q: string; a: string };
+type Block = { title: string; text: string };
+type Step = { title: string; text: string };
+
+function polishStringArray(items: string[], locale: "he" | "en"): string[] {
+  return items.map((item) => polishLocationText(item, locale));
+}
+
+function polishFaq(items: FaqItem[], locale: "he" | "en"): void {
+  for (const item of items) {
+    item.q = polishLocationText(item.q, locale);
+    item.a = polishLocationText(item.a, locale);
+  }
+}
+
+function polishBlocks(items: Block[], locale: "he" | "en"): void {
+  for (const block of items) {
+    block.title = polishLocationText(block.title, locale);
+    block.text = polishLocationText(block.text, locale);
+  }
+}
+
+function polishSteps(items: Step[], locale: "he" | "en"): void {
+  for (const step of items) {
+    step.title = polishLocationText(step.title, locale);
+    step.text = polishLocationText(step.text, locale);
+  }
 }
 
 export function polishStringFields<T extends Record<string, unknown>>(
@@ -77,25 +108,18 @@ export function polishStringFields<T extends Record<string, unknown>>(
     if (skipKeys.has(key)) continue;
     if (typeof val === "string") {
       (row as Record<string, string>)[key] = polishLocationText(val, locale);
-    } else if (Array.isArray(val)) {
-      (row as Record<string, unknown>)[key] = val.map((item) =>
-        typeof item === "string" ? polishLocationText(item, locale) : item,
-      );
-    } else if (val && typeof val === "object" && key === "serviceBlocks") {
-      for (const block of val as { title: string; text: string }[]) {
-        block.title = polishLocationText(block.title, locale);
-        block.text = polishLocationText(block.text, locale);
-      }
-    } else if (val && typeof val === "object" && key === "workSteps") {
-      for (const step of val as { title: string; text: string }[]) {
-        step.title = polishLocationText(step.title, locale);
-        step.text = polishLocationText(step.text, locale);
-      }
-    } else if (val && typeof val === "object" && key === "faq") {
-      for (const item of val as { q: string; a: string }[]) {
-        item.q = polishLocationText(item.q, locale);
-        item.a = polishLocationText(item.a, locale);
-      }
+      continue;
+    }
+    if (!Array.isArray(val)) continue;
+
+    if (key === "faq") {
+      polishFaq(val as FaqItem[], locale);
+    } else if (key === "serviceBlocks") {
+      polishBlocks(val as Block[], locale);
+    } else if (key === "workSteps") {
+      polishSteps(val as Step[], locale);
+    } else {
+      (row as Record<string, unknown>)[key] = polishStringArray(val as string[], locale);
     }
   }
 }

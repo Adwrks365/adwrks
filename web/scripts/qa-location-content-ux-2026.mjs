@@ -6,6 +6,7 @@ import { LOCATION_ROUTES } from "../src/lib/pages/locations/paths.ts";
 import { getHubView, getLocationView } from "../src/lib/pages/locations/registry.ts";
 import { LOCATION_SEO_META_EN, LOCATION_SEO_META_HE } from "../src/lib/pages/locations/location-seo-meta-2026.ts";
 
+const TYPO_HE = [/קפות/, /נמדיד/];
 const BANNED_HE = [
   /Search לכוונה/,
   /נבדוק tracking/,
@@ -34,6 +35,12 @@ for (const route of LOCATION_ROUTES) {
     const banned = locale === "he" ? BANNED_HE : BANNED_EN;
     walkStrings(copy, (field, text) => {
       if (field === "seoTitle" || field === "seoDescription") return;
+      for (const re of TYPO_HE) {
+        if (re.test(text)) {
+          console.error("FAIL typo", route.id, locale, field, text.slice(0, 80));
+          failed++;
+        }
+      }
       for (const re of banned) {
         if (re.test(text)) {
           console.error("FAIL banned", route.id, locale, field, text.slice(0, 80));
