@@ -142,9 +142,12 @@
     },
     {
       "postId": 21716,
-      "locales": { "he": "2026-11-19T14:00:00+02:00" },
-      "source": "batch4-2026",
-      "note": "Batch4 — reading UX: lead/FAQ rewrite + trimmed duplicate pitch blocks"
+      "locales": {
+        "he": "2026-11-19T14:00:00+02:00",
+        "en": "2026-11-20T10:00:00+02:00"
+      },
+      "source": "batch4-2026+batch7-2026",
+      "note": "Shared WP postId (HE choosing-agency + EN pair) — per-locale content revisions"
     },
     {
       "postId": 21115,
@@ -241,12 +244,6 @@
       "locales": { "en": "2026-11-20T10:00:00+02:00" },
       "source": "batch7-2026",
       "note": "Batch7 — remarketing lead/FAQ"
-    },
-    {
-      "postId": 21716,
-      "locales": { "en": "2026-11-20T10:00:00+02:00" },
-      "source": "batch7-2026",
-      "note": "Batch7 — choosing agency lead/FAQ"
     }
   ]
 }

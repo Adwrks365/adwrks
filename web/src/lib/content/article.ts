@@ -10,6 +10,7 @@ import { applyArticleBatch5StructurePolish } from "@/lib/content/article-batch5-
 import { applyArticleBatch6Enrichment2026 } from "@/lib/content/article-batch6-enrichment-2026";
 import { applyArticleBatch6StructurePolish } from "@/lib/content/article-batch6-structure-polish";
 import { applyArticleBatch7Enrichment2026 } from "@/lib/content/article-batch7-enrichment-2026";
+import { applyArticleBatch7StructurePolish } from "@/lib/content/article-batch7-structure-polish";
 import { applyArticleReadingPolishShared } from "@/lib/content/article-reading-polish-shared";
 import { applyArticleFaqAccordionPresentation } from "@/lib/content/article-faq-accordion";
 import { applyPilot2026BodyPolish } from "@/lib/content/article-pilot-2026-body-polish";
@@ -276,6 +277,7 @@ export function prepareArticleBodyHtml(
     html = applyArticleBatch6Enrichment2026(html, pagePath, locale);
     html = applyArticleBatch6StructurePolish(html, pagePath, locale);
     html = applyArticleBatch7Enrichment2026(html, pagePath, locale);
+    html = applyArticleBatch7StructurePolish(html, pagePath, locale);
     html = applyArticleReadingPolishShared(html, pagePath, locale);
     html = applyPilot2026BodyPolish(html, pagePath, locale);
     html = consolidateDuplicateFaqSections(html, locale);
