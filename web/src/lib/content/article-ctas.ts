@@ -109,8 +109,29 @@ export function repairArticleCtaLinks(html: string): string {
   });
 }
 
+const CONTACT_CTA_HREF_RE = /(^#($|[?#])|contact|check-fit|יצירת-קשר|contact-us)/i;
+const CONTACT_CTA_LABEL_RE =
+  /(צור קשר|יצירת קשר|להתייעצות|דברו איתנו|השאירו פרטים|התייעצו|contact us|get in touch|talk to us|book a call)/i;
+
+const BUTTON_WIDGET_RE =
+  /<div class="elementor-element[^"]*\belementor-widget-button\b[^"]*"[^>]*>\s*<a\s([^>]*)>([\s\S]*?)<\/a>\s*<\/div>/gi;
+
 const REPAIRED_BUTTON_WIDGET_RE =
   /<div class="elementor-element[^"]*\belementor-widget-button\b[^"]*"[^>]*>\s*<a\s[^>]*\bdata-open-contextual-popup="true"[^>]*>[\s\S]*?<\/a>\s*<\/div>/gi;
+
+/** Contact / lead-popup Elementor buttons in article body (not ordinary text links). */
+export function isArticleContactCtaButton(attrs: string, innerHtml: string): boolean {
+  if (isRepairedArticleCtaAnchor(attrs)) return true;
+  const href = readHref(attrs);
+  if (CONTACT_CTA_HREF_RE.test(href)) return true;
+  const label = extractButtonLabel(innerHtml);
+  return CONTACT_CTA_LABEL_RE.test(label);
+}
+
+function alreadyInInlineCtaBlock(html: string, index: number): boolean {
+  const window = html.slice(Math.max(0, index - 200), index);
+  return window.includes("article-inline-cta-block");
+}
 
 const REPAIRED_PRICE_TABLE_FOOTER_RE =
   /<div class="elementor-price-table__footer">\s*(<a\s[^>]*\bdata-open-contextual-popup="true"[^>]*>[\s\S]*?<\/a>)\s*<\/div>/gi;
@@ -126,8 +147,10 @@ export function wrapRepairedArticleCtaBlocks(html: string): string {
   const spans: Array<{ start: number; end: number; solo: boolean }> = [];
   let match: RegExpExecArray | null;
 
-  REPAIRED_BUTTON_WIDGET_RE.lastIndex = 0;
-  while ((match = REPAIRED_BUTTON_WIDGET_RE.exec(html)) !== null) {
+  BUTTON_WIDGET_RE.lastIndex = 0;
+  while ((match = BUTTON_WIDGET_RE.exec(html)) !== null) {
+    if (alreadyInInlineCtaBlock(html, match.index)) continue;
+    if (!isArticleContactCtaButton(match[1], match[2])) continue;
     const before = html.slice(Math.max(0, match.index - 1200), match.index);
     const heading = before.match(HEADING_WIDGET_TAIL_RE);
     const start = heading ? match.index - heading[0].length : match.index;

@@ -41,6 +41,19 @@ Generated: 2026-11-19T11:39:48.220Z
 - **4** `/en/digital-marketing-agency-carmiel/` (en, id 21392) — missing-lead, missing-faq
 - **4** `/en/google-maps-advertising/` (en, id 20155) — missing-lead, missing-faq
 
-## Pilot batch (this PR)
+## Pilot batch (PR #10 — batch5-pilot-2026)
 
-See `article-pilot-enrichment-2026.ts` — 5 Hebrew posts (not PR #2 trio).
+| Path | postId | Rationale |
+|------|--------|-----------|
+| `/ניהול-עסק-בעידן-הדיגיטלי/` | 20051 | Core strategy topic, missing lead/FAQ in audit |
+| `/יועץ-שיווק-באינטרנט/` | 20081 | High-intent consulting, stale modified |
+| `/יועץ-אינטרנט/` | 20029 | Related cluster, complements 20081 |
+| `/אחסון-אתרים-מנוהל/` | 19933 | Hosting/service intent, no batch2 lead |
+| `/החשיבות-של-משרד-פרסום-דיגיטלי/` | 19281 | Agency funnel, no prior enrichment |
+| `/en/managing-business-digital-age/` | 20051 | EN pair for shared-component regression |
+
+**Shared CSS (all blog posts):** `article-ctas.ts` wrap + `.article-inline-cta-block` centering in `globals.css`.
+
+**Already enriched (do not re-edit content except shared CSS):** Batch4, Batch3, Batch2 maps, `article-pilot-enrichment-2026.ts`.
+
+**Still missing quality lead (after batch5):** ~24 HE + EN pilots — regenerate audit after merge.
