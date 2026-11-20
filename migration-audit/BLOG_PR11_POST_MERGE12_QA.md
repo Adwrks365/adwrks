@@ -58,7 +58,9 @@
 | `audit-blog-rollout-status.mjs` | total **108**, enriched **46** |
 | `qa-blog-rollout-batch67.mjs` | 10/10 OK (אזהרות CTA ללא wrap inline — תקין; CTA ב־`ArticleEndSection`) |
 | `qa-blog-cta-centering.mjs` | OK |
-| `qa-blog-reading-ux.mjs` | **כשל ידוע** — `/כך-בוחרים-חברה-לשיווק-דיגיטלי/` `dateModified` עדיין `2026-05-13` (Batch4, לפני PR #11); לא נגענו בתוכן מאמר זה |
+| `qa-blog-reading-ux.mjs` | OK (אחרי תיקון `postId` 21716) |
+| `qa-article-revisions-21716.mjs` | OK — תאריכים נפרדים HE/EN |
+| `audit-batch67-content-quality.mjs` | 10/10 OK |
 
 ## 6. Batch6–7 — רשימת מאמרים שנבדקו
 
@@ -74,7 +76,24 @@
 - תיקון סלקטורים Playwright ל־`.article-body-html` ו־`article-cta-band`.
 - הבהרת כותרת תוכנית rollout ל־108 routable posts.
 
+## 8. השוואת strip hooks (לפני Merge)
+
+בדיקה ממוקדת ב־`stripInlineCtaBlocks` ו־`stripLegacyH4ClosingSummary` (ללא שלבי pitch/H2 נוספים).
+
+**מקור:** `migration-audit/BLOG_PR11_STRIP_HOOKS_DIFF.md` · הרצה: `web/scripts/compare-batch67-strip-hooks.mjs`
+
+| מנגנון | מאמר | תוצאה |
+|--------|------|--------|
+| `stripInlineCtaBlocks` | `/en/what-is-internet-marketing/` | הוסרו 2 בלוקי CTA באמצע; 0 תמונות; FAQ section שלם |
+| `stripInlineCtaBlocks` | `/en/remarketing-guide/` | הוסרו 3 בלוקי CTA; 0 תמונות; FAQ שלם |
+| `stripLegacyH4ClosingSummary` | `/כוחם-של-ביקורות-והמלצות/` | הוסר רק H4 «לסיכום:» + פסקאות עד FAQ; ללא תמונות; FAQ שלם |
+
+פירוט HTML שהוסר: `migration-audit/pr11-strip-hooks-diff/*-removed.html`
+
+**מסקנה:** ✅ אין פגיעה במקטעי תוכן, תמונות או קישורי גוף מחוץ לבלוקים שהוסרו.
+
 ---
 
-**קומיט אחרון:** `c535f28` — *QA: full batch6-7 visual pass after main merge (PR #12)*  
+**קומיט אחרון (תוכן + תאריכים):** `bbdf5b9`  
+**PR:** https://github.com/Adwrks365/adwrks/pull/11  
 (מיזוג main: `9073617`)
