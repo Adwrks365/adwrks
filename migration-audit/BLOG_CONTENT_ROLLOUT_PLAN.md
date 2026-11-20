@@ -158,13 +158,17 @@ Generated: 2026-11-20T06:59:08.422Z
 
 Merged in PR (pending): lead + FAQ + structure polish for 5 posts — see `BLOG_BATCH8_REPORT.md`.
 
-### batch9-planned (5 posts)
+### batch9-complete (2026-11-20)
 
-- `/צמיחה-עסקית-באמצעות-קידום-באינטרנט/` (he, id 19100) — needs-content
-- `/en/google-business-profile/` (en, id 14288) — needs-content
-- `/en/google-business-promotion-guide/` (en, id 19121) — needs-content
-- `/en/business-growth-through-seo/` (en, id 19100) — needs-content
-- `/en/digital-marketing-agency-maximize/` (en, id 18480) — needs-content
+Lead + FAQ + targeted polish for 5 posts — see `BLOG_BATCH9_REPORT.md`.
+
+- `/צמיחה-עסקית-באמצעות-קידום-באינטרנט/` (he, id 19100)
+- `/en/google-business-profile/` (en, id 14288)
+- `/en/google-business-promotion-guide/` (en, id 19121)
+- `/en/business-growth-through-seo/` (en, id 19100)
+- `/en/digital-marketing-agency-maximize/` (en, id 18480)
+
+**Rollout tally (registry):** enriched **56 / 108** · needs full **48** · needs partial **4**
 
 ## Google Sheets rows (copy)
 

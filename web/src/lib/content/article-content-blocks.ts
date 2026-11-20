@@ -82,10 +82,8 @@ const INJECTED_FAQ_SECTION_RE =
 
 /** Replace runtime lead block or inject if missing. */
 export function upsertArticleLead(html: string, block: string): string {
-  if (LEAD_ASIDE_RE.test(html)) {
-    return html.replace(LEAD_ASIDE_RE, block);
-  }
-  return injectArticleLead(html, block);
+  const withoutPrior = html.replace(LEAD_ASIDE_RE, "");
+  return injectArticleLead(withoutPrior, block);
 }
 
 /** Replace injected FAQ section or append if missing. */
@@ -102,10 +100,41 @@ export function upsertArticleFaq(
 
 export { consolidateDuplicateFaqSections } from "@/lib/content/article-faq-consolidate";
 
+function sectionOpenTagBefore(html: string, position: number): string {
+  const sectionStart = html.lastIndexOf("<section", position);
+  if (sectionStart === -1) return "";
+  const sectionEnd = html.indexOf(">", sectionStart);
+  if (sectionEnd === -1) return "";
+  return html.slice(sectionStart, sectionEnd + 1);
+}
+
+/** Skip Elementor sections hidden on desktop (lead must be visible without scroll hacks). */
+function isElementorSectionHiddenOnDesktop(sectionOpenTag: string): boolean {
+  return /elementor-hidden-desktop/i.test(sectionOpenTag);
+}
+
+function findVisibleLeadInjectionPoint(html: string, needle: string): number {
+  let searchFrom = 0;
+  while (searchFrom < html.length) {
+    const idx = html.indexOf(needle, searchFrom);
+    if (idx === -1) return -1;
+    const sectionTag = sectionOpenTagBefore(html, idx);
+    if (!sectionTag || !isElementorSectionHiddenOnDesktop(sectionTag)) {
+      return idx + needle.length;
+    }
+    searchFrom = idx + needle.length;
+  }
+  return -1;
+}
+
 /** Insert lead once, right after the main Elementor content wrap opens. */
 export function injectArticleLead(html: string, block: string): string {
   if (html.includes(ARTICLE_LEAD_MARKER)) return html;
   const needle = '<div class="elementor-widget-wrap elementor-element-populated">';
+  const visibleAt = findVisibleLeadInjectionPoint(html, needle);
+  if (visibleAt !== -1) {
+    return `${html.slice(0, visibleAt)}${block}${html.slice(visibleAt)}`;
+  }
   let idx = html.indexOf(needle);
   if (idx === -1) {
     const populated = html.indexOf('elementor-element-populated">');

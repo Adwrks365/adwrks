@@ -1,5 +1,7 @@
 /** Strip legacy WordPress/Elementor contact/footer blocks from article body HTML. */
 
+import { stripBalancedDivFrom } from "@/lib/content/article-html-sanitize";
+
 const LEGACY_CONTACT_SECTION_MARKERS = [
   "דרכים ליצירת קשר",
   "אנחנו כאן לכל שאלה, בדרך הנוחה ביותר עבורך",
@@ -30,11 +32,15 @@ function hasVisibleElementorContent(sectionHtml: string): boolean {
   return false;
 }
 
-function isLegacyContactSection(sectionHtml: string): boolean {
-  if (LEGACY_CONTACT_SECTION_MARKERS.some((marker) => sectionHtml.includes(marker))) {
-    return true;
-  }
+/** Whole top-level sections that look like articles — not dedicated contact footers. */
+function isSubstantiveArticleSection(sectionHtml: string): boolean {
+  const h3Count = (sectionHtml.match(/<h3[\s>]/gi) ?? []).length;
+  const h2Count = (sectionHtml.match(/<h2[\s>]/gi) ?? []).length;
+  const paragraphCount = (sectionHtml.match(/<p[^>]*>[\s\S]*?\S[\s\S]*?<\/p>/gi) ?? []).length;
+  return h3Count >= 2 || h2Count >= 2 || paragraphCount >= 5;
+}
 
+function hasLegacyContactSignals(sectionHtml: string): boolean {
   const hasOfficePhone =
     /tel:0795599449|tel:079-5599449|079-55-99-449|079-5599449/i.test(sectionHtml);
   const hasSocialWidget = /elementor-social-icon|elementor-widget-social-icons/i.test(
@@ -46,12 +52,108 @@ function isLegacyContactSection(sectionHtml: string): boolean {
     /שעות פתיחה[\s\S]{0,400}09:00|שעות פתיחה[\s\S]{0,400}א['']-ה['']/i.test(
       sectionHtml,
     );
+  return (
+    LEGACY_CONTACT_SECTION_MARKERS.some((marker) => sectionHtml.includes(marker)) ||
+    (hasOfficePhone && (hasSocialWidget || hasPartnerBadge || hasOfficeHoursBlock))
+  );
+}
 
-  if (hasOfficePhone && (hasSocialWidget || hasPartnerBadge || hasOfficeHoursBlock)) {
-    return true;
+function isLegacyContactSection(sectionHtml: string): boolean {
+  if (!hasLegacyContactSignals(sectionHtml)) return false;
+  if (isSubstantiveArticleSection(sectionHtml)) return false;
+  return true;
+}
+
+function sliceBalancedElementorWidget(html: string, startIndex: number): string | null {
+  const after = stripBalancedDivFrom(html, startIndex);
+  if (after.length >= html.length) return null;
+  return html.slice(startIndex, startIndex + (html.length - after.length));
+}
+
+/** Opening tag for a leaf Elementor widget — not column / container / widget-wrap. */
+const ELEMENTOR_WIDGET_ROOT_OPEN_RE =
+  /<div class="elementor-element\b[^>]*\belementor-widget\s+elementor-widget-[\w-]+\b[^>]*>/gi;
+
+const LEGACY_CONTACT_WIDGET_TYPES = [
+  "elementor-widget-text-editor",
+  "elementor-widget-form",
+  "elementor-widget-social-icons",
+  "elementor-widget-icon-list",
+  "elementor-widget-html",
+] as const;
+
+function isLegacyContactWidgetRoot(openTag: string, widgetHtml: string): boolean {
+  if (/elementor-column\b|elementor-container\b|elementor-widget-wrap\b/i.test(openTag)) {
+    return false;
   }
+  if (!/\belementor-widget\s+elementor-widget-[\w-]+\b/i.test(openTag)) return false;
+  return LEGACY_CONTACT_WIDGET_TYPES.some((t) => widgetHtml.includes(t));
+}
 
-  return false;
+/** Remove matching Elementor widget roots one at a time (balanced `<div>`). */
+function stripElementorWidgetsWhere(
+  html: string,
+  shouldStrip: (widgetHtml: string, openTag: string) => boolean,
+): string {
+  let result = html;
+  let safety = 0;
+  while (safety++ < 40) {
+    ELEMENTOR_WIDGET_ROOT_OPEN_RE.lastIndex = 0;
+    let removed = false;
+    let m: RegExpExecArray | null;
+    while ((m = ELEMENTOR_WIDGET_ROOT_OPEN_RE.exec(result)) !== null) {
+      const start = m.index;
+      const openTag = m[0];
+      const widget = sliceBalancedElementorWidget(result, start);
+      if (!widget) continue;
+      if (!shouldStrip(widget, openTag)) continue;
+      const next = stripBalancedDivFrom(result, start);
+      if (next.length === result.length) continue;
+      result = next;
+      removed = true;
+      break;
+    }
+    if (!removed) break;
+  }
+  return result;
+}
+
+/** Strip contact/footer widgets inside article sections — keep professional body copy. */
+function stripLegacyContactWidgetsInSection(sectionHtml: string): string {
+  let result = stripElementorFormWidgets(sectionHtml);
+  result = stripElementorWidgetsWhere(
+    result,
+    (w, open) => /elementor-widget-social-icons/i.test(w) && isLegacyContactWidgetRoot(open, w),
+  );
+  result = stripElementorWidgetsWhere(
+    result,
+    (w, open) =>
+      /elementor-widget-icon-list/i.test(w) &&
+      /tel:\s*0?79/i.test(w) &&
+      isLegacyContactWidgetRoot(open, w),
+  );
+  for (const marker of LEGACY_CONTACT_SECTION_MARKERS) {
+    if (!result.includes(marker)) continue;
+    result = stripElementorWidgetsWhere(
+      result,
+      (w, open) =>
+        w.includes(marker) &&
+        isLegacyContactWidgetRoot(open, w) &&
+        LEGACY_CONTACT_WIDGET_TYPES.some((t) => w.includes(t)),
+    );
+  }
+  return result;
+}
+
+function stripLegacyContactWidgetsFromSubstantiveSections(html: string): string {
+  const sectionPattern =
+    /<section\s[^>]*class="[^"]*elementor-top-section[^"]*"[^>]*>[\s\S]*?<\/section>/gi;
+  return html.replace(sectionPattern, (section) => {
+    if (!isSubstantiveArticleSection(section) || !hasLegacyContactSignals(section)) {
+      return section;
+    }
+    return stripLegacyContactWidgetsInSection(section);
+  });
 }
 
 function isEmptyTopLevelSection(sectionHtml: string): boolean {
@@ -110,7 +212,7 @@ export function stripElementorFormWidgets(html: string): string {
 
 /** Remove legacy contact/form/footer Elementor sections (not keyword SEO blocks). */
 export function stripLegacyArticleContactBlocks(html: string): string {
-  let result = html;
+  let result = stripLegacyContactWidgetsFromSubstantiveSections(html);
   let previous = "";
   let safety = 0;
 
