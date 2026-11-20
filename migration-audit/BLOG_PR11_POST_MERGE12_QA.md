@@ -76,4 +76,5 @@
 
 ---
 
-**קומיט אחרון לדוח זה:** ראה `git log -1` בענף לאחר push QA.
+**קומיט אחרון:** `c535f28` — *QA: full batch6-7 visual pass after main merge (PR #12)*  
+(מיזוג main: `9073617`)
