@@ -20,6 +20,10 @@ for (const route of LOCATION_ROUTES) {
       console.error("FAIL brand title", route.id, locale);
       failed++;
     }
+    if (locale === "he" && /חברה לפרסום/.test(copy.seoTitle)) {
+      console.error("FAIL awkward he title", route.id, copy.seoTitle);
+      failed++;
+    }
     if (locale === "en" && !copy.seoDescription.includes("Adwrks 365")) {
       console.error("FAIL brand desc", route.id, locale);
       failed++;
