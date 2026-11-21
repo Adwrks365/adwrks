@@ -86,6 +86,26 @@ export function upsertArticleLead(html: string, block: string): string {
   return injectArticleLead(withoutPrior, block);
 }
 
+/** PageSpeed posts: place lead after the interactive tool so it is not trapped in a hidden Elementor column. */
+export function upsertArticleLeadAfterPagespeedTool(html: string, block: string): string {
+  const withoutPrior = html.replace(LEAD_ASIDE_RE, "");
+  const marker = "data-adwrks-pagespeed-insights";
+  const idx = withoutPrior.indexOf(marker);
+  if (idx === -1) return injectArticleLead(withoutPrior, block);
+
+  let probe = withoutPrior.indexOf("</section>", idx);
+  if (probe === -1) {
+    probe = withoutPrior.indexOf("</div>", idx);
+    for (let depth = 0; depth < 4 && probe !== -1; depth++) {
+      probe = withoutPrior.indexOf("</div>", probe + 6);
+    }
+  } else {
+    probe += "</section>".length;
+  }
+  if (probe === -1) return injectArticleLead(withoutPrior, block);
+  return `${withoutPrior.slice(0, probe)}${block}${withoutPrior.slice(probe)}`;
+}
+
 /** Replace injected FAQ section or append if missing. */
 export function upsertArticleFaq(
   html: string,

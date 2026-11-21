@@ -1,4 +1,5 @@
 import { PRICING_CALCULATOR_EMBED_SLOT } from "@/lib/calculators/pricing-calculator-data";
+import { stripBalancedDivFrom } from "@/lib/content/article-html-sanitize";
 import { ROI_CALCULATOR_EMBED_SLOT } from "@/lib/calculators/roi-calculator-data";
 import { consolidateDuplicateFaqSections } from "@/lib/content/article-content-blocks";
 import { applyArticleBatch2Enrichment2026 } from "@/lib/content/article-batch2-enrichment-2026";
@@ -15,6 +16,8 @@ import { applyArticleBatch8Enrichment2026 } from "@/lib/content/article-batch8-e
 import { applyArticleBatch8StructurePolish } from "@/lib/content/article-batch8-structure-polish";
 import { applyArticleBatch9Enrichment2026 } from "@/lib/content/article-batch9-enrichment-2026";
 import { applyArticleBatch9StructurePolish } from "@/lib/content/article-batch9-structure-polish";
+import { applyArticleFinalRolloutEnrichment2026 } from "@/lib/content/article-final-rollout-enrichment-2026";
+import { applyArticleFinalRolloutStructurePolish } from "@/lib/content/article-final-rollout-structure-polish";
 import { applyArticleReadingPolishShared } from "@/lib/content/article-reading-polish-shared";
 import { applyArticleFaqAccordionPresentation } from "@/lib/content/article-faq-accordion";
 import { applyPilot2026BodyPolish } from "@/lib/content/article-pilot-2026-body-polish";
@@ -238,11 +241,64 @@ export function replaceBrokenCalculatorEmbeds(html: string): string {
     );
 }
 
+const ELEMENTOR_WIDGET_ROOT_OPEN_RE =
+  /<div class="elementor-element\b[^>]*\belementor-widget\s+elementor-widget-[\w-]+\b[^>]*>/gi;
+
+const LEGACY_PRICING_HTML_MARKERS =
+  /siteCostCalculator|calculator-container|Website construction cost calculator/i;
+
+function sliceBalancedElementorWidget(html: string, startIndex: number): string | null {
+  const after = stripBalancedDivFrom(html, startIndex);
+  if (after.length >= html.length) return null;
+  return html.slice(startIndex, startIndex + (html.length - after.length));
+}
+
+function isLegacyPricingHtmlWidget(openTag: string, widgetHtml: string): boolean {
+  if (!/\belementor-widget-html\b/i.test(openTag)) return false;
+  if (/elementor-column\b|elementor-container\b|elementor-widget-wrap\b/i.test(openTag)) {
+    return false;
+  }
+  return LEGACY_PRICING_HTML_MARKERS.test(widgetHtml);
+}
+
+/** Legacy Elementor HTML widgets shipped a full mini-document calculator — swap for the React embed. */
+export function replaceLegacyInlinePricingCalculator(html: string): string {
+  if (!LEGACY_PRICING_HTML_MARKERS.test(html)) {
+    return html;
+  }
+  let result = html;
+  let safety = 0;
+  while (safety++ < 24) {
+    ELEMENTOR_WIDGET_ROOT_OPEN_RE.lastIndex = 0;
+    let replaced = false;
+    let m: RegExpExecArray | null;
+    while ((m = ELEMENTOR_WIDGET_ROOT_OPEN_RE.exec(result)) !== null) {
+      const start = m.index;
+      const openTag = m[0];
+      const widget = sliceBalancedElementorWidget(result, start);
+      if (!widget) continue;
+      if (!isLegacyPricingHtmlWidget(openTag, widget)) continue;
+      let newOpen = openTag;
+      if (!/article-pricing-calculator-embed/i.test(newOpen)) {
+        newOpen = newOpen.replace(/class="([^"]*)"/, 'class="$1 article-pricing-calculator-embed"');
+      }
+      const replacement = `${newOpen}${PRICING_CALCULATOR_EMBED_SLOT}</div>`;
+      result = result.slice(0, start) + replacement + result.slice(start + widget.length);
+      replaced = true;
+      break;
+    }
+    if (!replaced) break;
+  }
+  return result;
+}
+
 export type PrepareArticleBodyHtmlOptions = {
   /** When true, skips batch8 enrichment/structure (for before/after audits). */
   skipBatch8?: boolean;
   /** When true, skips batch9 enrichment/structure (for before/after audits). */
   skipBatch9?: boolean;
+  /** When true, skips final rollout enrichment/structure (for before/after audits). */
+  skipFinalRollout?: boolean;
 };
 
 export function prepareArticleBodyHtml(
@@ -260,6 +316,7 @@ export function prepareArticleBodyHtml(
   html = replaceSpeedArticleOrphanLeadPrompt(html, locale);
   html = stripLegacyArticleContactBlocks(html);
   html = replaceBrokenCalculatorEmbeds(html);
+  html = replaceLegacyInlinePricingCalculator(html);
   html = stripEmptyImageWidgets(html);
   html = stripEmptyElementorSections(html);
   html = stripLeadingRedundantElementorSections(html);
@@ -297,6 +354,10 @@ export function prepareArticleBodyHtml(
     if (!options?.skipBatch9) {
       html = applyArticleBatch9Enrichment2026(html, pagePath, locale);
       html = applyArticleBatch9StructurePolish(html, pagePath, locale);
+    }
+    if (!options?.skipFinalRollout) {
+      html = applyArticleFinalRolloutEnrichment2026(html, pagePath, locale);
+      html = applyArticleFinalRolloutStructurePolish(html, pagePath, locale);
     }
     html = applyArticleReadingPolishShared(html, pagePath, locale);
     html = applyPilot2026BodyPolish(html, pagePath, locale);

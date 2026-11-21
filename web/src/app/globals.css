@@ -3924,10 +3924,63 @@ section.home-hero-v2.home-hero-v2-lcp {
   max-width: 37.5rem;
 }
 
-/* 3 hosting packages — one aligned row */
+/* 3 hosting packages — one aligned row (desktop) */
 .article-body-html .article-pricing-grid-section:has(.elementor-col-33) .elementor-container {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   max-width: 62rem;
+}
+
+@media (max-width: 767px) {
+  .article-body-html .article-pricing-grid-section {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .article-body-html .article-pricing-grid-section .elementor-container {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .article-body-html .article-pricing-grid-section:has(.elementor-col-33) .elementor-container,
+  .article-body-html .article-pricing-grid-section:has(.elementor-col-25) .elementor-container {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .article-body-html .pricing-calculator-root,
+  .article-body-html .pricing-calculator-root .pcalc-shell {
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .article-body-html .elementor-container {
+    flex-wrap: wrap !important;
+    max-width: 100%;
+  }
+
+  .article-body-html .elementor-column.elementor-col-50,
+  .article-body-html .elementor-column.elementor-col-33,
+  .article-body-html .elementor-column.elementor-col-25,
+  .article-body-html .elementor-column.elementor-col-66,
+  .article-body-html .elementor-column.elementor-col-100 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+
+  .article-body-html.content-html .elementor-container {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .article-body-html .elementor-widget-text-editor table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 .article-body-html .article-pricing-grid-section .elementor-column {

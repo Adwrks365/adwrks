@@ -1,6 +1,6 @@
 /** Content polish for post 19792 — WordPress website cost guide (HE). */
 
-const POST_MARKER = "elementor-19792";
+const POST_MARKERS = ["elementor-19792", "elementor-21189"];
 
 const OLD_HEADING = "כמה עולה לבנות אתר אינטרנט ותחזוקה? | מחירון 2026";
 const NEW_HEADING = "כמה עולה לבנות אתר אינטרנט ולתחזק אותו.";
@@ -39,8 +39,12 @@ function markPricingGridSections(html: string): string {
   );
 }
 
+function matchesPricingPost(html: string): boolean {
+  return POST_MARKERS.some((m) => html.includes(m));
+}
+
 export function polishWordPressCostArticleHtml(html: string): string {
-  if (!html.includes(POST_MARKER)) {
+  if (!matchesPricingPost(html)) {
     return html;
   }
 
