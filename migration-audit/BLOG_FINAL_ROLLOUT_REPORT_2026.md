@@ -43,7 +43,7 @@ Full list: `migration-audit/FINAL_ROLLOUT_QUEUE.json` · registry source: **`fin
 
 ## 5. Known exceptions
 
-1. **`/en/website-building-pricing/`** — mobile horizontal overflow ~99px from pricing table/calculator; QA visual allows ≤104px for this path only.
+1. **PageSpeed tool (Preview/local)** — PSI API may return unavailable/loading on Preview; smoke documents Hebrew/English error paths instead of treating blocked API as success.
 2. **Paid vs organic HE** — runtime FAQ block + legacy Elementor FAQ coexist (≥5 items); lead-only injection by design.
 3. **ROI HE/EN** — calculator articles use short lead + injected FAQ; legacy hand-authored FAQ may also remain in body (consolidated at render).
 
@@ -60,3 +60,16 @@ See `migration-audit/BLOG_FINAL_BEFORE_AFTER.md` (summary table) and `BLOG_FINAL
 ## 8. Rollout tally
 
 **108 / 108** blog posts improved · **0** full remaining · **0** partial remaining (registry).
+
+---
+
+## 9. Pre-merge QA (PR #20 update)
+
+| Item | Resolution |
+|------|------------|
+| `FINAL_ROLLOUT_QUEUE.json` | **Removed runtime dependency** — `web/scripts/lib/final-rollout-queue.mjs` builds queue from `FINAL_ROLLOUT_PATHS` + loader (clean clone OK). Export script still optional. |
+| EN pricing mobile overflow | **Fixed** — legacy Elementor full-document HTML calculator → React embed (`replaceLegacyInlinePricingCalculator`); mobile columns `col-100` stack. Visual + interactive **≤8px** on `/en/website-building-pricing/`. |
+| Interactive smoke | `qa-blog-final-interactive-smoke.mjs` — local **16/16** pass (PageSpeed API path documented; ROI/pricing interactive). Re-run on Vercel Preview post-push. |
+| Visual regressions | `qa-blog-final-rollout-visual.mjs` — **104/104** (FAQ toggle + CTA + 8px overflow). |
+| Preview note | Re-run `QA_BASE_URL=<preview> qa-blog-final-interactive-smoke.mjs` after Vercel deploy of pre-merge commit. |
+| Merge | **Not merged** |

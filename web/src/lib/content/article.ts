@@ -240,6 +240,19 @@ export function replaceBrokenCalculatorEmbeds(html: string): string {
     );
 }
 
+/** Legacy Elementor HTML widgets shipped a full mini-document calculator — swap for the React embed. */
+export function replaceLegacyInlinePricingCalculator(html: string): string {
+  if (!html.includes("siteCostCalculator") && !html.includes("calculator-container")) {
+    return html;
+  }
+  const widgetShell =
+    '<div class="elementor-element elementor-widget elementor-widget-html article-pricing-calculator-embed">';
+  return html.replace(
+    /<div class="elementor-element[^"]*\belementor-widget-html\b[^"]*"[^>]*>[\s\S]*?(?:siteCostCalculator|calculator-container)[\s\S]*?<\/div>/gi,
+    `${widgetShell}${PRICING_CALCULATOR_EMBED_SLOT}</div>`,
+  );
+}
+
 export type PrepareArticleBodyHtmlOptions = {
   /** When true, skips batch8 enrichment/structure (for before/after audits). */
   skipBatch8?: boolean;
@@ -264,6 +277,7 @@ export function prepareArticleBodyHtml(
   html = replaceSpeedArticleOrphanLeadPrompt(html, locale);
   html = stripLegacyArticleContactBlocks(html);
   html = replaceBrokenCalculatorEmbeds(html);
+  html = replaceLegacyInlinePricingCalculator(html);
   html = stripEmptyImageWidgets(html);
   html = stripEmptyElementorSections(html);
   html = stripLeadingRedundantElementorSections(html);

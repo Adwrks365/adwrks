@@ -1,6 +1,6 @@
 # Final rollout — before/after (52 posts)
 
-Generated: 2026-11-20T11:30:00.700Z
+Generated: 2026-11-21T10:27:22.249Z
 
 | Path | Locale | Lead | FAQ Δ | Len Δ |
 |------|--------|------|-------|-------|
@@ -39,8 +39,8 @@ Generated: 2026-11-20T11:30:00.700Z
 | `/מהו-שיווק-באינטרנט/` | he | yes | 0→20 | -132 |
 | `/en/digital-marketing-for-business/` | en | yes | 25→25 | +536 |
 | `/en/seo-guide-for-beginners/` | en | yes | 0→15 | -1998 |
-| `/כמה-עולה-לבנות-אתר-מחירון-מחשבון/` | he | yes | 0→15 | +1293 |
-| `/en/website-building-pricing/` | en | yes | 0→15 | +60 |
+| `/כמה-עולה-לבנות-אתר-מחירון-מחשבון/` | he | yes | 0→15 | +400 |
+| `/en/website-building-pricing/` | en | yes | 0→15 | -815 |
 | `/פרסום-ממומן-בפייסבוק/` | he | yes | 0→15 | -554 |
 | `/en/facebook-ads-guide/` | en | yes | 0→15 | -3468 |
 | `/רימרקטינג-מה-זה-איך-ולמה/` | he | yes | 0→15 | -534 |
@@ -48,11 +48,11 @@ Generated: 2026-11-20T11:30:00.700Z
 | `/en/website-platform-guide/` | en | yes | 0→15 | -1060 |
 | `/מהו-aeo-האם-יחליף-את-seo/` | he | yes | 0→15 | -581 |
 | `/en/what-is-aeo/` | en | yes | 0→15 | -257 |
-| `/בדיקת-מהירות-אתר/` | he | yes | 0→10 | +289 |
-| `/en/website-speed-test/` | en | yes | 0→10 | +498 |
+| `/בדיקת-מהירות-אתר/` | he | yes | 0→15 | +673 |
+| `/en/website-speed-test/` | en | yes | 0→15 | +920 |
 | `/en/google-ads-cost/` | en | yes | 0→15 | +2444 |
 | `/קידום-ממומן-מול-קידום-אורגני/` | he | yes | 5→5 | +505 |
-| `/מחשבון-roi-מעודכן-2026/` | he | yes | 0→0 | +296 |
-| `/en/roi-calculator-2026/` | en | yes | 0→0 | +353 |
+| `/מחשבון-roi-מעודכן-2026/` | he | yes | 0→15 | +1893 |
+| `/en/roi-calculator-2026/` | en | yes | 0→15 | +2050 |
 | `/בניית-אתרים-ברוסית/` | he | yes | 15→15 | +475 |
 | `/קידום-אתרים-ברוסית/` | he | yes | 15→15 | +454 |

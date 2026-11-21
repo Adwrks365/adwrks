@@ -17,14 +17,20 @@ const paths = sampleN > 0 ? FINAL_ROLLOUT_PATHS.slice(0, sampleN) : FINAL_ROLLOU
 
 fs.mkdirSync(OUT, { recursive: true });
 
-async function assertArticle(page, name) {
+async function assertArticle(page) {
   const lead = page.locator('aside.adwrks-article-lead[data-adwrks-content="adwrks-article-lead-2026"]');
   await lead.first().waitFor({ state: "visible", timeout: 45000 });
+  const faq = page.locator(".adwrks-article-faq-block details.adwrks-faq-item, details.adwrks-faq-item");
+  if ((await faq.count()) >= 1) {
+    await faq.first().locator("summary").click();
+    await page.waitForTimeout(120);
+  }
+  const cta = page.locator(".article-cta-band a, [data-open-contextual-popup='true']");
+  if ((await cta.count()) < 1) throw new Error("CTA missing");
   const overflow = await page.evaluate(
     () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
   );
-  const overflowLimit = /website-building-pricing|מחירון-מחשבון/.test(name) ? 104 : 8;
-  if (overflow > overflowLimit) throw new Error(`horizontal scroll ${overflow}px`);
+  if (overflow > 8) throw new Error(`horizontal scroll ${overflow}px`);
 }
 
 async function main() {
@@ -46,7 +52,7 @@ async function main() {
       });
       try {
         await page.goto(`${BASE}${slug}`, { waitUntil: "domcontentloaded", timeout: 60000 });
-        await assertArticle(page, `${safe}-${mode}`);
+        await assertArticle(page);
         ok++;
       } catch (e) {
         console.error("FAIL", p, mode, e.message);

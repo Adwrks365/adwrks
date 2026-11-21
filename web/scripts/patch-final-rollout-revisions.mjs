@@ -5,15 +5,15 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { buildFinalRolloutQueue } from "./lib/final-rollout-queue.mjs";
 
 const root = path.dirname(fileURLToPath(import.meta.url));
 const revisionsPath = path.resolve(root, "../src/data/content/article-content-revisions.json");
-const queuePath = path.resolve(root, "../../migration-audit/FINAL_ROLLOUT_QUEUE.json");
 
 const STAMP = "2026-11-20T11:30:00+02:00";
 const SOURCE = "final-rollout-2026";
 
-const queue = JSON.parse(fs.readFileSync(queuePath, "utf8")).queue;
+const queue = buildFinalRolloutQueue();
 const doc = JSON.parse(fs.readFileSync(revisionsPath, "utf8"));
 
 const byId = new Map();

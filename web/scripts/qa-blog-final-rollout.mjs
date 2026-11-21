@@ -2,20 +2,15 @@
  * QA — final blog rollout (52 posts) + batch8/9 regression hooks.
  * npx tsx scripts/qa-blog-final-rollout.mjs
  */
-import fs from "node:fs";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
 import { getContentByPath } from "../src/lib/content/loader.ts";
 import { prepareArticleBodyHtml } from "../src/lib/content/article.ts";
 import { resolveArticleDates } from "../src/lib/content/article-dates.ts";
 import { getArticleEnrichmentSource } from "../src/lib/content/article-enrichment-registry.ts";
 import { countTagBalance } from "../src/lib/content/article-html-sanitize.ts";
 import { FINAL_ROLLOUT_PATHS } from "../src/lib/content/article-final-rollout-enrichment-2026.ts";
+import { buildFinalRolloutQueue } from "./lib/final-rollout-queue.mjs";
 
-const root = path.dirname(fileURLToPath(import.meta.url));
-const queue = JSON.parse(
-  fs.readFileSync(path.resolve(root, "../../migration-audit/FINAL_ROLLOUT_QUEUE.json"), "utf8"),
-).queue;
+const queue = buildFinalRolloutQueue();
 
 const INTERACTIVE_PATHS = new Set([
   "/בדיקת-מהירות-אתר/",

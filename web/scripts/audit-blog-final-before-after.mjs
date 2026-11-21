@@ -8,12 +8,11 @@ import { fileURLToPath } from "node:url";
 import { getContentByPath } from "../src/lib/content/loader.ts";
 import { prepareArticleBodyHtml, extractArticleHeadings } from "../src/lib/content/article.ts";
 import { countTagBalance } from "../src/lib/content/article-html-sanitize.ts";
+import { buildFinalRolloutQueue } from "./lib/final-rollout-queue.mjs";
 
 const root = path.dirname(fileURLToPath(import.meta.url));
 const outDir = path.resolve(root, "../../migration-audit");
-const queue = JSON.parse(
-  fs.readFileSync(path.join(outDir, "FINAL_ROLLOUT_QUEUE.json"), "utf8"),
-).queue;
+const queue = buildFinalRolloutQueue();
 
 const rows = [];
 for (const q of queue) {

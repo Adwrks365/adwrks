@@ -1,6 +1,6 @@
 # Blog content rollout plan (108 routable posts; 110 in posts.json incl. 2 Carmiel location)
 
-Generated: 2026-11-20T11:29:43.417Z
+Generated: 2026-11-21T10:27:23.464Z
 
 ## Summary
 
