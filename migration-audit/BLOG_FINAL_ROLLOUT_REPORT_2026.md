@@ -68,7 +68,7 @@ See `migration-audit/BLOG_FINAL_BEFORE_AFTER.md` (summary table) and `BLOG_FINAL
 | Item | Resolution |
 |------|------------|
 | `FINAL_ROLLOUT_QUEUE.json` | **Removed runtime dependency** — `web/scripts/lib/final-rollout-queue.mjs` builds queue from `FINAL_ROLLOUT_PATHS` + loader (clean clone OK). Export script still optional. |
-| EN pricing mobile overflow | **Fixed** — legacy Elementor full-document HTML calculator → React embed (`replaceLegacyInlinePricingCalculator`); mobile columns `col-100` stack. Visual + interactive **≤8px** on `/en/website-building-pricing/`. |
+| EN pricing mobile overflow | **Fixed** — legacy Elementor HTML widget replaced via **balanced div** splice (`replaceLegacyInlinePricingCalculator`); mobile columns `col-100` stack. Fixture: `qa-legacy-pricing-calculator-regression.mjs`. |
 | Interactive smoke | `qa-blog-final-interactive-smoke.mjs` — local **16/16** pass (PageSpeed API path documented; ROI/pricing interactive). Re-run on Vercel Preview post-push. |
 | Visual regressions | `qa-blog-final-rollout-visual.mjs` — **104/104** (FAQ toggle + CTA + 8px overflow). |
 | Preview note | Re-run `QA_BASE_URL=<preview> qa-blog-final-interactive-smoke.mjs` after Vercel deploy of pre-merge commit. |

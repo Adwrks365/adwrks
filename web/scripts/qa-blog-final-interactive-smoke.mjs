@@ -76,31 +76,50 @@ async function testPagespeed(page, name) {
   const input = page.locator("#psi-url, .psi-input").first();
   await input.fill("https://example.com");
   await page.locator(".psi-submit, button[type='submit']").first().click();
-  const outcome = page.locator(".psi-results, .psi-error, .psi-loading");
-  await outcome.first().waitFor({ state: "visible", timeout: 90000 });
-  const hasResult = (await page.locator(".psi-results").count()) > 0;
-  const hasError = (await page.locator(".psi-error").count()) > 0;
-  const loading = (await page.locator(".psi-loading").count()) > 0;
-  if (!hasResult && !hasError && !loading) throw new Error("PageSpeed: no result/error state");
-  const note = hasResult
-    ? "API returned results on preview"
-    : hasError
-      ? `API/error path: ${(await page.locator(".psi-error").first().innerText()).slice(0, 120)}`
-      : "still loading (timeout edge)";
-  return note;
+  await page.locator(".psi-loading").first().waitFor({ state: "visible", timeout: 15000 }).catch(() => {});
+  const deadline = Date.now() + 120_000;
+  while (Date.now() < deadline) {
+    if ((await page.locator(".psi-results").count()) > 0) {
+      return "API returned results";
+    }
+    if ((await page.locator(".psi-error").count()) > 0) {
+      const errText = (await page.locator(".psi-error").first().innerText()).slice(0, 120);
+      return `documented unavailable/error: ${errText}`;
+    }
+    await page.waitForTimeout(400);
+  }
+  throw new Error("PageSpeed: timed out without API result or documented error");
+}
+
+function parseMoneyText(text) {
+  const digits = text.replace(/[^\d.]/g, "");
+  return digits ? Number.parseFloat(digits) : NaN;
 }
 
 async function testRoi(page) {
   const rootEl = page.locator(".roi-calculator-root");
   await rootEl.first().waitFor({ state: "visible", timeout: 30000 });
+  const inputs = page.locator(".rcalc-input");
+  await inputs.nth(0).fill("8000");
+  await inputs.nth(1).fill("120");
+  await inputs.nth(2).fill("6");
+  await inputs.nth(3).fill("1500");
+  await page.waitForTimeout(400);
   const revenue = page.locator(".rcalc-metrics dd").nth(2);
-  const before = ((await revenue.count()) > 0 ? await revenue.innerText() : "").trim();
-  await page.locator(".rcalc-input").first().fill("12000");
-  await page.locator(".rcalc-input").nth(1).fill("80");
+  const baseRevenue = parseMoneyText(await revenue.innerText());
+  if (!Number.isFinite(baseRevenue) || baseRevenue <= 0) {
+    throw new Error("ROI revenue metric missing or zero");
+  }
+  await inputs.nth(3).fill("4500");
   await page.waitForTimeout(500);
-  const after = (await revenue.innerText()).trim();
-  if (!after) throw new Error("ROI result empty");
-  return before !== after ? "ROI updates on input change" : "ROI metrics rendered";
+  const nextRevenue = parseMoneyText(await revenue.innerText());
+  if (!Number.isFinite(nextRevenue) || nextRevenue <= 0) {
+    throw new Error("ROI revenue metric empty after input change");
+  }
+  if (Math.abs(nextRevenue - baseRevenue) < 1) {
+    throw new Error("ROI revenue unchanged after meaningful order-value change");
+  }
+  return `ROI revenue ${baseRevenue} → ${nextRevenue}`;
 }
 
 async function testPricing(page) {
@@ -108,18 +127,22 @@ async function testPricing(page) {
   const tables = page.locator(".elementor-widget-price-table");
   if ((await calc.count()) > 0) {
     await calc.first().waitFor({ state: "visible", timeout: 30000 });
-    await page.locator(".pcalc-card").first().click();
-    const total = page.locator(".pcalc-total-value").first();
-    await total.waitFor({ state: "visible", timeout: 15000 });
-    const firstTotal = (await total.innerText()).trim();
-    if (!firstTotal) throw new Error("pricing calculator total empty");
-    await page.locator(".pcalc-card").nth(1).click();
+    const monthlyCards = page.locator(".pcalc-grid--monthly .pcalc-card");
+    await monthlyCards.nth(0).click();
+    const monthlyTotal = page.locator(".pcalc-total-value--monthly");
+    await monthlyTotal.waitFor({ state: "visible", timeout: 15000 });
+    const oneServiceTotal = parseMoneyText(await monthlyTotal.innerText());
+    if (!Number.isFinite(oneServiceTotal) || oneServiceTotal < 100) {
+      throw new Error("pricing monthly total invalid after first selection");
+    }
+    await monthlyCards.nth(1).click();
     await page.waitForTimeout(400);
-    const secondTotal = (await total.innerText()).trim();
+    const twoServiceTotal = parseMoneyText(await monthlyTotal.innerText());
+    if (!Number.isFinite(twoServiceTotal) || twoServiceTotal < oneServiceTotal + 50) {
+      throw new Error("pricing total did not increase when selecting second priced service");
+    }
     await assertNoPageOverflow(page);
-    return firstTotal !== secondTotal
-      ? "pricing calculator total updates"
-      : "pricing calculator renders totals";
+    return `pricing monthly total ${oneServiceTotal} → ${twoServiceTotal}`;
   }
   if ((await tables.count()) > 0) {
     await tables.first().waitFor({ state: "visible", timeout: 15000 });
