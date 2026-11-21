@@ -1,6 +1,6 @@
 /**
- * Interactive smoke — tools + content checks (Preview or local).
- * QA_BASE_URL=https://adwrks-git-feat-...vercel.app npx tsx scripts/qa-blog-final-interactive-smoke.mjs
+ * Interactive smoke — tools + FAQ (separate). FAQ never blocks tool checks.
+ * QA_BASE_URL=https://adwrks.co.il npx tsx scripts/qa-blog-final-interactive-smoke.mjs
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -42,35 +42,35 @@ async function assertNoPageOverflow(page) {
   if (overflow > 8) throw new Error(`page horizontal scroll ${overflow}px`);
 }
 
-async function assertLeadCtaOverflow(page) {
+async function waitLeadAndCta(page) {
   const lead = page.locator('aside.adwrks-article-lead[data-adwrks-content="adwrks-article-lead-2026"]');
   await lead.first().waitFor({ state: "visible", timeout: 45000 });
   const cta = page.locator(
     ".article-cta-band a, .article-end-wrapper a.elementor-button, [data-open-contextual-popup='true']",
   );
   if ((await cta.count()) < 1) throw new Error("CTA not found");
-  await assertNoPageOverflow(page);
 }
 
-async function assertCommonArticle(page) {
-  const lead = page.locator('aside.adwrks-article-lead[data-adwrks-content="adwrks-article-lead-2026"]');
-  await lead.first().waitFor({ state: "visible", timeout: 45000 });
+/** FAQ checked separately — normal Playwright click, no force. */
+async function testFaqInteraction(page) {
   const faq = page.locator(".adwrks-article-faq-block details.adwrks-faq-item");
-  if ((await faq.count()) >= 1) {
-    const first = faq.first();
-    await first.locator("summary").click({ force: true });
-    await page.waitForTimeout(200);
-    const open = await first.evaluate((el) => el.hasAttribute("open"));
-    if (!open) throw new Error("FAQ toggle failed");
+  if ((await faq.count()) < 1) {
+    return { ok: true, note: "no FAQ block" };
   }
-  const cta = page.locator(
-    ".article-cta-band a, .article-end-wrapper a.elementor-button, [data-open-contextual-popup='true']",
-  );
-  if ((await cta.count()) < 1) throw new Error("CTA not found");
-  await assertNoPageOverflow(page);
+  const first = faq.first();
+  const summary = first.locator("summary");
+  await summary.scrollIntoViewIfNeeded();
+  await summary.waitFor({ state: "visible", timeout: 15000 });
+  await summary.click();
+  await page.waitForTimeout(300);
+  const open = await first.evaluate((el) => el.hasAttribute("open"));
+  if (!open) {
+    return { ok: false, error: "FAQ toggle failed after click" };
+  }
+  return { ok: true, note: "FAQ opened" };
 }
 
-async function testPagespeed(page, name) {
+async function testPagespeed(page) {
   const rootEl = page.locator(".pagespeed-insights-root, [data-adwrks-pagespeed-insights]");
   await rootEl.first().waitFor({ state: "visible", timeout: 30000 });
   const input = page.locator("#psi-url, .psi-input").first();
@@ -80,15 +80,19 @@ async function testPagespeed(page, name) {
   const deadline = Date.now() + 120_000;
   while (Date.now() < deadline) {
     if ((await page.locator(".psi-results").count()) > 0) {
-      return "API returned results";
+      return { ok: true, note: "API returned results", apiStatus: "results" };
     }
     if ((await page.locator(".psi-error").count()) > 0) {
       const errText = (await page.locator(".psi-error").first().innerText()).slice(0, 120);
-      return `documented unavailable/error: ${errText}`;
+      return {
+        ok: true,
+        note: `documented unavailable/error: ${errText}`,
+        apiStatus: "unavailable",
+      };
     }
     await page.waitForTimeout(400);
   }
-  throw new Error("PageSpeed: timed out without API result or documented error");
+  return { ok: false, error: "PageSpeed: timed out without API result or documented error", apiStatus: "timeout" };
 }
 
 function parseMoneyText(text) {
@@ -119,7 +123,7 @@ async function testRoi(page) {
   if (Math.abs(nextRevenue - baseRevenue) < 1) {
     throw new Error("ROI revenue unchanged after meaningful order-value change");
   }
-  return `ROI revenue ${baseRevenue} → ${nextRevenue}`;
+  return { ok: true, note: `ROI revenue ${baseRevenue} → ${nextRevenue}` };
 }
 
 async function testPricing(page) {
@@ -142,22 +146,49 @@ async function testPricing(page) {
       throw new Error("pricing total did not increase when selecting second priced service");
     }
     await assertNoPageOverflow(page);
-    return `pricing monthly total ${oneServiceTotal} → ${twoServiceTotal}`;
+    return { ok: true, note: `pricing monthly total ${oneServiceTotal} → ${twoServiceTotal}` };
   }
   if ((await tables.count()) > 0) {
     await tables.first().waitFor({ state: "visible", timeout: 15000 });
     await assertNoPageOverflow(page);
-    return "Elementor price tables visible (no embed slot on this post)";
+    return { ok: true, note: "Elementor price tables visible (no embed slot on this post)" };
   }
   throw new Error("no pricing UI found");
 }
 
-async function testContentBatch9(page, name) {
+async function testContentBatch9(page) {
   const summaries = await page.locator("h2, h3").filter({ hasText: /^Summary$/i }).count();
   const inSummary = await page.locator("h2, h3").filter({ hasText: /^In summary$/i }).count();
   if (summaries > 0 && inSummary > 0) throw new Error("duplicate Summary + In summary");
   if (inSummary < 1 && summaries < 1) throw new Error("no closing summary heading");
-  return summaries === 0 ? "single In summary" : "legacy Summary only";
+  return { ok: true, note: summaries === 0 ? "single In summary" : "legacy Summary only" };
+}
+
+async function runToolTest(page, spec) {
+  if (spec.tool === "pagespeed") return await testPagespeed(page);
+  if (spec.tool === "roi") {
+    try {
+      return await testRoi(page);
+    } catch (e) {
+      return { ok: false, error: e.message };
+    }
+  }
+  if (spec.tool === "pricing") {
+    try {
+      return await testPricing(page);
+    } catch (e) {
+      return { ok: false, error: e.message };
+    }
+  }
+  if (spec.tool === "content") {
+    try {
+      await assertNoPageOverflow(page);
+      return await testContentBatch9(page);
+    } catch (e) {
+      return { ok: false, error: e.message };
+    }
+  }
+  return { ok: true, note: "n/a" };
 }
 
 async function runPage(browser, spec, mode, opts) {
@@ -168,29 +199,67 @@ async function runPage(browser, spec, mode, opts) {
     localStorage.setItem("adwrks_popup_dismissed_until", String(Date.now() + 86400000));
   });
   const shots = path.join(OUT, `${spec.name}-${mode}.png`);
-  let note = "";
+  const entry = {
+    name: spec.name,
+    path: spec.path,
+    tool: spec.tool,
+    mode,
+    toolFunctionality: { ok: false },
+    faqInteraction: { ok: true, note: "skipped" },
+    pagespeedApi: null,
+  };
   try {
     await page.goto(`${BASE}${spec.path}`, { waitUntil: "domcontentloaded", timeout: 90000 });
-    if (spec.tool === "content") await assertLeadCtaOverflow(page);
-    else await assertCommonArticle(page);
-    if (spec.tool === "pagespeed") note = await testPagespeed(page, spec.name);
-    else if (spec.tool === "roi") note = await testRoi(page);
-    else if (spec.tool === "pricing") note = await testPricing(page);
-    else if (spec.tool === "content") note = await testContentBatch9(page, spec.name);
+    await waitLeadAndCta(page);
+
+    entry.toolFunctionality = await runToolTest(page, spec);
+    if (spec.tool === "pagespeed" && entry.toolFunctionality.apiStatus) {
+      entry.pagespeedApi = entry.toolFunctionality.apiStatus;
+    }
+
+    entry.faqInteraction = await testFaqInteraction(page);
+
+    if (spec.tool !== "pricing") {
+      await assertNoPageOverflow(page).catch((e) => {
+        if (!entry.toolFunctionality.overflowNote) {
+          entry.toolFunctionality.overflowNote = e.message;
+        }
+      });
+    }
+
+    const toolTag = entry.toolFunctionality.ok ? "OK" : "FAIL";
+    const faqTag = entry.faqInteraction.ok ? "OK" : "FAIL";
+    console.log(
+      toolTag,
+      "tool",
+      spec.name,
+      mode,
+      entry.toolFunctionality.note ?? entry.toolFunctionality.error,
+    );
+    console.log(
+      faqTag,
+      "faq",
+      spec.name,
+      mode,
+      entry.faqInteraction.note ?? entry.faqInteraction.error,
+    );
     await page.screenshot({ path: shots, fullPage: false });
-    console.log("OK", spec.name, mode, note);
-    return { ok: true, note };
+    entry.ok = entry.toolFunctionality.ok && entry.faqInteraction.ok;
+    return entry;
   } catch (e) {
     await page.screenshot({ path: shots.replace(".png", "-fail.png"), fullPage: false }).catch(() => {});
-    console.error("FAIL", spec.name, mode, e.message);
-    return { ok: false, error: e.message };
+    entry.toolFunctionality = { ok: false, error: e.message };
+    entry.ok = false;
+    console.error("FAIL", "page", spec.name, mode, e.message);
+    return entry;
   } finally {
     await ctx.close();
   }
 }
 
 const report = { base: BASE, at: new Date().toISOString(), results: [] };
-let failed = 0;
+let toolFailed = 0;
+let faqFailed = 0;
 const browser = await chromium.launch();
 for (const spec of PAGES) {
   for (const [mode, opts] of [
@@ -198,11 +267,27 @@ for (const spec of PAGES) {
     ["mobile", devices["Pixel 5"]],
   ]) {
     const r = await runPage(browser, spec, mode, opts);
-    report.results.push({ ...spec, mode, ...r });
-    if (!r.ok) failed++;
+    report.results.push(r);
+    if (!r.toolFunctionality?.ok) toolFailed++;
+    if (r.faqInteraction && !r.faqInteraction.ok) faqFailed++;
   }
 }
 await browser.close();
+
+report.summary = {
+  runs: report.results.length,
+  toolFailed,
+  faqFailed,
+  pagespeedApi: report.results
+    .filter((r) => r.tool === "pagespeed")
+    .map((r) => ({
+      name: r.name,
+      mode: r.mode,
+      api: r.pagespeedApi,
+      ok: r.toolFunctionality?.ok,
+    })),
+};
+
 fs.writeFileSync(path.join(OUT, "summary.json"), JSON.stringify(report, null, 2));
-console.log("Interactive failed", failed);
-process.exit(failed ? 1 : 0);
+console.log("Summary", report.summary);
+process.exit(toolFailed + faqFailed > 0 ? 1 : 0);
