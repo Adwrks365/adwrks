@@ -78,7 +78,7 @@
 
 **מגבלות כיסוי:** שאילתות עברית ארוכות, חנויות ללא מילות מפתח ברורות, אזורי חיפוש מחוץ ל-IL; AI Overview לא תמיד מוצג — סטטוס «לא הוצגה» / «לא ניתן לאמת» צפוי.
 
-**בכלי (PR #21):** ברירת מחדל `SEARCH_VISIBILITY_PROVIDER=mock` — נתוני דוגמה. Live = `DATAFORSEO_*` + אישור בעלים; מכסה נפרדת `SEARCH_VISIBILITY_DAILY_LIMIT` (ברירת מחדל 1 דוח/יום).
+**בכלי (PR #21):** ברירת מחדל **כבוי** (`SEARCH_VISIBILITY_PROVIDER` לא מוגדר = off). דמו רק בהגדרה מפורשת `mock` (בדרך כלל Preview). Live = `SEARCH_VISIBILITY_PROVIDER=live` + `DATAFORSEO_*` + אישור בעלים; מכסה נפרדת `SEARCH_VISIBILITY_DAILY_LIMIT` (ברירת מחדל 1 דוח/יום).
 
 ## קשר ל־PR #21
 

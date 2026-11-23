@@ -1,31 +1,33 @@
-# PR #21 — נראות בחיפוש + סגירה (`75285eb`+)
+# PR #21 — נראות בחיפוש (`20c3aa4`+)
 
-## מה נוסף
+## שינוי מצב ספק (המשך)
+
+| מצב | התנהגות |
+|-----|---------|
+| **לא מוגדר / פרודקשן** | `off` — בלוק נראות מוסתר, סריקה + טופס ללא שינוי |
+| **`SEARCH_VISIBILITY_PROVIDER=mock`** | דמו מפורש (Preview) — `isDemoData: true` |
+| **`live` + `DATAFORSEO_*`** | SERP חי עומק 20 + AI overview (מקורות) — **לא** mock |
 
 | רכיב | מצב |
 |------|-----|
-| הצעת עד 3 ביטויים מהסריקה | שרת `suggestSearchPhrases` |
-| UI עריכה + IL/he/mobile | `SiteCheckVisibilitySection` |
-| API `/api/search-visibility` | mock ברירת מחדל, `off` אופציונלי |
-| מכסה נפרדת | `SEARCH_VISIBILITY_DAILY_LIMIT` (default 1 דוח/יום) |
-| סריקה 8/יום, PageSpeed 3/יום | ללא שינוי |
-| ליד | `leadAppendix` עם ביטויים ותוצאות |
+| DataForSEO live | `dataforseo-provider.ts` — קריאה אמיתית; כשל ביטוי = שורה חלקית |
+| ליד במייל | מזהה דמו: נושא `נראות: דוגמה`, באנר HTML, שורה בטקסט |
+| אומדן עלות | `GET /api/search-visibility` + UI במצב mock |
 
-## מאומת מקומית (dev, לא Preview)
+## מאומת
 
-- ShopGarden סריקה + ביטויים מוצעים מקטגוריה/מוצר
-- Mock visibility: 3 שורות, תובנה עסקית, צירוף ל-leadNote
-- **נתוני דוגמה** — לא DataForSEO חי
+- Unit: `provider-mode`, `lead-email-visibility-demo`
+- Local dev עם `SEARCH_VISIBILITY_PROVIDER=mock` — זרימת דמו + leadAppendix
 
-## Preview — חסום
+## Preview — עדיין חסום (אם אין bypass)
 
-- **401** Deployment Protection (ללא bypass secret)
-- PageSpeed / Resend — לא אומתו ב-Preview
+- **401** Deployment Protection
+- PageSpeed / Resend / `lead_submit` ב-Preview — ממתין ל-`PAGESPEED_API_KEY`, `RESEND_*` + גישה מורשית
 
-## חסר לאישור תשלום DataForSEO
+## לפני מיזוג (בעלים)
 
-- `DATAFORSEO_LOGIN` / `DATAFORSEO_PASSWORD`
-- `SEARCH_VISIBILITY_PROVIDER=live`
-- חיווט SERP + AI Overview (מתוכנן אחרי אישור)
+1. Preview: `SEARCH_VISIBILITY_PROVIDER=mock` לדמו QA בלבד
+2. פרודקשן: ללא משתנה (off) עד אישור תשלום
+3. אחרי אישור: `live` + `DATAFORSEO_*`
 
 PR #21 פתוח.

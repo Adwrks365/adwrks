@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { visibilityCostEstimate } from "@/lib/search-visibility/cost-estimate";
 import { runVisibilityCheck, visibilityProviderMode } from "@/lib/search-visibility/run-visibility-check";
 import { consumeVisibilityReport, readVisibilityUsage } from "@/lib/search-visibility/quota";
 import type { SearchVisibilityLocale } from "@/lib/search-visibility/types";
@@ -26,6 +27,7 @@ export async function GET() {
     mode,
     usage,
     maxQueries: MAX_QUERIES,
+    costEstimate: visibilityCostEstimate(),
   });
 }
 
@@ -77,7 +79,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, message: "invalid_body" }, { status: 400 });
   }
 
-  const report = runVisibilityCheck({
+  const report = await runVisibilityCheck({
     locale: localeOf(body.locale),
     domain,
     homeUrl,

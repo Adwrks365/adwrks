@@ -14920,6 +14920,13 @@ body.contextual-popup-open {
   margin: 0 0 0.5rem;
 }
 
+.site-check-visibility-cost {
+  color: #475569;
+  font-size: 0.75rem;
+  line-height: 1.45;
+  margin: 0 0 0.5rem;
+}
+
 .site-check-visibility-rows {
   display: grid;
   gap: 0.65rem;

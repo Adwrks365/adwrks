@@ -1,5 +1,6 @@
 import type { SiteKind } from "../site-check/site-kind";
 import type { SearchVisibilityLocale, VisibilityInsight, VisibilityRow } from "./types";
+import { VISIBILITY_DEMO_MARKER_EN, VISIBILITY_DEMO_MARKER_HE } from "./visibility-demo-marker";
 
 export function buildVisibilityInsight(input: {
   locale: SearchVisibilityLocale;
@@ -96,7 +97,7 @@ export function formatLeadAppendix(input: {
       : "--- בדיקת נראות בחיפוש ---",
   );
   if (report.isDemoData) {
-    lines.push(locale === "en" ? "(Demo data — not live Google rankings)" : "(נתוני דוגמה — לא דירוג חי)");
+    lines.push(locale === "en" ? VISIBILITY_DEMO_MARKER_EN : VISIBILITY_DEMO_MARKER_HE);
   }
   lines.push(
     locale === "en"

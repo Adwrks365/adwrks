@@ -43,7 +43,8 @@ export function SiteCheckVisibilitySection({ locale, copy, report, onLeadNoteApp
   const [status, setStatus] = useState<"idle" | "running" | "ready" | "error" | "off">("idle");
   const [error, setError] = useState("");
   const [visibility, setVisibility] = useState<SearchVisibilityReport | null>(null);
-  const [providerMode, setProviderMode] = useState<string>("mock");
+  const [providerMode, setProviderMode] = useState<string>("off");
+  const [costSummary, setCostSummary] = useState("");
 
   useEffect(() => {
     setQ1(seeds[0]?.text ?? "");
@@ -57,9 +58,11 @@ export function SiteCheckVisibilitySection({ locale, copy, report, onLeadNoteApp
   useEffect(() => {
     fetch("/api/search-visibility/")
       .then((r) => r.json())
-      .then((d: { mode?: string }) => {
+      .then((d: { mode?: string; costEstimate?: { summaryHe?: string; summaryEn?: string } }) => {
         if (d.mode === "off") setStatus("off");
         if (d.mode) setProviderMode(d.mode);
+        const summary = locale === "en" ? d.costEstimate?.summaryEn : d.costEstimate?.summaryHe;
+        if (summary) setCostSummary(summary);
       })
       .catch(() => undefined);
   }, []);
@@ -185,7 +188,12 @@ export function SiteCheckVisibilitySection({ locale, copy, report, onLeadNoteApp
             </select>
           </label>
         </div>
-        {providerMode === "mock" && <p className="site-check-visibility-demo">{copy.visibilityDemoNote}</p>}
+        {providerMode === "mock" ? (
+          <>
+            <p className="site-check-visibility-demo">{copy.visibilityDemoNote}</p>
+            {costSummary ? <p className="site-check-visibility-cost">{costSummary}</p> : null}
+          </>
+        ) : null}
         <button type="submit" className="btn btn-secondary site-check-visibility-btn" disabled={status === "running"}>
           {status === "running" ? copy.visibilityRunning : copy.visibilityButton}
         </button>
