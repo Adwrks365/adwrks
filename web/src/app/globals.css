@@ -14938,12 +14938,48 @@ body.contextual-popup-open {
   border-radius: 0.85rem;
 }
 
+.site-check-page-types {
+  color: #334155;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  margin: 0 0 0.55rem;
+}
+
+.site-check-page-types--detail {
+  margin-top: 0.35rem;
+}
+
+.site-check-insight-detail {
+  color: #1e293b;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0 0 0.4rem;
+}
+
 .site-check-finding-kicker {
   color: #9a3412;
   font-size: 0.78rem;
   font-weight: 800;
   margin: 0 0 0.25rem;
   text-transform: none;
+}
+
+.site-check-page-types {
+  color: #334155;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  margin: 0 0 0.55rem;
+}
+
+.site-check-page-types--detail {
+  margin-top: 0.35rem;
+}
+
+.site-check-insight-detail {
+  color: #1e293b;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0 0 0.4rem;
 }
 
 .site-check-finding-headline {

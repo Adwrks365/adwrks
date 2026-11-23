@@ -234,12 +234,22 @@ export function SiteCheckTool({
   const failedPages = report?.pages.filter((page) => page.status === "failed") ?? [];
   const hasFindings = Boolean(report && report.findings.length > 0);
   const isClearSuccess = Boolean(report && report.clearTitle);
+  const primaryInsight = report?.businessInsights[0] ?? null;
+  const moreInsights =
+    report && report.businessInsights.length > 1 ? report.businessInsights.slice(1) : [];
   const primaryFinding = report?.findings[0] ?? null;
   const moreFindings = report && report.findings.length > 1 ? report.findings.slice(1) : [];
-  const formTitle =
-    scanIncomplete ? copy.formTitleFailure : hasFindings ? copy.formTitle : isClearSuccess ? copy.formTitleClear : copy.formTitle;
-  const formBodyText =
-    scanIncomplete ? copy.formBody : hasFindings ? copy.formBody : isClearSuccess ? copy.formBodyClear : copy.formBody;
+  const showPromoteCta = Boolean(report && (hasFindings || isClearSuccess));
+  const formTitle = scanIncomplete
+    ? copy.formTitleFailure
+    : showPromoteCta
+      ? copy.formTitlePromote
+      : copy.formTitle;
+  const formBodyText = scanIncomplete
+    ? copy.formBody
+    : showPromoteCta
+      ? copy.formBodyPromote
+      : copy.formBody;
 
   async function onSpeedCheck() {
     if (!report?.homeUrl) return;
@@ -387,7 +397,32 @@ export function SiteCheckTool({
               <div
                 className={`site-check-now-answer${hasFindings ? " site-check-now-answer--findings" : " site-check-now-answer--clear"}`}
               >
-                {primaryFinding ? (
+                {primaryInsight ? (
+                  <>
+                    {report.pageTypeSummary ? (
+                      <p className="site-check-page-types">{report.pageTypeSummary}</p>
+                    ) : null}
+                    {primaryInsight.pointFix && primaryFinding ? (
+                      <p className="site-check-finding-kicker">{primaryFinding.pageLabel}</p>
+                    ) : null}
+                    <h3 className="site-check-finding-headline">{primaryInsight.headline}</h3>
+                    <p className="site-check-insight-detail">{primaryInsight.detail}</p>
+                    {primaryInsight.exampleUrl ? (
+                      <a href={primaryInsight.exampleUrl} className="site-check-finding-example" dir="ltr">
+                        {primaryInsight.exampleUrl}
+                      </a>
+                    ) : null}
+                    <p className="site-check-recommended-step">
+                      <span className="site-check-recommended-step-label">{copy.recommendedStepLabel}: </span>
+                      {primaryInsight.recommendedStep}
+                    </p>
+                    <p className="site-check-finding-why">
+                      <span>{copy.impactLabel}: </span>
+                      {primaryInsight.why}
+                    </p>
+                    <p className="site-check-consult-bridge">{copy.findingConsultBridge}</p>
+                  </>
+                ) : primaryFinding ? (
                   <>
                     <p className="site-check-finding-kicker">{primaryFinding.pageLabel}</p>
                     <h3 className="site-check-finding-headline">{primaryFinding.observation}</h3>
@@ -406,6 +441,9 @@ export function SiteCheckTool({
                   </>
                 ) : (
                   <>
+                    {report.pageTypeSummary ? (
+                      <p className="site-check-page-types">{report.pageTypeSummary}</p>
+                    ) : null}
                     <p className="site-check-outcome-clear" role="status">
                       {copy.noFindingsTitle}
                     </p>
@@ -530,6 +568,39 @@ export function SiteCheckTool({
                     ))}
                   </ul>
                 </section>
+                {report.pageTypeSummary && (
+                  <p className="site-check-page-types site-check-page-types--detail">
+                    <strong>{copy.pageTypeHeading}: </strong>
+                    {report.pageTypeSummary}
+                  </p>
+                )}
+                {moreInsights.length > 0 && (
+                  <section className="site-check-business-insights" aria-labelledby="site-check-insights-title">
+                    <h3 id="site-check-insights-title" className="site-check-subhead">
+                      {copy.businessInsightsHeading}
+                    </h3>
+                    <ol className="site-check-findings site-check-findings--more">
+                      {moreInsights.map((insight) => (
+                        <li key={insight.headline}>
+                          <h4 className="site-check-finding-headline">{insight.headline}</h4>
+                          <p className="site-check-insight-detail">{insight.detail}</p>
+                          {insight.exampleUrl ? (
+                            <a href={insight.exampleUrl} className="site-check-finding-example" dir="ltr">
+                              {insight.exampleUrl}
+                            </a>
+                          ) : null}
+                          <p className="site-check-recommended-step site-check-recommended-step--compact">
+                            <span className="site-check-recommended-step-label">{copy.recommendedStepLabel}: </span>
+                            {insight.recommendedStep}
+                          </p>
+                          <p className="site-check-finding-impact">
+                            {copy.impactLabel}: {insight.why}
+                          </p>
+                        </li>
+                      ))}
+                    </ol>
+                  </section>
+                )}
                 {report.checksLine && <p className="site-check-checks">{report.checksLine}</p>}
                 {report.partialNote && <p className="site-check-partial">{report.partialNote}</p>}
                 <p className="site-check-limit">{report.limitNote}</p>

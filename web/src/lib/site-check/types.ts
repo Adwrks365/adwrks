@@ -37,6 +37,24 @@ export type ScannedPage = {
   status: ScanPageStatus;
 };
 
+export type BusinessInsight = {
+  headline: string;
+  detail: string;
+  recommendedStep: string;
+  why: string;
+  exampleUrl?: string;
+  affectedPages?: number;
+  pointFix: boolean;
+};
+
+export type StoreSnapshot = {
+  productsScanned: number;
+  categoriesScanned: number;
+  productsWithPurchaseCta: number;
+  productsMissingH1: number;
+  categoriesMissingH1: number;
+};
+
 export type SiteCheckFinding = {
   pageLabel: string;
   pageUrl: string;
@@ -81,6 +99,10 @@ export type SiteCheckReport = {
   checksLine: string;
   topicSummaries: SiteCheckTopicSummary[];
   imageProbeStats: ImageProbeStats;
+  siteKind: import("./site-kind").SiteKind;
+  pageTypeSummary: string;
+  businessInsights: BusinessInsight[];
+  storeSnapshot: StoreSnapshot | null;
   metrics: SiteCheckSummaryMetrics;
   partialScan: boolean;
   partialHeadline: string | null;

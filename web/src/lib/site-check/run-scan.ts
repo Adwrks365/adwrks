@@ -7,6 +7,13 @@ import { tallyImageProbeResult } from "./image-probe-stats";
 import type { ImageProbeStats } from "./types";
 import { probeImageAsset, probeInternalLink } from "./probe-link";
 import { selectHeroImagesToProbe } from "./select-hero-images";
+import { buildBusinessInsights } from "./business-insights";
+import {
+  auditStorePages,
+  countPageTypes,
+  formatPageTypeSummary,
+  storeAuditLines,
+} from "./page-type-summary";
 import { buildSiteCheckReport } from "./report";
 import { pageIntent, pickLinksToProbe, planScanUrls, samePage } from "./select-pages";
 import type { ScannedPage, SiteCheckLocale, SiteCheckReport } from "./types";
@@ -289,7 +296,19 @@ export async function runSiteCheck(
   const imageProbesRun = imageStats.imagesProbed;
 
   const ranked = rankIssues(analyzable, { brokenLinks, brokenImages, locale, siteKind });
+  const rankedTop = ranked.slice(0, 3);
   const findings = presentFindings(ranked, locale);
+  const pageTypeCounts = countPageTypes(analyzable);
+  const pageTypeSummary = formatPageTypeSummary(locale, siteKind, pageTypeCounts);
+  const storeAudit = siteKind === "store" ? auditStorePages(analyzable) : null;
+  const storeLines = storeAudit ? storeAuditLines(locale, storeAudit) : [];
+  const businessInsights = buildBusinessInsights({
+    locale,
+    siteKind,
+    findings: findings.slice(0, 3),
+    ranked: rankedTop,
+    storeAuditLines: storeLines,
+  });
   const contentPlanned = plannedUrls.length;
   const contentScanned = analyzable.length;
   const partialScan = timedOut || failedUrls.length > 0 || contentScanned < contentPlanned;
@@ -306,6 +325,18 @@ export async function runSiteCheck(
     thinCount: analyzable.filter((page) => !page.readable).length,
     nothingReadable: analyzable.every((page) => !page.readable),
     findings,
+    businessInsights,
+    siteKind,
+    pageTypeSummary,
+    storeSnapshot: storeAudit
+      ? {
+          productsScanned: storeAudit.productsScanned,
+          categoriesScanned: storeAudit.categoriesScanned,
+          productsWithPurchaseCta: storeAudit.productsWithPurchaseCta,
+          productsMissingH1: storeAudit.productsMissingH1,
+          categoriesMissingH1: storeAudit.categoriesMissingH1,
+        }
+      : null,
     analyzable,
     partialScan,
     contentPlanned,

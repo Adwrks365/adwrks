@@ -167,6 +167,10 @@ test("duplicate titles are one finding and the lead note matches the screen", ()
       unverified: 0,
     },
     durationMs: 1200,
+    siteKind: "general",
+    pageTypeSummary: "בין העמודים שנפתחו: דף הבית, עמודים נוספים.",
+    businessInsights: [],
+    storeSnapshot: null,
   });
   assert.match(report.scopeLine, /דף הבית/);
   assert.equal(report.topicSummaries.length, 3);

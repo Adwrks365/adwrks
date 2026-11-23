@@ -4,6 +4,7 @@ import { displayUrlReadable } from "./display-url";
 import { buildPositiveObservations } from "./positives";
 import { buildTopicSummaries } from "./topic-summaries";
 import type {
+  BusinessInsight,
   SiteCheckFinding,
   SiteCheckLocale,
   SiteCheckReport,
@@ -110,6 +111,8 @@ export function buildLeadNote(input: {
   scopeLine: string;
   checksLine: string;
   topicSummaries: SiteCheckTopicSummary[];
+  pageTypeSummary: string;
+  businessInsights: BusinessInsight[];
   findings: SiteCheckFinding[];
   clearNote: string | null;
   positiveObservations: { text: string }[];
@@ -123,6 +126,21 @@ export function buildLeadNote(input: {
     "",
     input.scopeLine,
     input.checksLine,
+    "",
+  ];
+  if (input.pageTypeSummary) lines.push(input.pageTypeSummary);
+  if (input.businessInsights.length) {
+    lines.push("");
+    lines.push(he ? "תובנות לעסק:" : "Business insights:");
+    input.businessInsights.forEach((insight, index) => {
+      lines.push(`${index + 1}. ${insight.headline}`);
+      lines.push(insight.detail);
+      lines.push(
+        he ? `הצעד המומלץ: ${insight.recommendedStep}` : `Recommended: ${insight.recommendedStep}`,
+      );
+    });
+  }
+  lines.push(
     "",
     ...(input.topicSummaries.length
       ? [
@@ -139,7 +157,7 @@ export function buildLeadNote(input: {
     ...(checked.length
       ? checked.map((page) => `- ${page.label} — ${page.url}`)
       : [he ? "- לא נטען עמוד לקריאה" : "- No readable page loaded"]),
-  ];
+  );
   if (input.partialNote) lines.push("", input.partialNote);
   lines.push("", he ? "ממצאים שהוצגו:" : "Findings shown:");
   if (input.positiveObservations.length > 0) {
@@ -183,6 +201,10 @@ export function buildSiteCheckReport(input: {
   imageProbeStats: ImageProbeStats;
   brokenImagesCount: number;
   durationMs: number;
+  siteKind: import("./site-kind").SiteKind;
+  pageTypeSummary: string;
+  businessInsights: import("./types").BusinessInsight[];
+  storeSnapshot: import("./types").StoreSnapshot | null;
 }): SiteCheckReport {
   const findings = input.findings.slice(0, 3);
   const isClear = !input.nothingReadable && findings.length === 0;
@@ -233,6 +255,10 @@ export function buildSiteCheckReport(input: {
     checksLine: checks,
     topicSummaries,
     imageProbeStats: input.imageProbeStats,
+    siteKind: input.siteKind,
+    pageTypeSummary: input.pageTypeSummary,
+    businessInsights: input.businessInsights,
+    storeSnapshot: input.storeSnapshot,
     metrics,
     partialScan: input.partialScan,
     partialHeadline,
@@ -259,6 +285,8 @@ export function buildSiteCheckReport(input: {
       scopeLine: scope,
       checksLine: checks,
       topicSummaries,
+      pageTypeSummary: input.pageTypeSummary,
+      businessInsights: input.businessInsights,
       findings,
       clearNote: clearTitle,
       positiveObservations,

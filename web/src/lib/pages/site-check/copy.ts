@@ -48,10 +48,14 @@ export type SiteCheckCopy = {
   noFindingsTitle: string;
   positiveHeading: string;
   formTitle: string;
+  formTitlePromote: string;
   formTitleClear: string;
   formTitleFailure: string;
   formBody: string;
+  formBodyPromote: string;
   formBodyClear: string;
+  pageTypeHeading: string;
+  businessInsightsHeading: string;
   formSubmit: string;
   speedButton: string;
   speedRunning: string;
@@ -127,11 +131,16 @@ const HE: SiteCheckCopy = {
   noFindingsTitle: "בבדיקות שביצענו לא נמצא ממצא בולט",
   positiveHeading: "מה בדקנו ונראה תקין",
   formTitle: "רוצים שנעבור איתכם על התוצאות ונציע מה לשפר?",
-  formTitleClear: "רוצים לדעת אילו עמודים כדאי לקדם כדי לקבל יותר פניות?",
+  formTitlePromote: "רוצים לדעת אילו עמודים כדאי לקדם קודם?",
+  formTitleClear: "רוצים לדעת אילו עמודים כדאי לקדם קודם?",
   formTitleFailure: "רוצים שנבדוק את האתר ונחזור אליכם?",
   formBody: "",
+  formBodyPromote:
+    "אין בבדיקה הזו דירוג או מיקום בגוגל. בשיחה נמליץ במה להתמקד לפי השירותים או המוצרים שחשובים לכם למכור — לפי ההזדמנויות שעלו מהסריקה.",
   formBodyClear:
-    "בדיקה מקיפה יכולה לעזור לזהות אילו עמודים כדאי לקדם, אילו חיפושים רלוונטיים לעסק שלכם ואיך לשפר את הנראות בגוגל ובתשובות AI.",
+    "אין בבדיקה הזו דירוג או מיקום בגוגל. בשיחה נמליץ במה להתמקד לפי השירותים או המוצרים שחשובים לכם למכור — לפי ההזדמנויות שעלו מהסריקה.",
+  pageTypeHeading: "סיכום לפי סוגי עמודים",
+  businessInsightsHeading: "תובנות לעסק",
   formSubmit: "חזרו אליי לשיחת ייעוץ",
   speedButton: "בדקו מהירות",
   speedRunning: "בודקים מהירות במובייל…",
@@ -245,11 +254,16 @@ const EN: SiteCheckCopy = {
   noFindingsTitle: "Nothing standout showed up in the checks we ran",
   positiveHeading: "What looked fine in this check",
   formTitle: "Want us to walk through the results and suggest what to fix?",
-  formTitleClear: "Want to know which pages to grow for more inquiries?",
+  formTitlePromote: "Want to know which pages to grow first?",
+  formTitleClear: "Want to know which pages to grow first?",
   formTitleFailure: "Want us to check the site and get back to you?",
   formBody: "",
+  formBodyPromote:
+    "This check does not include Google rankings or positions. On a call we'll suggest where to focus based on the products or services you want to sell — using the opportunities from this scan.",
   formBodyClear:
-    "A deeper review can show which pages to prioritize, which searches matter for your business, and how to improve visibility in Google and AI answers.",
+    "This check does not include Google rankings or positions. On a call we'll suggest where to focus based on the products or services you want to sell — using the opportunities from this scan.",
+  pageTypeHeading: "Summary by page types",
+  businessInsightsHeading: "Insights for your business",
   formSubmit: "Call me back for a consult",
   speedButton: "Check speed",
   speedRunning: "Checking mobile speed…",
