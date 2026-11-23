@@ -362,6 +362,12 @@ export function SiteCheckTool({
                 </p>
               )}
               <p className="site-check-scope">{report.scopeLine}</p>
+              {report.checksLine && (
+                <p className="site-check-checks">
+                  <span className="site-check-checks-label">{copy.scopeHeading}: </span>
+                  {report.checksLine}
+                </p>
+              )}
               {report.inputLabel && (
                 <p className="site-check-domain">
                   <a href={report.inputUrl} dir="ltr" className="site-check-domain-link">

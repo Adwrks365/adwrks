@@ -58,6 +58,8 @@ export type SiteCheckReport = {
   inputLabel: string;
   homeUrl: string;
   scopeLine: string;
+  /** Short list of checks run (shown under "מה נבדק"). */
+  checksLine: string;
   metrics: SiteCheckSummaryMetrics;
   partialScan: boolean;
   partialHeadline: string | null;

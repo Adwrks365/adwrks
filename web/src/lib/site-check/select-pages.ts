@@ -59,6 +59,9 @@ function scoreLink(link: { href: string; text: string; inNav: boolean }, homeUrl
   if (contact) score += 8;
   if (service) score += 6;
   if (pricing) score += 7;
+  if (/להזמנה|לרכישה|הוספ[\s\S]{0,10}לסל|buy\s+now|add[\s-]*to[\s-]*cart|checkout/i.test(blob)) {
+    score += 10;
+  }
   if (depth === 1) score += 2;
   if (depth >= 4) score -= 2;
   if (/\/(blog|category|tag|news|מאמרים)(\/|$)/i.test(url.pathname)) score -= 4;

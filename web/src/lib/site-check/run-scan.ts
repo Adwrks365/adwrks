@@ -201,9 +201,11 @@ export async function runSiteCheck(
   const probeParsed = parsePageHtml(probeSource.html, probeSource.url);
   const toProbe = pickLinksToProbe(homeUrl, probeParsed.links, MAX_LINK_PROBES, siteKind);
   const brokenLinks: { url: string; label: string; fromLabel: string }[] = [];
+  let linkProbesRun = 0;
 
   for (const href of toProbe) {
     if (Date.now() - started > SCAN_BUDGET_MS) break;
+    linkProbesRun += 1;
     const probe = await probeInternalLink(href);
     if (probe !== "broken") continue;
     let label = href;
@@ -255,9 +257,11 @@ export async function runSiteCheck(
   ];
 
   const brokenImages: { url: string; pageUrl: string; pageLabel: string }[] = [];
+  let imageProbesRun = 0;
   for (const page of analyzable.filter((row) => row.readable && (row.role === "home" || row.isEntry))) {
     for (const img of page.parsed.heroImages.slice(0, 2)) {
       if (Date.now() - started > SCAN_BUDGET_MS) break;
+      imageProbesRun += 1;
       try {
         if (new URL(img).origin !== new URL(homeUrl).origin) continue;
       } catch {
@@ -298,6 +302,8 @@ export async function runSiteCheck(
     contentPlanned,
     contentScanned,
     brokenLinksVerified: brokenLinks.length,
+    linkProbesRun,
+    imageProbesRun,
     durationMs,
   });
 }
