@@ -23,6 +23,12 @@ export type SiteCheckCopy = {
   demoLabel: string;
   demoLine: string;
   resultsTitle: string;
+  /** Heading for the post-scan action block. */
+  resultsNowTitle: string;
+  /** Plain-language summary when no priority finding (clear scan). */
+  clearBusinessSummary: string;
+  recommendedStepLabel: string;
+  moreFindingsDetailsLabel: string;
   scopeHeading: string;
   topicSeoTitle: string;
   topicLinksTitle: string;
@@ -95,6 +101,11 @@ const HE: SiteCheckCopy = {
   demoLabel: "דוגמה לתוצאה",
   demoLine: "עמוד יצירת קשר · מספר הטלפון באתר אינו לחיץ",
   resultsTitle: "תוצאות הבדיקה",
+  resultsNowTitle: "מה כדאי לעשות עכשיו?",
+  clearBusinessSummary:
+    "בבדיקה הראשונית האתר נראה מסודר: לא מצאנו בעיה בולטת שמונעת ממבקר להבין מה אתם מציעים או ליצור איתכם קשר. אפשר להמשיך לקדם את האתר בלי תיקון דחוף.",
+  recommendedStepLabel: "הצעד המומלץ",
+  moreFindingsDetailsLabel: "ממצאים נוספים, מדדים ופרטים",
   scopeHeading: "מה נבדק",
   topicSeoTitle: "כותרות והגדרות חיפוש",
   topicLinksTitle: "קישורים וכפתורי פעולה",
@@ -206,6 +217,11 @@ const EN: SiteCheckCopy = {
   demoLabel: "Sample result",
   demoLine: "Contact page · The phone number on the site isn't tappable",
   resultsTitle: "Check results",
+  resultsNowTitle: "What should you do now?",
+  clearBusinessSummary:
+    "In this first check the site looks orderly: we did not find a standout issue that would stop someone from understanding your offer or getting in touch. You can keep growing visibility without an urgent fix.",
+  recommendedStepLabel: "Recommended next step",
+  moreFindingsDetailsLabel: "More findings, metrics, and details",
   scopeHeading: "What we checked",
   topicSeoTitle: "Titles and search snippets",
   topicLinksTitle: "Links and action buttons",

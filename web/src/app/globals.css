@@ -14793,16 +14793,59 @@ body.contextual-popup-open {
   text-underline-offset: 0.15em;
 }
 
-.site-check-outcome-clear {
+.site-check-now-answer {
+  border-radius: 0.9rem;
+  margin: 0 0 0.85rem;
+  padding: 0.75rem 0.85rem;
+}
+
+.site-check-now-answer--clear {
   background: #ecfdf5;
   border: 1px solid #bbf7d0;
-  border-radius: 0.85rem;
+}
+
+.site-check-now-answer--findings {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+}
+
+.site-check-outcome-clear {
   color: #166534;
   font-size: 1.02rem;
   font-weight: 800;
   line-height: 1.45;
-  margin: 0 0 0.85rem;
-  padding: 0.7rem 0.85rem;
+  margin: 0 0 0.5rem;
+}
+
+.site-check-now-summary {
+  color: #14532d;
+  font-size: 0.96rem;
+  font-weight: 600;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.site-check-recommended-step {
+  color: #7c2d12;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  margin: 0.55rem 0 0;
+}
+
+.site-check-recommended-step-label {
+  font-weight: 800;
+}
+
+.site-check-speed-card--after-form {
+  margin-top: 0.65rem;
+}
+
+.site-check-scope--detail {
+  margin-top: 0.35rem;
+}
+
+.site-check-findings--more {
+  margin: 0.5rem 0 0;
 }
 
 .site-check-topics {

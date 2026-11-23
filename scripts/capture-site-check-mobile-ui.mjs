@@ -20,9 +20,11 @@ async function captureScan(page, url, fileName) {
   await page.goto(`${BASE}/%D7%91%D7%93%D7%99%D7%A7%D7%AA-%D7%90%D7%AA%D7%A8/`, { waitUntil: "networkidle", timeout: 120_000 });
   await page.getByLabel("כתובת האתר").fill(url);
   await page.getByRole("button", { name: "בדקו את האתר שלי" }).click();
-  await page.locator(".site-check-topic-grid").first().waitFor({ timeout: 120_000 });
-  const topics = page.locator(".site-check-topic-grid").first();
-  await topics.scrollIntoViewIfNeeded();
+  await page.locator(".site-check-now-answer").first().waitFor({ timeout: 120_000 });
+  await page.locator(".site-check-offer--in-report").first().waitFor({ timeout: 120_000 });
+  const offer = page.locator(".site-check-offer--in-report").first();
+  await offer.scrollIntoViewIfNeeded();
+  await page.waitForTimeout(300);
   await page.screenshot({ path: join(OUT, fileName), fullPage: false });
 }
 

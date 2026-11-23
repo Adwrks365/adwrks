@@ -234,6 +234,8 @@ export function SiteCheckTool({
   const failedPages = report?.pages.filter((page) => page.status === "failed") ?? [];
   const hasFindings = Boolean(report && report.findings.length > 0);
   const isClearSuccess = Boolean(report && report.clearTitle);
+  const primaryFinding = report?.findings[0] ?? null;
+  const moreFindings = report && report.findings.length > 1 ? report.findings.slice(1) : [];
   const formTitle =
     scanIncomplete ? copy.formTitleFailure : hasFindings ? copy.formTitle : isClearSuccess ? copy.formTitleClear : copy.formTitle;
   const formBodyText =
@@ -363,14 +365,18 @@ export function SiteCheckTool({
 
           {report && status === "ready" && (
             <div className="site-check-report-body site-check-fade-in">
-              <p className="site-check-results-kicker">{copy.resultsTitle}</p>
-              {report.partialHeadline && (
-                <p className="site-check-partial-headline" role="status">
-                  {report.partialHeadline}
-                </p>
+              <p className="site-check-results-kicker">{copy.resultsNowTitle}</p>
+              {(report.partialScan || report.partialHeadline) && (
+                <>
+                  {report.partialHeadline && (
+                    <p className="site-check-partial-headline" role="status">
+                      {report.partialHeadline}
+                    </p>
+                  )}
+                  <p className="site-check-scope">{report.scopeLine}</p>
+                </>
               )}
-              <p className="site-check-scope">{report.scopeLine}</p>
-              {report.inputLabel && (
+              {!report.partialScan && !report.partialHeadline && report.inputLabel && (
                 <p className="site-check-domain">
                   <a href={report.inputUrl} dir="ltr" className="site-check-domain-link">
                     {report.inputLabel}
@@ -378,80 +384,28 @@ export function SiteCheckTool({
                 </p>
               )}
 
-              {hasFindings ? (
-                <ol className="site-check-findings site-check-findings--lead">
-                  {report.findings.map((finding) => (
-                    <li key={`${finding.pageUrl}-${finding.observation}`}>
-                      <p className="site-check-finding-kicker">
-                        {finding.pageLabel}
-                      </p>
-                      <h3 className="site-check-finding-headline">{finding.observation}</h3>
-                      <a href={finding.pageUrl} className="site-check-finding-example" dir="ltr">
-                        {finding.pageUrl}
-                      </a>
-                    </li>
-                  ))}
-                </ol>
-              ) : (
-                <p className="site-check-outcome-clear" role="status">
-                  {copy.noFindingsTitle}
-                </p>
-              )}
-
-              <section className="site-check-topics" aria-labelledby="site-check-topics-title">
-                <h3 id="site-check-topics-title" className="site-check-topics-title">
-                  {copy.scopeHeading}
-                </h3>
-                <ul className="site-check-topic-grid">
-                  {report.topicSummaries.map((topic) => (
-                    <li
-                      key={topic.id}
-                      className={`site-check-topic-card site-check-topic-card--${topic.tone}`}
-                    >
-                      <p className="site-check-topic-card-title">{topicTitle(topic.id)}</p>
-                      <p className="site-check-topic-card-detail">{topic.detail}</p>
-                    </li>
-                  ))}
-                </ul>
-              </section>
-
-              <div className="site-check-speed-card">
-                <div className="site-check-speed-card-head">
-                  <h3 className="site-check-speed-card-title">{copy.speedCardTitle}</h3>
-                  <p className="site-check-speed-card-sub" dir="ltr">
-                    {report.homeUrl}
-                  </p>
-                </div>
-                {speedStatus === "idle" && (
-                  <button type="button" className="btn btn-secondary site-check-speed-btn" onClick={onSpeedCheck}>
-                    {copy.speedButton}
-                  </button>
-                )}
-                {speedStatus === "running" && (
-                  <p className="site-check-speed-running" role="status">
-                    {copy.speedRunning}
-                  </p>
-                )}
-                {speedStatus === "error" && speedError && (
-                  <p className="site-check-alert site-check-alert--error" role="alert">
-                    {speedError}
-                  </p>
-                )}
-                {speedStatus === "ready" && (
-                  <div className="site-check-speed-result">
-                    <p className="site-check-speed-score">
-                      <span>{copy.speedScoreLabel}: </span>
-                      <strong>{speedScore ?? "—"}</strong>
+              <div
+                className={`site-check-now-answer${hasFindings ? " site-check-now-answer--findings" : " site-check-now-answer--clear"}`}
+              >
+                {primaryFinding ? (
+                  <>
+                    <p className="site-check-finding-kicker">{primaryFinding.pageLabel}</p>
+                    <h3 className="site-check-finding-headline">{primaryFinding.observation}</h3>
+                    <a href={primaryFinding.pageUrl} className="site-check-finding-example" dir="ltr">
+                      {primaryFinding.pageUrl}
+                    </a>
+                    <p className="site-check-recommended-step">
+                      <span className="site-check-recommended-step-label">{copy.recommendedStepLabel}: </span>
+                      {primaryFinding.why}
                     </p>
-                    {speedPageLabel && (
-                      <p className="site-check-speed-page">
-                        <span>{locale === "en" ? "Page measured: " : "עמוד שנמדד: "}</span>
-                        <span dir="ltr">{speedPageLabel}</span>
-                      </p>
-                    )}
-                    <p className="site-check-speed-tip">{copy.speedTipGeneric}</p>
-                    <p className="site-check-speed-lab">{copy.speedLabNote}</p>
-                  </div>
+                  </>
+                ) : (
+                  <>
+                    <p className="site-check-outcome-clear" role="status">
+                      {copy.noFindingsTitle}
+                    </p>
+                    <p className="site-check-now-summary">{copy.clearBusinessSummary}</p>
+                  </>
                 )}
               </div>
 
@@ -499,8 +453,78 @@ export function SiteCheckTool({
                 </section>
               )}
 
+              <div className="site-check-speed-card site-check-speed-card--after-form">
+                <div className="site-check-speed-card-head">
+                  <h3 className="site-check-speed-card-title">{copy.speedCardTitle}</h3>
+                  <p className="site-check-speed-card-sub" dir="ltr">
+                    {report.homeUrl}
+                  </p>
+                </div>
+                {speedStatus === "idle" && (
+                  <button type="button" className="btn btn-secondary site-check-speed-btn" onClick={onSpeedCheck}>
+                    {copy.speedButton}
+                  </button>
+                )}
+                {speedStatus === "running" && (
+                  <p className="site-check-speed-running" role="status">
+                    {copy.speedRunning}
+                  </p>
+                )}
+                {speedStatus === "error" && speedError && (
+                  <p className="site-check-alert site-check-alert--error" role="alert">
+                    {speedError}
+                  </p>
+                )}
+                {speedStatus === "ready" && (
+                  <div className="site-check-speed-result">
+                    <p className="site-check-speed-score">
+                      <span>{copy.speedScoreLabel}: </span>
+                      <strong>{speedScore ?? "—"}</strong>
+                    </p>
+                    {speedPageLabel && (
+                      <p className="site-check-speed-page">
+                        <span>{locale === "en" ? "Page measured: " : "עמוד שנמדד: "}</span>
+                        <span dir="ltr">{speedPageLabel}</span>
+                      </p>
+                    )}
+                    <p className="site-check-speed-tip">{copy.speedTipGeneric}</p>
+                    <p className="site-check-speed-lab">{copy.speedLabNote}</p>
+                  </div>
+                )}
+              </div>
+
               <details className="site-check-tech-details">
-                <summary>{copy.techDetailsHeading}</summary>
+                <summary>
+                  {moreFindings.length > 0
+                    ? copy.moreFindingsDetailsLabel
+                    : copy.techDetailsHeading}
+                </summary>
+                {!report.partialScan && (
+                  <p className="site-check-scope site-check-scope--detail">{report.scopeLine}</p>
+                )}
+                {report.inputLabel && (
+                  <p className="site-check-domain">
+                    <a href={report.inputUrl} dir="ltr" className="site-check-domain-link">
+                      {report.inputLabel}
+                    </a>
+                  </p>
+                )}
+                <section className="site-check-topics" aria-labelledby="site-check-topics-title">
+                  <h3 id="site-check-topics-title" className="site-check-topics-title">
+                    {copy.scopeHeading}
+                  </h3>
+                  <ul className="site-check-topic-grid">
+                    {report.topicSummaries.map((topic) => (
+                      <li
+                        key={topic.id}
+                        className={`site-check-topic-card site-check-topic-card--${topic.tone}`}
+                      >
+                        <p className="site-check-topic-card-title">{topicTitle(topic.id)}</p>
+                        <p className="site-check-topic-card-detail">{topic.detail}</p>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
                 {report.checksLine && <p className="site-check-checks">{report.checksLine}</p>}
                 {report.partialNote && <p className="site-check-partial">{report.partialNote}</p>}
                 <p className="site-check-limit">{report.limitNote}</p>
@@ -513,6 +537,22 @@ export function SiteCheckTool({
                       ))}
                     </ul>
                   </>
+                )}
+                {moreFindings.length > 0 && (
+                  <ol className="site-check-findings site-check-findings--more">
+                    {moreFindings.map((finding) => (
+                      <li key={`more-${finding.pageUrl}-${finding.observation}`}>
+                        <p className="site-check-finding-kicker">{finding.pageLabel}</p>
+                        <h4 className="site-check-finding-headline">{finding.observation}</h4>
+                        <a href={finding.pageUrl} className="site-check-finding-example" dir="ltr">
+                          {finding.pageUrl}
+                        </a>
+                        <p className="site-check-finding-impact">
+                          {copy.impactLabel}: {finding.why}
+                        </p>
+                      </li>
+                    ))}
+                  </ol>
                 )}
                 {hasFindings && (
                   <ul className="site-check-finding-impacts">
