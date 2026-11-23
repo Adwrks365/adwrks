@@ -19,6 +19,8 @@ export type ParsedPage = {
   hasWhatsapp: boolean;
   /** Plain-text phones shown in a contact context (not demo widgets). */
   contactPhones: string[];
+  /** Leading content images (not icons/trackers). */
+  heroImages: string[];
   visibleTextLength: number;
 };
 

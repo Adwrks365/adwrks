@@ -39,10 +39,18 @@ export async function POST(request: Request) {
 
   const consumed = await consumeSiteCheck(request);
   if (!consumed) {
-    return NextResponse.json(
-      { ok: false, message: "daily_limit", limit: usage.limit, remaining: 0 },
-      { status: 429 },
-    );
+  const usageAfter = await readSiteCheckUsage(request);
+    if (usageAfter && usageAfter.remaining <= 0) {
+      return NextResponse.json(
+        { ok: false, message: "daily_limit", limit: usageAfter.limit, remaining: 0 },
+        { status: 429 },
+      );
+    }
+    console.error("[site-check] quota consume failed", {
+      vercelEnv: process.env.VERCEL_ENV,
+      remaining: usageAfter?.remaining,
+    });
+    return NextResponse.json({ ok: false, message: "service_unavailable" }, { status: 503 });
   }
 
   const report = await runSiteCheck(rawUrl, localeOf(body.locale));

@@ -30,6 +30,7 @@ function scoreFromCategory(category: LighthouseCategory | undefined): number | n
 
 export async function GET() {
   if (!isPageSpeedConfigured()) {
+    console.warn("[pagespeed] missing PAGESPEED_API_KEY in this environment");
     return NextResponse.json(
       { ok: false, message: "unavailable" },
       { status: 503 },
@@ -47,6 +48,7 @@ export async function GET() {
 
 export async function POST(request: Request) {
   if (!isPageSpeedConfigured()) {
+    console.warn("[pagespeed] missing PAGESPEED_API_KEY in this environment");
     return NextResponse.json(
       { ok: false, message: "unavailable" },
       { status: 503 },

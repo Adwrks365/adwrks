@@ -140,6 +140,17 @@ export function parsePageHtml(html: string, baseUrl: string): ParsedPage {
     if (/^tel:/i.test(value)) telHrefs.push(value);
   }
 
+  const heroImages: string[] = [];
+  const imgRe = /<img\b[^>]*\bsrc\s*=\s*(?:"([^"]*)"|'([^']*)')[^>]*>/gi;
+  let imgMatch: RegExpExecArray | null;
+  while ((imgMatch = imgRe.exec(bodyWithoutNav)) && heroImages.length < 6) {
+    const raw = decodeHtml((imgMatch[1] ?? imgMatch[2] ?? "").trim());
+    const resolved = resolveHttpUrl(raw, baseUrl);
+    if (!resolved) continue;
+    if (/pixel|tracking|1x1|spacer|data:image/i.test(resolved)) continue;
+    heroImages.push(resolved);
+  }
+
   const hasWhatsapp = /(?:wa\.me|api\.whatsapp\.com|web\.whatsapp\.com|whatsapp:)/i.test(clean);
   const text = visibleText(clean);
   const hasPurchaseCta =
@@ -159,6 +170,7 @@ export function parsePageHtml(html: string, baseUrl: string): ParsedPage {
     telHrefs,
     hasWhatsapp,
     contactPhones: contactPhonesInText(text),
+    heroImages,
     visibleTextLength: text.length,
   };
 }

@@ -96,8 +96,7 @@ const HE: SiteCheckCopy = {
   metricFindings: "ממצאים חשובים",
   metricBroken: "קישורים שבורים שאומתו",
   speedCardTitle: "מהירות במובייל",
-  speedUnavailableConfig:
-    "בדיקת המהירות לא מוגדרת בשרת (חסר מפתח PAGESPEED_API_KEY בסביבת Preview או Production).",
+  speedUnavailableConfig: "בדיקת המהירות לא זמינה כרגע. אפשר לנסות שוב מאוחר יותר.",
   speedUpstreamError: "ממשק PageSpeed לא החזיר תוצאה כרגע. נסו שוב מאוחר יותר.",
   whyLabel: "למה זה חשוב",
   impactLabel: "מה זה אומר למבקרים",
@@ -204,8 +203,7 @@ const EN: SiteCheckCopy = {
   metricFindings: "Priority findings",
   metricBroken: "Broken links verified",
   speedCardTitle: "Mobile speed",
-  speedUnavailableConfig:
-    "Speed check is not configured on the server (PAGESPEED_API_KEY missing on Preview or Production).",
+  speedUnavailableConfig: "Speed check isn't available right now. You can try again later.",
   speedUpstreamError: "The PageSpeed API did not return a result right now. Try again later.",
   whyLabel: "Why it matters",
   impactLabel: "What this means for visitors",

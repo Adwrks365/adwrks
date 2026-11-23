@@ -26,6 +26,43 @@ function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+export async function probeImageAsset(rawUrl: string): Promise<LinkProbeResult> {
+  let parsed: URL;
+  try {
+    parsed = new URL(rawUrl);
+  } catch {
+    return "blocked";
+  }
+  if (!isLocalSiteCheckFixtureUrl(parsed)) {
+    const hostCheck = await isPublicHostname(parsed.hostname);
+    if (hostCheck !== true) return "blocked";
+  }
+  try {
+    const response = await fetch(rawUrl, {
+      method: "HEAD",
+      redirect: "follow",
+      cache: "no-store",
+      signal: AbortSignal.timeout(PROBE_TIMEOUT_MS),
+      headers: { Accept: "image/*,*/*" },
+    });
+    if (isDefiniteBrokenLinkStatus(response.status)) return "broken";
+    if (response.status === 405) {
+      const getRes = await fetch(rawUrl, {
+        method: "GET",
+        redirect: "follow",
+        signal: AbortSignal.timeout(PROBE_TIMEOUT_MS),
+        headers: { Accept: "image/*", Range: "bytes=0-0" },
+      });
+      if (isDefiniteBrokenLinkStatus(getRes.status)) return "broken";
+      return getRes.ok ? "ok" : "timeout";
+    }
+    if (isTransientProbeStatus(response.status)) return "timeout";
+    return response.ok ? "ok" : "timeout";
+  } catch {
+    return "timeout";
+  }
+}
+
 export async function probeInternalLink(rawUrl: string): Promise<LinkProbeResult> {
   const current = normalizePageSpeedTargetUrl(rawUrl);
   if (!current) return "blocked";

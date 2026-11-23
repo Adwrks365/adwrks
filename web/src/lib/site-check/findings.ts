@@ -18,6 +18,8 @@ export type IssueType =
   | "no-contact-path"
   | "nav-missing-contact"
   | "missing-description"
+  | "duplicate-description"
+  | "broken-image"
   | "product-no-purchase";
 
 export type RankedIssue = {
@@ -31,11 +33,13 @@ export type RankedIssue = {
 
 const PRIORITY: IssueType[] = [
   "broken-link",
+  "broken-image",
   "product-no-purchase",
   "noindex-service",
   "noindex",
   "missing-title",
   "duplicate-title",
+  "duplicate-description",
   "missing-h1",
   "phone-not-tappable",
   "no-contact-path",
@@ -80,6 +84,7 @@ export function rankIssues(
   pages: AnalyzablePage[],
   context?: {
     brokenLinks?: readonly { url: string; label: string; fromLabel: string }[];
+    brokenImages?: readonly { url: string; pageUrl: string; pageLabel: string }[];
     locale?: SiteCheckLocale;
     siteKind?: SiteKind;
   },
@@ -92,6 +97,7 @@ export function rankIssues(
   const noindexOrder = [...pages].sort((a, b) => Number(b.role === "home") - Number(a.role === "home"));
 
   const broken = context?.brokenLinks ?? [];
+  const brokenImages = context?.brokenImages ?? [];
   if (broken.length > 0) {
     issues.push({
       type: "broken-link",
@@ -100,6 +106,16 @@ export function rankIssues(
       count: broken.length,
       exampleUrl: broken[0]!.url,
       otherLabel: broken[0]!.fromLabel,
+    });
+  }
+
+  if (brokenImages.length > 0) {
+    issues.push({
+      type: "broken-image",
+      pageUrl: brokenImages[0]!.pageUrl,
+      pageLabel: brokenImages[0]!.pageLabel,
+      count: brokenImages.length,
+      exampleUrl: brokenImages[0]!.url,
     });
   }
 
@@ -157,6 +173,28 @@ export function rankIssues(
       pageLabel: subject.label,
       count: duplicateGroup.length,
       otherLabel: duplicateGroup[1]?.label,
+    });
+  }
+
+  const importantDescribed = usable.filter(
+    (page) => page.parsed.metaDescription.trim() && isFindingTarget(page),
+  );
+  const descGroups = new Map<string, AnalyzablePage[]>();
+  for (const page of importantDescribed) {
+    const key = page.parsed.metaDescription.trim().toLowerCase();
+    const group = descGroups.get(key) ?? [];
+    group.push(page);
+    descGroups.set(key, group);
+  }
+  const dupDesc = [...descGroups.values()].find((group) => group.length >= 2);
+  if (dupDesc) {
+    const subject = dupDesc.find((page) => page.role === "inner") ?? dupDesc[0]!;
+    issues.push({
+      type: "duplicate-description",
+      pageUrl: subject.url,
+      pageLabel: subject.label,
+      count: dupDesc.length,
+      otherLabel: dupDesc[1]?.label,
     });
   }
 
@@ -253,6 +291,20 @@ const COPY = {
             : "לכמה עמודים חשובים יש אותה כותרת.",
       why: "כששני עמודים נראים אותו דבר בתוצאות, קשה יותר להגיע לשירות הנכון.",
     },
+    "duplicate-description": {
+      observation: (count: number) =>
+        count > 2
+          ? `ל־${count} עמודים חשובים יש אותו תיאור מטא (description).`
+          : "לשני עמודים חשובים יש אותו תיאור מטא (description).",
+      why: "כשתיאור המטא זהה, גוגל עלול להציג אותו קטע בכמה עמודים שונים.",
+    },
+    "broken-image": {
+      observation: (count: number, example: string) =>
+        count > 1
+          ? `מצאנו ${count} תמונות מרכזיות שלא נטענו (404/410). לדוגמה: ${example}`
+          : `תמונה מרכזית לא נטענה (404/410): ${example}`,
+      why: "תמונה שבורה בעמוד חשוב פוגעת ברושם הראשוני ובאמינות העמוד.",
+    },
     "missing-h1": {
       observation: "לא מצאנו כותרת ראשית (H1) ב-HTML של העמוד.",
       why: "בלי כותרת ראשית, מי שנכנס לעמוד עלול לא להבין מיד מה מציעים כאן.",
@@ -314,6 +366,20 @@ const COPY = {
             : "Several important pages share the same title.",
       why: "When two pages look the same in search, it's harder to reach the right service.",
     },
+    "duplicate-description": {
+      observation: (count: number) =>
+        count > 2
+          ? `${count} important pages share the same meta description.`
+          : "Two important pages share the same meta description.",
+      why: "When meta descriptions match, Google may show the same snippet for different pages.",
+    },
+    "broken-image": {
+      observation: (count: number, example: string) =>
+        count > 1
+          ? `${count} hero images failed to load (404/410). Example: ${example}`
+          : `A hero image failed to load (404/410): ${example}`,
+      why: "A broken image on an important page hurts first impressions and trust.",
+    },
     "missing-h1": {
       observation: "We didn't find a main heading (H1) in the page HTML.",
       why: "Without a main heading, someone landing on the page may not see the offer right away.",
@@ -362,6 +428,22 @@ export function presentFindings(issues: RankedIssue[], locale: SiteCheckLocale):
         pageUrl: issue.pageUrl,
         observation: copy["broken-link"].observation(issue.count ?? 1, issue.exampleUrl ?? issue.pageUrl),
         why: copy["broken-link"].why,
+      };
+    }
+    if (issue.type === "broken-image") {
+      return {
+        pageLabel: issue.pageLabel,
+        pageUrl: issue.pageUrl,
+        observation: copy["broken-image"].observation(issue.count ?? 1, issue.exampleUrl ?? issue.pageUrl),
+        why: copy["broken-image"].why,
+      };
+    }
+    if (issue.type === "duplicate-description") {
+      return {
+        pageLabel: issue.pageLabel,
+        pageUrl: issue.pageUrl,
+        observation: copy["duplicate-description"].observation(issue.count ?? 2),
+        why: copy["duplicate-description"].why,
       };
     }
     if (issue.type === "noindex-service") {

@@ -32,27 +32,30 @@ export function scopeLine(input: {
   partialScan: boolean;
 }): string {
   const { locale, homeIsRoot, contentScanned, contentPlanned, partialScan } = input;
-  const entered = homeIsRoot
-    ? locale === "en"
-      ? "the page you entered"
-      : "העמוד שהוזנתם"
-    : locale === "en"
-      ? "the page you entered and the homepage"
-      : "העמוד שהוזנתם ואת דף הבית";
+  const enteredHe = homeIsRoot ? "העמוד שהזנתם" : "העמוד שהזנתם ואת דף הבית";
+  const enteredEn = homeIsRoot ? "the page you entered" : "the page you entered and the homepage";
 
   if (locale === "en") {
     if (partialScan && contentPlanned > contentScanned) {
-      return `Partial check: we opened ${contentScanned} of ${contentPlanned} content pages we picked (including ${entered}).`;
+      return `Partial check: we opened ${contentScanned} of ${contentPlanned} content pages (including ${enteredEn}).`;
     }
-    if (contentScanned <= 1) return `We checked ${entered}.`;
-    return `We checked ${contentScanned} content pages, including ${entered}.`;
+    if (contentScanned === 1) {
+      return homeIsRoot
+        ? "We checked one content page — the page you entered."
+        : "We checked one content page — the page you entered and the homepage.";
+    }
+    return `We checked ${contentScanned} content pages, including ${enteredEn}.`;
   }
 
   if (partialScan && contentPlanned > contentScanned) {
-    return `נפתחו ${contentScanned} מתוך ${contentPlanned} עמודי תוכן שנבחרו (כולל ${entered}).`;
+    return `נפתחו ${contentScanned} מתוך ${contentPlanned} עמודי תוכן שנבחרו, כולל ${enteredHe}.`;
   }
-  if (contentScanned <= 1) return `בדקנו את ${entered}.`;
-  return `בדקנו ${contentScanned} עמודי תוכן, כולל ${entered}.`;
+  if (contentScanned === 1) {
+    return homeIsRoot
+      ? "בדקנו עמוד תוכן אחד — העמוד שהזנתם."
+      : "בדקנו עמוד תוכן אחד — העמוד שהזנתם ואת דף הבית.";
+  }
+  return `בדקנו ${contentScanned} עמודי תוכן, כולל ${enteredHe}.`;
 }
 
 export function thinPagesNote(count: number, locale: SiteCheckLocale): string | null {

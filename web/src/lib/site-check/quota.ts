@@ -31,6 +31,10 @@ function getSecret(): string | null {
     const trimmed = value?.trim();
     if (trimmed) return trimmed;
   }
+  if (process.env.VERCEL_ENV === "preview") {
+    const host = process.env.VERCEL_URL?.trim();
+    if (host) return `site-check-preview:${host}`;
+  }
   if (process.env.NODE_ENV !== "production") return "dev-site-check-usage";
   return null;
 }
@@ -104,10 +108,27 @@ function mergeUsed(cookieUsed: number, ipUsed: number, limit: number, production
 
 export async function readSiteCheckUsage(request?: Request): Promise<SiteCheckUsage | null> {
   const secret = getSecret();
-  if (!secret) return null;
+  if (!secret) {
+    console.error("[site-check] quota secret missing", {
+      vercelEnv: process.env.VERCEL_ENV,
+      nodeEnv: process.env.NODE_ENV,
+    });
+    return null;
+  }
   const limit = SITE_CHECK_DAILY_LIMIT;
   const today = utcDateKey();
-  const raw = (await cookies()).get(COOKIE_NAME)?.value;
+  let raw: string | undefined;
+  try {
+    raw = (await cookies()).get(COOKIE_NAME)?.value;
+  } catch (error) {
+    console.warn("[site-check] quota cookie read failed", {
+      message: error instanceof Error ? error.message : "unknown",
+    });
+    if (process.env.VERCEL_ENV === "preview") {
+      return { limit, remaining: limit, used: 0 };
+    }
+    return null;
+  }
   const usage = raw ? decodeUsage(raw, secret) : null;
   const cookieUsed = usage && usage.date === today ? Math.min(usage.count, limit) : 0;
   const ipUsed = isProductionDeploy()
@@ -147,6 +168,9 @@ export async function consumeSiteCheck(request?: Request): Promise<SiteCheckUsag
     });
     if (production && !ipKey) {
       return null;
+    }
+    if (!production && process.env.VERCEL_ENV === "preview") {
+      /* Preview: quota already enforced via cookie when possible; allow scan if write failed. */
     }
   }
 

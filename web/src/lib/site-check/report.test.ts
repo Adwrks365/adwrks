@@ -22,6 +22,7 @@ function page(overrides: Partial<AnalyzablePage> & Pick<AnalyzablePage, "url" | 
     telHrefs: ["tel:0501234567"],
     hasWhatsapp: false,
     contactPhones: [],
+    heroImages: [],
     visibleTextLength: 400,
     ...overrides.parsed,
   };
@@ -53,6 +54,7 @@ test("phone text without a tel link becomes one finding", () => {
         telHrefs: [],
         hasWhatsapp: false,
         contactPhones: ["0501234567"],
+        heroImages: [],
         visibleTextLength: 300,
       },
     }),
@@ -100,6 +102,7 @@ test("at most three findings, highest priority first", () => {
         telHrefs: [],
         hasWhatsapp: false,
         contactPhones: [],
+        heroImages: [],
         visibleTextLength: 200,
       },
     }),

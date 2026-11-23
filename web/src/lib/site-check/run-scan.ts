@@ -3,7 +3,7 @@ import { detectSiteKindFromSignals } from "./site-kind";
 import { fetchPagesWithBudget } from "./fetch-pool";
 import { presentFindings, rankIssues, type AnalyzablePage } from "./findings";
 import { parsePageHtml } from "./parse-page";
-import { probeInternalLink } from "./probe-link";
+import { probeImageAsset, probeInternalLink } from "./probe-link";
 import { buildSiteCheckReport } from "./report";
 import { pageIntent, pickLinksToProbe, planScanUrls, samePage } from "./select-pages";
 import type { ScannedPage, SiteCheckLocale, SiteCheckReport } from "./types";
@@ -254,7 +254,28 @@ export async function runSiteCheck(
       })),
   ];
 
-  const ranked = rankIssues(analyzable, { brokenLinks, locale, siteKind });
+  const brokenImages: { url: string; pageUrl: string; pageLabel: string }[] = [];
+  for (const page of analyzable.filter((row) => row.readable && (row.role === "home" || row.isEntry))) {
+    for (const img of page.parsed.heroImages.slice(0, 2)) {
+      if (Date.now() - started > SCAN_BUDGET_MS) break;
+      try {
+        if (new URL(img).origin !== new URL(homeUrl).origin) continue;
+      } catch {
+        continue;
+      }
+      const probe = await probeImageAsset(img);
+      if (probe !== "broken") continue;
+      brokenImages.push({
+        url: displayUrl(img),
+        pageUrl: page.url,
+        pageLabel: page.label,
+      });
+      if (brokenImages.length >= 2) break;
+    }
+    if (brokenImages.length >= 2) break;
+  }
+
+  const ranked = rankIssues(analyzable, { brokenLinks, brokenImages, locale, siteKind });
   const findings = presentFindings(ranked, locale);
   const contentPlanned = plannedUrls.length;
   const contentScanned = analyzable.length;

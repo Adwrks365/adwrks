@@ -14769,8 +14769,9 @@ body.contextual-popup-open {
 }
 
 .site-check-retry-btn {
-  justify-self: start;
-  min-height: 2.5rem;
+  justify-self: stretch;
+  min-height: 3rem;
+  width: 100%;
 }
 
 .site-check-partial-headline {
