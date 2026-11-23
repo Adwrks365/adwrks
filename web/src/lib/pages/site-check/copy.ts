@@ -29,9 +29,12 @@ export type SiteCheckCopy = {
   checkedHeading: string;
   pagesFailedLabel: string;
   noFindingsTitle: string;
+  positiveHeading: string;
   formTitle: string;
+  formTitleClear: string;
   formTitleFailure: string;
   formBody: string;
+  formBodyClear: string;
   formSubmit: string;
   formNote: string;
   callLabel: string;
@@ -77,9 +80,13 @@ const HE: SiteCheckCopy = {
   checkedHeading: "עמודים שנבדקו",
   pagesFailedLabel: "עמודים שלא נטענו",
   noFindingsTitle: "לא נמצא ממצא בולט",
+  positiveHeading: "מה בדקנו ונראה תקין",
   formTitle: "רוצים שנעבור איתכם על התוצאות ונציע מה לשפר?",
+  formTitleClear: "רוצים לתכנן את הצעד הבא?",
   formTitleFailure: "רוצים שנבדוק את האתר ונחזור אליכם?",
   formBody: "",
+  formBodyClear:
+    "בדיקה מקיפה יכולה לעזור לזהות אילו עמודים כדאי לקדם, אילו חיפושים רלוונטיים לעסק שלכם ואיך לשפר את הנראות בגוגל ובתשובות AI.",
   formSubmit: "חזרו אליי לשיחת ייעוץ",
   formNote: "שיחת היכרות ללא התחייבות.",
   callLabel: "מעדיפים להתקשר?",
@@ -162,9 +169,13 @@ const EN: SiteCheckCopy = {
   checkedHeading: "Pages checked",
   pagesFailedLabel: "Pages that didn't load",
   noFindingsTitle: "No standout finding",
+  positiveHeading: "What looked fine in this check",
   formTitle: "Want us to walk through the results and suggest what to fix?",
+  formTitleClear: "Want to plan the next step?",
   formTitleFailure: "Want us to check the site and get back to you?",
   formBody: "",
+  formBodyClear:
+    "A deeper review can show which pages to prioritize, which searches matter for your business, and how to improve visibility in Google and AI answers.",
   formSubmit: "Call me back for a consult",
   formNote: "An introductory call, with no commitment.",
   callLabel: "Prefer to call?",

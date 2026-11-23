@@ -153,5 +153,6 @@ export async function runSiteCheck(
     thinCount: analyzable.filter((page) => !page.readable).length,
     nothingReadable: analyzable.every((page) => !page.readable),
     findings,
+    analyzable,
   });
 }

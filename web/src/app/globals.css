@@ -14735,6 +14735,56 @@ body.contextual-popup-open {
   color: #b91c1c;
 }
 
+.site-check-clear-title {
+  color: #0f172a;
+  font-size: 1.2rem;
+  font-weight: 800;
+  line-height: 1.35;
+  margin: 0 0 0.65rem;
+  text-wrap: balance;
+}
+
+.site-check-positive-kicker {
+  color: #0369a1;
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin: 0 0 0.35rem;
+}
+
+.site-check-positives {
+  color: #334155;
+  display: grid;
+  font-size: 0.96rem;
+  gap: 0.35rem;
+  line-height: 1.55;
+  list-style: disc;
+  margin: 0;
+  padding-inline-start: 1.15rem;
+}
+
+.site-check-pages-details {
+  border-top: 1px solid #e2e8f0;
+  margin-top: 1rem;
+  padding-top: 0.65rem;
+}
+
+.site-check-pages-details > summary {
+  color: #0369a1;
+  cursor: pointer;
+  font-size: 0.92rem;
+  font-weight: 700;
+  list-style: none;
+  margin-bottom: 0.45rem;
+}
+
+.site-check-pages-details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.site-check-pages-details[open] > summary {
+  margin-bottom: 0.55rem;
+}
+
 .site-check-scope,
 .site-check-clear,
 .site-check-offer-lead {

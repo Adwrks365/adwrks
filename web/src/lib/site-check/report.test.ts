@@ -20,7 +20,7 @@ function page(overrides: Partial<AnalyzablePage> & Pick<AnalyzablePage, "url" | 
     hasForm: true,
     telHrefs: ["tel:0501234567"],
     hasWhatsapp: false,
-    plainPhones: [],
+    contactPhones: [],
     visibleTextLength: 400,
     ...overrides.parsed,
   };
@@ -50,7 +50,7 @@ test("phone text without a tel link becomes one finding", () => {
         hasForm: false,
         telHrefs: [],
         hasWhatsapp: false,
-        plainPhones: ["0501234567"],
+        contactPhones: ["0501234567"],
         visibleTextLength: 300,
       },
     }),
@@ -66,7 +66,7 @@ test("a tel link keeps a visible phone number out of the findings", () => {
   const html = `<title>דף</title><h1>שלום</h1><a href="tel:0501234567">050-123-4567</a><p>${"תוכן ".repeat(40)}</p>`;
   const parsed = parsePageHtml(html, "https://example.co.il/");
   assert.equal(parsed.telHrefs.length, 1);
-  assert.ok(parsed.plainPhones.includes("0501234567"));
+  assert.deepEqual(parsed.contactPhones, []);
   const issues = rankIssues([
     page({
       url: "https://example.co.il/",
@@ -96,7 +96,7 @@ test("at most three findings, highest priority first", () => {
         hasForm: false,
         telHrefs: [],
         hasWhatsapp: false,
-        plainPhones: ["031234567"],
+        contactPhones: [],
         visibleTextLength: 200,
       },
     }),
@@ -144,6 +144,7 @@ test("duplicate titles are one finding and the lead note matches the screen", ()
     thinCount: 0,
     nothingReadable: false,
     findings,
+    analyzable: [home, service],
   });
   assert.match(report.scopeLine, /דף הבית/);
   assert.match(report.partialNote ?? "", /missing/);
@@ -175,4 +176,12 @@ test("inner page selection prefers contact and service links", () => {
 test("israeli phone parser ignores short numbers", () => {
   assert.deepEqual(phonesInText("שנת 2024 ומחיר 1500"), []);
   assert.deepEqual(phonesInText("התקשרו 03-1234567"), ["031234567"]);
+});
+
+test("contact phones need contact context", () => {
+  const parsed = parsePageHtml(
+    `<title>דף</title><h1>שלום</h1><p>Leads 050-1234567 +18%</p><p>טלפון: 079-5599449</p>`,
+    "https://example.co.il/",
+  );
+  assert.deepEqual(parsed.contactPhones, ["0795599449"]);
 });

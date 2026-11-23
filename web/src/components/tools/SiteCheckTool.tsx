@@ -205,6 +205,12 @@ export function SiteCheckTool({
 
   const okPages = report?.pages.filter((page) => page.status !== "failed") ?? [];
   const failedPages = report?.pages.filter((page) => page.status === "failed") ?? [];
+  const hasFindings = Boolean(report && report.findings.length > 0);
+  const isClearSuccess = Boolean(report && report.clearTitle);
+  const formTitle =
+    scanIncomplete ? copy.formTitleFailure : hasFindings ? copy.formTitle : isClearSuccess ? copy.formTitleClear : copy.formTitle;
+  const formBodyText =
+    scanIncomplete ? copy.formBody : hasFindings ? copy.formBody : isClearSuccess ? copy.formBodyClear : copy.formBody;
 
   return (
     <div className="site-check-workspace">
@@ -275,37 +281,9 @@ export function SiteCheckTool({
             <div className="site-check-report-body site-check-fade-in">
               <p className="site-check-results-kicker">{copy.resultsTitle}</p>
               <p className="site-check-scope">{report.scopeLine}</p>
-
               {report.partialNote && <p className="site-check-partial">{report.partialNote}</p>}
 
-              {okPages.length > 0 && (
-                <>
-                  <h3 className="site-check-subhead">{copy.checkedHeading}</h3>
-                  <ul className="site-check-pages">
-                    {okPages.map((page) => (
-                      <li key={`${page.status}-${page.url}`}>
-                        <span>{page.label}</span>
-                        <span dir="ltr">{page.url}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              )}
-
-              {failedPages.length > 0 && (
-                <>
-                  <h3 className="site-check-subhead site-check-subhead--muted">{copy.pagesFailedLabel}</h3>
-                  <ul className="site-check-pages site-check-pages--failed">
-                    {failedPages.map((page) => (
-                      <li key={page.url}>
-                        <span dir="ltr">{page.url}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              )}
-
-              {report.findings.length > 0 ? (
+              {hasFindings ? (
                 <ol className="site-check-findings">
                   {report.findings.map((finding) => (
                     <li key={`${finding.pageUrl}-${finding.observation}`}>
@@ -324,14 +302,21 @@ export function SiteCheckTool({
                     </li>
                   ))}
                 </ol>
-              ) : (
-                report.clearNote && (
-                  <div className="site-check-clear-block">
-                    <h3 className="site-check-subhead">{copy.noFindingsTitle}</h3>
-                    <p className="site-check-clear">{report.clearNote}</p>
-                  </div>
-                )
-              )}
+              ) : report.clearTitle ? (
+                <div className="site-check-clear-block">
+                  <h3 className="site-check-clear-title">{report.clearTitle}</h3>
+                  {report.positiveObservations.length > 0 && (
+                    <>
+                      <p className="site-check-positive-kicker">{copy.positiveHeading}</p>
+                      <ul className="site-check-positives">
+                        {report.positiveObservations.map((item) => (
+                          <li key={item.text}>{item.text}</li>
+                        ))}
+                      </ul>
+                    </>
+                  )}
+                </div>
+              ) : null}
 
               <p className="site-check-limit">{report.limitNote}</p>
             </div>
@@ -340,10 +325,8 @@ export function SiteCheckTool({
 
         {showForm && (
           <section className="site-check-offer" aria-labelledby="site-check-offer-title">
-            <h2 id="site-check-offer-title">
-              {scanIncomplete ? copy.formTitleFailure : copy.formTitle}
-            </h2>
-            {copy.formBody ? <p className="site-check-offer-lead">{copy.formBody}</p> : null}
+            <h2 id="site-check-offer-title">{formTitle}</h2>
+            {formBodyText ? <p className="site-check-offer-lead">{formBodyText}</p> : null}
             <form onSubmit={onLead} noValidate>
               <div className="site-check-form-grid">
                 <div>
@@ -382,6 +365,34 @@ export function SiteCheckTool({
               </p>
             </form>
           </section>
+        )}
+
+        {report && status === "ready" && (okPages.length > 0 || failedPages.length > 0) && (
+          <details className="site-check-pages-details">
+            <summary>{copy.checkedHeading}</summary>
+            {okPages.length > 0 && (
+              <ul className="site-check-pages">
+                {okPages.map((page) => (
+                  <li key={`${page.status}-${page.url}`}>
+                    <span>{page.label}</span>
+                    <span dir="ltr">{page.url}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+            {failedPages.length > 0 && (
+              <>
+                <p className="site-check-subhead site-check-subhead--muted">{copy.pagesFailedLabel}</p>
+                <ul className="site-check-pages site-check-pages--failed">
+                  {failedPages.map((page) => (
+                    <li key={page.url}>
+                      <span dir="ltr">{page.url}</span>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+          </details>
         )}
 
         {formStatus === "success" && (

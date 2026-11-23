@@ -1,3 +1,4 @@
+import { isPlaceholderPhone, phoneLooksLikeContact } from "./contact-signals";
 import type { ParsedLink, ParsedPage } from "./types";
 
 function decodeHtml(value: string): string {
@@ -83,11 +84,29 @@ const PHONE_RE = /(?:\+972[\s().-]*|0)(?:\d[\s().-]*){8,10}/g;
 export function phonesInText(text: string): string[] {
   const found = new Set<string>();
   for (const match of text.matchAll(PHONE_RE)) {
-    const digits = match[0].replace(/\D/g, "");
-    const local = digits.startsWith("972") ? `0${digits.slice(3)}` : digits;
-    if (local.length < 9 || local.length > 10 || !local.startsWith("0")) continue;
-    const second = local.charCodeAt(1);
-    if (second < 50 || second > 57) continue;
+    const local = normalizeLocalPhone(match[0]);
+    if (!local || isPlaceholderPhone(local)) continue;
+    found.add(local);
+  }
+  return [...found];
+}
+
+function normalizeLocalPhone(raw: string): string | null {
+  const digits = raw.replace(/\D/g, "");
+  const local = digits.startsWith("972") ? `0${digits.slice(3)}` : digits;
+  if (local.length < 9 || local.length > 10 || !local.startsWith("0")) return null;
+  const second = local.charCodeAt(1);
+  if (second < 50 || second > 57) return null;
+  return local;
+}
+
+export function contactPhonesInText(text: string): string[] {
+  const found = new Set<string>();
+  for (const match of text.matchAll(PHONE_RE)) {
+    const local = normalizeLocalPhone(match[0]);
+    if (!local || isPlaceholderPhone(local)) continue;
+    if (match.index === undefined) continue;
+    if (!phoneLooksLikeContact(text, match.index, match[0])) continue;
     found.add(local);
   }
   return [...found];
@@ -134,7 +153,7 @@ export function parsePageHtml(html: string, baseUrl: string): ParsedPage {
     hasForm: /<form\b/i.test(clean),
     telHrefs,
     hasWhatsapp,
-    plainPhones: phonesInText(text),
+    contactPhones: contactPhonesInText(text),
     visibleTextLength: text.length,
   };
 }

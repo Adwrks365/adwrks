@@ -16,8 +16,13 @@ export type ParsedPage = {
   hasForm: boolean;
   telHrefs: string[];
   hasWhatsapp: boolean;
-  plainPhones: string[];
+  /** Plain-text phones shown in a contact context (not demo widgets). */
+  contactPhones: string[];
   visibleTextLength: number;
+};
+
+export type PositiveObservation = {
+  text: string;
 };
 
 export type ScanPageStatus = "ok" | "failed" | "thin";
@@ -43,6 +48,9 @@ export type SiteCheckReport = {
   pages: ScannedPage[];
   partialNote: string | null;
   findings: SiteCheckFinding[];
+  /** Shown when no priority findings — headline for the clear state. */
+  clearTitle: string | null;
+  positiveObservations: PositiveObservation[];
   clearNote: string | null;
   limitNote: string;
   /** Exact text stored with the lead. Matches the lines shown on screen. */

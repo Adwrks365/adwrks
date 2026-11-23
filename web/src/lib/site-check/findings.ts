@@ -1,3 +1,4 @@
+import { hasVisitorContactPath, looksLikeContactNav } from "./contact-signals";
 import type { ParsedPage, SiteCheckFinding, SiteCheckLocale } from "./types";
 
 export type IssueType =
@@ -42,12 +43,8 @@ function hasNoindex(page: AnalyzablePage): boolean {
   return /noindex/i.test(`${page.parsed.robots} ${page.headerRobots}`);
 }
 
-function looksLikeContact(value: string): boolean {
-  return /contact|יצירת[\s-]*קשר|צור[\s-]*קשר|צרו[\s-]*קשר/i.test(value);
-}
-
 function hasContactPath(page: AnalyzablePage): boolean {
-  return page.parsed.telHrefs.length > 0 || page.parsed.hasWhatsapp || page.parsed.hasForm;
+  return hasVisitorContactPath(page.parsed);
 }
 
 export function rankIssues(pages: AnalyzablePage[]): RankedIssue[] {
@@ -88,12 +85,14 @@ export function rankIssues(pages: AnalyzablePage[]): RankedIssue[] {
   if (missingH1) issues.push({ type: "missing-h1", pageUrl: missingH1.url, pageLabel: missingH1.label });
 
   const phone = innerFirst.find(
-    (page) => page.parsed.plainPhones.length > 0 && page.parsed.telHrefs.length === 0,
+    (page) => page.parsed.contactPhones.length > 0 && page.parsed.telHrefs.length === 0,
   );
   if (phone) issues.push({ type: "phone-not-tappable", pageUrl: phone.url, pageLabel: phone.label });
 
   const fullyRead = usable.filter((page) => !page.truncated);
-  const seesPhone = fullyRead.some((page) => page.parsed.plainPhones.length > 0 || page.parsed.telHrefs.length > 0);
+  const seesPhone = fullyRead.some(
+    (page) => page.parsed.contactPhones.length > 0 || page.parsed.telHrefs.length > 0,
+  );
   if (
     fullyRead.length > 0 &&
     fullyRead.length === usable.length &&
@@ -108,7 +107,7 @@ export function rankIssues(pages: AnalyzablePage[]): RankedIssue[] {
   if (
     navPage &&
     !issues.some((issue) => issue.type === "no-contact-path") &&
-    !navPage.parsed.navLinks.some((link) => looksLikeContact(`${link.href} ${link.text}`))
+    !navPage.parsed.navLinks.some((link) => looksLikeContactNav(`${link.href} ${link.text}`))
   ) {
     issues.push({ type: "nav-missing-contact", pageUrl: navPage.url, pageLabel: navPage.label });
   }

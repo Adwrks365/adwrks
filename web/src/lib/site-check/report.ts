@@ -1,14 +1,16 @@
-import type { SiteCheckFinding, SiteCheckLocale, SiteCheckReport, ScannedPage } from "./types";
+import type { AnalyzablePage } from "./findings";
 import { whyLabel } from "./findings";
+import { buildPositiveObservations } from "./positives";
+import type { SiteCheckFinding, SiteCheckLocale, SiteCheckReport, ScannedPage } from "./types";
 
 const LIMIT_NOTE = {
   he: "בדיקה ראשונית של העמודים שנפתחו. בלי תכנית עבודה, מחקר מילות מפתח או המלצה על ערוץ פרסום.",
   en: "A first look at the pages we opened. No work plan, keyword research, or channel recommendation.",
 } as const;
 
-const CLEAR_NOTE = {
-  he: "בעמודים שנבדקו לא מצאנו בעיה ברורה בכותרות, בסימון האינדוקס או בדרכי יצירת הקשר.",
-  en: "On the pages we checked, we didn't find a clear problem in the titles, the index setting, or the ways to get in touch.",
+const CLEAR_TITLE = {
+  he: "האתר נראה טוב בבדיקה הראשונית",
+  en: "Your site looks good in this first check",
 } as const;
 
 const THIN_NOTE = {
@@ -67,6 +69,7 @@ export function buildLeadNote(input: {
   partialNote: string | null;
   findings: SiteCheckFinding[];
   clearNote: string | null;
+  positiveObservations: { text: string }[];
 }): string {
   const he = input.locale === "he";
   const checked = input.pages.filter((page) => page.status !== "failed");
@@ -80,6 +83,10 @@ export function buildLeadNote(input: {
   ];
   if (input.partialNote) lines.push("", input.partialNote);
   lines.push("", he ? "ממצאים שהוצגו:" : "Findings shown:");
+  if (input.positiveObservations.length > 0) {
+    lines.push("", he ? "מה עבד טוב בבדיקה:" : "What looked good:");
+    input.positiveObservations.forEach((obs) => lines.push(`- ${obs.text}`));
+  }
   if (input.findings.length === 0) {
     lines.push(input.clearNote ?? (he ? "לא הוצג ממצא." : "No finding was shown."));
   } else {
@@ -101,15 +108,20 @@ export function buildSiteCheckReport(input: {
   thinCount: number;
   nothingReadable: boolean;
   findings: SiteCheckFinding[];
+  analyzable: AnalyzablePage[];
 }): SiteCheckReport {
   const loadedCount = input.pages.filter((page) => page.status !== "failed").length;
-  const clearNote =
-    input.nothingReadable || input.findings.length > 0 ? null : CLEAR_NOTE[input.locale];
+  const findings = input.findings.slice(0, 3);
+  const isClear = !input.nothingReadable && findings.length === 0;
+  const clearTitle = isClear ? CLEAR_TITLE[input.locale] : null;
+  const positiveObservations = isClear
+    ? buildPositiveObservations(input.analyzable, input.locale)
+    : [];
+  const clearNote = null;
   const partialNote = joinNotes([
     input.nothingReadable ? THIN_NOTE[input.locale] : thinPagesNote(input.thinCount, input.locale),
     failedPagesNote(input.failedUrls, input.locale),
   ]);
-  const findings = input.findings.slice(0, 3);
   const reportBase = {
     ok: true as const,
     inputUrl: input.inputUrl,
@@ -117,11 +129,21 @@ export function buildSiteCheckReport(input: {
     pages: input.pages,
     partialNote,
     findings,
+    clearTitle,
+    positiveObservations,
     clearNote,
     limitNote: LIMIT_NOTE[input.locale],
   };
   return {
     ...reportBase,
-    leadNote: buildLeadNote({ locale: input.locale, ...reportBase }),
+    leadNote: buildLeadNote({
+      locale: input.locale,
+      inputUrl: input.inputUrl,
+      pages: input.pages,
+      partialNote: reportBase.partialNote,
+      findings,
+      clearNote: clearTitle,
+      positiveObservations,
+    }),
   };
 }
