@@ -3,7 +3,10 @@ import { detectSiteKindFromSignals } from "./site-kind";
 import { fetchPagesWithBudget } from "./fetch-pool";
 import { presentFindings, rankIssues, type AnalyzablePage } from "./findings";
 import { parsePageHtml } from "./parse-page";
+import { tallyImageProbeResult } from "./image-probe-stats";
+import type { ImageProbeStats } from "./types";
 import { probeImageAsset, probeInternalLink } from "./probe-link";
+import { selectHeroImagesToProbe } from "./select-hero-images";
 import { buildSiteCheckReport } from "./report";
 import { pageIntent, pickLinksToProbe, planScanUrls, samePage } from "./select-pages";
 import type { ScannedPage, SiteCheckLocale, SiteCheckReport } from "./types";
@@ -257,27 +260,33 @@ export async function runSiteCheck(
   ];
 
   const brokenImages: { url: string; pageUrl: string; pageLabel: string }[] = [];
-  let imageProbesRun = 0;
-  for (const page of analyzable.filter((row) => row.readable && (row.role === "home" || row.isEntry))) {
-    for (const img of page.parsed.heroImages.slice(0, 2)) {
-      if (Date.now() - started > SCAN_BUDGET_MS) break;
-      imageProbesRun += 1;
-      try {
-        if (new URL(img).origin !== new URL(homeUrl).origin) continue;
-      } catch {
-        continue;
-      }
-      const probe = await probeImageAsset(img);
-      if (probe !== "broken") continue;
+  const imageStats: ImageProbeStats = {
+    imagesProbed: 0,
+    pagesWithImages: 0,
+    loadedOk: 0,
+    broken: 0,
+    unverified: 0,
+  };
+  const heroCandidates = selectHeroImagesToProbe(analyzable, homeUrl, siteKind);
+  const pagesWithProbe = new Set<string>();
+  for (const candidate of heroCandidates) {
+    if (Date.now() - started > SCAN_BUDGET_MS) break;
+    const probe = await probeImageAsset(candidate.imageUrl);
+    imageStats.imagesProbed += 1;
+    pagesWithProbe.add(candidate.pageUrl);
+    const bucket = tallyImageProbeResult(probe);
+    imageStats[bucket] += 1;
+    if (probe === "broken") {
       brokenImages.push({
-        url: displayUrl(img),
-        pageUrl: page.url,
-        pageLabel: page.label,
+        url: displayUrl(candidate.imageUrl),
+        pageUrl: candidate.pageUrl,
+        pageLabel: candidate.pageLabel,
       });
       if (brokenImages.length >= 2) break;
     }
-    if (brokenImages.length >= 2) break;
   }
+  imageStats.pagesWithImages = pagesWithProbe.size;
+  const imageProbesRun = imageStats.imagesProbed;
 
   const ranked = rankIssues(analyzable, { brokenLinks, brokenImages, locale, siteKind });
   const findings = presentFindings(ranked, locale);
@@ -305,6 +314,7 @@ export async function runSiteCheck(
     linkProbesRun,
     imageProbesRun,
     brokenImagesCount: brokenImages.length,
+    imageProbeStats: imageStats,
     durationMs,
   });
 }

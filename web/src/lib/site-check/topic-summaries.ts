@@ -1,5 +1,7 @@
 import type { AnalyzablePage } from "./findings";
 import { isCommerceSystemPage, isSystemOrPolicyPage } from "./content-url";
+import { imagesTopicLine } from "./image-probe-stats";
+import type { ImageProbeStats } from "./types";
 import type { SiteCheckLocale, SiteCheckTopicSummary, SiteCheckTopicTone } from "./types";
 
 function isImportantForSeo(page: AnalyzablePage): boolean {
@@ -123,73 +125,14 @@ function linksSubtitle(
   return { detail: `${probeLine} · ${ok}`, tone: "ok" };
 }
 
-function imagesSubtitle(
-  locale: SiteCheckLocale,
-  imageProbesRun: number,
-  brokenImagesCount: number,
-  partialScan: boolean,
-): { detail: string; tone: SiteCheckTopicTone } {
-  if (imageProbesRun === 0) {
-    return locale === "en"
-      ? {
-          detail: partialScan
-            ? "Hero image checks did not run — scan ended early."
-            : "No leading images were found to check.",
-          tone: "skipped",
-        }
-      : {
-          detail: partialScan
-            ? "בדיקת תמונות לא הסתיימה — הסריקה נעצרה מוקדם."
-            : "לא נמצאו תמונות מרכזיות לבדיקה.",
-          tone: "skipped",
-        };
-  }
-
-  const countLine =
-    locale === "en"
-      ? imageProbesRun === 1
-        ? "1 checked"
-        : `${imageProbesRun} checked`
-      : imageProbesRun === 1
-        ? "אחת נבדקה"
-        : `${imageProbesRun} נבדקו`;
-
-  if (brokenImagesCount > 0) {
-    const broken =
-      locale === "en"
-        ? brokenImagesCount === 1
-          ? "1 failed to load"
-          : `${brokenImagesCount} failed to load`
-        : brokenImagesCount === 1
-          ? "אחת לא נטענה"
-          : `${brokenImagesCount} לא נטענו`;
-    return { detail: `${countLine} · ${broken}`, tone: "warn" };
-  }
-
-  const ok =
-    locale === "en"
-      ? imageProbesRun === 1
-        ? "loaded OK"
-        : imageProbesRun === 2
-          ? "both loaded OK"
-          : "all loaded OK"
-      : imageProbesRun === 1
-        ? "נטענה בהצלחה"
-        : imageProbesRun === 2
-          ? "שתיהן נטענו"
-          : "כולן נטענו";
-  return { detail: `${countLine} · ${ok}`, tone: "ok" };
-}
-
 export function buildTopicSummaries(input: {
   locale: SiteCheckLocale;
   contentScanned: number;
   partialScan: boolean;
   analyzable: AnalyzablePage[];
   linkProbesRun: number;
-  imageProbesRun: number;
+  imageProbeStats: ImageProbeStats;
   brokenLinksVerified: number;
-  brokenImagesCount: number;
 }): SiteCheckTopicSummary[] {
   const { locale, contentScanned, partialScan, analyzable } = input;
   const pagesLabel =
@@ -203,12 +146,7 @@ export function buildTopicSummaries(input: {
 
   const seo = seoSubtitle(locale, analyzable, partialScan);
   const links = linksSubtitle(locale, input.linkProbesRun, input.brokenLinksVerified, partialScan);
-  const images = imagesSubtitle(
-    locale,
-    input.imageProbesRun,
-    input.brokenImagesCount,
-    partialScan,
-  );
+  const images = imagesTopicLine(locale, input.imageProbeStats, partialScan);
 
   return [
     { id: "seo", detail: `${pagesLabel} · ${seo.detail}`, tone: seo.tone },

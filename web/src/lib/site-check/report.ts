@@ -10,6 +10,7 @@ import type {
   ScannedPage,
   SiteCheckSummaryMetrics,
   SiteCheckTopicSummary,
+  ImageProbeStats,
 } from "./types";
 
 const LIMIT_NOTE = {
@@ -174,6 +175,7 @@ export function buildSiteCheckReport(input: {
   brokenLinksVerified: number;
   linkProbesRun: number;
   imageProbesRun: number;
+  imageProbeStats: ImageProbeStats;
   brokenImagesCount: number;
   durationMs: number;
 }): SiteCheckReport {
@@ -213,9 +215,8 @@ export function buildSiteCheckReport(input: {
     partialScan: input.partialScan,
     analyzable: input.analyzable,
     linkProbesRun: input.linkProbesRun,
-    imageProbesRun: input.imageProbesRun,
+    imageProbeStats: input.imageProbeStats,
     brokenLinksVerified: input.brokenLinksVerified,
-    brokenImagesCount: input.brokenImagesCount,
   });
   const inputLabel = displayUrlReadable(input.inputUrl);
   const reportBase = {
@@ -226,6 +227,7 @@ export function buildSiteCheckReport(input: {
     scopeLine: scope,
     checksLine: checks,
     topicSummaries,
+    imageProbeStats: input.imageProbeStats,
     metrics,
     partialScan: input.partialScan,
     partialHeadline,

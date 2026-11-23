@@ -47,6 +47,14 @@ export type SiteCheckFinding = {
 export type SiteCheckTopicId = "seo" | "links" | "images";
 export type SiteCheckTopicTone = "ok" | "warn" | "neutral" | "skipped";
 
+export type ImageProbeStats = {
+  imagesProbed: number;
+  pagesWithImages: number;
+  loadedOk: number;
+  broken: number;
+  unverified: number;
+};
+
 export type SiteCheckTopicSummary = {
   id: SiteCheckTopicId;
   detail: string;
@@ -70,6 +78,7 @@ export type SiteCheckReport = {
   /** Short list of checks run (technical details). */
   checksLine: string;
   topicSummaries: SiteCheckTopicSummary[];
+  imageProbeStats: ImageProbeStats;
   metrics: SiteCheckSummaryMetrics;
   partialScan: boolean;
   partialHeadline: string | null;
