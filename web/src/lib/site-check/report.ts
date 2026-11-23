@@ -2,7 +2,15 @@ import type { AnalyzablePage } from "./findings";
 import { whyLabel } from "./findings";
 import { displayUrlReadable } from "./display-url";
 import { buildPositiveObservations } from "./positives";
-import type { SiteCheckFinding, SiteCheckLocale, SiteCheckReport, ScannedPage, SiteCheckSummaryMetrics } from "./types";
+import { buildTopicSummaries } from "./topic-summaries";
+import type {
+  SiteCheckFinding,
+  SiteCheckLocale,
+  SiteCheckReport,
+  ScannedPage,
+  SiteCheckSummaryMetrics,
+  SiteCheckTopicSummary,
+} from "./types";
 
 const LIMIT_NOTE = {
   he: "בדיקה ראשונית של העמודים שנפתחו. בלי תכנית עבודה, מחקר מילות מפתח או המלצה על ערוץ פרסום.",
@@ -100,6 +108,7 @@ export function buildLeadNote(input: {
   partialNote: string | null;
   scopeLine: string;
   checksLine: string;
+  topicSummaries: SiteCheckTopicSummary[];
   findings: SiteCheckFinding[];
   clearNote: string | null;
   positiveObservations: { text: string }[];
@@ -113,6 +122,13 @@ export function buildLeadNote(input: {
     "",
     input.scopeLine,
     input.checksLine,
+    "",
+    ...(input.topicSummaries.length
+      ? [
+          he ? "סיכום לפי נושאים:" : "Summary by topic:",
+          ...input.topicSummaries.map((topic) => `- ${topic.detail}`),
+        ]
+      : []),
     "",
     he
       ? `מדדים: ${input.metrics.contentScanned}/${input.metrics.contentPlanned} עמודי תוכן · ${input.metrics.findingsCount} ממצאים · ${input.metrics.brokenLinksVerified} קישורים שבורים שאומתו`
@@ -158,6 +174,7 @@ export function buildSiteCheckReport(input: {
   brokenLinksVerified: number;
   linkProbesRun: number;
   imageProbesRun: number;
+  brokenImagesCount: number;
   durationMs: number;
 }): SiteCheckReport {
   const findings = input.findings.slice(0, 3);
@@ -190,6 +207,16 @@ export function buildSiteCheckReport(input: {
     linkProbesRun: input.linkProbesRun,
     imageProbesRun: input.imageProbesRun,
   });
+  const topicSummaries = buildTopicSummaries({
+    locale: input.locale,
+    contentScanned: input.contentScanned,
+    partialScan: input.partialScan,
+    analyzable: input.analyzable,
+    linkProbesRun: input.linkProbesRun,
+    imageProbesRun: input.imageProbesRun,
+    brokenLinksVerified: input.brokenLinksVerified,
+    brokenImagesCount: input.brokenImagesCount,
+  });
   const inputLabel = displayUrlReadable(input.inputUrl);
   const reportBase = {
     ok: true as const,
@@ -198,6 +225,7 @@ export function buildSiteCheckReport(input: {
     homeUrl: input.homeUrl,
     scopeLine: scope,
     checksLine: checks,
+    topicSummaries,
     metrics,
     partialScan: input.partialScan,
     partialHeadline,
@@ -223,6 +251,7 @@ export function buildSiteCheckReport(input: {
       partialNote: reportBase.partialNote,
       scopeLine: scope,
       checksLine: checks,
+      topicSummaries,
       findings,
       clearNote: clearTitle,
       positiveObservations,

@@ -24,6 +24,10 @@ export type SiteCheckCopy = {
   demoLine: string;
   resultsTitle: string;
   scopeHeading: string;
+  topicSeoTitle: string;
+  topicLinksTitle: string;
+  topicImagesTitle: string;
+  techDetailsHeading: string;
   metricContent: string;
   metricFindings: string;
   metricBroken: string;
@@ -92,6 +96,10 @@ const HE: SiteCheckCopy = {
   demoLine: "עמוד יצירת קשר · מספר הטלפון באתר אינו לחיץ",
   resultsTitle: "תוצאות הבדיקה",
   scopeHeading: "מה נבדק",
+  topicSeoTitle: "כותרות והגדרות חיפוש",
+  topicLinksTitle: "קישורים וכפתורי פעולה",
+  topicImagesTitle: "תמונות מרכזיות",
+  techDetailsHeading: "פרטים טכניים ורשימת עמודים",
   metricContent: "עמודי תוכן שנבדקו",
   metricFindings: "ממצאים חשובים",
   metricBroken: "קישורים שבורים שאומתו",
@@ -102,7 +110,7 @@ const HE: SiteCheckCopy = {
   impactLabel: "מה זה אומר למבקרים",
   checkedHeading: "עמודים שנבדקו",
   pagesFailedLabel: "עמודים שלא נטענו",
-  noFindingsTitle: "לא נמצא ממצא בולט",
+  noFindingsTitle: "בבדיקות שביצענו לא נמצא ממצא בולט",
   positiveHeading: "מה בדקנו ונראה תקין",
   formTitle: "רוצים שנעבור איתכם על התוצאות ונציע מה לשפר?",
   formTitleClear: "רוצים לתכנן את הצעד הבא?",
@@ -199,6 +207,10 @@ const EN: SiteCheckCopy = {
   demoLine: "Contact page · The phone number on the site isn't tappable",
   resultsTitle: "Check results",
   scopeHeading: "What we checked",
+  topicSeoTitle: "Titles and search snippets",
+  topicLinksTitle: "Links and action buttons",
+  topicImagesTitle: "Leading images",
+  techDetailsHeading: "Technical details and page list",
   metricContent: "Content pages opened",
   metricFindings: "Priority findings",
   metricBroken: "Broken links verified",
@@ -209,7 +221,7 @@ const EN: SiteCheckCopy = {
   impactLabel: "What this means for visitors",
   checkedHeading: "Pages checked",
   pagesFailedLabel: "Pages that didn't load",
-  noFindingsTitle: "No standout finding",
+  noFindingsTitle: "Nothing standout showed up in the checks we ran",
   positiveHeading: "What looked fine in this check",
   formTitle: "Want us to walk through the results and suggest what to fix?",
   formTitleClear: "Want to plan the next step?",

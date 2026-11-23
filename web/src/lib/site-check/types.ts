@@ -44,6 +44,15 @@ export type SiteCheckFinding = {
   why: string;
 };
 
+export type SiteCheckTopicId = "seo" | "links" | "images";
+export type SiteCheckTopicTone = "ok" | "warn" | "neutral" | "skipped";
+
+export type SiteCheckTopicSummary = {
+  id: SiteCheckTopicId;
+  detail: string;
+  tone: SiteCheckTopicTone;
+};
+
 export type SiteCheckSummaryMetrics = {
   contentScanned: number;
   contentPlanned: number;
@@ -58,8 +67,9 @@ export type SiteCheckReport = {
   inputLabel: string;
   homeUrl: string;
   scopeLine: string;
-  /** Short list of checks run (shown under "מה נבדק"). */
+  /** Short list of checks run (technical details). */
   checksLine: string;
+  topicSummaries: SiteCheckTopicSummary[];
   metrics: SiteCheckSummaryMetrics;
   partialScan: boolean;
   partialHeadline: string | null;

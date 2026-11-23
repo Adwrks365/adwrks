@@ -158,10 +158,11 @@ test("duplicate titles are one finding and the lead note matches the screen", ()
     brokenLinksVerified: 0,
     linkProbesRun: 4,
     imageProbesRun: 1,
+    brokenImagesCount: 0,
     durationMs: 1200,
   });
   assert.match(report.scopeLine, /דף הבית/);
-  assert.match(report.checksLine, /4 קישורים/);
+  assert.equal(report.topicSummaries.length, 3);
   assert.equal(report.metrics.contentScanned, 2);
   assert.match(report.leadNote, /כתובת האתר: example\.co\.il/);
   assert.match(report.leadNote, new RegExp(findings[0].observation));

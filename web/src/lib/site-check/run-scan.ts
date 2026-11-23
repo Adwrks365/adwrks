@@ -304,6 +304,7 @@ export async function runSiteCheck(
     brokenLinksVerified: brokenLinks.length,
     linkProbesRun,
     imageProbesRun,
+    brokenImagesCount: brokenImages.length,
     durationMs,
   });
 }
