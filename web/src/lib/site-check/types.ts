@@ -14,6 +14,7 @@ export type ParsedPage = {
   navLinks: ParsedLink[];
   links: ParsedLink[];
   hasForm: boolean;
+  hasPurchaseCta: boolean;
   telHrefs: string[];
   hasWhatsapp: boolean;
   /** Plain-text phones shown in a contact context (not demo widgets). */
@@ -41,11 +42,21 @@ export type SiteCheckFinding = {
   why: string;
 };
 
+export type SiteCheckSummaryMetrics = {
+  contentScanned: number;
+  contentPlanned: number;
+  findingsCount: number;
+  brokenLinksVerified: number;
+};
+
 export type SiteCheckReport = {
   ok: true;
   inputUrl: string;
+  /** Readable host/path label (IDN decoded). */
+  inputLabel: string;
   homeUrl: string;
   scopeLine: string;
+  metrics: SiteCheckSummaryMetrics;
   partialScan: boolean;
   partialHeadline: string | null;
   pagesPlanned: number;

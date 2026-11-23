@@ -14769,6 +14769,81 @@ body.contextual-popup-open {
   margin: 0 0 0.35rem;
 }
 
+.site-check-domain {
+  margin: 0 0 0.65rem;
+}
+
+.site-check-domain-link {
+  color: #0369a1;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.site-check-metrics {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  list-style: none;
+  margin: 0 0 0.85rem;
+  padding: 0;
+}
+
+.site-check-metrics li {
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  display: grid;
+  gap: 0.1rem;
+  padding: 0.55rem 0.45rem;
+  text-align: center;
+}
+
+.site-check-metrics-value {
+  color: #0f172a;
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.site-check-metrics-label {
+  color: #475569;
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.site-check-speed-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.85rem;
+  margin: 0.75rem 0 0.55rem;
+  padding: 0.75rem 0.85rem;
+}
+
+.site-check-speed-card-title {
+  color: #0f172a;
+  font-size: 0.98rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.site-check-speed-card-sub {
+  color: #64748b;
+  font-size: 0.78rem;
+  margin: 0.2rem 0 0.55rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.site-check-speed-page {
+  color: #334155;
+  font-size: 0.9rem;
+  margin: 0 0 0.35rem;
+}
+
 .site-check-speed {
   border-top: 1px solid #e2e8f0;
   margin-top: 1rem;

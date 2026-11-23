@@ -1,6 +1,9 @@
+import { isContentScanUrl } from "./content-url";
+import { scoreLinkForSiteKind, type SiteKind } from "./site-kind";
 import { canonicalScanUrl } from "./url-canonical";
 
-const SKIP_PATH = /\/(wp-admin|wp-login\.php|wp-json|xmlrpc\.php|feed|cart|checkout|tag|author|cdn-cgi)(\/|$)/i;
+const SKIP_PATH =
+  /\/(wp-admin|wp-login\.php|wp-json|xmlrpc\.php|feed|cart|checkout|my-account|customer\/account|tag|author|cdn-cgi)(\/|$)/i;
 const SKIP_EXT = /\.(pdf|jpe?g|png|gif|webp|svg|zip|mp4|mp3|css|js|xml)\/?$/i;
 
 function hostKey(hostname: string): string {
@@ -86,8 +89,11 @@ export function planScanUrls(input: {
   links: readonly { href: string; text: string; inNav: boolean }[];
   sitemapUrls: readonly string[];
   maxPages: number;
+  siteKind?: SiteKind;
 }): string[] {
-  const maxPages = Math.max(1, Math.min(20, input.maxPages));
+  const siteKind = input.siteKind ?? "general";
+  const cap = siteKind === "landing" ? 3 : 20;
+  const maxPages = Math.max(1, Math.min(cap, input.maxPages));
   const entry = canonicalScanUrl(input.entryUrl);
   const home = canonicalScanUrl(input.homeUrl);
   if (!entry || !home) return [];
@@ -96,7 +102,7 @@ export function planScanUrls(input: {
   const seen = new Set<string>();
   const take = (raw: string) => {
     const canonical = canonicalScanUrl(raw);
-    if (!canonical || seen.has(canonical) || picked.length >= maxPages) return;
+    if (!canonical || !isContentScanUrl(canonical) || seen.has(canonical) || picked.length >= maxPages) return;
     seen.add(canonical);
     picked.push(canonical);
   };
@@ -106,15 +112,16 @@ export function planScanUrls(input: {
 
   const candidates: { href: string; score: number }[] = [];
   for (const link of input.links) {
-    const score = scoreLink(link, home);
+    let score = scoreLink(link, home);
     if (score < 0) continue;
+    score = scoreLinkForSiteKind(link, home, score, siteKind);
     const canonical = canonicalScanUrl(link.href);
-    if (!canonical) continue;
+    if (!canonical || !isContentScanUrl(canonical)) continue;
     candidates.push({ href: canonical, score });
   }
   for (const href of input.sitemapUrls) {
     const canonical = canonicalScanUrl(href);
-    if (!canonical) continue;
+    if (!canonical || !isContentScanUrl(canonical)) continue;
     const blob = canonical;
     let score = 2;
     const intent = pageIntent(blob);
@@ -134,9 +141,14 @@ export function pickLinksToProbe(
   homeUrl: string,
   links: readonly { href: string; text: string; inNav: boolean }[],
   limit = 10,
+  siteKind: SiteKind = "general",
 ): string[] {
   const ranked = links
-    .map((link) => ({ link, score: scoreLink(link, homeUrl) }))
+    .map((link) => {
+      let score = scoreLink(link, homeUrl);
+      score = scoreLinkForSiteKind(link, homeUrl, score, siteKind);
+      return { link, score };
+    })
     .filter((item) => item.score >= 4)
     .sort((a, b) => b.score - a.score);
 

@@ -142,6 +142,10 @@ export function parsePageHtml(html: string, baseUrl: string): ParsedPage {
 
   const hasWhatsapp = /(?:wa\.me|api\.whatsapp\.com|web\.whatsapp\.com|whatsapp:)/i.test(clean);
   const text = visibleText(clean);
+  const hasPurchaseCta =
+    /add[\s-]*to[\s-]*cart|הוספ[\s\S]{0,12}לסל|buy\s+now|רכישה|להזמנה|לרכישה|checkout/i.test(
+      `${clean} ${text}`,
+    );
 
   return {
     title,
@@ -151,6 +155,7 @@ export function parsePageHtml(html: string, baseUrl: string): ParsedPage {
     navLinks,
     links: [...navLinks, ...bodyLinks],
     hasForm: /<form\b/i.test(clean),
+    hasPurchaseCta,
     telHrefs,
     hasWhatsapp,
     contactPhones: contactPhonesInText(text),

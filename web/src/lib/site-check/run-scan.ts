@@ -1,4 +1,5 @@
 import { discoverSitemapUrls } from "./discover-sitemap";
+import { detectSiteKindFromSignals } from "./site-kind";
 import { fetchPagesWithBudget } from "./fetch-pool";
 import { presentFindings, rankIssues, type AnalyzablePage } from "./findings";
 import { parsePageHtml } from "./parse-page";
@@ -113,12 +114,26 @@ export async function runSiteCheck(
     };
   }
 
+  const entryParsedForKind = entryFetch.ok ? parsePageHtml(entryFetch.html, entryFetch.url) : null;
+  let homeParsedForKind: ReturnType<typeof parsePageHtml> | null = entryParsedForKind;
+  if (!samePage(entryCanonical, homeUrl)) {
+    const homePeek = await fetchPublicHtml(homeUrl);
+    if (homePeek.ok) homeParsedForKind = parsePageHtml(homePeek.html, homePeek.url);
+  }
+  const siteKind = detectSiteKindFromSignals({
+    entryIsHome: samePage(entryCanonical, homeUrl),
+    entryParsed: entryParsedForKind,
+    homeParsed: homeParsedForKind,
+    innerLinkCount: discoveryLinks.length,
+  });
+
   const plannedUrls = planScanUrls({
     entryUrl: entryCanonical,
     homeUrl,
     links: discoveryLinks,
     sitemapUrls,
     maxPages: MAX_PAGES,
+    siteKind,
   });
 
   const elapsedBeforePool = Date.now() - started;
@@ -181,7 +196,7 @@ export async function runSiteCheck(
 
   const probeSource = loaded.find((page) => page.isEntry) ?? loaded.find((page) => page.isHome) ?? loaded[0]!;
   const probeParsed = parsePageHtml(probeSource.html, probeSource.url);
-  const toProbe = pickLinksToProbe(homeUrl, probeParsed.links, MAX_LINK_PROBES);
+  const toProbe = pickLinksToProbe(homeUrl, probeParsed.links, MAX_LINK_PROBES, siteKind);
   const brokenLinks: { url: string; label: string; fromLabel: string }[] = [];
 
   for (const href of toProbe) {
@@ -236,10 +251,11 @@ export async function runSiteCheck(
       })),
   ];
 
-  const findings = presentFindings(rankIssues(analyzable, { brokenLinks, locale }), locale);
-  const pagesPlanned = plannedUrls.length;
-  const pagesScanned = analyzable.length;
-  const partialScan = timedOut || failedUrls.length > 0 || pagesScanned < pagesPlanned;
+  const ranked = rankIssues(analyzable, { brokenLinks, locale, siteKind });
+  const findings = presentFindings(ranked, locale);
+  const contentPlanned = plannedUrls.length;
+  const contentScanned = analyzable.length;
+  const partialScan = timedOut || failedUrls.length > 0 || contentScanned < contentPlanned;
   const durationMs = Date.now() - started;
   const homeForSpeed = analyzable.find((page) => page.role === "home")?.url ?? homeUrl;
 
@@ -255,8 +271,9 @@ export async function runSiteCheck(
     findings,
     analyzable,
     partialScan,
-    pagesPlanned,
-    pagesScanned: analyzable.length,
+    contentPlanned,
+    contentScanned,
+    brokenLinksVerified: brokenLinks.length,
     durationMs,
   });
 }

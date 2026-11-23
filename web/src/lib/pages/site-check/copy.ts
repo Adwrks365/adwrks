@@ -24,6 +24,12 @@ export type SiteCheckCopy = {
   demoLine: string;
   resultsTitle: string;
   scopeHeading: string;
+  metricContent: string;
+  metricFindings: string;
+  metricBroken: string;
+  speedCardTitle: string;
+  speedUnavailableConfig: string;
+  speedUpstreamError: string;
   whyLabel: string;
   impactLabel: string;
   checkedHeading: string;
@@ -83,6 +89,13 @@ const HE: SiteCheckCopy = {
   demoLine: "עמוד יצירת קשר · מספר הטלפון באתר אינו לחיץ",
   resultsTitle: "תוצאות הבדיקה",
   scopeHeading: "מה נבדק",
+  metricContent: "עמודי תוכן שנבדקו",
+  metricFindings: "ממצאים חשובים",
+  metricBroken: "קישורים שבורים שאומתו",
+  speedCardTitle: "מהירות במובייל",
+  speedUnavailableConfig:
+    "בדיקת המהירות לא מוגדרת בשרת (חסר מפתח PAGESPEED_API_KEY בסביבת Preview או Production).",
+  speedUpstreamError: "ממשק PageSpeed לא החזיר תוצאה כרגע. נסו שוב מאוחר יותר.",
   whyLabel: "למה זה חשוב",
   impactLabel: "מה זה אומר למבקרים",
   checkedHeading: "עמודים שנבדקו",
@@ -96,7 +109,7 @@ const HE: SiteCheckCopy = {
   formBodyClear:
     "בדיקה מקיפה יכולה לעזור לזהות אילו עמודים כדאי לקדם, אילו חיפושים רלוונטיים לעסק שלכם ואיך לשפר את הנראות בגוגל ובתשובות AI.",
   formSubmit: "חזרו אליי לשיחת ייעוץ",
-  speedButton: "בדקו גם את מהירות האתר במובייל",
+  speedButton: "בדקו מהירות",
   speedRunning: "בודקים מהירות במובייל…",
   speedScoreLabel: "ציון ביצועים (מובייל)",
   speedLabNote: "מדידת מעבדה לדף הבית שנבדק — לא בהכרח כמו מכשיר אמיתי ברשת סלולרית.",
@@ -180,6 +193,13 @@ const EN: SiteCheckCopy = {
   demoLine: "Contact page · The phone number on the site isn't tappable",
   resultsTitle: "Check results",
   scopeHeading: "What we checked",
+  metricContent: "Content pages opened",
+  metricFindings: "Priority findings",
+  metricBroken: "Broken links verified",
+  speedCardTitle: "Mobile speed",
+  speedUnavailableConfig:
+    "Speed check is not configured on the server (PAGESPEED_API_KEY missing on Preview or Production).",
+  speedUpstreamError: "The PageSpeed API did not return a result right now. Try again later.",
   whyLabel: "Why it matters",
   impactLabel: "What this means for visitors",
   checkedHeading: "Pages checked",
@@ -193,7 +213,7 @@ const EN: SiteCheckCopy = {
   formBodyClear:
     "A deeper review can show which pages to prioritize, which searches matter for your business, and how to improve visibility in Google and AI answers.",
   formSubmit: "Call me back for a consult",
-  speedButton: "Check mobile site speed too",
+  speedButton: "Check speed",
   speedRunning: "Checking mobile speed…",
   speedScoreLabel: "Performance score (mobile)",
   speedLabNote: "Lab measurement for the homepage we checked — not necessarily the same as a real phone on mobile data.",

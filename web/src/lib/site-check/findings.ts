@@ -1,4 +1,10 @@
+import {
+  isCommerceSystemPage,
+  isProductLikePage,
+  isSystemOrPolicyPage,
+} from "./content-url";
 import { hasVisitorContactPath, looksLikeContactNav } from "./contact-signals";
+import type { SiteKind } from "./site-kind";
 import type { ParsedPage, SiteCheckFinding, SiteCheckLocale } from "./types";
 
 export type IssueType =
@@ -11,7 +17,8 @@ export type IssueType =
   | "phone-not-tappable"
   | "no-contact-path"
   | "nav-missing-contact"
-  | "missing-description";
+  | "missing-description"
+  | "product-no-purchase";
 
 export type RankedIssue = {
   type: IssueType;
@@ -24,6 +31,7 @@ export type RankedIssue = {
 
 const PRIORITY: IssueType[] = [
   "broken-link",
+  "product-no-purchase",
   "noindex-service",
   "noindex",
   "missing-title",
@@ -53,6 +61,13 @@ function isImportantPage(page: AnalyzablePage): boolean {
   return Boolean(intent?.contact || intent?.service || intent?.pricing);
 }
 
+function isFindingTarget(page: AnalyzablePage): boolean {
+  if (page.role === "home" || page.isEntry) return !isCommerceSystemPage(page.url, page.label);
+  if (isSystemOrPolicyPage(page.url, page.label)) return false;
+  if (isCommerceSystemPage(page.url, page.label)) return false;
+  return isImportantPage(page);
+}
+
 function hasNoindex(page: AnalyzablePage): boolean {
   return /noindex/i.test(`${page.parsed.robots} ${page.headerRobots}`);
 }
@@ -66,8 +81,10 @@ export function rankIssues(
   context?: {
     brokenLinks?: readonly { url: string; label: string; fromLabel: string }[];
     locale?: SiteCheckLocale;
+    siteKind?: SiteKind;
   },
 ): RankedIssue[] {
+  const siteKind = context?.siteKind ?? "general";
   const usable = pages.filter((page) => page.readable);
   const issues: RankedIssue[] = [];
   const homeFirst = [...usable].sort((a, b) => Number(b.role === "home") - Number(a.role === "home"));
@@ -86,8 +103,25 @@ export function rankIssues(
     });
   }
 
+  if (siteKind === "store") {
+    const productPages = usable.filter((page) => isProductLikePage(page.url, page.label));
+    const withoutPurchase = productPages.filter((page) => !page.parsed.hasPurchaseCta);
+    if (withoutPurchase.length > 0) {
+      issues.push({
+        type: "product-no-purchase",
+        pageUrl: withoutPurchase[0]!.url,
+        pageLabel: withoutPurchase[0]!.label,
+        count: withoutPurchase.length,
+      });
+    }
+  }
+
   const serviceNoindex = usable.filter(
-    (page) => isImportantPage(page) && (page.intent?.service || page.intent?.pricing) && hasNoindex(page),
+    (page) =>
+      isFindingTarget(page) &&
+      !isCommerceSystemPage(page.url, page.label) &&
+      (page.intent?.service || page.intent?.pricing || page.role === "home") &&
+      hasNoindex(page),
   );
   if (serviceNoindex.length > 0) {
     issues.push({
@@ -97,9 +131,7 @@ export function rankIssues(
       count: serviceNoindex.length,
     });
   } else {
-    const noindex = noindexOrder.find(
-      (page) => hasNoindex(page) && (page.role === "home" || isImportantPage(page)),
-    );
+    const noindex = noindexOrder.find((page) => hasNoindex(page) && isFindingTarget(page));
     if (noindex) issues.push({ type: "noindex", pageUrl: noindex.url, pageLabel: noindex.label });
   }
 
@@ -108,7 +140,7 @@ export function rankIssues(
     issues.push({ type: "missing-title", pageUrl: missingTitle.url, pageLabel: missingTitle.label });
   }
 
-  const importantTitled = usable.filter((page) => page.parsed.title && isImportantPage(page));
+  const importantTitled = usable.filter((page) => page.parsed.title && isFindingTarget(page));
   const titleGroups = new Map<string, AnalyzablePage[]>();
   for (const page of importantTitled) {
     const key = page.parsed.title.trim().toLowerCase();
@@ -128,13 +160,14 @@ export function rankIssues(
     });
   }
 
-  const missingH1 = homeFirst.find(
-    (page) => page.parsed.h1.length === 0 && (page.role === "home" || isImportantPage(page)),
-  );
+  const missingH1 = homeFirst.find((page) => page.parsed.h1.length === 0 && isFindingTarget(page));
   if (missingH1) issues.push({ type: "missing-h1", pageUrl: missingH1.url, pageLabel: missingH1.label });
 
   const phone = innerFirst.find(
-    (page) => page.parsed.contactPhones.length > 0 && page.parsed.telHrefs.length === 0,
+    (page) =>
+      isFindingTarget(page) &&
+      page.parsed.contactPhones.length > 0 &&
+      page.parsed.telHrefs.length === 0,
   );
   if (phone) issues.push({ type: "phone-not-tappable", pageUrl: phone.url, pageLabel: phone.label });
 
@@ -142,7 +175,14 @@ export function rankIssues(
   const seesPhone = fullyRead.some(
     (page) => page.parsed.contactPhones.length > 0 || page.parsed.telHrefs.length > 0,
   );
+  const entryPage = usable.find((page) => page.isEntry) ?? usable.find((page) => page.role === "home");
   if (
+    siteKind === "landing" &&
+    entryPage &&
+    hasContactPath(entryPage)
+  ) {
+    /* single-page / LP with CTA or form — not a finding */
+  } else if (
     fullyRead.length > 0 &&
     fullyRead.length === usable.length &&
     !seesPhone &&
@@ -156,14 +196,19 @@ export function rankIssues(
     homeFirst.find((page) => page.role === "home" && page.parsed.navLinks.length >= 2) ??
     homeFirst.find((page) => page.isEntry && page.parsed.navLinks.length >= 2);
   if (
+    siteKind !== "landing" &&
+    siteKind !== "store" &&
     navPage &&
+    navPage.parsed.navLinks.length >= 2 &&
     !issues.some((issue) => issue.type === "no-contact-path") &&
     !navPage.parsed.navLinks.some((link) => looksLikeContactNav(`${link.href} ${link.text}`))
   ) {
     issues.push({ type: "nav-missing-contact", pageUrl: navPage.url, pageLabel: navPage.label });
   }
 
-  const missingDescription = homeFirst.find((page) => !page.parsed.metaDescription.trim());
+  const missingDescription = homeFirst.find(
+    (page) => isFindingTarget(page) && !page.parsed.metaDescription.trim(),
+  );
   if (missingDescription) {
     issues.push({
       type: "missing-description",
@@ -228,6 +273,13 @@ const COPY = {
       observation: "לא מצאנו תיאור מטא.",
       why: "בגוגל עלול להופיע קטע אקראי מהעמוד במקום משפט שמתאר את השירות.",
     },
+    "product-no-purchase": {
+      observation: (count: number) =>
+        count > 1
+          ? `ב־${count} עמודי מוצר לא מצאנו כפתור רכישה או הוספה לסל ברור.`
+          : "בעמוד מוצר לא מצאנו כפתור רכישה או הוספה לסל ברור.",
+      why: "קונים שמגיעים לעמוד מוצר עלולים לא להבין איך להמשיך לרכישה.",
+    },
     whyLabel: "למה זה חשוב",
   },
   en: {
@@ -282,6 +334,13 @@ const COPY = {
       observation: "We didn't find a meta description.",
       why: "Google may show a random snippet instead of a sentence that describes the service.",
     },
+    "product-no-purchase": {
+      observation: (count: number) =>
+        count > 1
+          ? `On ${count} product pages we didn't find a clear buy or add-to-cart action.`
+          : "On a product page we didn't find a clear buy or add-to-cart action.",
+      why: "Shoppers who land on a product page may not see how to continue to purchase.",
+    },
     whyLabel: "Why it matters",
   },
 } as const;
@@ -311,6 +370,14 @@ export function presentFindings(issues: RankedIssue[], locale: SiteCheckLocale):
         pageUrl: issue.pageUrl,
         observation: copy["noindex-service"].observation(issue.count ?? 1),
         why: copy["noindex-service"].why,
+      };
+    }
+    if (issue.type === "product-no-purchase") {
+      return {
+        pageLabel: issue.pageLabel,
+        pageUrl: issue.pageUrl,
+        observation: copy["product-no-purchase"].observation(issue.count ?? 1),
+        why: copy["product-no-purchase"].why,
       };
     }
     const entry = copy[issue.type];

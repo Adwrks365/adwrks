@@ -18,6 +18,7 @@ function page(overrides: Partial<AnalyzablePage> & Pick<AnalyzablePage, "url" | 
     ],
     links: [],
     hasForm: true,
+    hasPurchaseCta: false,
     telHrefs: ["tel:0501234567"],
     hasWhatsapp: false,
     contactPhones: [],
@@ -48,6 +49,7 @@ test("phone text without a tel link becomes one finding", () => {
         navLinks: [],
         links: [],
         hasForm: false,
+        hasPurchaseCta: false,
         telHrefs: [],
         hasWhatsapp: false,
         contactPhones: ["0501234567"],
@@ -94,6 +96,7 @@ test("at most three findings, highest priority first", () => {
         ],
         links: [],
         hasForm: false,
+        hasPurchaseCta: false,
         telHrefs: [],
         hasWhatsapp: false,
         contactPhones: [],
@@ -147,13 +150,14 @@ test("duplicate titles are one finding and the lead note matches the screen", ()
     findings,
     analyzable: [home, service],
     partialScan: true,
-    pagesPlanned: 3,
-    pagesScanned: 2,
+    contentPlanned: 3,
+    contentScanned: 2,
+    brokenLinksVerified: 0,
     durationMs: 1200,
   });
   assert.match(report.scopeLine, /דף הבית/);
-  assert.match(report.partialNote ?? "", /missing/);
-  assert.match(report.leadNote, /כתובת האתר: https:\/\/example.co.il\//);
+  assert.equal(report.metrics.contentScanned, 2);
+  assert.match(report.leadNote, /כתובת האתר: example\.co\.il/);
   assert.match(report.leadNote, new RegExp(findings[0].observation));
   assert.match(report.leadNote, new RegExp(findings[0].why));
   assert.doesNotMatch(report.leadNote, /תכנית עבודה/);

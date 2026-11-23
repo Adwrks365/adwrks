@@ -1,7 +1,8 @@
 import type { AnalyzablePage } from "./findings";
 import { whyLabel } from "./findings";
+import { displayUrlReadable } from "./display-url";
 import { buildPositiveObservations } from "./positives";
-import type { SiteCheckFinding, SiteCheckLocale, SiteCheckReport, ScannedPage } from "./types";
+import type { SiteCheckFinding, SiteCheckLocale, SiteCheckReport, ScannedPage, SiteCheckSummaryMetrics } from "./types";
 
 const LIMIT_NOTE = {
   he: "בדיקה ראשונית של העמודים שנפתחו. בלי תכנית עבודה, מחקר מילות מפתח או המלצה על ערוץ פרסום.",
@@ -26,44 +27,32 @@ const THIN_NOTE = {
 export function scopeLine(input: {
   locale: SiteCheckLocale;
   homeIsRoot: boolean;
-  loadedCount: number;
-  plannedCount: number;
+  contentScanned: number;
+  contentPlanned: number;
   partialScan: boolean;
 }): string {
-  const { locale, homeIsRoot, loadedCount, plannedCount, partialScan } = input;
+  const { locale, homeIsRoot, contentScanned, contentPlanned, partialScan } = input;
   const entered = homeIsRoot
     ? locale === "en"
       ? "the page you entered"
-      : "העמוד שהזנתם"
+      : "העמוד שהוזנתם"
     : locale === "en"
       ? "the page you entered and the homepage"
-      : "העמוד שהזנתם ואת דף הבית";
+      : "העמוד שהוזנתם ואת דף הבית";
 
   if (locale === "en") {
-    if (partialScan && plannedCount > loadedCount) {
-      return `Partial check: we opened ${loadedCount} of ${plannedCount} pages we picked (including ${entered}).`;
+    if (partialScan && contentPlanned > contentScanned) {
+      return `Partial check: we opened ${contentScanned} of ${contentPlanned} content pages we picked (including ${entered}).`;
     }
-    if (loadedCount <= 1) return `We checked ${entered}.`;
-    return `We checked ${loadedCount} pages, including ${entered}.`;
+    if (contentScanned <= 1) return `We checked ${entered}.`;
+    return `We checked ${contentScanned} content pages, including ${entered}.`;
   }
 
-  if (partialScan && plannedCount > loadedCount) {
-    return `בדיקה חלקית: נפתחו ${loadedCount} מתוך ${plannedCount} עמודים שנבחרו (כולל ${entered}).`;
+  if (partialScan && contentPlanned > contentScanned) {
+    return `נפתחו ${contentScanned} מתוך ${contentPlanned} עמודי תוכן שנבחרו (כולל ${entered}).`;
   }
-  if (loadedCount <= 1) return `בדקנו את ${entered}.`;
-  return `בדקנו ${loadedCount} עמודים, כולל ${entered}.`;
-}
-
-export function failedPagesNote(urls: string[], locale: SiteCheckLocale): string | null {
-  if (urls.length === 0) return null;
-  if (locale === "en") {
-    return urls.length === 1
-      ? `This page didn't load, so it isn't included in the findings: ${urls[0]}`
-      : `These pages didn't load, so they aren't included in the findings: ${urls.join(", ")}`;
-  }
-  return urls.length === 1
-    ? `העמוד הזה לא נטען, ולכן הוא לא נכלל בממצאים: ${urls[0]}`
-    : `העמודים האלה לא נטענו, ולכן הם לא נכללים בממצאים: ${urls.join(", ")}`;
+  if (contentScanned <= 1) return `בדקנו את ${entered}.`;
+  return `בדקנו ${contentScanned} עמודי תוכן, כולל ${entered}.`;
 }
 
 export function thinPagesNote(count: number, locale: SiteCheckLocale): string | null {
@@ -86,23 +75,26 @@ function joinNotes(notes: Array<string | null>): string | null {
 export function buildLeadNote(input: {
   locale: SiteCheckLocale;
   inputUrl: string;
+  inputLabel: string;
+  metrics: SiteCheckSummaryMetrics;
   pages: ScannedPage[];
   partialNote: string | null;
+  scopeLine: string;
   findings: SiteCheckFinding[];
   clearNote: string | null;
   positiveObservations: { text: string }[];
-  pagesPlanned: number;
-  pagesScanned: number;
   partialScan: boolean;
 }): string {
   const he = input.locale === "he";
   const checked = input.pages.filter((page) => page.status !== "failed");
   const lines = [
-    he ? `כתובת האתר: ${input.inputUrl}` : `Website: ${input.inputUrl}`,
+    he ? `כתובת האתר: ${input.inputLabel}` : `Website: ${input.inputLabel}`,
+    he ? `קישור מלא: ${input.inputUrl}` : `Full URL: ${input.inputUrl}`,
     "",
+    input.scopeLine,
     he
-      ? `היקף: נבדקו ${input.pagesScanned} עמודים (${input.pagesPlanned} בתוכנית${input.partialScan ? ", חלקית" : ""}).`
-      : `Scope: ${input.pagesScanned} pages checked (${input.pagesPlanned} planned${input.partialScan ? ", partial" : ""}).`,
+      ? `מדדים: ${input.metrics.contentScanned}/${input.metrics.contentPlanned} עמודי תוכן · ${input.metrics.findingsCount} ממצאים · ${input.metrics.brokenLinksVerified} קישורים שבורים שאומתו`
+      : `Metrics: ${input.metrics.contentScanned}/${input.metrics.contentPlanned} content pages · ${input.metrics.findingsCount} findings · ${input.metrics.brokenLinksVerified} broken links verified`,
     "",
     he ? "עמודים שנבדקו:" : "Pages checked:",
     ...(checked.length
@@ -139,11 +131,11 @@ export function buildSiteCheckReport(input: {
   findings: SiteCheckFinding[];
   analyzable: AnalyzablePage[];
   partialScan: boolean;
-  pagesPlanned: number;
-  pagesScanned: number;
+  contentPlanned: number;
+  contentScanned: number;
+  brokenLinksVerified: number;
   durationMs: number;
 }): SiteCheckReport {
-  const loadedCount = input.pages.filter((page) => page.status !== "failed").length;
   const findings = input.findings.slice(0, 3);
   const isClear = !input.nothingReadable && findings.length === 0;
   const clearTitle = isClear ? CLEAR_TITLE[input.locale] : null;
@@ -154,24 +146,32 @@ export function buildSiteCheckReport(input: {
   const partialHeadline = input.partialScan ? PARTIAL_HEADLINE[input.locale] : null;
   const partialNote = joinNotes([
     input.nothingReadable ? THIN_NOTE[input.locale] : thinPagesNote(input.thinCount, input.locale),
-    failedPagesNote(input.failedUrls, input.locale),
   ]);
+  const metrics: SiteCheckSummaryMetrics = {
+    contentScanned: input.contentScanned,
+    contentPlanned: input.contentPlanned,
+    findingsCount: findings.length,
+    brokenLinksVerified: input.brokenLinksVerified,
+  };
   const scope = scopeLine({
     locale: input.locale,
     homeIsRoot: input.homeIsRoot,
-    loadedCount,
-    plannedCount: input.pagesPlanned,
+    contentScanned: input.contentScanned,
+    contentPlanned: input.contentPlanned,
     partialScan: input.partialScan,
   });
+  const inputLabel = displayUrlReadable(input.inputUrl);
   const reportBase = {
     ok: true as const,
     inputUrl: input.inputUrl,
+    inputLabel,
     homeUrl: input.homeUrl,
     scopeLine: scope,
+    metrics,
     partialScan: input.partialScan,
     partialHeadline,
-    pagesPlanned: input.pagesPlanned,
-    pagesScanned: input.pagesScanned,
+    pagesPlanned: input.contentPlanned,
+    pagesScanned: input.contentScanned,
     durationMs: input.durationMs,
     pages: input.pages,
     partialNote,
@@ -186,13 +186,14 @@ export function buildSiteCheckReport(input: {
     leadNote: buildLeadNote({
       locale: input.locale,
       inputUrl: input.inputUrl,
+      inputLabel,
+      metrics,
       pages: input.pages,
       partialNote: reportBase.partialNote,
+      scopeLine: scope,
       findings,
       clearNote: clearTitle,
       positiveObservations,
-      pagesPlanned: input.pagesPlanned,
-      pagesScanned: input.pagesScanned,
       partialScan: input.partialScan,
     }),
   };
