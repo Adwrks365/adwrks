@@ -93,6 +93,11 @@ export type SiteCheckTopicSummary = {
   tone: SiteCheckTopicTone;
 };
 
+export type SuggestedSearchPhrase = {
+  text: string;
+  source: string;
+};
+
 export type SiteCheckSummaryMetrics = {
   contentScanned: number;
   contentPlanned: number;
@@ -115,6 +120,7 @@ export type SiteCheckReport = {
   pageTypeSummary: string;
   businessInsights: BusinessInsight[];
   storeSnapshot: StoreSnapshot | null;
+  suggestedSearchPhrases: SuggestedSearchPhrase[];
   metrics: SiteCheckSummaryMetrics;
   partialScan: boolean;
   partialHeadline: string | null;

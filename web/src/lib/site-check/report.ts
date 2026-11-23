@@ -205,6 +205,7 @@ export function buildSiteCheckReport(input: {
   pageTypeSummary: string;
   businessInsights: import("./types").BusinessInsight[];
   storeSnapshot: import("./types").StoreSnapshot | null;
+  suggestedSearchPhrases: import("./types").SuggestedSearchPhrase[];
 }): SiteCheckReport {
   const findings = input.findings.slice(0, 3);
   const isClear = !input.nothingReadable && findings.length === 0;
@@ -259,6 +260,7 @@ export function buildSiteCheckReport(input: {
     pageTypeSummary: input.pageTypeSummary,
     businessInsights: input.businessInsights,
     storeSnapshot: input.storeSnapshot,
+    suggestedSearchPhrases: input.suggestedSearchPhrases,
     metrics,
     partialScan: input.partialScan,
     partialHeadline,

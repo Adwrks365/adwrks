@@ -14,6 +14,7 @@ import {
   formatPageTypeSummary,
   storeAuditLines,
 } from "./page-type-summary";
+import { suggestSearchPhrases } from "./search-phrase-suggest";
 import { attachCommerceKind, extractItemProductUrls } from "./store-page-classify";
 import { buildSiteCheckReport } from "./report";
 import { pageIntent, pickLinksToProbe, planScanUrls, samePage } from "./select-pages";
@@ -336,6 +337,7 @@ export async function runSiteCheck(
   const findings = presentFindings(ranked, locale);
   const pageTypeCounts = countPageTypes(analyzable);
   const pageTypeSummary = formatPageTypeSummary(locale, siteKind, pageTypeCounts);
+  const suggestedSearchPhrases = suggestSearchPhrases(analyzable, siteKind, locale);
   const storeAudit = siteKind === "store" ? auditStorePages(analyzable, locale) : null;
   const storeLines = storeAudit ? storeAuditLines(locale, storeAudit) : [];
   const businessInsights = buildBusinessInsights({
@@ -365,6 +367,7 @@ export async function runSiteCheck(
     siteKind,
     pageTypeSummary,
     storeSnapshot: storeAudit,
+    suggestedSearchPhrases,
     analyzable,
     partialScan,
     contentPlanned,

@@ -14858,6 +14858,94 @@ body.contextual-popup-open {
   margin-top: 0.35rem;
 }
 
+.site-check-visibility-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  margin-top: 0.75rem;
+  padding: 0.85rem 0.9rem;
+  background: #f8fafc;
+}
+
+.site-check-visibility-lead {
+  color: #475569;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  margin: 0.25rem 0 0.65rem;
+}
+
+.site-check-visibility-queries {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.site-check-visibility-field span {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+
+.site-check-visibility-field input,
+.site-check-visibility-meta select {
+  width: 100%;
+  font-size: 0.9rem;
+  padding: 0.45rem 0.55rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+}
+
+.site-check-visibility-source {
+  color: #64748b;
+  display: block;
+  font-size: 0.75rem;
+  margin-top: 0.15rem;
+}
+
+.site-check-visibility-meta {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0.65rem 0 0.5rem;
+}
+
+@media (max-width: 520px) {
+  .site-check-visibility-meta {
+    grid-template-columns: 1fr;
+  }
+}
+
+.site-check-visibility-demo {
+  color: #9a3412;
+  font-size: 0.8rem;
+  margin: 0 0 0.5rem;
+}
+
+.site-check-visibility-rows {
+  display: grid;
+  gap: 0.65rem;
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+}
+
+.site-check-visibility-row-query {
+  font-weight: 800;
+  margin: 0 0 0.2rem;
+}
+
+.site-check-visibility-insight {
+  border-top: 1px solid #e2e8f0;
+  margin-top: 0.65rem;
+  padding-top: 0.55rem;
+}
+
+.site-check-visibility-cta-bridge {
+  color: #0369a1;
+  font-size: 0.88rem;
+  font-weight: 700;
+  margin: 0.45rem 0 0;
+}
+
 .site-check-speed-card--after-form {
   margin-top: 0.65rem;
 }

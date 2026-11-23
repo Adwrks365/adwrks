@@ -12,6 +12,7 @@ import { normalizePageSpeedTargetUrl } from "@/lib/pagespeed/validate-url";
 import type { FetchFailureReason } from "@/lib/site-check/fetch-page";
 import { displayHostReadable } from "@/lib/site-check/display-url";
 import type { SiteCheckReport, SiteCheckTopicId } from "@/lib/site-check/types";
+import { SiteCheckVisibilitySection } from "@/components/tools/SiteCheckVisibilitySection";
 
 export function SiteCheckTitle({
   defaultTitle,
@@ -123,6 +124,12 @@ export function SiteCheckTool({
   const [speedError, setSpeedError] = useState("");
   const [speedScore, setSpeedScore] = useState<number | null>(null);
   const [speedPageLabel, setSpeedPageLabel] = useState("");
+  const [visibilityDone, setVisibilityDone] = useState(false);
+
+  function appendLeadNote(extra: string) {
+    setLeadNote((prev) => (prev ? `${prev}\n${extra}` : extra));
+    setVisibilityDone(true);
+  }
 
   const activeHost = useMemo(() => displayHost(url), [url]);
   const showForm = (Boolean(leadNote) || scanIncomplete) && formStatus !== "success";
@@ -159,6 +166,7 @@ export function SiteCheckTool({
     setSpeedError("");
     setSpeedScore(null);
     setSpeedPageLabel("");
+    setVisibilityDone(false);
     scrollToLiveArea();
 
     try {
@@ -242,9 +250,11 @@ export function SiteCheckTool({
   const showPromoteCta = Boolean(report && (hasFindings || isClearSuccess));
   const formTitle = scanIncomplete
     ? copy.formTitleFailure
-    : showPromoteCta
-      ? copy.formTitlePromote
-      : copy.formTitle;
+    : visibilityDone
+      ? copy.formTitleAfterVisibility
+      : showPromoteCta
+        ? copy.formTitlePromote
+        : copy.formTitle;
   const formBodyText = scanIncomplete
     ? copy.formBody
     : showPromoteCta
@@ -451,6 +461,13 @@ export function SiteCheckTool({
                   </>
                 )}
               </div>
+
+              <SiteCheckVisibilitySection
+                locale={locale}
+                copy={copy}
+                report={report}
+                onLeadNoteAppend={appendLeadNote}
+              />
 
               {embedLeadInReport && (
                 <section className="site-check-offer site-check-offer--in-report" aria-labelledby="site-check-offer-title">

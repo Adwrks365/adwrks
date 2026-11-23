@@ -56,6 +56,33 @@ export type SiteCheckCopy = {
   formBodyClear: string;
   pageTypeHeading: string;
   businessInsightsHeading: string;
+  visibilityCardTitle: string;
+  visibilityCardLead: string;
+  visibilityQueryLabel1: string;
+  visibilityQueryLabel2: string;
+  visibilityQueryLabel3: string;
+  visibilityQueryOptional: string;
+  visibilityCountryLabel: string;
+  visibilityCountryIl: string;
+  visibilityLanguageLabel: string;
+  visibilityLangHe: string;
+  visibilityLangEn: string;
+  visibilityDeviceLabel: string;
+  visibilityDeviceMobile: string;
+  visibilityDeviceDesktop: string;
+  visibilityButton: string;
+  visibilityRunning: string;
+  visibilityDemoNote: string;
+  visibilityUnavailable: string;
+  visibilityLimit: string;
+  visibilityError: string;
+  visibilityNeedQuery: string;
+  visibilityPartialNote: string;
+  visibilityCheckedAt: string;
+  visibilityColOrganic: string;
+  visibilityColAi: string;
+  visibilityConsultBridge: string;
+  formTitleAfterVisibility: string;
   formSubmit: string;
   speedButton: string;
   speedRunning: string;
@@ -141,6 +168,36 @@ const HE: SiteCheckCopy = {
     "אין בבדיקה הזו דירוג או מיקום בגוגל. בשיחה נמליץ במה להתמקד לפי השירותים או המוצרים שחשובים לכם למכור — לפי ההזדמנויות שעלו מהסריקה.",
   pageTypeHeading: "סיכום לפי סוגי עמודים",
   businessInsightsHeading: "תובנות לעסק",
+  visibilityCardTitle: "איך האתר נראה בחיפוש?",
+  visibilityCardLead:
+    "על בסיס העמודים שנפתחו בסריקה — עד שלושה ביטויי חיפוש לעריכה. בדיקת נראות משלימה את השאלה «מה לשפר»; זו לא תחליף לסריקה הראשונית.",
+  visibilityQueryLabel1: "ביטוי 1",
+  visibilityQueryLabel2: "ביטוי 2",
+  visibilityQueryLabel3: "ביטוי 3 (אופציונלי)",
+  visibilityQueryOptional: "אפשר להוסיף ביטוי שלישי",
+  visibilityCountryLabel: "מדינה",
+  visibilityCountryIl: "ישראל",
+  visibilityLanguageLabel: "שפת חיפוש",
+  visibilityLangHe: "עברית",
+  visibilityLangEn: "אנגלית",
+  visibilityDeviceLabel: "מכשיר",
+  visibilityDeviceMobile: "מובייל",
+  visibilityDeviceDesktop: "שולחן עבודה",
+  visibilityButton: "בדקו את הנראות בגוגל",
+  visibilityRunning: "בודקים נראות…",
+  visibilityDemoNote: "נתוני דוגמה לבדיקה — לא דירוג חי בגוגל",
+  visibilityUnavailable: "בדיקת הנראות לא זמינה כרגע.",
+  visibilityLimit: "הגעתם למכסה היומית של בדיקות נראות. נסו שוב מחר.",
+  visibilityError: "בדיקת הנראות לא הושלמה. נסו שוב מאוחר יותר.",
+  visibilityNeedQuery: "הזינו לפחות ביטוי חיפוש אחד.",
+  visibilityPartialNote: "תוצאה חלקית — חלק מהביטויים לא הושלמו",
+  visibilityCheckedAt: "מועד בדיקה",
+  visibilityColOrganic: "מיקום אורגני",
+  visibilityColAi: "סקירת AI",
+  visibilityConsultBridge:
+    "רוצים לדעת איזה עמוד כדאי לחזק קודם, ועל אילו חיפושים שווה להתמקד?",
+  formTitleAfterVisibility:
+    "רוצים לדעת איזה עמוד כדאי לחזק קודם, ועל אילו חיפושים שווה להתמקד?",
   formSubmit: "חזרו אליי לשיחת ייעוץ",
   speedButton: "בדקו מהירות",
   speedRunning: "בודקים מהירות במובייל…",
@@ -264,6 +321,36 @@ const EN: SiteCheckCopy = {
     "This check does not include Google rankings or positions. On a call we'll suggest where to focus based on the products or services you want to sell — using the opportunities from this scan.",
   pageTypeHeading: "Summary by page types",
   businessInsightsHeading: "Insights for your business",
+  visibilityCardTitle: "How does your site show in search?",
+  visibilityCardLead:
+    "Based on pages we opened — up to three phrases you can edit. Visibility complements the site scan; it is not a replacement.",
+  visibilityQueryLabel1: "Phrase 1",
+  visibilityQueryLabel2: "Phrase 2",
+  visibilityQueryLabel3: "Phrase 3 (optional)",
+  visibilityQueryOptional: "You can add a third phrase",
+  visibilityCountryLabel: "Country",
+  visibilityCountryIl: "Israel",
+  visibilityLanguageLabel: "Search language",
+  visibilityLangHe: "Hebrew",
+  visibilityLangEn: "English",
+  visibilityDeviceLabel: "Device",
+  visibilityDeviceMobile: "Mobile",
+  visibilityDeviceDesktop: "Desktop",
+  visibilityButton: "Check visibility in Google",
+  visibilityRunning: "Checking visibility…",
+  visibilityDemoNote: "Sample data for testing — not live Google rankings",
+  visibilityUnavailable: "Visibility check is not available right now.",
+  visibilityLimit: "You reached today’s visibility check limit. Try again tomorrow.",
+  visibilityError: "Visibility check did not finish. Try again later.",
+  visibilityNeedQuery: "Enter at least one search phrase.",
+  visibilityPartialNote: "Partial result — some phrases did not complete",
+  visibilityCheckedAt: "Checked at",
+  visibilityColOrganic: "Organic position",
+  visibilityColAi: "AI overview",
+  visibilityConsultBridge:
+    "Want to know which page to strengthen first and which searches to focus on?",
+  formTitleAfterVisibility:
+    "Want to know which page to strengthen first and which searches to focus on?",
   formSubmit: "Call me back for a consult",
   speedButton: "Check speed",
   speedRunning: "Checking mobile speed…",
