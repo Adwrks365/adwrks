@@ -65,6 +65,9 @@ export type SiteCheckCopy = {
   errorNotHtml: string;
   errorEmpty: string;
   errorGeneric: string;
+  errorService: string;
+  errorRateLimited: string;
+  retryScan: string;
   pillarsTitle: string;
   pillars: readonly SiteCheckPillar[];
   faqTitle: string;
@@ -132,6 +135,10 @@ const HE: SiteCheckCopy = {
   errorNotHtml: "הכתובת לא החזירה דף אינטרנט שניתן לקרוא.",
   errorEmpty: "דף הבית נראה ריק או חסום לקריאה אוטומטית.",
   errorGeneric: "לא ניתן להשלים את הבדיקה כרגע. נסו שוב בעוד רגע.",
+  errorService: "שירות הבדיקה לא זמין כרגע בשרת. נסו שוב מאוחר יותר, או השאירו פרטים.",
+  errorRateLimited:
+    "האתר הגביל בקשות רגעית (429). לא סימנו את זה כקישור שבור — נסו שוב בעוד דקה או השאירו פרטים.",
+  retryScan: "נסו שוב",
   pillarsTitle: "מה הבדיקה בודקת",
   pillars: [
     {
@@ -237,6 +244,10 @@ const EN: SiteCheckCopy = {
   errorNotHtml: "That address didn't return a readable web page.",
   errorEmpty: "The homepage looks empty or blocked for automatic reading.",
   errorGeneric: "The check couldn't be completed just now. Try again in a moment.",
+  errorService: "The check service isn't available on the server right now. Try again later or leave your details.",
+  errorRateLimited:
+    "The site briefly limited requests (429). We didn't treat that as a broken link — try again in a minute or leave your details.",
+  retryScan: "Try again",
   pillarsTitle: "What the check looks at",
   pillars: [
     {

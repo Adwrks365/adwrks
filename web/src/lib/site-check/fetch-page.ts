@@ -3,7 +3,8 @@ import { isLocalSiteCheckFixtureUrl, normalizePageSpeedTargetUrl } from "@/lib/p
 
 const MAX_BYTES = 800_000;
 const MAX_REDIRECTS = 3;
-const FETCH_TIMEOUT_MS = 6_000;
+const FETCH_TIMEOUT_MS = 10_000;
+const FETCH_RETRY_DELAY_MS = 500;
 
 export type FetchFailureReason =
   | "blocked"
@@ -91,7 +92,11 @@ function concat(chunks: Uint8Array[]): Uint8Array {
   return out;
 }
 
-export async function fetchPublicHtml(rawUrl: string): Promise<FetchHtmlResult> {
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function fetchPublicHtmlOnce(rawUrl: string, timeoutMs: number): Promise<FetchHtmlResult> {
   let current = normalizePageSpeedTargetUrl(rawUrl);
   if (!current) return { ok: false, url: rawUrl, reason: "blocked" };
 
@@ -115,7 +120,7 @@ export async function fetchPublicHtml(rawUrl: string): Promise<FetchHtmlResult> 
         method: "GET",
         redirect: "manual",
         cache: "no-store",
-        signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+        signal: AbortSignal.timeout(timeoutMs),
         headers: {
           Accept: "text/html,application/xhtml+xml",
           "Accept-Language": "he,en;q=0.8",
@@ -165,4 +170,23 @@ export async function fetchPublicHtml(rawUrl: string): Promise<FetchHtmlResult> 
   }
 
   return { ok: false, url: current, reason: "http" };
+}
+
+export async function fetchPublicHtml(
+  rawUrl: string,
+  options?: { timeoutMs?: number; retries?: number },
+): Promise<FetchHtmlResult> {
+  const timeoutMs = options?.timeoutMs ?? FETCH_TIMEOUT_MS;
+  const retries = Math.max(1, options?.retries ?? 2);
+  let last: FetchHtmlResult = { ok: false, url: rawUrl, reason: "timeout" };
+  for (let attempt = 0; attempt < retries; attempt += 1) {
+    last = await fetchPublicHtmlOnce(rawUrl, timeoutMs);
+    if (last.ok) return last;
+    if (attempt < retries - 1 && (last.reason === "timeout" || last.httpStatus === 429)) {
+      await sleep(FETCH_RETRY_DELAY_MS * (attempt + 1));
+      continue;
+    }
+    return last;
+  }
+  return last;
 }

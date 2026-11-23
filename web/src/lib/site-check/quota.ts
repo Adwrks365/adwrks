@@ -25,6 +25,11 @@ function getSecret(): string | null {
     if (trimmed) return trimmed;
   }
   if (process.env.NODE_ENV !== "production") return "dev-site-check-usage";
+  if (process.env.VERCEL_ENV === "preview") {
+    const fromSha = process.env.VERCEL_GIT_COMMIT_SHA?.trim();
+    if (fromSha) return `preview-site-check-${fromSha.slice(0, 12)}`;
+    return "preview-site-check-quota";
+  }
   return null;
 }
 
@@ -84,8 +89,15 @@ export async function consumeSiteCheck(): Promise<SiteCheckUsage | null> {
       path: "/",
       maxAge: COOKIE_MAX_AGE,
     });
-  } catch {
-    return null;
+  } catch (error) {
+    console.warn("[site-check] quota cookie not persisted", {
+      message: error instanceof Error ? error.message : "unknown",
+    });
+    return {
+      limit: current.limit,
+      remaining: Math.max(0, current.remaining - 1),
+      used: next.count,
+    };
   }
   return { limit: current.limit, remaining: current.remaining - 1, used: next.count };
 }

@@ -14762,6 +14762,17 @@ body.contextual-popup-open {
   padding-inline-start: 1.15rem;
 }
 
+.site-check-error-block {
+  display: grid;
+  gap: 0.65rem;
+  margin-bottom: 0.25rem;
+}
+
+.site-check-retry-btn {
+  justify-self: start;
+  min-height: 2.5rem;
+}
+
 .site-check-partial-headline {
   color: #b45309;
   font-size: 0.95rem;

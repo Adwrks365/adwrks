@@ -55,6 +55,13 @@ type ScanErrorPayload = {
 function scanErrorMessage(copy: SiteCheckCopy, data: ScanErrorPayload): string {
   if (data.message === "invalid_url") return copy.errorInvalid;
   if (data.message === "daily_limit") return copy.errorLimit;
+  if (data.message === "service_unavailable" || data.message === "unavailable") return copy.errorService;
+  if (data.fetchReason === "http" && data.httpStatus === 429) return copy.errorRateLimited;
+  if (data.message === "home_unreadable") {
+    /* fall through to fetch-specific copy */
+  } else if (data.message && data.message !== "home_unreadable") {
+    return copy.errorGeneric;
+  }
   const byFetch: Partial<Record<FetchFailureReason, string>> = {
     dns: copy.errorDns,
     timeout: copy.errorTimeout,
@@ -83,10 +90,16 @@ function failureLeadNote(
         ? `URL we tried: ${data.finalUrl}\n`
         : `כתובת שניסינו לפתוח: ${data.finalUrl}\n`
       : "";
+  const apiReason =
+    data.message && data.message !== "home_unreadable"
+      ? `${locale === "en" ? "API" : "API"}: ${data.message}\n`
+      : data.fetchReason
+        ? `${locale === "en" ? "Fetch reason" : "סיבת טעינה"}: ${data.fetchReason}${data.httpStatus ? ` (${data.httpStatus})` : ""}\n`
+        : "";
   const head =
     locale === "en"
-      ? `Website address: ${normalized}\nScan did not complete.\n${redirect}\nUser-facing message: ${errorLine}`
-      : `כתובת האתר: ${normalized}\nהסריקה לא הושלמה.\n${redirect}\nהודעה למשתמש: ${errorLine}`;
+      ? `Website address: ${normalized}\nScan did not complete.\n${redirect}${apiReason}\nUser-facing message: ${errorLine}`
+      : `כתובת האתר: ${normalized}\nהסריקה לא הושלמה.\n${redirect}${apiReason}\nהודעה למשתמש: ${errorLine}`;
   return head;
 }
 
@@ -112,7 +125,7 @@ export function SiteCheckTool({
   const [speedPageLabel, setSpeedPageLabel] = useState("");
 
   const activeHost = useMemo(() => displayHost(url), [url]);
-  const showForm = Boolean(leadNote) && formStatus !== "success";
+  const showForm = (Boolean(leadNote) || scanIncomplete) && formStatus !== "success";
   const showLive = status !== "idle" || formStatus === "success";
 
   async function onCheck(event: FormEvent<HTMLFormElement>) {
@@ -150,9 +163,12 @@ export function SiteCheckTool({
       if (!res.ok || !data.ok) {
         const message = scanErrorMessage(copy, data);
         setError(message);
-        if (data.message === "home_unreadable") {
+        if (data.message !== "invalid_url") {
           setScanIncomplete(true);
           setLeadNote(failureLeadNote(locale, trimmed, data, message));
+        } else {
+          setScanIncomplete(false);
+          setLeadNote("");
         }
         setStatus("error");
         scrollToLiveArea();
@@ -318,9 +334,23 @@ export function SiteCheckTool({
           )}
 
           {status === "error" && error && (
-            <p className="site-check-alert site-check-alert--error" role="alert">
-              {error}
-            </p>
+            <div className="site-check-error-block">
+              <p className="site-check-alert site-check-alert--error" role="alert">
+                {error}
+              </p>
+              {scanIncomplete && (
+                <button
+                  type="button"
+                  className="btn btn-secondary site-check-retry-btn"
+                  onClick={() => {
+                    const form = document.querySelector<HTMLFormElement>(".site-check-url-form");
+                    form?.requestSubmit();
+                  }}
+                >
+                  {copy.retryScan}
+                </button>
+              )}
+            </div>
           )}
 
           {report && status === "ready" && (

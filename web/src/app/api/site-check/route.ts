@@ -14,7 +14,8 @@ function localeOf(value: unknown): SiteCheckLocale {
 export async function POST(request: Request) {
   const usage = await readSiteCheckUsage();
   if (!usage) {
-    return NextResponse.json({ ok: false, message: "unavailable" }, { status: 503 });
+    console.error("[site-check] quota unavailable — missing usage secret in this environment");
+    return NextResponse.json({ ok: false, message: "service_unavailable" }, { status: 503 });
   }
   if (usage.remaining <= 0) {
     return NextResponse.json(

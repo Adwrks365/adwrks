@@ -69,26 +69,33 @@ export async function runSiteCheck(
   if (!entryCanonical || !origin) return { ok: false, reason: "invalid_url" };
   const homeUrl = origin;
 
-  const sitemapUrls = await discoverSitemapUrls(origin).catch(() => [] as string[]);
-
   let discoveryHtml = "";
   let discoveryLinks: ReturnType<typeof parsePageHtml>["links"] = [];
 
-  const entryFetch = await fetchPublicHtml(entryCanonical);
+  const entryFetch = await fetchPublicHtml(entryCanonical, { timeoutMs: 12_000, retries: 2 });
+  const sitemapUrls = entryFetch.ok
+    ? await Promise.race([
+        discoverSitemapUrls(origin),
+        new Promise<string[]>((resolve) => setTimeout(() => resolve([]), 2_500)),
+      ]).catch(() => [] as string[])
+    : [];
   if (entryFetch.ok) {
     const parsed = parsePageHtml(entryFetch.html, entryFetch.url);
     discoveryLinks = parsed.links;
     discoveryHtml = entryFetch.html;
   }
 
+  let homeParsedForKind: ReturnType<typeof parsePageHtml> | null = null;
+
   if (!samePage(entryCanonical, homeUrl)) {
-    const homeFetch = await fetchPublicHtml(homeUrl);
+    const homeFetch = await fetchPublicHtml(homeUrl, { timeoutMs: 12_000, retries: 2 });
     if (homeFetch.ok) {
       const homeParsed = parsePageHtml(homeFetch.html, homeFetch.url);
+      homeParsedForKind = homeParsed;
       discoveryLinks = [...discoveryLinks, ...homeParsed.links];
     }
   } else if (!entryFetch.ok) {
-    const homeFetch = await fetchPublicHtml(homeUrl);
+    const homeFetch = await fetchPublicHtml(homeUrl, { timeoutMs: 12_000, retries: 2 });
     if (!homeFetch.ok) {
       return {
         ok: false,
@@ -115,11 +122,7 @@ export async function runSiteCheck(
   }
 
   const entryParsedForKind = entryFetch.ok ? parsePageHtml(entryFetch.html, entryFetch.url) : null;
-  let homeParsedForKind: ReturnType<typeof parsePageHtml> | null = entryParsedForKind;
-  if (!samePage(entryCanonical, homeUrl)) {
-    const homePeek = await fetchPublicHtml(homeUrl);
-    if (homePeek.ok) homeParsedForKind = parsePageHtml(homePeek.html, homePeek.url);
-  }
+  if (!homeParsedForKind && entryParsedForKind) homeParsedForKind = entryParsedForKind;
   const siteKind = detectSiteKindFromSignals({
     entryIsHome: samePage(entryCanonical, homeUrl),
     entryParsed: entryParsedForKind,
