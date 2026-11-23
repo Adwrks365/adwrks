@@ -396,8 +396,13 @@ export function SiteCheckTool({
                     </a>
                     <p className="site-check-recommended-step">
                       <span className="site-check-recommended-step-label">{copy.recommendedStepLabel}: </span>
+                      {primaryFinding.recommendedStep}
+                    </p>
+                    <p className="site-check-finding-why">
+                      <span>{copy.impactLabel}: </span>
                       {primaryFinding.why}
                     </p>
+                    <p className="site-check-consult-bridge">{copy.findingConsultBridge}</p>
                   </>
                 ) : (
                   <>
@@ -547,6 +552,10 @@ export function SiteCheckTool({
                         <a href={finding.pageUrl} className="site-check-finding-example" dir="ltr">
                           {finding.pageUrl}
                         </a>
+                        <p className="site-check-recommended-step site-check-recommended-step--compact">
+                          <span className="site-check-recommended-step-label">{copy.recommendedStepLabel}: </span>
+                          {finding.recommendedStep}
+                        </p>
                         <p className="site-check-finding-impact">
                           {copy.impactLabel}: {finding.why}
                         </p>

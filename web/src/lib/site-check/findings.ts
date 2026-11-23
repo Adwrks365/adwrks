@@ -265,6 +265,7 @@ const COPY = {
         count > 1
           ? `מצאנו ${count} קישורים שבורים לעמודי שירות או פעולות מרכזיות. לדוגמה: ${example}`
           : `קישור שבור לעמוד שירות או פעולה מרכזית: ${example}`,
+      step: "תקנו את הקישור או עדכנו אותו לעמוד הקיים, ובדקו במובייל שהכפתור מוביל ליעד הנכון.",
       why: "מבקר שלא מגיע לעמוד שירות עלול לוותר לפני שיצר קשר.",
     },
     "noindex-service": {
@@ -272,14 +273,17 @@ const COPY = {
         count > 1
           ? `ל־${count} עמודי שירות או תמחור יש סימון noindex — הם עלולים לא להופיע בחיפוש.`
           : "עמוד שירות או תמחור מסומן ב-noindex.",
+      step: "הסירו noindex מעמודי שירות ותמחור שאתם רוצים לקדם, וודאו שיש להם קישור פנימי מדף הבית.",
       why: "עמוד שמציע שירות אבל חסום לאינדוקס קשה למצוא אותו בגוגל.",
     },
     noindex: {
       observation: "העמוד מסומן ב-noindex.",
+      step: "בדקו אם העמוד צריך להופיע בגוגל — אם כן, הסירו noindex או את תג החסימה במערכת הניהול.",
       why: "עמוד שמסומן כך יכול שלא להופיע בגוגל, גם כשהוא חשוב לשירות.",
     },
     "missing-title": {
       observation: "לא מצאנו כותרת עמוד (title).",
+      step: "הוסיפו כותרת עמוד ייחודית שמתארת את השירות או המוצר, ב־50–60 תווים בערך.",
       why: "בלי כותרת, קשה לגולש ולגוגל להבין במה העמוד עוסק.",
     },
     "duplicate-title": {
@@ -289,6 +293,7 @@ const COPY = {
           : other
             ? `כותרת העמוד זהה לכותרת של «${other}».`
             : "לכמה עמודים חשובים יש אותה כותרת.",
+      step: "תנו לכל עמוד שירות כותרת שונה שמזכירה בדיוק את מה שמוצע שם.",
       why: "כששני עמודים נראים אותו דבר בתוצאות, קשה יותר להגיע לשירות הנכון.",
     },
     "duplicate-description": {
@@ -296,6 +301,7 @@ const COPY = {
         count > 2
           ? `ל־${count} עמודים חשובים יש אותו תיאור מטא (description).`
           : "לשני עמודים חשובים יש אותו תיאור מטא (description).",
+      step: "כתבו תיאור מטא נפרד לכל עמוד חשוב — משפט אחד שמסביר למה ללחוץ עליו בתוצאות החיפוש.",
       why: "כשתיאור המטא זהה, גוגל עלול להציג אותו קטע בכמה עמודים שונים.",
     },
     "broken-image": {
@@ -303,26 +309,32 @@ const COPY = {
         count > 1
           ? `מצאנו ${count} תמונות מרכזיות שלא נטענו (404/410). לדוגמה: ${example}`
           : `תמונה מרכזית לא נטענה (404/410): ${example}`,
+      step: "העלו מחדש את התמונה או עדכנו את הקישור אליה, ודחסו אותה לגודל סביר למובייל.",
       why: "תמונה שבורה בעמוד חשוב פוגעת ברושם הראשוני ובאמינות העמוד.",
     },
     "missing-h1": {
       observation: "לא מצאנו כותרת ראשית (H1) ב-HTML של העמוד.",
+      step: "הוסיפו כותרת ראשית אחת ברורה בראש העמוד — מה אתם מציעים במשפט קצר.",
       why: "בלי כותרת ראשית, מי שנכנס לעמוד עלול לא להבין מיד מה מציעים כאן.",
     },
     "phone-not-tappable": {
       observation: "זיהינו מספר טלפון שאינו לחיץ.",
+      step: "הפכו את המספר לקישור tel: באזור הגלוי, במיוחד בעמוד הבית וביצירת קשר.",
       why: "במובייל זה מוסיף שלב למי שרוצה להתקשר.",
     },
     "no-contact-path": {
       observation: "בעמודים שנבדקו לא מצאנו קישור חיוג, וואטסאפ או טופס.",
+      step: "הוסיפו למעלה בעמוד כפתור «התקשרו» או «השאירו פרטים» שמוביל לטופס או לוואטסאפ.",
       why: "לקוח שכבר נמצא באתר לא רואה דרך ברורה להתקשר או להשאיר פרטים.",
     },
     "nav-missing-contact": {
       observation: "בניווט הראשי לא מצאנו קישור ליצירת קשר.",
+      step: "הוסיפו «יצירת קשר» או «חזרו אליי» לתפריט העליון, גלוי גם במובייל.",
       why: "מי שמחפש איך לפנות אליכם צריך למצוא את זה מחוץ לתפריט.",
     },
     "missing-description": {
       observation: "לא מצאנו תיאור מטא.",
+      step: "כתבו תיאור מטא קצר שמסכם את העמוד ומעודד לחיצה — במיוחד בדף הבית ובשירותים.",
       why: "בגוגל עלול להופיע קטע אקראי מהעמוד במקום משפט שמתאר את השירות.",
     },
     "product-no-purchase": {
@@ -330,6 +342,7 @@ const COPY = {
         count > 1
           ? `ב־${count} עמודי מוצר לא מצאנו כפתור רכישה או הוספה לסל ברור.`
           : "בעמוד מוצר לא מצאנו כפתור רכישה או הוספה לסל ברור.",
+      step: "הציגו כפתור «הוסף לסל» או «לרכישה» גלוי מעל הקיפול במובייל.",
       why: "קונים שמגיעים לעמוד מוצר עלולים לא להבין איך להמשיך לרכישה.",
     },
     whyLabel: "למה זה חשוב",
@@ -340,6 +353,7 @@ const COPY = {
         count > 1
           ? `We found ${count} broken links to service pages or key actions. Example: ${example}`
           : `Broken link to a service page or key action: ${example}`,
+      step: "Fix or replace the link, then tap the button on a phone to confirm it opens the right page.",
       why: "A visitor who can't reach a service page may give up before contacting you.",
     },
     "noindex-service": {
@@ -347,14 +361,17 @@ const COPY = {
         count > 1
           ? `${count} service or pricing pages are marked noindex — they may not appear in search.`
           : "A service or pricing page is marked noindex.",
+      step: "Remove noindex from service and pricing pages you want in Google, and link to them from the homepage.",
       why: "A page that sells a service but blocks indexing is harder to find on Google.",
     },
     noindex: {
       observation: "This page is marked noindex.",
+      step: "If the page should rank, remove noindex in your CMS or SEO plugin and republish.",
       why: "A page marked this way can stay out of Google, even when it matters for the service.",
     },
     "missing-title": {
       observation: "We didn't find a page title.",
+      step: "Add a unique title tag that names the service or product — roughly 50–60 characters.",
       why: "Without a title, visitors and Google have less to go on about what the page offers.",
     },
     "duplicate-title": {
@@ -364,6 +381,7 @@ const COPY = {
           : other
             ? `The page title is the same as «${other}».`
             : "Several important pages share the same title.",
+      step: "Give each service page its own title that says exactly what is offered there.",
       why: "When two pages look the same in search, it's harder to reach the right service.",
     },
     "duplicate-description": {
@@ -371,6 +389,7 @@ const COPY = {
         count > 2
           ? `${count} important pages share the same meta description.`
           : "Two important pages share the same meta description.",
+      step: "Write a separate meta description per important page — one line on why to click.",
       why: "When meta descriptions match, Google may show the same snippet for different pages.",
     },
     "broken-image": {
@@ -378,26 +397,32 @@ const COPY = {
         count > 1
           ? `${count} hero images failed to load (404/410). Example: ${example}`
           : `A hero image failed to load (404/410): ${example}`,
+      step: "Re-upload the image or fix the URL, and compress it for mobile.",
       why: "A broken image on an important page hurts first impressions and trust.",
     },
     "missing-h1": {
       observation: "We didn't find a main heading (H1) in the page HTML.",
+      step: "Add one clear H1 at the top of the page stating what you offer in plain language.",
       why: "Without a main heading, someone landing on the page may not see the offer right away.",
     },
     "phone-not-tappable": {
       observation: "We found a phone number that isn't a tap-to-call link.",
+      step: "Wrap the number in a tel: link on the homepage and contact page.",
       why: "On a phone, that adds a step for someone who wants to call.",
     },
     "no-contact-path": {
       observation: "On the pages we checked, we didn't find a call link, WhatsApp link, or form.",
+      step: "Add a visible «Call us» or «Leave details» button that opens a form or WhatsApp.",
       why: "A visitor who is already on the site doesn't see a clear way to call or leave details.",
     },
     "nav-missing-contact": {
       observation: "The main navigation doesn't include a contact link.",
+      step: "Add «Contact» to the main menu, including the mobile menu.",
       why: "Someone looking for how to reach you has to find it outside the menu.",
     },
     "missing-description": {
       observation: "We didn't find a meta description.",
+      step: "Add a short meta description on the homepage and key service pages.",
       why: "Google may show a random snippet instead of a sentence that describes the service.",
     },
     "product-no-purchase": {
@@ -405,6 +430,7 @@ const COPY = {
         count > 1
           ? `On ${count} product pages we didn't find a clear buy or add-to-cart action.`
           : "On a product page we didn't find a clear buy or add-to-cart action.",
+      step: "Show an «Add to cart» or «Buy» button above the fold on mobile.",
       why: "Shoppers who land on a product page may not see how to continue to purchase.",
     },
     whyLabel: "Why it matters",
@@ -415,51 +441,63 @@ export function presentFindings(issues: RankedIssue[], locale: SiteCheckLocale):
   const copy = COPY[locale];
   return issues.map((issue) => {
     if (issue.type === "duplicate-title") {
+      const block = copy["duplicate-title"];
       return {
         pageLabel: issue.pageLabel,
         pageUrl: issue.pageUrl,
-        observation: copy["duplicate-title"].observation(issue.count ?? 2, issue.otherLabel),
-        why: copy["duplicate-title"].why,
+        observation: block.observation(issue.count ?? 2, issue.otherLabel),
+        recommendedStep: block.step,
+        why: block.why,
       };
     }
     if (issue.type === "broken-link") {
+      const block = copy["broken-link"];
       return {
         pageLabel: issue.pageLabel,
         pageUrl: issue.pageUrl,
-        observation: copy["broken-link"].observation(issue.count ?? 1, issue.exampleUrl ?? issue.pageUrl),
-        why: copy["broken-link"].why,
+        observation: block.observation(issue.count ?? 1, issue.exampleUrl ?? issue.pageUrl),
+        recommendedStep: block.step,
+        why: block.why,
       };
     }
     if (issue.type === "broken-image") {
+      const block = copy["broken-image"];
       return {
         pageLabel: issue.pageLabel,
         pageUrl: issue.pageUrl,
-        observation: copy["broken-image"].observation(issue.count ?? 1, issue.exampleUrl ?? issue.pageUrl),
-        why: copy["broken-image"].why,
+        observation: block.observation(issue.count ?? 1, issue.exampleUrl ?? issue.pageUrl),
+        recommendedStep: block.step,
+        why: block.why,
       };
     }
     if (issue.type === "duplicate-description") {
+      const block = copy["duplicate-description"];
       return {
         pageLabel: issue.pageLabel,
         pageUrl: issue.pageUrl,
-        observation: copy["duplicate-description"].observation(issue.count ?? 2),
-        why: copy["duplicate-description"].why,
+        observation: block.observation(issue.count ?? 2),
+        recommendedStep: block.step,
+        why: block.why,
       };
     }
     if (issue.type === "noindex-service") {
+      const block = copy["noindex-service"];
       return {
         pageLabel: issue.pageLabel,
         pageUrl: issue.pageUrl,
-        observation: copy["noindex-service"].observation(issue.count ?? 1),
-        why: copy["noindex-service"].why,
+        observation: block.observation(issue.count ?? 1),
+        recommendedStep: block.step,
+        why: block.why,
       };
     }
     if (issue.type === "product-no-purchase") {
+      const block = copy["product-no-purchase"];
       return {
         pageLabel: issue.pageLabel,
         pageUrl: issue.pageUrl,
-        observation: copy["product-no-purchase"].observation(issue.count ?? 1),
-        why: copy["product-no-purchase"].why,
+        observation: block.observation(issue.count ?? 1),
+        recommendedStep: block.step,
+        why: block.why,
       };
     }
     const entry = copy[issue.type];
@@ -467,6 +505,7 @@ export function presentFindings(issues: RankedIssue[], locale: SiteCheckLocale):
       pageLabel: issue.pageLabel,
       pageUrl: issue.pageUrl,
       observation: entry.observation,
+      recommendedStep: entry.step,
       why: entry.why,
     };
   });

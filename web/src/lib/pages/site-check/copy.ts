@@ -28,6 +28,7 @@ export type SiteCheckCopy = {
   /** Plain-language summary when no priority finding (clear scan). */
   clearBusinessSummary: string;
   recommendedStepLabel: string;
+  findingConsultBridge: string;
   moreFindingsDetailsLabel: string;
   scopeHeading: string;
   topicSeoTitle: string;
@@ -105,6 +106,8 @@ const HE: SiteCheckCopy = {
   clearBusinessSummary:
     "בבדיקה הראשונית האתר נראה מסודר: לא מצאנו בעיה בולטת שמונעת ממבקר להבין מה אתם מציעים או ליצור איתכם קשר. אפשר להמשיך לקדם את האתר בלי תיקון דחוף.",
   recommendedStepLabel: "הצעד המומלץ",
+  findingConsultBridge:
+    "בשיחה נעבור איתכם על מה שמצאנו ונמליץ מה כדאי לתקן קודם ומה שווה לקדם בגוגל.",
   moreFindingsDetailsLabel: "ממצאים נוספים, מדדים ופרטים",
   scopeHeading: "מה נבדק",
   topicSeoTitle: "כותרות והגדרות חיפוש",
@@ -124,7 +127,7 @@ const HE: SiteCheckCopy = {
   noFindingsTitle: "בבדיקות שביצענו לא נמצא ממצא בולט",
   positiveHeading: "מה בדקנו ונראה תקין",
   formTitle: "רוצים שנעבור איתכם על התוצאות ונציע מה לשפר?",
-  formTitleClear: "רוצים לתכנן את הצעד הבא?",
+  formTitleClear: "רוצים לדעת אילו עמודים כדאי לקדם כדי לקבל יותר פניות?",
   formTitleFailure: "רוצים שנבדוק את האתר ונחזור אליכם?",
   formBody: "",
   formBodyClear:
@@ -221,6 +224,8 @@ const EN: SiteCheckCopy = {
   clearBusinessSummary:
     "In this first check the site looks orderly: we did not find a standout issue that would stop someone from understanding your offer or getting in touch. You can keep growing visibility without an urgent fix.",
   recommendedStepLabel: "Recommended next step",
+  findingConsultBridge:
+    "On a call we’ll walk through what we found and suggest what to fix first and what’s worth growing on Google.",
   moreFindingsDetailsLabel: "More findings, metrics, and details",
   scopeHeading: "What we checked",
   topicSeoTitle: "Titles and search snippets",
@@ -240,7 +245,7 @@ const EN: SiteCheckCopy = {
   noFindingsTitle: "Nothing standout showed up in the checks we ran",
   positiveHeading: "What looked fine in this check",
   formTitle: "Want us to walk through the results and suggest what to fix?",
-  formTitleClear: "Want to plan the next step?",
+  formTitleClear: "Want to know which pages to grow for more inquiries?",
   formTitleFailure: "Want us to check the site and get back to you?",
   formBody: "",
   formBodyClear:

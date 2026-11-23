@@ -152,6 +152,11 @@ export function buildLeadNote(input: {
     input.findings.forEach((finding, index) => {
       lines.push(`${index + 1}. ${finding.pageLabel} — ${finding.pageUrl}`);
       lines.push(finding.observation);
+      lines.push(
+        input.locale === "en"
+          ? `Recommended next step: ${finding.recommendedStep}`
+          : `הצעד המומלץ: ${finding.recommendedStep}`,
+      );
       lines.push(`${whyLabel(input.locale)}: ${finding.why}`);
     });
   }

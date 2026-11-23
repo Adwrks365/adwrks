@@ -41,6 +41,8 @@ export type SiteCheckFinding = {
   pageLabel: string;
   pageUrl: string;
   observation: string;
+  /** Short practical next step for the site owner. */
+  recommendedStep: string;
   why: string;
 };
 
