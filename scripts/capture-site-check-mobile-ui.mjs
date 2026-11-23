@@ -21,7 +21,8 @@ async function captureScan(page, url, fileName) {
   await page.getByLabel("כתובת האתר").fill(url);
   await page.getByRole("button", { name: "בדקו את האתר שלי" }).click();
   await page.locator(".site-check-topic-grid").first().waitFor({ timeout: 120_000 });
-  await page.locator("#site-check-results").scrollIntoViewIfNeeded();
+  const topics = page.locator(".site-check-topic-grid").first();
+  await topics.scrollIntoViewIfNeeded();
   await page.screenshot({ path: join(OUT, fileName), fullPage: false });
 }
 
