@@ -21,6 +21,20 @@ function isPrivateIpv4(host: string): boolean {
   return false;
 }
 
+const LOCAL_FIXTURE_PATH = "/site-check-sample";
+
+/** Dev/preview fixture HTML under `public/site-check-sample/` (blocked hosts otherwise). */
+export function isLocalSiteCheckFixtureUrl(parsed: URL): boolean {
+  const path = parsed.pathname.replace(/\/+$/, "") || "/";
+  if (!path.startsWith(LOCAL_FIXTURE_PATH)) return false;
+  const host = parsed.hostname.toLowerCase();
+  const port = parsed.port || (parsed.protocol === "https:" ? "443" : "80");
+  if ((host === "localhost" || host === "127.0.0.1") && port === "3000") return true;
+  if (host.endsWith(".vercel.app") && (port === "443" || port === "")) return true;
+  if (host === "adwrks.co.il" || host === "www.adwrks.co.il") return true;
+  return false;
+}
+
 /** Normalize and validate a public http(s) URL for PageSpeed checks. */
 export function normalizePageSpeedTargetUrl(raw: string): string | null {
   const trimmed = raw.trim();
@@ -38,6 +52,10 @@ export function normalizePageSpeedTargetUrl(raw: string): string | null {
   }
 
   const host = parsed.hostname.toLowerCase();
+  if (isLocalSiteCheckFixtureUrl(parsed)) {
+    parsed.hash = "";
+    return parsed.toString();
+  }
   if (!host || host.endsWith(".local") || BLOCKED_HOSTS.has(host)) {
     return null;
   }
