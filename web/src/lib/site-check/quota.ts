@@ -9,8 +9,15 @@ type UsagePayload = { date: string; count: number };
 
 export type SiteCheckUsage = { limit: number; remaining: number; used: number };
 
+type IpBucket = { date: string; count: number };
+
 function utcDateKey(): string {
   return new Date().toISOString().slice(0, 10);
+}
+
+/** Production deploys only — Preview uses cookie quota like dev/staging with configured secret. */
+function isProductionDeploy(): boolean {
+  return process.env.VERCEL_ENV === "production";
 }
 
 function getSecret(): string | null {
@@ -25,12 +32,38 @@ function getSecret(): string | null {
     if (trimmed) return trimmed;
   }
   if (process.env.NODE_ENV !== "production") return "dev-site-check-usage";
-  if (process.env.VERCEL_ENV === "preview") {
-    const fromSha = process.env.VERCEL_GIT_COMMIT_SHA?.trim();
-    if (fromSha) return `preview-site-check-${fromSha.slice(0, 12)}`;
-    return "preview-site-check-quota";
-  }
   return null;
+}
+
+function ipStore(): Map<string, IpBucket> {
+  const globalRef = globalThis as typeof globalThis & {
+    __adwrksSiteCheckIpQuota?: Map<string, IpBucket>;
+  };
+  if (!globalRef.__adwrksSiteCheckIpQuota) {
+    globalRef.__adwrksSiteCheckIpQuota = new Map();
+  }
+  return globalRef.__adwrksSiteCheckIpQuota;
+}
+
+function clientIpKey(request: Request | undefined, secret: string): string | null {
+  if (!request) return null;
+  const forwarded = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim();
+  const direct = request.headers.get("x-real-ip")?.trim();
+  const ip = forwarded || direct;
+  if (!ip) return null;
+  return createHmac("sha256", secret).update(ip).digest("base64url").slice(0, 24);
+}
+
+function readIpUsed(key: string | null, today: string): number {
+  if (!key) return 0;
+  const bucket = ipStore().get(key);
+  if (!bucket || bucket.date !== today) return 0;
+  return bucket.count;
+}
+
+function writeIpUsed(key: string | null, today: string, count: number): void {
+  if (!key) return;
+  ipStore().set(key, { date: today, count });
 }
 
 function sign(payload: string, secret: string): string {
@@ -64,25 +97,43 @@ function decodeUsage(value: string, secret: string): UsagePayload | null {
   }
 }
 
-export async function readSiteCheckUsage(): Promise<SiteCheckUsage | null> {
+function mergeUsed(cookieUsed: number, ipUsed: number, limit: number, production: boolean): number {
+  if (!production) return Math.min(cookieUsed, limit);
+  return Math.min(Math.max(cookieUsed, ipUsed), limit);
+}
+
+export async function readSiteCheckUsage(request?: Request): Promise<SiteCheckUsage | null> {
   const secret = getSecret();
   if (!secret) return null;
   const limit = SITE_CHECK_DAILY_LIMIT;
   const today = utcDateKey();
   const raw = (await cookies()).get(COOKIE_NAME)?.value;
   const usage = raw ? decodeUsage(raw, secret) : null;
-  const used = usage && usage.date === today ? Math.min(usage.count, limit) : 0;
+  const cookieUsed = usage && usage.date === today ? Math.min(usage.count, limit) : 0;
+  const ipUsed = isProductionDeploy()
+    ? readIpUsed(clientIpKey(request, secret), today)
+    : 0;
+  const used = mergeUsed(cookieUsed, ipUsed, limit, isProductionDeploy());
   return { limit, remaining: Math.max(0, limit - used), used };
 }
 
-export async function consumeSiteCheck(): Promise<SiteCheckUsage | null> {
+export async function consumeSiteCheck(request?: Request): Promise<SiteCheckUsage | null> {
   const secret = getSecret();
   if (!secret) return null;
-  const current = await readSiteCheckUsage();
+  const current = await readSiteCheckUsage(request);
   if (!current || current.remaining <= 0) return null;
-  const next = { date: utcDateKey(), count: current.used + 1 };
+
+  const today = utcDateKey();
+  const nextCount = current.used + 1;
+  const production = isProductionDeploy();
+  const ipKey = clientIpKey(request, secret);
+
+  if (production) {
+    writeIpUsed(ipKey, today, nextCount);
+  }
+
   try {
-    (await cookies()).set(COOKIE_NAME, encodeUsage(next, secret), {
+    (await cookies()).set(COOKIE_NAME, encodeUsage({ date: today, count: nextCount }, secret), {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: "lax",
@@ -92,12 +143,16 @@ export async function consumeSiteCheck(): Promise<SiteCheckUsage | null> {
   } catch (error) {
     console.warn("[site-check] quota cookie not persisted", {
       message: error instanceof Error ? error.message : "unknown",
+      production,
     });
-    return {
-      limit: current.limit,
-      remaining: Math.max(0, current.remaining - 1),
-      used: next.count,
-    };
+    if (production && !ipKey) {
+      return null;
+    }
   }
-  return { limit: current.limit, remaining: current.remaining - 1, used: next.count };
+
+  return {
+    limit: current.limit,
+    remaining: Math.max(0, current.limit - nextCount),
+    used: nextCount,
+  };
 }

@@ -12,7 +12,7 @@ function localeOf(value: unknown): SiteCheckLocale {
 }
 
 export async function POST(request: Request) {
-  const usage = await readSiteCheckUsage();
+  const usage = await readSiteCheckUsage(request);
   if (!usage) {
     console.error("[site-check] quota unavailable — missing usage secret in this environment");
     return NextResponse.json({ ok: false, message: "service_unavailable" }, { status: 503 });
@@ -37,7 +37,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, message: "invalid_url" }, { status: 400 });
   }
 
-  const consumed = await consumeSiteCheck();
+  const consumed = await consumeSiteCheck(request);
   if (!consumed) {
     return NextResponse.json(
       { ok: false, message: "daily_limit", limit: usage.limit, remaining: 0 },
