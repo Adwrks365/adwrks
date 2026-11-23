@@ -1,4 +1,5 @@
 import { isProductLikePage, isStoreCategoryPage } from "./content-url";
+import { isStoreCategoryUrl, isStoreProductUrl } from "./store-page-classify";
 import type { ParsedLink, ParsedPage } from "./types";
 
 export type SiteKind = "landing" | "store" | "service" | "general";
@@ -50,9 +51,10 @@ export function scoreLinkForSiteKind(
   let score = baseScore;
   const blob = `${link.href} ${link.text}`;
   if (siteKind === "store") {
-    if (isProductLikePage(link.href, link.text)) score += 10;
-    if (isStoreCategoryPage(link.href)) score += 8;
-    if (/\/cart|checkout|account/i.test(link.href)) score -= 20;
+    if (isStoreProductUrl(link.href)) score += 12;
+    else if (isProductLikePage(link.href, link.text)) score += 10;
+    if (isStoreCategoryUrl(link.href) || isStoreCategoryPage(link.href)) score += 10;
+    if (/\/cart|checkout|account|customer_/i.test(link.href)) score -= 20;
   }
   if (siteKind === "landing") {
     if (link.inNav) score -= 3;

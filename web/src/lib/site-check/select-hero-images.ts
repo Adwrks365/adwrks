@@ -16,8 +16,10 @@ function pageImagePriority(page: AnalyzablePage, siteKind: SiteKind): number {
   if (page.role === "home") score += 5;
   if (page.isEntry) score += 6;
   if (siteKind === "store") {
-    if (isProductLikePage(page.url, page.label)) score += 14;
-    if (isStoreCategoryPage(page.url)) score += 11;
+    if (page.commerceKind === "product") score += 16;
+    else if (page.commerceKind === "category") score += 13;
+    else if (isProductLikePage(page.url, page.label)) score += 14;
+    else if (isStoreCategoryPage(page.url)) score += 11;
   } else if (siteKind === "service") {
     if (/\/pricing|מחירון|שירות|service/i.test(`${page.url} ${page.label}`)) score += 4;
   }

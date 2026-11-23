@@ -14,6 +14,7 @@ import {
   formatPageTypeSummary,
   storeAuditLines,
 } from "./page-type-summary";
+import { attachCommerceKind, extractItemProductUrls } from "./store-page-classify";
 import { buildSiteCheckReport } from "./report";
 import { pageIntent, pickLinksToProbe, planScanUrls, samePage } from "./select-pages";
 import type { ScannedPage, SiteCheckLocale, SiteCheckReport } from "./types";
@@ -140,12 +141,13 @@ export async function runSiteCheck(
     innerLinkCount: discoveryLinks.length,
   });
 
+  const planPageBudget = siteKind === "store" ? Math.max(12, MAX_PAGES - 6) : MAX_PAGES;
   const plannedUrls = planScanUrls({
     entryUrl: entryCanonical,
     homeUrl,
     links: discoveryLinks,
     sitemapUrls,
-    maxPages: MAX_PAGES,
+    maxPages: planPageBudget,
     siteKind,
   });
 
@@ -207,6 +209,39 @@ export async function runSiteCheck(
     });
   }
 
+  if (siteKind === "store" && loaded.length < MAX_PAGES) {
+    const seenProductUrls = new Set(
+      loaded.map((page) => canonicalScanUrl(page.url)).filter((value): value is string => Boolean(value)),
+    );
+    const pendingItemUrls: string[] = [];
+    for (const page of loaded) {
+      const parsed = parsePageHtml(page.html, page.url);
+      for (const itemUrl of extractItemProductUrls(page.html, page.url, parsed, 10)) {
+        const canonical = canonicalScanUrl(itemUrl);
+        if (!canonical || seenProductUrls.has(canonical)) continue;
+        seenProductUrls.add(canonical);
+        pendingItemUrls.push(canonical);
+        if (pendingItemUrls.length >= 8) break;
+      }
+      if (pendingItemUrls.length >= 8) break;
+    }
+    const maxExtra = Math.min(6, MAX_PAGES - loaded.length, pendingItemUrls.length);
+    for (let i = 0; i < maxExtra; i += 1) {
+      if (Date.now() - started > SCAN_BUDGET_MS - 4_000) break;
+      const href = pendingItemUrls[i]!;
+      const extra = await fetchPublicHtml(href, { timeoutMs: 10_000, retries: 1 });
+      if (!extra.ok) continue;
+      loaded.push({
+        url: extra.url,
+        html: extra.html,
+        headerRobots: extra.headerRobots,
+        truncated: extra.truncated,
+        isEntry: false,
+        isHome: false,
+      });
+    }
+  }
+
   const probeSource = loaded.find((page) => page.isEntry) ?? loaded.find((page) => page.isHome) ?? loaded[0]!;
   const probeParsed = parsePageHtml(probeSource.html, probeSource.url);
   const toProbe = pickLinksToProbe(homeUrl, probeParsed.links, MAX_LINK_PROBES, siteKind);
@@ -235,7 +270,7 @@ export async function runSiteCheck(
   const analyzable: AnalyzablePage[] = loaded.map((page) => {
     const parsed = parsePageHtml(page.html, page.url);
     const readable = parsed.visibleTextLength >= READABLE_MIN;
-    return {
+    const base: AnalyzablePage = {
       url: displayUrl(page.url),
       label: labelFor(page.url, parsed.title, page.isEntry, page.isHome, locale),
       role: page.isHome ? "home" : "inner",
@@ -246,6 +281,7 @@ export async function runSiteCheck(
       intent: pageIntent(page.url, parsed.title),
       isEntry: page.isEntry,
     };
+    return siteKind === "store" ? attachCommerceKind(base, page.html) : base;
   });
 
   const pages: ScannedPage[] = [
@@ -300,7 +336,7 @@ export async function runSiteCheck(
   const findings = presentFindings(ranked, locale);
   const pageTypeCounts = countPageTypes(analyzable);
   const pageTypeSummary = formatPageTypeSummary(locale, siteKind, pageTypeCounts);
-  const storeAudit = siteKind === "store" ? auditStorePages(analyzable) : null;
+  const storeAudit = siteKind === "store" ? auditStorePages(analyzable, locale) : null;
   const storeLines = storeAudit ? storeAuditLines(locale, storeAudit) : [];
   const businessInsights = buildBusinessInsights({
     locale,
@@ -309,7 +345,7 @@ export async function runSiteCheck(
     ranked: rankedTop,
     storeAuditLines: storeLines,
   });
-  const contentPlanned = plannedUrls.length;
+  const contentPlanned = siteKind === "store" ? MAX_PAGES : plannedUrls.length;
   const contentScanned = analyzable.length;
   const partialScan = timedOut || failedUrls.length > 0 || contentScanned < contentPlanned;
   const durationMs = Date.now() - started;
@@ -328,15 +364,7 @@ export async function runSiteCheck(
     businessInsights,
     siteKind,
     pageTypeSummary,
-    storeSnapshot: storeAudit
-      ? {
-          productsScanned: storeAudit.productsScanned,
-          categoriesScanned: storeAudit.categoriesScanned,
-          productsWithPurchaseCta: storeAudit.productsWithPurchaseCta,
-          productsMissingH1: storeAudit.productsMissingH1,
-          categoriesMissingH1: storeAudit.categoriesMissingH1,
-        }
-      : null,
+    storeSnapshot: storeAudit,
     analyzable,
     partialScan,
     contentPlanned,

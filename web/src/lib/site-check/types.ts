@@ -47,12 +47,24 @@ export type BusinessInsight = {
   pointFix: boolean;
 };
 
+export type StoreCheckedPage = {
+  url: string;
+  label: string;
+};
+
 export type StoreSnapshot = {
   productsScanned: number;
   categoriesScanned: number;
   productsWithPurchaseCta: number;
   productsMissingH1: number;
   categoriesMissingH1: number;
+  productsChecked: StoreCheckedPage[];
+  categoriesChecked: StoreCheckedPage[];
+  categoryReachableFromNav: boolean | null;
+  productReachableFromCategory: boolean | null;
+  navEvidence: string | null;
+  coverageNote: string | null;
+  recommendationBasis: string | null;
 };
 
 export type SiteCheckFinding = {

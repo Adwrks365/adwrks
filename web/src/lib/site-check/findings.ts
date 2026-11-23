@@ -57,6 +57,8 @@ export type AnalyzablePage = {
   readable: boolean;
   isEntry?: boolean;
   intent?: { contact: boolean; service: boolean; pricing: boolean };
+  /** Set for commerce sites after content-based classification. */
+  commerceKind?: "product" | "category";
 };
 
 function isImportantPage(page: AnalyzablePage): boolean {

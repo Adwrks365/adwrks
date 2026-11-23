@@ -37,9 +37,25 @@ export function isCommerceSystemPage(url: string, title = ""): boolean {
 }
 
 export function isProductLikePage(url: string, title = ""): boolean {
-  return /\/(?:product|products|shop|item|p\/|מוצר)/i.test(url) || /מוצר|product/i.test(title);
+  if (/\/(?:product|products|item|items|p\/)(\/|$)/i.test(url)) return true;
+  try {
+    if (/\/items\/\d+/i.test(new URL(url).pathname)) return true;
+  } catch {
+    if (/\/items\/\d+/i.test(url)) return true;
+  }
+  // Avoid treating plural "מוצרים" listing titles as a single product.
+  if (/\bמוצר\b/i.test(title) && !/מוצרים/i.test(title)) return true;
+  return /\bproduct\b/i.test(title) && !/products/i.test(title);
 }
 
 export function isStoreCategoryPage(url: string): boolean {
-  return /\/(?:product-category|category|collections?|shop|מחלקה|קטגור)/i.test(url);
+  if (/\/(?:product-category|product_cat|collections?|מחלקה|קטגור)/i.test(url)) return true;
+  if (/\/category\//i.test(url) && !/product-category/i.test(url)) return true;
+  try {
+    const path = new URL(url).pathname;
+    if (/\/\d{4,}-[^/]+\/?$/i.test(path) && !/\/items\//i.test(path)) return true;
+  } catch {
+    /* fall through */
+  }
+  return false;
 }

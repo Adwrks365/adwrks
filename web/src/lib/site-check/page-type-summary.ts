@@ -1,7 +1,7 @@
-import { isProductLikePage, isStoreCategoryPage } from "./content-url";
+import { isStoreCategoryUrl } from "./store-page-classify";
 import type { AnalyzablePage } from "./findings";
 import type { SiteKind } from "./site-kind";
-import type { SiteCheckLocale } from "./types";
+import type { SiteCheckLocale, StoreSnapshot } from "./types";
 
 export type PageTypeCounts = {
   home: number;
@@ -11,6 +11,10 @@ export type PageTypeCounts = {
   service: number;
   other: number;
 };
+
+function pageCommerceKind(page: AnalyzablePage): "product" | "category" | null {
+  return page.commerceKind ?? null;
+}
 
 export function countPageTypes(pages: readonly AnalyzablePage[]): PageTypeCounts {
   const counts: PageTypeCounts = {
@@ -26,12 +30,17 @@ export function countPageTypes(pages: readonly AnalyzablePage[]): PageTypeCounts
       counts.home += 1;
       continue;
     }
-    const blob = `${page.url} ${page.label}`;
-    if (isProductLikePage(page.url, page.label)) {
+    const kind = pageCommerceKind(page);
+    if (kind === "product") {
       counts.product += 1;
-    } else if (isStoreCategoryPage(page.url)) {
+      continue;
+    }
+    if (kind === "category") {
       counts.category += 1;
-    } else if (/\/contact|יצירת[\s-]*קשר|צור[\s-]*קשר/i.test(blob)) {
+      continue;
+    }
+    const blob = `${page.url} ${page.label}`;
+    if (/\/contact|יצירת[\s-]*קשר|צור[\s-]*קשר/i.test(blob)) {
       counts.contact += 1;
     } else if (page.intent?.service || /שירות|service|pricing|מחירון/i.test(blob)) {
       counts.service += 1;
@@ -77,33 +86,89 @@ export function formatPageTypeSummary(
     : "נפתחו העמודים המפורטים למטה.";
 }
 
-export type StorePageAudit = {
-  productsScanned: number;
-  categoriesScanned: number;
-  productsWithPurchaseCta: number;
-  productsMissingH1: number;
-  categoriesMissingH1: number;
-  productsSparseNav: number;
-  categoriesSparseNav: number;
-  productExampleUrl?: string;
-  categoryExampleUrl?: string;
-};
+export type StorePageAudit = StoreSnapshot;
 
-export function auditStorePages(pages: readonly AnalyzablePage[]): StorePageAudit {
-  const products = pages.filter((p) => p.readable && isProductLikePage(p.url, p.label));
-  const categories = pages.filter((p) => p.readable && isStoreCategoryPage(p.url));
-  const navLinksCount = (page: AnalyzablePage) =>
-    page.parsed.navLinks.length + page.parsed.links.filter((l) => l.inNav).length;
+function summarizeChecked(rows: readonly { label: string }[], max = 5): string {
+  return rows
+    .slice(0, max)
+    .map((p) => p.label.replace(/\s+-\s+.*$/, "").trim())
+    .join("; ");
+}
+
+export function auditStorePages(pages: readonly AnalyzablePage[], locale: SiteCheckLocale): StorePageAudit {
+  const products = pages.filter((p) => p.readable && p.role !== "home" && p.commerceKind === "product");
+  const categories = pages.filter((p) => p.readable && p.role !== "home" && p.commerceKind === "category");
+  const home = pages.find((p) => p.role === "home" && p.readable);
+
+  const categoryReachableFromNav = home
+    ? home.parsed.links.some((link) => {
+        const href = link.href;
+        return isStoreCategoryUrl(href) || (link.inNav && isStoreCategoryUrl(href));
+      }) ||
+      home.parsed.links.filter((link) => isStoreCategoryUrl(link.href)).length >= 3
+    : null;
+
+  const productReachableFromCategory = categories.length
+    ? categories.some((cat) => cat.parsed.links.some((link) => /\/items\/\d+/i.test(link.href)))
+    : null;
+
+  let navEvidence: string | null = null;
+  if (locale === "he") {
+    if (categoryReachableFromNav === true) {
+      navEvidence = "מדף הבית נמצאו קישורים לקטגוריות (כולל בתפריט אם סומן ב-HTML).";
+    } else if (categoryReachableFromNav === false) {
+      navEvidence = "מדף הבית לא אימתנו קישורי קטגוריה ברורים.";
+    }
+    if (productReachableFromCategory === true) {
+      navEvidence = [navEvidence, "מעמודי קטגוריה שנפתחו יש קישורים למוצרים (למשל /items/)."]
+        .filter(Boolean)
+        .join(" ");
+    } else if (productReachableFromCategory === false && categories.length > 0) {
+      navEvidence = [navEvidence, "בעמודי הקטגוריה שנפתחו לא אימתנו קישורי מוצר."]
+        .filter(Boolean)
+        .join(" ");
+    }
+  } else {
+    if (categoryReachableFromNav === true) {
+      navEvidence = "The homepage links to categories (including menu links when marked in HTML).";
+    }
+    if (productReachableFromCategory === true) {
+      navEvidence = [navEvidence, "Category pages we opened link to product URLs (e.g. /items/)."]
+        .filter(Boolean)
+        .join(" ");
+    }
+  }
+
+  let coverageNote: string | null = null;
+  if (locale === "he") {
+    if (products.length === 0 && categories.length > 0) {
+      coverageNote =
+        "לא נפתחו עמודי מוצר בודדים במדגם (לעיתים הם מופיעים רק מתוך עמוד קטגוריה, או כשמפת האתר חסומה לסורק).";
+    } else if (categories.length === 0) {
+      coverageNote = "לא זוהו עמודי קטגוריה בתוכן שנפתח — ייתכן מבנה כתובות לא סטנדרטי או מעט קישורים מהבית.";
+    }
+  } else if (products.length === 0 && categories.length > 0) {
+    coverageNote = "No single product pages in this sample (often only linked from category pages).";
+  }
+
+  const recommendationBasis =
+    locale === "he"
+      ? "ההמלצות מבוססות על תוכן העמודים שנפתחו: כותרות, H1, כפתורי רכישה וקישורים פנימיים — לא על דירוג או מיקום בגוגל."
+      : "Recommendations are based on opened pages: titles, H1, purchase controls, and internal links — not Google rankings.";
+
   return {
     productsScanned: products.length,
     categoriesScanned: categories.length,
     productsWithPurchaseCta: products.filter((p) => p.parsed.hasPurchaseCta).length,
     productsMissingH1: products.filter((p) => p.parsed.h1.length === 0).length,
     categoriesMissingH1: categories.filter((p) => p.parsed.h1.length === 0).length,
-    productsSparseNav: products.filter((p) => navLinksCount(p) < 2).length,
-    categoriesSparseNav: categories.filter((p) => navLinksCount(p) < 2).length,
-    productExampleUrl: products[0]?.url,
-    categoryExampleUrl: categories[0]?.url,
+    productsChecked: products.map((p) => ({ url: p.url, label: p.label })),
+    categoriesChecked: categories.map((p) => ({ url: p.url, label: p.label })),
+    categoryReachableFromNav,
+    productReachableFromCategory,
+    navEvidence,
+    coverageNote,
+    recommendationBasis,
   };
 }
 
@@ -111,29 +176,38 @@ export function storeAuditLines(locale: SiteCheckLocale, audit: StorePageAudit):
   if (audit.productsScanned === 0 && audit.categoriesScanned === 0) return [];
 
   const lines: string[] = [];
+  const productNames = summarizeChecked(audit.productsChecked);
+  const categoryNames = summarizeChecked(audit.categoriesChecked);
+
   if (locale === "en") {
-    if (audit.productsScanned > 0) {
-      lines.push(
-        `Products (${audit.productsScanned} opened): ${audit.productsWithPurchaseCta} with a clear purchase/add-to-cart action; ${audit.productsMissingH1} without H1 in HTML; ${audit.productsSparseNav} with sparse menu/internal navigation.`,
-      );
-    }
     if (audit.categoriesScanned > 0) {
       lines.push(
-        `Categories (${audit.categoriesScanned} opened): ${audit.categoriesMissingH1} without H1 in HTML; ${audit.categoriesSparseNav} with sparse menu/internal navigation.`,
+        `Categories opened (${audit.categoriesScanned}): ${categoryNames || "see URLs in details"}. ${audit.categoriesMissingH1} without H1 in HTML.`,
       );
     }
-    return lines;
+    if (audit.productsScanned > 0) {
+      lines.push(
+        `Products opened (${audit.productsScanned}): ${productNames || "see URLs"}. ${audit.productsWithPurchaseCta} with purchase/add-to-cart; ${audit.productsMissingH1} without H1.`,
+      );
+    }
+    if (audit.navEvidence) lines.push(audit.navEvidence);
+    if (audit.coverageNote) lines.push(audit.coverageNote);
+    lines.push(audit.recommendationBasis ?? "");
+    return lines.filter(Boolean);
   }
 
-  if (audit.productsScanned > 0) {
-    lines.push(
-      `עמודי מוצר (${audit.productsScanned} שנפתחו): ב־${audit.productsWithPurchaseCta} יש כפתור רכישה/הוספה לסל ברור; ב־${audit.productsMissingH1} לא נמצאה H1 ב-HTML; ב־${audit.productsSparseNav} מעט קישורי תפריט/ניווט פנימי.`,
-    );
-  }
   if (audit.categoriesScanned > 0) {
     lines.push(
-      `עמודי קטגוריה (${audit.categoriesScanned} שנפתחו): ב־${audit.categoriesMissingH1} לא נמצאה H1 ב-HTML; ב־${audit.categoriesSparseNav} מעט קישורי תפריט/ניווט פנימי.`,
+      `קטגוריות שנבדקו (${audit.categoriesScanned}): ${categoryNames || "ראו רשימת עמודים"}. ב־${audit.categoriesMissingH1} לא נמצאה H1 ב-HTML.`,
     );
   }
+  if (audit.productsScanned > 0) {
+    lines.push(
+      `מוצרים שנבדקו (${audit.productsScanned}): ${productNames || "ראו רשימה"}. ב־${audit.productsWithPurchaseCta} יש כפתור רכישה/הוספה לסל; ב־${audit.productsMissingH1} ללא H1.`,
+    );
+  }
+  if (audit.navEvidence) lines.push(audit.navEvidence);
+  if (audit.coverageNote) lines.push(audit.coverageNote);
+  if (audit.recommendationBasis) lines.push(audit.recommendationBasis);
   return lines;
 }

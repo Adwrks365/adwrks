@@ -1,6 +1,10 @@
 import { isContentScanUrl } from "./content-url";
 import { scoreLinkForSiteKind, type SiteKind } from "./site-kind";
+import { isStoreCategoryUrl, isStoreProductUrl } from "./store-page-classify";
 import { canonicalScanUrl } from "./url-canonical";
+
+const STORE_RESERVED_CATEGORIES = 8;
+const STORE_RESERVED_PRODUCTS = 6;
 
 const SKIP_PATH =
   /\/(wp-admin|wp-login\.php|wp-json|xmlrpc\.php|feed|cart|checkout|my-account|customer\/account|tag|author|cdn-cgi)(\/|$)/i;
@@ -125,19 +129,42 @@ export function planScanUrls(input: {
   for (const href of input.sitemapUrls) {
     const canonical = canonicalScanUrl(href);
     if (!canonical || !isContentScanUrl(canonical)) continue;
-    const blob = canonical;
-    let score = 2;
-    const intent = pageIntent(blob);
-    if (intent.contact) score += 8;
-    if (intent.service) score += 6;
-    if (intent.pricing) score += 7;
-    if (/\/blog|\/tag|\/category/i.test(blob)) score -= 5;
+  let score = scoreSitemapCandidate(canonical, siteKind);
     candidates.push({ href: canonical, score });
   }
 
-  candidates.sort((a, b) => b.score - a.score);
-  for (const item of candidates) take(item.href);
+  const sorted = [...candidates].sort((a, b) => b.score - a.score);
+  if (siteKind === "store") {
+    const tier = (href: string) =>
+      isStoreProductUrl(href) ? "product" : isStoreCategoryUrl(href) ? "category" : null;
+    const products = sorted.filter((row) => tier(row.href) === "product");
+    const categories = sorted.filter((row) => tier(row.href) === "category");
+    const rest = sorted.filter((row) => !tier(row.href));
+    for (const row of categories.slice(0, STORE_RESERVED_CATEGORIES)) take(row.href);
+    for (const row of products.slice(0, STORE_RESERVED_PRODUCTS)) take(row.href);
+    for (const row of rest) take(row.href);
+    for (const row of sorted) take(row.href); // fill remaining slots; take() skips duplicates
+  } else {
+    for (const item of sorted) take(item.href);
+  }
   return picked;
+}
+
+function scoreSitemapCandidate(canonical: string, siteKind: SiteKind): number {
+  let score = 2;
+  const intent = pageIntent(canonical);
+  if (intent.contact) score += 8;
+  if (intent.service) score += 6;
+  if (intent.pricing) score += 7;
+  if (siteKind === "store") {
+    if (isStoreProductUrl(canonical)) score += 18;
+    else if (isStoreCategoryUrl(canonical)) score += 16;
+  } else if (/\/blog|\/tag/i.test(canonical)) {
+    score -= 5;
+  } else if (/\/category/i.test(canonical) && !/product-category/i.test(canonical)) {
+    score -= 5;
+  }
+  return score;
 }
 
 export function pickLinksToProbe(
