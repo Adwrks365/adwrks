@@ -13,7 +13,7 @@ import { normalizePageSpeedTargetUrl } from "@/lib/pagespeed/validate-url";
 
 const READABLE_MIN = 120;
 const MAX_PAGES = 20;
-const FETCH_CONCURRENCY = 4;
+const FETCH_CONCURRENCY = 3;
 const SCAN_BUDGET_MS = 24_000;
 const MAX_LINK_PROBES = 8;
 
