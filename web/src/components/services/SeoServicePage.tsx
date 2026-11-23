@@ -169,6 +169,11 @@ export function SeoServicePage({ locale = "he" }: LocaleProps) {
 
       <CommercialMidCta eyebrow={c.SEO_MID_CTA.eyebrow} title={c.SEO_MID_CTA.title} body={c.SEO_MID_CTA.body}>
         <ServiceCtaRow primaryLabel={primaryCta} secondary={<ServicePhoneLink tone="light" />} />
+        <p className="sp-body-text sp-scope-links">
+          <Link href={c.SEO_MID_CTA.checkHref} className="sp-text-link">
+            {linkWithArrow(locale, c.SEO_MID_CTA.checkLabel)}
+          </Link>
+        </p>
       </CommercialMidCta>
 
       {guides.length > 0 && (

@@ -3,6 +3,7 @@ export const CONTACT_FORM_IDS = [
   "contact-page",
   "article-sidebar",
   "contextual-popup",
+  "site-check",
 ] as const;
 
 export type ContactFormId = (typeof CONTACT_FORM_IDS)[number];
@@ -12,6 +13,7 @@ const FORM_LABELS: Record<ContactFormId, string> = {
   "contact-page": "טופס צור קשר",
   "article-sidebar": "טופס צדדי – מאמר",
   "contextual-popup": "פופאפ – ייעוץ",
+  "site-check": "בדיקת אתר",
 };
 
 const DEFAULT_FORM_LABEL = "טופס יצירת קשר";

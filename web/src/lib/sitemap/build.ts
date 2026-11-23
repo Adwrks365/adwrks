@@ -3,11 +3,12 @@ import type { Locale } from "@/i18n/routing";
 import { getSitemapUrls } from "@/lib/content/loader";
 import { sitemapLanguageAlternates } from "@/lib/content/schema";
 import { locationSitemapPaths } from "@/lib/pages/locations/registry";
+import { siteCheckSitemapPaths } from "@/lib/pages/site-check/paths";
 import { SITE } from "@/lib/site";
 
 function buildSitemapEntries(locale: Locale): MetadataRoute.Sitemap {
   const seen = new Set<string>();
-  const paths = [...getSitemapUrls(locale), ...locationSitemapPaths(locale)].filter((path) => {
+  const paths = [...getSitemapUrls(locale), ...locationSitemapPaths(locale), ...siteCheckSitemapPaths(locale)].filter((path) => {
     if (seen.has(path)) return false;
     seen.add(path);
     return true;

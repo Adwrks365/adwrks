@@ -203,6 +203,8 @@ export const SEO_MID_CTA = {
   eyebrow: "לפני שמתחילים",
   title: "רוצים לבדוק את הפוטנציאל האורגני של האתר?",
   body: "נבחן את מצב האתר והתחרות — ונציע הצעת היקף ומחיר מותאמים.",
+  checkHref: "/בדיקת-אתר/",
+  checkLabel: "לבדיקה ראשונית של האתר",
 };
 
 export const SEO_FINAL_CTA = {

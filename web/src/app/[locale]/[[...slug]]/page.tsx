@@ -8,6 +8,7 @@ import { HomePage } from "@/components/home/HomePage";
 import { JsonLd } from "@/components/JsonLd";
 import { LocationLandingPage } from "@/components/locations/LocationLandingPage";
 import { LocationsHubPage } from "@/components/locations/LocationsHubPage";
+import { SiteCheckPage } from "@/components/pages/SiteCheckPage";
 import { pathKeyFromLocaleSegments } from "@/i18n/locale";
 import { routing, type Locale } from "@/i18n/routing";
 import { extractJsonLdFromHtml } from "@/lib/content/html";
@@ -31,6 +32,8 @@ import { skipHtmlJsonLdExtraction } from "@/lib/i18n/composer-html-jsonld";
 import { buildAreaMetadata } from "@/lib/pages/locations/metadata";
 import { getHubView, getLocationView, locationStaticParams } from "@/lib/pages/locations/registry";
 import { buildHubJsonLd, buildLocationJsonLd } from "@/lib/pages/locations/schema";
+import { getSiteCheckView, siteCheckStaticParams } from "@/lib/pages/site-check/registry";
+import { buildSiteCheckJsonLd } from "@/lib/pages/site-check/schema";
 
 type PageProps = {
   params: Promise<{ locale: string; slug?: string[] }>;
@@ -53,7 +56,7 @@ export const revalidate = 3600;
 export function generateStaticParams() {
   const base = getAllLocaleStaticParams();
   const seen = new Set(base.map((entry) => `${entry.locale}:${(entry.slug ?? []).join("/")}`));
-  const extra = locationStaticParams().filter(
+  const extra = [...locationStaticParams(), ...siteCheckStaticParams()].filter(
     (entry) => !seen.has(`${entry.locale}:${entry.slug.join("/")}`),
   );
   return [...base, ...extra];
@@ -85,6 +88,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const hubView = getHubView(pathKey, validLocale);
   if (hubView) {
     return buildAreaMetadata(hubView.path, hubView.copy.seoTitle, hubView.copy.seoDescription, validLocale);
+  }
+
+  const siteCheck = getSiteCheckView(pathKey, validLocale);
+  if (siteCheck) {
+    return buildAreaMetadata(
+      siteCheck.path,
+      siteCheck.copy.seoTitle,
+      siteCheck.copy.seoDescription,
+      validLocale,
+    );
   }
 
   const resolved = resolveRoute(pathKey, validLocale);
@@ -161,6 +174,16 @@ export default async function CatchAllPage({ params }: PageProps) {
       <>
         <JsonLd data={buildHubJsonLd(hubView, validLocale)} />
         <LocationsHubPage view={hubView} locale={validLocale} />
+      </>
+    );
+  }
+
+  const siteCheck = getSiteCheckView(pathKey, validLocale);
+  if (siteCheck) {
+    return (
+      <>
+        <JsonLd data={buildSiteCheckJsonLd(validLocale, siteCheck.copy)} />
+        <SiteCheckPage view={siteCheck} />
       </>
     );
   }

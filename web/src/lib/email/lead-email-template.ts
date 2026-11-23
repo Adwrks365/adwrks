@@ -50,7 +50,7 @@ function fieldRow(label: string, value: string, linkPrefix?: "tel" | "mailto"): 
       ? `<a href="tel:${escapeAttr(value.replace(/[^\d+]/g, ""))}" style="color:#0369a1;text-decoration:none;font-weight:600;">${safe}</a>`
       : linkPrefix === "mailto"
         ? `<a href="mailto:${escapeAttr(value)}" style="color:#0369a1;text-decoration:none;font-weight:600;">${safe}</a>`
-        : `<span style="color:#0f172a;font-weight:600;">${safe}</span>`;
+        : `<span style="color:#0f172a;font-weight:600;white-space:pre-line;">${safe}</span>`;
 
   return `
     <tr>
