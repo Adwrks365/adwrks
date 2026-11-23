@@ -136,6 +136,7 @@ test("duplicate titles are one finding and the lead note matches the screen", ()
     locale: "he",
     inputUrl: "https://example.co.il/",
     homeIsRoot: true,
+    homeUrl: "https://example.co.il/",
     pages: [
       { url: home.url, label: home.label, role: "home", status: "ok" },
       { url: service.url, label: service.label, role: "inner", status: "ok" },
@@ -145,6 +146,10 @@ test("duplicate titles are one finding and the lead note matches the screen", ()
     nothingReadable: false,
     findings,
     analyzable: [home, service],
+    partialScan: true,
+    pagesPlanned: 3,
+    pagesScanned: 2,
+    durationMs: 1200,
   });
   assert.match(report.scopeLine, /דף הבית/);
   assert.match(report.partialNote ?? "", /missing/);

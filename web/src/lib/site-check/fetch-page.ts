@@ -1,5 +1,5 @@
 import { lookup } from "node:dns/promises";
-import { normalizePageSpeedTargetUrl } from "@/lib/pagespeed/validate-url";
+import { isLocalSiteCheckFixtureUrl, normalizePageSpeedTargetUrl } from "@/lib/pagespeed/validate-url";
 
 const MAX_BYTES = 800_000;
 const MAX_REDIRECTS = 3;
@@ -102,9 +102,11 @@ export async function fetchPublicHtml(rawUrl: string): Promise<FetchHtmlResult> 
     } catch {
       return { ok: false, url: current, reason: "blocked" };
     }
-    const hostCheck = await isPublicHostname(parsed.hostname);
-    if (hostCheck !== true) {
-      return { ok: false, url: current, reason: hostCheck };
+    if (!isLocalSiteCheckFixtureUrl(parsed)) {
+      const hostCheck = await isPublicHostname(parsed.hostname);
+      if (hostCheck !== true) {
+        return { ok: false, url: current, reason: hostCheck };
+      }
     }
 
     let response: Response;

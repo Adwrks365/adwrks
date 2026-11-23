@@ -14762,6 +14762,43 @@ body.contextual-popup-open {
   padding-inline-start: 1.15rem;
 }
 
+.site-check-partial-headline {
+  color: #b45309;
+  font-size: 0.95rem;
+  font-weight: 800;
+  margin: 0 0 0.35rem;
+}
+
+.site-check-speed {
+  border-top: 1px solid #e2e8f0;
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+}
+
+.site-check-speed-btn {
+  width: 100%;
+}
+
+.site-check-speed-running {
+  color: #334155;
+  font-weight: 600;
+  margin: 0;
+}
+
+.site-check-speed-score {
+  color: #0f172a;
+  font-size: 1.05rem;
+  margin: 0 0 0.35rem;
+}
+
+.site-check-speed-tip,
+.site-check-speed-lab {
+  color: #475569;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  margin: 0 0 0.35rem;
+}
+
 .site-check-pages-details {
   border-top: 1px solid #e2e8f0;
   margin-top: 1rem;

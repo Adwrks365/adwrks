@@ -36,6 +36,14 @@ export type SiteCheckCopy = {
   formBody: string;
   formBodyClear: string;
   formSubmit: string;
+  speedButton: string;
+  speedRunning: string;
+  speedScoreLabel: string;
+  speedLabNote: string;
+  speedTipGeneric: string;
+  speedUnavailable: string;
+  speedLimit: string;
+  speedError: string;
   formNote: string;
   callLabel: string;
   nameLabel: string;
@@ -88,6 +96,14 @@ const HE: SiteCheckCopy = {
   formBodyClear:
     "בדיקה מקיפה יכולה לעזור לזהות אילו עמודים כדאי לקדם, אילו חיפושים רלוונטיים לעסק שלכם ואיך לשפר את הנראות בגוגל ובתשובות AI.",
   formSubmit: "חזרו אליי לשיחת ייעוץ",
+  speedButton: "בדקו גם את מהירות האתר במובייל",
+  speedRunning: "בודקים מהירות במובייל…",
+  speedScoreLabel: "ציון ביצועים (מובייל)",
+  speedLabNote: "מדידת מעבדה לדף הבית שנבדק — לא בהכרח כמו מכשיר אמיתי ברשת סלולרית.",
+  speedTipGeneric: "כדאי לצמצם משקל תמונות ולדחות סקריפטים שאינם חיוניים בטעינה הראשונית.",
+  speedUnavailable: "בדיקת המהירות אינה זמינה כרגע.",
+  speedLimit: "הגעתם למכסה היומית של בדיקות המהירות. נסו שוב מחר.",
+  speedError: "בדיקת המהירות לא הושלמה. נסו שוב מאוחר יותר.",
   formNote: "שיחת היכרות ללא התחייבות.",
   callLabel: "מעדיפים להתקשר?",
   nameLabel: "שם",
@@ -177,6 +193,14 @@ const EN: SiteCheckCopy = {
   formBodyClear:
     "A deeper review can show which pages to prioritize, which searches matter for your business, and how to improve visibility in Google and AI answers.",
   formSubmit: "Call me back for a consult",
+  speedButton: "Check mobile site speed too",
+  speedRunning: "Checking mobile speed…",
+  speedScoreLabel: "Performance score (mobile)",
+  speedLabNote: "Lab measurement for the homepage we checked — not necessarily the same as a real phone on mobile data.",
+  speedTipGeneric: "Consider trimming image weight and deferring scripts that are not needed on first load.",
+  speedUnavailable: "Speed check is not available right now.",
+  speedLimit: "You've reached today's speed check limit. Try again tomorrow.",
+  speedError: "The speed check did not complete. Try again later.",
   formNote: "An introductory call, with no commitment.",
   callLabel: "Prefer to call?",
   nameLabel: "Name",

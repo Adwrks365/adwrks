@@ -1,3 +1,5 @@
+import { canonicalScanUrl } from "./url-canonical";
+
 const SKIP_PATH = /\/(wp-admin|wp-login\.php|wp-json|xmlrpc\.php|feed|cart|checkout|tag|author|cdn-cgi)(\/|$)/i;
 const SKIP_EXT = /\.(pdf|jpe?g|png|gif|webp|svg|zip|mp4|mp3|css|js|xml)\/?$/i;
 
@@ -6,15 +8,10 @@ function hostKey(hostname: string): string {
 }
 
 export function samePage(a: string, b: string): boolean {
-  try {
-    const left = new URL(a);
-    const right = new URL(b);
-    if (hostKey(left.hostname) !== hostKey(right.hostname)) return false;
-    const path = (value: string) => value.replace(/\/+$/, "") || "/";
-    return path(left.pathname) === path(right.pathname);
-  } catch {
-    return false;
-  }
+  const left = canonicalScanUrl(a);
+  const right = canonicalScanUrl(b);
+  if (!left || !right) return false;
+  return left === right;
 }
 
 function isContact(blob: string): boolean {
@@ -25,68 +22,132 @@ function isService(blob: string): boolean {
   return /service|שירות|בניית|בנייה|מוצר|product|solution|פתרון|\bseo\b/i.test(blob);
 }
 
+function isPricing(blob: string): boolean {
+  return /pricing|מחירון|תמחור|price|מחיר/i.test(blob);
+}
+
+export function pageIntent(url: string, text = ""): { contact: boolean; service: boolean; pricing: boolean } {
+  const blob = `${url} ${text}`;
+  return {
+    contact: isContact(blob),
+    service: isService(blob),
+    pricing: isPricing(blob),
+  };
+}
+
+function scoreLink(link: { href: string; text: string; inNav: boolean }, homeUrl: string): number {
+  let url: URL;
+  try {
+    url = new URL(link.href);
+  } catch {
+    return -99;
+  }
+  if (url.protocol !== "http:" && url.protocol !== "https:") return -99;
+  if (hostKey(url.hostname) !== hostKey(new URL(homeUrl).hostname)) return -99;
+  if (samePage(url.toString(), homeUrl)) return -99;
+  if (SKIP_PATH.test(url.pathname) || SKIP_EXT.test(url.pathname)) return -99;
+
+  const blob = `${url.pathname} ${link.text}`;
+  const depth = url.pathname.split("/").filter(Boolean).length;
+  let score = link.inNav ? 5 : 1;
+  const contact = isContact(blob);
+  const service = isService(blob);
+  const pricing = isPricing(blob);
+  if (contact) score += 8;
+  if (service) score += 6;
+  if (pricing) score += 7;
+  if (depth === 1) score += 2;
+  if (depth >= 4) score -= 2;
+  if (/\/(blog|category|tag|news|מאמרים)(\/|$)/i.test(url.pathname)) score -= 4;
+  return score;
+}
+
 export function selectInnerPages(
   homeUrl: string,
   links: readonly { href: string; text: string; inNav: boolean }[],
   preferredUrl: string | null,
   limit = 3,
 ): string[] {
-  let home: URL;
-  try {
-    home = new URL(homeUrl);
-  } catch {
-    return [];
-  }
-  const homeHost = hostKey(home.hostname);
-  const seen = new Set<string>();
-  const candidates: { href: string; score: number; contact: boolean; service: boolean }[] = [];
+  const maxPages = limit + (preferredUrl && !samePage(preferredUrl, homeUrl) ? 2 : 1);
+  return planScanUrls({
+    entryUrl: preferredUrl ?? homeUrl,
+    homeUrl,
+    links,
+    sitemapUrls: [],
+    maxPages,
+  })
+    .filter((url) => !samePage(url, homeUrl))
+    .slice(0, limit);
+}
 
-  for (const link of links) {
-    let url: URL;
-    try {
-      url = new URL(link.href);
-    } catch {
-      continue;
-    }
-    if (url.protocol !== "http:" && url.protocol !== "https:") continue;
-    if (hostKey(url.hostname) !== homeHost) continue;
-    if (samePage(url.toString(), homeUrl)) continue;
-    if (SKIP_PATH.test(url.pathname) || SKIP_EXT.test(url.pathname)) continue;
-    const href = url.toString();
-    if (seen.has(href)) continue;
-    seen.add(href);
-    const blob = `${url.pathname} ${link.text}`;
-    const depth = url.pathname.split("/").filter(Boolean).length;
-    let score = link.inNav ? 5 : 1;
-    const contact = isContact(blob);
-    const service = isService(blob);
-    if (contact) score += 8;
-    if (service) score += 6;
-    if (depth === 1) score += 2;
-    if (depth >= 4) score -= 2;
-    if (/\/(blog|category|tag|news|מאמרים)(\/|$)/i.test(url.pathname)) score -= 4;
-    candidates.push({ href, score, contact, service });
-  }
+export function planScanUrls(input: {
+  entryUrl: string;
+  homeUrl: string;
+  links: readonly { href: string; text: string; inNav: boolean }[];
+  sitemapUrls: readonly string[];
+  maxPages: number;
+}): string[] {
+  const maxPages = Math.max(1, Math.min(20, input.maxPages));
+  const entry = canonicalScanUrl(input.entryUrl);
+  const home = canonicalScanUrl(input.homeUrl);
+  if (!entry || !home) return [];
 
   const picked: string[] = [];
-  const take = (href: string) => {
-    if (picked.length >= limit || picked.some((item) => samePage(item, href))) return;
-    picked.push(href);
+  const seen = new Set<string>();
+  const take = (raw: string) => {
+    const canonical = canonicalScanUrl(raw);
+    if (!canonical || seen.has(canonical) || picked.length >= maxPages) return;
+    seen.add(canonical);
+    picked.push(canonical);
   };
 
-  if (preferredUrl && !samePage(preferredUrl, homeUrl)) {
-    try {
-      const preferred = new URL(preferredUrl);
-      if (hostKey(preferred.hostname) === homeHost) take(preferred.toString());
-    } catch {
-      /* Ignore a preferred URL we cannot parse. */
-    }
+  take(entry);
+  if (!samePage(entry, home)) take(home);
+
+  const candidates: { href: string; score: number }[] = [];
+  for (const link of input.links) {
+    const score = scoreLink(link, home);
+    if (score < 0) continue;
+    const canonical = canonicalScanUrl(link.href);
+    if (!canonical) continue;
+    candidates.push({ href: canonical, score });
+  }
+  for (const href of input.sitemapUrls) {
+    const canonical = canonicalScanUrl(href);
+    if (!canonical) continue;
+    const blob = canonical;
+    let score = 2;
+    const intent = pageIntent(blob);
+    if (intent.contact) score += 8;
+    if (intent.service) score += 6;
+    if (intent.pricing) score += 7;
+    if (/\/blog|\/tag|\/category/i.test(blob)) score -= 5;
+    candidates.push({ href: canonical, score });
   }
 
-  const ranked = [...candidates].sort((a, b) => b.score - a.score);
-  const contact = ranked.find((item) => item.contact);
-  if (contact) take(contact.href);
-  for (const item of ranked.filter((entry) => entry.service)) take(item.href);
-  for (const item of ranked) take(item.href);
+  candidates.sort((a, b) => b.score - a.score);
+  for (const item of candidates) take(item.href);
+  return picked;
+}
+
+export function pickLinksToProbe(
+  homeUrl: string,
+  links: readonly { href: string; text: string; inNav: boolean }[],
+  limit = 10,
+): string[] {
+  const ranked = links
+    .map((link) => ({ link, score: scoreLink(link, homeUrl) }))
+    .filter((item) => item.score >= 4)
+    .sort((a, b) => b.score - a.score);
+
+  const picked: string[] = [];
+  const seen = new Set<string>();
+  for (const item of ranked) {
+    const canonical = canonicalScanUrl(item.link.href);
+    if (!canonical || seen.has(canonical)) continue;
+    seen.add(canonical);
+    picked.push(canonical);
+    if (picked.length >= limit) break;
+  }
   return picked;
 }

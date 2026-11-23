@@ -4,7 +4,7 @@ import { consumeSiteCheck, readSiteCheckUsage } from "@/lib/site-check/quota";
 import { runSiteCheck } from "@/lib/site-check/run-scan";
 import type { SiteCheckLocale } from "@/lib/site-check/types";
 
-export const maxDuration = 30;
+export const maxDuration = 60;
 export const runtime = "nodejs";
 
 function localeOf(value: unknown): SiteCheckLocale {

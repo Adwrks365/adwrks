@@ -111,6 +111,9 @@ export function SiteCheckTool({
   const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [formError, setFormError] = useState("");
   const [scanIncomplete, setScanIncomplete] = useState(false);
+  const [speedStatus, setSpeedStatus] = useState<"idle" | "running" | "ready" | "error">("idle");
+  const [speedError, setSpeedError] = useState("");
+  const [speedScore, setSpeedScore] = useState<number | null>(null);
 
   const activeHost = useMemo(() => displayHost(url), [url]);
   const showForm = Boolean(leadNote) && formStatus !== "success";
@@ -135,6 +138,9 @@ export function SiteCheckTool({
     setLeadNote("");
     setScanIncomplete(false);
     setFormStatus("idle");
+    setSpeedStatus("idle");
+    setSpeedError("");
+    setSpeedScore(null);
     scrollToLiveArea();
 
     try {
@@ -212,6 +218,41 @@ export function SiteCheckTool({
   const formBodyText =
     scanIncomplete ? copy.formBody : hasFindings ? copy.formBody : isClearSuccess ? copy.formBodyClear : copy.formBody;
 
+  async function onSpeedCheck() {
+    if (!report?.homeUrl) return;
+    setSpeedStatus("running");
+    setSpeedError("");
+    setSpeedScore(null);
+    try {
+      const res = await fetch("/api/pagespeed/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url: report.homeUrl, strategy: "mobile" }),
+      });
+      const data = (await res.json()) as {
+        ok?: boolean;
+        message?: string;
+        scores?: { performance: number | null };
+      };
+      if (!res.ok || !data.ok) {
+        const msg =
+          data.message === "daily_limit"
+            ? copy.speedLimit
+            : data.message === "unavailable"
+              ? copy.speedUnavailable
+              : copy.speedError;
+        setSpeedError(msg);
+        setSpeedStatus("error");
+        return;
+      }
+      setSpeedScore(data.scores?.performance ?? null);
+      setSpeedStatus("ready");
+    } catch {
+      setSpeedError(copy.speedError);
+      setSpeedStatus("error");
+    }
+  }
+
   return (
     <div className="site-check-workspace">
       <header className="site-check-hero-copy">
@@ -280,6 +321,11 @@ export function SiteCheckTool({
           {report && status === "ready" && (
             <div className="site-check-report-body site-check-fade-in">
               <p className="site-check-results-kicker">{copy.resultsTitle}</p>
+              {report.partialHeadline && (
+                <p className="site-check-partial-headline" role="status">
+                  {report.partialHeadline}
+                </p>
+              )}
               <p className="site-check-scope">{report.scopeLine}</p>
               {report.partialNote && <p className="site-check-partial">{report.partialNote}</p>}
 
@@ -364,6 +410,39 @@ export function SiteCheckTool({
                 </a>
               </p>
             </form>
+          </section>
+        )}
+
+        {report && status === "ready" && (
+          <section className="site-check-speed" aria-labelledby="site-check-speed-title">
+            <h2 id="site-check-speed-title" className="sr-only">
+              {copy.speedButton}
+            </h2>
+            {speedStatus === "idle" && (
+              <button type="button" className="btn btn-secondary site-check-speed-btn" onClick={onSpeedCheck}>
+                {copy.speedButton}
+              </button>
+            )}
+            {speedStatus === "running" && (
+              <p className="site-check-speed-running" role="status">
+                {copy.speedRunning}
+              </p>
+            )}
+            {speedStatus === "error" && speedError && (
+              <p className="site-check-alert site-check-alert--error" role="alert">
+                {speedError}
+              </p>
+            )}
+            {speedStatus === "ready" && (
+              <div className="site-check-speed-result">
+                <p className="site-check-speed-score">
+                  <span>{copy.speedScoreLabel}: </span>
+                  <strong>{speedScore ?? "—"}</strong>
+                </p>
+                <p className="site-check-speed-tip">{copy.speedTipGeneric}</p>
+                <p className="site-check-speed-lab">{copy.speedLabNote}</p>
+              </div>
+            )}
           </section>
         )}
 

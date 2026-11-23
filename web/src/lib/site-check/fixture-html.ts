@@ -3,6 +3,8 @@ const NAV = `
 <a href="/site-check-sample/">בית</a>
 <a href="/site-check-sample/services">שירות</a>
 <a href="/site-check-sample/contact">יצירת קשר</a>
+<a href="/site-check-sample/broken">שירות לא זמין</a>
+<a href="/site-check-sample/broken">שירות לא זמין</a>
 </nav></header>`;
 
 export function siteCheckFixtureHtml(slug: "index" | "services" | "contact"): string {

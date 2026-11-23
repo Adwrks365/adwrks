@@ -44,7 +44,13 @@ export type SiteCheckFinding = {
 export type SiteCheckReport = {
   ok: true;
   inputUrl: string;
+  homeUrl: string;
   scopeLine: string;
+  partialScan: boolean;
+  partialHeadline: string | null;
+  pagesPlanned: number;
+  pagesScanned: number;
+  durationMs: number;
   pages: ScannedPage[];
   partialNote: string | null;
   findings: SiteCheckFinding[];
