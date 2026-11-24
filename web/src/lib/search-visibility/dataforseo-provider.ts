@@ -108,7 +108,7 @@ async function fetchOneQuery(input: {
   domain: string;
   homeUrl: string;
   serviceUrl?: string | null;
-}): Promise<VisibilityRow> {
+}): Promise<{ row: VisibilityRow; costUsd: number | null }> {
   const login = process.env.DATAFORSEO_LOGIN?.trim();
   const password = process.env.DATAFORSEO_PASSWORD?.trim();
   if (!login || !password) {
@@ -139,33 +139,48 @@ async function fetchOneQuery(input: {
 
   if (!response.ok) {
     return {
-      query: input.query,
-      organicPosition: null,
-      organicUrl: null,
-      organicPageLabel: null,
-      aiStatus: "unverified",
-      organicDepthChecked: ORGANIC_DEPTH,
-      partialError: `http_${response.status}`,
+      costUsd: null,
+      row: {
+        query: input.query,
+        organicPosition: null,
+        organicUrl: null,
+        organicPageLabel: null,
+        aiStatus: "unverified",
+        organicDepthChecked: ORGANIC_DEPTH,
+        partialError: `http_${response.status}`,
+      },
     };
   }
 
   const json = (await response.json()) as {
+    cost?: number;
     tasks?: Array<{
       status_code?: number;
+      cost?: number;
       result?: Array<{ items?: SerpItem[] }>;
     }>;
   };
 
   const task = json.tasks?.[0];
+  const costUsd =
+    typeof json.cost === "number"
+      ? json.cost
+      : typeof task?.cost === "number"
+        ? task.cost
+        : null;
+
   if (!task || task.status_code !== 20000) {
     return {
-      query: input.query,
-      organicPosition: null,
-      organicUrl: null,
-      organicPageLabel: null,
-      aiStatus: "unverified",
-      organicDepthChecked: ORGANIC_DEPTH,
-      partialError: "provider_task_error",
+      costUsd,
+      row: {
+        query: input.query,
+        organicPosition: null,
+        organicUrl: null,
+        organicPageLabel: null,
+        aiStatus: "unverified",
+        organicDepthChecked: ORGANIC_DEPTH,
+        partialError: "provider_task_error",
+      },
     };
   }
 
@@ -173,12 +188,15 @@ async function fetchOneQuery(input: {
   const parsed = parseSerpItems(items, input.domain, input.homeUrl, input.serviceUrl);
 
   return {
-    query: input.query,
-    organicPosition: parsed.position,
-    organicUrl: parsed.url,
-    organicPageLabel: parsed.pageLabel,
-    aiStatus: parsed.aiStatus,
-    organicDepthChecked: parsed.organicCount > 0 ? parsed.organicCount : ORGANIC_DEPTH,
+    costUsd,
+    row: {
+      query: input.query,
+      organicPosition: parsed.position,
+      organicUrl: parsed.url,
+      organicPageLabel: parsed.pageLabel,
+      aiStatus: parsed.aiStatus,
+      organicDepthChecked: parsed.organicCount > 0 ? parsed.organicCount : ORGANIC_DEPTH,
+    },
   };
 }
 
@@ -190,15 +208,21 @@ export async function fetchDataForSeoVisibility(input: {
   domain: string;
   homeUrl: string;
   serviceUrl?: string | null;
-}): Promise<{ rows: VisibilityRow[]; partial: boolean } | null> {
+}): Promise<{ rows: VisibilityRow[]; partial: boolean; providerCostUsd: number | null } | null> {
   const rows: VisibilityRow[] = [];
   let partial = false;
+  let providerCostUsd = 0;
+  let sawCost = false;
 
   for (const query of input.queries) {
     try {
-      const row = await fetchOneQuery({ ...input, query });
+      const { row, costUsd } = await fetchOneQuery({ ...input, query });
       if (row.partialError) partial = true;
       rows.push(row);
+      if (typeof costUsd === "number") {
+        sawCost = true;
+        providerCostUsd += costUsd;
+      }
     } catch {
       partial = true;
       rows.push({
@@ -216,5 +240,5 @@ export async function fetchDataForSeoVisibility(input: {
   const anyUsable = rows.some((r) => !r.partialError || r.organicPosition != null || r.aiStatus !== "unverified");
   if (!anyUsable) return null;
 
-  return { rows, partial };
+  return { rows, partial, providerCostUsd: sawCost ? providerCostUsd : null };
 }

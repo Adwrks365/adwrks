@@ -85,6 +85,8 @@ export function formatLeadAppendix(input: {
     language: string;
     device: string;
     isDemoData: boolean;
+    provider?: string;
+    providerCostUsd?: number | null;
     rows: VisibilityRow[];
     insight: VisibilityInsight;
   };
@@ -104,6 +106,13 @@ export function formatLeadAppendix(input: {
       ? `When: ${report.checkedAt} · ${report.country} · ${report.language} · ${report.device}`
       : `מועד: ${report.checkedAt} · מדינה: ${report.country} · שפה: ${report.language} · מכשיר: ${report.device}`,
   );
+  if (report.provider === "dataforseo" && report.providerCostUsd != null) {
+    lines.push(
+      locale === "en"
+        ? `API cost (DataForSEO): $${report.providerCostUsd.toFixed(4)}`
+        : `עלות API (DataForSEO): $${report.providerCostUsd.toFixed(4)}`,
+    );
+  }
   report.rows.forEach((row, i) => {
     const pos =
       row.organicPosition != null

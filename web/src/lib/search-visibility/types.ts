@@ -34,6 +34,8 @@ export type SearchVisibilityReport = {
   rows: VisibilityRow[];
   insight: VisibilityInsight;
   leadAppendix: string;
+  /** Sum of DataForSEO `cost` fields when provider=dataforseo */
+  providerCostUsd?: number | null;
 };
 
 export type SearchVisibilityError = {

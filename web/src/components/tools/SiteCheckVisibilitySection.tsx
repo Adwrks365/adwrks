@@ -210,6 +210,9 @@ export function SiteCheckVisibilitySection({ locale, copy, report, onLeadNoteApp
             {visibility.country} · {visibility.language} · {visibility.device}
             {visibility.isDemoData ? ` · ${copy.visibilityDemoNote}` : ""}
             {visibility.partial ? ` · ${copy.visibilityPartialNote}` : ""}
+            {visibility.provider === "dataforseo" && visibility.providerCostUsd != null
+              ? ` · ${copy.visibilityProviderCost} $${visibility.providerCostUsd.toFixed(4)}`
+              : ""}
           </p>
           <ul className="site-check-visibility-rows">
             {visibility.rows.map((row) => (

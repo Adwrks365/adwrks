@@ -46,6 +46,28 @@ export async function runVisibilityCheck(input: {
     if (!live) return null;
     rows = live.rows;
     partial = live.partial;
+    const report: SearchVisibilityReport = {
+      ok: true,
+      partial,
+      provider,
+      isDemoData,
+      checkedAt: new Date().toISOString(),
+      country: input.country,
+      language: input.language,
+      device: input.device,
+      rows,
+      insight: buildVisibilityInsight({
+        locale: input.locale,
+        siteKind: input.siteKind,
+        rows,
+        homeUrl: input.homeUrl,
+        partialScan: input.partialScan || partial,
+      }),
+      leadAppendix: "",
+      providerCostUsd: live.providerCostUsd,
+    };
+    report.leadAppendix = formatLeadAppendix({ locale: input.locale, report });
+    return report;
   } else {
     provider = "mock";
     isDemoData = true;

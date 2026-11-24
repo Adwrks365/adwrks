@@ -82,6 +82,7 @@ export type SiteCheckCopy = {
   visibilityColOrganic: string;
   visibilityColAi: string;
   visibilityConsultBridge: string;
+  visibilityProviderCost: string;
   formTitleAfterVisibility: string;
   formSubmit: string;
   speedButton: string;
@@ -196,6 +197,7 @@ const HE: SiteCheckCopy = {
   visibilityColAi: "סקירת AI",
   visibilityConsultBridge:
     "רוצים לדעת איזה עמוד כדאי לחזק קודם, ועל אילו חיפושים שווה להתמקד?",
+  visibilityProviderCost: "עלות API בפועל לדוח:",
   formTitleAfterVisibility:
     "רוצים לדעת איזה עמוד כדאי לחזק קודם, ועל אילו חיפושים שווה להתמקד?",
   formSubmit: "חזרו אליי לשיחת ייעוץ",
@@ -349,6 +351,7 @@ const EN: SiteCheckCopy = {
   visibilityColAi: "AI overview",
   visibilityConsultBridge:
     "Want to know which page to strengthen first and which searches to focus on?",
+  visibilityProviderCost: "Actual API cost for this report:",
   formTitleAfterVisibility:
     "Want to know which page to strengthen first and which searches to focus on?",
   formSubmit: "Call me back for a consult",
