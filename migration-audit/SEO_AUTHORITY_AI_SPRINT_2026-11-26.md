@@ -13,7 +13,7 @@
 | שלב | מקור | הערה |
 |-----|------|------|
 | **לפני** | `scripts/audit-internal-links-2026-11-26.mjs` על `posts.json` (HTML גולמי) | ספירת `href` ליעדי שירות; לא משקפת עשירוי רינדור מלא |
-| **אחרי** | `applyArticleAuthorityLinking2026` + סימולציה/אימות רינדור (`sim-authority-links.mjs`, `verify-authority-links-applied.mjs` על `localhost:3000`) | קישורים חדשים בפסקת הקשר ב-lead |
+| **אחרי** | `applyArticleAuthorityLinking2026` + `hasContextualServiceHref` (lead + פרוזה בגוף, לא CTA) · `sim-authority-links.mjs` / `audit-authority-link-injections.mjs` | פסקת הקשר רק כשחסר קישור מקצועי |
 
 ### יעדי שירות — כיסוי גולמי (לפני, 56 פוסטים ב-audit)
 
@@ -32,22 +32,23 @@
 ### אחרי הספרינט (רינדור)
 
 - **22** מאמרים מוגדרים ב-`article-authority-linking-2026.ts`.
-- **21** מאמרים עם מרקר `adwrks-authority-link-2026` ב-HTML מרונדר (אימות מקומי 26.11.2026).
-- **1** מאמר ללא הזרקה: `/רימרקטינג-מה-זה-איך-ולמה/` — כבר קיים קישור רלוונטי ל-`/google-ads/` ב-lead (לפי כלל דילוג על כפילות).
+- **20** מאמרים עם מרקר `adwrks-authority-link-2026` לאחר תיקון כפילויות (סימולציה + localhost, 26.11.2026).
+- **2** מאמרים ללא הזרקה — קישורי יעד כבר בהקשר מקצועי בגוף/lead:
+  - `/צמיחה-עסקית-באמצעות-קידום-באינטרנט/` — Hub + Google Ads קיימים בפרוזה.
+  - `/רימרקטינג-מה-זה-איך-ולמה/` — `/google-ads/` קיים בהקשר מתאים.
 
-מקור: `migration-audit/internal-links-after-2026-11-26.json`.
+מקור: `web/scripts/audit-authority-link-injections.mjs` (JSON לוקאלי).
 
 ---
 
 ## 2. קישורים פנימיים שנוספו בפועל
 
-מנגנון: פסקת הקשר אחת למאמר (`data-adwrks-content="adwrks-authority-link-2026"`), לינקים רק אם חסרים ב-lead. עוגנים טבעיים ומגוונים.
+מנגנון: פסקת הקשר אחת למאמר (`data-adwrks-content="adwrks-authority-link-2026"`), לינקים רק אם חסרים בהקשר (lead או פסקאות גוף; לא כפתורי CTA/טפסים). עוגנים טבעיים ומגוונים.
 
 | מאמר מקור | עמודי יעד (חדשים/משלימים ב-lead) |
 |-----------|----------------------------------|
 | קידום אתרים מדריך למתחילים | Google Ads, Hub שירותים |
 | קידום אתרים בגוגל | Hub שירותים |
-| צמיחה עסקית בקידום | Hub, Google Ads |
 | קידום ממומן מול אורגני | מחיר קידום, Hub |
 | כמה עולה פרסום בגוגל | מחירון שיווק, Hub |
 | פרסום בגוגל 7 אסטרטגיות | Google Ads, מדריך עלויות |
@@ -67,7 +68,7 @@
 | מהו שיווק באינטרנט | Hub, SEO |
 | קידום אתרים ברוסית | SEO עברית, מחיר קידום |
 
-**סה״כ קישורים חדשים:** 21 פסקות הקשר (מספר עוגנים בפועל >21; רוב הפסקות מכילות 1–2 קישורים).
+**סה״כ הזרקות:** 20 פסקות (מספר עוגנים בפועל ≥20; רוב הפסקות מכילות 1–2 קישורים).
 
 ---
 
@@ -81,7 +82,7 @@
 
 | אזור | שינוי |
 |------|--------|
-| **עמוד אודות** (`about-content.ts`) | ניסוח מחודד: פעילות מאז 2018 נפרדת מהסמכת **Google Partner מאומת**; Meta Partner כפי שמוצג באתר |
+| **עמוד אודות** (`about-content.ts`) | ניסוח שיווקי טבעי (מאז 2018, שירותים, Google Partner, ליווי אישי); תמיכה: 185+ לקוחות, Meta Partner |
 | **מקרי בוחן SEO** (`cases.ts`) | `cardTeaser` לחסדאי מנופי הרמה ואקספרס הובלות: מטרה, עבודה, מקור Ubersuggest, תקופה, מגבלות |
 | **דף הבית / שירותים** | ללא שינוי Title/Meta מספרינט PR #22 |
 
@@ -139,8 +140,9 @@
 | `npx next build --webpack` (web) | **עבר** 26.11.2026 |
 | `scripts/qa-authority-sprint-2026-11-26.mjs` | **16/16** (כולל נעילת Title PR #22 ל-`/seo/`, `/google-ads/`) |
 | `scripts/qa-seo-weekly-2026-11-26.mjs` (ויזואל) | **6/6** עמודי PR #22 |
-| אימות 21/22 מרקרי authority ב-localhost | **עבר** |
-| Playwright נפרד לכל עמוד שנערך | לא הורץ כחבילת E2E; עמודי PR #22 נבדקו ב-visual QA |
+| `audit-blog-rollout-status.mjs` | **108/108** enriched, `source` ללא authority duplicate |
+| אימות מרקרי authority ב-localhost | **20/22** |
+| `scripts/qa-authority-visual-local.mjs` (Playwright) | **8/8** — אודות, SEO, 2 מאמרים · mobile+desktop |
 
 ---
 
@@ -158,7 +160,7 @@
 ## 11. חריגים והמלצות
 
 1. **מדידת השפעה:** להמתין 28–90 יום ל-GSC (Generative AI + Web) לפני הערכת חשיפות.
-2. **רימרקטינג:** כבר מקשר ל-Google Ads — לא נוספה כפילות (תקין).
+2. **דילוגי כפילות:** צמיחה עסקית + רימרקטינג — קישורי יעד כבר בפרוזה מקצועית.
 3. **baseline גולמי vs רינדור:** לפני ספרינט זה, חלק מהקישורים כבר נוספו בעשירויי מאמרים קודמים; הספרינט משלים פערים ב-lead.
 4. **AI בשאילתות מותג:** להמשיך פרוטוקול מדידה ב-`geo-measurement/`.
 
@@ -178,4 +180,16 @@
 - `scripts/audit-internal-links-2026-11-26.mjs` — baseline
 - `web/scripts/sim-authority-links.mjs` — סימולציית pipeline
 - `scripts/verify-authority-links-applied.mjs` — אימות HTTP מקומי
+- `web/scripts/audit-authority-link-injections.mjs` — ספירת הזרקות + סיבות דילוג
 - `scripts/qa-authority-sprint-2026-11-26.mjs` — QA ספרינט
+- `scripts/qa-authority-visual-local.mjs` — Playwright מקומי
+
+---
+
+## 13. תיקוני סקירת PR #23 (לפני merge)
+
+- אודות: ניסוח ציבורי ללא הערות פיתוח.
+- קישורים: `hasContextualServiceHref` — זיהוי הקשר ב-lead ובגוף (לא CTA).
+- Registry: Authority linking הוצא מ-`MAP` של enrichment; נשמר `AUTHORITY_LINKING_PATHS` נפרד.
+- מקרי בוחן: תאריכי טיזר HE/EN מיושרים ל-08.05.2025–31.10.2026 (Menofey + Express).
+- מספר הזרקות מעודכן: **20/22**.

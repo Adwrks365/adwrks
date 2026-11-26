@@ -23,8 +23,13 @@ for (const pagePath of AUTHORITY_LINKING_PATHS) {
     html.includes("adwrks-authority-link-2026") ||
     html.includes("adwrks-authority-service-link");
   if (hit) added.push(pagePath);
-  else skipped.push({ path: pagePath, reason: "skip or no marker" });
+  else {
+    const contextNote = html.includes("elementor-")
+      ? "no_new_links_needed"
+      : "missing_post_marker";
+    skipped.push({ path: pagePath, reason: contextNote });
+  }
 }
 
 console.log("ADDED", added.length, added);
-console.log("SKIPPED", skipped.length);
+console.log("SKIPPED", skipped.length, skipped);

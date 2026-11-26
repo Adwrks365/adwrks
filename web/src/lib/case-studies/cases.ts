@@ -46,8 +46,8 @@ export const CASE_STUDIES: readonly CaseStudyRecord[] = [
       en: "The tracking report shows average position for the monitored set improving from 52 to 23.52, with strong positions on selected central-service queries. Three tracked queries declined in the report summary. Recently, around a platform migration, some queries showed volatility — not all changes can be attributed to migration without further diagnosis. Figures reflect the tracking tool — not all Google searches.",
     },
     cardTeaser: {
-      he: "מטרה: נראות אורגנית בתחרות מקומית על מנופי הרמה. עבודה: SEO שוטף ומעקב ביטויים. מקור מדידה: Ubersuggest, 08.2025–10.2026 — לא כל החיפושים בגוגל.",
-      en: "Goal: organic visibility in competitive local crane searches. Work: ongoing SEO and keyword tracking. Source: Ubersuggest, May 2025–Oct 2026 — not all Google searches.",
+      he: "מטרה: נראות אורגנית בתחרות מקומית על מנופי הרמה. עבודה: SEO שוטף ומעקב ביטויים. מקור מדידה: Ubersuggest, 08.05.2025–31.10.2026 — לא כל החיפושים בגוגל.",
+      en: "Goal: organic visibility in competitive local crane searches. Work: ongoing SEO and keyword tracking. Source: Ubersuggest, May 8, 2025–Oct 31, 2026 — not all Google searches.",
     },
     cardMetrics: [
       {
@@ -132,8 +132,8 @@ export const CASE_STUDIES: readonly CaseStudyRecord[] = [
       en: "Over the tracking period, average position for the monitored set improved (33.11 → 19.50 per UBS), while the Oct 31, 2026 export also shows 28 keywords down and 10 up — notable volatility, especially after a platform migration, without attributing every drop to migration alone.",
     },
     cardTeaser: {
-      he: "מטרה: פניות מקומיות להובלות ואחסון בירושלים. עבודה: SEO מקומי ומעקב ביטויים. מקור: Ubersuggest, 08.2025–10.2026 — כולל תנודתיות לאחר מעבר פלטפורמה.",
-      en: "Goal: local leads for moving and storage in Jerusalem. Work: local SEO and keyword tracking. Source: Ubersuggest, May 2025–Oct 2026 — includes volatility after a platform move.",
+      he: "מטרה: פניות מקומיות להובלות ואחסון בירושלים. עבודה: SEO מקומי ומעקב ביטויים. מקור: Ubersuggest, 08.05.2025–31.10.2026 — כולל תנודתיות לאחר מעבר פלטפורמה.",
+      en: "Goal: local leads for moving and storage in Jerusalem. Work: local SEO and keyword tracking. Source: Ubersuggest, May 8, 2025–Oct 31, 2026 — includes volatility after a platform move.",
     },
     cardMetrics: [
       {

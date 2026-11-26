@@ -185,9 +185,18 @@ const PATCHES: Record<string, LinkPatch> = {
   },
 };
 
+const CTA_OR_GENERIC_ZONE =
+  /article-inline-cta-block|elementor-button-wrapper|elementor-form|elementor-price-table|adwrks-article-faq-block/i;
+
 function articleLeadHtml(html: string): string {
   const close = html.indexOf("</aside>");
   return close === -1 ? html.slice(0, 6000) : html.slice(0, close);
+}
+
+function bodyHtmlAfterLead(html: string): string {
+  const close = html.indexOf("</aside>");
+  if (close !== -1) return html.slice(close + "</aside>".length);
+  return html.slice(6000);
 }
 
 function hasHrefInLead(html: string, href: string): boolean {
@@ -195,8 +204,48 @@ function hasHrefInLead(html: string, href: string): boolean {
   return lead.includes(`href="${href}"`) || lead.includes(`href='${href}'`);
 }
 
+/** True when the href sits in lead or in body prose (not footer CTA / button / form blocks). */
+export function hasContextualServiceHref(html: string, href: string): boolean {
+  if (hasHrefInLead(html, href)) return true;
+  const body = bodyHtmlAfterLead(html);
+  const needles = [`href="${href}"`, `href='${href}'`];
+  for (const needle of needles) {
+    let idx = 0;
+    while ((idx = body.indexOf(needle, idx)) !== -1) {
+      const pStart = body.lastIndexOf("<p", idx);
+      const liStart = body.lastIndexOf("<li", idx);
+      const blockStart = Math.max(pStart, liStart);
+      if (blockStart === -1) {
+        idx += needle.length;
+        continue;
+      }
+      const pEnd = body.indexOf("</p>", idx);
+      const liEnd = body.indexOf("</li>", idx);
+      const blockEnd =
+        pEnd === -1 ? liEnd : liEnd === -1 ? pEnd : Math.min(pEnd, liEnd);
+      const block = body.slice(
+        blockStart,
+        blockEnd === -1 ? idx + needle.length + 80 : blockEnd + 5,
+      );
+      const regionBefore = body.slice(Math.max(0, blockStart - 900), blockStart);
+      const inButtonOnly = /elementor-button-link/i.test(block) && !/<p[\s>]/.test(block);
+      const inCtaShell =
+        CTA_OR_GENERIC_ZONE.test(regionBefore) &&
+        CTA_OR_GENERIC_ZONE.test(block) &&
+        !block.includes("adwrks-article-lead__text");
+      if (inButtonOnly || inCtaShell) {
+        idx += needle.length;
+        continue;
+      }
+      if (/<p[\s>]|<li[\s>]/.test(block)) return true;
+      idx += needle.length;
+    }
+  }
+  return false;
+}
+
 function buildSentence(patch: LinkPatch, html: string): string | null {
-  const lines = patch.links.filter((l) => !hasHrefInLead(html, l.href));
+  const lines = patch.links.filter((l) => !hasContextualServiceHref(html, l.href));
   if (lines.length === 0) return null;
   const anchors = lines.map((l) => `<a href="${l.href}">${l.label}</a>`).join(" · ");
   return `${patch.intro} ${anchors}.`;
