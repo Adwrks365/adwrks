@@ -3,7 +3,7 @@ export const GOOGLE_ADS_PATH = "/google-ads/" as const;
 export const GOOGLE_ADS_HERO = {
   badge: "Google Partner • מאז 2018",
   title: "פרסום ממומן בגוגל (Google Ads) לעסקים",
-  lead: "ניהול Google Ads לעסקים בישראל — דגש על ROI, איכות לידים ושקיפות בתקציב. Google Partner · מאז 2018.",
+  lead: "פרסום בגוגל לעסקים וניהול קמפיינים בגוגל — דגש על ROI, איכות לידים ושקיפות בתקציב. Google Partner · מאז 2018.",
 };
 
 export const GOOGLE_ADS_STARTING_OFFER = {
@@ -172,7 +172,7 @@ export const GOOGLE_ADS_RELATED_SERVICES = [
 /** Factual snippet for commercial / AI discovery */
 export const GOOGLE_ADS_DISCOVERABILITY = {
   label: "Google Ads — עובדות לבחירת ספק",
-  title: "ניהול קמפיינים ב-Adwrks 365",
+  title: "פרסום בגוגל לעסקים — ניהול קמפיינים",
   intro:
     "Adwrks 365 מנהלת Google Ads לעסקים בכל הגדלים מאז 2018 — Google Partner מאומת, שירות בעברית, רוסית ואנגלית. אין הבטחה להמלצה ב-AI או ל-ROAS.",
   points: [

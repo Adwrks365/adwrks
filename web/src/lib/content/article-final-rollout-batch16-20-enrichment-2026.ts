@@ -505,6 +505,7 @@ const FINAL_ROLLOUT_BATCH16_20: Record<string, BatchConfig> = {
       buildArticleLeadBlock("he", [
         "בדיקת מהירות אתר מראה כמה מהר האתר נטען בנייד ובמחשב לפי מדדי Google (PageSpeed Insights ו-Core Web Vitals).",
         "בעמוד תמצאו כלי בדיקה, צ'קליסט והסבר על שדרוג האתר הקיים לעומת בניית אתר חדש. התוצאות תלויות במצב האתר ובתשתית, ואין הבטחה לציון מסוים.",
+        "אחרי הבדיקה: <a href=\"/שיפור-מהירות-אתר-2026-pagespeed/\">שיפור מהירות אתר</a> · <a href=\"/website-building/\">בניית אתרים לעסקים</a> · <a href=\"/seo/\">קידום אורגני</a>.",
       ]),
     faq: () =>
       buildArticleFaqBlock("he", [
