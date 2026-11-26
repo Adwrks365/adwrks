@@ -4,6 +4,7 @@ import { PILOT_ARTICLE_PATHS } from "@/lib/content/article-pilot-enrichment-2026
 import { BATCH6_HE_PATHS } from "@/lib/content/article-batch6-enrichment-2026";
 import { BATCH7_EN_PATHS } from "@/lib/content/article-batch7-enrichment-2026";
 import { FINAL_ROLLOUT_PATHS } from "@/lib/content/article-final-rollout-enrichment-2026";
+import { AUTHORITY_LINKING_PATHS as AUTHORITY_LINKING_ARTICLE_PATHS } from "@/lib/content/article-authority-linking-2026";
 
 /** Static paths from enrichment modules — single place for rollout audits. */
 const BATCH2_HE = [
@@ -86,6 +87,9 @@ const MAP: Array<{ path: string; locale?: Locale; source: string }> = [
   })),
   ...POLISH_ONLY,
 ];
+
+/** Sprint link patches — not counted as content enrichment batches (see `getArticleEnrichmentSource`). */
+export const AUTHORITY_LINKING_PATHS = AUTHORITY_LINKING_ARTICLE_PATHS;
 
 export function getArticleEnrichmentSource(pagePath: string, locale: Locale): string | null {
   const key = normalizePath(pagePath);
