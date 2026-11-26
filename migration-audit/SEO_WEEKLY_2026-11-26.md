@@ -128,12 +128,15 @@ Meta מלא — ראו פלט `node web/scripts/patch-seo-weekly-2026-11-26.mjs`
 
 | בדיקה | תוצאה |
 |-------|--------|
-| `npm run build` (web/) | **PASS** (לאחר ניקוי `.next` ישן) |
-| `node scripts/qa-seo-weekly-2026-11-26.mjs` (localhost:3000) | **6/6 PASS** |
-| Canonical / H1 | ללא רגרסיה ב-6 URLs |
-| PageSpeed API / מחשבונים | לא נגעו |
+| `npx next build --webpack` (web/) | **PASS** (26.11 — Turbopack נכשל מקומית אחרי מחיקת `.next`) |
+| `QA_VISUAL=1 node scripts/qa-seo-weekly-2026-11-26.mjs` | **6/6 HTML + 6/6 hero visible** |
+| בדיקת Git `seo.json` | שינוי רק ב-6 URLs sprint (title/meta/og) |
+| `routable-path-index.json` | 272 paths, 0 חסרים מול `main` |
+| PageSpeed API / מחירים | לא נגעו |
 
-פלט QA: `migration-audit/seo-weekly-2026-11-26-qa.json`
+**תיקון ניסוח (לפני merge):** מחיר קידום ובדיקת מהירות — Meta טבעי; Google Ads — «פועלת מאז 2018 · Google Partner מאומת».
+
+פלט QA: `migration-audit/seo-weekly-2026-11-26-qa.json` (gitignored)
 
 ---
 
