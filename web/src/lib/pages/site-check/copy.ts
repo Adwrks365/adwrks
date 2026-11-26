@@ -1,3 +1,4 @@
+import type { SiteCheckAuditMetric } from "@/lib/site-check/types";
 import type { Locale } from "@/i18n/routing";
 import { SITE_CHECK_EN_PATH, SITE_CHECK_HE_PATH } from "./paths";
 
@@ -28,15 +29,18 @@ export type SiteCheckCopy = {
   /** Plain-language summary when no priority finding (clear scan). */
   clearBusinessSummary: string;
   recommendedStepLabel: string;
-  findingConsultBridge: string;
-  moreFindingsDetailsLabel: string;
+  findingExampleLabel: string;
+  findingRelatedLabel: string;
+  auditScoreTitle: string;
+  auditScoreNote: string;
+  unverifiedImages: string;
+  auditMetricLabels: Record<SiteCheckAuditMetric["id"], string>;
   whatWeCheckedHeading: string;
   pagesScannedUnit: string;
   scopeHeading: string;
   topicSeoTitle: string;
   topicLinksTitle: string;
   topicImagesTitle: string;
-  techDetailsHeading: string;
   metricContent: string;
   metricFindings: string;
   metricBroken: string;
@@ -55,6 +59,7 @@ export type SiteCheckCopy = {
   formTitleFailure: string;
   formBody: string;
   formBodyPromote: string;
+  formBodyFindings: string;
   formBodyClear: string;
   pageTypeHeading: string;
   businessInsightsHeading: string;
@@ -142,16 +147,27 @@ const HE: SiteCheckCopy = {
   clearBusinessSummary:
     "בבדיקה הראשונית האתר נראה מסודר: לא מצאנו בעיה בולטת שמונעת ממבקר להבין מה אתם מציעים או ליצור איתכם קשר. אפשר להמשיך לקדם את האתר בלי תיקון דחוף.",
   recommendedStepLabel: "הצעד המומלץ",
-  findingConsultBridge:
-    "בשיחה נעבור איתכם על מה שמצאנו ונמליץ מה כדאי לתקן קודם ומה שווה לקדם בגוגל.",
-  moreFindingsDetailsLabel: "ממצאים נוספים ופרטים טכניים",
+  findingExampleLabel: "פתיחת הדוגמה",
+  findingRelatedLabel: "פתיחת עמוד נוסף",
+  auditScoreTitle: "ציון בדיקת האתר",
+  auditScoreNote: "ממוצע הבדיקות שאומתו במדגם העמודים. ביצועי מובייל ונראות בגוגל נמדדים בנפרד.",
+  unverifiedImages: "בדקנו כתובות של תמונות, אך לא קיבלנו תשובה שמאפשרת לאמת את הטעינה.",
+  auditMetricLabels: {
+    title: "עמודים עם תגית כותרת ייחודית",
+    description: "עמודים עם תיאור מטא ייחודי",
+    h1: "עמודים עם כותרת ראשית (H1)",
+    indexing: "עמודים ללא סימון noindex",
+    links: "קישורים שהגיבו בהצלחה",
+    images: "תמונות שהגיבו בהצלחה",
+    purchase: "מוצרים עם אפשרות רכישה שזוהתה",
+    contact: "עמודים מרכזיים עם דרך לפנות",
+  },
   whatWeCheckedHeading: "מה נבדק באתר?",
   pagesScannedUnit: "עמודים",
   scopeHeading: "סיכום לפי נושא",
   topicSeoTitle: "כותרות והגדרות חיפוש",
   topicLinksTitle: "קישורים וכפתורי פעולה",
   topicImagesTitle: "תמונות מרכזיות",
-  techDetailsHeading: "פרטים טכניים ורשימת עמודים",
   metricContent: "עמודי תוכן שנבדקו",
   metricFindings: "ממצאים חשובים",
   metricBroken: "קישורים שבורים שאומתו",
@@ -171,10 +187,11 @@ const HE: SiteCheckCopy = {
   formBody: "",
   formBodyPromote:
     "אין בבדיקה הזו דירוג או מיקום בגוגל. בשיחה נמליץ במה להתמקד לפי השירותים או המוצרים שחשובים לכם למכור — לפי ההזדמנויות שעלו מהסריקה.",
+  formBodyFindings: "בשיחה נסביר איך לטפל בממצאים שמופיעים בדוח ונעזור לבחור אילו עמודים כדאי לשפר לפי יעדי העסק.",
   formBodyClear:
     "אין בבדיקה הזו דירוג או מיקום בגוגל. בשיחה נמליץ במה להתמקד לפי השירותים או המוצרים שחשובים לכם למכור — לפי ההזדמנויות שעלו מהסריקה.",
   pageTypeHeading: "סיכום לפי סוגי עמודים",
-  businessInsightsHeading: "תובנות לעסק",
+  businessInsightsHeading: "ממצאים נוספים",
   visibilityCardTitle: "איך האתר נראה בחיפוש?",
   visibilityCardLead:
     "על בסיס העמודים שנפתחו בסריקה — עד שלושה ביטויי חיפוש לעריכה. בדיקת נראות משלימה את השאלה «מה לשפר»; זו לא תחליף לסריקה הראשונית.",
@@ -299,16 +316,27 @@ const EN: SiteCheckCopy = {
   clearBusinessSummary:
     "In this first check the site looks orderly: we did not find a standout issue that would stop someone from understanding your offer or getting in touch. You can keep growing visibility without an urgent fix.",
   recommendedStepLabel: "Recommended next step",
-  findingConsultBridge:
-    "On a call we’ll walk through what we found and suggest what to fix first and what’s worth growing on Google.",
-  moreFindingsDetailsLabel: "More findings and technical detail",
+  findingExampleLabel: "Open example",
+  findingRelatedLabel: "Open another page",
+  auditScoreTitle: "Website check score",
+  auditScoreNote: "Average of verified checks on sampled pages. Mobile performance and Google visibility are measured separately.",
+  unverifiedImages: "We checked image URLs but did not get a response that confirmed loading.",
+  auditMetricLabels: {
+    title: "Pages with a unique title tag",
+    description: "Pages with a unique meta description",
+    h1: "Pages with a main heading (H1)",
+    indexing: "Pages without a noindex directive",
+    links: "Links that responded successfully",
+    images: "Images that responded successfully",
+    purchase: "Products with a detected purchase option",
+    contact: "Key pages with a contact option",
+  },
   whatWeCheckedHeading: "What did we check on the site?",
   pagesScannedUnit: "pages",
   scopeHeading: "By topic",
   topicSeoTitle: "Titles and search snippets",
   topicLinksTitle: "Links and action buttons",
   topicImagesTitle: "Leading images",
-  techDetailsHeading: "Technical details and page list",
   metricContent: "Content pages opened",
   metricFindings: "Priority findings",
   metricBroken: "Broken links verified",
@@ -328,10 +356,11 @@ const EN: SiteCheckCopy = {
   formBody: "",
   formBodyPromote:
     "This check does not include Google rankings or positions. On a call we'll suggest where to focus based on the products or services you want to sell — using the opportunities from this scan.",
+  formBodyFindings: "On a call we can explain how to address the findings in this report and help prioritize pages based on your goals.",
   formBodyClear:
     "This check does not include Google rankings or positions. On a call we'll suggest where to focus based on the products or services you want to sell — using the opportunities from this scan.",
   pageTypeHeading: "Summary by page types",
-  businessInsightsHeading: "Insights for your business",
+  businessInsightsHeading: "Additional findings",
   visibilityCardTitle: "How does your site show in search?",
   visibilityCardLead:
     "Based on pages we opened — up to three phrases you can edit. Visibility complements the site scan; it is not a replacement.",

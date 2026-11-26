@@ -1,5 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { buildAuditScore } from "./audit-score";
+import { buildBusinessInsights } from "./business-insights";
 import { presentFindings, rankIssues, type AnalyzablePage } from "./findings";
 import { parsePageHtml, phonesInText } from "./parse-page";
 import { buildSiteCheckReport } from "./report";
@@ -133,7 +135,7 @@ test("duplicate titles are one finding and the lead note matches the screen", ()
     url: "https://example.co.il/service/",
     label: "שירות",
     role: "inner",
-    parsed: { ...home.parsed, title: "שירות" },
+    parsed: { ...home.parsed, title: "שירות", metaDescription: "פרטים על השירות" },
   });
   home.parsed = { ...home.parsed, title: "שירות" };
   const findings = presentFindings(rankIssues([home, service]), "he");
@@ -173,11 +175,11 @@ test("duplicate titles are one finding and the lead note matches the screen", ()
     storeSnapshot: null,
     suggestedSearchPhrases: [],
   });
-  assert.match(report.scopeLine, /דף הבית/);
+  assert.match(report.scopeLine, /2 מתוך 3/);
   assert.equal(report.topicSummaries.length, 3);
   assert.equal(report.metrics.contentScanned, 2);
   assert.match(report.leadNote, /כתובת האתר: example\.co\.il/);
-  assert.match(report.leadNote, new RegExp(findings[0].observation));
+  assert.ok(report.leadNote.includes(findings[0].observation));
   assert.match(report.leadNote, new RegExp(findings[0].why));
   assert.doesNotMatch(report.leadNote, /תכנית עבודה/);
   assert.equal(report.findings.length, 1);
@@ -212,4 +214,40 @@ test("contact phones need contact context", () => {
     "https://example.co.il/",
   );
   assert.deepEqual(parsed.contactPhones, ["0795599449"]);
+});
+
+test("title tags have separate evidence and an action from missing main headings", () => {
+  const pages = [
+    page({ url: "https://example.co.il/", label: "Homepage" }),
+    page({ url: "https://example.co.il/products/", label: "Products", role: "inner" }),
+  ];
+  pages[1]!.parsed.h1 = [];
+  pages[1]!.parsed.metaDescription = "Products in stock";
+  const ranked = rankIssues(pages);
+  const insights = buildBusinessInsights({ locale: "he", ranked, findings: presentFindings(ranked, "he") });
+  assert.match(insights[0]!.headline, /Title/);
+  assert.match(insights[0]!.recommendedStep, /תגית כותרת ייחודית/);
+  assert.equal(insights[0]!.exampleUrl, pages[0]!.url);
+  assert.equal(insights[0]!.relatedPageUrl, pages[1]!.url);
+  assert.doesNotMatch(insights[0]!.detail, /https/);
+  assert.match(insights[1]!.headline, /H1/);
+  assert.equal(insights[1]!.exampleUrl, pages[1]!.url);
+});
+
+test("audit score excludes unverified images and counts matching titles as non-unique", () => {
+  const pages = [
+    page({ url: "https://example.co.il/", label: "Homepage" }),
+    page({ url: "https://example.co.il/products/", label: "Products", role: "inner" }),
+  ];
+  const score = buildAuditScore({
+    pages,
+    linksVerifiedOk: 1,
+    brokenLinksVerified: 1,
+    images: { imagesProbed: 1, pagesWithImages: 1, loadedOk: 0, broken: 0, unverified: 1 },
+    store: null,
+  });
+  assert.equal(score?.score, 58);
+  assert.deepEqual(score.metrics.find(({ id }) => id === "title"), { id: "title", passed: 0, verified: 2 });
+  assert.deepEqual(score.metrics.find(({ id }) => id === "links"), { id: "links", passed: 1, verified: 2 });
+  assert.equal(score.metrics.some(({ id }) => id === "images"), false);
 });

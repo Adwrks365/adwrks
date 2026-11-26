@@ -29,6 +29,7 @@ export type RankedIssue = {
   count?: number;
   otherLabel?: string;
   exampleUrl?: string;
+  relatedPageUrl?: string;
 };
 
 const PRIORITY: IssueType[] = [
@@ -72,6 +73,30 @@ function isFindingTarget(page: AnalyzablePage): boolean {
   if (isSystemOrPolicyPage(page.url, page.label)) return false;
   if (isCommerceSystemPage(page.url, page.label)) return false;
   return isImportantPage(page);
+}
+
+export function isSeoAuditPage(page: AnalyzablePage): boolean {
+  return (
+    page.readable &&
+    !page.truncated &&
+    !isCommerceSystemPage(page.url, page.label) &&
+    !isSystemOrPolicyPage(page.url, page.label)
+  );
+}
+
+export function groupSeoField(
+  pages: readonly AnalyzablePage[],
+  field: "title" | "metaDescription",
+): AnalyzablePage[][] {
+  const groups = new Map<string, AnalyzablePage[]>();
+  for (const page of pages) {
+    const value = page.parsed[field].trim().toLowerCase();
+    if (!value) continue;
+    const group = groups.get(value) ?? [];
+    group.push(page);
+    groups.set(value, group);
+  }
+  return [...groups.values()];
 }
 
 function hasNoindex(page: AnalyzablePage): boolean {
@@ -153,55 +178,47 @@ export function rankIssues(
     if (noindex) issues.push({ type: "noindex", pageUrl: noindex.url, pageLabel: noindex.label });
   }
 
-  const missingTitle = homeFirst.find((page) => !page.parsed.title);
+  const missingTitle = homeFirst.find((page) => isSeoAuditPage(page) && !page.parsed.title.trim());
   if (missingTitle) {
     issues.push({ type: "missing-title", pageUrl: missingTitle.url, pageLabel: missingTitle.label });
   }
 
-  const importantTitled = usable.filter((page) => page.parsed.title && isFindingTarget(page));
-  const titleGroups = new Map<string, AnalyzablePage[]>();
-  for (const page of importantTitled) {
-    const key = page.parsed.title.trim().toLowerCase();
-    const group = titleGroups.get(key) ?? [];
-    group.push(page);
-    titleGroups.set(key, group);
-  }
-  const duplicateGroup = [...titleGroups.values()].find((group) => group.length >= 2);
+  const seoPages = usable.filter(isSeoAuditPage);
+  const duplicateGroup = groupSeoField(seoPages, "title").find((group) => group.length >= 2);
   if (duplicateGroup) {
-    const subject = duplicateGroup.find((page) => page.role === "inner") ?? duplicateGroup[0]!;
+    const [subject, other] = duplicateGroup;
     issues.push({
       type: "duplicate-title",
-      pageUrl: subject.url,
-      pageLabel: subject.label,
+      pageUrl: subject!.url,
+      pageLabel: subject!.label,
       count: duplicateGroup.length,
-      otherLabel: duplicateGroup[1]?.label,
+      relatedPageUrl: other!.url,
     });
   }
 
-  const importantDescribed = usable.filter(
-    (page) => page.parsed.metaDescription.trim() && isFindingTarget(page),
-  );
-  const descGroups = new Map<string, AnalyzablePage[]>();
-  for (const page of importantDescribed) {
-    const key = page.parsed.metaDescription.trim().toLowerCase();
-    const group = descGroups.get(key) ?? [];
-    group.push(page);
-    descGroups.set(key, group);
-  }
-  const dupDesc = [...descGroups.values()].find((group) => group.length >= 2);
+  const dupDesc = groupSeoField(seoPages, "metaDescription").find((group) => group.length >= 2);
   if (dupDesc) {
-    const subject = dupDesc.find((page) => page.role === "inner") ?? dupDesc[0]!;
+    const [subject, other] = dupDesc;
     issues.push({
       type: "duplicate-description",
-      pageUrl: subject.url,
-      pageLabel: subject.label,
+      pageUrl: subject!.url,
+      pageLabel: subject!.label,
       count: dupDesc.length,
-      otherLabel: dupDesc[1]?.label,
+      relatedPageUrl: other!.url,
     });
   }
 
-  const missingH1 = homeFirst.find((page) => page.parsed.h1.length === 0 && isFindingTarget(page));
-  if (missingH1) issues.push({ type: "missing-h1", pageUrl: missingH1.url, pageLabel: missingH1.label });
+  const missingH1 = homeFirst.filter((page) => isSeoAuditPage(page) && page.parsed.h1.length === 0);
+  if (missingH1.length > 0) {
+    const [example, another] = missingH1;
+    issues.push({
+      type: "missing-h1",
+      pageUrl: example!.url,
+      pageLabel: example!.label,
+      count: missingH1.length,
+      relatedPageUrl: another?.url,
+    });
+  }
 
   const phone = innerFirst.find(
     (page) =>
@@ -247,7 +264,7 @@ export function rankIssues(
   }
 
   const missingDescription = homeFirst.find(
-    (page) => isFindingTarget(page) && !page.parsed.metaDescription.trim(),
+    (page) => isSeoAuditPage(page) && !page.parsed.metaDescription.trim(),
   );
   if (missingDescription) {
     issues.push({
@@ -289,14 +306,9 @@ const COPY = {
       why: "בלי כותרת, קשה לגולש ולגוגל להבין במה העמוד עוסק.",
     },
     "duplicate-title": {
-      observation: (count: number, other?: string) =>
-        count > 2
-          ? `ל־${count} עמודים חשובים יש אותה כותרת. לדוגמה: «${other ?? ""}».`
-          : other
-            ? `כותרת העמוד זהה לכותרת של «${other}».`
-            : "לכמה עמודים חשובים יש אותה כותרת.",
-      step: "תנו לכל עמוד שירות כותרת שונה שמזכירה בדיוק את מה שמוצע שם.",
-      why: "כששני עמודים נראים אותו דבר בתוצאות, קשה יותר להגיע לשירות הנכון.",
+      observation: (count: number) => `אותה תגית כותרת (Title) מופיעה ב־${count} עמודים.`,
+      step: "כתבו לכל עמוד תגית כותרת ייחודית שמתארת את המוצר, הקטגוריה או השירות שבאותו עמוד.",
+      why: "כותרות מובחנות עוזרות לגולשים לזהות את העמוד הרלוונטי בתוצאות החיפוש.",
     },
     "duplicate-description": {
       observation: (count: number) =>
@@ -377,14 +389,9 @@ const COPY = {
       why: "Without a title, visitors and Google have less to go on about what the page offers.",
     },
     "duplicate-title": {
-      observation: (count: number, other?: string) =>
-        count > 2
-          ? `${count} important pages share the same title. For example: «${other ?? ""}».`
-          : other
-            ? `The page title is the same as «${other}».`
-            : "Several important pages share the same title.",
-      step: "Give each service page its own title that says exactly what is offered there.",
-      why: "When two pages look the same in search, it's harder to reach the right service.",
+      observation: (count: number) => `${count} pages share the same title tag.`,
+      step: "Give each page a unique title tag that describes its product, category, or service.",
+      why: "Distinct titles help visitors identify the relevant page in search results.",
     },
     "duplicate-description": {
       observation: (count: number) =>
@@ -447,7 +454,7 @@ export function presentFindings(issues: RankedIssue[], locale: SiteCheckLocale):
       return {
         pageLabel: issue.pageLabel,
         pageUrl: issue.pageUrl,
-        observation: block.observation(issue.count ?? 2, issue.otherLabel),
+        observation: block.observation(issue.count ?? 2),
         recommendedStep: block.step,
         why: block.why,
       };
