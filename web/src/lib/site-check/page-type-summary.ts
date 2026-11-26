@@ -92,12 +92,7 @@ export function formatPageTypeSummary(
 
 export type StorePageAudit = StoreSnapshot;
 
-function summarizeChecked(rows: readonly { label: string }[], max = 5): string {
-  return rows
-    .slice(0, max)
-    .map((p) => p.label.replace(/\s+-\s+.*$/, "").trim())
-    .join("; ");
-}
+
 
 export function auditStorePages(pages: readonly AnalyzablePage[], locale: SiteCheckLocale): StorePageAudit {
   const products = pages.filter((p) => p.readable && p.role !== "home" && p.commerceKind === "product");
@@ -174,44 +169,4 @@ export function auditStorePages(pages: readonly AnalyzablePage[], locale: SiteCh
     coverageNote,
     recommendationBasis,
   };
-}
-
-export function storeAuditLines(locale: SiteCheckLocale, audit: StorePageAudit): string[] {
-  if (audit.productsScanned === 0 && audit.categoriesScanned === 0) return [];
-
-  const lines: string[] = [];
-  const productNames = summarizeChecked(audit.productsChecked);
-  const categoryNames = summarizeChecked(audit.categoriesChecked);
-
-  if (locale === "en") {
-    if (audit.categoriesScanned > 0) {
-      lines.push(
-        `Categories opened (${audit.categoriesScanned}): ${categoryNames || "see URLs in details"}. ${audit.categoriesMissingH1} without H1 in HTML.`,
-      );
-    }
-    if (audit.productsScanned > 0) {
-      lines.push(
-        `Products opened (${audit.productsScanned}): ${productNames || "see URLs"}. ${audit.productsWithPurchaseCta} with purchase/add-to-cart; ${audit.productsMissingH1} without H1.`,
-      );
-    }
-    if (audit.navEvidence) lines.push(audit.navEvidence);
-    if (audit.coverageNote) lines.push(audit.coverageNote);
-    lines.push(audit.recommendationBasis ?? "");
-    return lines.filter(Boolean);
-  }
-
-  if (audit.categoriesScanned > 0) {
-    lines.push(
-      `קטגוריות שנבדקו (${audit.categoriesScanned}): ${categoryNames || "ראו רשימת עמודים"}. ב־${audit.categoriesMissingH1} לא נמצאה H1 ב-HTML.`,
-    );
-  }
-  if (audit.productsScanned > 0) {
-    lines.push(
-      `מוצרים שנבדקו (${audit.productsScanned}): ${productNames || "ראו רשימה"}. ב־${audit.productsWithPurchaseCta} יש כפתור רכישה/הוספה לסל; ב־${audit.productsMissingH1} ללא H1.`,
-    );
-  }
-  if (audit.navEvidence) lines.push(audit.navEvidence);
-  if (audit.coverageNote) lines.push(audit.coverageNote);
-  if (audit.recommendationBasis) lines.push(audit.recommendationBasis);
-  return lines;
 }

@@ -19,13 +19,13 @@ export function imagesTopicLine(
       ? {
           detail: partialScan
             ? "Hero image checks did not run — scan ended early."
-            : "No leading images were found to check.",
+            : "Image loading was not verified in this scan.",
           tone: "skipped",
         }
       : {
           detail: partialScan
             ? "בדיקת תמונות לא הסתיימה — הסריקה נעצרה מוקדם."
-            : "לא נמצאו תמונות מרכזיות לבדיקה.",
+            : "טעינת התמונות לא אומתה בסריקה הזו.",
           tone: "skipped",
         };
   }

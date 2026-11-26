@@ -1,37 +1,22 @@
-import type { AnalyzablePage } from "./findings";
-import { isCommerceSystemPage, isSystemOrPolicyPage } from "./content-url";
+import { groupSeoField, isSeoAuditPage, type AnalyzablePage } from "./findings";
 import { imagesTopicLine } from "./image-probe-stats";
-import type { ImageProbeStats } from "./types";
-import type { SiteCheckLocale, SiteCheckTopicSummary, SiteCheckTopicTone } from "./types";
-
-function isImportantForSeo(page: AnalyzablePage): boolean {
-  if (page.role === "home" || page.isEntry) return !isCommerceSystemPage(page.url, page.label);
-  if (isSystemOrPolicyPage(page.url, page.label)) return false;
-  if (isCommerceSystemPage(page.url, page.label)) return false;
-  return true;
-}
+import type { ImageProbeStats, SiteCheckLocale, SiteCheckTopicSummary, SiteCheckTopicTone } from "./types";
 
 function seoSubtitle(
   locale: SiteCheckLocale,
   pages: AnalyzablePage[],
   partialScan: boolean,
 ): { detail: string; tone: SiteCheckTopicTone } {
-  const readable = pages.filter((page) => page.readable && isImportantForSeo(page));
+  const readable = pages.filter(isSeoAuditPage);
   if (readable.length === 0) {
     return locale === "en"
       ? { detail: "Could not read enough HTML to check titles and meta.", tone: "skipped" }
       : { detail: "לא ניתן לקרוא מספיק תוכן לבדיקת כותרות ומטא.", tone: "skipped" };
   }
 
-  const titles = readable.map((page) => page.parsed.title.trim().toLowerCase()).filter(Boolean);
-  const titleSet = new Set(titles);
-  const dupTitles = titles.length > titleSet.size;
+  const dupTitles = groupSeoField(readable, "title").some((group) => group.length > 1);
 
-  const descs = readable
-    .map((page) => page.parsed.metaDescription.trim().toLowerCase())
-    .filter(Boolean);
-  const descSet = new Set(descs);
-  const dupDesc = descs.length >= 2 && descSet.size < descs.length;
+  const dupDesc = groupSeoField(readable, "metaDescription").some((group) => group.length > 1);
 
   const missingTitle = readable.some((page) => !page.parsed.title.trim());
   const missingDesc = readable.some((page) => !page.parsed.metaDescription.trim());
@@ -52,8 +37,8 @@ function seoSubtitle(
 
   if (dupTitles) {
     return locale === "en"
-      ? { detail: "Duplicate page titles on important pages.", tone: "warn" }
-      : { detail: "נמצאו כותרות עמוד כפולות בעמודים חשובים.", tone: "warn" };
+      ? { detail: "Matching title tags were found.", tone: "warn" }
+      : { detail: "נמצאו תגיות כותרת (Title) זהות.", tone: "warn" };
   }
   if (dupDesc) {
     return locale === "en"

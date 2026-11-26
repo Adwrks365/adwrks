@@ -43,6 +43,7 @@ export type BusinessInsight = {
   recommendedStep: string;
   why: string;
   exampleUrl?: string;
+  relatedPageUrl?: string;
   affectedPages?: number;
   pointFix: boolean;
 };
@@ -105,6 +106,17 @@ export type SiteCheckSummaryMetrics = {
   brokenLinksVerified: number;
 };
 
+export type SiteCheckAuditMetric = {
+  id: "title" | "description" | "h1" | "indexing" | "links" | "images" | "purchase" | "contact";
+  passed: number;
+  verified: number;
+};
+
+export type SiteCheckAuditScore = {
+  score: number;
+  metrics: SiteCheckAuditMetric[];
+};
+
 export type SiteCheckReport = {
   ok: true;
   inputUrl: string;
@@ -115,6 +127,7 @@ export type SiteCheckReport = {
   /** Short list of checks run (technical details). */
   checksLine: string;
   topicSummaries: SiteCheckTopicSummary[];
+  auditScore: SiteCheckAuditScore | null;
   imageProbeStats: ImageProbeStats;
   siteKind: import("./site-kind").SiteKind;
   pageTypeSummary: string;

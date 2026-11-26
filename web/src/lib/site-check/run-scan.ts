@@ -12,7 +12,6 @@ import {
   auditStorePages,
   countPageTypes,
   formatPageTypeSummary,
-  storeAuditLines,
 } from "./page-type-summary";
 import { suggestSearchPhrases } from "./search-phrase-suggest";
 import { attachCommerceKind, extractItemProductUrls } from "./store-page-classify";
@@ -168,6 +167,18 @@ export async function runSiteCheck(
     isHome: boolean;
   }> = [];
   const failedUrls: string[] = [];
+  let duplicatePlannedPages = 0;
+
+  function addLoadedPage(page: (typeof loaded)[number]): boolean {
+    const existing = loaded.find((item) => samePage(item.url, page.url));
+    if (existing) {
+      existing.isHome ||= page.isHome;
+      existing.isEntry ||= page.isEntry;
+      return false;
+    }
+    loaded.push(page);
+    return true;
+  }
 
   for (let i = 0; i < plannedUrls.length; i += 1) {
     const planned = plannedUrls[i]!;
@@ -178,7 +189,7 @@ export async function runSiteCheck(
       failedUrls.push(planned);
       continue;
     }
-    loaded.push({
+    const added = addLoadedPage({
       url: row.url,
       html: row.html,
       headerRobots: row.headerRobots,
@@ -186,6 +197,7 @@ export async function runSiteCheck(
       isEntry,
       isHome,
     });
+    if (!added) duplicatePlannedPages += 1;
   }
 
   if (loaded.length === 0) {
@@ -232,7 +244,7 @@ export async function runSiteCheck(
       const href = pendingItemUrls[i]!;
       const extra = await fetchPublicHtml(href, { timeoutMs: 10_000, retries: 1 });
       if (!extra.ok) continue;
-      loaded.push({
+      addLoadedPage({
         url: extra.url,
         html: extra.html,
         headerRobots: extra.headerRobots,
@@ -248,11 +260,13 @@ export async function runSiteCheck(
   const toProbe = pickLinksToProbe(homeUrl, probeParsed.links, MAX_LINK_PROBES, siteKind);
   const brokenLinks: { url: string; label: string; fromLabel: string }[] = [];
   let linkProbesRun = 0;
+  let linksVerifiedOk = 0;
 
   for (const href of toProbe) {
     if (Date.now() - started > SCAN_BUDGET_MS) break;
     linkProbesRun += 1;
     const probe = await probeInternalLink(href);
+    if (probe === "ok") linksVerifiedOk += 1;
     if (probe !== "broken") continue;
     let label = href;
     try {
@@ -339,15 +353,12 @@ export async function runSiteCheck(
   const pageTypeSummary = formatPageTypeSummary(locale, siteKind, pageTypeCounts);
   const suggestedSearchPhrases = suggestSearchPhrases(analyzable, siteKind, locale);
   const storeAudit = siteKind === "store" ? auditStorePages(analyzable, locale) : null;
-  const storeLines = storeAudit ? storeAuditLines(locale, storeAudit) : [];
   const businessInsights = buildBusinessInsights({
     locale,
-    siteKind,
-    findings: findings.slice(0, 3),
+    findings,
     ranked: rankedTop,
-    storeAuditLines: storeLines,
   });
-  const contentPlanned = siteKind === "store" ? MAX_PAGES : plannedUrls.length;
+  const contentPlanned = siteKind === "store" ? MAX_PAGES : plannedUrls.length - duplicatePlannedPages;
   const contentScanned = analyzable.length;
   const partialScan = timedOut || failedUrls.length > 0 || contentScanned < contentPlanned;
   const durationMs = Date.now() - started;
@@ -374,6 +385,7 @@ export async function runSiteCheck(
     contentScanned,
     brokenLinksVerified: brokenLinks.length,
     linkProbesRun,
+    linksVerifiedOk,
     imageProbesRun,
     brokenImagesCount: brokenImages.length,
     imageProbeStats: imageStats,

@@ -1,3 +1,4 @@
+import { buildAuditScore } from "./audit-score";
 import type { AnalyzablePage } from "./findings";
 import { whyLabel } from "./findings";
 import { displayUrlReadable } from "./display-url";
@@ -134,7 +135,8 @@ export function buildLeadNote(input: {
     lines.push(he ? "תובנות לעסק:" : "Business insights:");
     input.businessInsights.forEach((insight, index) => {
       lines.push(`${index + 1}. ${insight.headline}`);
-      lines.push(insight.detail);
+      if (insight.detail) lines.push(insight.detail);
+      if (insight.relatedPageUrl) lines.push(insight.relatedPageUrl);
       lines.push(
         he ? `הצעד המומלץ: ${insight.recommendedStep}` : `Recommended: ${insight.recommendedStep}`,
       );
@@ -197,6 +199,7 @@ export function buildSiteCheckReport(input: {
   contentScanned: number;
   brokenLinksVerified: number;
   linkProbesRun: number;
+  linksVerifiedOk?: number;
   imageProbesRun: number;
   imageProbeStats: ImageProbeStats;
   brokenImagesCount: number;
@@ -246,6 +249,13 @@ export function buildSiteCheckReport(input: {
     imageProbeStats: input.imageProbeStats,
     brokenLinksVerified: input.brokenLinksVerified,
   });
+  const auditScore = buildAuditScore({
+    pages: input.analyzable,
+    linksVerifiedOk: input.linksVerifiedOk ?? 0,
+    brokenLinksVerified: input.brokenLinksVerified,
+    images: input.imageProbeStats,
+    store: input.storeSnapshot,
+  });
   const inputLabel = displayUrlReadable(input.inputUrl);
   const reportBase = {
     ok: true as const,
@@ -255,6 +265,7 @@ export function buildSiteCheckReport(input: {
     scopeLine: scope,
     checksLine: checks,
     topicSummaries,
+    auditScore,
     imageProbeStats: input.imageProbeStats,
     siteKind: input.siteKind,
     pageTypeSummary: input.pageTypeSummary,
