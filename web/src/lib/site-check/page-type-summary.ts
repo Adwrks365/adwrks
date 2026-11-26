@@ -77,8 +77,12 @@ export function formatPageTypeSummary(
     if (counts.category) parts.push(`${counts.category} עמודי קטגוריה`);
     if (counts.product) parts.push(`${counts.product} עמודי מוצר`);
   }
-  if (counts.service) parts.push(`${counts.service} עמודי שירות`);
-  if (counts.contact) parts.push(`${counts.contact} עמודי יצירת קשר`);
+  if (counts.service) {
+    parts.push(counts.service === 1 ? "עמוד שירות אחד" : `${counts.service} עמודי שירות`);
+  }
+  if (counts.contact) {
+    parts.push(counts.contact === 1 ? "עמוד יצירת קשר אחד" : `${counts.contact} עמודי יצירת קשר`);
+  }
   if (counts.other) parts.push(`${counts.other} עמודים נוספים`);
 
   return parts.length

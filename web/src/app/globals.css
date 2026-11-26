@@ -15100,6 +15100,42 @@ body.contextual-popup-open {
   padding-top: 0.75rem;
 }
 
+.site-check-what-checked {
+  margin: 0.85rem 0 0;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 0.35rem 0.75rem 0.65rem;
+  background: #f8fafc;
+}
+
+.site-check-what-checked > summary {
+  color: #0f172a;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 800;
+  list-style: none;
+  margin-bottom: 0.35rem;
+  padding: 0.35rem 0;
+}
+
+.site-check-what-checked > summary::-webkit-details-marker {
+  display: none;
+}
+
+.site-check-speed-fallback {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.site-check-speed-no-score {
+  color: #9a3412;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  margin: 0;
+}
+
 .site-check-tech-details {
   border-top: 1px solid #e2e8f0;
   margin-top: 0.65rem;
