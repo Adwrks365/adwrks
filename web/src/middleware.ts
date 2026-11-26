@@ -37,6 +37,10 @@ export function middleware(request: NextRequest) {
     return fastGone();
   }
 
+  if (pathname === "/site-check-sample" || pathname.startsWith("/site-check-sample/")) {
+    return NextResponse.next();
+  }
+
   if (isRoutablePathname(pathname)) {
     const response = intlMiddleware(request);
     return applyProductionRobots(request, response);

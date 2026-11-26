@@ -1,6 +1,7 @@
 import type { LeadAttribution } from "@/lib/email/contact-form-attribution";
 import { sanitizeSubjectPart } from "@/lib/email/contact-form-attribution";
 import { resolveFormLabel } from "@/lib/email/contact-form-ids";
+import { messageIncludesVisibilityDemoData } from "@/lib/search-visibility/visibility-demo-marker";
 
 export type LeadEmailInput = {
   formId: string;
@@ -50,7 +51,7 @@ function fieldRow(label: string, value: string, linkPrefix?: "tel" | "mailto"): 
       ? `<a href="tel:${escapeAttr(value.replace(/[^\d+]/g, ""))}" style="color:#0369a1;text-decoration:none;font-weight:600;">${safe}</a>`
       : linkPrefix === "mailto"
         ? `<a href="mailto:${escapeAttr(value)}" style="color:#0369a1;text-decoration:none;font-weight:600;">${safe}</a>`
-        : `<span style="color:#0f172a;font-weight:600;">${safe}</span>`;
+        : `<span style="color:#0f172a;font-weight:600;white-space:pre-line;">${safe}</span>`;
 
   return `
     <tr>
@@ -76,7 +77,8 @@ export function buildLeadEmail(input: LeadEmailInput): { subject: string; text: 
   const formLabel = input.formLabel || resolveFormLabel(input.formId);
   const pageName = sanitizeSubjectPart(input.attribution.pageTitle, 40);
 
-  const subject = `ליד חדש | Adwrks 365 | ${sanitizeSubjectPart(formLabel, 36)} | ${pageName}`;
+  const visibilityDemo = messageIncludesVisibilityDemoData(input.message);
+  const subject = `ליד חדש | Adwrks 365 | ${sanitizeSubjectPart(formLabel, 36)}${visibilityDemo ? " | נראות: דוגמה" : ""} | ${pageName}`;
 
   const clientRows: Array<[string, string, "tel" | "mailto" | undefined]> = [
     ["שם", input.name, undefined],
@@ -89,13 +91,18 @@ export function buildLeadEmail(input: LeadEmailInput): { subject: string; text: 
     "Adwrks 365 — ליד חדש מהאתר",
     formLabel,
     "",
+  ];
+  if (visibilityDemo) {
+    textLines.push("*** נראות בחיפוש: נתוני דוגמה בלבד — לא דירוג חי ***", "");
+  }
+  textLines.push(
     "פרטי הלקוח",
     ...clientRows.map(([label, value]) => `${label}: ${value}`),
     "",
     "מקור הליד",
     `עמוד: ${input.attribution.pageTitle}`,
     `קישור: ${input.attribution.canonicalUrl}`,
-  ];
+  );
   textLines.push(
     "",
     "פרטי שליחה",
@@ -105,6 +112,13 @@ export function buildLeadEmail(input: LeadEmailInput): { subject: string; text: 
   );
 
   const clientTableRows = clientRows.map(([label, value, link]) => fieldRow(label, value, link)).join("");
+  const demoBanner = visibilityDemo
+    ? `<tr>
+            <td style="padding:12px 24px;background-color:#fef3c7;border-bottom:1px solid #fcd34d;">
+              <p style="margin:0;font-size:14px;font-weight:700;color:#92400e;">נראות בחיפוש: נתוני דוגמה בלבד — לא דירוג חי בגוגל</p>
+            </td>
+          </tr>`
+  : "";
 
   const html = `<!DOCTYPE html>
 <html lang="he" dir="rtl">
@@ -125,6 +139,7 @@ export function buildLeadEmail(input: LeadEmailInput): { subject: string; text: 
               <span style="display:inline-block;padding:8px 14px;background-color:#e0f2fe;color:#0369a1;border-radius:999px;font-size:14px;font-weight:700;line-height:1.2;">${escapeHtml(formLabel)}</span>
             </td>
           </tr>
+          ${demoBanner}
           <tr>
             <td style="padding:8px 8px 4px;">
               <p style="margin:16px 16px 8px;font-size:15px;font-weight:700;color:#0f172a;">פרטי הלקוח</p>

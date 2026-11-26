@@ -21,6 +21,10 @@ function getSecret(): string | null {
   if (voter) return voter;
   const apiKey = process.env.PAGESPEED_API_KEY?.trim();
   if (apiKey) return `psi-usage:${apiKey}`;
+  if (process.env.VERCEL_ENV === "preview") {
+    const host = process.env.VERCEL_URL?.trim();
+    if (host) return `psi-preview:${host}`;
+  }
   if (process.env.NODE_ENV !== "production") {
     return "dev-pagespeed-usage-secret";
   }
@@ -73,11 +77,25 @@ export async function readPageSpeedUsage(): Promise<PageSpeedUsageState> {
   const limit = PAGESPEED_DAILY_LIMIT;
 
   if (!secret) {
+    console.error("[pagespeed] quota secret missing", {
+      vercelEnv: process.env.VERCEL_ENV,
+      nodeEnv: process.env.NODE_ENV,
+    });
     return { limit, remaining: 0, used: limit };
   }
 
-  const cookieStore = await cookies();
-  const raw = cookieStore.get(COOKIE_NAME)?.value;
+  let raw: string | undefined;
+  try {
+    raw = (await cookies()).get(COOKIE_NAME)?.value;
+  } catch (error) {
+    console.warn("[pagespeed] quota cookie read failed", {
+      message: error instanceof Error ? error.message : "unknown",
+    });
+    if (process.env.VERCEL_ENV === "preview") {
+      return { limit, remaining: limit, used: 0 };
+    }
+    return { limit, remaining: limit, used: 0 };
+  }
   if (!raw) {
     return { limit, remaining: limit, used: 0 };
   }
@@ -111,17 +129,22 @@ export async function consumePageSpeedCheck(): Promise<PageSpeedUsageState | nul
     count: current.used + 1,
   };
 
-  const cookieStore = await cookies();
   try {
-    cookieStore.set(COOKIE_NAME, encodeUsage(next, secret), {
+    (await cookies()).set(COOKIE_NAME, encodeUsage(next, secret), {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: "lax",
       maxAge: COOKIE_MAX_AGE,
       path: "/",
     });
-  } catch {
-    /* Cookie write may fail in some contexts; still honor in-memory count for this request. */
+  } catch (error) {
+    console.warn("[pagespeed] quota cookie not persisted", {
+      message: error instanceof Error ? error.message : "unknown",
+      vercelEnv: process.env.VERCEL_ENV,
+    });
+    if (process.env.VERCEL_ENV === "preview") {
+      /* Preview: allow this check; quota re-syncs when cookie write works. */
+    }
   }
 
   const used = next.count;

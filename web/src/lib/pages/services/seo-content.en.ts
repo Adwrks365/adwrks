@@ -200,6 +200,8 @@ export const SEO_MID_CTA = {
   eyebrow: "Before you start",
   title: "Want to assess your site's organic potential?",
   body: "We'll review your site and competition — and propose tailored scope and pricing.",
+  checkHref: "/en/website-check/",
+  checkLabel: "Start with a first look at the site",
 };
 
 export const SEO_FINAL_CTA = {

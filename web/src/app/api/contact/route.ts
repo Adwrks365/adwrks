@@ -46,6 +46,7 @@ export async function POST(request: Request) {
     const formId = resolveFormId(clamp(body.formId, FIELD_LIMITS.formId), body.formType);
     const isArticleForm = formId === "article-sidebar";
     const isPopupForm = formId === "contextual-popup";
+    const isSiteCheckForm = formId === "site-check";
     const popupContextRaw = clamp(body.popupContext, FIELD_LIMITS.popupContext);
 
     if (isPopupForm && !isAllowedPopupContext(popupContextRaw)) {
@@ -78,7 +79,7 @@ export async function POST(request: Request) {
       );
     }
 
-    if (!isArticleForm && !isPopupForm && !email) {
+    if (!isArticleForm && !isPopupForm && !isSiteCheckForm && !email) {
       return NextResponse.json(
         { ok: false, message: "יש למלא את כל השדות המסומנים." },
         { status: 400 },

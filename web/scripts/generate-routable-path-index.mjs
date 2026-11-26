@@ -125,7 +125,13 @@ const hePaths = collectLocalePaths("src/data/content", "he");
 const enPaths = collectLocalePaths("src/data/content-en", "en");
 const locationPaths = collectLocationPathsFromSource();
 for (const p of locationPaths.he) hePaths.add(p);
-for (const p of locationPaths.en) enPaths.add(p);
+  for (const p of locationPaths.en) enPaths.add(p);
+
+  const siteCheckSrc = fs.readFileSync(path.join(WEB_ROOT, "src/lib/pages/site-check/paths.ts"), "utf8");
+  const siteCheckHe = readPathConstant(siteCheckSrc, "SITE_CHECK_HE_PATH");
+  const siteCheckEn = readPathConstant(siteCheckSrc, "SITE_CHECK_EN_PATH");
+  if (siteCheckHe) hePaths.add(siteCheckHe);
+  if (siteCheckEn) enPaths.add(siteCheckEn);
 
 const all = new Set([...hePaths, ...enPaths, ...REDIRECT_SOURCES.map(normalizePath)]);
 
