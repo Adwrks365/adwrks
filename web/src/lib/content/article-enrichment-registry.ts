@@ -4,6 +4,7 @@ import { PILOT_ARTICLE_PATHS } from "@/lib/content/article-pilot-enrichment-2026
 import { BATCH6_HE_PATHS } from "@/lib/content/article-batch6-enrichment-2026";
 import { BATCH7_EN_PATHS } from "@/lib/content/article-batch7-enrichment-2026";
 import { FINAL_ROLLOUT_PATHS } from "@/lib/content/article-final-rollout-enrichment-2026";
+import { AUTHORITY_LINKING_PATHS } from "@/lib/content/article-authority-linking-2026";
 
 /** Static paths from enrichment modules — single place for rollout audits. */
 const BATCH2_HE = [
@@ -85,6 +86,7 @@ const MAP: Array<{ path: string; locale?: Locale; source: string }> = [
     source: "final-rollout-2026",
   })),
   ...POLISH_ONLY,
+  ...AUTHORITY_LINKING_PATHS.map((p) => ({ path: p, locale: "he" as Locale, source: "authority-linking-2026" })),
 ];
 
 export function getArticleEnrichmentSource(pagePath: string, locale: Locale): string | null {

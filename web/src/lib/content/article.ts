@@ -22,6 +22,7 @@ import { applyArticleReadingPolishShared } from "@/lib/content/article-reading-p
 import { applyArticleFaqAccordionPresentation } from "@/lib/content/article-faq-accordion";
 import { applyPilot2026BodyPolish } from "@/lib/content/article-pilot-2026-body-polish";
 import { applyArticlePilotEnrichment2026 } from "@/lib/content/article-pilot-enrichment-2026";
+import { applyArticleAuthorityLinking2026 } from "@/lib/content/article-authority-linking-2026";
 import { polishContentInternalLinks } from "@/lib/content/content-internal-links-polish";
 import { polishGoogleSeoArticleHtml } from "@/lib/content/post-19428-polish";
 import { polishWordPressCostArticleHtml } from "@/lib/content/post-19792-polish";
@@ -359,6 +360,7 @@ export function prepareArticleBodyHtml(
       html = applyArticleFinalRolloutEnrichment2026(html, pagePath, locale);
       html = applyArticleFinalRolloutStructurePolish(html, pagePath, locale);
     }
+    html = applyArticleAuthorityLinking2026(html, pagePath, locale);
     html = applyArticleReadingPolishShared(html, pagePath, locale);
     html = applyPilot2026BodyPolish(html, pagePath, locale);
     html = consolidateDuplicateFaqSections(html, locale);
