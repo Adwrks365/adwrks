@@ -151,12 +151,21 @@ export async function POST(request: Request) {
     );
   }
 
+  if (scores.performance == null) {
+    console.warn("[pagespeed] lighthouse ok but performance score missing", {
+      targetUrl,
+      finalUrl: data.lighthouseResult?.finalUrl ?? targetUrl,
+      categoryKeys: Object.keys(categories),
+    });
+  }
+
   return NextResponse.json({
     ok: true,
     url: targetUrl,
     finalUrl: data.lighthouseResult?.finalUrl ?? targetUrl,
     strategy,
     scores,
+    performanceScoreMissing: scores.performance == null,
     limit: usageAfter.limit,
     remaining: usageAfter.remaining,
     used: usageAfter.used,

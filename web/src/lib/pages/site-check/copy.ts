@@ -30,6 +30,8 @@ export type SiteCheckCopy = {
   recommendedStepLabel: string;
   findingConsultBridge: string;
   moreFindingsDetailsLabel: string;
+  whatWeCheckedHeading: string;
+  pagesScannedUnit: string;
   scopeHeading: string;
   topicSeoTitle: string;
   topicLinksTitle: string;
@@ -90,6 +92,8 @@ export type SiteCheckCopy = {
   speedScoreLabel: string;
   speedLabNote: string;
   speedTipGeneric: string;
+  speedNoScore: string;
+  speedRetry: string;
   speedUnavailable: string;
   speedLimit: string;
   speedError: string;
@@ -123,8 +127,8 @@ const HE: SiteCheckCopy = {
   seoDescription:
     "בדיקה ראשונית לאתר עסקי: כותרות, עמודים שנפתחו ודרכי פנייה. עד שלושה ממצאים מיד, בלי להשאיר פרטים. אחר כך שיחה והצעה לשיפור ולקידום.",
   badge: "כלי בדיקה · בלי התחייבות",
-  title: "מה כדאי לשפר באתר שלכם קודם?",
-  seoFocusTitle: "מה כדאי לשפר בקידום האתר שלכם בגוגל קודם?",
+  title: "מה כדאי לשפר באתר שלכם?",
+  seoFocusTitle: "מה כדאי לשפר בקידום האתר בגוגל?",
   lead: "הדביקו את כתובת האתר ונבדוק כמה מהעמודים החשובים בו. נראה אם קל להבין מה אתם מציעים, למצוא את השירות המתאים וליצור איתכם קשר. אם נמצא משהו שכדאי לשפר, נציג אותו ונראה באיזה עמוד הוא נמצא.",
   urlLabel: "כתובת האתר",
   urlPlaceholder: "example.co.il",
@@ -140,8 +144,10 @@ const HE: SiteCheckCopy = {
   recommendedStepLabel: "הצעד המומלץ",
   findingConsultBridge:
     "בשיחה נעבור איתכם על מה שמצאנו ונמליץ מה כדאי לתקן קודם ומה שווה לקדם בגוגל.",
-  moreFindingsDetailsLabel: "ממצאים נוספים, מדדים ופרטים",
-  scopeHeading: "מה נבדק",
+  moreFindingsDetailsLabel: "ממצאים נוספים ופרטים טכניים",
+  whatWeCheckedHeading: "מה נבדק באתר?",
+  pagesScannedUnit: "עמודים",
+  scopeHeading: "סיכום לפי נושא",
   topicSeoTitle: "כותרות והגדרות חיפוש",
   topicLinksTitle: "קישורים וכפתורי פעולה",
   topicImagesTitle: "תמונות מרכזיות",
@@ -158,10 +164,10 @@ const HE: SiteCheckCopy = {
   pagesFailedLabel: "עמודים שלא נטענו",
   noFindingsTitle: "בבדיקות שביצענו לא נמצא ממצא בולט",
   positiveHeading: "מה בדקנו ונראה תקין",
-  formTitle: "רוצים שנעבור איתכם על התוצאות ונציע מה לשפר?",
-  formTitlePromote: "רוצים לדעת אילו עמודים כדאי לקדם קודם?",
-  formTitleClear: "רוצים לדעת אילו עמודים כדאי לקדם קודם?",
-  formTitleFailure: "רוצים שנבדוק את האתר ונחזור אליכם?",
+  formTitle: "רוצים הצעה לשיפור ולקידום?",
+  formTitlePromote: "רוצים הצעה לשיפור ולקידום?",
+  formTitleClear: "רוצים הצעה לשיפור ולקידום?",
+  formTitleFailure: "נחזור אליכם אחרי בדיקה ידנית",
   formBody: "",
   formBodyPromote:
     "אין בבדיקה הזו דירוג או מיקום בגוגל. בשיחה נמליץ במה להתמקד לפי השירותים או המוצרים שחשובים לכם למכור — לפי ההזדמנויות שעלו מהסריקה.",
@@ -198,14 +204,15 @@ const HE: SiteCheckCopy = {
   visibilityConsultBridge:
     "רוצים לדעת איזה עמוד כדאי לחזק קודם, ועל אילו חיפושים שווה להתמקד?",
   visibilityProviderCost: "עלות API בפועל לדוח:",
-  formTitleAfterVisibility:
-    "רוצים לדעת איזה עמוד כדאי לחזק קודם, ועל אילו חיפושים שווה להתמקד?",
+  formTitleAfterVisibility: "רוצים הצעה לפי הנראות בחיפוש?",
   formSubmit: "חזרו אליי לשיחת ייעוץ",
   speedButton: "בדקו מהירות",
   speedRunning: "בודקים מהירות במובייל…",
   speedScoreLabel: "ציון ביצועים (מובייל)",
   speedLabNote: "מדידת מעבדה לדף הבית שנבדק — לא בהכרח כמו מכשיר אמיתי ברשת סלולרית.",
   speedTipGeneric: "כדאי לצמצם משקל תמונות ולדחות סקריפטים שאינם חיוניים בטעינה הראשונית.",
+  speedNoScore: "ממשק PageSpeed לא החזיר ציון ביצועים לעמוד הזה. אפשר לנסות שוב בעוד כמה דקות.",
+  speedRetry: "נסו שוב",
   speedUnavailable: "בדיקת המהירות אינה זמינה כרגע.",
   speedLimit: "הגעתם למכסה היומית של בדיקות המהירות. נסו שוב מחר.",
   speedError: "בדיקת המהירות לא הושלמה. נסו שוב מאוחר יותר.",
@@ -277,8 +284,8 @@ const EN: SiteCheckCopy = {
   seoDescription:
     "A first look at a business website: titles, pages opened, and ways to get in touch. Up to three findings immediately, before you leave your details.",
   badge: "Site check tool · no commitment",
-  title: "What should you improve on your site first?",
-  seoFocusTitle: "What should you improve in your site's Google visibility first?",
+  title: "What should you improve on your site?",
+  seoFocusTitle: "What should you improve for organic search?",
   lead: "Paste your website address and we'll open some of the pages that matter most. We'll see whether visitors can understand your offer, find the right service, and get in touch. If we spot something worth fixing, we'll show it and which page it's on.",
   urlLabel: "Website address",
   urlPlaceholder: "example.com",
@@ -294,8 +301,10 @@ const EN: SiteCheckCopy = {
   recommendedStepLabel: "Recommended next step",
   findingConsultBridge:
     "On a call we’ll walk through what we found and suggest what to fix first and what’s worth growing on Google.",
-  moreFindingsDetailsLabel: "More findings, metrics, and details",
-  scopeHeading: "What we checked",
+  moreFindingsDetailsLabel: "More findings and technical detail",
+  whatWeCheckedHeading: "What did we check on the site?",
+  pagesScannedUnit: "pages",
+  scopeHeading: "By topic",
   topicSeoTitle: "Titles and search snippets",
   topicLinksTitle: "Links and action buttons",
   topicImagesTitle: "Leading images",
@@ -312,10 +321,10 @@ const EN: SiteCheckCopy = {
   pagesFailedLabel: "Pages that didn't load",
   noFindingsTitle: "Nothing standout showed up in the checks we ran",
   positiveHeading: "What looked fine in this check",
-  formTitle: "Want us to walk through the results and suggest what to fix?",
-  formTitlePromote: "Want to know which pages to grow first?",
-  formTitleClear: "Want to know which pages to grow first?",
-  formTitleFailure: "Want us to check the site and get back to you?",
+  formTitle: "Want a plan to improve and promote?",
+  formTitlePromote: "Want a plan to improve and promote?",
+  formTitleClear: "Want a plan to improve and promote?",
+  formTitleFailure: "We'll get back after a manual check",
   formBody: "",
   formBodyPromote:
     "This check does not include Google rankings or positions. On a call we'll suggest where to focus based on the products or services you want to sell — using the opportunities from this scan.",
@@ -352,14 +361,15 @@ const EN: SiteCheckCopy = {
   visibilityConsultBridge:
     "Want to know which page to strengthen first and which searches to focus on?",
   visibilityProviderCost: "Actual API cost for this report:",
-  formTitleAfterVisibility:
-    "Want to know which page to strengthen first and which searches to focus on?",
+  formTitleAfterVisibility: "Want a plan based on search visibility?",
   formSubmit: "Call me back for a consult",
   speedButton: "Check speed",
   speedRunning: "Checking mobile speed…",
   speedScoreLabel: "Performance score (mobile)",
   speedLabNote: "Lab measurement for the homepage we checked — not necessarily the same as a real phone on mobile data.",
   speedTipGeneric: "Consider trimming image weight and deferring scripts that are not needed on first load.",
+  speedNoScore: "PageSpeed did not return a performance score for this page. Try again in a few minutes.",
+  speedRetry: "Try again",
   speedUnavailable: "Speed check is not available right now.",
   speedLimit: "You've reached today's speed check limit. Try again tomorrow.",
   speedError: "The speed check did not complete. Try again later.",

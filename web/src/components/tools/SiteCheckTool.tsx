@@ -409,9 +409,6 @@ export function SiteCheckTool({
               >
                 {primaryInsight ? (
                   <>
-                    {report.pageTypeSummary ? (
-                      <p className="site-check-page-types">{report.pageTypeSummary}</p>
-                    ) : null}
                     {primaryInsight.pointFix && primaryFinding ? (
                       <p className="site-check-finding-kicker">{primaryFinding.pageLabel}</p>
                     ) : null}
@@ -451,9 +448,6 @@ export function SiteCheckTool({
                   </>
                 ) : (
                   <>
-                    {report.pageTypeSummary ? (
-                      <p className="site-check-page-types">{report.pageTypeSummary}</p>
-                    ) : null}
                     <p className="site-check-outcome-clear" role="status">
                       {copy.noFindingsTitle}
                     </p>
@@ -461,6 +455,74 @@ export function SiteCheckTool({
                   </>
                 )}
               </div>
+
+              <details className="site-check-what-checked">
+                <summary>
+                  {copy.whatWeCheckedHeading} ({report.pagesScanned} {copy.pagesScannedUnit})
+                </summary>
+                <p className="site-check-scope site-check-scope--detail">{report.scopeLine}</p>
+                <section className="site-check-topics" aria-labelledby="site-check-topics-title">
+                  <h3 id="site-check-topics-title" className="site-check-topics-title">
+                    {copy.scopeHeading}
+                  </h3>
+                  <ul className="site-check-topic-grid">
+                    {report.topicSummaries.map((topic) => (
+                      <li
+                        key={topic.id}
+                        className={`site-check-topic-card site-check-topic-card--${topic.tone}`}
+                      >
+                        <p className="site-check-topic-card-title">{topicTitle(topic.id)}</p>
+                        <p className="site-check-topic-card-detail">{topic.detail}</p>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+                {report.pageTypeSummary && (
+                  <p className="site-check-page-types site-check-page-types--detail">
+                    <strong>{copy.pageTypeHeading}: </strong>
+                    {report.pageTypeSummary}
+                  </p>
+                )}
+                {report.checksLine && <p className="site-check-checks">{report.checksLine}</p>}
+                {report.partialNote && <p className="site-check-partial">{report.partialNote}</p>}
+                {report.positiveObservations.length > 0 && (
+                  <>
+                    <p className="site-check-positive-kicker">{copy.positiveHeading}</p>
+                    <ul className="site-check-positives">
+                      {report.positiveObservations.map((item) => (
+                        <li key={item.text}>{item.text}</li>
+                      ))}
+                    </ul>
+                  </>
+                )}
+                {(okPages.length > 0 || failedPages.length > 0) && (
+                  <>
+                    <p className="site-check-subhead">{copy.checkedHeading}</p>
+                    {okPages.length > 0 && (
+                      <ul className="site-check-pages">
+                        {okPages.map((page) => (
+                          <li key={`${page.status}-${page.url}`}>
+                            <span>{page.label}</span>
+                            <span dir="ltr">{page.url}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                    {failedPages.length > 0 && (
+                      <>
+                        <p className="site-check-subhead site-check-subhead--muted">{copy.pagesFailedLabel}</p>
+                        <ul className="site-check-pages site-check-pages--failed">
+                          {failedPages.map((page) => (
+                            <li key={page.url}>
+                              <span dir="ltr">{page.url}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </>
+                    )}
+                  </>
+                )}
+              </details>
 
               <SiteCheckVisibilitySection
                 locale={locale}
@@ -531,15 +593,20 @@ export function SiteCheckTool({
                   </p>
                 )}
                 {speedStatus === "error" && speedError && (
-                  <p className="site-check-alert site-check-alert--error" role="alert">
-                    {speedError}
-                  </p>
+                  <div className="site-check-speed-fallback">
+                    <p className="site-check-alert site-check-alert--error" role="alert">
+                      {speedError}
+                    </p>
+                    <button type="button" className="btn btn-secondary site-check-speed-btn" onClick={onSpeedCheck}>
+                      {copy.speedRetry}
+                    </button>
+                  </div>
                 )}
-                {speedStatus === "ready" && (
+                {speedStatus === "ready" && speedScore != null && (
                   <div className="site-check-speed-result">
                     <p className="site-check-speed-score">
                       <span>{copy.speedScoreLabel}: </span>
-                      <strong>{speedScore ?? "—"}</strong>
+                      <strong>{speedScore}</strong>
                     </p>
                     {speedPageLabel && (
                       <p className="site-check-speed-page">
@@ -551,6 +618,22 @@ export function SiteCheckTool({
                     <p className="site-check-speed-lab">{copy.speedLabNote}</p>
                   </div>
                 )}
+                {speedStatus === "ready" && speedScore == null && (
+                  <div className="site-check-speed-fallback">
+                    <p className="site-check-speed-no-score" role="status">
+                      {copy.speedNoScore}
+                    </p>
+                    {speedPageLabel && (
+                      <p className="site-check-speed-page">
+                        <span>{locale === "en" ? "Page measured: " : "עמוד שנמדד: "}</span>
+                        <span dir="ltr">{speedPageLabel}</span>
+                      </p>
+                    )}
+                    <button type="button" className="btn btn-secondary site-check-speed-btn" onClick={onSpeedCheck}>
+                      {copy.speedRetry}
+                    </button>
+                  </div>
+                )}
               </div>
 
               <details className="site-check-tech-details">
@@ -559,36 +642,11 @@ export function SiteCheckTool({
                     ? copy.moreFindingsDetailsLabel
                     : copy.techDetailsHeading}
                 </summary>
-                {!report.partialScan && (
-                  <p className="site-check-scope site-check-scope--detail">{report.scopeLine}</p>
-                )}
                 {report.inputLabel && (
                   <p className="site-check-domain">
                     <a href={report.inputUrl} dir="ltr" className="site-check-domain-link">
                       {report.inputLabel}
                     </a>
-                  </p>
-                )}
-                <section className="site-check-topics" aria-labelledby="site-check-topics-title">
-                  <h3 id="site-check-topics-title" className="site-check-topics-title">
-                    {copy.scopeHeading}
-                  </h3>
-                  <ul className="site-check-topic-grid">
-                    {report.topicSummaries.map((topic) => (
-                      <li
-                        key={topic.id}
-                        className={`site-check-topic-card site-check-topic-card--${topic.tone}`}
-                      >
-                        <p className="site-check-topic-card-title">{topicTitle(topic.id)}</p>
-                        <p className="site-check-topic-card-detail">{topic.detail}</p>
-                      </li>
-                    ))}
-                  </ul>
-                </section>
-                {report.pageTypeSummary && (
-                  <p className="site-check-page-types site-check-page-types--detail">
-                    <strong>{copy.pageTypeHeading}: </strong>
-                    {report.pageTypeSummary}
                   </p>
                 )}
                 {moreInsights.length > 0 && (
@@ -618,19 +676,7 @@ export function SiteCheckTool({
                     </ol>
                   </section>
                 )}
-                {report.checksLine && <p className="site-check-checks">{report.checksLine}</p>}
-                {report.partialNote && <p className="site-check-partial">{report.partialNote}</p>}
                 <p className="site-check-limit">{report.limitNote}</p>
-                {report.positiveObservations.length > 0 && (
-                  <>
-                    <p className="site-check-positive-kicker">{copy.positiveHeading}</p>
-                    <ul className="site-check-positives">
-                      {report.positiveObservations.map((item) => (
-                        <li key={item.text}>{item.text}</li>
-                      ))}
-                    </ul>
-                  </>
-                )}
                 {moreFindings.length > 0 && (
                   <ol className="site-check-findings site-check-findings--more">
                     {moreFindings.map((finding) => (
@@ -663,33 +709,6 @@ export function SiteCheckTool({
                       </li>
                     ))}
                   </ul>
-                )}
-                {(okPages.length > 0 || failedPages.length > 0) && (
-                  <>
-                    <p className="site-check-subhead">{copy.checkedHeading}</p>
-                    {okPages.length > 0 && (
-                      <ul className="site-check-pages">
-                        {okPages.map((page) => (
-                          <li key={`${page.status}-${page.url}`}>
-                            <span>{page.label}</span>
-                            <span dir="ltr">{page.url}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                    {failedPages.length > 0 && (
-                      <>
-                        <p className="site-check-subhead site-check-subhead--muted">{copy.pagesFailedLabel}</p>
-                        <ul className="site-check-pages site-check-pages--failed">
-                          {failedPages.map((page) => (
-                            <li key={page.url}>
-                              <span dir="ltr">{page.url}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </>
-                    )}
-                  </>
                 )}
               </details>
             </div>
